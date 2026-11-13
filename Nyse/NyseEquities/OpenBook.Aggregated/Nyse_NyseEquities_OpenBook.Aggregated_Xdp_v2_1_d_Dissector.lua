@@ -64,7 +64,8 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.session_state = Proto
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.side = ProtoField.new("Side", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.side", ftypes.STRING, nil, nil, nil, "This field indicates the side of the order")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.snapshot_price_point = ProtoField.new("Snapshot Price Point", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.snapshotpricepoint", ftypes.STRING, nil, nil, nil, "Snapshot Message Price Point")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_id = ProtoField.new("Source Id", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.sourceid", ftypes.STRING, nil, nil, nil, "The ID of the client making the request. This field is up to 9 characters, null terminated.")
-omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.sourcetime", ftypes.UINT32, nil, nil, nil, "This field specifies the time when the msg was generated in the order book. The number represents the number of seconds in UTC time (EPOCH)")
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field specifies the time when the msg was generated in the order book. The number represents the number of seconds in UTC time (EPOCH)")
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time_utc = ProtoField.new("Source Time", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field specifies the time when the msg was generated in the order book. The number represents the number of seconds in UTC time (EPOCH)")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.sourcetimens", ftypes.UINT32, nil, nil, nil, "This field represents the nanosecond portion within the second in UTC time (EPOCH)")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.ssr_state = ProtoField.new("Ssr State", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state, which this msg updates if the Security Status field contains an SSR Code.")
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.ssrtriggeringexchangeid", ftypes.STRING, nil, nil, nil, "This field is only populated when securityStatus = A and this security is listed on this exchange. Otherwise it is defaulted to 0x20.")
@@ -108,6 +109,7 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.symbol_index_mapping_
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.delta_price_point_index = ProtoField.new("Delta Price Point Index", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.deltapricepointindex", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.snapshot_price_point_index = ProtoField.new("Snapshot Price Point Index", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.snapshotpricepointindex", ftypes.UINT16)
+omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.openbook.aggregated.xdp.v2.1.d.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d Formatting
@@ -115,8 +117,9 @@ omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.snapshot_price_point_
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
 -- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
@@ -173,6 +176,36 @@ function omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs_changed()
     nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.prefs.timestamp_format
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation = {}
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.data = function(packet)
+  local key = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.key(packet)
+  local data = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.flows[key]
+  if data == nil then
+    data = { source_time = { last = nil, frames = {} } }
+    nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -1547,9 +1580,17 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time = {}
 -- Size: Source Time
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.size = 4
 
--- Display: Source Time
-nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.display = function(value)
-  return "Source Time: "..value
+-- Store: Source Time
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = nil
+
+-- Generated: Source Time
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.generated = function(value, range, packet, parent)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time
+  if nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format == 3 then field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time_utc end
+  local source_time = parent:add(field, range, NSTime.new(value, 0))
+  source_time:set_generated()
 end
 
 -- Dissect: Source Time
@@ -1557,9 +1598,15 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.dissect = function(b
   local length = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time
+  if nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format == 3 then field = omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2137,6 +2184,54 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.volume.dissect = function(buffer
   return offset + length, value
 end
 
+-- Timestamp
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp = {}
+
+-- Translate: Timestamp
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.translate = function(source_time_ns, stored_source_time)
+  return UInt64.new(stored_source_time) * 1000000000 + source_time_ns
+end
+
+-- Display: Timestamp
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.display = function(source_time_ns, stored_source_time)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_source_time + math.floor(source_time_ns / 1000000000)
+  local fraction = source_time_ns % 1000000000
+
+  local format = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.composite = function(buffer, offset, stored_source_time, packet, parent)
+  local length = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.size
+  local range = buffer(offset, length)
+  local source_time_ns = range:le_uint()
+  local value = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.translate(source_time_ns, stored_source_time)
+  local display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.display(source_time_ns, stored_source_time, packet)
+  parent = parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.timestamp, range, value, display)
+
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.generated(stored_source_time, range, packet, parent)
+
+  display = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.display(source_time_ns)
+  parent:add(omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.fields.source_time_ns, range, source_time_ns, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp_format ~= 0 then
+    local stored_source_time = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current
+
+    if stored_source_time ~= nil then
+      return nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.composite(buffer, offset, stored_source_time, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d
@@ -2240,8 +2335,15 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_delta_update_message.f
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol_index.dissect(buffer, index, packet, parent)
@@ -2388,8 +2490,15 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.orderbook_snapshot_message.field
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol_index.dissect(buffer, index, packet, parent)
@@ -2896,8 +3005,15 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.security_status_message.fields =
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol_index.dissect(buffer, index, packet, parent)
@@ -2985,8 +3101,15 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol_clear_message.fields = fu
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary
   index, symbol_index = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.symbol_index.dissect(buffer, index, packet, parent)
@@ -3150,6 +3273,13 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_reference_message.fi
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.current.source_time.last = source_time
+  end
+
   return index
 end
 
@@ -3193,8 +3323,15 @@ nyse_nyseequities_openbookaggregated_xdp_v2_1_d.sequence_number_reset_message.fi
   -- Source Time: Binary
   index, source_time = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: Binary
   index, product_id = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.product_id.dissect(buffer, index, packet, parent)
@@ -3477,6 +3614,24 @@ end
 
 -- Dissect Packet
 nyse_nyseequities_openbookaggregated_xdp_v2_1_d.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.data(packet)
+  if not packet.visited then
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+  end
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 5 fields
@@ -3507,6 +3662,9 @@ end
 
 -- Initialize Dissector
 function omi_nyse_nyseequities_openbookaggregated_xdp_v2_1_d.init()
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.source_time.current = nil
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.current = nil
+  nyse_nyseequities_openbookaggregated_xdp_v2_1_d.conversation.flows = {}
 end
 
 -- Dissector for Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d

@@ -5308,7 +5308,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.custom_group_id_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.custom_group_id_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.custom_group_id_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.custom_group_id_cnt, range, value, display)
@@ -7348,7 +7348,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.matching_unit, range, value, display)
@@ -7600,7 +7600,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.message_type, range, value, display)
@@ -7874,7 +7874,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.no_legs.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.no_legs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.no_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.no_legs, range, value, display)
@@ -7920,7 +7920,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.no_unspecified_unit_replay.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.no_unspecified_unit_replay.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.no_unspecified_unit_replay.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.no_unspecified_unit_replay, range, value, display)
@@ -7943,7 +7943,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_cancel_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_cancel_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_cancel_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_cancel_order_bitfields, range, value, display)
@@ -7966,7 +7966,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_modify_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_modify_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_modify_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_modify_order_bitfields, range, value, display)
@@ -7989,7 +7989,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_complex_instrument_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_complex_instrument_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_complex_instrument_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_new_complex_instrument_bitfields, range, value, display)
@@ -8012,7 +8012,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_complex_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_complex_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_complex_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_new_complex_order_bitfields, range, value, display)
@@ -8035,7 +8035,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_new_order_bitfields, range, value, display)
@@ -8058,7 +8058,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_cross_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_cross_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_cross_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_new_order_cross_bitfields, range, value, display)
@@ -8081,7 +8081,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_cross_multileg_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_cross_multileg_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_cross_multileg_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_new_order_cross_multileg_bitfields, range, value, display)
@@ -8104,7 +8104,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_param_groups.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_param_groups.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_param_groups.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_param_groups, range, value, display)
@@ -8127,7 +8127,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_purge_orders_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_purge_orders_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_purge_orders_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_purge_orders_bitfields, range, value, display)
@@ -8150,7 +8150,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_return_bitf.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_return_bitf.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_return_bitf.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_return_bitf, range, value, display)
@@ -8173,7 +8173,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_return_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_return_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_return_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_return_bitfields, range, value, display)
@@ -8196,7 +8196,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_units.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_units.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.number_of_units, range, value, display)
@@ -8687,7 +8687,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.param_group_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.param_group_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.param_group_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.param_group_type, range, value, display)
@@ -9123,7 +9123,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.quote_cnt, range, value, display)
@@ -10350,7 +10350,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.source_matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.source_matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.source_matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.source_matching_unit, range, value, display)
@@ -10815,7 +10815,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.target_matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.target_matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.target_matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.target_matching_unit, range, value, display)
@@ -11122,7 +11122,7 @@ end
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.unit_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.unit_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.unit_number, range, value, display)
@@ -29954,7 +29954,7 @@ end
 -- Dissect Fields: Cross Order Cancelled Message
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_message.fields = function(buffer, offset, packet, parent, size_of_cross_order_cancelled_message)
   local index = offset
-  local number_of_return_bitfields = buffer(offset + 30, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 30, 1):uint()
   local cross_order_cancelled_return_bitfield_1 = buffer(offset + 31, 1):le_uint()
 
   -- Transaction Time: DateTime
@@ -47657,7 +47657,7 @@ end
 -- Dissect Fields: Cross Order Acknowledgment Message
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_message.fields = function(buffer, offset, packet, parent, size_of_cross_order_acknowledgment_message)
   local index = offset
-  local number_of_return_bitfields = buffer(offset + 38, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 38, 1):uint()
   local cross_order_acknowledgment_return_bitfield_1 = buffer(offset + 39, 1):le_uint()
 
   -- Transaction Time: DateTime
@@ -53661,7 +53661,7 @@ end
 -- Dissect Fields: New Order Cross Multileg Message
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_message.fields = function(buffer, offset, packet, parent, size_of_new_order_cross_multileg_message)
   local index = offset
-  local number_of_new_order_cross_multileg_bitfields = buffer(offset + 34, 1):le_uint()
+  local number_of_new_order_cross_multileg_bitfields = buffer(offset + 34, 1):uint()
 
   -- Cross Id: Text
   index, cross_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_id.dissect(buffer, index, packet, parent)
@@ -55886,7 +55886,7 @@ end
 -- Dissect Fields: New Order Cross Message
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_message.fields = function(buffer, offset, packet, parent, size_of_new_order_cross_message)
   local index = offset
-  local number_of_new_order_cross_bitfields = buffer(offset + 34, 1):le_uint()
+  local number_of_new_order_cross_bitfields = buffer(offset + 34, 1):uint()
 
   -- Cross Id: Text
   index, cross_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_id.dissect(buffer, index, packet, parent)
@@ -58387,7 +58387,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.packet.dissect = function(buffer
   index, message_header = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 6, 1):le_uint()
+  local message_type = buffer(index - 6, 1):uint()
 
   -- Message: Runtime Type with 52 branches
   index = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.message.dissect(buffer, index, packet, parent, message_type)
@@ -58451,7 +58451,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.packet.fingerprint = function(bu
     return false
   end
 
-  local message_type = buffer(4, 1):le_uint()
+  local message_type = buffer(4, 1):uint()
 
   -- Login Request Message
   if message_type == 0x37 then

@@ -21,7 +21,8 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.abbreviated_issue_code 
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.abbreviated_issue_name = ProtoField.new("Abbreviated Issue Name", "koscom.mdcsrealtime.commodities.exture.v2.018.abbreviatedissuename", ftypes.STRING, nil, nil, nil, "Abbreviated issue Name.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.abbreviated_issue_name_in_en = ProtoField.new("Abbreviated Issue Name In En", "koscom.mdcsrealtime.commodities.exture.v2.018.abbreviatedissuenameinen", ftypes.STRING, nil, nil, nil, "Abbreviated issue Name in EN.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_cash = ProtoField.new("Accumulated Cash", "koscom.mdcsrealtime.commodities.exture.v2.018.accumulatedcash", ftypes.DOUBLE, nil, nil, nil, "Accumulated cash position (26 ASCII digits with 6 implied decimal places).")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value = ProtoField.new("Accumulated Trading Value", "koscom.mdcsrealtime.commodities.exture.v2.018.accumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Accumulated trading value Trading value=trading amount*trading price.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value_long = ProtoField.new("Accumulated Trading Value Long", "koscom.mdcsrealtime.commodities.exture.v2.018.accumulatedtradingvaluelong", ftypes.DOUBLE, nil, nil, nil, "Accumulated trading value Trading value=trading amount*trading price.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value_short = ProtoField.new("Accumulated Trading Value Short", "koscom.mdcsrealtime.commodities.exture.v2.018.accumulatedtradingvalueshort", ftypes.UINT64, nil, nil, nil, "Accumulated trading value of the index constituents (12 ASCII digits). Unit: Million KRW.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_volume = ProtoField.new("Accumulated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.accumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Accumulated Trading Volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.an_issue_of_which_base_price_is_settled_with_a_todays_single_price = ProtoField.new("An Issue Of Which Base Price Is Settled With A Todays Single Price", "koscom.mdcsrealtime.commodities.exture.v2.018.anissueofwhichbasepriceissettledwithatodayssingleprice", ftypes.STRING, nil, nil, nil, "Y/N to an Issue of which base price is settled with a today's single price.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.appraisal_ratio_of_substitute_price = ProtoField.new("Appraisal Ratio Of Substitute Price", "koscom.mdcsrealtime.commodities.exture.v2.018.appraisalratioofsubstituteprice", ftypes.DOUBLE, nil, nil, nil, "Appraisal ratio of substitute price.")
@@ -105,15 +106,17 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.clean_price = ProtoFiel
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.clean_price_index_krx = ProtoField.new("Clean Price Index Krx", "koscom.mdcsrealtime.commodities.exture.v2.018.cleanpriceindexkrx", ftypes.DOUBLE, nil, nil, nil, "Clean price index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.clean_price_index_ktb = ProtoField.new("Clean Price Index Ktb", "koscom.mdcsrealtime.commodities.exture.v2.018.cleanpriceindexktb", ftypes.DOUBLE, nil, nil, nil, "Clean price index (11 ASCII digits with 4 implied decimal places).")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.clean_price_index_weight = ProtoField.new("Clean Price Index Weight", "koscom.mdcsrealtime.commodities.exture.v2.018.cleanpriceindexweight", ftypes.DOUBLE, nil, nil, nil, "Weighted clean price index value (16 ASCII digits with 6 implied decimal places).")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price = ProtoField.new("Closing Price", "koscom.mdcsrealtime.commodities.exture.v2.018.closingprice", ftypes.DOUBLE, nil, nil, nil, "Closing price on the day's regular session.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_base_price_of_buy_in = ProtoField.new("Closing Price Base Price Of Buy In", "koscom.mdcsrealtime.commodities.exture.v2.018.closingpricebasepriceofbuyin", ftypes.DOUBLE, nil, nil, nil, "Closing Price_Base Price of Buy-In.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_long = ProtoField.new("Closing Price Long", "koscom.mdcsrealtime.commodities.exture.v2.018.closingpricelong", ftypes.DOUBLE, nil, nil, nil, "Closing price on the day's regular session.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_lower_limit_of_buy_in = ProtoField.new("Closing Price Lower Limit Of Buy In", "koscom.mdcsrealtime.commodities.exture.v2.018.closingpricelowerlimitofbuyin", ftypes.DOUBLE, nil, nil, nil, "Closing Price_Lower Limit of Buy-In.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_short = ProtoField.new("Closing Price Short", "koscom.mdcsrealtime.commodities.exture.v2.018.closingpriceshort", ftypes.STRING, nil, nil, nil, "Average Price of Bid/Ask Quote 999999V999 ex) : \" 1209855\".")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_type_code = ProtoField.new("Closing Price Type Code", "koscom.mdcsrealtime.commodities.exture.v2.018.closingpricetypecode", ftypes.STRING, nil, nil, nil, "1: Closing price 2: Quotation 3: No Trades 4: Quotation of an Issue of which base price is settled with a today's single price.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_upper_limit_of_buy_in = ProtoField.new("Closing Price Upper Limit Of Buy In", "koscom.mdcsrealtime.commodities.exture.v2.018.closingpriceupperlimitofbuyin", ftypes.DOUBLE, nil, nil, nil, "Closing Price_Upper Limit of Buy-In.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_weighted_stock_price_average = ProtoField.new("Closing Price Weighted Stock Price Average", "koscom.mdcsrealtime.commodities.exture.v2.018.closingpriceweightedstockpriceaverage", ftypes.DOUBLE, nil, nil, nil, "- Weighted Average is calculated by adding up an issue's aggregated market value, which is part of a certain index or markets, and dividing it with the total shares listed. - Weighted Stock Price Aver.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.conversion_basic_exchange_rate = ProtoField.new("Conversion Basic Exchange Rate", "koscom.mdcsrealtime.commodities.exture.v2.018.conversionbasicexchangerate", ftypes.STRING, nil, nil, nil, "Provided only in case of \"USDKRW\" - GOLDKRWGR ex) : \" 1209855\".")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.convexity = ProtoField.new("Convexity", "koscom.mdcsrealtime.commodities.exture.v2.018.convexity", ftypes.DOUBLE, nil, nil, nil, "Bond index average convexity (7 ASCII digits with 3 implied decimal places).")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.currency_code = ProtoField.new("Currency Code", "koscom.mdcsrealtime.commodities.exture.v2.018.currencycode", ftypes.STRING, nil, nil, nil, "Provided only in case of \"USDKRW\" - GOLDKRWGR.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.currency_code_long = ProtoField.new("Currency Code Long", "koscom.mdcsrealtime.commodities.exture.v2.018.currencycodelong", ftypes.STRING, nil, nil, nil, "Provided only in case of \"USDKRW\" - GOLDKRWGR.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.currency_code_short = ProtoField.new("Currency Code Short", "koscom.mdcsrealtime.commodities.exture.v2.018.currencycodeshort", ftypes.STRING, nil, nil, nil, "ISO 4217 currency code of the index value.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.current_price = ProtoField.new("Current Price", "koscom.mdcsrealtime.commodities.exture.v2.018.currentprice", ftypes.DOUBLE, nil, nil, nil, "The last traded price at the current page.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.current_time = ProtoField.new("Current Time", "koscom.mdcsrealtime.commodities.exture.v2.018.currenttime", ftypes.STRING, nil, nil, nil, "Current time in HHMM format, transmitted at one-minute intervals.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.data_type = ProtoField.new("Data Type", "koscom.mdcsrealtime.commodities.exture.v2.018.datatype", ftypes.STRING, nil, nil, nil, "1 : Real-Time 2 : Closing price.")
@@ -182,7 +185,8 @@ omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_block_trade_
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_trade_accumulated_trading_value = ProtoField.new("Negotiated Trade Accumulated Trading Value", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedtradeaccumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Negotiated Trade_Accumulated Trading value.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.negotiated_trade_accumulated_trading_volume = ProtoField.new("Negotiated Trade Accumulated Trading Volume", "koscom.mdcsrealtime.commodities.exture.v2.018.negotiatedtradeaccumulatedtradingvolume", ftypes.UINT64, nil, nil, nil, "Negotiated Trade_Accumulated Trading volume.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.number_of_bidders = ProtoField.new("Number Of Bidders", "koscom.mdcsrealtime.commodities.exture.v2.018.numberofbidders", ftypes.UINT64, nil, nil, nil, "Number of Bidders.")
-omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.opening_price = ProtoField.new("Opening Price", "koscom.mdcsrealtime.commodities.exture.v2.018.openingprice", ftypes.STRING, nil, nil, nil, "999999V999 ex) : \" 1209855\".")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.opening_price_long = ProtoField.new("Opening Price Long", "koscom.mdcsrealtime.commodities.exture.v2.018.openingpricelong", ftypes.DOUBLE, nil, nil, nil, "The first price that a security traded upon the opening of the regular session.")
+omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.opening_price_short = ProtoField.new("Opening Price Short", "koscom.mdcsrealtime.commodities.exture.v2.018.openingpriceshort", ftypes.STRING, nil, nil, nil, "999999V999 ex) : \" 1209855\".")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.previous_price = ProtoField.new("Previous Price", "koscom.mdcsrealtime.commodities.exture.v2.018.previousprice", ftypes.DOUBLE, nil, nil, nil, "A trading price made right before the final trading price as of now but with a differenct value. E.g.) 10 am: 90 KRW, 10:10 a.m: 100 KRW, 10:20 a.m (now): 100 -> the previous price is 90 KRW.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.price_limit_range_expansion_for_base_issue_type_code = ProtoField.new("Price Limit Range Expansion For Base Issue Type Code", "koscom.mdcsrealtime.commodities.exture.v2.018.pricelimitrangeexpansionforbaseissuetypecode", ftypes.STRING, nil, nil, nil, "A code to expand price limit range for Base Issue D: descending U: Up X: N/A.")
 omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.processing_time_of_trading_system = ProtoField.new("Processing Time Of Trading System", "koscom.mdcsrealtime.commodities.exture.v2.018.processingtimeoftradingsystem", ftypes.STRING, nil, nil, nil, "HHMMSSuuuuuu.")
@@ -565,47 +569,78 @@ koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_cash.dissect = functio
   return offset + length, value
 end
 
--- Accumulated Trading Value
-koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value = {}
+-- Accumulated Trading Value Long
+koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long = {}
 
--- Size: Accumulated Trading Value
-koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size = 22
+-- Size: Accumulated Trading Value Long
+koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.size = 22
 
--- Display: Accumulated Trading Value
-koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size):string()
+-- Display: Accumulated Trading Value Long
+koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Accumulated Trading Value: No Value"
+    return "Accumulated Trading Value Long: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Accumulated Trading Value: "..text.." (expected 3 places)"
+    return "Accumulated Trading Value Long: "..text.." (expected 3 places)"
   end
 
-  return "Accumulated Trading Value: "..text
+  return "Accumulated Trading Value Long: "..text
 end
 
--- Dissect: Accumulated Trading Value
-koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size
+-- Dissect: Accumulated Trading Value Long
+koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value, range, value, "Accumulated Trading Value: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Accumulated Trading Value is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value_long, range, value, "Accumulated Trading Value Long: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Accumulated Trading Value Long is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accumulated Trading Value Short
+koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_short = {}
+
+-- Size: Accumulated Trading Value Short
+koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_short.size = 12
+
+-- Display: Accumulated Trading Value Short
+koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_short.display = function(value)
+  return "Accumulated Trading Value Short: "..value
+end
+
+-- Dissect: Accumulated Trading Value Short
+koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_short.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_short.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value_short, range, value, "Accumulated Trading Value Short: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Accumulated Trading Value Short is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.accumulated_trading_value_short, range, value, display)
 
   return offset + length, value
 end
@@ -3541,44 +3576,6 @@ koscom_mdcsrealtime_commodities_exture_v2_018.clean_price_index_weight.dissect =
   return offset + length, value
 end
 
--- Closing Price
-koscom_mdcsrealtime_commodities_exture_v2_018.closing_price = {}
-
--- Size: Closing Price
-koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.size = 11
-
--- Display: Closing Price
-koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Closing Price: No Value"
-  end
-
-  return "Closing Price: "..text
-end
-
--- Dissect: Closing Price
-koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price, range, value, "Closing Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Closing Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price, range, value, display)
-
-  return offset + length, value
-end
-
 -- Closing Price Base Price Of Buy In
 koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_base_price_of_buy_in = {}
 
@@ -3617,6 +3614,44 @@ koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_base_price_of_buy_in
   return offset + length, value
 end
 
+-- Closing Price Long
+koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long = {}
+
+-- Size: Closing Price Long
+koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long.size = 11
+
+-- Display: Closing Price Long
+koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Closing Price Long: No Value"
+  end
+
+  return "Closing Price Long: "..text
+end
+
+-- Dissect: Closing Price Long
+koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_long, range, value, "Closing Price Long: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Closing Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_long, range, value, display)
+
+  return offset + length, value
+end
+
 -- Closing Price Lower Limit Of Buy In
 koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_lower_limit_of_buy_in = {}
 
@@ -3651,6 +3686,29 @@ koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_lower_limit_of_buy_i
   local display = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_lower_limit_of_buy_in.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_lower_limit_of_buy_in, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Price Short
+koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_short = {}
+
+-- Size: Closing Price Short
+koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_short.size = 9
+
+-- Display: Closing Price Short
+koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_short.display = function(value)
+  return "Closing Price Short: "..value
+end
+
+-- Dissect: Closing Price Short
+koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_short.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
+  local display = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.closing_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -3835,36 +3893,59 @@ koscom_mdcsrealtime_commodities_exture_v2_018.convexity.dissect = function(buffe
   return offset + length, value
 end
 
--- Currency Code
-koscom_mdcsrealtime_commodities_exture_v2_018.currency_code = {}
+-- Currency Code Long
+koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_long = {}
 
--- Size: Currency Code
-koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.size = 6
+-- Size: Currency Code Long
+koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_long.size = 6
 
--- Display: Currency Code
-koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.labels = {
-  ["KRW"] = "Currency Code: Korean Won (KRW)",
-  ["JPY"] = "Currency Code: Japanese Yen (JPY)",
-  ["USD"] = "Currency Code: Us Dollar (USD)",
-  ["HKD"] = "Currency Code: Hong Kong Dollar (HKD)",
-  ["TWD"] = "Currency Code: Taiwan Dollar (TWD)",
-  ["CNY"] = "Currency Code: Chinese Yuan (CNY)",
-  ["EUR"] = "Currency Code: Euro (EUR)",
-  ["GBP"] = "Currency Code: British Pound (GBP)",
-}
-
-koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.display = function(value)
-  return koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.labels[value] or "Currency Code: Unknown("..value..")"
+-- Display: Currency Code Long
+koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_long.display = function(value)
+  return "Currency Code Long: "..value
 end
 
--- Dissect: Currency Code
-koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.size
+-- Dissect: Currency Code Long
+koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_long.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
-  local display = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.currency_code, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.currency_code_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency Code Short
+koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_short = {}
+
+-- Size: Currency Code Short
+koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_short.size = 3
+
+-- Display: Currency Code Short
+koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_short.labels = {
+  ["KRW"] = "Currency Code Short: Korean Won (KRW)",
+  ["JPY"] = "Currency Code Short: Japanese Yen (JPY)",
+  ["USD"] = "Currency Code Short: Us Dollar (USD)",
+  ["HKD"] = "Currency Code Short: Hong Kong Dollar (HKD)",
+  ["TWD"] = "Currency Code Short: Taiwan Dollar (TWD)",
+  ["CNY"] = "Currency Code Short: Chinese Yuan (CNY)",
+  ["EUR"] = "Currency Code Short: Euro (EUR)",
+  ["GBP"] = "Currency Code Short: British Pound (GBP)",
+}
+
+koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_short.display = function(value)
+  return koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_short.labels[value] or "Currency Code Short: Unknown("..value..")"
+end
+
+-- Dissect: Currency Code Short
+koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_short.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_short.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
+  local display = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.currency_code_short, range, value, display)
 
   return offset + length, value
 end
@@ -6007,25 +6088,63 @@ koscom_mdcsrealtime_commodities_exture_v2_018.number_of_bidders.dissect = functi
   return offset + length, value
 end
 
--- Opening Price
-koscom_mdcsrealtime_commodities_exture_v2_018.opening_price = {}
+-- Opening Price Long
+koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long = {}
 
--- Size: Opening Price
-koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.size = 9
+-- Size: Opening Price Long
+koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.size = 11
 
--- Display: Opening Price
-koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.display = function(value)
-  return "Opening Price: "..value
+-- Display: Opening Price Long
+koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Opening Price Long: No Value"
+  end
+
+  return "Opening Price Long: "..text
 end
 
--- Dissect: Opening Price
-koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.size
+-- Dissect: Opening Price Long
+koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.opening_price_long, range, value, "Opening Price Long: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_commodities_exture_v2_018.experts.not_a_number, "Opening Price Long is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.opening_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Price Short
+koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_short = {}
+
+-- Size: Opening Price Short
+koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_short.size = 9
+
+-- Display: Opening Price Short
+koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_short.display = function(value)
+  return "Opening Price Short: "..value
+end
+
+-- Dissect: Opening Price Short
+koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_short.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_commodities_exture_v2_018.text_encoding))
-  local display = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.opening_price, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_018.fields.opening_price_short, range, value, display)
 
   return offset + length, value
 end
@@ -7739,7 +7858,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_issue_closing_message.si
   koscom_mdcsrealtime_commodities_exture_v2_018.board_id.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.a_designated_number_for_an_issue.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_type_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.size + 
@@ -7770,8 +7889,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_issue_closing_message.fi
   -- A Designated Number For An Issue: Int
   index, a_designated_number_for_an_issue = koscom_mdcsrealtime_commodities_exture_v2_018.a_designated_number_for_an_issue.dissect(buffer, index, packet, parent)
 
-  -- Closing Price: Double
-  index, closing_price = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.dissect(buffer, index, packet, parent)
+  -- Closing Price Long: Double
+  index, closing_price_long = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long.dissect(buffer, index, packet, parent)
 
   -- Closing Price Type Code: String
   index, closing_price_type_code = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_type_code.dissect(buffer, index, packet, parent)
@@ -8015,7 +8134,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_issue_closing_message.si
   koscom_mdcsrealtime_commodities_exture_v2_018.board_id.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.a_designated_number_for_an_issue.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_type_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.filler_11.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.second_filler_11.size + 
@@ -8046,8 +8165,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_issue_closing_message.fi
   -- A Designated Number For An Issue: Int
   index, a_designated_number_for_an_issue = koscom_mdcsrealtime_commodities_exture_v2_018.a_designated_number_for_an_issue.dissect(buffer, index, packet, parent)
 
-  -- Closing Price: Double
-  index, closing_price = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.dissect(buffer, index, packet, parent)
+  -- Closing Price Long: Double
+  index, closing_price_long = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_long.dissect(buffer, index, packet, parent)
 
   -- Closing Price Type Code: String
   index, closing_price_type_code = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_type_code.dissect(buffer, index, packet, parent)
@@ -8191,16 +8310,16 @@ koscom_mdcsrealtime_commodities_exture_v2_018.external_gold_spot_closing_price_m
   koscom_mdcsrealtime_commodities_exture_v2_018.job_code_symbol.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_date.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_time.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_short.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.high_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.low_price.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_short.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.change_from_previous_day_sign.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.change_from_previous_day.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.fluctuating_rate.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.bid_quote.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.ask_quote.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.conversion_basic_exchange_rate.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.end_keyword.size
 
@@ -8225,8 +8344,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.external_gold_spot_closing_price_m
   -- Trading Time: String
   index, trading_time = koscom_mdcsrealtime_commodities_exture_v2_018.trading_time.dissect(buffer, index, packet, parent)
 
-  -- Opening Price: String
-  index, opening_price = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.dissect(buffer, index, packet, parent)
+  -- Opening Price Short: String
+  index, opening_price_short = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_short.dissect(buffer, index, packet, parent)
 
   -- High Price: String
   index, high_price = koscom_mdcsrealtime_commodities_exture_v2_018.high_price.dissect(buffer, index, packet, parent)
@@ -8234,8 +8353,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.external_gold_spot_closing_price_m
   -- Low Price: String
   index, low_price = koscom_mdcsrealtime_commodities_exture_v2_018.low_price.dissect(buffer, index, packet, parent)
 
-  -- Closing Price: Double
-  index, closing_price = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price.dissect(buffer, index, packet, parent)
+  -- Closing Price Short: String
+  index, closing_price_short = koscom_mdcsrealtime_commodities_exture_v2_018.closing_price_short.dissect(buffer, index, packet, parent)
 
   -- Change From Previous Day Sign: String
   index, change_from_previous_day_sign = koscom_mdcsrealtime_commodities_exture_v2_018.change_from_previous_day_sign.dissect(buffer, index, packet, parent)
@@ -8252,8 +8371,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.external_gold_spot_closing_price_m
   -- Ask Quote: String
   index, ask_quote = koscom_mdcsrealtime_commodities_exture_v2_018.ask_quote.dissect(buffer, index, packet, parent)
 
-  -- Currency Code: String
-  index, currency_code = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.dissect(buffer, index, packet, parent)
+  -- Currency Code Long: String
+  index, currency_code_long = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_long.dissect(buffer, index, packet, parent)
 
   -- Conversion Basic Exchange Rate: String
   index, conversion_basic_exchange_rate = koscom_mdcsrealtime_commodities_exture_v2_018.conversion_basic_exchange_rate.dissect(buffer, index, packet, parent)
@@ -8733,7 +8852,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_negotiated_trade_message
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.end_keyword.size
 
 -- Display: Emissions Negotiated Trade Message
@@ -8763,8 +8882,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_negotiated_trade_message
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_commodities_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -8800,11 +8919,11 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_snapshot_message.size =
   koscom_mdcsrealtime_commodities_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.a_designated_number_for_an_issue.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.current_price.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_low.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_block_trade_trading_volume.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_block_trade_trading_value.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_halt.size + 
@@ -8858,8 +8977,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_snapshot_message.fields 
   -- Current Price: Double
   index, current_price = koscom_mdcsrealtime_commodities_exture_v2_018.current_price.dissect(buffer, index, packet, parent)
 
-  -- Opening Price: String
-  index, opening_price = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.dissect(buffer, index, packet, parent)
+  -- Opening Price Long: Double
+  index, opening_price_long = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.dissect(buffer, index, packet, parent)
 
   -- Todays High: Double
   index, todays_high = koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.dissect(buffer, index, packet, parent)
@@ -8870,8 +8989,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_snapshot_message.fields 
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Negotiated Block Trade Trading Volume: Long
   index, negotiated_block_trade_trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.negotiated_block_trade_trading_volume.dissect(buffer, index, packet, parent)
@@ -9167,12 +9286,12 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_order_filled_plus_quote_
   koscom_mdcsrealtime_commodities_exture_v2_018.processing_time_of_trading_system.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_low.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.previous_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.final_ask_bid_type_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_1_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_1_price.size + 
@@ -9231,8 +9350,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_order_filled_plus_quote_
   -- Trading Volume: Long
   index, trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Opening Price: String
-  index, opening_price = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.dissect(buffer, index, packet, parent)
+  -- Opening Price Long: Double
+  index, opening_price_long = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.dissect(buffer, index, packet, parent)
 
   -- Todays High: Double
   index, todays_high = koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.dissect(buffer, index, packet, parent)
@@ -9246,8 +9365,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_order_filled_plus_quote_
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Final Ask Bid Type Code: String
   index, final_ask_bid_type_code = koscom_mdcsrealtime_commodities_exture_v2_018.final_ask_bid_type_code.dissect(buffer, index, packet, parent)
@@ -9355,12 +9474,12 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_order_filled_message.siz
   koscom_mdcsrealtime_commodities_exture_v2_018.processing_time_of_trading_system.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_low.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.previous_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.final_ask_bid_type_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.end_keyword.size
 
@@ -9397,8 +9516,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_order_filled_message.fie
   -- Trading Volume: Long
   index, trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Opening Price: String
-  index, opening_price = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.dissect(buffer, index, packet, parent)
+  -- Opening Price Long: Double
+  index, opening_price_long = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.dissect(buffer, index, packet, parent)
 
   -- Todays High: Double
   index, todays_high = koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.dissect(buffer, index, packet, parent)
@@ -9412,8 +9531,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.emissions_order_filled_message.fie
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Final Ask Bid Type Code: String
   index, final_ask_bid_type_code = koscom_mdcsrealtime_commodities_exture_v2_018.final_ask_bid_type_code.dissect(buffer, index, packet, parent)
@@ -9676,11 +9795,11 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_snapshot_message.size =
   koscom_mdcsrealtime_commodities_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.a_designated_number_for_an_issue.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.current_price.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_low.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_halt.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_1_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.bid_level_1_price.size + 
@@ -9772,8 +9891,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_snapshot_message.fields 
   -- Current Price: Double
   index, current_price = koscom_mdcsrealtime_commodities_exture_v2_018.current_price.dissect(buffer, index, packet, parent)
 
-  -- Opening Price: String
-  index, opening_price = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.dissect(buffer, index, packet, parent)
+  -- Opening Price Long: Double
+  index, opening_price_long = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.dissect(buffer, index, packet, parent)
 
   -- Todays High: Double
   index, todays_high = koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.dissect(buffer, index, packet, parent)
@@ -9784,8 +9903,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_snapshot_message.fields 
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Trading Halt: String
   index, trading_halt = koscom_mdcsrealtime_commodities_exture_v2_018.trading_halt.dissect(buffer, index, packet, parent)
@@ -10355,12 +10474,12 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_order_filled_plus_quote_
   koscom_mdcsrealtime_commodities_exture_v2_018.processing_time_of_trading_system.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_low.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.previous_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.final_ask_bid_type_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.lp_holding_quantity.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.ask_level_1_price.size + 
@@ -10460,8 +10579,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_order_filled_plus_quote_
   -- Trading Volume: Long
   index, trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Opening Price: String
-  index, opening_price = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.dissect(buffer, index, packet, parent)
+  -- Opening Price Long: Double
+  index, opening_price_long = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.dissect(buffer, index, packet, parent)
 
   -- Todays High: Double
   index, todays_high = koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.dissect(buffer, index, packet, parent)
@@ -10475,8 +10594,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_order_filled_plus_quote_
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Final Ask Bid Type Code: String
   index, final_ask_bid_type_code = koscom_mdcsrealtime_commodities_exture_v2_018.final_ask_bid_type_code.dissect(buffer, index, packet, parent)
@@ -10707,12 +10826,12 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_order_filled_message.siz
   koscom_mdcsrealtime_commodities_exture_v2_018.processing_time_of_trading_system.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.todays_low.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.previous_price.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.final_ask_bid_type_code.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.lp_holding_quantity.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.end_keyword.size
@@ -10750,8 +10869,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_order_filled_message.fie
   -- Trading Volume: Long
   index, trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Opening Price: String
-  index, opening_price = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price.dissect(buffer, index, packet, parent)
+  -- Opening Price Long: Double
+  index, opening_price_long = koscom_mdcsrealtime_commodities_exture_v2_018.opening_price_long.dissect(buffer, index, packet, parent)
 
   -- Todays High: Double
   index, todays_high = koscom_mdcsrealtime_commodities_exture_v2_018.todays_high.dissect(buffer, index, packet, parent)
@@ -10765,8 +10884,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.spot_gold_order_filled_message.fie
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Final Ask Bid Type Code: String
   index, final_ask_bid_type_code = koscom_mdcsrealtime_commodities_exture_v2_018.final_ask_bid_type_code.dissect(buffer, index, packet, parent)
@@ -11562,7 +11681,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.global_index_message.size =
   koscom_mdcsrealtime_commodities_exture_v2_018.index.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.index_change_against_the_previous_day.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_short.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.end_keyword.size
 
@@ -11596,8 +11715,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.global_index_message.fields = func
   -- Index Change Against The Previous Day: Double
   index, index_change_against_the_previous_day = koscom_mdcsrealtime_commodities_exture_v2_018.index_change_against_the_previous_day.dissect(buffer, index, packet, parent)
 
-  -- Currency Code: String
-  index, currency_code = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code.dissect(buffer, index, packet, parent)
+  -- Currency Code Short: String
+  index, currency_code_short = koscom_mdcsrealtime_commodities_exture_v2_018.currency_code_short.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
   if show.padding then
@@ -11642,7 +11761,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.krx_estimated_index_message.size =
   koscom_mdcsrealtime_commodities_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_short.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.end_keyword.size
 
@@ -11676,8 +11795,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.krx_estimated_index_message.fields
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Short: Long
+  index, accumulated_trading_value_short = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_short.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
   if show.padding then
@@ -11722,7 +11841,7 @@ koscom_mdcsrealtime_commodities_exture_v2_018.krx_index_message.size =
   koscom_mdcsrealtime_commodities_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.index_change_against_the_previous_day.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_short.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_commodities_exture_v2_018.end_keyword.size
 
@@ -11756,8 +11875,8 @@ koscom_mdcsrealtime_commodities_exture_v2_018.krx_index_message.fields = functio
   -- Accumulated Trading Volume: Long
   index, accumulated_trading_volume = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Short: Long
+  index, accumulated_trading_value_short = koscom_mdcsrealtime_commodities_exture_v2_018.accumulated_trading_value_short.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
   if show.padding then

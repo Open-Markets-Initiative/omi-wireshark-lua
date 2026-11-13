@@ -85,7 +85,8 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.series_type = ProtoField.n
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.session_state = ProtoField.new("Session State", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sessionstate", ftypes.UINT8, nil, nil, nil, "Unused")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.side = ProtoField.new("Side", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.side", ftypes.STRING, nil, nil, nil, "Side of the RFQ")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_id = ProtoField.new("Source Id", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sourceid", ftypes.STRING, nil, nil, nil, "The ID of the client requesting this retransmission . This field is up to 9 characters, null terminated.")
-omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_time = ProtoField.new("Source Time", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sourcetime", ftypes.UINT32, nil, nil, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_time = ProtoField.new("Source Time", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_time_utc = ProtoField.new("Source Time", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.ssr_state = ProtoField.new("Ssr State", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state, which this msg updates if the Security Status field contains an SSR Code. Valid")
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.ssrtriggeringexchangeid", ftypes.STRING, nil, nil, nil, "This field is only populated when securityStatus = A and this security is listed on this exchange. Otherwise it is defaulted to 0x20.")
@@ -140,6 +141,7 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.heartbeat = ProtoField.new
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.legdefinitionindex", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_index = ProtoField.new("Message Index", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messageindex", ftypes.UINT16)
 omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.messagesequencenumber", ftypes.UINT64)
+omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.timestamp = ProtoField.new("Timestamp", "nyse.arcaoptions.complexfeed.pillar.v1.0.d.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nyse ArcaOptions ComplexFeed Pillar 1.0.d Formatting
@@ -147,8 +149,9 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.message_sequence_number = 
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
 -- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
@@ -210,6 +213,36 @@ function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs_changed()
     nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp_format = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.prefs.timestamp_format
   end
 end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation = {}
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.data = function(packet)
+  local key = nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.key(packet)
+  local data = nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.flows[key]
+  if data == nil then
+    data = { source_time = { last = nil, frames = {} } }
+    nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.current = nil
 
 
 -----------------------------------------------------------------------
@@ -2320,9 +2353,17 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time = {}
 -- Size: Source Time
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.size = 4
 
--- Display: Source Time
-nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.display = function(value)
-  return "Source Time: "..value
+-- Store: Source Time
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = nil
+
+-- Generated: Source Time
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.generated = function(value, range, packet, parent)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_time
+  if nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp_format == 3 then field = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_time_utc end
+  local source_time = parent:add(field, range, NSTime.new(value, 0))
+  source_time:set_generated()
 end
 
 -- Dissect: Source Time
@@ -2330,9 +2371,15 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect = function(buffer
   local length = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_time
+  if nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp_format == 3 then field = omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3005,6 +3052,54 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.working_price.dissect = function(buff
   return offset + length, value
 end
 
+-- Timestamp
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp = {}
+
+-- Translate: Timestamp
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.translate = function(source_time_ns, stored_source_time)
+  return UInt64.new(stored_source_time) * 1000000000 + source_time_ns
+end
+
+-- Display: Timestamp
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.display = function(source_time_ns, stored_source_time)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_source_time + math.floor(source_time_ns / 1000000000)
+  local fraction = source_time_ns % 1000000000
+
+  local format = nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.composite = function(buffer, offset, stored_source_time, packet, parent)
+  local length = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.size
+  local range = buffer(offset, length)
+  local source_time_ns = range:le_uint()
+  local value = nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.translate(source_time_ns, stored_source_time)
+  local display = nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.display(source_time_ns, stored_source_time, packet)
+  parent = parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.timestamp, range, value, display)
+
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.generated(stored_source_time, range, packet, parent)
+
+  display = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.display(source_time_ns)
+  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.fields.source_time_ns, range, source_time_ns, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp_format ~= 0 then
+    local stored_source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current
+
+    if stored_source_time ~= nil then
+      return nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.composite(buffer, offset, stored_source_time, packet, parent)
+    end
+  end
+
+  return nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse ArcaOptions ComplexFeed Pillar 1.0.d
@@ -3040,8 +3135,15 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_rfq_message.fields = function(
   -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary
   index, series_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_index.dissect(buffer, index, packet, parent)
@@ -3168,8 +3270,15 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_trade_message.fields = functi
   -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary
   index, series_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_index.dissect(buffer, index, packet, parent)
@@ -3237,7 +3346,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_quote_message.fields = functi
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary
   index, series_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_index.dissect(buffer, index, packet, parent)
@@ -3446,8 +3555,15 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.options_status_message.fields = funct
   -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary
   index, series_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.series_index.dissect(buffer, index, packet, parent)
@@ -3724,8 +3840,15 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.security_status_message.fields = func
   -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary
   index, symbol_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index.dissect(buffer, index, packet, parent)
@@ -3813,8 +3936,15 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_clear_message.fields = functio
   -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary
   index, symbol_index = nyse_arcaoptions_complexfeed_pillar_v1_0_d.symbol_index.dissect(buffer, index, packet, parent)
@@ -4294,6 +4424,13 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.time_reference_message.fields = funct
   -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.current.source_time.last = source_time
+  end
+
   return index
 end
 
@@ -4337,8 +4474,15 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.sequence_number_reset_message.fields 
   -- Source Time: Binary
   index, source_time = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaoptions_complexfeed_pillar_v1_0_d.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: Binary
   index, product_id = nyse_arcaoptions_complexfeed_pillar_v1_0_d.product_id.dissect(buffer, index, packet, parent)
@@ -4688,6 +4832,26 @@ end
 
 -- Dissect Packet
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.data(packet)
+  if not packet.visited then
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+  end
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.current = data
+
   local index = 0
 
   -- Packet Header: Struct of 5 fields
@@ -4709,6 +4873,9 @@ end
 
 -- Initialize Dissector
 function omi_nyse_arcaoptions_complexfeed_pillar_v1_0_d.init()
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.source_time.current = nil
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.current = nil
+  nyse_arcaoptions_complexfeed_pillar_v1_0_d.conversation.flows = {}
 end
 
 -- Dissector for Nyse ArcaOptions ComplexFeed Pillar 1.0.d

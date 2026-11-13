@@ -69,7 +69,8 @@ omi_nyse_texasequities_trades_pillar_v2_6.fields.send_time_utc = ProtoField.new(
 omi_nyse_texasequities_trades_pillar_v2_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.texasequities.trades.pillar.v2.6.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_texasequities_trades_pillar_v2_6.fields.session_state = ProtoField.new("Session State", "nyse.texasequities.trades.pillar.v2.6.sessionstate", ftypes.STRING, nil, nil, nil, "Unused. Defaulted to 0x00.")
 omi_nyse_texasequities_trades_pillar_v2_6.fields.source_id = ProtoField.new("Source Id", "nyse.texasequities.trades.pillar.v2.6.sourceid", ftypes.STRING, nil, nil, nil, "The ID of the client requesting this retransmission. All trailing characters should be NULL.")
-omi_nyse_texasequities_trades_pillar_v2_6.fields.source_time = ProtoField.new("Source Time", "nyse.texasequities.trades.pillar.v2.6.sourcetime", ftypes.UINT32, nil, nil, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_texasequities_trades_pillar_v2_6.fields.source_time = ProtoField.new("Source Time", "nyse.texasequities.trades.pillar.v2.6.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_texasequities_trades_pillar_v2_6.fields.source_time_utc = ProtoField.new("Source Time", "nyse.texasequities.trades.pillar.v2.6.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_texasequities_trades_pillar_v2_6.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.texasequities.trades.pillar.v2.6.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the Source Time")
 omi_nyse_texasequities_trades_pillar_v2_6.fields.ssr_state = ProtoField.new("Ssr State", "nyse.texasequities.trades.pillar.v2.6.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state, which this msg updates if the Security Status field contains an SSR Code.")
 omi_nyse_texasequities_trades_pillar_v2_6.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.texasequities.trades.pillar.v2.6.ssrtriggeringexchangeid", ftypes.STRING, nil, nil, nil, "This field is only populated when securityStatus = A and this security is listed on this exchange. Otherwise it is defaulted to 0x20.")
@@ -128,6 +129,7 @@ omi_nyse_texasequities_trades_pillar_v2_6.fields.message_sequence_number = Proto
 omi_nyse_texasequities_trades_pillar_v2_6.fields.high_price_calculate = ProtoField.new("High Price Calculate", "nyse.texasequities.trades.pillar.v2.6.highpricecalculate", ftypes.DOUBLE)
 omi_nyse_texasequities_trades_pillar_v2_6.fields.low_price_calculate = ProtoField.new("Low Price Calculate", "nyse.texasequities.trades.pillar.v2.6.lowpricecalculate", ftypes.DOUBLE)
 omi_nyse_texasequities_trades_pillar_v2_6.fields.price_calculate = ProtoField.new("Price Calculate", "nyse.texasequities.trades.pillar.v2.6.pricecalculate", ftypes.DOUBLE)
+omi_nyse_texasequities_trades_pillar_v2_6.fields.timestamp = ProtoField.new("Timestamp", "nyse.texasequities.trades.pillar.v2.6.timestamp", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- Nyse TexasEquities Trades Pillar 2.6 Formatting
@@ -135,8 +137,9 @@ omi_nyse_texasequities_trades_pillar_v2_6.fields.price_calculate = ProtoField.ne
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
 -- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
@@ -226,7 +229,7 @@ nyse_texasequities_trades_pillar_v2_6.conversation.data = function(packet)
   local key = nyse_texasequities_trades_pillar_v2_6.conversation.key(packet)
   local data = nyse_texasequities_trades_pillar_v2_6.conversation.flows[key]
   if data == nil then
-    data = { symbol_index_mapping_message = {} }
+    data = { source_time = { last = nil, frames = {} }, symbol_index_mapping_message = {} }
     nyse_texasequities_trades_pillar_v2_6.conversation.flows[key] = data
   end
   return data
@@ -1756,9 +1759,17 @@ nyse_texasequities_trades_pillar_v2_6.source_time = {}
 -- Size: Source Time
 nyse_texasequities_trades_pillar_v2_6.source_time.size = 4
 
--- Display: Source Time
-nyse_texasequities_trades_pillar_v2_6.source_time.display = function(value)
-  return "Source Time: "..value
+-- Store: Source Time
+nyse_texasequities_trades_pillar_v2_6.source_time.current = nil
+
+-- Generated: Source Time
+nyse_texasequities_trades_pillar_v2_6.source_time.generated = function(value, range, packet, parent)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_texasequities_trades_pillar_v2_6.fields.source_time
+  if nyse_texasequities_trades_pillar_v2_6.timestamp_format == 3 then field = omi_nyse_texasequities_trades_pillar_v2_6.fields.source_time_utc end
+  local source_time = parent:add(field, range, NSTime.new(value, 0))
+  source_time:set_generated()
 end
 
 -- Dissect: Source Time
@@ -1766,9 +1777,15 @@ nyse_texasequities_trades_pillar_v2_6.source_time.dissect = function(buffer, off
   local length = nyse_texasequities_trades_pillar_v2_6.source_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_texasequities_trades_pillar_v2_6.source_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_texasequities_trades_pillar_v2_6.fields.source_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_texasequities_trades_pillar_v2_6.fields.source_time
+  if nyse_texasequities_trades_pillar_v2_6.timestamp_format == 3 then field = omi_nyse_texasequities_trades_pillar_v2_6.fields.source_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2657,6 +2674,54 @@ nyse_texasequities_trades_pillar_v2_6.price_calculate.dissect = function(buffer,
   return nyse_texasequities_trades_pillar_v2_6.price.dissect(buffer, offset, packet, parent)
 end
 
+-- Timestamp
+nyse_texasequities_trades_pillar_v2_6.timestamp = {}
+
+-- Translate: Timestamp
+nyse_texasequities_trades_pillar_v2_6.timestamp.translate = function(source_time_ns, stored_source_time)
+  return UInt64.new(stored_source_time) * 1000000000 + source_time_ns
+end
+
+-- Display: Timestamp
+nyse_texasequities_trades_pillar_v2_6.timestamp.display = function(source_time_ns, stored_source_time)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_source_time + math.floor(source_time_ns / 1000000000)
+  local fraction = source_time_ns % 1000000000
+
+  local format = nyse_texasequities_trades_pillar_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+nyse_texasequities_trades_pillar_v2_6.timestamp.composite = function(buffer, offset, stored_source_time, packet, parent)
+  local length = nyse_texasequities_trades_pillar_v2_6.source_time_ns.size
+  local range = buffer(offset, length)
+  local source_time_ns = range:le_uint()
+  local value = nyse_texasequities_trades_pillar_v2_6.timestamp.translate(source_time_ns, stored_source_time)
+  local display = nyse_texasequities_trades_pillar_v2_6.timestamp.display(source_time_ns, stored_source_time, packet)
+  parent = parent:add(omi_nyse_texasequities_trades_pillar_v2_6.fields.timestamp, range, value, display)
+
+  nyse_texasequities_trades_pillar_v2_6.source_time.generated(stored_source_time, range, packet, parent)
+
+  display = nyse_texasequities_trades_pillar_v2_6.source_time_ns.display(source_time_ns)
+  parent:add(omi_nyse_texasequities_trades_pillar_v2_6.fields.source_time_ns, range, source_time_ns, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+nyse_texasequities_trades_pillar_v2_6.timestamp.dissect = function(buffer, offset, packet, parent)
+  if nyse_texasequities_trades_pillar_v2_6.timestamp_format ~= 0 then
+    local stored_source_time = nyse_texasequities_trades_pillar_v2_6.source_time.current
+
+    if stored_source_time ~= nil then
+      return nyse_texasequities_trades_pillar_v2_6.timestamp.composite(buffer, offset, stored_source_time, packet, parent)
+    end
+  end
+
+  return nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, offset, packet, parent)
+end
+
 
 -----------------------------------------------------------------------
 -- Dissect Nyse TexasEquities Trades Pillar 2.6
@@ -2689,8 +2754,15 @@ nyse_texasequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_cancel_mess
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -2765,8 +2837,15 @@ nyse_texasequities_trades_pillar_v2_6.trf_fractional_prior_day_trade_message.fie
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -2854,8 +2933,15 @@ nyse_texasequities_trades_pillar_v2_6.trf_fractional_trade_correction_message.fi
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -2937,8 +3023,15 @@ nyse_texasequities_trades_pillar_v2_6.trf_trade_cancel_message.fields = function
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -3001,8 +3094,15 @@ nyse_texasequities_trades_pillar_v2_6.trf_fractional_trade_message.fields = func
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -3084,8 +3184,15 @@ nyse_texasequities_trades_pillar_v2_6.stock_summary_message.fields = function(bu
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -3156,8 +3263,15 @@ nyse_texasequities_trades_pillar_v2_6.trade_correction_message.fields = function
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -3233,8 +3347,15 @@ nyse_texasequities_trades_pillar_v2_6.trade_cancel_message.fields = function(buf
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -3295,8 +3416,15 @@ nyse_texasequities_trades_pillar_v2_6.trade_message.fields = function(buffer, of
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -3809,8 +3937,15 @@ nyse_texasequities_trades_pillar_v2_6.security_status_message.fields = function(
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -3898,8 +4033,15 @@ nyse_texasequities_trades_pillar_v2_6.symbol_clear_message.fields = function(buf
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_texasequities_trades_pillar_v2_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -4074,6 +4216,13 @@ nyse_texasequities_trades_pillar_v2_6.source_time_reference_message.fields = fun
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   return index
 end
 
@@ -4117,8 +4266,15 @@ nyse_texasequities_trades_pillar_v2_6.sequence_number_reset_message.fields = fun
   -- Source Time: Binary
   index, source_time = nyse_texasequities_trades_pillar_v2_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_texasequities_trades_pillar_v2_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_texasequities_trades_pillar_v2_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: Binary
   index, product_id = nyse_texasequities_trades_pillar_v2_6.product_id.dissect(buffer, index, packet, parent)
@@ -4474,7 +4630,33 @@ nyse_texasequities_trades_pillar_v2_6.packet.dissect = function(buffer, packet, 
   -- establish frame context from the conversation's stored values
   local data = nyse_texasequities_trades_pillar_v2_6.conversation.data(packet)
   if not packet.visited then
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
   end
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = data.source_time.frames[packet.number]
   nyse_texasequities_trades_pillar_v2_6.conversation.current = data
 
   local index = 0
@@ -4498,6 +4680,9 @@ end
 
 -- Initialize Dissector
 function omi_nyse_texasequities_trades_pillar_v2_6.init()
+  nyse_texasequities_trades_pillar_v2_6.source_time.current = nil
+  nyse_texasequities_trades_pillar_v2_6.conversation.current = nil
+  nyse_texasequities_trades_pillar_v2_6.conversation.flows = {}
 end
 
 -- Dissector for Nyse TexasEquities Trades Pillar 2.6

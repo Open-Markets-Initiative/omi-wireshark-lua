@@ -95,7 +95,7 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.principal_trade = ProtoField
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.program_trade = ProtoField.new("Program Trade", "cboe.neoequities.orderentry.boe3.v1.0.19.programtrade", ftypes.STRING, nil, nil, nil, "Identify this order as part of a program trade")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.neoequities.orderentry.boe3.v1.0.19.replayunspecifiedunit", ftypes.STRING, nil, nil, nil, "Controls replay behavior for unknown units.")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.reserved = ProtoField.new("Reserved", "cboe.neoequities.orderentry.boe3.v1.0.19.reserved", ftypes.BYTES)
-omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.neoequities.orderentry.boe3.v1.0.19.reservedfield", ftypes.UINT8, nil, nil, nil, "Reserved header field")
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.neoequities.orderentry.boe3.v1.0.19.reservedfield", ftypes.BYTES, nil, nil, nil, "Reserved header field")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.neoequities.orderentry.boe3.v1.0.19.restatementreason", ftypes.STRING, nil, nil, nil, "Reason for the restatement")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.routing_inst = ProtoField.new("Routing Inst", "cboe.neoequities.orderentry.boe3.v1.0.19.routinginst", ftypes.STRING, nil, nil, nil, "Routing instruction for the order")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.neoequities.orderentry.boe3.v1.0.19.secondaryorderid", ftypes.UINT64, nil, nil, nil, "Populated on a Self-Trade Prevention triggered cancel/restatement")
@@ -702,7 +702,7 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_order_origin.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_order_origin.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.buy_lei_order_origin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.buy_lei_order_origin, range, value, display)
@@ -2168,7 +2168,7 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.lei_order_origin.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.lei_order_origin.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.lei_order_origin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.lei_order_origin, range, value, display)
@@ -2381,7 +2381,7 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.matching_priority.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.matching_priority.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.matching_priority.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.matching_priority, range, value, display)
@@ -2450,7 +2450,7 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.matching_unit, range, value, display)
@@ -2784,7 +2784,7 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.number_of_units.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.number_of_units.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.number_of_units, range, value, display)
@@ -3267,7 +3267,7 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.reserved_field.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.reserved_field.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.reserved_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.reserved_field, range, value, display)
@@ -3629,7 +3629,7 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_order_origin.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_order_origin.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.sell_lei_order_origin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.sell_lei_order_origin, range, value, display)
@@ -3906,7 +3906,7 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.settlement_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.settlement_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.settlement_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.settlement_type, range, value, display)
@@ -4470,7 +4470,7 @@ end
 cboe_neoequities_orderentry_boe3_v1_0_19.unit_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_orderentry_boe3_v1_0_19.unit_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_orderentry_boe3_v1_0_19.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.unit_number, range, value, display)
@@ -5747,7 +5747,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.login_response_message.size = function(
   index = index + cboe_neoequities_orderentry_boe3_v1_0_19.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequence_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequence_count * 5
 
   return index
@@ -5865,8 +5865,12 @@ cboe_neoequities_orderentry_boe3_v1_0_19.exchange_message_header.fields = functi
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_neoequities_orderentry_boe3_v1_0_19.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = cboe_neoequities_orderentry_boe3_v1_0_19.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved Field: 1 Byte
+  if show.padding then
+    index, reserved_field = cboe_neoequities_orderentry_boe3_v1_0_19.reserved_field.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_neoequities_orderentry_boe3_v1_0_19.reserved_field.size
+  end
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_neoequities_orderentry_boe3_v1_0_19.sequence_number.dissect(buffer, index, packet, parent)
@@ -6904,7 +6908,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.login_request_message.size = function(b
   index = index + cboe_neoequities_orderentry_boe3_v1_0_19.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequence_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequence_count * 5
 
   return index
@@ -7019,8 +7023,12 @@ cboe_neoequities_orderentry_boe3_v1_0_19.firm_message_header.fields = function(b
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_neoequities_orderentry_boe3_v1_0_19.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = cboe_neoequities_orderentry_boe3_v1_0_19.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved Field: 1 Byte
+  if show.padding then
+    index, reserved_field = cboe_neoequities_orderentry_boe3_v1_0_19.reserved_field.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_neoequities_orderentry_boe3_v1_0_19.reserved_field.size
+  end
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_neoequities_orderentry_boe3_v1_0_19.sequence_number.dissect(buffer, index, packet, parent)

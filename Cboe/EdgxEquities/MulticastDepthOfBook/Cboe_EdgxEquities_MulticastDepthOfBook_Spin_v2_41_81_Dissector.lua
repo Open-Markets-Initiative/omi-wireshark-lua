@@ -614,7 +614,7 @@ end
 cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message_count.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.message_count, range, value, display)
@@ -637,7 +637,7 @@ end
 cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message_length.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.message_length, range, value, display)
@@ -754,7 +754,7 @@ end
 cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.message_type, range, value, display)
@@ -1488,7 +1488,7 @@ end
 cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.fields.unit, range, value, display)
@@ -3454,7 +3454,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message.size = function(buf
   local index = offset
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset, 1):le_uint()
+  local message_length = buffer(offset, 1):uint()
 
   return message_length
 end
@@ -3478,7 +3478,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message.fields = function(b
   index, message_header = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 1, 1):le_uint()
+  local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 31 branches
   index = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.payload.dissect(buffer, index, packet, parent, message_type)
@@ -3544,7 +3544,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.messages.dissect = function
   for message_index = 1, message_count do
 
     -- Dependency element: Message Length
-    local message_length = buffer(offset, 1):le_uint()
+    local message_length = buffer(offset, 1):uint()
 
     -- Message: Struct of 2 fields
     offset = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -3631,7 +3631,7 @@ cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.packet.dissect = function(b
   index, packet_header = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
-  local message_count = buffer(index - 6, 1):le_uint()
+  local message_count = buffer(index - 6, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = cboe_edgxequities_multicastdepthofbook_spin_v2_41_81.messages.dissect(buffer, index, packet, parent, message_count)

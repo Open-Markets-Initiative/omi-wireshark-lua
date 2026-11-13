@@ -1986,7 +1986,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.matching_unit, range, value, display)
@@ -2122,7 +2122,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.message_type, range, value, display)
@@ -2204,7 +2204,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.no_unspecified_unit_replay.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.no_unspecified_unit_replay.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.no_unspecified_unit_replay.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.no_unspecified_unit_replay, range, value, display)
@@ -2227,7 +2227,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_cancel_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_cancel_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_cancel_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.number_of_cancel_order_bitfields, range, value, display)
@@ -2250,7 +2250,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_modify_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_modify_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_modify_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.number_of_modify_order_bitfields, range, value, display)
@@ -2273,7 +2273,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_new_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_new_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_new_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.number_of_new_order_bitfields, range, value, display)
@@ -2296,7 +2296,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_param_groups.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_param_groups.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_param_groups.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.number_of_param_groups, range, value, display)
@@ -2319,7 +2319,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_purge_orders_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_purge_orders_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_purge_orders_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.number_of_purge_orders_bitfields, range, value, display)
@@ -2342,7 +2342,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_return_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_return_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_return_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.number_of_return_bitfields, range, value, display)
@@ -2365,7 +2365,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_units.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_units.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.number_of_units, range, value, display)
@@ -2708,7 +2708,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.param_group_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.param_group_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.param_group_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.param_group_type, range, value, display)
@@ -3007,7 +3007,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.risk_group_id_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.risk_group_id_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.risk_group_id_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.risk_group_id_cnt, range, value, display)
@@ -3682,7 +3682,7 @@ end
 cboe_byxequities_binaryorderentry_boe_v2_4_55.unit_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe_v2_4_55.unit_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe_v2_4_55.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe_v2_4_55.fields.unit_number, range, value, display)
@@ -12833,133 +12833,133 @@ cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfields_param_group.size 
 
   index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_return_bitfields.size
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 1 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_1.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 2 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_2.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 3 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_3.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 4 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_4.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 5 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_5.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 6 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_6.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 7 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_7.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 8 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_8.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 9 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_9.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 10 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_10.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 11 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_11.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 12 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_12.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 13 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_13.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 14 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_14.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 15 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_15.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 16 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_16.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 17 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_17.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 18 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_18.size
 
   end
 
-  local number_of_return_bitfields = buffer(offset + 1, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 1, 1):uint()
 
   if number_of_return_bitfields >= 19 then
     index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.return_bitfield_19.size
@@ -13226,7 +13226,7 @@ cboe_byxequities_binaryorderentry_boe_v2_4_55.unit_sequences_param_group.size = 
   index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequences_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequences_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequences_count * 5
 
   return index
@@ -13303,7 +13303,7 @@ cboe_byxequities_binaryorderentry_boe_v2_4_55.param_group.size = function(buffer
 
   -- Calculate runtime size of ParamGroupPayload field
   local paramgrouppayload_offset = offset + index
-  local paramgrouppayload_type = buffer(paramgrouppayload_offset - 1, 1):le_uint()
+  local paramgrouppayload_type = buffer(paramgrouppayload_offset - 1, 1):uint()
   index = index + cboe_byxequities_binaryorderentry_boe_v2_4_55.paramgrouppayload.size(buffer, paramgrouppayload_offset, paramgrouppayload_type)
 
   return index
@@ -13696,7 +13696,7 @@ cboe_byxequities_binaryorderentry_boe_v2_4_55.packet.dissect = function(buffer, 
   index, message_header = cboe_byxequities_binaryorderentry_boe_v2_4_55.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 6, 1):le_uint()
+  local message_type = buffer(index - 6, 1):uint()
 
   -- Message: Runtime Type with 22 branches
   index = cboe_byxequities_binaryorderentry_boe_v2_4_55.message.dissect(buffer, index, packet, parent, message_type)
@@ -13760,7 +13760,7 @@ cboe_byxequities_binaryorderentry_boe_v2_4_55.packet.fingerprint = function(buff
     return false
   end
 
-  local message_type = buffer(4, 1):le_uint()
+  local message_type = buffer(4, 1):uint()
 
   -- Login Request Message
   if message_type == 0x37 then

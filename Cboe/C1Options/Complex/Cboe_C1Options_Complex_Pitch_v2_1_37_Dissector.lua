@@ -829,7 +829,7 @@ end
 cboe_c1options_complex_pitch_v2_1_37.leg_count.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_complex_pitch_v2_1_37.leg_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_c1options_complex_pitch_v2_1_37.leg_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.leg_count, range, value, display)
@@ -949,7 +949,7 @@ end
 cboe_c1options_complex_pitch_v2_1_37.message_count.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_complex_pitch_v2_1_37.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_c1options_complex_pitch_v2_1_37.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.message_count, range, value, display)
@@ -972,7 +972,7 @@ end
 cboe_c1options_complex_pitch_v2_1_37.message_length.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_complex_pitch_v2_1_37.message_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_c1options_complex_pitch_v2_1_37.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.message_length, range, value, display)
@@ -1074,7 +1074,7 @@ end
 cboe_c1options_complex_pitch_v2_1_37.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_complex_pitch_v2_1_37.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_c1options_complex_pitch_v2_1_37.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.message_type, range, value, display)
@@ -1701,7 +1701,7 @@ end
 cboe_c1options_complex_pitch_v2_1_37.unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_complex_pitch_v2_1_37.unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_c1options_complex_pitch_v2_1_37.unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.unit, range, value, display)
@@ -3119,7 +3119,7 @@ cboe_c1options_complex_pitch_v2_1_37.complex_instrument_definition_expanded_mess
   index = index + cboe_c1options_complex_pitch_v2_1_37.leg_count.size
 
   -- Calculate field size from count
-  local complex_instrument_leg_count = buffer(offset + index - 1, 1):le_uint()
+  local complex_instrument_leg_count = buffer(offset + index - 1, 1):uint()
   index = index + complex_instrument_leg_count * 13
 
   return index
@@ -3577,7 +3577,7 @@ cboe_c1options_complex_pitch_v2_1_37.message.size = function(buffer, offset)
   local index = offset
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset, 1):le_uint()
+  local message_length = buffer(offset, 1):uint()
 
   return message_length
 end
@@ -3607,7 +3607,7 @@ cboe_c1options_complex_pitch_v2_1_37.message.fields = function(buffer, offset, p
   index, message_header = cboe_c1options_complex_pitch_v2_1_37.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 1, 1):le_uint()
+  local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 26 branches
   index = cboe_c1options_complex_pitch_v2_1_37.payload.dissect(buffer, index, packet, parent, message_type)
@@ -3673,7 +3673,7 @@ cboe_c1options_complex_pitch_v2_1_37.messages.dissect = function(buffer, offset,
   for message_index = 1, message_count do
 
     -- Dependency element: Message Length
-    local message_length = buffer(offset, 1):le_uint()
+    local message_length = buffer(offset, 1):uint()
 
     -- Message: Struct of 2 fields
     offset = cboe_c1options_complex_pitch_v2_1_37.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -3763,7 +3763,7 @@ cboe_c1options_complex_pitch_v2_1_37.packet.dissect = function(buffer, packet, p
   index, packet_header = cboe_c1options_complex_pitch_v2_1_37.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
-  local message_count = buffer(index - 6, 1):le_uint()
+  local message_count = buffer(index - 6, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = cboe_c1options_complex_pitch_v2_1_37.messages.dissect(buffer, index, packet, parent, message_count)

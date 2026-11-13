@@ -2037,7 +2037,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.matching_unit, range, value, display)
@@ -2209,7 +2209,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.message_type, range, value, display)
@@ -2405,7 +2405,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.no_unspecified_unit_replay.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.no_unspecified_unit_replay.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.no_unspecified_unit_replay.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.no_unspecified_unit_replay, range, value, display)
@@ -2428,7 +2428,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_cancel_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_cancel_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_cancel_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.number_of_cancel_order_bitfields, range, value, display)
@@ -2451,7 +2451,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_modify_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_modify_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_modify_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.number_of_modify_order_bitfields, range, value, display)
@@ -2474,7 +2474,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_new_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_new_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_new_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.number_of_new_order_bitfields, range, value, display)
@@ -2497,7 +2497,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_param_groups.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_param_groups.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_param_groups.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.number_of_param_groups, range, value, display)
@@ -2520,7 +2520,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_purge_order_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_purge_order_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_purge_order_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.number_of_purge_order_bitfields, range, value, display)
@@ -2543,7 +2543,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_quote_results.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_quote_results.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_quote_results.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.number_of_quote_results, range, value, display)
@@ -2566,7 +2566,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_quotes.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_quotes.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_quotes.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.number_of_quotes, range, value, display)
@@ -2589,7 +2589,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_return_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_return_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_return_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.number_of_return_bitfields, range, value, display)
@@ -2612,7 +2612,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_units.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_units.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.number_of_units, range, value, display)
@@ -3007,7 +3007,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.param_group_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.param_group_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.param_group_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.param_group_type, range, value, display)
@@ -4353,7 +4353,7 @@ end
 cboe_cfefutures_binaryorderentry_boe_v1_3.unit_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe_v1_3.unit_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe_v1_3.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe_v1_3.fields.unit_number, range, value, display)
@@ -14176,7 +14176,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.packet.dissect = function(buffer, pack
   index, message_header = cboe_cfefutures_binaryorderentry_boe_v1_3.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 6, 1):le_uint()
+  local message_type = buffer(index - 6, 1):uint()
 
   -- Message: Runtime Type with 33 branches
   index = cboe_cfefutures_binaryorderentry_boe_v1_3.message.dissect(buffer, index, packet, parent, message_type)
@@ -14240,7 +14240,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3.packet.fingerprint = function(buffer)
     return false
   end
 
-  local message_type = buffer(4, 1):le_uint()
+  local message_type = buffer(4, 1):uint()
 
   -- Login Request Message
   if message_type == 0x37 then

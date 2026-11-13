@@ -330,6 +330,11 @@ eurex_t7_eobi_fbe_v10_1.appl_seq_num.size = 4
 
 -- Display: Appl Seq Num
 eurex_t7_eobi_fbe_v10_1.appl_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Appl Seq Num: No Value"
+  end
+
   return "Appl Seq Num: "..value
 end
 
@@ -494,6 +499,11 @@ eurex_t7_eobi_fbe_v10_1.body_len.size = 2
 
 -- Display: Body Len
 eurex_t7_eobi_fbe_v10_1.body_len.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFF then
+    return "Body Len: No Value"
+  end
+
   return "Body Len: "..value
 end
 
@@ -622,6 +632,11 @@ eurex_t7_eobi_fbe_v10_1.dscp.size = 1
 
 -- Display: DSCP
 eurex_t7_eobi_fbe_v10_1.dscp.display = function(value)
+  -- Check if field has value
+  if value == 0xFF then
+    return "DSCP: No Value"
+  end
+
   return "DSCP: "..value
 end
 
@@ -1679,6 +1694,11 @@ eurex_t7_eobi_fbe_v10_1.msg_seq_num.size = 4
 
 -- Display: Msg Seq Num
 eurex_t7_eobi_fbe_v10_1.msg_seq_num.display = function(value)
+  -- Check if field has value
+  if value == 0xFFFFFFFF then
+    return "Msg Seq Num: No Value"
+  end
+
   return "Msg Seq Num: "..value
 end
 
@@ -5515,13 +5535,13 @@ end
 eurex_t7_eobi_fbe_v10_1.message_header_comp.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Body Len: 2 Byte Unsigned Fixed Width Integer
+  -- Body Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, body_len = eurex_t7_eobi_fbe_v10_1.body_len.dissect(buffer, index, packet, parent)
 
   -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 25 values
   index, template_id = eurex_t7_eobi_fbe_v10_1.template_id.dissect(buffer, index, packet, parent)
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, msg_seq_num = eurex_t7_eobi_fbe_v10_1.msg_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -5608,13 +5628,13 @@ end
 eurex_t7_eobi_fbe_v10_1.eobi_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Body Len: 2 Byte Unsigned Fixed Width Integer
+  -- Body Len: 2 Byte Unsigned Fixed Width Integer Nullable
   index, body_len = eurex_t7_eobi_fbe_v10_1.body_len.dissect(buffer, index, packet, parent)
 
   -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 25 values
   index, template_id = eurex_t7_eobi_fbe_v10_1.template_id.dissect(buffer, index, packet, parent)
 
-  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, msg_seq_num = eurex_t7_eobi_fbe_v10_1.msg_seq_num.dissect(buffer, index, packet, parent)
 
   return index
@@ -5665,7 +5685,7 @@ eurex_t7_eobi_fbe_v10_1.packet_header.fields = function(buffer, offset, packet, 
   -- Eobi Header: Struct of 3 fields
   index, eobi_header = eurex_t7_eobi_fbe_v10_1.eobi_header.dissect(buffer, index, packet, parent)
 
-  -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, appl_seq_num = eurex_t7_eobi_fbe_v10_1.appl_seq_num.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
@@ -5680,7 +5700,7 @@ eurex_t7_eobi_fbe_v10_1.packet_header.fields = function(buffer, offset, packet, 
   -- Appl Seq Reset Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, appl_seq_reset_indicator = eurex_t7_eobi_fbe_v10_1.appl_seq_reset_indicator.dissect(buffer, index, packet, parent)
 
-  -- DSCP: 1 Byte Unsigned Fixed Width Integer
+  -- DSCP: 1 Byte Unsigned Fixed Width Integer Nullable
   index, dscp = eurex_t7_eobi_fbe_v10_1.dscp.dissect(buffer, index, packet, parent)
 
   -- Pad4: 4 Byte

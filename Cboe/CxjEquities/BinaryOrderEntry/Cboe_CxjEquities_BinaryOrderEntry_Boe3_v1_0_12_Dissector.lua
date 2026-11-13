@@ -59,7 +59,7 @@ omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.posting_instruction = 
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.price = ProtoField.new("Price", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.price", ftypes.DOUBLE, nil, nil, nil, "Price must be an applicable minimum trading increment")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.purgerejectreason", ftypes.STRING, nil, nil, nil, "Reason for the purge rejection. See Section 4.5 - Order Reason Codes")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.replayunspecifiedunit", ftypes.STRING, nil, nil, nil, "Controls replay behavior for unknown units.")
-omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.reservedfield", ftypes.UINT8, nil, nil, nil, "Reserved header field")
+omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.reservedfield", ftypes.BYTES, nil, nil, nil, "Reserved header field")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.restatementreason", ftypes.STRING, nil, nil, nil, "The reason for this Order Restated message")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.risk_group_id = ProtoField.new("Risk Group Id", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.riskgroupid", ftypes.UINT16, nil, nil, nil, "Used to group orders for use in order purges where multiple orders can be cancelled by specifying a list of RiskGroupIDs")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.risk_group_id_cnt = ProtoField.new("Risk Group Id Cnt", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.riskgroupidcnt", ftypes.UINT8, nil, nil, nil, "Number of repeating RiskGroupID included in this message. Value 0 to 10")
@@ -145,6 +145,7 @@ show.application_messages = true
 show.headers = true
 show.structs = true
 show.session_messages = true
+show.padding = false
 show.indexes = true
 
 -- Register Cboe CxjEquities BinaryOrderEntry Boe3 1.0.12 Show Options
@@ -155,6 +156,7 @@ omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_application_messag
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
@@ -168,6 +170,9 @@ function omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs_changed()
   end
   if show.headers ~= omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_headers then
     show.headers = omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_padding then
+    show.padding = omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_padding
   end
   if show.session_messages ~= omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_session_messages then
     show.session_messages = omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_session_messages
@@ -1220,7 +1225,7 @@ end
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.matching_unit, range, value, display)
@@ -1448,7 +1453,7 @@ end
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.number_of_units.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.number_of_units.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.number_of_units, range, value, display)
@@ -1958,7 +1963,7 @@ end
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.reserved_field.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.reserved_field.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.reserved_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.reserved_field, range, value, display)
@@ -2044,7 +2049,7 @@ end
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.risk_group_id_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.risk_group_id_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.risk_group_id_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.risk_group_id_cnt, range, value, display)
@@ -2453,7 +2458,7 @@ end
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.unit_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.unit_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.unit_number, range, value, display)
@@ -3298,7 +3303,7 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_response_message.size = fun
   index = index + cboe_cxjequities_binaryorderentry_boe3_v1_0_12.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequence_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequence_count * 5
 
   return index
@@ -3415,8 +3420,12 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.exchange_message_header.fields = 
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved Field: 1 Byte
+  if show.padding then
+    index, reserved_field = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.reserved_field.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cxjequities_binaryorderentry_boe3_v1_0_12.reserved_field.size
+  end
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.sequence_number.dissect(buffer, index, packet, parent)
@@ -3484,7 +3493,7 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.purge_orders_jp_equities_v_1.size
   index = index + cboe_cxjequities_binaryorderentry_boe3_v1_0_12.risk_group_id_cnt.size
 
   -- Calculate field size from count
-  local risk_group_id_count = buffer(offset + index - 1, 1):le_uint()
+  local risk_group_id_count = buffer(offset + index - 1, 1):uint()
   index = index + risk_group_id_count * 2
 
   return index
@@ -3808,7 +3817,7 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.login_request_message.size = func
   index = index + cboe_cxjequities_binaryorderentry_boe3_v1_0_12.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequence_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequence_count * 5
 
   return index
@@ -3921,8 +3930,12 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.firm_message_header.fields = func
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved Field: 1 Byte
+  if show.padding then
+    index, reserved_field = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.reserved_field.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cxjequities_binaryorderentry_boe3_v1_0_12.reserved_field.size
+  end
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_cxjequities_binaryorderentry_boe3_v1_0_12.sequence_number.dissect(buffer, index, packet, parent)

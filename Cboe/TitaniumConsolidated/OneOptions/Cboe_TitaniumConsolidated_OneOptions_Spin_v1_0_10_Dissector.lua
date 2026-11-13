@@ -21,7 +21,7 @@ omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.instrument_count = 
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.instrument_definition_response_status = ProtoField.new("Instrument Definition Response Status", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.instrumentdefinitionresponsestatus", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject.")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.length = ProtoField.new("Length", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.loginresponsestatus", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject.")
-omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_count = ProtoField.new("Message Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messagecount", ftypes.UINT64, nil, nil, nil, "Number of Trade and Trade Break messages which will be contained in this spin.")
+omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_count = ProtoField.new("Message Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_length = ProtoField.new("Message Length", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_type = ProtoField.new("Message Type", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.order_count = ProtoField.new("Order Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.ordercount", ftypes.UINT32, nil, nil, nil, "Always zero.")
@@ -31,6 +31,7 @@ omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.sequence = ProtoFie
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.session_sub_id = ProtoField.new("Session Sub Id", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.sessionsubid", ftypes.STRING, nil, nil, nil, "SessionSubId supplied by Cboe.")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.spin_response_status = ProtoField.new("Spin Response Status", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.spinresponsestatus", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject.")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.symbolcondition", ftypes.STRING, nil, nil, nil, "Symbol condition indicator.")
+omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.trade_replay_message_count = ProtoField.new("Trade Replay Message Count", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.tradereplaymessagecount", ftypes.UINT64, nil, nil, nil, "Number of Trade and Trade Break messages which will be contained in this spin.")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.trade_replay_response_status = ProtoField.new("Trade Replay Response Status", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.tradereplayresponsestatus", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject.")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.underlying = ProtoField.new("Underlying", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.underlying", ftypes.STRING, nil, nil, nil, "Symbol of underlying equity right padded with spaces.")
 omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.oneoptions.spin.v1.0.10.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
@@ -272,7 +273,7 @@ end
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count = {}
 
 -- Size: Message Count
-cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.size = 8
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.size = 1
 
 -- Display: Message Count
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.display = function(value)
@@ -283,7 +284,7 @@ end
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:uint()
   local display = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_count, range, value, display)
@@ -306,7 +307,7 @@ end
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_length.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_length, range, value, display)
@@ -369,7 +370,7 @@ end
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.message_type, range, value, display)
@@ -549,6 +550,29 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.symbol_condition.dissect = fun
   return offset + length, value
 end
 
+-- Trade Replay Message Count
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_message_count = {}
+
+-- Size: Trade Replay Message Count
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_message_count.size = 8
+
+-- Display: Trade Replay Message Count
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_message_count.display = function(value)
+  return "Trade Replay Message Count: "..value
+end
+
+-- Dissect: Trade Replay Message Count
+cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_message_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.trade_replay_message_count, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Replay Response Status
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_status = {}
 
@@ -617,7 +641,7 @@ end
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.fields.unit, range, value, display)
@@ -676,7 +700,7 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_message 
 -- Size: Trade Replay Response Message
 cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_message.size =
   cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.sequence.size + 
-  cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.size + 
+  cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_message_count.size + 
   cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_status.size
 
 -- Display: Trade Replay Response Message
@@ -691,8 +715,8 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_message.
   -- Sequence: Binary
   index, sequence = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.sequence.dissect(buffer, index, packet, parent)
 
-  -- Message Count: Binary
-  index, message_count = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.dissect(buffer, index, packet, parent)
+  -- Trade Replay Message Count: Binary
+  index, trade_replay_message_count = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_message_count.dissect(buffer, index, packet, parent)
 
   -- Trade Replay Response Status: Alphanumeric
   index, trade_replay_response_status = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.trade_replay_response_status.dissect(buffer, index, packet, parent)
@@ -1288,7 +1312,7 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message.size = function(buffer
   local index = offset
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset, 1):le_uint()
+  local message_length = buffer(offset, 1):uint()
 
   return message_length
 end
@@ -1312,7 +1336,7 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message.fields = function(buff
   index, message_header = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 1, 1):le_uint()
+  local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 13 branches
   index = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.payload.dissect(buffer, index, packet, parent, message_type)
@@ -1378,7 +1402,7 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dissect = function(bu
   for message_index = 1, message_count do
 
     -- Dependency element: Message Length
-    local message_length = buffer(offset, 1):le_uint()
+    local message_length = buffer(offset, 1):uint()
 
     -- Message: Struct of 2 fields
     offset = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -1407,7 +1431,7 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.packet_header.fields = functio
   -- Length: 2 Byte Unsigned Fixed Width Integer
   index, length = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.length.dissect(buffer, index, packet, parent)
 
-  -- Message Count: Binary
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
   index, message_count = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.message_count.dissect(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
@@ -1453,7 +1477,7 @@ cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.packet.dissect = function(buff
   index, packet_header = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
-  local message_count = buffer(index - 13, 8):le_uint64()
+  local message_count = buffer(index - 6, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = cboe_titaniumconsolidated_oneoptions_spin_v1_0_10.messages.dissect(buffer, index, packet, parent, message_count)

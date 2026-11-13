@@ -273,7 +273,7 @@ end
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_count.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.message_count, range, value, display)
@@ -296,7 +296,7 @@ end
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_length.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.message_length, range, value, display)
@@ -350,7 +350,7 @@ end
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.message_type, range, value, display)
@@ -448,7 +448,7 @@ end
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.reserved_1.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.reserved_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.reserved_1, range, value, display)
@@ -653,7 +653,7 @@ end
 cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.unit, range, value, display)
@@ -1322,7 +1322,7 @@ cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message.size = function(buffe
   local index = offset
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset, 1):le_uint()
+  local message_length = buffer(offset, 1):uint()
 
   return message_length
 end
@@ -1352,7 +1352,7 @@ cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message.fields = function(buf
   index, message_header = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 1, 1):le_uint()
+  local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 10 branches
   index = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.payload.dissect(buffer, index, packet, parent, message_type)
@@ -1418,7 +1418,7 @@ cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.messages.dissect = function(b
   for message_index = 1, message_count do
 
     -- Dependency element: Message Length
-    local message_length = buffer(offset, 1):le_uint()
+    local message_length = buffer(offset, 1):uint()
 
     -- Message: Struct of 2 fields
     offset = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -1496,7 +1496,7 @@ cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.packet.dissect = function(buf
   index, packet_header = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
-  local message_count = buffer(index - 6, 1):le_uint()
+  local message_count = buffer(index - 6, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.messages.dissect(buffer, index, packet, parent, message_count)

@@ -215,7 +215,8 @@ omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_price_compare_remaini
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_time = ProtoField.new("Trading Time", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingtime", ftypes.STRING, nil, nil, nil, "Trading time.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_type_category = ProtoField.new("Trading Type Category", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingtypecategory", ftypes.STRING, nil, nil, nil, "1:Self-dealings 2:Cross Trading 3:Brokerage 9:Other.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_value = ProtoField.new("Trading Value", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingvalue", ftypes.UINT64, nil, nil, nil, "Accumulated trading value (12 ASCII digits). Unit: 1,000,000 KRW.")
-omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_volume = ProtoField.new("Trading Volume", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingvolume", ftypes.UINT64, nil, nil, nil, "Accumulated trading volume (12 ASCII digits). Unit: 1,000 shares.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_volume_long = ProtoField.new("Trading Volume Long", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingvolumelong", ftypes.UINT64, nil, nil, nil, "Accumulated trading volume (12 ASCII digits). Unit: 1,000 shares.")
+omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_volume_short = ProtoField.new("Trading Volume Short", "koscom.mdcsrealtime.koscom.exture.v1.20.tradingvolumeshort", ftypes.UINT64, nil, nil, nil, "Trading volume for each issue.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.type = ProtoField.new("Type", "koscom.mdcsrealtime.koscom.exture.v1.20.type", ftypes.STRING, nil, nil, nil, "1:trading halt 2: lift after trading halt.")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.upper_limit_price_after_action = ProtoField.new("Upper Limit Price After Action", "koscom.mdcsrealtime.koscom.exture.v1.20.upperlimitpriceafteraction", ftypes.UINT32, nil, nil, nil, "Unit: KRW (in case that data type is not 01, then \"0\").")
 omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.upper_limit_price_before_action = ProtoField.new("Upper Limit Price Before Action", "koscom.mdcsrealtime.koscom.exture.v1.20.upperlimitpricebeforeaction", ftypes.UINT32, nil, nil, nil, "Unit: KRW (in case that data type is not 01, then \"0\").")
@@ -6478,33 +6479,64 @@ koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.dissect = function(buffer,
   return offset + length, value
 end
 
--- Trading Volume
-koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume = {}
+-- Trading Volume Long
+koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long = {}
 
--- Size: Trading Volume
-koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.size = 12
+-- Size: Trading Volume Long
+koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.size = 12
 
--- Display: Trading Volume
-koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.display = function(value)
-  return "Trading Volume: "..value
+-- Display: Trading Volume Long
+koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.display = function(value)
+  return "Trading Volume Long: "..value
 end
 
--- Dissect: Trading Volume
-koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.size
+-- Dissect: Trading Volume Long
+koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_volume, range, value, "Trading Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Trading Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_volume_long, range, value, "Trading Volume Long: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Trading Volume Long is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_volume, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_volume_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Volume Short
+koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_short = {}
+
+-- Size: Trading Volume Short
+koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_short.size = 10
+
+-- Display: Trading Volume Short
+koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_short.display = function(value)
+  return "Trading Volume Short: "..value
+end
+
+-- Dissect: Trading Volume Short
+koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_short.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_short.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_volume_short, range, value, "Trading Volume Short: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_koscom_exture_v1_20.experts.not_a_number, "Trading Volume Short is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.trading_volume_short, range, value, display)
 
   return offset + length, value
 end
@@ -8369,7 +8401,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kis_index_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.sign.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.comparison.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.size
@@ -8401,8 +8433,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.kis_index_message.fields = function(buff
   -- Comparison: Double
   index, comparison = koscom_mdcsrealtime_koscom_exture_v1_20.comparison.dissect(buffer, index, packet, parent)
 
-  -- Trading Volume: Long
-  index, trading_volume = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.dissect(buffer, index, packet, parent)
+  -- Trading Volume Long: Long
+  index, trading_volume_long = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.dissect(buffer, index, packet, parent)
 
   -- Trading Value: Long
   index, trading_value = koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.dissect(buffer, index, packet, parent)
@@ -8449,7 +8481,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.wisefn_index_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.sign.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.comparison.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.size
@@ -8481,8 +8513,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.wisefn_index_message.fields = function(b
   -- Comparison: Double
   index, comparison = koscom_mdcsrealtime_koscom_exture_v1_20.comparison.dissect(buffer, index, packet, parent)
 
-  -- Trading Volume: Long
-  index, trading_volume = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.dissect(buffer, index, packet, parent)
+  -- Trading Volume Long: Long
+  index, trading_volume_long = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.dissect(buffer, index, packet, parent)
 
   -- Trading Value: Long
   index, trading_value = koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.dissect(buffer, index, packet, parent)
@@ -8529,7 +8561,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.mkf_index_jpy_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.sign.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.comparison.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.size
@@ -8561,8 +8593,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.mkf_index_jpy_message.fields = function(
   -- Comparison: Double
   index, comparison = koscom_mdcsrealtime_koscom_exture_v1_20.comparison.dissect(buffer, index, packet, parent)
 
-  -- Trading Volume: Long
-  index, trading_volume = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.dissect(buffer, index, packet, parent)
+  -- Trading Volume Long: Long
+  index, trading_volume_long = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.dissect(buffer, index, packet, parent)
 
   -- Trading Value: Long
   index, trading_value = koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.dissect(buffer, index, packet, parent)
@@ -8609,7 +8641,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.mkf_index_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.index.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.sign.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.comparison.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.end_keyword.size
@@ -8641,8 +8673,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.mkf_index_message.fields = function(buff
   -- Comparison: Double
   index, comparison = koscom_mdcsrealtime_koscom_exture_v1_20.comparison.dissect(buffer, index, packet, parent)
 
-  -- Trading Volume: Long
-  index, trading_volume = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.dissect(buffer, index, packet, parent)
+  -- Trading Volume Long: Long
+  index, trading_volume_long = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_long.dissect(buffer, index, packet, parent)
 
   -- Trading Value: Long
   index, trading_value = koscom_mdcsrealtime_koscom_exture_v1_20.trading_value.dissect(buffer, index, packet, parent)
@@ -9087,7 +9119,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_order_filled_message.size =
   koscom_mdcsrealtime_koscom_exture_v1_20.data_seq_number.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.trading_number.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.trading_price.size + 
-  koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.size + 
+  koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_short.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.trading_time.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.ask_quote_number.size + 
   koscom_mdcsrealtime_koscom_exture_v1_20.bid_quote_number.size + 
@@ -9130,8 +9162,8 @@ koscom_mdcsrealtime_koscom_exture_v1_20.k_otc_order_filled_message.fields = func
   -- Trading Price: Long
   index, trading_price = koscom_mdcsrealtime_koscom_exture_v1_20.trading_price.dissect(buffer, index, packet, parent)
 
-  -- Trading Volume: Long
-  index, trading_volume = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume.dissect(buffer, index, packet, parent)
+  -- Trading Volume Short: Long
+  index, trading_volume_short = koscom_mdcsrealtime_koscom_exture_v1_20.trading_volume_short.dissect(buffer, index, packet, parent)
 
   -- Trading Time: String
   index, trading_time = koscom_mdcsrealtime_koscom_exture_v1_20.trading_time.dissect(buffer, index, packet, parent)

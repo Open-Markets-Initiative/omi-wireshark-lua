@@ -68,7 +68,8 @@ omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.send_time_utc =
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.session_state = ProtoField.new("Session State", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.sessionstate", ftypes.STRING, nil, nil, nil, "Unused. Defaulted to 0x00.")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.side = ProtoField.new("Side", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.side", ftypes.STRING, nil, nil, nil, "The side of the book (Buy/Sell).")
-omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.sourcetime", ftypes.UINT32, nil, nil, nil, "The time when this msg was generated in the order book, in secs since 1/1/1970 00:00:00 UTC")
+omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in secs since 1/1/1970 00:00:00 UTC")
+omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.source_time_utc = ProtoField.new("Source Time", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in secs since 1/1/1970 00:00:00 UTC")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the Source Time")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.ssrfilingprice", ftypes.INT32, nil, nil, nil, "For NYSE non-Significant imbalances, if a Sell Short Restriction is in effect, the price at which Sell Short interest will be filed.")
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.ssr_state = ProtoField.new("Ssr State", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state, which this msg updates if the Security Status field contains an SSR Code.")
@@ -116,6 +117,7 @@ omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.indicative_matc
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.lower_collar_calculate = ProtoField.new("Lower Collar Calculate", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.lowercollarcalculate", ftypes.DOUBLE)
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.price_calculate = ProtoField.new("Price Calculate", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.pricecalculate", ftypes.DOUBLE)
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.reference_price_calculate = ProtoField.new("Reference Price Calculate", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.referencepricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.timestamp = ProtoField.new("Timestamp", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.timestamp", ftypes.UINT64)
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.ssr_filing_price_calculate = ProtoField.new("SSR Filing Price Calculate", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.ssrfilingpricecalculate", ftypes.DOUBLE)
 omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.upper_collar_calculate = ProtoField.new("Upper Collar Calculate", "nyse.arcaequities.depthfeedretransmission.pillar.v1.6.uppercollarcalculate", ftypes.DOUBLE)
 
@@ -125,8 +127,9 @@ omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.upper_collar_ca
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
 -- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
@@ -221,7 +224,7 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.data = functi
   local key = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.key(packet)
   local data = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.flows[key]
   if data == nil then
-    data = { symbol_index_mapping_message = {} }
+    data = { source_time = { last = nil, frames = {} }, symbol_index_mapping_message = {} }
     nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.flows[key] = data
   end
   return data
@@ -1761,9 +1764,17 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time = {}
 -- Size: Source Time
 nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.size = 4
 
--- Display: Source Time
-nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.display = function(value)
-  return "Source Time: "..value
+-- Store: Source Time
+nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = nil
+
+-- Generated: Source Time
+nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.generated = function(value, range, packet, parent)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.source_time
+  if nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp_format == 3 then field = omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.source_time_utc end
+  local source_time = parent:add(field, range, NSTime.new(value, 0))
+  source_time:set_generated()
 end
 
 -- Dissect: Source Time
@@ -1771,9 +1782,15 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.dissect = func
   local length = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.source_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.source_time
+  if nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp_format == 3 then field = omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.source_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2590,6 +2607,54 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reference_price_calculate.
   return nyse_arcaequities_depthfeedretransmission_pillar_v1_6.reference_price.dissect(buffer, offset, packet, parent)
 end
 
+-- Timestamp
+nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp = {}
+
+-- Translate: Timestamp
+nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.translate = function(source_time_ns, stored_source_time)
+  return UInt64.new(stored_source_time) * 1000000000 + source_time_ns
+end
+
+-- Display: Timestamp
+nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.display = function(source_time_ns, stored_source_time)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_source_time + math.floor(source_time_ns / 1000000000)
+  local fraction = source_time_ns % 1000000000
+
+  local format = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.composite = function(buffer, offset, stored_source_time, packet, parent)
+  local length = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time_ns.size
+  local range = buffer(offset, length)
+  local source_time_ns = range:le_uint()
+  local value = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.translate(source_time_ns, stored_source_time)
+  local display = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.display(source_time_ns, stored_source_time, packet)
+  parent = parent:add(omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.timestamp, range, value, display)
+
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.generated(stored_source_time, range, packet, parent)
+
+  display = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time_ns.display(source_time_ns)
+  parent:add(omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.fields.source_time_ns, range, source_time_ns, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp_format ~= 0 then
+    local stored_source_time = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current
+
+    if stored_source_time ~= nil then
+      return nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.composite(buffer, offset, stored_source_time, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time_ns.dissect(buffer, offset, packet, parent)
+end
+
 -- SSR Filing Price Calculate
 nyse_arcaequities_depthfeedretransmission_pillar_v1_6.ssr_filing_price_calculate = {}
 
@@ -2713,8 +2778,15 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.imbalance_message.fields =
   -- Source Time: Binary
   index, source_time = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -2986,8 +3058,15 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.delta_message.fields = fun
   -- Source Time: Binary
   index, source_time = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -3118,8 +3197,15 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.security_status_message.fi
   -- Source Time: Binary
   index, source_time = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -3211,8 +3297,15 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.symbol_clear_message.field
   -- Source Time: Binary
   index, source_time = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary (record lookup)
   index, symbol_index, symbol_index_record = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.symbol_index.lookup(buffer, index, packet, parent)
@@ -3385,8 +3478,15 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.sequence_number_reset_mess
   -- Source Time: Binary
   index, source_time = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: Binary
   index, product_id = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.product_id.dissect(buffer, index, packet, parent)
@@ -3728,7 +3828,17 @@ nyse_arcaequities_depthfeedretransmission_pillar_v1_6.packet.dissect = function(
   -- establish frame context from the conversation's stored values
   local data = nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.data(packet)
   if not packet.visited then
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
   end
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = data.source_time.frames[packet.number]
   nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.current = data
 
   local index = 0
@@ -3752,6 +3862,9 @@ end
 
 -- Initialize Dissector
 function omi_nyse_arcaequities_depthfeedretransmission_pillar_v1_6.init()
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.source_time.current = nil
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.current = nil
+  nyse_arcaequities_depthfeedretransmission_pillar_v1_6.conversation.flows = {}
 end
 
 -- Dissector for Nyse ArcaEquities DepthFeedRetransmission Pillar 1.6

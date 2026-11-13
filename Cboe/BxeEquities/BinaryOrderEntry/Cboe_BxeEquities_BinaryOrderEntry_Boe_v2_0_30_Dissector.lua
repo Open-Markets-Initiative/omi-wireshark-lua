@@ -2772,7 +2772,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.client_qualified_role.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.client_qualified_role.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.client_qualified_role.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.client_qualified_role, range, value, display)
@@ -3297,7 +3297,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.executor_qualified_role.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.executor_qualified_role.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.executor_qualified_role.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.executor_qualified_role, range, value, display)
@@ -3478,7 +3478,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.investor_qualified_role.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.investor_qualified_role.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.investor_qualified_role.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.investor_qualified_role, range, value, display)
@@ -3924,7 +3924,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.match_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.match_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.match_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.match_type, range, value, display)
@@ -3947,7 +3947,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.matching_unit, range, value, display)
@@ -4089,7 +4089,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.message_type, range, value, display)
@@ -4259,7 +4259,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.no_sides.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.no_sides.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.no_sides.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.no_sides, range, value, display)
@@ -4282,7 +4282,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.no_unspecified_unit_replay.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.no_unspecified_unit_replay.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.no_unspecified_unit_replay.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.no_unspecified_unit_replay, range, value, display)
@@ -4305,7 +4305,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_cancel_order_v_2_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_cancel_order_v_2_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_cancel_order_v_2_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.number_of_cancel_order_v_2_bitfields, range, value, display)
@@ -4328,7 +4328,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_modify_order_v_2_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_modify_order_v_2_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_modify_order_v_2_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.number_of_modify_order_v_2_bitfields, range, value, display)
@@ -4351,7 +4351,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_new_order_v_2_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_new_order_v_2_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_new_order_v_2_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.number_of_new_order_v_2_bitfields, range, value, display)
@@ -4374,7 +4374,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_param_groups.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_param_groups.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_param_groups.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.number_of_param_groups, range, value, display)
@@ -4397,7 +4397,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_return_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_return_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_return_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.number_of_return_bitfields, range, value, display)
@@ -4420,7 +4420,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_trade_capture_confirm_v_2_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_trade_capture_confirm_v_2_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_trade_capture_confirm_v_2_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.number_of_trade_capture_confirm_v_2_bitfields, range, value, display)
@@ -4443,7 +4443,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_trade_capture_report_acknowledgment_v_2_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_trade_capture_report_acknowledgment_v_2_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_trade_capture_report_acknowledgment_v_2_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.number_of_trade_capture_report_acknowledgment_v_2_bitfields, range, value, display)
@@ -4466,7 +4466,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_trade_capture_report_v_2_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_trade_capture_report_v_2_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_trade_capture_report_v_2_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.number_of_trade_capture_report_v_2_bitfields, range, value, display)
@@ -4489,7 +4489,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_units.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_units.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.number_of_units, range, value, display)
@@ -4615,7 +4615,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_category.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_category.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.order_category, range, value, display)
@@ -4937,7 +4937,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.param_group_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.param_group_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.param_group_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.param_group_type, range, value, display)
@@ -5587,7 +5587,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.secondary_trd_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.secondary_trd_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.secondary_trd_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.secondary_trd_type, range, value, display)
@@ -6089,7 +6089,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_handling_instruction.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_handling_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_handling_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_handling_instruction, range, value, display)
@@ -6176,7 +6176,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_price_condition.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_price_condition.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_price_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_price_condition, range, value, display)
@@ -6205,7 +6205,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_publish_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_publish_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_publish_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_publish_indicator, range, value, display)
@@ -6313,7 +6313,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_report_trans_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_report_trans_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_report_trans_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_report_trans_type, range, value, display)
@@ -6341,7 +6341,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_report_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_report_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_report_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_report_type, range, value, display)
@@ -6421,7 +6421,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trading_session_sub_id, range, value, display)
@@ -6511,7 +6511,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trd_sub_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trd_sub_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trd_sub_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trd_sub_type, range, value, display)
@@ -6534,7 +6534,7 @@ end
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.unit_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.unit_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.unit_number, range, value, display)
@@ -8085,7 +8085,7 @@ end
 -- Dissect Fields: Trade Capture Report Decline V 2 Message
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_decline_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_decline_v_2_message)
   local index = offset
-  local number_of_return_bitfields = buffer(offset + 134, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 134, 1):uint()
   local trade_capture_report_decline_v_2_return_bitfield_1 = buffer(offset + 135, 1):le_uint()
 
   -- Transaction Time: DateTime
@@ -9899,7 +9899,7 @@ end
 -- Dissect Fields: Trade Capture Confirm V 2 Message
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_confirm_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_confirm_v_2_message)
   local index = offset
-  local number_of_trade_capture_confirm_v_2_bitfields = buffer(offset + 73, 1):le_uint()
+  local number_of_trade_capture_confirm_v_2_bitfields = buffer(offset + 73, 1):uint()
   local trade_capture_confirm_v_2_bitfield_1 = buffer(offset + 74, 1):le_uint()
 
   -- Transaction Time: DateTime
@@ -11743,7 +11743,7 @@ end
 -- Dissect Fields: Trade Capture Report Reject V 2 Message
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_reject_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_reject_v_2_message)
   local index = offset
-  local number_of_return_bitfields = buffer(offset + 90, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 90, 1):uint()
   local trade_capture_report_reject_v_2_return_bitfield_1 = buffer(offset + 91, 1):le_uint()
 
   -- Transaction Time: DateTime
@@ -13533,7 +13533,7 @@ end
 -- Dissect Fields: Trade Capture Report Acknowledgment V 2 Message
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_acknowledgment_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_acknowledgment_v_2_message)
   local index = offset
-  local number_of_trade_capture_report_acknowledgment_v_2_bitfields = buffer(offset + 29, 1):le_uint()
+  local number_of_trade_capture_report_acknowledgment_v_2_bitfields = buffer(offset + 29, 1):uint()
   local trade_capture_report_acknowledgment_v_2_bitfield_1 = buffer(offset + 30, 1):le_uint()
 
   -- Transaction Time: DateTime
@@ -30437,7 +30437,7 @@ end
 -- Dissect Fields: Trade Capture Report V 2 Message
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_v_2_message)
   local index = offset
-  local number_of_trade_capture_report_v_2_bitfields = buffer(offset + 32, 1):le_uint()
+  local number_of_trade_capture_report_v_2_bitfields = buffer(offset + 32, 1):uint()
 
   -- Trade Report Id: Text
   index, trade_report_id = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_report_id.dissect(buffer, index, packet, parent)
@@ -32831,7 +32831,7 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.packet.dissect = function(buffer, 
   index, message_header = cboe_bxeequities_binaryorderentry_boe_v2_0_30.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 6, 1):le_uint()
+  local message_type = buffer(index - 6, 1):uint()
 
   -- Message: Runtime Type with 24 branches
   index = cboe_bxeequities_binaryorderentry_boe_v2_0_30.message.dissect(buffer, index, packet, parent, message_type)
@@ -32895,7 +32895,7 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.packet.fingerprint = function(buff
     return false
   end
 
-  local message_type = buffer(4, 1):le_uint()
+  local message_type = buffer(4, 1):uint()
 
   -- Login Request V 2 Message
   if message_type == 0x37 then

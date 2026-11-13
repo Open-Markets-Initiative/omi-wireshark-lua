@@ -309,7 +309,7 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.corrected_settlement_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.corrected_settlement_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.corrected_settlement_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.corrected_settlement_type, range, value, display)
@@ -344,7 +344,7 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.cross_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.cross_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.cross_type, range, value, display)
@@ -524,7 +524,7 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.message_count, range, value, display)
@@ -547,7 +547,7 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.message_length.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.message_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.message_length, range, value, display)
@@ -592,7 +592,7 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.message_type, range, value, display)
@@ -624,7 +624,7 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.order_book_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.order_book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.order_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.order_book_type, range, value, display)
@@ -722,7 +722,7 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.original_settlement_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.original_settlement_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.original_settlement_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.original_settlement_type, range, value, display)
@@ -885,7 +885,7 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.security_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.security_type, range, value, display)
@@ -1016,7 +1016,7 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.settlement_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.settlement_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.settlement_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.settlement_type, range, value, display)
@@ -1163,7 +1163,7 @@ end
 cboe_neoequities_crossingfacility_pitch_v1_0_14.unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_crossingfacility_pitch_v1_0_14.unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.unit, range, value, display)
@@ -1900,7 +1900,7 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.message.size = function(buffer, 
   local index = offset
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset, 1):le_uint()
+  local message_length = buffer(offset, 1):uint()
 
   return message_length
 end
@@ -1930,7 +1930,7 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.message.fields = function(buffer
   index, message_header = cboe_neoequities_crossingfacility_pitch_v1_0_14.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 1, 1):le_uint()
+  local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 7 branches
   index = cboe_neoequities_crossingfacility_pitch_v1_0_14.payload.dissect(buffer, index, packet, parent, message_type)
@@ -1996,7 +1996,7 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.messages.dissect = function(buff
   for message_index = 1, message_count do
 
     -- Dependency element: Message Length
-    local message_length = buffer(offset, 1):le_uint()
+    local message_length = buffer(offset, 1):uint()
 
     -- Message: Struct of 2 fields
     offset = cboe_neoequities_crossingfacility_pitch_v1_0_14.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -2074,7 +2074,7 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.packet.dissect = function(buffer
   index, packet_header = cboe_neoequities_crossingfacility_pitch_v1_0_14.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
-  local message_count = buffer(index - 6, 1):le_uint()
+  local message_count = buffer(index - 6, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = cboe_neoequities_crossingfacility_pitch_v1_0_14.messages.dissect(buffer, index, packet, parent, message_count)

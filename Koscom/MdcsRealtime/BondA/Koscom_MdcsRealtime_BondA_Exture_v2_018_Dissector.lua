@@ -25,8 +25,10 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_ask_trading_volum
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_bid_trading_value = ProtoField.new("Accumulated Bid Trading Value", "koscom.mdcsrealtime.bonda.exture.v2.018.accumulatedbidtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Accumulated Bid Trading Volume.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_bid_trading_volume = ProtoField.new("Accumulated Bid Trading Volume", "koscom.mdcsrealtime.bonda.exture.v2.018.accumulatedbidtradingvolume", ftypes.UINT64, nil, nil, nil, "Accumulated Bid Trading Volume.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_cash = ProtoField.new("Accumulated Cash", "koscom.mdcsrealtime.bonda.exture.v2.018.accumulatedcash", ftypes.DOUBLE, nil, nil, nil, "Accumulated cash position (26 ASCII digits with 6 implied decimal places).")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_value = ProtoField.new("Accumulated Trading Value", "koscom.mdcsrealtime.bonda.exture.v2.018.accumulatedtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Accumulated trading value Trading value=trading amount*trading price")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_volume = ProtoField.new("Accumulated Trading Volume", "koscom.mdcsrealtime.bonda.exture.v2.018.accumulatedtradingvolume", ftypes.UINT64)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_value_long = ProtoField.new("Accumulated Trading Value Long", "koscom.mdcsrealtime.bonda.exture.v2.018.accumulatedtradingvaluelong", ftypes.DOUBLE, nil, nil, nil, "Accumulated trading value Trading value=trading amount*trading price")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_value_short = ProtoField.new("Accumulated Trading Value Short", "koscom.mdcsrealtime.bonda.exture.v2.018.accumulatedtradingvalueshort", ftypes.UINT64, nil, nil, nil, "Accumulated trading value of the index constituents (12 ASCII digits). Unit: Million KRW.")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_volume_long = ProtoField.new("Accumulated Trading Volume Long", "koscom.mdcsrealtime.bonda.exture.v2.018.accumulatedtradingvolumelong", ftypes.UINT64, nil, nil, nil, "Accumulated Trading Volume")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_volume_short = ProtoField.new("Accumulated Trading Volume Short", "koscom.mdcsrealtime.bonda.exture.v2.018.accumulatedtradingvolumeshort", ftypes.UINT64, nil, nil, nil, "Accumulated trading volume of the index constituents (12 ASCII digits). Unit: 1,000 shares.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.additional_yield = ProtoField.new("Additional Yield", "koscom.mdcsrealtime.bonda.exture.v2.018.additionalyield", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.additional_yield_effective_date = ProtoField.new("Additional Yield Effective Date", "koscom.mdcsrealtime.bonda.exture.v2.018.additionalyieldeffectivedate", ftypes.STRING, nil, nil, nil, "Additional Yield_Effective Date")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.amortization_type_code = ProtoField.new("Amortization Type Code", "koscom.mdcsrealtime.bonda.exture.v2.018.amortizationtypecode", ftypes.STRING, nil, nil, nil, "Amortization Type Code 1: Level Payment of Principal 2: Level Payment of Principal and Interest 3: Un-level Payment")
@@ -151,7 +153,8 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.bond_yield = ProtoField.new("
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.business_date = ProtoField.new("Business Date", "koscom.mdcsrealtime.bonda.exture.v2.018.businessdate", ftypes.STRING, nil, nil, nil, "Business Date.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculating_date = ProtoField.new("Calculating Date", "koscom.mdcsrealtime.bonda.exture.v2.018.calculatingdate", ftypes.STRING, nil, nil, nil, "Calculation date in YYYYMMDD format.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculating_time = ProtoField.new("Calculating Time", "koscom.mdcsrealtime.bonda.exture.v2.018.calculatingtime", ftypes.STRING, nil, nil, nil, "Calculation time in HHMMSS plus two trailing spaces.")
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculation_time = ProtoField.new("Calculation Time", "koscom.mdcsrealtime.bonda.exture.v2.018.calculationtime", ftypes.STRING, nil, nil, nil, "Calculation Time.")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculation_time_long = ProtoField.new("Calculation Time Long", "koscom.mdcsrealtime.bonda.exture.v2.018.calculationtimelong", ftypes.STRING, nil, nil, nil, "Calculation Time.")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculation_time_short = ProtoField.new("Calculation Time Short", "koscom.mdcsrealtime.bonda.exture.v2.018.calculationtimeshort", ftypes.STRING, nil, nil, nil, "Index calculation time. During market hours: HHMMSS (time:min:sec). End of the regular session: final calculation timestamp.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_re_investment_index_weight = ProtoField.new("Call Re Investment Index Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexweight", ftypes.DOUBLE, nil, nil, nil, "Weighted call re-investment index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_reinvestment_index_krx = ProtoField.new("Call Re-Investment Index Krx", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexkrx", ftypes.DOUBLE, nil, nil, nil, "Call re-investment index value (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.call_reinvestment_index_ktb = ProtoField.new("Call Re-Investment Index Ktb", "koscom.mdcsrealtime.bonda.exture.v2.018.callreinvestmentindexktb", ftypes.DOUBLE, nil, nil, nil, "Call re-investment index (11 ASCII digits with 4 implied decimal places).")
@@ -277,7 +280,8 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.isin_code = ProtoField.new("I
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.isin_code_of_a_common_stock = ProtoField.new("Isin Code Of A Common Stock", "koscom.mdcsrealtime.bonda.exture.v2.018.isincodeofacommonstock", ftypes.STRING, nil, nil, nil, "ISIN code of a Common Stock.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_code_of_post_exercise = ProtoField.new("Issue Code Of Post Exercise", "koscom.mdcsrealtime.bonda.exture.v2.018.issuecodeofpostexercise", ftypes.STRING, nil, nil, nil, "Issue Code of Post-exercise")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_date = ProtoField.new("Issue Date", "koscom.mdcsrealtime.bonda.exture.v2.018.issuedate", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_name = ProtoField.new("Issue Name", "koscom.mdcsrealtime.bonda.exture.v2.018.issuename", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_name_long = ProtoField.new("Issue Name Long", "koscom.mdcsrealtime.bonda.exture.v2.018.issuenamelong", ftypes.STRING, nil, nil, nil, "Issue Name")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_name_short = ProtoField.new("Issue Name Short", "koscom.mdcsrealtime.bonda.exture.v2.018.issuenameshort", ftypes.STRING, nil, nil, nil, "ISSUE Name")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issued_amount = ProtoField.new("Issued Amount", "koscom.mdcsrealtime.bonda.exture.v2.018.issuedamount", ftypes.UINT64, nil, nil, nil, "Total issued amount across constituents (20 ASCII digits). Unit: KRW.")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issued_amount_weight = ProtoField.new("Issued Amount Weight", "koscom.mdcsrealtime.bonda.exture.v2.018.issuedamountweight", ftypes.DOUBLE, nil, nil, nil, "Weighted issued amount (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issuer_code = ProtoField.new("Issuer Code", "koscom.mdcsrealtime.bonda.exture.v2.018.issuercode", ftypes.STRING)
@@ -409,7 +413,8 @@ omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trading_price = ProtoField.ne
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trading_value = ProtoField.new("Trading Value", "koscom.mdcsrealtime.bonda.exture.v2.018.tradingvalue", ftypes.DOUBLE, nil, nil, nil, "Trading value = Trading Price * Trading Volume")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trading_volume = ProtoField.new("Trading Volume", "koscom.mdcsrealtime.bonda.exture.v2.018.tradingvolume", ftypes.UINT64)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.transmission_date = ProtoField.new("Transmission Date", "koscom.mdcsrealtime.bonda.exture.v2.018.transmissiondate", ftypes.STRING)
-omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.transmission_time = ProtoField.new("Transmission Time", "koscom.mdcsrealtime.bonda.exture.v2.018.transmissiontime", ftypes.STRING)
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.transmission_time_long = ProtoField.new("Transmission Time Long", "koscom.mdcsrealtime.bonda.exture.v2.018.transmissiontimelong", ftypes.STRING, nil, nil, nil, "Transmission Time")
+omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.transmission_time_short = ProtoField.new("Transmission Time Short", "koscom.mdcsrealtime.bonda.exture.v2.018.transmissiontimeshort", ftypes.STRING, nil, nil, nil, "Transmission time in HHMMSSMM format (8 ASCII digits).")
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.trustee_code = ProtoField.new("Trustee Code", "koscom.mdcsrealtime.bonda.exture.v2.018.trusteecode", ftypes.STRING)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.unstripped_balance = ProtoField.new("Unstripped Balance", "koscom.mdcsrealtime.bonda.exture.v2.018.unstrippedbalance", ftypes.DOUBLE)
 omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.unusual_issuance_condition = ProtoField.new("Unusual Issuance Condition", "koscom.mdcsrealtime.bonda.exture.v2.018.unusualissuancecondition", ftypes.STRING)
@@ -943,78 +948,140 @@ koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_cash.dissect = function(buff
   return offset + length, value
 end
 
--- Accumulated Trading Value
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value = {}
+-- Accumulated Trading Value Long
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long = {}
 
--- Size: Accumulated Trading Value
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size = 22
+-- Size: Accumulated Trading Value Long
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.size = 22
 
--- Display: Accumulated Trading Value
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size):string()
+-- Display: Accumulated Trading Value Long
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Accumulated Trading Value: No Value"
+    return "Accumulated Trading Value Long: No Value"
   end
 
   local point = text:find(".", 1, true)
   local places = point and (#text - point) or 0
 
   if places ~= 3 then
-    return "Accumulated Trading Value: "..text.." (expected 3 places)"
+    return "Accumulated Trading Value Long: "..text.." (expected 3 places)"
   end
 
-  return "Accumulated Trading Value: "..text
+  return "Accumulated Trading Value Long: "..text
 end
 
--- Dissect: Accumulated Trading Value
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size
+-- Dissect: Accumulated Trading Value Long
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_value, range, value, "Accumulated Trading Value: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Accumulated Trading Value is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_value_long, range, value, "Accumulated Trading Value Long: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Accumulated Trading Value Long is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_value, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_value_long, range, value, display)
 
   return offset + length, value
 end
 
--- Accumulated Trading Volume
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume = {}
+-- Accumulated Trading Value Short
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_short = {}
 
--- Size: Accumulated Trading Volume
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size = 15
+-- Size: Accumulated Trading Value Short
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_short.size = 12
 
--- Display: Accumulated Trading Volume
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.display = function(value)
-  return "Accumulated Trading Volume: "..value
+-- Display: Accumulated Trading Value Short
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_short.display = function(value)
+  return "Accumulated Trading Value Short: "..value
 end
 
--- Dissect: Accumulated Trading Volume
-koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size
+-- Dissect: Accumulated Trading Value Short
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_short.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_short.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_volume, range, value, "Accumulated Trading Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Accumulated Trading Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_value_short, range, value, "Accumulated Trading Value Short: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Accumulated Trading Value Short is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_volume, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_value_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accumulated Trading Volume Long
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long = {}
+
+-- Size: Accumulated Trading Volume Long
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.size = 15
+
+-- Display: Accumulated Trading Volume Long
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.display = function(value)
+  return "Accumulated Trading Volume Long: "..value
+end
+
+-- Dissect: Accumulated Trading Volume Long
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_volume_long, range, value, "Accumulated Trading Volume Long: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Accumulated Trading Volume Long is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_volume_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Accumulated Trading Volume Short
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_short = {}
+
+-- Size: Accumulated Trading Volume Short
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_short.size = 12
+
+-- Display: Accumulated Trading Volume Short
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_short.display = function(value)
+  return "Accumulated Trading Volume Short: "..value
+end
+
+-- Dissect: Accumulated Trading Volume Short
+koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_short.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_short.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_volume_short, range, value, "Accumulated Trading Volume Short: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_bonda_exture_v2_018.experts.not_a_number, "Accumulated Trading Volume Short is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.accumulated_trading_volume_short, range, value, display)
 
   return offset + length, value
 end
@@ -5444,25 +5511,52 @@ koscom_mdcsrealtime_bonda_exture_v2_018.calculating_time.dissect = function(buff
   return offset + length, value
 end
 
--- Calculation Time
-koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time = {}
+-- Calculation Time Long
+koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_long = {}
 
--- Size: Calculation Time
-koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.size = 9
+-- Size: Calculation Time Long
+koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_long.size = 9
 
--- Display: Calculation Time
-koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.display = function(value)
-  return "Calculation Time: "..value
+-- Display: Calculation Time Long
+koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_long.display = function(value)
+  return "Calculation Time Long: "..value
 end
 
--- Dissect: Calculation Time
-koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.size
+-- Dissect: Calculation Time Long
+koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_long.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculation_time, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculation_time_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculation Time Short
+koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short = {}
+
+-- Size: Calculation Time Short
+koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.size = 6
+
+-- Display: Calculation Time Short
+koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.display = function(value)
+  if #value < 6 then
+    return "Calculation Time Short: "..value
+  end
+
+  return "Calculation Time Short: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+end
+
+-- Dissect: Calculation Time Short
+koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.calculation_time_short, range, value, display)
 
   return offset + length, value
 end
@@ -9315,25 +9409,48 @@ koscom_mdcsrealtime_bonda_exture_v2_018.issue_date.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Issue Name
-koscom_mdcsrealtime_bonda_exture_v2_018.issue_name = {}
+-- Issue Name Long
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_long = {}
 
--- Size: Issue Name
-koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.size = 80
+-- Size: Issue Name Long
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_long.size = 80
 
--- Display: Issue Name
-koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.display = function(value)
-  return "Issue Name: "..value
+-- Display: Issue Name Long
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_long.display = function(value)
+  return "Issue Name Long: "..value
 end
 
--- Dissect: Issue Name
-koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.size
+-- Dissect: Issue Name Long
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_long.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_name, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_name_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Issue Name Short
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_short = {}
+
+-- Size: Issue Name Short
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_short.size = 60
+
+-- Display: Issue Name Short
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_short.display = function(value)
+  return "Issue Name Short: "..value
+end
+
+-- Dissect: Issue Name Short
+koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_short.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_short.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.issue_name_short, range, value, display)
 
   return offset + length, value
 end
@@ -13599,25 +13716,52 @@ koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.dissect = function(buf
   return offset + length, value
 end
 
--- Transmission Time
-koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time = {}
+-- Transmission Time Long
+koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_long = {}
 
--- Size: Transmission Time
-koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.size = 9
+-- Size: Transmission Time Long
+koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_long.size = 9
 
--- Display: Transmission Time
-koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.display = function(value)
-  return "Transmission Time: "..value
+-- Display: Transmission Time Long
+koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_long.display = function(value)
+  return "Transmission Time Long: "..value
 end
 
--- Dissect: Transmission Time
-koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.size
+-- Dissect: Transmission Time Long
+koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_long.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding))
-  local display = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.transmission_time, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.transmission_time_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transmission Time Short
+koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_short = {}
+
+-- Size: Transmission Time Short
+koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_short.size = 8
+
+-- Display: Transmission Time Short
+koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_short.display = function(value)
+  if #value < 8 then
+    return "Transmission Time Short: "..value
+  end
+
+  return "Transmission Time Short: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 8)
+end
+
+-- Dissect: Transmission Time Short
+koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_short.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_short.size
+  local range = buffer(offset, length)
+  local value = range:string(koscom_mdcsrealtime_bonda_exture_v2_018.text_encoding)
+  local display = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_018.fields.transmission_time_short, range, value, display)
 
   return offset + length, value
 end
@@ -14282,8 +14426,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_order_filled_plus_quote_message.siz
   koscom_mdcsrealtime_bonda_exture_v2_018.category_opening_price.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_high.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_low.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_volume.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_value.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_price.size + 
@@ -14455,11 +14599,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.repo_order_filled_plus_quote_message.fie
   -- Category Todays Low: Double
   index, category_todays_low = koscom_mdcsrealtime_bonda_exture_v2_018.category_todays_low.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Volume: Long
-  index, accumulated_trading_volume = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Volume Long: Long
+  index, accumulated_trading_volume_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Category Accumulated Trading Volume: Long
   index, category_accumulated_trading_volume = koscom_mdcsrealtime_bonda_exture_v2_018.category_accumulated_trading_volume.dissect(buffer, index, packet, parent)
@@ -14815,8 +14959,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.baby_bonds_order_filled_plus_quote_messa
   koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.settlement_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_price.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_price.size + 
@@ -14941,11 +15085,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.baby_bonds_order_filled_plus_quote_messa
   -- Yield Todays Low: Double
   index, yield_todays_low = koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Volume: Long
-  index, accumulated_trading_volume = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Volume Long: Long
+  index, accumulated_trading_volume_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Settlement Date: String
   index, settlement_date = koscom_mdcsrealtime_bonda_exture_v2_018.settlement_date.dissect(buffer, index, packet, parent)
@@ -16034,7 +16178,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_information_text_message.size
   koscom_mdcsrealtime_bonda_exture_v2_018.message_sequence_number.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_long.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.english_issue_name.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.unusual_issuance_condition.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.reason_for_exercising_a_call.size + 
@@ -16062,8 +16206,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_information_text_message.fiel
   -- Transmission Date: String
   index, transmission_date = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.dissect(buffer, index, packet, parent)
 
-  -- Issue Name: String
-  index, issue_name = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.dissect(buffer, index, packet, parent)
+  -- Issue Name Long: String
+  index, issue_name_long = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_long.dissect(buffer, index, packet, parent)
 
   -- English Issue Name: String
   index, english_issue_name = koscom_mdcsrealtime_bonda_exture_v2_018.english_issue_name.dissect(buffer, index, packet, parent)
@@ -16118,7 +16262,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.siz
   koscom_mdcsrealtime_bonda_exture_v2_018.message_sequence_number.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_long.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.record_process_category.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_name.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.abbreviated_issue_name_in_en.size + 
@@ -16177,7 +16321,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.siz
   koscom_mdcsrealtime_bonda_exture_v2_018.bond_delisted_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_rights_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.isin.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_short.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.exercise_ratio.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.date_to_start_exercising.size + 
@@ -16246,8 +16390,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.fie
   -- Transmission Date: String
   index, transmission_date = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.dissect(buffer, index, packet, parent)
 
-  -- Transmission Time: String
-  index, transmission_time = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.dissect(buffer, index, packet, parent)
+  -- Transmission Time Long: String
+  index, transmission_time_long = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_long.dissect(buffer, index, packet, parent)
 
   -- Record Process Category: String
   index, record_process_category = koscom_mdcsrealtime_bonda_exture_v2_018.record_process_category.dissect(buffer, index, packet, parent)
@@ -16423,8 +16567,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_isin_issue_information_message.fie
   -- Isin: String
   index, isin = koscom_mdcsrealtime_bonda_exture_v2_018.isin.dissect(buffer, index, packet, parent)
 
-  -- Issue Name: String
-  index, issue_name = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name.dissect(buffer, index, packet, parent)
+  -- Issue Name Short: String
+  index, issue_name_short = koscom_mdcsrealtime_bonda_exture_v2_018.issue_name_short.dissect(buffer, index, packet, parent)
 
   -- Equity Linked Bond Exercise Price: Double
   index, equity_linked_bond_exercise_price = koscom_mdcsrealtime_bonda_exture_v2_018.equity_linked_bond_exercise_price.dissect(buffer, index, packet, parent)
@@ -16820,7 +16964,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ktb_average_yield_message = {}
 -- Size: Ktb Average Yield Message
 koscom_mdcsrealtime_bonda_exture_v2_018.ktb_average_yield_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_long.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.average_yield.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
@@ -16837,8 +16981,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ktb_average_yield_message.fields = funct
   -- Transmission Date: String
   index, transmission_date = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.dissect(buffer, index, packet, parent)
 
-  -- Calculation Time: String
-  index, calculation_time = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.dissect(buffer, index, packet, parent)
+  -- Calculation Time Long: String
+  index, calculation_time_long = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_long.dissect(buffer, index, packet, parent)
 
   -- Short Term Interest Rates Type Code: String
   index, short_term_interest_rates_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.dissect(buffer, index, packet, parent)
@@ -16876,7 +17020,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ktb_short_term_yield_message = {}
 -- Size: Ktb Short Term Yield Message
 koscom_mdcsrealtime_bonda_exture_v2_018.ktb_short_term_yield_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_long.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.short_term_yield.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
@@ -16893,8 +17037,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ktb_short_term_yield_message.fields = fu
   -- Transmission Date: String
   index, transmission_date = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_date.dissect(buffer, index, packet, parent)
 
-  -- Calculation Time: String
-  index, calculation_time = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.dissect(buffer, index, packet, parent)
+  -- Calculation Time Long: String
+  index, calculation_time_long = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_long.dissect(buffer, index, packet, parent)
 
   -- Short Term Interest Rates Type Code: String
   index, short_term_interest_rates_type_code = koscom_mdcsrealtime_bonda_exture_v2_018.short_term_interest_rates_type_code.dissect(buffer, index, packet, parent)
@@ -16934,8 +17078,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ktb_confirmed_info_for_wit_message.size 
   koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.trading_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.bid_closing_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.cancellation.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
@@ -16957,11 +17101,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.ktb_confirmed_info_for_wit_message.field
   -- Bid Closing Date: String
   index, bid_closing_date = koscom_mdcsrealtime_bonda_exture_v2_018.bid_closing_date.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Volume: Long
-  index, accumulated_trading_volume = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Volume Long: Long
+  index, accumulated_trading_volume_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Cancellation: String
   index, cancellation = koscom_mdcsrealtime_bonda_exture_v2_018.cancellation.dissect(buffer, index, packet, parent)
@@ -17850,7 +17994,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_negotiated_trade_data_message.size
   koscom_mdcsrealtime_bonda_exture_v2_018.board_id.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.a_designated_number_for_an_issue.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
 -- Display: Bonds Negotiated Trade Data Message
@@ -17871,8 +18015,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_negotiated_trade_data_message.fiel
   -- A Designated Number For An Issue: Int
   index, a_designated_number_for_an_issue = koscom_mdcsrealtime_bonda_exture_v2_018.a_designated_number_for_an_issue.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Volume: Long
-  index, accumulated_trading_volume = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Volume Long: Long
+  index, accumulated_trading_volume_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -17919,8 +18063,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.general_bonds_ktb_order_filled_plus_quot
   koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.settlement_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.ask_level_1_price.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.bid_level_1_price.size + 
@@ -18013,11 +18157,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.general_bonds_ktb_order_filled_plus_quot
   -- Yield Todays Low: Double
   index, yield_todays_low = koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Volume: Long
-  index, accumulated_trading_volume = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Volume Long: Long
+  index, accumulated_trading_volume_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Settlement Date: String
   index, settlement_date = koscom_mdcsrealtime_bonda_exture_v2_018.settlement_date.dissect(buffer, index, packet, parent)
@@ -18163,8 +18307,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_order_filled_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.yield_opening_price.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_high.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.settlement_date.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
@@ -18225,11 +18369,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bonds_order_filled_message.fields = func
   -- Yield Todays Low: Double
   index, yield_todays_low = koscom_mdcsrealtime_bonda_exture_v2_018.yield_todays_low.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Volume: Long
-  index, accumulated_trading_volume = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Volume Long: Long
+  index, accumulated_trading_volume_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_long.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Long: FLOAT128
+  index, accumulated_trading_value_long = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_long.dissect(buffer, index, packet, parent)
 
   -- Settlement Date: String
   index, settlement_date = koscom_mdcsrealtime_bonda_exture_v2_018.settlement_date.dissect(buffer, index, packet, parent)
@@ -19112,7 +19256,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_prime_index_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.average_duration.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.average_convexity.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_short.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
 -- Display: Bond Prime Index Message
@@ -19163,8 +19307,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.bond_prime_index_message.fields = functi
   -- Average Yld: FLOAT128
   index, average_yld = koscom_mdcsrealtime_bonda_exture_v2_018.average_yld.dissect(buffer, index, packet, parent)
 
-  -- Transmission Time: String
-  index, transmission_time = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time.dissect(buffer, index, packet, parent)
+  -- Transmission Time Short: String
+  index, transmission_time_short = koscom_mdcsrealtime_bonda_exture_v2_018.transmission_time_short.dissect(buffer, index, packet, parent)
 
   -- End Keyword: String
   index, end_keyword = koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.dissect(buffer, index, packet, parent)
@@ -19198,7 +19342,7 @@ koscom_mdcsrealtime_bonda_exture_v2_018.global_index_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.index_id.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.business_date.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size + 
@@ -19224,8 +19368,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.global_index_message.fields = function(b
   -- Business Date: String
   index, business_date = koscom_mdcsrealtime_bonda_exture_v2_018.business_date.dissect(buffer, index, packet, parent)
 
-  -- Calculation Time: String
-  index, calculation_time = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.dissect(buffer, index, packet, parent)
+  -- Calculation Time Short: String
+  index, calculation_time_short = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.dissect(buffer, index, packet, parent)
 
   -- Index: Double
   index, index = koscom_mdcsrealtime_bonda_exture_v2_018.index.dissect(buffer, index, packet, parent)
@@ -19277,12 +19421,12 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_estimated_index_message = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.krx_estimated_index_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.index_id.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_short.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_short.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
@@ -19301,8 +19445,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_estimated_index_message.fields = fun
   -- Isin Code: String
   index, isin_code = koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.dissect(buffer, index, packet, parent)
 
-  -- Calculation Time: String
-  index, calculation_time = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.dissect(buffer, index, packet, parent)
+  -- Calculation Time Short: String
+  index, calculation_time_short = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.dissect(buffer, index, packet, parent)
 
   -- Index: Double
   index, index = koscom_mdcsrealtime_bonda_exture_v2_018.index.dissect(buffer, index, packet, parent)
@@ -19313,11 +19457,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_estimated_index_message.fields = fun
   -- Index Change Against The Previous Day: Double
   index, index_change_against_the_previous_day = koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Volume: Long
-  index, accumulated_trading_volume = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Volume Short: Long
+  index, accumulated_trading_volume_short = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_short.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Short: Long
+  index, accumulated_trading_value_short = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_short.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
   if show.padding then
@@ -19357,12 +19501,12 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_index_message = {}
 koscom_mdcsrealtime_bonda_exture_v2_018.krx_index_message.size =
   koscom_mdcsrealtime_bonda_exture_v2_018.index_id.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index_change_sign_against_the_previous_day.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.size + 
-  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_short.size + 
+  koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_short.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.filler_4.size + 
   koscom_mdcsrealtime_bonda_exture_v2_018.end_keyword.size
 
@@ -19381,8 +19525,8 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_index_message.fields = function(buff
   -- Isin Code: String
   index, isin_code = koscom_mdcsrealtime_bonda_exture_v2_018.isin_code.dissect(buffer, index, packet, parent)
 
-  -- Calculation Time: String
-  index, calculation_time = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time.dissect(buffer, index, packet, parent)
+  -- Calculation Time Short: String
+  index, calculation_time_short = koscom_mdcsrealtime_bonda_exture_v2_018.calculation_time_short.dissect(buffer, index, packet, parent)
 
   -- Index: Double
   index, index = koscom_mdcsrealtime_bonda_exture_v2_018.index.dissect(buffer, index, packet, parent)
@@ -19393,11 +19537,11 @@ koscom_mdcsrealtime_bonda_exture_v2_018.krx_index_message.fields = function(buff
   -- Index Change Against The Previous Day: Double
   index, index_change_against_the_previous_day = koscom_mdcsrealtime_bonda_exture_v2_018.index_change_against_the_previous_day.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Volume: Long
-  index, accumulated_trading_volume = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Volume Short: Long
+  index, accumulated_trading_volume_short = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_volume_short.dissect(buffer, index, packet, parent)
 
-  -- Accumulated Trading Value: FLOAT128
-  index, accumulated_trading_value = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value.dissect(buffer, index, packet, parent)
+  -- Accumulated Trading Value Short: Long
+  index, accumulated_trading_value_short = koscom_mdcsrealtime_bonda_exture_v2_018.accumulated_trading_value_short.dissect(buffer, index, packet, parent)
 
   -- Filler 4: String
   if show.padding then

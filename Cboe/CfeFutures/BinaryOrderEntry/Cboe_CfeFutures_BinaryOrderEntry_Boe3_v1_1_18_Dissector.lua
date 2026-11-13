@@ -105,7 +105,7 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.quote_update_option_gro
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.replay_unspecified_unit = ProtoField.new("Replay Unspecified Unit", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.replayunspecifiedunit", ftypes.STRING, nil, nil, nil, "Controls replay behavior for unknown units.")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.request_received_time = ProtoField.new("Request Received Time", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.requestreceivedtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The earliest timestamp, populated with nanosecond precision, recorded by CFE of the corresponding inbound message being acknowledged")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.request_received_time_utc = ProtoField.new("Request Received Time", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.requestreceivedtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The earliest timestamp, populated with nanosecond precision, recorded by CFE of the corresponding inbound message being acknowledged")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.reservedfield", ftypes.UINT8, nil, nil, nil, "Reserved header field")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.reservedfield", ftypes.BYTES, nil, nil, nil, "Reserved header field")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.restatement_reason = ProtoField.new("Restatement Reason", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.restatementreason", ftypes.STRING, nil, nil, nil, "The reason for this Quote Restated message")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.riskreset", ftypes.STRING, nil, nil, nil, "Single Character Values (Values may be combined) S=Product-level risk/lockout reset (Futures only) F=Firm-level risk/lockout reset (Futures only) C=CustomGroupId lockout reset (Futures only) R=Product-level risk/lockout reset (Options only) I=Firm-level risk/lockout reset")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.risk_reset_result = ProtoField.new("Risk Reset Result", "cboe.cfefutures.binaryorderentry.boe3.v1.1.18.riskresetresult", ftypes.STRING, nil, nil, nil, "Result of risk rest")
@@ -225,6 +225,7 @@ show.application_messages = true
 show.headers = true
 show.structs = true
 show.session_messages = true
+show.padding = false
 show.indexes = true
 
 -- Register Cboe CfeFutures BinaryOrderEntry Boe3 1.1.18 Show Options
@@ -235,6 +236,7 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_application_message
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
@@ -248,6 +250,9 @@ function omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs_changed()
   end
   if show.headers ~= omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_headers then
     show.headers = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_padding then
+    show.padding = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_padding
   end
   if show.session_messages ~= omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_session_messages then
     show.session_messages = omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.prefs.show_session_messages
@@ -1301,7 +1306,7 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_18.custom_group_id_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.custom_group_id_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.custom_group_id_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.custom_group_id_cnt, range, value, display)
@@ -1769,7 +1774,7 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_18.leg_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.leg_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.leg_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.leg_cnt, range, value, display)
@@ -2321,7 +2326,7 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_18.matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.matching_unit, range, value, display)
@@ -2640,7 +2645,7 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_18.number_of_units.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.number_of_units.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.number_of_units, range, value, display)
@@ -3280,7 +3285,7 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.quote_cnt, range, value, display)
@@ -3637,7 +3642,7 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_18.reserved_field.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.reserved_field.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.reserved_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.reserved_field, range, value, display)
@@ -4461,7 +4466,7 @@ end
 cboe_cfefutures_binaryorderentry_boe3_v1_1_18.unit_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.unit_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_1_18.fields.unit_number, range, value, display)
@@ -4631,7 +4636,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.new_complex_instrument_accepted_op
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.leg_cnt.size
 
   -- Calculate field size from count
-  local option_leg_count = buffer(offset + index - 1, 1):le_uint()
+  local option_leg_count = buffer(offset + index - 1, 1):uint()
   index = index + option_leg_count * 13
 
   return index
@@ -5129,7 +5134,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_update_acknowledgement.size 
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_cnt.size
 
   -- Calculate field size from count
-  local quote_update_acknowledgement_group_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_update_acknowledgement_group_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_update_acknowledgement_group_count * 10
 
   return index
@@ -6359,7 +6364,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.order_acknowledgement_option.size 
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.leg_cnt.size
 
   -- Calculate field size from count
-  local leg_position_effect_count = buffer(offset + index - 1, 1):le_uint()
+  local leg_position_effect_count = buffer(offset + index - 1, 1):uint()
   index = index + leg_position_effect_count * 1
 
   return index
@@ -6790,7 +6795,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.login_response_message.size = func
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequence_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequence_count * 5
 
   return index
@@ -6922,8 +6927,12 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.exchange_message_header.fields = f
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved Field: 1 Byte
+  if show.padding then
+    index, reserved_field = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.reserved_field.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.reserved_field.size
+  end
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.sequence_number.dissect(buffer, index, packet, parent)
@@ -7045,7 +7054,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.new_complex_instrument_option.size
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.leg_cnt.size
 
   -- Calculate field size from count
-  local option_accepted_leg_count = buffer(offset + index - 1, 1):le_uint()
+  local option_accepted_leg_count = buffer(offset + index - 1, 1):uint()
   index = index + option_accepted_leg_count * 29
 
   return index
@@ -7245,7 +7254,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_update_option.size = functio
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_cnt.size
 
   -- Calculate field size from count
-  local quote_update_option_group_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_update_option_group_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_update_option_group_count * 20
 
   return index
@@ -7416,7 +7425,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_update.size = function(buffe
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.quote_cnt.size
 
   -- Calculate field size from count
-  local quote_update_group_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_update_group_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_update_group_count * 20
 
   return index
@@ -7890,7 +7899,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.new_order_option.size = function(b
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.leg_cnt.size
 
   -- Calculate field size from count
-  local leg_position_effect_count = buffer(offset + index - 1, 1):le_uint()
+  local leg_position_effect_count = buffer(offset + index - 1, 1):uint()
   index = index + leg_position_effect_count * 1
 
   return index
@@ -8191,7 +8200,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.login_request_message.size = funct
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequence_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequence_count * 5
 
   return index
@@ -8310,8 +8319,12 @@ cboe_cfefutures_binaryorderentry_boe3_v1_1_18.firm_message_header.fields = funct
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved Field: 1 Byte
+  if show.padding then
+    index, reserved_field = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.reserved_field.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_cfefutures_binaryorderentry_boe3_v1_1_18.reserved_field.size
+  end
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_cfefutures_binaryorderentry_boe3_v1_1_18.sequence_number.dissect(buffer, index, packet, parent)

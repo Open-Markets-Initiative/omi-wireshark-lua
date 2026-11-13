@@ -19,6 +19,7 @@ omi_currenex_currenexforex_now_cbp_v10.fields.activity_indicator = ProtoField.ne
 omi_currenex_currenexforex_now_cbp_v10.fields.amount = ProtoField.new("Amount", "currenex.currenexforex.now.cbp.v10.amount", ftypes.DOUBLE, nil, nil, nil, "Aggregated amount at this level")
 omi_currenex_currenexforex_now_cbp_v10.fields.bid = ProtoField.new("Bid", "currenex.currenexforex.now.cbp.v10.bid", ftypes.STRING, nil, nil, nil, "Market level bid")
 omi_currenex_currenexforex_now_cbp_v10.fields.bid_price = ProtoField.new("Bid Price", "currenex.currenexforex.now.cbp.v10.bidprice", ftypes.DOUBLE)
+omi_currenex_currenexforex_now_cbp_v10.fields.calculation_timestamp = ProtoField.new("Calculation Timestamp", "currenex.currenexforex.now.cbp.v10.calculationtimestamp", ftypes.INT64, nil, nil, nil, "Epoch microseconds of WAMR calc")
 omi_currenex_currenexforex_now_cbp_v10.fields.conf_factor_25 = ProtoField.new("Conf Factor 25", "currenex.currenexforex.now.cbp.v10.conffactor25", ftypes.STRING, nil, nil, nil, "25th percentile confidence factor")
 omi_currenex_currenexforex_now_cbp_v10.fields.conf_factor_50 = ProtoField.new("Conf Factor 50", "currenex.currenexforex.now.cbp.v10.conffactor50", ftypes.STRING, nil, nil, nil, "50th percentile confidence factor")
 omi_currenex_currenexforex_now_cbp_v10.fields.conf_factor_75 = ProtoField.new("Conf Factor 75", "currenex.currenexforex.now.cbp.v10.conffactor75", ftypes.STRING, nil, nil, nil, "75th percentile confidence factor")
@@ -47,7 +48,7 @@ omi_currenex_currenexforex_now_cbp_v10.fields.subscribe_to_now_mid_activity_indi
 omi_currenex_currenexforex_now_cbp_v10.fields.subscribe_to_now_paid_given_with_bucketed_size = ProtoField.new("Subscribe To Now Paid Given With Bucketed Size", "currenex.currenexforex.now.cbp.v10.subscribetonowpaidgivenwithbucketedsize", ftypes.STRING, nil, nil, nil, "Subscribe to now paid/given with bucketed size")
 omi_currenex_currenexforex_now_cbp_v10.fields.subscribe_to_now_wamr_with_confidence_factor = ProtoField.new("Subscribe To Now Wamr With Confidence Factor", "currenex.currenexforex.now.cbp.v10.subscribetonowwamrwithconfidencefactor", ftypes.STRING, nil, nil, nil, "Subscribe to WAMR updates with confidence factor")
 omi_currenex_currenexforex_now_cbp_v10.fields.subscription_type = ProtoField.new("Subscription Type", "currenex.currenexforex.now.cbp.v10.subscriptiontype", ftypes.STRING, nil, nil, nil, "SubscriptionType")
-omi_currenex_currenexforex_now_cbp_v10.fields.timestamp = ProtoField.new("Timestamp", "currenex.currenexforex.now.cbp.v10.timestamp", ftypes.INT64, nil, nil, nil, "Epoch microseconds of WAMR calc")
+omi_currenex_currenexforex_now_cbp_v10.fields.timestamp = ProtoField.new("Timestamp", "currenex.currenexforex.now.cbp.v10.timestamp", ftypes.UINT32, nil, nil, nil, "Time in milliseconds since midnight GMT")
 omi_currenex_currenexforex_now_cbp_v10.fields.transact_time = ProtoField.new("Transact Time", "currenex.currenexforex.now.cbp.v10.transacttime", ftypes.INT64, nil, nil, nil, "Epoch ms of trade")
 omi_currenex_currenexforex_now_cbp_v10.fields.type = ProtoField.new("Type", "currenex.currenexforex.now.cbp.v10.type", ftypes.STRING, nil, nil, nil, "1=Accepted,2=Rejected")
 omi_currenex_currenexforex_now_cbp_v10.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.now.cbp.v10.userid", ftypes.STRING, nil, nil, nil, "User session login id")
@@ -228,6 +229,29 @@ currenex_currenexforex_now_cbp_v10.bid_price.dissect = function(buffer, offset, 
   local display = currenex_currenexforex_now_cbp_v10.bid_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_now_cbp_v10.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculation Timestamp
+currenex_currenexforex_now_cbp_v10.calculation_timestamp = {}
+
+-- Size: Calculation Timestamp
+currenex_currenexforex_now_cbp_v10.calculation_timestamp.size = 8
+
+-- Display: Calculation Timestamp
+currenex_currenexforex_now_cbp_v10.calculation_timestamp.display = function(value)
+  return "Calculation Timestamp: "..value
+end
+
+-- Dissect: Calculation Timestamp
+currenex_currenexforex_now_cbp_v10.calculation_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = currenex_currenexforex_now_cbp_v10.calculation_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:int64()
+  local display = currenex_currenexforex_now_cbp_v10.calculation_timestamp.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_currenex_currenexforex_now_cbp_v10.fields.calculation_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -932,7 +956,7 @@ end
 currenex_currenexforex_now_cbp_v10.timestamp = {}
 
 -- Size: Timestamp
-currenex_currenexforex_now_cbp_v10.timestamp.size = 8
+currenex_currenexforex_now_cbp_v10.timestamp.size = 4
 
 -- Display: Timestamp
 currenex_currenexforex_now_cbp_v10.timestamp.display = function(value)
@@ -943,7 +967,7 @@ end
 currenex_currenexforex_now_cbp_v10.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_now_cbp_v10.timestamp.size
   local range = buffer(offset, length)
-  local value = range:int64()
+  local value = range:uint()
   local display = currenex_currenexforex_now_cbp_v10.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_now_cbp_v10.fields.timestamp, range, value, display)
@@ -1272,7 +1296,7 @@ currenex_currenexforex_now_cbp_v10.wamr_with_confidence_factor_message.size =
   currenex_currenexforex_now_cbp_v10.conf_factor_75.size + 
   currenex_currenexforex_now_cbp_v10.conf_factor_50.size + 
   currenex_currenexforex_now_cbp_v10.conf_factor_25.size + 
-  currenex_currenexforex_now_cbp_v10.timestamp.size
+  currenex_currenexforex_now_cbp_v10.calculation_timestamp.size
 
 -- Display: Wamr With Confidence Factor Message
 currenex_currenexforex_now_cbp_v10.wamr_with_confidence_factor_message.display = function(packet, parent, length)
@@ -1298,8 +1322,8 @@ currenex_currenexforex_now_cbp_v10.wamr_with_confidence_factor_message.fields = 
   -- Conf Factor 25: Struct of 2 fields
   index, conf_factor_25 = currenex_currenexforex_now_cbp_v10.conf_factor_25.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: Long
-  index, timestamp = currenex_currenexforex_now_cbp_v10.timestamp.dissect(buffer, index, packet, parent)
+  -- Calculation Timestamp: Long
+  index, calculation_timestamp = currenex_currenexforex_now_cbp_v10.calculation_timestamp.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2074,7 +2098,7 @@ currenex_currenexforex_now_cbp_v10.message_header.fields = function(buffer, offs
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = currenex_currenexforex_now_cbp_v10.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: Long
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
   index, timestamp = currenex_currenexforex_now_cbp_v10.timestamp.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 14 values

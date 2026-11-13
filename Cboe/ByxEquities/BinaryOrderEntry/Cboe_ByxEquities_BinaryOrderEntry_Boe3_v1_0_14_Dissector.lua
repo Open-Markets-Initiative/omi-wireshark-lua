@@ -79,7 +79,7 @@ omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.prevent_match = ProtoF
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.price = ProtoField.new("Price", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.price", ftypes.DOUBLE, nil, nil, nil, "Limit price")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.purge_reject_reason = ProtoField.new("Purge Reject Reason", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.purgerejectreason", ftypes.STRING, nil, nil, nil, "Single character code for a purge rejection reason")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.replay_instruction = ProtoField.new("Replay Instruction", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.replayinstruction", ftypes.STRING, nil, nil, nil, "Controls replay behavior for unknown units.")
-omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.reservedfield", ftypes.UINT8, nil, nil, nil, "Reserved header field")
+omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.reserved_field = ProtoField.new("Reserved Field", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.reservedfield", ftypes.BYTES, nil, nil, nil, "Reserved header field")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.risk_group_id = ProtoField.new("Risk Group Id", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.riskgroupid", ftypes.UINT16, nil, nil, nil, "Used to group orders for use in Purge Orders messages where multiple orders can be cancelled by specifying a list of RiskGroupIDs")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.risk_group_id_cnt = ProtoField.new("Risk Group Id Cnt", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.riskgroupidcnt", ftypes.UINT8, nil, nil, nil, "Number of repeating RiskGroupID values included in this message")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.risk_reset = ProtoField.new("Risk Reset", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.riskreset", ftypes.STRING, nil, nil, nil, "For use by customers to release MPID, symbol or RiskGroupID level lockout conditions resulting from self-imposed lockouts issued via Purge Orders messages")
@@ -180,6 +180,7 @@ show.application_messages = true
 show.headers = true
 show.structs = true
 show.session_messages = true
+show.padding = false
 show.indexes = true
 
 -- Register Cboe ByxEquities BinaryOrderEntry Boe3 1.0.14 Show Options
@@ -190,6 +191,7 @@ omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_application_messag
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
@@ -203,6 +205,9 @@ function omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs_changed()
   end
   if show.headers ~= omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_headers then
     show.headers = omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_headers
+  end
+  if show.padding ~= omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_padding then
+    show.padding = omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_padding
   end
   if show.session_messages ~= omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_session_messages then
     show.session_messages = omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_session_messages
@@ -2139,7 +2144,7 @@ end
 cboe_byxequities_binaryorderentry_boe3_v1_0_14.matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe3_v1_0_14.matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe3_v1_0_14.matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.matching_unit, range, value, display)
@@ -2370,7 +2375,7 @@ end
 cboe_byxequities_binaryorderentry_boe3_v1_0_14.number_of_units.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe3_v1_0_14.number_of_units.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe3_v1_0_14.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.number_of_units, range, value, display)
@@ -3055,7 +3060,7 @@ end
 cboe_byxequities_binaryorderentry_boe3_v1_0_14.reserved_field.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe3_v1_0_14.reserved_field.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = cboe_byxequities_binaryorderentry_boe3_v1_0_14.reserved_field.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.reserved_field, range, value, display)
@@ -3101,7 +3106,7 @@ end
 cboe_byxequities_binaryorderentry_boe3_v1_0_14.risk_group_id_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe3_v1_0_14.risk_group_id_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe3_v1_0_14.risk_group_id_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.risk_group_id_cnt, range, value, display)
@@ -3827,7 +3832,7 @@ end
 cboe_byxequities_binaryorderentry_boe3_v1_0_14.target_matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe3_v1_0_14.target_matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe3_v1_0_14.target_matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.target_matching_unit, range, value, display)
@@ -3989,7 +3994,7 @@ end
 cboe_byxequities_binaryorderentry_boe3_v1_0_14.unit_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_byxequities_binaryorderentry_boe3_v1_0_14.unit_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_byxequities_binaryorderentry_boe3_v1_0_14.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.unit_number, range, value, display)
@@ -5071,7 +5076,7 @@ cboe_byxequities_binaryorderentry_boe3_v1_0_14.login_response_message.size = fun
   index = index + cboe_byxequities_binaryorderentry_boe3_v1_0_14.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequence_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequence_count * 5
 
   return index
@@ -5230,8 +5235,12 @@ cboe_byxequities_binaryorderentry_boe3_v1_0_14.exchange_message_header.fields = 
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_byxequities_binaryorderentry_boe3_v1_0_14.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = cboe_byxequities_binaryorderentry_boe3_v1_0_14.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved Field: 1 Byte
+  if show.padding then
+    index, reserved_field = cboe_byxequities_binaryorderentry_boe3_v1_0_14.reserved_field.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_byxequities_binaryorderentry_boe3_v1_0_14.reserved_field.size
+  end
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_byxequities_binaryorderentry_boe3_v1_0_14.sequence_number.dissect(buffer, index, packet, parent)
@@ -5361,7 +5370,7 @@ cboe_byxequities_binaryorderentry_boe3_v1_0_14.purge_orders_us_equities_v_1.size
   index = index + cboe_byxequities_binaryorderentry_boe3_v1_0_14.risk_group_id_cnt.size
 
   -- Calculate field size from count
-  local risk_group_id_count = buffer(offset + index - 1, 1):le_uint()
+  local risk_group_id_count = buffer(offset + index - 1, 1):uint()
   index = index + risk_group_id_count * 2
 
   return index
@@ -5868,7 +5877,7 @@ cboe_byxequities_binaryorderentry_boe3_v1_0_14.login_request_message.size = func
   index = index + cboe_byxequities_binaryorderentry_boe3_v1_0_14.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequence_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequence_count * 5
 
   return index
@@ -6002,8 +6011,12 @@ cboe_byxequities_binaryorderentry_boe3_v1_0_14.firm_message_header.fields = func
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
   index, matching_unit = cboe_byxequities_binaryorderentry_boe3_v1_0_14.matching_unit.dissect(buffer, index, packet, parent)
 
-  -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = cboe_byxequities_binaryorderentry_boe3_v1_0_14.reserved_field.dissect(buffer, index, packet, parent)
+  -- Reserved Field: 1 Byte
+  if show.padding then
+    index, reserved_field = cboe_byxequities_binaryorderentry_boe3_v1_0_14.reserved_field.dissect(buffer, index, packet, parent)
+  else
+    index = index + cboe_byxequities_binaryorderentry_boe3_v1_0_14.reserved_field.size
+  end
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = cboe_byxequities_binaryorderentry_boe3_v1_0_14.sequence_number.dissect(buffer, index, packet, parent)

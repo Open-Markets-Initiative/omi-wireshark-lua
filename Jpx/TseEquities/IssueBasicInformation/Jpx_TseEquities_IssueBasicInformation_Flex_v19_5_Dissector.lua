@@ -61,7 +61,7 @@ omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.message_length = Pro
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.message_serial_no = ProtoField.new("Message Serial No", "jpx.tseequities.issuebasicinformation.flex.v19.5.messageserialno", ftypes.STRING, nil, nil, nil, "Numbered from 1 on each Multicast Group, with the multicast group number in the first to third byte")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.message_type = ProtoField.new("Message Type", "jpx.tseequities.issuebasicinformation.flex.v19.5.messagetype", ftypes.STRING, nil, nil, nil, "Large Classification indicates Message Type, and Medium Classification indicates details and other information")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.message_type_large_classification = ProtoField.new("Message Type Large Classification", "jpx.tseequities.issuebasicinformation.flex.v19.5.messagetypelargeclassification", ftypes.STRING, nil, nil, nil, "Large Classification indicates Message Type.")
-omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.multicast_group_number = ProtoField.new("Multicast Group Number", "jpx.tseequities.issuebasicinformation.flex.v19.5.multicastgroupnumber", ftypes.STRING, nil, nil, nil, "Multicast group number, set in the first to third byte of the Message Serial No.")
+omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.multicast_group_number = ProtoField.new("Multicast Group Number", "jpx.tseequities.issuebasicinformation.flex.v19.5.multicastgroupnumber", ftypes.UINT16, nil, nil, nil, "Multicast group number, set in the first to third byte of the Message Serial No.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.new_listing_flag = ProtoField.new("New Listing Flag", "jpx.tseequities.issuebasicinformation.flex.v19.5.newlistingflag", ftypes.STRING, nil, nil, nil, "Indicates the New listing flag.")
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.new_orders_prohibition = ProtoField.new("New Orders Prohibition", "jpx.tseequities.issuebasicinformation.flex.v19.5.newordersprohibition", ftypes.STRING)
 omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.new_security_code = ProtoField.new("New Security Code", "jpx.tseequities.issuebasicinformation.flex.v19.5.newsecuritycode", ftypes.STRING, nil, nil, nil, "Indicates the New security code that is defined by the Securities Identification code committee.")
@@ -1335,7 +1335,15 @@ end
 jpx_tseequities_issuebasicinformation_flex_v19_5.multicast_group_number.dissect = function(buffer, offset, packet, parent)
   local length = jpx_tseequities_issuebasicinformation_flex_v19_5.multicast_group_number.size
   local range = buffer(offset, length)
-  local value = trim_left_spaces(range:string())
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.multicast_group_number, range, value, "Multicast Group Number: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_issuebasicinformation_flex_v19_5.experts.not_a_number, "Multicast Group Number is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
   local display = jpx_tseequities_issuebasicinformation_flex_v19_5.multicast_group_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_issuebasicinformation_flex_v19_5.fields.multicast_group_number, range, value, display)
@@ -3418,7 +3426,7 @@ end
 jpx_tseequities_issuebasicinformation_flex_v19_5.message_serial_no.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Multicast Group Number: C
+  -- Multicast Group Number: 3 Byte Ascii String
   index, multicast_group_number = jpx_tseequities_issuebasicinformation_flex_v19_5.multicast_group_number.dissect(buffer, index, packet, parent)
 
   -- Sequence Number: 8 Byte Ascii String

@@ -1481,7 +1481,7 @@ end
 cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.custom_group_id_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.custom_group_id_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.custom_group_id_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.fields.custom_group_id_cnt, range, value, display)
@@ -2608,7 +2608,7 @@ end
 cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.leg_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.leg_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.leg_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.fields.leg_cnt, range, value, display)
@@ -3014,7 +3014,7 @@ end
 cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.fields.matching_unit, range, value, display)
@@ -3273,7 +3273,7 @@ end
 cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.number_of_units.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.number_of_units.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.fields.number_of_units, range, value, display)
@@ -3953,7 +3953,7 @@ end
 cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.quote_cnt.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.quote_cnt.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.quote_cnt.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.fields.quote_cnt, range, value, display)
@@ -5091,7 +5091,7 @@ end
 cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.source_matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.source_matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.source_matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.fields.source_matching_unit, range, value, display)
@@ -5368,7 +5368,7 @@ end
 cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.target_matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.target_matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.target_matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.fields.target_matching_unit, range, value, display)
@@ -5718,7 +5718,7 @@ end
 cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.unit_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.unit_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.fields.unit_number, range, value, display)
@@ -6301,7 +6301,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.new_complex_instrument_accepted_me
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.leg_cnt.size
 
   -- Calculate field size from count
-  local complex_leg_count = buffer(offset + index - 1, 1):le_uint()
+  local complex_leg_count = buffer(offset + index - 1, 1):uint()
   index = index + complex_leg_count * 27
 
   return index
@@ -7852,7 +7852,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.quote_update_acknowledgement_messa
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.quote_cnt.size
 
   -- Calculate field size from count
-  local quote_acknowledgement_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_acknowledgement_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_acknowledgement_count * 11
 
   return index
@@ -8148,7 +8148,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.login_response_message.size = func
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequence_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequence_count * 5
 
   return index
@@ -8560,7 +8560,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.purge_orders_v_2_message.size = fu
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.custom_group_id_cnt.size
 
   -- Calculate field size from count
-  local custom_group_id_count = buffer(offset + index - 1, 1):le_uint()
+  local custom_group_id_count = buffer(offset + index - 1, 1):uint()
   index = index + custom_group_id_count * 2
 
   return index
@@ -8652,7 +8652,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.purge_orders_message.size = functi
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.custom_group_id_cnt.size
 
   -- Calculate field size from count
-  local custom_group_id_count = buffer(offset + index - 1, 1):le_uint()
+  local custom_group_id_count = buffer(offset + index - 1, 1):uint()
   index = index + custom_group_id_count * 2
 
   return index
@@ -8811,7 +8811,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.quote_update_short_message.size = 
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.quote_cnt.size
 
   -- Calculate field size from count
-  local quote_short_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_short_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_short_count * 16
 
   return index
@@ -8980,7 +8980,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.quote_update_message.size = functi
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.quote_cnt.size
 
   -- Calculate field size from count
-  local quote_count = buffer(offset + index - 1, 1):le_uint()
+  local quote_count = buffer(offset + index - 1, 1):uint()
   index = index + quote_count * 22
 
   return index
@@ -9323,7 +9323,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.new_complex_order_short_message.si
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.leg_cnt.size
 
   -- Calculate field size from count
-  local leg_position_effect_count = buffer(offset + index - 1, 1):le_uint()
+  local leg_position_effect_count = buffer(offset + index - 1, 1):uint()
   index = index + leg_position_effect_count * 1
 
   return index
@@ -9549,7 +9549,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.new_complex_order_v_2_message.size
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.leg_cnt.size
 
   -- Calculate field size from count
-  local leg_position_effect_count = buffer(offset + index - 1, 1):le_uint()
+  local leg_position_effect_count = buffer(offset + index - 1, 1):uint()
   index = index + leg_position_effect_count * 1
 
   return index
@@ -9834,7 +9834,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.new_complex_order_message.size = f
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.leg_cnt.size
 
   -- Calculate field size from count
-  local leg_position_effect_count = buffer(offset + index - 1, 1):le_uint()
+  local leg_position_effect_count = buffer(offset + index - 1, 1):uint()
   index = index + leg_position_effect_count * 1
 
   return index
@@ -10029,7 +10029,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.new_complex_instrument_message.siz
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.leg_cnt.size
 
   -- Calculate field size from count
-  local complex_leg_count = buffer(offset + index - 1, 1):le_uint()
+  local complex_leg_count = buffer(offset + index - 1, 1):uint()
   index = index + complex_leg_count * 27
 
   return index
@@ -10494,7 +10494,7 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.login_request_message.size = funct
   index = index + cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.number_of_units.size
 
   -- Calculate field size from count
-  local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
+  local unit_sequence_count = buffer(offset + index - 1, 1):uint()
   index = index + unit_sequence_count * 5
 
   return index

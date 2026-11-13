@@ -659,7 +659,7 @@ end
 cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.leg_count.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.leg_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.leg_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.leg_count, range, value, display)
@@ -836,7 +836,7 @@ end
 cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message_count.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.message_count, range, value, display)
@@ -859,7 +859,7 @@ end
 cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message_length.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.message_length, range, value, display)
@@ -937,7 +937,7 @@ end
 cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.message_type, range, value, display)
@@ -1657,7 +1657,7 @@ end
 cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.unit, range, value, display)
@@ -2564,7 +2564,7 @@ cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.complex_instrument_definitio
   index = index + cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.leg_count.size
 
   -- Calculate field size from count
-  local option_leg_count = buffer(offset + index - 1, 1):le_uint()
+  local option_leg_count = buffer(offset + index - 1, 1):uint()
   index = index + option_leg_count * 13
 
   return index
@@ -2946,7 +2946,7 @@ cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message.size = function(buff
   local index = offset
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset, 1):le_uint()
+  local message_length = buffer(offset, 1):uint()
 
   return message_length
 end
@@ -2970,7 +2970,7 @@ cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message.fields = function(bu
   index, message_header = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 1, 1):le_uint()
+  local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 18 branches
   index = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.payload.dissect(buffer, index, packet, parent, message_type)
@@ -3036,7 +3036,7 @@ cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.messages.dissect = function(
   for message_index = 1, message_count do
 
     -- Dependency element: Message Length
-    local message_length = buffer(offset, 1):le_uint()
+    local message_length = buffer(offset, 1):uint()
 
     -- Message: Struct of 2 fields
     offset = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -3123,7 +3123,7 @@ cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.packet.dissect = function(bu
   index, packet_header = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
-  local message_count = buffer(index - 6, 1):le_uint()
+  local message_count = buffer(index - 6, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.messages.dissect(buffer, index, packet, parent, message_count)

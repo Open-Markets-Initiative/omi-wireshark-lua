@@ -185,7 +185,7 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_block_size.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_block_size.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_block_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.adap_block_size, range, value, display)
@@ -208,7 +208,7 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_blocks.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_blocks.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_blocks.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.adap_blocks, range, value, display)
@@ -453,7 +453,7 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.message_count.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_summarydepth_csdp_v1_0_4.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_4.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.message_count, range, value, display)
@@ -476,7 +476,7 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.message_length.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_summarydepth_csdp_v1_0_4.message_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_4.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.message_length, range, value, display)
@@ -521,7 +521,7 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_summarydepth_csdp_v1_0_4.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_4.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.message_type, range, value, display)
@@ -898,7 +898,7 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_break_flags.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_break_flags.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_4.trade_break_flags.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.trade_break_flags, range, value, display)
@@ -970,7 +970,7 @@ end
 cboe_edgaequities_summarydepth_csdp_v1_0_4.unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgaequities_summarydepth_csdp_v1_0_4.unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_4.unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_4.fields.unit, range, value, display)
@@ -1423,7 +1423,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_block.size = function(buffer, of
 
   -- Calculate runtime size of Adap Update field
   local adap_update_offset = offset + index
-  local adap_update_type = buffer(adap_update_offset - 1, 1):le_uint()
+  local adap_update_type = buffer(adap_update_offset - 1, 1):uint()
   index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_update.size(buffer, adap_update_offset, adap_update_type)
 
   return index
@@ -1546,7 +1546,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_message.size = function(buffer, 
   index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_blocks.size
 
   -- Calculate field size from count
-  local adap_block_count = buffer(offset + index - 1, 1):le_uint()
+  local adap_block_count = buffer(offset + index - 1, 1):uint()
   for i = 1, adap_block_count do
     index = index + cboe_edgaequities_summarydepth_csdp_v1_0_4.adap_block.size(buffer, offset + index)
   end
@@ -1804,7 +1804,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.message.size = function(buffer, offse
   local index = offset
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset, 1):le_uint()
+  local message_length = buffer(offset, 1):uint()
 
   return message_length
 end
@@ -1834,7 +1834,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.message.fields = function(buffer, off
   index, message_header = cboe_edgaequities_summarydepth_csdp_v1_0_4.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 1, 1):le_uint()
+  local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 7 branches
   index = cboe_edgaequities_summarydepth_csdp_v1_0_4.payload.dissect(buffer, index, packet, parent, message_type)
@@ -1900,7 +1900,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.messages.dissect = function(buffer, o
   for message_index = 1, message_count do
 
     -- Dependency element: Message Length
-    local message_length = buffer(offset, 1):le_uint()
+    local message_length = buffer(offset, 1):uint()
 
     -- Message: Struct of 2 fields
     offset = cboe_edgaequities_summarydepth_csdp_v1_0_4.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -1978,7 +1978,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_4.packet.dissect = function(buffer, pac
   index, packet_header = cboe_edgaequities_summarydepth_csdp_v1_0_4.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
-  local message_count = buffer(index - 6, 1):le_uint()
+  local message_count = buffer(index - 6, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = cboe_edgaequities_summarydepth_csdp_v1_0_4.messages.dissect(buffer, index, packet, parent, message_count)

@@ -1945,7 +1945,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.match_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.match_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.match_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.match_type, range, value, display)
@@ -1968,7 +1968,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.matching_unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.matching_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.matching_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.matching_unit, range, value, display)
@@ -2063,7 +2063,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.message_type, range, value, display)
@@ -2086,7 +2086,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.no_quote_entries.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.no_quote_entries.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.no_quote_entries.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.no_quote_entries, range, value, display)
@@ -2109,7 +2109,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.no_sides.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.no_sides.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.no_sides.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.no_sides, range, value, display)
@@ -2132,7 +2132,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.no_unspecified_unit_replay.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.no_unspecified_unit_replay.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.no_unspecified_unit_replay.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.no_unspecified_unit_replay, range, value, display)
@@ -2155,7 +2155,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_param_groups.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_param_groups.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_param_groups.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.number_of_param_groups, range, value, display)
@@ -2178,7 +2178,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_quote_cancel_v_2_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_quote_cancel_v_2_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_quote_cancel_v_2_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.number_of_quote_cancel_v_2_bitfields, range, value, display)
@@ -2201,7 +2201,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_quote_v_2_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_quote_v_2_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_quote_v_2_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.number_of_quote_v_2_bitfields, range, value, display)
@@ -2224,7 +2224,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_return_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_return_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_return_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.number_of_return_bitfields, range, value, display)
@@ -2247,7 +2247,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_trade_capture_report_v_2_bitfields.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_trade_capture_report_v_2_bitfields.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_trade_capture_report_v_2_bitfields.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.number_of_trade_capture_report_v_2_bitfields, range, value, display)
@@ -2270,7 +2270,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_units.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_units.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.number_of_units.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.number_of_units, range, value, display)
@@ -2350,7 +2350,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.order_category.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.order_category.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.order_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.order_category, range, value, display)
@@ -2419,7 +2419,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.param_group_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.param_group_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.param_group_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.param_group_type, range, value, display)
@@ -2755,7 +2755,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.secondary_trd_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.secondary_trd_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.secondary_trd_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.secondary_trd_type, range, value, display)
@@ -3136,7 +3136,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_price_condition.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_price_condition.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_price_condition.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.trade_price_condition, range, value, display)
@@ -3165,7 +3165,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_publish_ind.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_publish_ind.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_publish_ind.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.trade_publish_ind, range, value, display)
@@ -3194,7 +3194,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_publish_indicator.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_publish_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_publish_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.trade_publish_indicator, range, value, display)
@@ -3302,7 +3302,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_report_trans_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_report_trans_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_report_trans_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.trade_report_trans_type, range, value, display)
@@ -3382,7 +3382,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.trading_session_sub_id, range, value, display)
@@ -3475,7 +3475,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trd_sub_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.trd_sub_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.trd_sub_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.trd_sub_type, range, value, display)
@@ -3498,7 +3498,7 @@ end
 cboe_cboeeurope_tradereporting_boe_v2_0_23.unit_number.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cboeeurope_tradereporting_boe_v2_0_23.unit_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_23.unit_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_23.fields.unit_number, range, value, display)
@@ -8452,7 +8452,7 @@ end
 -- Dissect Fields: Trade Capture Report Decline V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_decline_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_decline_v_2_message)
   local index = offset
-  local number_of_return_bitfields = buffer(offset + 134, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 134, 1):uint()
   local trade_capture_report_decline_v_2_return_bitfield_1 = buffer(offset + 135, 1):le_uint()
 
   -- Transaction Time: DateTime
@@ -10276,7 +10276,7 @@ end
 -- Dissect Fields: Trade Capture Confirm V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_confirm_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_confirm_v_2_message)
   local index = offset
-  local number_of_return_bitfields = buffer(offset + 73, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 73, 1):uint()
   local trade_capture_confirm_v_2_return_bitfield_1 = buffer(offset + 74, 1):le_uint()
 
   -- Transaction Time: DateTime
@@ -12112,7 +12112,7 @@ end
 -- Dissect Fields: Trade Capture Report Reject V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_reject_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_reject_v_2_message)
   local index = offset
-  local number_of_return_bitfields = buffer(offset + 90, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 90, 1):uint()
   local trade_capture_report_reject_v_2_return_bitfield_1 = buffer(offset + 91, 1):le_uint()
 
   -- Transaction Time: DateTime
@@ -13903,7 +13903,7 @@ end
 -- Dissect Fields: Trade Capture Report Acknowledgment V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_acknowledgment_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_acknowledgment_v_2_message)
   local index = offset
-  local number_of_return_bitfields = buffer(offset + 29, 1):le_uint()
+  local number_of_return_bitfields = buffer(offset + 29, 1):uint()
   local trade_capture_report_acknowledgment_v_2_return_bitfield_1 = buffer(offset + 30, 1):le_uint()
 
   -- Transaction Time: DateTime
@@ -14442,7 +14442,7 @@ end
 -- Dissect Fields: Quote Cancel V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_23.quote_cancel_v_2_message.fields = function(buffer, offset, packet, parent, size_of_quote_cancel_v_2_message)
   local index = offset
-  local number_of_quote_cancel_v_2_bitfields = buffer(offset + 20, 1):le_uint()
+  local number_of_quote_cancel_v_2_bitfields = buffer(offset + 20, 1):uint()
   local quote_cancel_v_2_bitfield_1 = buffer(offset + 21, 1):le_uint()
 
   -- Quote Id: Text
@@ -15376,7 +15376,7 @@ end
 -- Dissect Fields: Trade Capture Report V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_capture_report_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_v_2_message)
   local index = offset
-  local number_of_trade_capture_report_v_2_bitfields = buffer(offset + 32, 1):le_uint()
+  local number_of_trade_capture_report_v_2_bitfields = buffer(offset + 32, 1):uint()
 
   -- Trade Report Id: Text
   index, trade_report_id = cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_report_id.dissect(buffer, index, packet, parent)
@@ -16221,7 +16221,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_23.packet.dissect = function(buffer, pac
   index, message_header = cboe_cboeeurope_tradereporting_boe_v2_0_23.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 6, 1):le_uint()
+  local message_type = buffer(index - 6, 1):uint()
 
   -- Message: Runtime Type with 16 branches
   index = cboe_cboeeurope_tradereporting_boe_v2_0_23.message.dissect(buffer, index, packet, parent, message_type)
@@ -16285,7 +16285,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_23.packet.fingerprint = function(buffer)
     return false
   end
 
-  local message_type = buffer(4, 1):le_uint()
+  local message_type = buffer(4, 1):uint()
 
   -- Login Request V 2 Message
   if message_type == 0x37 then

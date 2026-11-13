@@ -105,7 +105,8 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.series_type = ProtoField.new(
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.session_state = ProtoField.new("Session State", "nyse.amexoptions.deepfeed.pillar.v1.2.l.sessionstate", ftypes.STRING, nil, nil, nil, "Unused. Defaulted to 0x20.")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.side = ProtoField.new("Side", "nyse.amexoptions.deepfeed.pillar.v1.2.l.side", ftypes.STRING, nil, nil, nil, "The side of the order (Buy/Sell).")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_id = ProtoField.new("Source Id", "nyse.amexoptions.deepfeed.pillar.v1.2.l.sourceid", ftypes.STRING, nil, nil, nil, "The ID of the client requesting this retransmission. All trailing characters should be NULL.")
-omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_time = ProtoField.new("Source Time", "nyse.amexoptions.deepfeed.pillar.v1.2.l.sourcetime", ftypes.UINT32, nil, nil, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_time = ProtoField.new("Source Time", "nyse.amexoptions.deepfeed.pillar.v1.2.l.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_time_utc = ProtoField.new("Source Time", "nyse.amexoptions.deepfeed.pillar.v1.2.l.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.amexoptions.deepfeed.pillar.v1.2.l.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset (UTC Time) from the Time Reference message.")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.ssr_state = ProtoField.new("Ssr State", "nyse.amexoptions.deepfeed.pillar.v1.2.l.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state.")
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.amexoptions.deepfeed.pillar.v1.2.l.ssrtriggeringexchangeid", ftypes.STRING, nil, nil, nil, "Only populated when securityStatus = A and this security is listed on this exchange. Otherwise defaulted to space (0x20).")
@@ -179,6 +180,7 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.high_price_calculate = ProtoF
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.indicative_match_price_calculate = ProtoField.new("Indicative Match Price Calculate", "nyse.amexoptions.deepfeed.pillar.v1.2.l.indicativematchpricecalculate", ftypes.DOUBLE)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.low_price_calculate = ProtoField.new("Low Price Calculate", "nyse.amexoptions.deepfeed.pillar.v1.2.l.lowpricecalculate", ftypes.DOUBLE)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.price_calculate = ProtoField.new("Price Calculate", "nyse.amexoptions.deepfeed.pillar.v1.2.l.pricecalculate", ftypes.DOUBLE)
+omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.timestamp = ProtoField.new("Timestamp", "nyse.amexoptions.deepfeed.pillar.v1.2.l.timestamp", ftypes.UINT64)
 omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.working_price_calculate = ProtoField.new("Working Price Calculate", "nyse.amexoptions.deepfeed.pillar.v1.2.l.workingpricecalculate", ftypes.DOUBLE)
 
 -----------------------------------------------------------------------
@@ -187,8 +189,9 @@ omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.working_price_calculate = Pro
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "Raw", 0 },
+  { 2, "Full DateTime Local", 2 },
+  { 3, "Full DateTime Utc", 3 }
 }
 
 -- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
@@ -283,7 +286,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.data = function(packet)
   local key = nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.key(packet)
   local data = nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.flows[key]
   if data == nil then
-    data = { outright_series_index_mapping_message = {} }
+    data = { source_time = { last = nil, frames = {} }, outright_series_index_mapping_message = {} }
     nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.flows[key] = data
   end
   return data
@@ -3112,9 +3115,17 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time = {}
 -- Size: Source Time
 nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.size = 4
 
--- Display: Source Time
-nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.display = function(value)
-  return "Source Time: "..value
+-- Store: Source Time
+nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = nil
+
+-- Generated: Source Time
+nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.generated = function(value, range, packet, parent)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_time
+  if nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp_format == 3 then field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_time_utc end
+  local source_time = parent:add(field, range, NSTime.new(value, 0))
+  source_time:set_generated()
 end
 
 -- Dissect: Source Time
@@ -3122,9 +3133,15 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.dissect = function(buffer, o
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_time
+  if nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp_format == 3 then field = omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4199,6 +4216,54 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.price_calculate.dissect = function(buffe
   return nyse_amexoptions_deepfeed_pillar_v1_2_l.price.dissect(buffer, offset, packet, parent)
 end
 
+-- Timestamp
+nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp = {}
+
+-- Translate: Timestamp
+nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.translate = function(source_time_ns, stored_source_time)
+  return UInt64.new(stored_source_time) * 1000000000 + source_time_ns
+end
+
+-- Display: Timestamp
+nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.display = function(source_time_ns, stored_source_time)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_source_time + math.floor(source_time_ns / 1000000000)
+  local fraction = source_time_ns % 1000000000
+
+  local format = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.composite = function(buffer, offset, stored_source_time, packet, parent)
+  local length = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.size
+  local range = buffer(offset, length)
+  local source_time_ns = range:le_uint()
+  local value = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.translate(source_time_ns, stored_source_time)
+  local display = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.display(source_time_ns, stored_source_time, packet)
+  parent = parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.timestamp, range, value, display)
+
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.generated(stored_source_time, range, packet, parent)
+
+  display = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.display(source_time_ns)
+  parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.fields.source_time_ns, range, source_time_ns, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect = function(buffer, offset, packet, parent)
+  if nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp_format ~= 0 then
+    local stored_source_time = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current
+
+    if stored_source_time ~= nil then
+      return nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.composite(buffer, offset, stored_source_time, packet, parent)
+    end
+  end
+
+  return nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, offset, packet, parent)
+end
+
 -- Working Price Calculate
 nyse_amexoptions_deepfeed_pillar_v1_2_l.working_price_calculate = {}
 
@@ -4268,8 +4333,15 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_outright_series_summary_message.
   -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -4330,7 +4402,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_trade_cancel_message.fields = fu
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -4385,7 +4457,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_cross_trade_message.fields = fun
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -4452,7 +4524,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_non_displayed_trade_message.fiel
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -4536,8 +4608,15 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_series_rfq_message.fields = func
   -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -4619,8 +4698,15 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_add_order_refresh_message.fields
   -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -4710,8 +4796,15 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_imbalance_message.fields = funct
   -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -4820,7 +4913,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_replace_order_message.fields = f
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -4901,7 +4994,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_order_execution_message.fields =
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -4983,7 +5076,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_delete_order_message.fields = fu
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -5047,7 +5140,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_modify_order_message.fields = fu
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -5120,7 +5213,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_add_order_message.fields = funct
   local index = offset
 
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -5756,8 +5849,15 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.options_status_message.fields = function
   -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Series Index: Binary (record lookup)
   index, series_index, series_index_record = nyse_amexoptions_deepfeed_pillar_v1_2_l.series_index.lookup(buffer, index, packet, parent)
@@ -5935,8 +6035,15 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.security_status_message.fields = functio
   -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary
   index, symbol_index = nyse_amexoptions_deepfeed_pillar_v1_2_l.symbol_index.dissect(buffer, index, packet, parent)
@@ -6024,8 +6131,15 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.symbol_clear_message.fields = function(b
   -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Symbol Index: Binary
   index, symbol_index = nyse_amexoptions_deepfeed_pillar_v1_2_l.symbol_index.dissect(buffer, index, packet, parent)
@@ -6197,6 +6311,13 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_reference_message.fields = f
   -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.source_time.last = source_time
+  end
+
   return index
 end
 
@@ -6240,8 +6361,15 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.sequence_number_reset_message.fields = f
   -- Source Time: Binary
   index, source_time = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.dissect(buffer, index, packet, parent)
 
+  -- Store Source Time Value
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = source_time
+
+  if not packet.visited then
+    nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current.source_time.last = source_time
+  end
+
   -- Source Time Ns: Binary
-  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time_ns.dissect(buffer, index, packet, parent)
+  index, source_time_ns = nyse_amexoptions_deepfeed_pillar_v1_2_l.timestamp.dissect(buffer, index, packet, parent)
 
   -- Product Id: Binary
   index, product_id = nyse_amexoptions_deepfeed_pillar_v1_2_l.product_id.dissect(buffer, index, packet, parent)
@@ -6603,7 +6731,25 @@ nyse_amexoptions_deepfeed_pillar_v1_2_l.packet.dissect = function(buffer, packet
   -- establish frame context from the conversation's stored values
   local data = nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.data(packet)
   if not packet.visited then
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
+    data.source_time.frames[packet.number] = data.source_time.last
   end
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = data.source_time.frames[packet.number]
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = data.source_time.frames[packet.number]
   nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current = data
 
   local index = 0
@@ -6627,6 +6773,9 @@ end
 
 -- Initialize Dissector
 function omi_nyse_amexoptions_deepfeed_pillar_v1_2_l.init()
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.source_time.current = nil
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.current = nil
+  nyse_amexoptions_deepfeed_pillar_v1_2_l.conversation.flows = {}
 end
 
 -- Dissector for Nyse AmexOptions DeepFeed Pillar 1.2.l

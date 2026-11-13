@@ -311,7 +311,7 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.corrected_settlement_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.corrected_settlement_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.corrected_settlement_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.corrected_settlement_type, range, value, display)
@@ -346,7 +346,7 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.cross_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.cross_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.cross_type, range, value, display)
@@ -526,7 +526,7 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message_count.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.message_count, range, value, display)
@@ -549,7 +549,7 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message_length.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.message_length, range, value, display)
@@ -597,7 +597,7 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.message_type, range, value, display)
@@ -629,7 +629,7 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.order_book_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.order_book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.order_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.order_book_type, range, value, display)
@@ -727,7 +727,7 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.original_settlement_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.original_settlement_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.original_settlement_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.original_settlement_type, range, value, display)
@@ -890,7 +890,7 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.security_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.security_type, range, value, display)
@@ -1021,7 +1021,7 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.settlement_type.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.settlement_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.settlement_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.settlement_type, range, value, display)
@@ -1196,7 +1196,7 @@ end
 cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.unit.dissect = function(buffer, offset, packet, parent)
   local length = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.unit, range, value, display)
@@ -2005,7 +2005,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message.size = function(bu
   local index = offset
 
   -- Dependency element: Message Length
-  local message_length = buffer(offset, 1):le_uint()
+  local message_length = buffer(offset, 1):uint()
 
   return message_length
 end
@@ -2035,7 +2035,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message.fields = function(
   index, message_header = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
-  local message_type = buffer(index - 1, 1):le_uint()
+  local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 8 branches
   index = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.payload.dissect(buffer, index, packet, parent, message_type)
@@ -2101,7 +2101,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.messages.dissect = functio
   for message_index = 1, message_count do
 
     -- Dependency element: Message Length
-    local message_length = buffer(offset, 1):le_uint()
+    local message_length = buffer(offset, 1):uint()
 
     -- Message: Struct of 2 fields
     offset = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
@@ -2179,7 +2179,7 @@ cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.packet.dissect = function(
   index, packet_header = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
-  local message_count = buffer(index - 6, 1):le_uint()
+  local message_count = buffer(index - 6, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.messages.dissect(buffer, index, packet, parent, message_count)
