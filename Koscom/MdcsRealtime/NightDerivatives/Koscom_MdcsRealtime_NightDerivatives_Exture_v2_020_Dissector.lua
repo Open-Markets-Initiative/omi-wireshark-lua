@@ -26,40 +26,13 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.adjustment_coeffic
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.adjustment_reason_code = ProtoField.new("Adjustment Reason Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.adjustmentreasoncode", ftypes.STRING, nil, nil, nil, "10: Paid-in capital increase (given to the existing shareholders) 11: Paid-in capital increase (given to the third party) 12: Paid-in capital increase (by public offering) 13: Paid-in capital increase.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.allocation_type_code = ProtoField.new("Allocation Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.allocationtypecode", ftypes.STRING, nil, nil, nil, "1: Bid_Upper Limit 2: Bid_Lower Limit 3: Ask_Upper Limit 4: Ask_Lower Limit.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.application_date = ProtoField.new("Application Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.applicationdate", ftypes.STRING, nil, nil, nil, "Application Date.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_order_counts = ProtoField.new("Ask Level 1 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel1ordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 1_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_price = ProtoField.new("Ask Level 1 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel1price", ftypes.DOUBLE, nil, nil, nil, "The best ask.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_volume = ProtoField.new("Ask Level 1 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel1volume", ftypes.UINT32, nil, nil, nil, "The best ask volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_order_counts = ProtoField.new("Ask Level 10 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel10ordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 10_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_price = ProtoField.new("Ask Level 10 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel10price", ftypes.DOUBLE, nil, nil, nil, "The tenth highest ask price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_volume = ProtoField.new("Ask Level 10 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel10volume", ftypes.UINT32, nil, nil, nil, "The tenth highest ask volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_order_counts = ProtoField.new("Ask Level 2 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel2ordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 2_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_price = ProtoField.new("Ask Level 2 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel2price", ftypes.DOUBLE, nil, nil, nil, "The second highest ask price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_volume = ProtoField.new("Ask Level 2 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel2volume", ftypes.UINT32, nil, nil, nil, "The second highest ask volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_order_counts = ProtoField.new("Ask Level 3 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel3ordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 3_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_price = ProtoField.new("Ask Level 3 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel3price", ftypes.DOUBLE, nil, nil, nil, "The third highest ask price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_volume = ProtoField.new("Ask Level 3 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel3volume", ftypes.UINT32, nil, nil, nil, "The third highest ask volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_order_counts = ProtoField.new("Ask Level 4 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel4ordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 4_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_price = ProtoField.new("Ask Level 4 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel4price", ftypes.DOUBLE, nil, nil, nil, "The fourth highest ask price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_volume = ProtoField.new("Ask Level 4 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel4volume", ftypes.UINT32, nil, nil, nil, "The fourth highest ask volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_order_counts = ProtoField.new("Ask Level 5 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel5ordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 5_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_price = ProtoField.new("Ask Level 5 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel5price", ftypes.DOUBLE, nil, nil, nil, "The fifth highest ask price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_volume = ProtoField.new("Ask Level 5 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel5volume", ftypes.UINT32, nil, nil, nil, "The fifth highest ask volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_order_counts = ProtoField.new("Ask Level 6 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel6ordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 6_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_price = ProtoField.new("Ask Level 6 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel6price", ftypes.DOUBLE, nil, nil, nil, "The sixth highest ask price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_volume = ProtoField.new("Ask Level 6 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel6volume", ftypes.UINT32, nil, nil, nil, "The sixth highest ask volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_order_counts = ProtoField.new("Ask Level 7 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel7ordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 7_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_price = ProtoField.new("Ask Level 7 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel7price", ftypes.DOUBLE, nil, nil, nil, "The seventh highest ask price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_volume = ProtoField.new("Ask Level 7 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel7volume", ftypes.UINT32, nil, nil, nil, "The seventh highest ask volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_order_counts = ProtoField.new("Ask Level 8 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel8ordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 8_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_price = ProtoField.new("Ask Level 8 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel8price", ftypes.DOUBLE, nil, nil, nil, "The eighth highest ask price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_volume = ProtoField.new("Ask Level 8 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel8volume", ftypes.UINT32, nil, nil, nil, "The eighth highest ask volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_order_counts = ProtoField.new("Ask Level 9 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel9ordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 9_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_price = ProtoField.new("Ask Level 9 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel9price", ftypes.DOUBLE, nil, nil, nil, "The ninth highest ask price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_volume = ProtoField.new("Ask Level 9 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asklevel9volume", ftypes.UINT32, nil, nil, nil, "The ninth highest ask volume.")
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_order_counts = ProtoField.new("Ask Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.askordercounts", ftypes.UINT24, nil, nil, nil, "Ask Level 1_Order Counts.")
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_price = ProtoField.new("Ask Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.askprice", ftypes.DOUBLE, nil, nil, nil, "The best ask.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_price_valid_counts = ProtoField.new("Ask Price Valid Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.askpricevalidcounts", ftypes.UINT24, nil, nil, nil, "Ask Price_ Valid Counts.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_total_volume = ProtoField.new("Ask Total Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asktotalvolume", ftypes.UINT32, nil, nil, nil, "Ask Total Volume.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_trading_value = ProtoField.new("Ask Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asktradingvalue", ftypes.DOUBLE, nil, nil, nil, "Ask Trading Value(Trading price*trading volume).")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_trading_volume = ProtoField.new("Ask Trading Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.asktradingvolume", ftypes.UINT64, nil, nil, nil, "Ask Trading Volume.")
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_volume = ProtoField.new("Ask Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.askvolume", ftypes.UINT32, nil, nil, nil, "The best ask volume.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.atm = ProtoField.new("Atm", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.atm", ftypes.DOUBLE, nil, nil, nil, "An exercise price almost the same as base price of underlying asset.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.atm_type_code = ProtoField.new("Atm Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.atmtypecode", ftypes.STRING, nil, nil, nil, "0: Futures 1: ATM 2: ITM 3: OTM.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_date = ProtoField.new("Base Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.basedate", ftypes.STRING, nil, nil, nil, "Risk Free Reference rate Base Date.")
@@ -72,40 +45,13 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_price_type_co
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_product_id = ProtoField.new("Base Product Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.baseproductid", ftypes.STRING, nil, nil, nil, "Base Product ID.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.base_theoretical_price = ProtoField.new("Base Theoretical Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.basetheoreticalprice", ftypes.DOUBLE, nil, nil, nil, "Base Theoretical Price.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.best_favorable_order_permission_type_code = ProtoField.new("Best Favorable Order Permission Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bestfavorableorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_order_counts = ProtoField.new("Bid Level 1 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel1ordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 1_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel1price", ftypes.DOUBLE, nil, nil, nil, "The best bid.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_volume = ProtoField.new("Bid Level 1 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel1volume", ftypes.UINT32, nil, nil, nil, "The best bid volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_order_counts = ProtoField.new("Bid Level 10 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel10ordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 10_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_price = ProtoField.new("Bid Level 10 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel10price", ftypes.DOUBLE, nil, nil, nil, "The tenth lowest bid price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_volume = ProtoField.new("Bid Level 10 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel10volume", ftypes.UINT32, nil, nil, nil, "The tenth lowest bid volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_order_counts = ProtoField.new("Bid Level 2 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel2ordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 2_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_price = ProtoField.new("Bid Level 2 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel2price", ftypes.DOUBLE, nil, nil, nil, "The second lowest bid price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_volume = ProtoField.new("Bid Level 2 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel2volume", ftypes.UINT32, nil, nil, nil, "The second lowest bid volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_order_counts = ProtoField.new("Bid Level 3 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel3ordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 3_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_price = ProtoField.new("Bid Level 3 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel3price", ftypes.DOUBLE, nil, nil, nil, "The third lowest bid price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_volume = ProtoField.new("Bid Level 3 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel3volume", ftypes.UINT32, nil, nil, nil, "The third lowest bid volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_order_counts = ProtoField.new("Bid Level 4 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel4ordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 4_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_price = ProtoField.new("Bid Level 4 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel4price", ftypes.DOUBLE, nil, nil, nil, "The fourth lowest bid price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_volume = ProtoField.new("Bid Level 4 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel4volume", ftypes.UINT32, nil, nil, nil, "The fourth lowest bid volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_order_counts = ProtoField.new("Bid Level 5 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel5ordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 5_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_price = ProtoField.new("Bid Level 5 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel5price", ftypes.DOUBLE, nil, nil, nil, "The fifth lowest bid price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_volume = ProtoField.new("Bid Level 5 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel5volume", ftypes.UINT32, nil, nil, nil, "The fifth lowest bid volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_order_counts = ProtoField.new("Bid Level 6 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel6ordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 6_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_price = ProtoField.new("Bid Level 6 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel6price", ftypes.DOUBLE, nil, nil, nil, "The sixth lowest bid price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_volume = ProtoField.new("Bid Level 6 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel6volume", ftypes.UINT32, nil, nil, nil, "The sixth lowest bid volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_order_counts = ProtoField.new("Bid Level 7 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel7ordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 7_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_price = ProtoField.new("Bid Level 7 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel7price", ftypes.DOUBLE, nil, nil, nil, "The seventh lowest bid price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_volume = ProtoField.new("Bid Level 7 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel7volume", ftypes.UINT32, nil, nil, nil, "The seventh lowest bid volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_order_counts = ProtoField.new("Bid Level 8 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel8ordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 8_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_price = ProtoField.new("Bid Level 8 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel8price", ftypes.DOUBLE, nil, nil, nil, "The eighth lowest bid price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_volume = ProtoField.new("Bid Level 8 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel8volume", ftypes.UINT32, nil, nil, nil, "The eighth lowest bid volume.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_order_counts = ProtoField.new("Bid Level 9 Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel9ordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 9_Order Counts.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_price = ProtoField.new("Bid Level 9 Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel9price", ftypes.DOUBLE, nil, nil, nil, "The ninth lowest bid price.")
-omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_volume = ProtoField.new("Bid Level 9 Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidlevel9volume", ftypes.UINT32, nil, nil, nil, "The ninth lowest bid volume.")
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_order_counts = ProtoField.new("Bid Order Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidordercounts", ftypes.UINT24, nil, nil, nil, "Bid Level 1_Order Counts.")
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_price = ProtoField.new("Bid Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidprice", ftypes.DOUBLE, nil, nil, nil, "The best bid.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_price_valid_counts = ProtoField.new("Bid Price Valid Counts", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidpricevalidcounts", ftypes.UINT24, nil, nil, nil, "Bid Price_ Valid Counts.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_total_volume = ProtoField.new("Bid Total Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidtotalvolume", ftypes.UINT32, nil, nil, nil, "Bid Total Volume.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_trading_value = ProtoField.new("Bid Trading Value", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidtradingvalue", ftypes.DOUBLE, nil, nil, nil, "Bid Trading Value(trading price*trading volume).")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_trading_volume = ProtoField.new("Bid Trading Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidtradingvolume", ftypes.UINT64, nil, nil, nil, "Bid Trading Volume.")
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_volume = ProtoField.new("Bid Volume", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bidvolume", ftypes.UINT32, nil, nil, nil, "The best bid volume.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bis_announcement_date = ProtoField.new("Bis Announcement Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bisannouncementdate", ftypes.STRING, nil, nil, nil, "BIS_Announcement Date.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bis_announcement_time = ProtoField.new("Bis Announcement Time", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bisannouncementtime", ftypes.STRING, nil, nil, nil, "BIS_Announcement Time (HHMMSS).")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bis_time_of_inputting_yield_rate = ProtoField.new("Bis Time Of Inputting Yield Rate", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.bistimeofinputtingyieldrate", ftypes.STRING, nil, nil, nil, "BIS_Time of Inputting Yield Rate (HHMM or HH\" \").")
@@ -152,6 +98,7 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.expected_time_of_e
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.expiration_date = ProtoField.new("Expiration Date", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration Date.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.final_ask_bid_type_code = ProtoField.new("Final Ask Bid Type Code", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.finalaskbidtypecode", ftypes.STRING, nil, nil, nil, "Ask/Bid Type Code space: order filled with single price 0: N/A 1: ASK 2: BID.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.final_stage_of_price_limit_expansion = ProtoField.new("Final Stage Of Price Limit Expansion", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.finalstageofpricelimitexpansion", ftypes.UINT16, nil, nil, nil, "Final stage of price limit expansion when a limit expands by several stages.")
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.five_levels = ProtoField.new("Five Levels", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.fivelevels", ftypes.STRING, nil, nil, nil, "One of the book's best 5 levels: price, volume and order count of each side (empty level: volume 0)")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.flex_trading_item = ProtoField.new("Flex Trading Item", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.flextradingitem", ftypes.STRING, nil, nil, nil, "FLEX Trading Item.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.futures_circuit_breakers_lower_limit_price = ProtoField.new("Futures Circuit Breakers Lower Limit Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.futurescircuitbreakerslowerlimitprice", ftypes.DOUBLE, nil, nil, nil, "low limit pirce to exercise Futures CB (If the \"base price +/-5%\" is the condition to exercise CB, base price -5% is low limit price) ex) 9999999999.99.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.futures_circuit_breakers_upper_limit_price = ProtoField.new("Futures Circuit Breakers Upper Limit Price", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.futurescircuitbreakersupperlimitprice", ftypes.DOUBLE, nil, nil, nil, "high limit pirce to exercise Futures CB (If the \"base price +/-5%\" is the condition to exercise CB, base price +5% is high limit price) ex) 9999999999.99.")
@@ -255,6 +202,7 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.start_time_of_a_bo
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.step_applied = ProtoField.new("Step Applied", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.stepapplied", ftypes.UINT8, nil, nil, nil, "Managing steps to be applied.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.subsidiary_product_id = ProtoField.new("Subsidiary Product Id", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.subsidiaryproductid", ftypes.STRING, nil, nil, nil, "Subsidiary Product ID.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.suspended_stocks = ProtoField.new("Suspended Stocks", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.suspendedstocks", ftypes.STRING, nil, nil, nil, "Suspended Stocks.")
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ten_levels = ProtoField.new("Ten Levels", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tenlevels", ftypes.STRING, nil, nil, nil, "One of the book's best 10 levels: price, volume and order count of each side (empty level: volume 0)")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_date_of_the_highest_premium_in_a_year = ProtoField.new("The Date Of The Highest Premium In A Year", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thedateofthehighestpremiuminayear", ftypes.STRING, nil, nil, nil, "The Date of the Highest Premium in a Year.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_date_of_the_highest_premium_of_the_lifetime = ProtoField.new("The Date Of The Highest Premium Of The Lifetime", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thedateofthehighestpremiumofthelifetime", ftypes.STRING, nil, nil, nil, "The Date of the Highest premium of the Life-time.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.the_date_of_the_lowest_premium_in_a_year = ProtoField.new("The Date Of The Lowest Premium In A Year", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.thedateofthelowestpremiuminayear", ftypes.STRING, nil, nil, nil, "The Date of the Lowest Premium in a Year.")
@@ -337,6 +285,10 @@ omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.options_implied_vo
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.options_sensitivity_message = ProtoField.new("Options Sensitivity Message", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.optionssensitivitymessage", ftypes.STRING, nil, nil, nil, "Options Sensitivity. Greeks (Delta, Gamma, Theta, Vega, Rho) per option contract.")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.polling_data_message = ProtoField.new("Polling Data Message", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.pollingdatamessage", ftypes.STRING, nil, nil, nil, "Polling Data. Transmitted at one-minute intervals on every market data line, all markets, 24 hours a day.")
 
+-- Koscom MdcsRealtime NightDerivatives Exture 2.020 Generated Fields
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.five_levels_index = ProtoField.new("Five Levels Index", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.fivelevelsindex", ftypes.UINT16)
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ten_levels_index = ProtoField.new("Ten Levels Index", "koscom.mdcsrealtime.nightderivatives.exture.v2.020.tenlevelsindex", ftypes.UINT16)
+
 -- Koscom MdcsRealtime NightDerivatives Exture 2.020 Expert Info
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts = {}
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number = ProtoExpert.new("koscom.mdcsrealtime.nightderivatives.exture.v2.020.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
@@ -359,10 +311,12 @@ local show = {}
 -- Koscom MdcsRealtime NightDerivatives Exture 2.020 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.indexes = true
 
 -- Register Koscom MdcsRealtime NightDerivatives Exture 2.020 Show Options
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.prefs_changed()
@@ -373,6 +327,9 @@ function omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.prefs_changed()
   end
   if show.structs ~= omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.prefs.show_structs then
     show.structs = omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.prefs.show_structs
+  end
+  if show.indexes ~= omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.prefs.show_indexes then
+    show.indexes = omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.prefs.show_indexes
   end
 end
 
@@ -784,1082 +741,75 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.application_date.dissect = fu
   return offset + length, value
 end
 
--- Ask Level 1 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts = {}
+-- Ask Order Counts
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_order_counts = {}
 
--- Size: Ask Level 1 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.size = 5
+-- Size: Ask Order Counts
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_order_counts.size = 5
 
--- Display: Ask Level 1 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.display = function(value)
+-- Display: Ask Order Counts
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_order_counts.display = function(value)
   if value == 99999 then
-    return "Ask Level 1 Order Counts: "..value.." (or more)"
+    return "Ask Order Counts: "..value.." (or more)"
   end
 
-  return "Ask Level 1 Order Counts: "..value
+  return "Ask Order Counts: "..value
 end
 
--- Dissect: Ask Level 1 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.size
+-- Dissect: Ask Order Counts
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_order_counts.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_order_counts.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_order_counts, range, value, "Ask Level 1 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 1 Order Counts is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_order_counts, range, value, "Ask Order Counts: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Order Counts is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_order_counts.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_order_counts, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_order_counts, range, value, display)
 
   return offset + length, value
 end
 
--- Ask Level 1 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price = {}
+-- Ask Price
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price = {}
 
--- Size: Ask Level 1 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size = 9
+-- Size: Ask Price
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price.size = 9
 
--- Display: Ask Level 1 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size):string()
+-- Display: Ask Price
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Ask Level 1 Price: No Value"
+    return "Ask Price: No Value"
   end
 
-  return "Ask Level 1 Price: "..text
+  return "Ask Price: "..text
 end
 
--- Dissect: Ask Level 1 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size
+-- Dissect: Ask Price
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_price, range, value, "Ask Level 1 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 1 Price is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_price, range, value, "Ask Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 1 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume = {}
-
--- Size: Ask Level 1 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.size = 9
-
--- Display: Ask Level 1 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.display = function(value)
-  if value == 999999999 then
-    return "Ask Level 1 Volume: "..value.." (or more)"
-  end
-
-  return "Ask Level 1 Volume: "..value
-end
-
--- Dissect: Ask Level 1 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_volume, range, value, "Ask Level 1 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 1 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_1_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 10 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts = {}
-
--- Size: Ask Level 10 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.size = 5
-
--- Display: Ask Level 10 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.display = function(value)
-  if value == 99999 then
-    return "Ask Level 10 Order Counts: "..value.." (or more)"
-  end
-
-  return "Ask Level 10 Order Counts: "..value
-end
-
--- Dissect: Ask Level 10 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_order_counts, range, value, "Ask Level 10 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 10 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 10 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price = {}
-
--- Size: Ask Level 10 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.size = 9
-
--- Display: Ask Level 10 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 10 Price: No Value"
-  end
-
-  return "Ask Level 10 Price: "..text
-end
-
--- Dissect: Ask Level 10 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_price, range, value, "Ask Level 10 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 10 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 10 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume = {}
-
--- Size: Ask Level 10 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.size = 9
-
--- Display: Ask Level 10 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.display = function(value)
-  if value == 999999999 then
-    return "Ask Level 10 Volume: "..value.." (or more)"
-  end
-
-  return "Ask Level 10 Volume: "..value
-end
-
--- Dissect: Ask Level 10 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_volume, range, value, "Ask Level 10 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 10 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_10_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 2 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts = {}
-
--- Size: Ask Level 2 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.size = 5
-
--- Display: Ask Level 2 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.display = function(value)
-  if value == 99999 then
-    return "Ask Level 2 Order Counts: "..value.." (or more)"
-  end
-
-  return "Ask Level 2 Order Counts: "..value
-end
-
--- Dissect: Ask Level 2 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_order_counts, range, value, "Ask Level 2 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 2 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 2 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price = {}
-
--- Size: Ask Level 2 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size = 9
-
--- Display: Ask Level 2 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 2 Price: No Value"
-  end
-
-  return "Ask Level 2 Price: "..text
-end
-
--- Dissect: Ask Level 2 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_price, range, value, "Ask Level 2 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 2 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 2 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume = {}
-
--- Size: Ask Level 2 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.size = 9
-
--- Display: Ask Level 2 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.display = function(value)
-  if value == 999999999 then
-    return "Ask Level 2 Volume: "..value.." (or more)"
-  end
-
-  return "Ask Level 2 Volume: "..value
-end
-
--- Dissect: Ask Level 2 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_volume, range, value, "Ask Level 2 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 2 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_2_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 3 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts = {}
-
--- Size: Ask Level 3 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.size = 5
-
--- Display: Ask Level 3 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.display = function(value)
-  if value == 99999 then
-    return "Ask Level 3 Order Counts: "..value.." (or more)"
-  end
-
-  return "Ask Level 3 Order Counts: "..value
-end
-
--- Dissect: Ask Level 3 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_order_counts, range, value, "Ask Level 3 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 3 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 3 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price = {}
-
--- Size: Ask Level 3 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size = 9
-
--- Display: Ask Level 3 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 3 Price: No Value"
-  end
-
-  return "Ask Level 3 Price: "..text
-end
-
--- Dissect: Ask Level 3 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_price, range, value, "Ask Level 3 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 3 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 3 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume = {}
-
--- Size: Ask Level 3 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.size = 9
-
--- Display: Ask Level 3 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.display = function(value)
-  if value == 999999999 then
-    return "Ask Level 3 Volume: "..value.." (or more)"
-  end
-
-  return "Ask Level 3 Volume: "..value
-end
-
--- Dissect: Ask Level 3 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_volume, range, value, "Ask Level 3 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 3 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_3_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 4 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts = {}
-
--- Size: Ask Level 4 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.size = 5
-
--- Display: Ask Level 4 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.display = function(value)
-  if value == 99999 then
-    return "Ask Level 4 Order Counts: "..value.." (or more)"
-  end
-
-  return "Ask Level 4 Order Counts: "..value
-end
-
--- Dissect: Ask Level 4 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_order_counts, range, value, "Ask Level 4 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 4 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 4 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price = {}
-
--- Size: Ask Level 4 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size = 9
-
--- Display: Ask Level 4 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 4 Price: No Value"
-  end
-
-  return "Ask Level 4 Price: "..text
-end
-
--- Dissect: Ask Level 4 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_price, range, value, "Ask Level 4 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 4 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 4 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume = {}
-
--- Size: Ask Level 4 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.size = 9
-
--- Display: Ask Level 4 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.display = function(value)
-  if value == 999999999 then
-    return "Ask Level 4 Volume: "..value.." (or more)"
-  end
-
-  return "Ask Level 4 Volume: "..value
-end
-
--- Dissect: Ask Level 4 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_volume, range, value, "Ask Level 4 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 4 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_4_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 5 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts = {}
-
--- Size: Ask Level 5 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.size = 5
-
--- Display: Ask Level 5 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.display = function(value)
-  if value == 99999 then
-    return "Ask Level 5 Order Counts: "..value.." (or more)"
-  end
-
-  return "Ask Level 5 Order Counts: "..value
-end
-
--- Dissect: Ask Level 5 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_order_counts, range, value, "Ask Level 5 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 5 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 5 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price = {}
-
--- Size: Ask Level 5 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size = 9
-
--- Display: Ask Level 5 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 5 Price: No Value"
-  end
-
-  return "Ask Level 5 Price: "..text
-end
-
--- Dissect: Ask Level 5 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_price, range, value, "Ask Level 5 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 5 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 5 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume = {}
-
--- Size: Ask Level 5 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.size = 9
-
--- Display: Ask Level 5 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.display = function(value)
-  if value == 999999999 then
-    return "Ask Level 5 Volume: "..value.." (or more)"
-  end
-
-  return "Ask Level 5 Volume: "..value
-end
-
--- Dissect: Ask Level 5 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_volume, range, value, "Ask Level 5 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 5 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_5_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 6 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts = {}
-
--- Size: Ask Level 6 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.size = 5
-
--- Display: Ask Level 6 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.display = function(value)
-  if value == 99999 then
-    return "Ask Level 6 Order Counts: "..value.." (or more)"
-  end
-
-  return "Ask Level 6 Order Counts: "..value
-end
-
--- Dissect: Ask Level 6 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_order_counts, range, value, "Ask Level 6 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 6 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 6 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price = {}
-
--- Size: Ask Level 6 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.size = 9
-
--- Display: Ask Level 6 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 6 Price: No Value"
-  end
-
-  return "Ask Level 6 Price: "..text
-end
-
--- Dissect: Ask Level 6 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_price, range, value, "Ask Level 6 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 6 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 6 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume = {}
-
--- Size: Ask Level 6 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.size = 9
-
--- Display: Ask Level 6 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.display = function(value)
-  if value == 999999999 then
-    return "Ask Level 6 Volume: "..value.." (or more)"
-  end
-
-  return "Ask Level 6 Volume: "..value
-end
-
--- Dissect: Ask Level 6 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_volume, range, value, "Ask Level 6 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 6 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_6_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 7 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts = {}
-
--- Size: Ask Level 7 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.size = 5
-
--- Display: Ask Level 7 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.display = function(value)
-  if value == 99999 then
-    return "Ask Level 7 Order Counts: "..value.." (or more)"
-  end
-
-  return "Ask Level 7 Order Counts: "..value
-end
-
--- Dissect: Ask Level 7 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_order_counts, range, value, "Ask Level 7 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 7 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 7 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price = {}
-
--- Size: Ask Level 7 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.size = 9
-
--- Display: Ask Level 7 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 7 Price: No Value"
-  end
-
-  return "Ask Level 7 Price: "..text
-end
-
--- Dissect: Ask Level 7 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_price, range, value, "Ask Level 7 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 7 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 7 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume = {}
-
--- Size: Ask Level 7 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.size = 9
-
--- Display: Ask Level 7 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.display = function(value)
-  if value == 999999999 then
-    return "Ask Level 7 Volume: "..value.." (or more)"
-  end
-
-  return "Ask Level 7 Volume: "..value
-end
-
--- Dissect: Ask Level 7 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_volume, range, value, "Ask Level 7 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 7 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_7_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 8 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts = {}
-
--- Size: Ask Level 8 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.size = 5
-
--- Display: Ask Level 8 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.display = function(value)
-  if value == 99999 then
-    return "Ask Level 8 Order Counts: "..value.." (or more)"
-  end
-
-  return "Ask Level 8 Order Counts: "..value
-end
-
--- Dissect: Ask Level 8 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_order_counts, range, value, "Ask Level 8 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 8 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 8 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price = {}
-
--- Size: Ask Level 8 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.size = 9
-
--- Display: Ask Level 8 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 8 Price: No Value"
-  end
-
-  return "Ask Level 8 Price: "..text
-end
-
--- Dissect: Ask Level 8 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_price, range, value, "Ask Level 8 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 8 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 8 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume = {}
-
--- Size: Ask Level 8 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.size = 9
-
--- Display: Ask Level 8 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.display = function(value)
-  if value == 999999999 then
-    return "Ask Level 8 Volume: "..value.." (or more)"
-  end
-
-  return "Ask Level 8 Volume: "..value
-end
-
--- Dissect: Ask Level 8 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_volume, range, value, "Ask Level 8 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 8 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_8_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 9 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts = {}
-
--- Size: Ask Level 9 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.size = 5
-
--- Display: Ask Level 9 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.display = function(value)
-  if value == 99999 then
-    return "Ask Level 9 Order Counts: "..value.." (or more)"
-  end
-
-  return "Ask Level 9 Order Counts: "..value
-end
-
--- Dissect: Ask Level 9 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_order_counts, range, value, "Ask Level 9 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 9 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 9 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price = {}
-
--- Size: Ask Level 9 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.size = 9
-
--- Display: Ask Level 9 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 9 Price: No Value"
-  end
-
-  return "Ask Level 9 Price: "..text
-end
-
--- Dissect: Ask Level 9 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_price, range, value, "Ask Level 9 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 9 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 9 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume = {}
-
--- Size: Ask Level 9 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.size = 9
-
--- Display: Ask Level 9 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.display = function(value)
-  if value == 999999999 then
-    return "Ask Level 9 Volume: "..value.." (or more)"
-  end
-
-  return "Ask Level 9 Volume: "..value
-end
-
--- Dissect: Ask Level 9 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_volume, range, value, "Ask Level 9 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Level 9 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_level_9_volume, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -2006,6 +956,41 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_trading_volume.dissect = 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_trading_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_trading_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Volume
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_volume = {}
+
+-- Size: Ask Volume
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_volume.size = 9
+
+-- Display: Ask Volume
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_volume.display = function(value)
+  if value == 999999999 then
+    return "Ask Volume: "..value.." (or more)"
+  end
+
+  return "Ask Volume: "..value
+end
+
+-- Dissect: Ask Volume
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_volume.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_volume, range, value, "Ask Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Ask Volume is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ask_volume, range, value, display)
 
   return offset + length, value
 end
@@ -2368,1082 +1353,75 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.best_favorable_order_permissi
   return offset + length, value
 end
 
--- Bid Level 1 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts = {}
+-- Bid Order Counts
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_order_counts = {}
 
--- Size: Bid Level 1 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.size = 5
+-- Size: Bid Order Counts
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_order_counts.size = 5
 
--- Display: Bid Level 1 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.display = function(value)
+-- Display: Bid Order Counts
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_order_counts.display = function(value)
   if value == 99999 then
-    return "Bid Level 1 Order Counts: "..value.." (or more)"
+    return "Bid Order Counts: "..value.." (or more)"
   end
 
-  return "Bid Level 1 Order Counts: "..value
+  return "Bid Order Counts: "..value
 end
 
--- Dissect: Bid Level 1 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.size
+-- Dissect: Bid Order Counts
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_order_counts.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_order_counts.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_order_counts, range, value, "Bid Level 1 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 1 Order Counts is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_order_counts, range, value, "Bid Order Counts: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Order Counts is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_order_counts.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_order_counts, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_order_counts, range, value, display)
 
   return offset + length, value
 end
 
--- Bid Level 1 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price = {}
+-- Bid Price
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price = {}
 
--- Size: Bid Level 1 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size = 9
+-- Size: Bid Price
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price.size = 9
 
--- Display: Bid Level 1 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size):string()
+-- Display: Bid Price
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price.size):string()
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Bid Level 1 Price: No Value"
+    return "Bid Price: No Value"
   end
 
-  return "Bid Level 1 Price: "..text
+  return "Bid Price: "..text
 end
 
--- Dissect: Bid Level 1 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size
+-- Dissect: Bid Price
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_price, range, value, "Bid Level 1 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 1 Price is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_price, range, value, "Bid Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 1 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume = {}
-
--- Size: Bid Level 1 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.size = 9
-
--- Display: Bid Level 1 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.display = function(value)
-  if value == 999999999 then
-    return "Bid Level 1 Volume: "..value.." (or more)"
-  end
-
-  return "Bid Level 1 Volume: "..value
-end
-
--- Dissect: Bid Level 1 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_volume, range, value, "Bid Level 1 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 1 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_1_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 10 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts = {}
-
--- Size: Bid Level 10 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.size = 5
-
--- Display: Bid Level 10 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.display = function(value)
-  if value == 99999 then
-    return "Bid Level 10 Order Counts: "..value.." (or more)"
-  end
-
-  return "Bid Level 10 Order Counts: "..value
-end
-
--- Dissect: Bid Level 10 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_order_counts, range, value, "Bid Level 10 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 10 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 10 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price = {}
-
--- Size: Bid Level 10 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.size = 9
-
--- Display: Bid Level 10 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 10 Price: No Value"
-  end
-
-  return "Bid Level 10 Price: "..text
-end
-
--- Dissect: Bid Level 10 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_price, range, value, "Bid Level 10 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 10 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 10 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume = {}
-
--- Size: Bid Level 10 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.size = 9
-
--- Display: Bid Level 10 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.display = function(value)
-  if value == 999999999 then
-    return "Bid Level 10 Volume: "..value.." (or more)"
-  end
-
-  return "Bid Level 10 Volume: "..value
-end
-
--- Dissect: Bid Level 10 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_volume, range, value, "Bid Level 10 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 10 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_10_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 2 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts = {}
-
--- Size: Bid Level 2 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.size = 5
-
--- Display: Bid Level 2 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.display = function(value)
-  if value == 99999 then
-    return "Bid Level 2 Order Counts: "..value.." (or more)"
-  end
-
-  return "Bid Level 2 Order Counts: "..value
-end
-
--- Dissect: Bid Level 2 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_order_counts, range, value, "Bid Level 2 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 2 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 2 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price = {}
-
--- Size: Bid Level 2 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size = 9
-
--- Display: Bid Level 2 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 2 Price: No Value"
-  end
-
-  return "Bid Level 2 Price: "..text
-end
-
--- Dissect: Bid Level 2 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_price, range, value, "Bid Level 2 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 2 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 2 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume = {}
-
--- Size: Bid Level 2 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.size = 9
-
--- Display: Bid Level 2 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.display = function(value)
-  if value == 999999999 then
-    return "Bid Level 2 Volume: "..value.." (or more)"
-  end
-
-  return "Bid Level 2 Volume: "..value
-end
-
--- Dissect: Bid Level 2 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_volume, range, value, "Bid Level 2 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 2 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_2_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 3 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts = {}
-
--- Size: Bid Level 3 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.size = 5
-
--- Display: Bid Level 3 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.display = function(value)
-  if value == 99999 then
-    return "Bid Level 3 Order Counts: "..value.." (or more)"
-  end
-
-  return "Bid Level 3 Order Counts: "..value
-end
-
--- Dissect: Bid Level 3 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_order_counts, range, value, "Bid Level 3 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 3 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 3 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price = {}
-
--- Size: Bid Level 3 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size = 9
-
--- Display: Bid Level 3 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 3 Price: No Value"
-  end
-
-  return "Bid Level 3 Price: "..text
-end
-
--- Dissect: Bid Level 3 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_price, range, value, "Bid Level 3 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 3 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 3 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume = {}
-
--- Size: Bid Level 3 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.size = 9
-
--- Display: Bid Level 3 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.display = function(value)
-  if value == 999999999 then
-    return "Bid Level 3 Volume: "..value.." (or more)"
-  end
-
-  return "Bid Level 3 Volume: "..value
-end
-
--- Dissect: Bid Level 3 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_volume, range, value, "Bid Level 3 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 3 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_3_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 4 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts = {}
-
--- Size: Bid Level 4 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.size = 5
-
--- Display: Bid Level 4 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.display = function(value)
-  if value == 99999 then
-    return "Bid Level 4 Order Counts: "..value.." (or more)"
-  end
-
-  return "Bid Level 4 Order Counts: "..value
-end
-
--- Dissect: Bid Level 4 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_order_counts, range, value, "Bid Level 4 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 4 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 4 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price = {}
-
--- Size: Bid Level 4 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size = 9
-
--- Display: Bid Level 4 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 4 Price: No Value"
-  end
-
-  return "Bid Level 4 Price: "..text
-end
-
--- Dissect: Bid Level 4 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_price, range, value, "Bid Level 4 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 4 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 4 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume = {}
-
--- Size: Bid Level 4 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.size = 9
-
--- Display: Bid Level 4 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.display = function(value)
-  if value == 999999999 then
-    return "Bid Level 4 Volume: "..value.." (or more)"
-  end
-
-  return "Bid Level 4 Volume: "..value
-end
-
--- Dissect: Bid Level 4 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_volume, range, value, "Bid Level 4 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 4 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_4_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 5 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts = {}
-
--- Size: Bid Level 5 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.size = 5
-
--- Display: Bid Level 5 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.display = function(value)
-  if value == 99999 then
-    return "Bid Level 5 Order Counts: "..value.." (or more)"
-  end
-
-  return "Bid Level 5 Order Counts: "..value
-end
-
--- Dissect: Bid Level 5 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_order_counts, range, value, "Bid Level 5 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 5 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 5 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price = {}
-
--- Size: Bid Level 5 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size = 9
-
--- Display: Bid Level 5 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 5 Price: No Value"
-  end
-
-  return "Bid Level 5 Price: "..text
-end
-
--- Dissect: Bid Level 5 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_price, range, value, "Bid Level 5 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 5 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 5 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume = {}
-
--- Size: Bid Level 5 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.size = 9
-
--- Display: Bid Level 5 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.display = function(value)
-  if value == 999999999 then
-    return "Bid Level 5 Volume: "..value.." (or more)"
-  end
-
-  return "Bid Level 5 Volume: "..value
-end
-
--- Dissect: Bid Level 5 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_volume, range, value, "Bid Level 5 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 5 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_5_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 6 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts = {}
-
--- Size: Bid Level 6 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.size = 5
-
--- Display: Bid Level 6 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.display = function(value)
-  if value == 99999 then
-    return "Bid Level 6 Order Counts: "..value.." (or more)"
-  end
-
-  return "Bid Level 6 Order Counts: "..value
-end
-
--- Dissect: Bid Level 6 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_order_counts, range, value, "Bid Level 6 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 6 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 6 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price = {}
-
--- Size: Bid Level 6 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.size = 9
-
--- Display: Bid Level 6 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 6 Price: No Value"
-  end
-
-  return "Bid Level 6 Price: "..text
-end
-
--- Dissect: Bid Level 6 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_price, range, value, "Bid Level 6 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 6 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 6 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume = {}
-
--- Size: Bid Level 6 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.size = 9
-
--- Display: Bid Level 6 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.display = function(value)
-  if value == 999999999 then
-    return "Bid Level 6 Volume: "..value.." (or more)"
-  end
-
-  return "Bid Level 6 Volume: "..value
-end
-
--- Dissect: Bid Level 6 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_volume, range, value, "Bid Level 6 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 6 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_6_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 7 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts = {}
-
--- Size: Bid Level 7 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.size = 5
-
--- Display: Bid Level 7 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.display = function(value)
-  if value == 99999 then
-    return "Bid Level 7 Order Counts: "..value.." (or more)"
-  end
-
-  return "Bid Level 7 Order Counts: "..value
-end
-
--- Dissect: Bid Level 7 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_order_counts, range, value, "Bid Level 7 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 7 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 7 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price = {}
-
--- Size: Bid Level 7 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.size = 9
-
--- Display: Bid Level 7 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 7 Price: No Value"
-  end
-
-  return "Bid Level 7 Price: "..text
-end
-
--- Dissect: Bid Level 7 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_price, range, value, "Bid Level 7 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 7 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 7 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume = {}
-
--- Size: Bid Level 7 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.size = 9
-
--- Display: Bid Level 7 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.display = function(value)
-  if value == 999999999 then
-    return "Bid Level 7 Volume: "..value.." (or more)"
-  end
-
-  return "Bid Level 7 Volume: "..value
-end
-
--- Dissect: Bid Level 7 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_volume, range, value, "Bid Level 7 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 7 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_7_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 8 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts = {}
-
--- Size: Bid Level 8 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.size = 5
-
--- Display: Bid Level 8 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.display = function(value)
-  if value == 99999 then
-    return "Bid Level 8 Order Counts: "..value.." (or more)"
-  end
-
-  return "Bid Level 8 Order Counts: "..value
-end
-
--- Dissect: Bid Level 8 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_order_counts, range, value, "Bid Level 8 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 8 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 8 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price = {}
-
--- Size: Bid Level 8 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.size = 9
-
--- Display: Bid Level 8 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 8 Price: No Value"
-  end
-
-  return "Bid Level 8 Price: "..text
-end
-
--- Dissect: Bid Level 8 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_price, range, value, "Bid Level 8 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 8 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 8 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume = {}
-
--- Size: Bid Level 8 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.size = 9
-
--- Display: Bid Level 8 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.display = function(value)
-  if value == 999999999 then
-    return "Bid Level 8 Volume: "..value.." (or more)"
-  end
-
-  return "Bid Level 8 Volume: "..value
-end
-
--- Dissect: Bid Level 8 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_volume, range, value, "Bid Level 8 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 8 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_8_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 9 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts = {}
-
--- Size: Bid Level 9 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.size = 5
-
--- Display: Bid Level 9 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.display = function(value)
-  if value == 99999 then
-    return "Bid Level 9 Order Counts: "..value.." (or more)"
-  end
-
-  return "Bid Level 9 Order Counts: "..value
-end
-
--- Dissect: Bid Level 9 Order Counts
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_order_counts, range, value, "Bid Level 9 Order Counts: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 9 Order Counts is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_order_counts, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 9 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price = {}
-
--- Size: Bid Level 9 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.size = 9
-
--- Display: Bid Level 9 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 9 Price: No Value"
-  end
-
-  return "Bid Level 9 Price: "..text
-end
-
--- Dissect: Bid Level 9 Price
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_price, range, value, "Bid Level 9 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 9 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 9 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume = {}
-
--- Size: Bid Level 9 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.size = 9
-
--- Display: Bid Level 9 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.display = function(value)
-  if value == 999999999 then
-    return "Bid Level 9 Volume: "..value.." (or more)"
-  end
-
-  return "Bid Level 9 Volume: "..value
-end
-
--- Dissect: Bid Level 9 Volume
-koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_volume, range, value, "Bid Level 9 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Level 9 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_level_9_volume, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -3590,6 +1568,41 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_trading_volume.dissect = 
   local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_trading_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_trading_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Volume
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_volume = {}
+
+-- Size: Bid Volume
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_volume.size = 9
+
+-- Display: Bid Volume
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_volume.display = function(value)
+  if value == 999999999 then
+    return "Bid Volume: "..value.." (or more)"
+  end
+
+  return "Bid Volume: "..value
+end
+
+-- Dissect: Bid Volume
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_volume.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_volume, range, value, "Bid Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_nightderivatives_exture_v2_020.experts.not_a_number, "Bid Volume is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.bid_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3854,7 +1867,11 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.business_date.size = 8
 
 -- Display: Business Date
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.business_date.display = function(value)
-  return "Business Date: "..value
+  if #value < 8 then
+    return "Business Date: "..value
+  end
+
+  return "Business Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Business Date
@@ -4980,7 +2997,11 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.expiration_date.size = 8
 
 -- Display: Expiration Date
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date
@@ -5725,7 +3746,11 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.last_trading_date.size = 8
 
 -- Display: Last Trading Date
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.last_trading_date.display = function(value)
-  return "Last Trading Date: "..value
+  if #value < 8 then
+    return "Last Trading Date: "..value
+  end
+
+  return "Last Trading Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Last Trading Date
@@ -12023,6 +10048,72 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_negotiated_trade_
   end
 end
 
+-- Ten Levels
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels = {}
+
+-- Size: Ten Levels
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.size =
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_volume.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_volume.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_order_counts.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_order_counts.size
+
+-- Display: Ten Levels
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ten Levels
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.fields = function(buffer, offset, packet, parent, ten_levels_index)
+  local index = offset
+
+  -- Implicit Ten Levels Index
+  if ten_levels_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ten_levels_index, ten_levels_index)
+    iteration:set_generated()
+  end
+
+  -- Ask Price: Double
+  index, ask_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Price: Double
+  index, bid_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Ask Volume: Int
+  index, ask_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_volume.dissect(buffer, index, packet, parent)
+
+  -- Bid Volume: Int
+  index, bid_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_volume.dissect(buffer, index, packet, parent)
+
+  -- Ask Order Counts: Int
+  index, ask_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_order_counts.dissect(buffer, index, packet, parent)
+
+  -- Bid Order Counts: Int
+  index, bid_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_order_counts.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ten Levels
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.dissect = function(buffer, offset, packet, parent, ten_levels_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.ten_levels, buffer(offset, 0))
+    local index = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.fields(buffer, offset, packet, parent, ten_levels_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.fields(buffer, offset, packet, parent, ten_levels_index)
+  end
+end
+
 -- Derivatives Market Operation Ts Plus Quote Ten Levels Message
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_ten_levels_message = {}
 
@@ -12039,66 +10130,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.board_event_group_code.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_range.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.size + 
+  10 * koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price_valid_counts.size + 
@@ -12149,185 +10181,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_
   -- Lower Limit Of Dynamic Price Range: Double
   index, lower_limit_of_dynamic_price_range = koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Int
-  index, ask_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Int
-  index, bid_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Order Counts: Int
-  index, ask_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Order Counts: Int
-  index, bid_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Int
-  index, ask_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Int
-  index, bid_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Order Counts: Int
-  index, ask_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Order Counts: Int
-  index, bid_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Int
-  index, ask_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Int
-  index, bid_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Order Counts: Int
-  index, ask_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Order Counts: Int
-  index, bid_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Int
-  index, ask_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Int
-  index, bid_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Order Counts: Int
-  index, ask_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Order Counts: Int
-  index, bid_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Int
-  index, ask_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Int
-  index, bid_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Order Counts: Int
-  index, ask_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Order Counts: Int
-  index, bid_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Price: Double
-  index, ask_level_6_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Price: Double
-  index, bid_level_6_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Volume: Int
-  index, ask_level_6_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Volume: Int
-  index, bid_level_6_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Order Counts: Int
-  index, ask_level_6_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Order Counts: Int
-  index, bid_level_6_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Price: Double
-  index, ask_level_7_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Price: Double
-  index, bid_level_7_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Volume: Int
-  index, ask_level_7_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Volume: Int
-  index, bid_level_7_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Order Counts: Int
-  index, ask_level_7_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Order Counts: Int
-  index, bid_level_7_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Price: Double
-  index, ask_level_8_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Price: Double
-  index, bid_level_8_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Volume: Int
-  index, ask_level_8_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Volume: Int
-  index, bid_level_8_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Order Counts: Int
-  index, ask_level_8_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Order Counts: Int
-  index, bid_level_8_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Price: Double
-  index, ask_level_9_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Price: Double
-  index, bid_level_9_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Volume: Int
-  index, ask_level_9_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Volume: Int
-  index, bid_level_9_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Order Counts: Int
-  index, ask_level_9_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Order Counts: Int
-  index, bid_level_9_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Price: Double
-  index, ask_level_10_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Price: Double
-  index, bid_level_10_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Volume: Int
-  index, ask_level_10_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Volume: Int
-  index, bid_level_10_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Order Counts: Int
-  index, ask_level_10_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Order Counts: Int
-  index, bid_level_10_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.dissect(buffer, index, packet, parent)
+  -- Array Of: Ten Levels
+  for ten_levels_index = 1, 10 do
+    index, ten_levels = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.dissect(buffer, index, packet, parent, ten_levels_index)
+  end
 
   -- Ask Total Volume: Int
   index, ask_total_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.dissect(buffer, index, packet, parent)
@@ -12371,6 +10228,72 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_
   end
 end
 
+-- Five Levels
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels = {}
+
+-- Size: Five Levels
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.size =
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_volume.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_volume.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_order_counts.size + 
+  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_order_counts.size
+
+-- Display: Five Levels
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Five Levels
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.fields = function(buffer, offset, packet, parent, five_levels_index)
+  local index = offset
+
+  -- Implicit Five Levels Index
+  if five_levels_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.five_levels_index, five_levels_index)
+    iteration:set_generated()
+  end
+
+  -- Ask Price: Double
+  index, ask_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Price: Double
+  index, bid_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Ask Volume: Int
+  index, ask_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_volume.dissect(buffer, index, packet, parent)
+
+  -- Bid Volume: Int
+  index, bid_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_volume.dissect(buffer, index, packet, parent)
+
+  -- Ask Order Counts: Int
+  index, ask_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_order_counts.dissect(buffer, index, packet, parent)
+
+  -- Bid Order Counts: Int
+  index, bid_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_order_counts.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Five Levels
+koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.dissect = function(buffer, offset, packet, parent, five_levels_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_koscom_mdcsrealtime_nightderivatives_exture_v2_020.fields.five_levels, buffer(offset, 0))
+    local index = koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.fields(buffer, offset, packet, parent, five_levels_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.fields(buffer, offset, packet, parent, five_levels_index)
+  end
+end
+
 -- Derivatives Market Operation Ts Plus Quote Five Levels Message
 koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_ts_plus_quote_five_levels_message = {}
 
@@ -12387,36 +10310,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.board_event_group_code.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_range.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.size + 
+  5 * koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price_valid_counts.size + 
@@ -12467,95 +10361,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_market_operation_
   -- Lower Limit Of Dynamic Price Range: Double
   index, lower_limit_of_dynamic_price_range = koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Int
-  index, ask_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Int
-  index, bid_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Order Counts: Int
-  index, ask_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Order Counts: Int
-  index, bid_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Int
-  index, ask_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Int
-  index, bid_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Order Counts: Int
-  index, ask_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Order Counts: Int
-  index, bid_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Int
-  index, ask_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Int
-  index, bid_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Order Counts: Int
-  index, ask_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Order Counts: Int
-  index, bid_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Int
-  index, ask_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Int
-  index, bid_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Order Counts: Int
-  index, ask_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Order Counts: Int
-  index, bid_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Int
-  index, ask_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Int
-  index, bid_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Order Counts: Int
-  index, ask_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Order Counts: Int
-  index, bid_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.dissect(buffer, index, packet, parent)
+  -- Array Of: Five Levels
+  for five_levels_index = 1, 5 do
+    index, five_levels = koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.dissect(buffer, index, packet, parent, five_levels_index)
+  end
 
   -- Ask Total Volume: Int
   index, ask_total_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.dissect(buffer, index, packet, parent)
@@ -12623,66 +10432,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.final_ask_bid_type_code.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_range.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.size + 
+  10 * koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price_valid_counts.size + 
@@ -12755,185 +10505,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus
   -- Lower Limit Of Dynamic Price Range: Double
   index, lower_limit_of_dynamic_price_range = koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Int
-  index, ask_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Int
-  index, bid_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Order Counts: Int
-  index, ask_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Order Counts: Int
-  index, bid_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Int
-  index, ask_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Int
-  index, bid_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Order Counts: Int
-  index, ask_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Order Counts: Int
-  index, bid_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Int
-  index, ask_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Int
-  index, bid_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Order Counts: Int
-  index, ask_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Order Counts: Int
-  index, bid_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Int
-  index, ask_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Int
-  index, bid_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Order Counts: Int
-  index, ask_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Order Counts: Int
-  index, bid_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Int
-  index, ask_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Int
-  index, bid_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Order Counts: Int
-  index, ask_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Order Counts: Int
-  index, bid_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Price: Double
-  index, ask_level_6_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Price: Double
-  index, bid_level_6_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Volume: Int
-  index, ask_level_6_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Volume: Int
-  index, bid_level_6_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Order Counts: Int
-  index, ask_level_6_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Order Counts: Int
-  index, bid_level_6_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Price: Double
-  index, ask_level_7_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Price: Double
-  index, bid_level_7_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Volume: Int
-  index, ask_level_7_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Volume: Int
-  index, bid_level_7_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Order Counts: Int
-  index, ask_level_7_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Order Counts: Int
-  index, bid_level_7_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Price: Double
-  index, ask_level_8_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Price: Double
-  index, bid_level_8_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Volume: Int
-  index, ask_level_8_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Volume: Int
-  index, bid_level_8_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Order Counts: Int
-  index, ask_level_8_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Order Counts: Int
-  index, bid_level_8_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Price: Double
-  index, ask_level_9_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Price: Double
-  index, bid_level_9_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Volume: Int
-  index, ask_level_9_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Volume: Int
-  index, bid_level_9_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Order Counts: Int
-  index, ask_level_9_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Order Counts: Int
-  index, bid_level_9_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Price: Double
-  index, ask_level_10_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Price: Double
-  index, bid_level_10_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Volume: Int
-  index, ask_level_10_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Volume: Int
-  index, bid_level_10_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Order Counts: Int
-  index, ask_level_10_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Order Counts: Int
-  index, bid_level_10_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.dissect(buffer, index, packet, parent)
+  -- Array Of: Ten Levels
+  for ten_levels_index = 1, 10 do
+    index, ten_levels = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.dissect(buffer, index, packet, parent, ten_levels_index)
+  end
 
   -- Ask Total Volume: Int
   index, ask_total_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.dissect(buffer, index, packet, parent)
@@ -12995,36 +10570,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.final_ask_bid_type_code.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.upper_limit_of_dynamic_price_range.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.size + 
+  5 * koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price_valid_counts.size + 
@@ -13097,95 +10643,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_order_filled_plus
   -- Lower Limit Of Dynamic Price Range: Double
   index, lower_limit_of_dynamic_price_range = koscom_mdcsrealtime_nightderivatives_exture_v2_020.lower_limit_of_dynamic_price_range.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Int
-  index, ask_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Int
-  index, bid_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Order Counts: Int
-  index, ask_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Order Counts: Int
-  index, bid_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Int
-  index, ask_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Int
-  index, bid_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Order Counts: Int
-  index, ask_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Order Counts: Int
-  index, bid_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Int
-  index, ask_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Int
-  index, bid_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Order Counts: Int
-  index, ask_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Order Counts: Int
-  index, bid_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Int
-  index, ask_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Int
-  index, bid_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Order Counts: Int
-  index, ask_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Order Counts: Int
-  index, bid_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Int
-  index, ask_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Int
-  index, bid_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Order Counts: Int
-  index, ask_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Order Counts: Int
-  index, bid_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.dissect(buffer, index, packet, parent)
+  -- Array Of: Five Levels
+  for five_levels_index = 1, 5 do
+    index, five_levels = koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.dissect(buffer, index, packet, parent, five_levels_index)
+  end
 
   -- Ask Total Volume: Int
   index, ask_total_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.dissect(buffer, index, packet, parent)
@@ -13360,66 +10821,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_ten_leve
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.accumulated_trading_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.accumulated_trading_value.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.final_ask_bid_type_code.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.size + 
+  10 * koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price_valid_counts.size + 
@@ -13485,185 +10887,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_ten_leve
   -- Final Ask Bid Type Code: String
   index, final_ask_bid_type_code = koscom_mdcsrealtime_nightderivatives_exture_v2_020.final_ask_bid_type_code.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Int
-  index, ask_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Int
-  index, bid_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Order Counts: Int
-  index, ask_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Order Counts: Int
-  index, bid_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Int
-  index, ask_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Int
-  index, bid_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Order Counts: Int
-  index, ask_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Order Counts: Int
-  index, bid_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Int
-  index, ask_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Int
-  index, bid_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Order Counts: Int
-  index, ask_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Order Counts: Int
-  index, bid_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Int
-  index, ask_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Int
-  index, bid_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Order Counts: Int
-  index, ask_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Order Counts: Int
-  index, bid_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Int
-  index, ask_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Int
-  index, bid_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Order Counts: Int
-  index, ask_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Order Counts: Int
-  index, bid_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Price: Double
-  index, ask_level_6_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Price: Double
-  index, bid_level_6_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Volume: Int
-  index, ask_level_6_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Volume: Int
-  index, bid_level_6_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Order Counts: Int
-  index, ask_level_6_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Order Counts: Int
-  index, bid_level_6_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Price: Double
-  index, ask_level_7_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Price: Double
-  index, bid_level_7_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Volume: Int
-  index, ask_level_7_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Volume: Int
-  index, bid_level_7_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Order Counts: Int
-  index, ask_level_7_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Order Counts: Int
-  index, bid_level_7_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Price: Double
-  index, ask_level_8_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Price: Double
-  index, bid_level_8_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Volume: Int
-  index, ask_level_8_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Volume: Int
-  index, bid_level_8_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Order Counts: Int
-  index, ask_level_8_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Order Counts: Int
-  index, bid_level_8_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Price: Double
-  index, ask_level_9_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Price: Double
-  index, bid_level_9_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Volume: Int
-  index, ask_level_9_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Volume: Int
-  index, bid_level_9_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Order Counts: Int
-  index, ask_level_9_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Order Counts: Int
-  index, bid_level_9_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Price: Double
-  index, ask_level_10_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Price: Double
-  index, bid_level_10_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Volume: Int
-  index, ask_level_10_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Volume: Int
-  index, bid_level_10_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Order Counts: Int
-  index, ask_level_10_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Order Counts: Int
-  index, bid_level_10_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.dissect(buffer, index, packet, parent)
+  -- Array Of: Ten Levels
+  for ten_levels_index = 1, 10 do
+    index, ten_levels = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.dissect(buffer, index, packet, parent, ten_levels_index)
+  end
 
   -- Ask Total Volume: Int
   index, ask_total_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.dissect(buffer, index, packet, parent)
@@ -13728,36 +10955,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_lev
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.accumulated_trading_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.accumulated_trading_value.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.final_ask_bid_type_code.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.size + 
+  5 * koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price_valid_counts.size + 
@@ -13823,95 +11021,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_snapshot_five_lev
   -- Final Ask Bid Type Code: String
   index, final_ask_bid_type_code = koscom_mdcsrealtime_nightderivatives_exture_v2_020.final_ask_bid_type_code.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Int
-  index, ask_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Int
-  index, bid_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Order Counts: Int
-  index, ask_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Order Counts: Int
-  index, bid_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Int
-  index, ask_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Int
-  index, bid_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Order Counts: Int
-  index, ask_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Order Counts: Int
-  index, bid_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Int
-  index, ask_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Int
-  index, bid_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Order Counts: Int
-  index, ask_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Order Counts: Int
-  index, bid_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Int
-  index, ask_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Int
-  index, bid_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Order Counts: Int
-  index, ask_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Order Counts: Int
-  index, bid_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Int
-  index, ask_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Int
-  index, bid_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Order Counts: Int
-  index, ask_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Order Counts: Int
-  index, bid_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.dissect(buffer, index, packet, parent)
+  -- Array Of: Five Levels
+  for five_levels_index = 1, 5 do
+    index, five_levels = koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.dissect(buffer, index, packet, parent, five_levels_index)
+  end
 
   -- Ask Total Volume: Int
   index, ask_total_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.dissect(buffer, index, packet, parent)
@@ -13966,66 +11079,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_ten_levels_
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.isin_code.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.a_designated_number_for_an_issue.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.processing_time_of_trading_system.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.size + 
+  10 * koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price_valid_counts.size + 
@@ -14061,185 +11115,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_ten_levels_
   -- Processing Time Of Trading System: String
   index, processing_time_of_trading_system = koscom_mdcsrealtime_nightderivatives_exture_v2_020.processing_time_of_trading_system.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Int
-  index, ask_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Int
-  index, bid_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Order Counts: Int
-  index, ask_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Order Counts: Int
-  index, bid_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Int
-  index, ask_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Int
-  index, bid_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Order Counts: Int
-  index, ask_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Order Counts: Int
-  index, bid_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Int
-  index, ask_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Int
-  index, bid_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Order Counts: Int
-  index, ask_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Order Counts: Int
-  index, bid_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Int
-  index, ask_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Int
-  index, bid_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Order Counts: Int
-  index, ask_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Order Counts: Int
-  index, bid_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Int
-  index, ask_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Int
-  index, bid_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Order Counts: Int
-  index, ask_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Order Counts: Int
-  index, bid_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Price: Double
-  index, ask_level_6_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Price: Double
-  index, bid_level_6_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Volume: Int
-  index, ask_level_6_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Volume: Int
-  index, bid_level_6_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Order Counts: Int
-  index, ask_level_6_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_6_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Order Counts: Int
-  index, bid_level_6_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_6_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Price: Double
-  index, ask_level_7_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Price: Double
-  index, bid_level_7_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Volume: Int
-  index, ask_level_7_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Volume: Int
-  index, bid_level_7_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Order Counts: Int
-  index, ask_level_7_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_7_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Order Counts: Int
-  index, bid_level_7_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_7_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Price: Double
-  index, ask_level_8_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Price: Double
-  index, bid_level_8_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Volume: Int
-  index, ask_level_8_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Volume: Int
-  index, bid_level_8_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Order Counts: Int
-  index, ask_level_8_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_8_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Order Counts: Int
-  index, bid_level_8_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_8_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Price: Double
-  index, ask_level_9_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Price: Double
-  index, bid_level_9_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Volume: Int
-  index, ask_level_9_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Volume: Int
-  index, bid_level_9_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Order Counts: Int
-  index, ask_level_9_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_9_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Order Counts: Int
-  index, bid_level_9_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_9_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Price: Double
-  index, ask_level_10_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Price: Double
-  index, bid_level_10_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Volume: Int
-  index, ask_level_10_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Volume: Int
-  index, bid_level_10_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Order Counts: Int
-  index, ask_level_10_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_10_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Order Counts: Int
-  index, bid_level_10_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_10_order_counts.dissect(buffer, index, packet, parent)
+  -- Array Of: Ten Levels
+  for ten_levels_index = 1, 10 do
+    index, ten_levels = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ten_levels.dissect(buffer, index, packet, parent, ten_levels_index)
+  end
 
   -- Ask Total Volume: Int
   index, ask_total_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.dissect(buffer, index, packet, parent)
@@ -14294,36 +11173,7 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.isin_code.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.a_designated_number_for_an_issue.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.processing_time_of_trading_system.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.size + 
-  koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.size + 
+  5 * koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_total_volume.size + 
   koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_price_valid_counts.size + 
@@ -14359,95 +11209,10 @@ koscom_mdcsrealtime_nightderivatives_exture_v2_020.derivatives_quote_five_levels
   -- Processing Time Of Trading System: String
   index, processing_time_of_trading_system = koscom_mdcsrealtime_nightderivatives_exture_v2_020.processing_time_of_trading_system.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Int
-  index, ask_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Int
-  index, bid_level_1_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Order Counts: Int
-  index, ask_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Order Counts: Int
-  index, bid_level_1_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_1_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Int
-  index, ask_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Int
-  index, bid_level_2_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Order Counts: Int
-  index, ask_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Order Counts: Int
-  index, bid_level_2_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_2_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Int
-  index, ask_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Int
-  index, bid_level_3_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Order Counts: Int
-  index, ask_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Order Counts: Int
-  index, bid_level_3_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_3_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Int
-  index, ask_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Int
-  index, bid_level_4_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Order Counts: Int
-  index, ask_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Order Counts: Int
-  index, bid_level_4_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_4_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Int
-  index, ask_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Int
-  index, bid_level_5_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Order Counts: Int
-  index, ask_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_level_5_order_counts.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Order Counts: Int
-  index, bid_level_5_order_counts = koscom_mdcsrealtime_nightderivatives_exture_v2_020.bid_level_5_order_counts.dissect(buffer, index, packet, parent)
+  -- Array Of: Five Levels
+  for five_levels_index = 1, 5 do
+    index, five_levels = koscom_mdcsrealtime_nightderivatives_exture_v2_020.five_levels.dissect(buffer, index, packet, parent, five_levels_index)
+  end
 
   -- Ask Total Volume: Int
   index, ask_total_volume = koscom_mdcsrealtime_nightderivatives_exture_v2_020.ask_total_volume.dissect(buffer, index, packet, parent)

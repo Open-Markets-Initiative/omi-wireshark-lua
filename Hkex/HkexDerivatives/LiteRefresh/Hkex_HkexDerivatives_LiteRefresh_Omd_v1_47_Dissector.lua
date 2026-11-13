@@ -822,7 +822,16 @@ hkex_hkexderivatives_literefresh_omd_v1_47.effective_exp_date.size = 8
 
 -- Display: Effective Exp Date
 hkex_hkexderivatives_literefresh_omd_v1_47.effective_exp_date.display = function(value)
-  return "Effective Exp Date: "..value
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Effective Exp Date: No Value"
+  end
+
+  if #value < 8 then
+    return "Effective Exp Date: "..value
+  end
+
+  return "Effective Exp Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Effective Exp Date
@@ -873,7 +882,11 @@ hkex_hkexderivatives_literefresh_omd_v1_47.expiration_date.size = 8
 
 -- Display: Expiration Date
 hkex_hkexderivatives_literefresh_omd_v1_47.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date

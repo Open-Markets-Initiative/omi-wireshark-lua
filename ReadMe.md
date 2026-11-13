@@ -39,7 +39,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 2008 | 13,255,052 |
+| 2008 | 13,249,418 |
 
 For an explanation of how these dissectors are generated: [Dissecting Exchange Protocols with Wireshark](https://www.youtube.com/watch?v=_hE-xw4wofw "Omi Lua Wireshark Dissectors Video")
 ## Testing
@@ -77,7 +77,7 @@ Other generated code can be found at [Omi Projects](https://github.com/Open-Mark
 
 ## Redistributors
 
-> [IceDataServices][IceDataServices.Redistributor] · [MarketData][MarketData.Redistributor]
+> [Databento][MarketData.Redistributor] · [IceDataServices][IceDataServices.Redistributor]
 
 ## Platforms
 

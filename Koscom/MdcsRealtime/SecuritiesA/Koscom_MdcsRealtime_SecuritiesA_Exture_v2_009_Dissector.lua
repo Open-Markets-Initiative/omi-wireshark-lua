@@ -238,7 +238,6 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_009.fields.index = ProtoField.new(
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_009.fields.index_accumulated_trading_value = ProtoField.new("Index Accumulated Trading Value", "koscom.mdcsrealtime.securitiesa.exture.v2.009.indexaccumulatedtradingvalue", ftypes.UINT64, nil, nil, nil, "Accumulated trading value of the index constituents (12 ASCII digits). Unit: Million KRW.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_009.fields.index_asset_classification_id_1 = ProtoField.new("Index Asset Classification Id 1", "koscom.mdcsrealtime.securitiesa.exture.v2.009.indexassetclassificationid1", ftypes.STRING, nil, nil, nil, "*Level 1_classification(2 digits) + Level 2_classification(2 digits) + Level 3 classification(2 digits). - '00' is marked in case the value(s) of each classification is(are) omitted. However, the valu.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_009.fields.index_asset_classification_id_2 = ProtoField.new("Index Asset Classification Id 2", "koscom.mdcsrealtime.securitiesa.exture.v2.009.indexassetclassificationid2", ftypes.STRING, nil, nil, nil, "*Level 1_classification(2 digits) + Level 2_classification(2 digits) + Level 3 classification(2 digits). - '00' is marked in case the value(s) of each classification is(are) omitted. However, the valu.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_009.fields.index_business_date = ProtoField.new("Index Business Date", "koscom.mdcsrealtime.securitiesa.exture.v2.009.indexbusinessdate", ftypes.STRING, nil, nil, nil, "Business date for the index calculation in YYYYMMDD format.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_009.fields.index_calculation_institution_type_code = ProtoField.new("Index Calculation Institution Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.009.indexcalculationinstitutiontypecode", ftypes.STRING, nil, nil, nil, "Index Calculation Institution_Type Code.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_009.fields.index_change_against_the_previous_day = ProtoField.new("Index Change Against The Previous Day", "koscom.mdcsrealtime.securitiesa.exture.v2.009.indexchangeagainstthepreviousday", ftypes.DOUBLE, nil, nil, nil, "Magnitude of the index change against the previous day (9 ASCII digits with 2 implied decimal places).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_009.fields.index_change_sign_against_the_previous_day = ProtoField.new("Index Change Sign Against The Previous Day", "koscom.mdcsrealtime.securitiesa.exture.v2.009.indexchangesignagainstthepreviousday", ftypes.STRING, nil, nil, nil, "Sign of the index change against the previous day. '+' ascended, ' ' unchanged, '-' declined.")
@@ -8079,33 +8078,6 @@ koscom_mdcsrealtime_securitiesa_exture_v2_009.index_asset_classification_id_2.di
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_009.index_asset_classification_id_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_009.fields.index_asset_classification_id_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Index Business Date
-koscom_mdcsrealtime_securitiesa_exture_v2_009.index_business_date = {}
-
--- Size: Index Business Date
-koscom_mdcsrealtime_securitiesa_exture_v2_009.index_business_date.size = 8
-
--- Display: Index Business Date
-koscom_mdcsrealtime_securitiesa_exture_v2_009.index_business_date.display = function(value)
-  if #value < 8 then
-    return "Index Business Date: "..value
-  end
-
-  return "Index Business Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
-end
-
--- Dissect: Index Business Date
-koscom_mdcsrealtime_securitiesa_exture_v2_009.index_business_date.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_009.index_business_date.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string(koscom_mdcsrealtime_securitiesa_exture_v2_009.text_encoding))
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_009.index_business_date.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_009.fields.index_business_date, range, value, display)
 
   return offset + length, value
 end
@@ -23525,7 +23497,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_009.global_index_message = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_009.global_index_message.size =
   koscom_mdcsrealtime_securitiesa_exture_v2_009.index_id.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_009.isin_code.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_009.index_business_date.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_009.business_date.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_009.calculation_time.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_009.index.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_009.index_change_sign_against_the_previous_day.size + 
@@ -23549,8 +23521,8 @@ koscom_mdcsrealtime_securitiesa_exture_v2_009.global_index_message.fields = func
   -- Isin Code: String
   index, isin_code = koscom_mdcsrealtime_securitiesa_exture_v2_009.isin_code.dissect(buffer, index, packet, parent)
 
-  -- Index Business Date: String
-  index, index_business_date = koscom_mdcsrealtime_securitiesa_exture_v2_009.index_business_date.dissect(buffer, index, packet, parent)
+  -- Business Date: String
+  index, business_date = koscom_mdcsrealtime_securitiesa_exture_v2_009.business_date.dissect(buffer, index, packet, parent)
 
   -- Calculation Time: String
   index, calculation_time = koscom_mdcsrealtime_securitiesa_exture_v2_009.calculation_time.dissect(buffer, index, packet, parent)

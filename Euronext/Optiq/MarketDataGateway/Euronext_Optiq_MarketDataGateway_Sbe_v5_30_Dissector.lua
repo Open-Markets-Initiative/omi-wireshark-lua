@@ -21,7 +21,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.aggressive_order = ProtoFi
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.amount_decimals = ProtoField.new("Amount Decimals", "euronext.optiq.marketdatagateway.sbe.v5.30.amountdecimals", ftypes.UINT8, nil, nil, nil, "amountDecimals")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.anonymous = ProtoField.new("Anonymous", "euronext.optiq.marketdatagateway.sbe.v5.30.anonymous", ftypes.UINT8)
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.apa_origin = ProtoField.new("Apa Origin", "euronext.optiq.marketdatagateway.sbe.v5.30.apaorigin", ftypes.STRING, nil, nil, nil, "aPAOrigin")
-omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.bid_offer_date_time = ProtoField.new("Bid Offer Date Time", "euronext.optiq.marketdatagateway.sbe.v5.30.bidofferdatetime", ftypes.UINT64, nil, nil, nil, "bidOfferDateTime")
+omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.bid_offer_date_time = ProtoField.new("Bid Offer Date Time", "euronext.optiq.marketdatagateway.sbe.v5.30.bidofferdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "bidOfferDateTime")
+omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.bid_offer_date_time_utc = ProtoField.new("Bid Offer Date Time", "euronext.optiq.marketdatagateway.sbe.v5.30.bidofferdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "bidOfferDateTime")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.bid_price = ProtoField.new("Bid Price", "euronext.optiq.marketdatagateway.sbe.v5.30.bidprice", ftypes.INT64, nil, nil, nil, "bidPrice")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.block_length = ProtoField.new("Block Length", "euronext.optiq.marketdatagateway.sbe.v5.30.blocklength", ftypes.UINT16, nil, nil, nil, "Length of the root of the message contained before repeating groups or variable-length fields")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.block_length_short = ProtoField.new("Block Length Short", "euronext.optiq.marketdatagateway.sbe.v5.30.blocklengthshort", ftypes.UINT8, nil, nil, nil, "blockLength")
@@ -46,7 +47,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.change_type = ProtoField.n
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.channel_id = ProtoField.new("Channel Id", "euronext.optiq.marketdatagateway.sbe.v5.30.channelid", ftypes.UINT16, nil, nil, nil, "Identifies the channel")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.closing_price = ProtoField.new("Closing Price", "euronext.optiq.marketdatagateway.sbe.v5.30.closingprice", ftypes.INT64, nil, nil, nil, "closingPrice")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.closing_reference_level = ProtoField.new("Closing Reference Level", "euronext.optiq.marketdatagateway.sbe.v5.30.closingreferencelevel", ftypes.INT64, nil, nil, nil, "closingReferenceLevel")
-omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.closing_reference_time = ProtoField.new("Closing Reference Time", "euronext.optiq.marketdatagateway.sbe.v5.30.closingreferencetime", ftypes.UINT64, nil, nil, nil, "closingReferenceTime")
+omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.closing_reference_time = ProtoField.new("Closing Reference Time", "euronext.optiq.marketdatagateway.sbe.v5.30.closingreferencetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "closingReferenceTime")
+omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.closing_reference_time_utc = ProtoField.new("Closing Reference Time", "euronext.optiq.marketdatagateway.sbe.v5.30.closingreferencetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "closingReferenceTime")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.collar_expansion_factor = ProtoField.new("Collar Expansion Factor", "euronext.optiq.marketdatagateway.sbe.v5.30.collarexpansionfactor", ftypes.UINT8, nil, nil, nil, "collarExpansionFactor")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.collar_max_unhalt_nb = ProtoField.new("Collar Max Unhalt Nb", "euronext.optiq.marketdatagateway.sbe.v5.30.collarmaxunhaltnb", ftypes.UINT8, nil, nil, nil, "collarMaxUnhaltNb")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.collar_unhalt_delay = ProtoField.new("Collar Unhalt Delay", "euronext.optiq.marketdatagateway.sbe.v5.30.collarunhaltdelay", ftypes.UINT32, nil, nil, nil, "collarUnhaltDelay")
@@ -189,7 +191,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.lei_code = ProtoField.new(
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.limit = ProtoField.new("Limit", "euronext.optiq.marketdatagateway.sbe.v5.30.limit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.liquid_instrument_indicator = ProtoField.new("Liquid Instrument Indicator", "euronext.optiq.marketdatagateway.sbe.v5.30.liquidinstrumentindicator", ftypes.UINT8, nil, nil, nil, "liquidInstrumentIndicator")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.liquidation_level = ProtoField.new("Liquidation Level", "euronext.optiq.marketdatagateway.sbe.v5.30.liquidationlevel", ftypes.INT64, nil, nil, nil, "liquidationLevel")
-omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.liquidation_time = ProtoField.new("Liquidation Time", "euronext.optiq.marketdatagateway.sbe.v5.30.liquidationtime", ftypes.UINT64, nil, nil, nil, "liquidationTime")
+omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.liquidation_time = ProtoField.new("Liquidation Time", "euronext.optiq.marketdatagateway.sbe.v5.30.liquidationtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "liquidationTime")
+omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.liquidation_time_utc = ProtoField.new("Liquidation Time", "euronext.optiq.marketdatagateway.sbe.v5.30.liquidationtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "liquidationTime")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.long_instrument_name = ProtoField.new("Long Instrument Name", "euronext.optiq.marketdatagateway.sbe.v5.30.longinstrumentname", ftypes.STRING, nil, nil, nil, "longInstrumentName")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.long_issuer_name = ProtoField.new("Long Issuer Name", "euronext.optiq.marketdatagateway.sbe.v5.30.longissuername", ftypes.STRING, nil, nil, nil, "longIssuerName")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.long_mnemonic = ProtoField.new("Long Mnemonic", "euronext.optiq.marketdatagateway.sbe.v5.30.longmnemonic", ftypes.STRING, nil, nil, nil, "longMnemonic")
@@ -379,7 +382,8 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.settlement_method = ProtoF
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.settlement_tick_size = ProtoField.new("Settlement Tick Size", "euronext.optiq.marketdatagateway.sbe.v5.30.settlementticksize", ftypes.UINT64, nil, nil, nil, "settlementTickSize")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.share_amount_in_issue = ProtoField.new("Share Amount In Issue", "euronext.optiq.marketdatagateway.sbe.v5.30.shareamountinissue", ftypes.INT64, nil, nil, nil, "shareAmountInIssue")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.simple_inter_commodity_spread = ProtoField.new("Simple Inter Commodity Spread", "euronext.optiq.marketdatagateway.sbe.v5.30.simpleintercommodityspread", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000010000, "SimpleInterCommoditySpread")
-omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.snapshot_time = ProtoField.new("Snapshot Time", "euronext.optiq.marketdatagateway.sbe.v5.30.snapshottime", ftypes.UINT64, nil, nil, nil, "snapshotTime")
+omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.snapshot_time = ProtoField.new("Snapshot Time", "euronext.optiq.marketdatagateway.sbe.v5.30.snapshottime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "snapshotTime")
+omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.snapshot_time_utc = ProtoField.new("Snapshot Time", "euronext.optiq.marketdatagateway.sbe.v5.30.snapshottime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "snapshotTime")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.spread = ProtoField.new("Spread", "euronext.optiq.marketdatagateway.sbe.v5.30.spread", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000008)
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.start_time_vwap = ProtoField.new("Start Time Vwap", "euronext.optiq.marketdatagateway.sbe.v5.30.starttimevwap", ftypes.UINT32, nil, nil, nil, "startTimeVwap")
 omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.stats_update_type = ProtoField.new("Stats Update Type", "euronext.optiq.marketdatagateway.sbe.v5.30.statsupdatetype", ftypes.UINT8, nil, nil, nil, "statsUpdateType")
@@ -823,24 +827,27 @@ euronext_optiq_marketdatagateway_sbe_v5_30.bid_offer_date_time = {}
 -- Size: Bid Offer Date Time
 euronext_optiq_marketdatagateway_sbe_v5_30.bid_offer_date_time.size = 8
 
--- Display: Bid Offer Date Time
-euronext_optiq_marketdatagateway_sbe_v5_30.bid_offer_date_time.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Bid Offer Date Time: No Value"
-  end
-
-  return "Bid Offer Date Time: "..value
-end
-
 -- Dissect: Bid Offer Date Time
 euronext_optiq_marketdatagateway_sbe_v5_30.bid_offer_date_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_30.bid_offer_date_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v5_30.bid_offer_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.bid_offer_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.bid_offer_date_time
+  if euronext_optiq_marketdatagateway_sbe_v5_30.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.bid_offer_date_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Bid Offer Date Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1209,19 +1216,20 @@ euronext_optiq_marketdatagateway_sbe_v5_30.closing_reference_time = {}
 -- Size: Closing Reference Time
 euronext_optiq_marketdatagateway_sbe_v5_30.closing_reference_time.size = 8
 
--- Display: Closing Reference Time
-euronext_optiq_marketdatagateway_sbe_v5_30.closing_reference_time.display = function(value)
-  return "Closing Reference Time: "..value
-end
-
 -- Dissect: Closing Reference Time
 euronext_optiq_marketdatagateway_sbe_v5_30.closing_reference_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_30.closing_reference_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v5_30.closing_reference_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.closing_reference_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.closing_reference_time
+  if euronext_optiq_marketdatagateway_sbe_v5_30.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.closing_reference_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1382,7 +1390,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.contract_event_date.display = functio
     return "Contract Event Date: No Value"
   end
 
-  return "Contract Event Date: "..value
+  return string.format("Contract Event Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Contract Event Date
@@ -1847,7 +1855,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.date_of_initial_listing.display = fun
     return "Date Of Initial Listing: No Value"
   end
 
-  return "Date Of Initial Listing: "..value
+  return string.format("Date Of Initial Listing: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Date Of Initial Listing
@@ -1875,7 +1883,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.date_of_last_trade.display = function
     return "Date Of Last Trade: No Value"
   end
 
-  return "Date Of Last Trade: "..value
+  return string.format("Date Of Last Trade: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Date Of Last Trade
@@ -2165,7 +2173,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.dividend_payment_date.display = funct
     return "Dividend Payment Date: No Value"
   end
 
-  return "Dividend Payment Date: "..value
+  return string.format("Dividend Payment Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Dividend Payment Date
@@ -2221,7 +2229,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.dividend_record_date.display = functi
     return "Dividend Record Date: No Value"
   end
 
-  return "Dividend Record Date: "..value
+  return string.format("Dividend Record Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Dividend Record Date
@@ -3307,7 +3315,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.ex_dividend_date.display = function(v
     return "Ex Dividend Date: No Value"
   end
 
-  return "Ex Dividend Date: "..value
+  return string.format("Ex Dividend Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Ex Dividend Date
@@ -3480,7 +3488,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.expiration_date.display = function(va
     return "Expiration Date: No Value"
   end
 
-  return "Expiration Date: "..value
+  return string.format("Expiration Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Expiration Date
@@ -3622,7 +3630,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.first_settlement_date.display = funct
     return "First Settlement Date: No Value"
   end
 
-  return "First Settlement Date: "..value
+  return string.format("First Settlement Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: First Settlement Date
@@ -4216,7 +4224,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.instrument_event_date.size = 2
 
 -- Display: Instrument Event Date
 euronext_optiq_marketdatagateway_sbe_v5_30.instrument_event_date.display = function(value)
-  return "Instrument Event Date: "..value
+  return string.format("Instrument Event Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Instrument Event Date
@@ -4448,7 +4456,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.interest_payment_date.display = funct
     return "Interest Payment Date: No Value"
   end
 
-  return "Interest Payment Date: "..value
+  return string.format("Interest Payment Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Interest Payment Date
@@ -4554,7 +4562,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.issue_date.display = function(value)
     return "Issue Date: No Value"
   end
 
-  return "Issue Date: "..value
+  return string.format("Issue Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Issue Date
@@ -4761,7 +4769,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.last_trading_date.display = function(
     return "Last Trading Date: No Value"
   end
 
-  return "Last Trading Date: "..value
+  return string.format("Last Trading Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Last Trading Date
@@ -5050,24 +5058,27 @@ euronext_optiq_marketdatagateway_sbe_v5_30.liquidation_time = {}
 -- Size: Liquidation Time
 euronext_optiq_marketdatagateway_sbe_v5_30.liquidation_time.size = 8
 
--- Display: Liquidation Time
-euronext_optiq_marketdatagateway_sbe_v5_30.liquidation_time.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Liquidation Time: No Value"
-  end
-
-  return "Liquidation Time: "..value
-end
-
 -- Dissect: Liquidation Time
 euronext_optiq_marketdatagateway_sbe_v5_30.liquidation_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_30.liquidation_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v5_30.liquidation_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.liquidation_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.liquidation_time
+  if euronext_optiq_marketdatagateway_sbe_v5_30.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.liquidation_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Liquidation Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8363,6 +8374,11 @@ euronext_optiq_marketdatagateway_sbe_v5_30.phase_time.size = 8
 
 -- Display: Phase Time
 euronext_optiq_marketdatagateway_sbe_v5_30.phase_time.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    return "Phase Time: No Value"
+  end
+
   value = value:tonumber()
   local hour = math.floor(value / 10000)
   local minute = math.floor(value / 100) % 100
@@ -9393,7 +9409,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.repo_settlement_date.display = functi
     return "Repo Settlement Date: No Value"
   end
 
-  return "Repo Settlement Date: "..value
+  return string.format("Repo Settlement Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Repo Settlement Date
@@ -9786,7 +9802,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.session_trading_day.size = 2
 
 -- Display: Session Trading Day
 euronext_optiq_marketdatagateway_sbe_v5_30.session_trading_day.display = function(value)
-  return "Session Trading Day: "..value
+  return string.format("Session Trading Day: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Session Trading Day
@@ -9814,7 +9830,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.settlement_date.display = function(va
     return "Settlement Date: No Value"
   end
 
-  return "Settlement Date: "..value
+  return string.format("Settlement Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Settlement Date
@@ -9966,19 +9982,20 @@ euronext_optiq_marketdatagateway_sbe_v5_30.snapshot_time = {}
 -- Size: Snapshot Time
 euronext_optiq_marketdatagateway_sbe_v5_30.snapshot_time.size = 8
 
--- Display: Snapshot Time
-euronext_optiq_marketdatagateway_sbe_v5_30.snapshot_time.display = function(value)
-  return "Snapshot Time: "..value
-end
-
 -- Dissect: Snapshot Time
 euronext_optiq_marketdatagateway_sbe_v5_30.snapshot_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_marketdatagateway_sbe_v5_30.snapshot_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_marketdatagateway_sbe_v5_30.snapshot_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.snapshot_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.snapshot_time
+  if euronext_optiq_marketdatagateway_sbe_v5_30.timestamp_format == 3 then field = omi_euronext_optiq_marketdatagateway_sbe_v5_30.fields.snapshot_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -11546,7 +11563,7 @@ euronext_optiq_marketdatagateway_sbe_v5_30.underlying_expiry.display = function(
     return "Underlying Expiry: No Value"
   end
 
-  return "Underlying Expiry: "..value
+  return string.format("Underlying Expiry: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Underlying Expiry

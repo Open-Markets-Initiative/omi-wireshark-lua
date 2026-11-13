@@ -836,7 +836,16 @@ hkex_hkexderivatives_fulltick_omd_v1_49.effective_exp_date.size = 8
 
 -- Display: Effective Exp Date
 hkex_hkexderivatives_fulltick_omd_v1_49.effective_exp_date.display = function(value)
-  return "Effective Exp Date: "..value
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Effective Exp Date: No Value"
+  end
+
+  if #value < 8 then
+    return "Effective Exp Date: "..value
+  end
+
+  return "Effective Exp Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Effective Exp Date
