@@ -524,7 +524,7 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.message_count.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.message_count, range, value, display)
@@ -661,7 +661,7 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.order_book_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.order_book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.order_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.order_book_type, range, value, display)
@@ -711,7 +711,7 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.order_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.order_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.order_type, range, value, display)
@@ -888,7 +888,7 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.recovery_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.recovery_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.recovery_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.recovery_type, range, value, display)
@@ -940,7 +940,7 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.request_level.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.request_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.request_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.request_level, range, value, display)
@@ -969,7 +969,7 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.request_order_book_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.request_order_book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.request_order_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.request_order_book_type, range, value, display)
@@ -1231,7 +1231,7 @@ end
 lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.session_change_reason.dissect = function(buffer, offset, packet, parent)
   local length = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.session_change_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.session_change_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_tradeecho_level2incrementalrecovery_gtp_v24_4.fields.session_change_reason, range, value, display)

@@ -601,7 +601,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.adjusted_closing_price_reason.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.adjusted_closing_price_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.adjusted_closing_price_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.adjusted_closing_price_reason, range, value, display)
@@ -636,7 +636,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.auction_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.auction_type, range, value, display)
@@ -771,7 +771,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.bond_coupon_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.bond_coupon_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.bond_coupon_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.bond_coupon_type, range, value, display)
@@ -825,7 +825,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.calendar_exception_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.calendar_exception_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.calendar_exception_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.calendar_exception_type, range, value, display)
@@ -1013,7 +1013,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.closing_price_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.closing_price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.closing_price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.closing_price_type, range, value, display)
@@ -1041,7 +1041,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.collar_expression.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.collar_expression.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.collar_expression.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.collar_expression, range, value, display)
@@ -1179,7 +1179,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.collar_mode.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.collar_mode.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.collar_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.collar_mode, range, value, display)
@@ -1230,7 +1230,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.collar_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.collar_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.collar_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.collar_type, range, value, display)
@@ -1369,7 +1369,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.count.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.count, range, value, display)
@@ -1650,7 +1650,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.days_since_last_publication.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.days_since_last_publication.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.days_since_last_publication.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.days_since_last_publication, range, value, display)
@@ -1754,7 +1754,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.dividend.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.dividend.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.dividend.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.dividend, range, value, display)
@@ -1924,7 +1924,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.entry_number.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.entry_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.entry_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.entry_number, range, value, display)
@@ -1953,7 +1953,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.event_type_event_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.event_type_event_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.event_type_event_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.event_type_event_type, range, value, display)
@@ -1982,7 +1982,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.event_type_order_book_event_type, range, value, display)
@@ -2063,7 +2063,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.exercise_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.exercise_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.exercise_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.exercise_type, range, value, display)
@@ -2458,7 +2458,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.index_level_code.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.index_level_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.index_level_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.index_level_code, range, value, display)
@@ -2487,7 +2487,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.index_publication_schedule.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.index_publication_schedule.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.index_publication_schedule.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.index_publication_schedule, range, value, display)
@@ -2519,7 +2519,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.index_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.index_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.index_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.index_type, range, value, display)
@@ -2548,7 +2548,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.index_underlying_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.index_underlying_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.index_underlying_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.index_underlying_type, range, value, display)
@@ -2863,7 +2863,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.interim_dividend_right.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.interim_dividend_right.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.interim_dividend_right.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.interim_dividend_right, range, value, display)
@@ -2886,7 +2886,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.is_correction.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.is_correction.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.is_correction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.is_correction, range, value, display)
@@ -2909,7 +2909,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.is_encrypted.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.is_encrypted.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.is_encrypted.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.is_encrypted, range, value, display)
@@ -2938,7 +2938,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.is_leverage.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.is_leverage.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.is_leverage.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.is_leverage, range, value, display)
@@ -3412,7 +3412,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.liquidity.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.liquidity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.liquidity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.liquidity, range, value, display)
@@ -3435,7 +3435,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.liquidity_support_pge.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.liquidity_support_pge.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.liquidity_support_pge.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.liquidity_support_pge, range, value, display)
@@ -3597,7 +3597,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.lower_liquidity.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.lower_liquidity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.lower_liquidity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.lower_liquidity, range, value, display)
@@ -3627,7 +3627,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.marker_price_change.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.marker_price_change.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.marker_price_change.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.marker_price_change, range, value, display)
@@ -3650,7 +3650,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.market.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.market.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.market, range, value, display)
@@ -3707,7 +3707,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.market_model_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.market_model_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.market_model_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.market_model_type, range, value, display)
@@ -3753,7 +3753,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.max_depth.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.max_depth.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.max_depth.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.max_depth, range, value, display)
@@ -3994,7 +3994,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mm_buy_quote_level.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mm_buy_quote_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mm_buy_quote_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mm_buy_quote_level, range, value, display)
@@ -4017,7 +4017,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mm_quote.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mm_quote.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mm_quote.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mm_quote, range, value, display)
@@ -4040,7 +4040,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mm_sell_quote_level.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mm_sell_quote_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mm_sell_quote_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mm_sell_quote_level, range, value, display)
@@ -4068,7 +4068,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_agency_cross_trade_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_agency_cross_trade_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_agency_cross_trade_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_agency_cross_trade_indicator, range, value, display)
@@ -4096,7 +4096,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_algorithmic_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_algorithmic_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_algorithmic_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_algorithmic_indicator, range, value, display)
@@ -4125,7 +4125,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_benchmark_reference_price_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_benchmark_reference_price_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_benchmark_reference_price_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_benchmark_reference_price_indicator, range, value, display)
@@ -4158,7 +4158,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_market_mechanism.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_market_mechanism.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_market_mechanism.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_market_mechanism, range, value, display)
@@ -4187,7 +4187,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_modification_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_modification_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_modification_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_modification_indicator, range, value, display)
@@ -4221,7 +4221,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_negotiation_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_negotiation_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_negotiation_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_negotiation_indicator, range, value, display)
@@ -4250,7 +4250,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_off_book_automated_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_off_book_automated_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_off_book_automated_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_off_book_automated_indicator, range, value, display)
@@ -4280,7 +4280,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_ordinary_trade_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_ordinary_trade_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_ordinary_trade_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_ordinary_trade_indicator, range, value, display)
@@ -4313,7 +4313,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_post_trade_deferral_reason.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_post_trade_deferral_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_post_trade_deferral_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_post_trade_deferral_reason, range, value, display)
@@ -4346,7 +4346,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_post_trade_deferral_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_post_trade_deferral_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_post_trade_deferral_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_post_trade_deferral_type, range, value, display)
@@ -4374,7 +4374,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_special_dividend_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_special_dividend_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_special_dividend_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_special_dividend_indicator, range, value, display)
@@ -4411,7 +4411,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_trading_mode.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_trading_mode.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_trading_mode.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_trading_mode, range, value, display)
@@ -4442,7 +4442,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_transaction_category.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_transaction_category.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.mmt_transaction_category.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.mmt_transaction_category, range, value, display)
@@ -4832,7 +4832,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.nominal_value_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.nominal_value_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.nominal_value_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.nominal_value_type, range, value, display)
@@ -5040,7 +5040,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.option_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.option_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.option_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.option_type, range, value, display)
@@ -5277,7 +5277,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.pos_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.pos_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.pos_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.pos_type, range, value, display)
@@ -5703,7 +5703,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.price_expression_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.price_expression_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.price_expression_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.price_expression_type, range, value, display)
@@ -5732,7 +5732,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.price_notation.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.price_notation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.price_notation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.price_notation, range, value, display)
@@ -5764,7 +5764,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.price_update_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.price_update_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.price_update_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.price_update_type, range, value, display)
@@ -5792,7 +5792,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.priority_flag.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.priority_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.priority_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.priority_flag, range, value, display)
@@ -5889,7 +5889,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.product_identification_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.product_identification_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.product_identification_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.product_identification_type, range, value, display)
@@ -5994,7 +5994,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.product_subtype.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.product_subtype.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.product_subtype.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.product_subtype, range, value, display)
@@ -6028,7 +6028,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.product_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.product_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.product_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.product_type, range, value, display)
@@ -6151,7 +6151,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.quotation_system.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.quotation_system.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.quotation_system.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.quotation_system, range, value, display)
@@ -6617,7 +6617,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.settlement_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.settlement_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.settlement_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.settlement_type, range, value, display)
@@ -6703,7 +6703,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.side.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.side, range, value, display)
@@ -6750,7 +6750,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.split.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.split.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.split.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.split, range, value, display)
@@ -6808,7 +6808,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.status.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.status, range, value, display)
@@ -6831,7 +6831,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.stream_id.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.stream_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.stream_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.stream_id, range, value, display)
@@ -6854,7 +6854,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.stressed_market.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.stressed_market.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.stressed_market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.stressed_market, range, value, display)
@@ -7112,7 +7112,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.subscription_right.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.subscription_right.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.subscription_right.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.subscription_right, range, value, display)
@@ -7135,7 +7135,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.suspended.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.suspended.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.suspended.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.suspended, range, value, display)
@@ -7367,7 +7367,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.total.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.total.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.total.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.total, range, value, display)
@@ -7557,7 +7557,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.trade_to_be_cleared.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.trade_to_be_cleared.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.trade_to_be_cleared.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.trade_to_be_cleared, range, value, display)
@@ -7809,7 +7809,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_phase_max_block_settlement_cycle.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_phase_max_block_settlement_cycle.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_phase_max_block_settlement_cycle.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.trading_phase_max_block_settlement_cycle, range, value, display)
@@ -7832,7 +7832,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_phase_settlement_cycle.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_phase_settlement_cycle.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_phase_settlement_cycle.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.trading_phase_settlement_cycle, range, value, display)
@@ -7905,7 +7905,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_phase_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_phase_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_phase_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.trading_phase_type, range, value, display)
@@ -7965,7 +7965,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_session_event.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_session_event.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.trading_session_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.trading_session_event, range, value, display)
@@ -8070,7 +8070,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.uncrossing.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.uncrossing.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.uncrossing.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.uncrossing, range, value, display)
@@ -8209,7 +8209,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.us_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.us_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.us_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.us_indicator, range, value, display)
@@ -8290,7 +8290,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.value_at_risk.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.value_at_risk.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.value_at_risk.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.value_at_risk, range, value, display)
@@ -8371,7 +8371,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.version_number.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.version_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.version_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.version_number, range, value, display)
@@ -8452,7 +8452,7 @@ end
 gpw_wse_replayfulldepth_wats_v1_7_6_20.weekdays.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_replayfulldepth_wats_v1_7_6_20.weekdays.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_replayfulldepth_wats_v1_7_6_20.weekdays.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_replayfulldepth_wats_v1_7_6_20.fields.weekdays, range, value, display)

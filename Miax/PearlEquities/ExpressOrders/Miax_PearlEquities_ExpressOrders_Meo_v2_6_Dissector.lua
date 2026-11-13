@@ -667,7 +667,7 @@ end
 miax_pearlequities_expressorders_meo_v2_6.correction_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_6.correction_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_expressorders_meo_v2_6.correction_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.correction_number, range, value, display)
@@ -948,7 +948,7 @@ end
 miax_pearlequities_expressorders_meo_v2_6.future.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_6.future.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_expressorders_meo_v2_6.future.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.future, range, value, display)
@@ -1707,7 +1707,7 @@ end
 miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.number_of_matching_engines, range, value, display)
@@ -2733,7 +2733,7 @@ end
 miax_pearlequities_expressorders_meo_v2_6.session_id.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_6.session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_expressorders_meo_v2_6.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.session_id, range, value, display)
@@ -3529,7 +3529,7 @@ miax_pearlequities_expressorders_meo_v2_6.login_response.size = function(buffer,
   index = index + miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.size
 
   -- Calculate field size from count
-  local login_matching_engine_count = buffer(offset + index - 1, 1):le_uint()
+  local login_matching_engine_count = buffer(offset + index - 1, 1):uint()
   index = index + login_matching_engine_count * 10
 
   return index
@@ -3641,7 +3641,7 @@ miax_pearlequities_expressorders_meo_v2_6.login_request.size = function(buffer, 
   index = index + miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.size
 
   -- Calculate field size from count
-  local requested_matching_engine_count = buffer(offset + index - 1, 1):le_uint()
+  local requested_matching_engine_count = buffer(offset + index - 1, 1):uint()
   index = index + requested_matching_engine_count * 9
 
   return index
@@ -4023,7 +4023,7 @@ miax_pearlequities_expressorders_meo_v2_6.mass_cancel_response.size = function(b
   index = index + miax_pearlequities_expressorders_meo_v2_6.number_of_matching_engines.size
 
   -- Calculate field size from count
-  local matching_engine_count = buffer(offset + index - 1, 1):le_uint()
+  local matching_engine_count = buffer(offset + index - 1, 1):uint()
   index = index + matching_engine_count * 1
 
   index = index + miax_pearlequities_expressorders_meo_v2_6.reserved_10.size

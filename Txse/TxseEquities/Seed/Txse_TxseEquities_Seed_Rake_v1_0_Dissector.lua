@@ -501,7 +501,7 @@ end
 txse_txseequities_seed_rake_v1_0.cancel_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.cancel_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.cancel_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.cancel_reason, range, value, display)
@@ -566,7 +566,7 @@ end
 txse_txseequities_seed_rake_v1_0.cancel_rejected_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.cancel_rejected_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.cancel_rejected_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.cancel_rejected_reason, range, value, display)
@@ -1046,7 +1046,7 @@ end
 txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_accepted_price_slide_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_price_slide_instruction, range, value, display)
@@ -1130,7 +1130,7 @@ end
 txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_self_match_instruction, range, value, display)
@@ -1153,7 +1153,7 @@ end
 txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_accepted_self_match_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_accepted_self_match_scope, range, value, display)
@@ -1391,7 +1391,7 @@ end
 txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_price_slide_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_price_slide_instruction, range, value, display)
@@ -1629,7 +1629,7 @@ end
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_rejected_price_slide_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_price_slide_instruction, range, value, display)
@@ -1694,7 +1694,7 @@ end
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_rejected_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_reason, range, value, display)
@@ -1749,7 +1749,7 @@ end
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_self_match_instruction, range, value, display)
@@ -1772,7 +1772,7 @@ end
 txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_rejected_self_match_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_rejected_self_match_scope, range, value, display)
@@ -1827,7 +1827,7 @@ end
 txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_self_match_instruction, range, value, display)
@@ -1850,7 +1850,7 @@ end
 txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.limit_order_self_match_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.limit_order_self_match_scope, range, value, display)
@@ -1904,7 +1904,7 @@ end
 txse_txseequities_seed_rake_v1_0.liquidity_indicator.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.liquidity_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.liquidity_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.liquidity_indicator, range, value, display)
@@ -1932,7 +1932,7 @@ end
 txse_txseequities_seed_rake_v1_0.listing_market.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.listing_market.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.listing_market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.listing_market, range, value, display)
@@ -2018,7 +2018,7 @@ end
 txse_txseequities_seed_rake_v1_0.market_hours_state.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.market_hours_state.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.market_hours_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_hours_state, range, value, display)
@@ -2119,7 +2119,7 @@ end
 txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_self_match_instruction, range, value, display)
@@ -2142,7 +2142,7 @@ end
 txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.market_order_accepted_self_match_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_accepted_self_match_scope, range, value, display)
@@ -2368,7 +2368,7 @@ end
 txse_txseequities_seed_rake_v1_0.market_order_rejected_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.market_order_rejected_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.market_order_rejected_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_reason, range, value, display)
@@ -2400,7 +2400,7 @@ end
 txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_self_match_instruction, range, value, display)
@@ -2423,7 +2423,7 @@ end
 txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.market_order_rejected_self_match_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_rejected_self_match_scope, range, value, display)
@@ -2478,7 +2478,7 @@ end
 txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.market_order_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_self_match_instruction, range, value, display)
@@ -2501,7 +2501,7 @@ end
 txse_txseequities_seed_rake_v1_0.market_order_self_match_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.market_order_self_match_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.market_order_self_match_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.market_order_self_match_scope, range, value, display)
@@ -2621,7 +2621,7 @@ end
 txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.mass_cancel_accepted_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_accepted_scope, range, value, display)
@@ -2870,7 +2870,7 @@ end
 txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_rejected_reason, range, value, display)
@@ -2898,7 +2898,7 @@ end
 txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.mass_cancel_rejected_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_rejected_scope, range, value, display)
@@ -2972,7 +2972,7 @@ end
 txse_txseequities_seed_rake_v1_0.mass_cancel_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.mass_cancel_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.mass_cancel_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.mass_cancel_scope, range, value, display)
@@ -3018,7 +3018,7 @@ end
 txse_txseequities_seed_rake_v1_0.matching_engine_id.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.matching_engine_id.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.matching_engine_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.matching_engine_id, range, value, display)
@@ -3249,7 +3249,7 @@ end
 txse_txseequities_seed_rake_v1_0.modify_rejected_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.modify_rejected_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.modify_rejected_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.modify_rejected_reason, range, value, display)
@@ -3544,7 +3544,7 @@ end
 txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.order_replaced_price_slide_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_price_slide_instruction, range, value, display)
@@ -3628,7 +3628,7 @@ end
 txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.order_replaced_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_self_match_instruction, range, value, display)
@@ -3651,7 +3651,7 @@ end
 txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.order_replaced_self_match_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.order_replaced_self_match_scope, range, value, display)
@@ -3766,7 +3766,7 @@ end
 txse_txseequities_seed_rake_v1_0.packet_type.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.packet_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = txse_txseequities_seed_rake_v1_0.packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.packet_type, range, value, display)
@@ -3923,7 +3923,7 @@ end
 txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.replace_order_price_slide_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_price_slide_instruction, range, value, display)
@@ -3978,7 +3978,7 @@ end
 txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.replace_order_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_self_match_instruction, range, value, display)
@@ -4001,7 +4001,7 @@ end
 txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.replace_order_self_match_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_order_self_match_scope, range, value, display)
@@ -4129,7 +4129,7 @@ end
 txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.replace_rejected_price_slide_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_price_slide_instruction, range, value, display)
@@ -4194,7 +4194,7 @@ end
 txse_txseequities_seed_rake_v1_0.replace_rejected_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.replace_rejected_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.replace_rejected_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_reason, range, value, display)
@@ -4249,7 +4249,7 @@ end
 txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_self_match_instruction, range, value, display)
@@ -4272,7 +4272,7 @@ end
 txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.replace_rejected_self_match_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.replace_rejected_self_match_scope, range, value, display)
@@ -4301,7 +4301,7 @@ end
 txse_txseequities_seed_rake_v1_0.restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.restatement_reason, range, value, display)
@@ -4376,7 +4376,7 @@ end
 txse_txseequities_seed_rake_v1_0.session_trading_state.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.session_trading_state.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.session_trading_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.session_trading_state, range, value, display)
@@ -4407,7 +4407,7 @@ end
 txse_txseequities_seed_rake_v1_0.short_sale_restriction_state.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.short_sale_restriction_state.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.short_sale_restriction_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.short_sale_restriction_state, range, value, display)
@@ -4526,7 +4526,7 @@ end
 txse_txseequities_seed_rake_v1_0.symbol_status_operational_halt_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.symbol_status_operational_halt_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.symbol_status_operational_halt_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.symbol_status_operational_halt_reason, range, value, display)
@@ -4591,7 +4591,7 @@ end
 txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.symbol_status_regulatory_halt_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.symbol_status_regulatory_halt_reason, range, value, display)
@@ -4620,7 +4620,7 @@ end
 txse_txseequities_seed_rake_v1_0.symbol_trading_state.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.symbol_trading_state.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.symbol_trading_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.symbol_trading_state, range, value, display)
@@ -4689,7 +4689,7 @@ end
 txse_txseequities_seed_rake_v1_0.trading_session_status_operational_halt_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.trading_session_status_operational_halt_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.trading_session_status_operational_halt_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_operational_halt_reason, range, value, display)
@@ -4754,7 +4754,7 @@ end
 txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_seed_rake_v1_0.trading_session_status_regulatory_halt_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_regulatory_halt_reason, range, value, display)
@@ -9299,7 +9299,7 @@ txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.fields = function(buffe
   index, rake_message_header = txse_txseequities_seed_rake_v1_0.rake_message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):le_uint()
+  local packet_type = buffer(index - 1, 1):uint()
 
   -- Server Payload: Runtime Type with 4 branches
   index = txse_txseequities_seed_rake_v1_0.server_payload.dissect(buffer, index, packet, parent, packet_type)
@@ -11152,7 +11152,7 @@ txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.fields = function(buffe
   index, rake_message_header = txse_txseequities_seed_rake_v1_0.rake_message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):le_uint()
+  local packet_type = buffer(index - 1, 1):uint()
 
   -- Client Payload: Runtime Type with 2 branches
   index = txse_txseequities_seed_rake_v1_0.client_payload.dissect(buffer, index, packet, parent, packet_type)
@@ -11354,7 +11354,7 @@ txse_txseequities_seed_rake_v1_0.client_packet.fingerprint = function(buffer)
     return false
   end
 
-  local packet_type = buffer(2, 1):le_uint()
+  local packet_type = buffer(2, 1):uint()
 
   -- Logon Request Packet
   if packet_type == 53 then
@@ -11411,7 +11411,7 @@ txse_txseequities_seed_rake_v1_0.server_packet.fingerprint = function(buffer)
     return false
   end
 
-  local packet_type = buffer(2, 1):le_uint()
+  local packet_type = buffer(2, 1):uint()
 
   -- Debug Message
   if packet_type == 48 then

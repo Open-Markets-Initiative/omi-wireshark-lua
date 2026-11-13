@@ -282,7 +282,7 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.correction_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.correction_number, range, value, display)
@@ -547,7 +547,7 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.market_state, range, value, display)
@@ -706,7 +706,7 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.number_of_legs, range, value, display)
@@ -1052,7 +1052,7 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.session_id, range, value, display)
@@ -1477,7 +1477,7 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_depthofmarket_mach_v1_0_b.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.trading_status, range, value, display)
@@ -2474,7 +2474,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.complex_instrument_definition_message
   index = index + miax_onyxfutures_depthofmarket_mach_v1_0_b.number_of_legs.size
 
   -- Calculate field size from count
-  local instrument_leg_count = buffer(offset + index - 1, 1):le_uint()
+  local instrument_leg_count = buffer(offset + index - 1, 1):uint()
   index = index + instrument_leg_count * 20
 
   return index

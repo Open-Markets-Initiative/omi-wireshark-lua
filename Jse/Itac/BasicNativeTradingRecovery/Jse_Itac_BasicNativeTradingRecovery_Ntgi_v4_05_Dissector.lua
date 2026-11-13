@@ -324,7 +324,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.cross_type.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.cross_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.cross_type, range, value, display)
@@ -466,7 +466,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_instruction.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_instruction.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.execution_instruction.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.execution_instruction, range, value, display)
@@ -648,7 +648,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.is_market_ops_request.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.is_market_ops_request.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.is_market_ops_request.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.is_market_ops_request, range, value, display)
@@ -701,7 +701,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.liquidity_indicator.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.liquidity_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.liquidity_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.liquidity_indicator, range, value, display)
@@ -729,7 +729,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.mass_cancel_status.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.mass_cancel_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.mass_cancel_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.mass_cancel_status, range, value, display)
@@ -822,7 +822,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_status.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.missed_message_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.missed_message_status, range, value, display)
@@ -888,7 +888,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_book.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_book.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_book.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.order_book, range, value, display)
@@ -960,7 +960,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_status.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.order_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.order_status, range, value, display)
@@ -1022,7 +1022,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.partition_id.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.partition_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.partition_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.partition_id, range, value, display)
@@ -1360,7 +1360,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.side.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.side, range, value, display)
@@ -1412,7 +1412,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.system_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.system_status, range, value, display)
@@ -1566,7 +1566,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_status.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.transmission_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.transmission_status, range, value, display)
@@ -1596,7 +1596,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.type_of_trade.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.type_of_trade.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.type_of_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.type_of_trade, range, value, display)
@@ -1732,7 +1732,7 @@ end
 jse_itac_basicnativetradingrecovery_ntgi_v4_05.working_indicator.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_basicnativetradingrecovery_ntgi_v4_05.working_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_basicnativetradingrecovery_ntgi_v4_05.working_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_basicnativetradingrecovery_ntgi_v4_05.fields.working_indicator, range, value, display)

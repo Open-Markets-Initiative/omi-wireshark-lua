@@ -1564,14 +1564,18 @@ tmx_tsxalpha_level1_qrtmd_v2_1.trading_system_time_stamp.size = 23
 
 -- Display: Trading System Time Stamp
 tmx_tsxalpha_level1_qrtmd_v2_1.trading_system_time_stamp.display = function(value)
-  return "Trading System Time Stamp: "..value
+  if #value < 23 then
+    return "Trading System Time Stamp: "..value
+  end
+
+  return "Trading System Time Stamp: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8).." "..value:sub(9, 10)..":"..value:sub(11, 12)..":"..value:sub(13, 14).."."..value:sub(15, 23)
 end
 
 -- Dissect: Trading System Time Stamp
 tmx_tsxalpha_level1_qrtmd_v2_1.trading_system_time_stamp.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsxalpha_level1_qrtmd_v2_1.trading_system_time_stamp.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = tmx_tsxalpha_level1_qrtmd_v2_1.trading_system_time_stamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsxalpha_level1_qrtmd_v2_1.fields.trading_system_time_stamp, range, value, display)

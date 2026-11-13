@@ -500,7 +500,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.channel_id, range, value, display)
@@ -528,7 +528,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.complete.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.complete.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.complete.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.complete, range, value, display)
@@ -680,7 +680,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.delivery_flag, range, value, display)
@@ -1239,7 +1239,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.message_count.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.message_count, range, value, display)
@@ -1403,7 +1403,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.num_close_prices.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.num_close_prices.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.num_close_prices.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.num_close_prices, range, value, display)
@@ -1708,7 +1708,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.price_resolution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.price_resolution, range, value, display)
@@ -1731,7 +1731,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.price_scale_code, range, value, display)
@@ -1846,7 +1846,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.product_id, range, value, display)
@@ -1926,7 +1926,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.reason.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.reason, range, value, display)
@@ -2022,7 +2022,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.retransmit_method.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.retransmit_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.retransmit_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.retransmit_method, range, value, display)
@@ -2845,7 +2845,7 @@ end
 nyse_nyseequities_bqt_xdp_v2_4_b.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_bqt_xdp_v2_4_b.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_bqt_xdp_v2_4_b.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_bqt_xdp_v2_4_b.fields.system_id, range, value, display)

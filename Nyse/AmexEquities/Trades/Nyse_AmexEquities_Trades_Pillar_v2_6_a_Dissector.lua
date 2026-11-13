@@ -279,7 +279,7 @@ end
 nyse_amexequities_trades_pillar_v2_6_a.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_trades_pillar_v2_6_a.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_trades_pillar_v2_6_a.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.channel_id, range, value, display)
@@ -362,7 +362,7 @@ end
 nyse_amexequities_trades_pillar_v2_6_a.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_trades_pillar_v2_6_a.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_trades_pillar_v2_6_a.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.delivery_flag, range, value, display)
@@ -989,7 +989,7 @@ end
 nyse_amexequities_trades_pillar_v2_6_a.number_msgs.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_trades_pillar_v2_6_a.number_msgs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_trades_pillar_v2_6_a.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.number_msgs, range, value, display)
@@ -1202,7 +1202,7 @@ end
 nyse_amexequities_trades_pillar_v2_6_a.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_trades_pillar_v2_6_a.price_resolution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_trades_pillar_v2_6_a.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.price_resolution, range, value, display)
@@ -1225,7 +1225,7 @@ end
 nyse_amexequities_trades_pillar_v2_6_a.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_trades_pillar_v2_6_a.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_trades_pillar_v2_6_a.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.price_scale_code, range, value, display)
@@ -1294,7 +1294,7 @@ end
 nyse_amexequities_trades_pillar_v2_6_a.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_trades_pillar_v2_6_a.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_trades_pillar_v2_6_a.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.product_id, range, value, display)
@@ -1413,7 +1413,7 @@ end
 nyse_amexequities_trades_pillar_v2_6_a.retransmit_method.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_trades_pillar_v2_6_a.retransmit_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_trades_pillar_v2_6_a.retransmit_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.retransmit_method, range, value, display)
@@ -2170,7 +2170,7 @@ end
 nyse_amexequities_trades_pillar_v2_6_a.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_trades_pillar_v2_6_a.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_trades_pillar_v2_6_a.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_trades_pillar_v2_6_a.fields.system_id, range, value, display)
@@ -4483,7 +4483,7 @@ nyse_amexequities_trades_pillar_v2_6_a.packet.dissect = function(buffer, packet,
   index, packet_header = nyse_amexequities_trades_pillar_v2_6_a.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Delivery Flag
-  local delivery_flag = buffer(index - 14, 1):le_uint()
+  local delivery_flag = buffer(index - 14, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = nyse_amexequities_trades_pillar_v2_6_a.messages.dissect(buffer, index, packet, parent, delivery_flag)

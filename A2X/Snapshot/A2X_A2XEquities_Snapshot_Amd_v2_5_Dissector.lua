@@ -463,7 +463,7 @@ end
 a2x_a2xequities_snapshot_amd_v2_5.side.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_snapshot_amd_v2_5.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_snapshot_amd_v2_5.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_snapshot_amd_v2_5.fields.side, range, value, display)
@@ -541,7 +541,7 @@ end
 a2x_a2xequities_snapshot_amd_v2_5.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_snapshot_amd_v2_5.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_snapshot_amd_v2_5.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_snapshot_amd_v2_5.fields.trading_status, range, value, display)

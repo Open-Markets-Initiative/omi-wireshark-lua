@@ -783,7 +783,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.decimals_in_call_price.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.decimals_in_call_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.decimals_in_call_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.decimals_in_call_price, range, value, display)
@@ -806,7 +806,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.decimals_in_entitlement.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.decimals_in_entitlement.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.decimals_in_entitlement.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.decimals_in_entitlement, range, value, display)
@@ -829,7 +829,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.decimals_in_face_value.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.decimals_in_face_value.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.decimals_in_face_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.decimals_in_face_value, range, value, display)
@@ -1523,7 +1523,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.item_count.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.item_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.item_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.item_count, range, value, display)
@@ -2036,7 +2036,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.no_entries.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.no_entries.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.no_entries.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.no_entries, range, value, display)
@@ -2521,7 +2521,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.price_level.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.price_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.price_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.price_level, range, value, display)
@@ -2566,7 +2566,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.product_type.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.product_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.product_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.product_type, range, value, display)
@@ -3137,7 +3137,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.suspension_indicator.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.suspension_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.suspension_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.suspension_indicator, range, value, display)
@@ -3291,7 +3291,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.trading_ses_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.trading_ses_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.trading_ses_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.trading_ses_status, range, value, display)
@@ -3333,7 +3333,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.trading_session_sub_id, range, value, display)
@@ -3504,7 +3504,7 @@ end
 hkex_hkexsecurities_standard_omd_v1_45.update_action.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_standard_omd_v1_45.update_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_standard_omd_v1_45.update_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_standard_omd_v1_45.fields.update_action, range, value, display)
@@ -5768,7 +5768,7 @@ hkex_hkexsecurities_standard_omd_v1_45.broker_queue_message.size = function(buff
   index = index + hkex_hkexsecurities_standard_omd_v1_45.bq_more_flag.size
 
   -- Calculate field size from count
-  local bq_item_count = buffer(offset + index - 4, 1):le_uint()
+  local bq_item_count = buffer(offset + index - 4, 1):uint()
   index = index + bq_item_count * 4
 
   return index
@@ -5909,7 +5909,7 @@ hkex_hkexsecurities_standard_omd_v1_45.aggregate_order_book_update_message.size 
   index = index + hkex_hkexsecurities_standard_omd_v1_45.no_entries.size
 
   -- Calculate field size from count
-  local book_entry_count = buffer(offset + index - 1, 1):le_uint()
+  local book_entry_count = buffer(offset + index - 1, 1):uint()
   index = index + book_entry_count * 24
 
   return index

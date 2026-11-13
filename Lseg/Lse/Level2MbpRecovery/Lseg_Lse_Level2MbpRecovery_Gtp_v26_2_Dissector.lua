@@ -434,7 +434,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.clearing_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.clearing_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.clearing_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.clearing_type, range, value, display)
@@ -594,7 +594,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.depth.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.depth.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.depth.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.depth, range, value, display)
@@ -1019,7 +1019,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.hidden_execution_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.hidden_execution_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.hidden_execution_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.hidden_execution_indicator, range, value, display)
@@ -1540,7 +1540,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.message_count.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.message_count, range, value, display)
@@ -1908,7 +1908,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.order_book_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.order_book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.order_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.order_book_type, range, value, display)
@@ -2093,7 +2093,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.recovery_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.recovery_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.recovery_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.recovery_type, range, value, display)
@@ -2145,7 +2145,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.request_level.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.request_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.request_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.request_level, range, value, display)
@@ -2176,7 +2176,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.request_order_book_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.request_order_book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.request_order_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.request_order_book_type, range, value, display)
@@ -2436,7 +2436,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.security_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.security_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.security_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.security_type, range, value, display)
@@ -2548,7 +2548,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.session_change_reason.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.session_change_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.session_change_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.session_change_reason, range, value, display)
@@ -3145,7 +3145,7 @@ end
 lseg_lse_level2mbprecovery_gtp_v26_2.trade_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_level2mbprecovery_gtp_v26_2.trade_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_level2mbprecovery_gtp_v26_2.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_level2mbprecovery_gtp_v26_2.fields.trade_type, range, value, display)

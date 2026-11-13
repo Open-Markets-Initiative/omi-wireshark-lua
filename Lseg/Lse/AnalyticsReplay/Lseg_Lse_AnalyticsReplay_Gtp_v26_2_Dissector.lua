@@ -722,7 +722,7 @@ end
 lseg_lse_analyticsreplay_gtp_v26_2.message_count.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_analyticsreplay_gtp_v26_2.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_analyticsreplay_gtp_v26_2.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.message_count, range, value, display)
@@ -858,7 +858,7 @@ end
 lseg_lse_analyticsreplay_gtp_v26_2.order_book_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_analyticsreplay_gtp_v26_2.order_book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_analyticsreplay_gtp_v26_2.order_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.order_book_type, range, value, display)
@@ -1315,7 +1315,7 @@ end
 lseg_lse_analyticsreplay_gtp_v26_2.session_change_reason.dissect = function(buffer, offset, packet, parent)
   local length = lseg_lse_analyticsreplay_gtp_v26_2.session_change_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_lse_analyticsreplay_gtp_v26_2.session_change_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_lse_analyticsreplay_gtp_v26_2.fields.session_change_reason, range, value, display)

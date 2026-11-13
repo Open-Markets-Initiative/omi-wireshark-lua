@@ -391,7 +391,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.ack_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.ack_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.ack_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.ack_status, range, value, display)
@@ -433,7 +433,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.ack_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.ack_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.ack_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.ack_type, range, value, display)
@@ -456,7 +456,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.adv_risk_range_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.adv_risk_range_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.adv_risk_range_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.adv_risk_range_id, range, value, display)
@@ -485,7 +485,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.auction_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.auction_type, range, value, display)
@@ -515,7 +515,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.blocked_by_breach_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.blocked_by_breach_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.blocked_by_breach_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.blocked_by_breach_indicator, range, value, display)
@@ -543,7 +543,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.blocked_by_kill_switch_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.blocked_by_kill_switch_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.blocked_by_kill_switch_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.blocked_by_kill_switch_indicator, range, value, display)
@@ -566,7 +566,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.bold_designation.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.bold_designation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.bold_designation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.bold_designation, range, value, display)
@@ -619,7 +619,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.breach_action_request.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.breach_action_request.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.breach_action_request.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.breach_action_request, range, value, display)
@@ -649,7 +649,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.breach_action_response.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.breach_action_response.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.breach_action_response.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.breach_action_response, range, value, display)
@@ -688,7 +688,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.bulk_cancel_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.bulk_cancel_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.bulk_cancel_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.bulk_cancel_type, range, value, display)
@@ -740,7 +740,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.cancel_on_disconnect.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.cancel_on_disconnect.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.cancel_on_disconnect.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.cancel_on_disconnect, range, value, display)
@@ -1186,7 +1186,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.imbalance_side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.imbalance_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.imbalance_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.imbalance_side, range, value, display)
@@ -1300,7 +1300,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.ioc_attribution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.ioc_attribution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.ioc_attribution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.ioc_attribution, range, value, display)
@@ -1533,7 +1533,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.locate_reqd_u_81.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.locate_reqd_u_81.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.locate_reqd_u_81.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.locate_reqd_u_81, range, value, display)
@@ -1595,7 +1595,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.manual_action_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.manual_action_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.manual_action_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.manual_action_type, range, value, display)
@@ -1623,7 +1623,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.manual_override.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.manual_override.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.manual_override.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.manual_override, range, value, display)
@@ -1674,7 +1674,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.manual_response_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.manual_response_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.manual_response_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.manual_response_type, range, value, display)
@@ -1973,7 +1973,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.mpid_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.mpid_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.mpid_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.mpid_status, range, value, display)
@@ -2327,7 +2327,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.order_priority_update_ack_subscription.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.order_priority_update_ack_subscription.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.order_priority_update_ack_subscription.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.order_priority_update_ack_subscription, range, value, display)
@@ -2427,7 +2427,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.participant_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.participant_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.participant_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.participant_type, range, value, display)
@@ -2697,7 +2697,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.price_scale.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.price_scale.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.price_scale.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.price_scale, range, value, display)
@@ -3133,7 +3133,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.reinstatement_required_by_other.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.reinstatement_required_by_other.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reinstatement_required_by_other.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reinstatement_required_by_other, range, value, display)
@@ -3161,7 +3161,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.reinstatement_required_by_self.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.reinstatement_required_by_self.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reinstatement_required_by_self.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reinstatement_required_by_self, range, value, display)
@@ -3198,7 +3198,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.reject_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.reject_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reject_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reject_type, range, value, display)
@@ -3462,7 +3462,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_ack_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_ack_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_ack_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.risk_ack_type, range, value, display)
@@ -3499,7 +3499,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_action_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_action_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_action_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.risk_action_type, range, value, display)
@@ -3527,7 +3527,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_control_activation.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_control_activation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_control_activation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.risk_control_activation, range, value, display)
@@ -3582,7 +3582,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_control_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_control_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_control_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.risk_control_type, range, value, display)
@@ -3628,7 +3628,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_range_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_range_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.risk_range_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.risk_range_id, range, value, display)
@@ -3703,7 +3703,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.round_lot_size.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.round_lot_size.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.round_lot_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.round_lot_size, range, value, display)
@@ -3763,7 +3763,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.self_trade_prevention.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.self_trade_prevention.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.self_trade_prevention.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.self_trade_prevention, range, value, display)
@@ -3795,7 +3795,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.self_trade_type_bits.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.self_trade_type_bits.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.self_trade_type_bits.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.self_trade_type_bits, range, value, display)
@@ -3841,7 +3841,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.sell_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.sell_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.sell_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.sell_indicator, range, value, display)
@@ -4113,7 +4113,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.side, range, value, display)
@@ -4142,7 +4142,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.side_of_unpaired_qty.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.side_of_unpaired_qty.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.side_of_unpaired_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.side_of_unpaired_qty, range, value, display)
@@ -4310,7 +4310,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.subscription_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.subscription_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.subscription_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.subscription_status, range, value, display)
@@ -4338,7 +4338,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.symbol_eligibility.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.symbol_eligibility.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.symbol_eligibility.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.symbol_eligibility, range, value, display)
@@ -4389,7 +4389,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.test_symbol_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.test_symbol_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.test_symbol_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.test_symbol_indicator, range, value, display)
@@ -4420,7 +4420,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.threshold_breach_level.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.threshold_breach_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.threshold_breach_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.threshold_breach_level, range, value, display)
@@ -4448,7 +4448,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.throttle_preference.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.throttle_preference.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.throttle_preference.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.throttle_preference, range, value, display)
@@ -4800,7 +4800,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.user_session_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.user_session_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.user_session_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.user_session_status, range, value, display)
@@ -4833,7 +4833,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.user_session_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.user_session_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.user_session_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.user_session_type, range, value, display)
@@ -4946,7 +4946,7 @@ end
 nyse_nyseequities_binarygateway_pillarstream_v5_10.working_away_from_display.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_binarygateway_pillarstream_v5_10.working_away_from_display.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.working_away_from_display.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.working_away_from_display, range, value, display)

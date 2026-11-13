@@ -424,7 +424,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.correction_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_c.correction_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_topofmarket_mach_v1_1_c.correction_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.correction_number, range, value, display)
@@ -765,7 +765,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_type.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.mach_packet_type, range, value, display)
@@ -795,7 +795,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.market_state.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_c.market_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_topofmarket_mach_v1_1_c.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.market_state, range, value, display)
@@ -1328,7 +1328,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.session_id.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_c.session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_topofmarket_mach_v1_1_c.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.session_id, range, value, display)
@@ -1351,7 +1351,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.session_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_c.session_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_topofmarket_mach_v1_1_c.session_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.session_number, range, value, display)
@@ -1648,7 +1648,7 @@ end
 miax_pearlequities_topofmarket_mach_v1_1_c.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_topofmarket_mach_v1_1_c.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_topofmarket_mach_v1_1_c.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.trading_status, range, value, display)
@@ -3494,7 +3494,7 @@ miax_pearlequities_topofmarket_mach_v1_1_c.mach_message.fields = function(buffer
   index, mach_packet_header = miax_pearlequities_topofmarket_mach_v1_1_c.mach_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Mach Packet Type
-  local mach_packet_type = buffer(index - 2, 1):le_uint()
+  local mach_packet_type = buffer(index - 2, 1):uint()
 
   -- Payload: Runtime Type with 4 branches
   index = miax_pearlequities_topofmarket_mach_v1_1_c.payload.dissect(buffer, index, packet, parent, mach_packet_type)
@@ -3602,7 +3602,7 @@ miax_pearlequities_topofmarket_mach_v1_1_c.udp_packet.fingerprint = function(buf
     return false
   end
 
-  local mach_packet_type = buffer(10, 1):le_uint()
+  local mach_packet_type = buffer(10, 1):uint()
 
   -- Heartbeat
   if mach_packet_type == 0 then

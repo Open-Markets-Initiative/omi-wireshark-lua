@@ -163,7 +163,7 @@ end
 nyse_arcaequities_depthfeedrequest_pillar_v1_7.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_depthfeedrequest_pillar_v1_7.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaequities_depthfeedrequest_pillar_v1_7.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.fields.channel_id, range, value, display)
@@ -200,7 +200,7 @@ end
 nyse_arcaequities_depthfeedrequest_pillar_v1_7.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_depthfeedrequest_pillar_v1_7.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaequities_depthfeedrequest_pillar_v1_7.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.fields.delivery_flag, range, value, display)
@@ -323,7 +323,7 @@ end
 nyse_arcaequities_depthfeedrequest_pillar_v1_7.number_msgs.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_depthfeedrequest_pillar_v1_7.number_msgs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaequities_depthfeedrequest_pillar_v1_7.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.fields.number_msgs, range, value, display)
@@ -369,7 +369,7 @@ end
 nyse_arcaequities_depthfeedrequest_pillar_v1_7.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_depthfeedrequest_pillar_v1_7.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaequities_depthfeedrequest_pillar_v1_7.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.fields.product_id, range, value, display)
@@ -419,7 +419,7 @@ end
 nyse_arcaequities_depthfeedrequest_pillar_v1_7.retransmit_method.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_depthfeedrequest_pillar_v1_7.retransmit_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaequities_depthfeedrequest_pillar_v1_7.retransmit_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_7.fields.retransmit_method, range, value, display)
@@ -916,7 +916,7 @@ nyse_arcaequities_depthfeedrequest_pillar_v1_7.server_packet.dissect = function(
   index, packet_header = nyse_arcaequities_depthfeedrequest_pillar_v1_7.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Number Msgs
-  local number_msgs = buffer(index - 13, 1):le_uint()
+  local number_msgs = buffer(index - 13, 1):uint()
 
   -- Repeating: Server Message
   for server_message_index = 1, number_msgs do
@@ -1223,7 +1223,7 @@ nyse_arcaequities_depthfeedrequest_pillar_v1_7.client_packet.dissect = function(
   index, packet_header = nyse_arcaequities_depthfeedrequest_pillar_v1_7.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Number Msgs
-  local number_msgs = buffer(index - 13, 1):le_uint()
+  local number_msgs = buffer(index - 13, 1):uint()
 
   -- Repeating: Client Message
   for client_message_index = 1, number_msgs do

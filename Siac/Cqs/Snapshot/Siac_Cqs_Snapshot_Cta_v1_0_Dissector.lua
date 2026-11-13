@@ -20,11 +20,11 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_reference_price = ProtoFiel
 omi_siac_cqs_snapshot_cta_v1_0.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cqs.snapshot.cta.v1.0.auctioncollarupperthresholdprice", ftypes.DOUBLE, nil, nil, nil, "Represents the latest upper threshold price of the Auction Collar")
 omi_siac_cqs_snapshot_cta_v1_0.fields.bid_price = ProtoField.new("Bid Price", "siac.cqs.snapshot.cta.v1.0.bidprice", ftypes.DOUBLE, nil, nil, nil, "Represents the highest price a prospective buyer is prepared to pay at a particular time for a security")
 omi_siac_cqs_snapshot_cta_v1_0.fields.bid_size = ProtoField.new("Bid Size", "siac.cqs.snapshot.cta.v1.0.bidsize", ftypes.UINT32, nil, nil, nil, "The Bid Size identifies the number of round-lots, for a security")
-omi_siac_cqs_snapshot_cta_v1_0.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cqs.snapshot.cta.v1.0.blockchecksum", ftypes.UINT16, nil, nil, nil, "Lower 2 bytes of the 4 byte sum of all the bytes in the block, excluding this Block Checksum field")
-omi_siac_cqs_snapshot_cta_v1_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.snapshot.cta.v1.0.blockpadbyte", ftypes.UINT8, nil, nil, nil, "Cta Block Pad Byte")
-omi_siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.snapshot.cta.v1.0.blocksequencenumber", ftypes.UINT32, nil, nil, nil, "All transmission blocks are assigned a sequential Block Sequence Number")
-omi_siac_cqs_snapshot_cta_v1_0.fields.block_size = ProtoField.new("Block Size", "siac.cqs.snapshot.cta.v1.0.blocksize", ftypes.UINT16, nil, nil, nil, "Indicate size in bytes of the entire transmission bloc")
-omi_siac_cqs_snapshot_cta_v1_0.fields.delivery_flag = ProtoField.new("Delivery Flag", "siac.cqs.snapshot.cta.v1.0.deliveryflag", ftypes.UINT8, nil, nil, nil, "Delivery Flag field in the Block Header is used to identify all messages associated with a specific Snapshot request")
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cqs.snapshot.cta.v1.0.blockchecksum", ftypes.UINT16, nil, nil, nil, "Lower 16 Bits Of The 32 Bit Sum Of All Bytes In The Block Excluding The Block Checksum Field")
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.cqs.snapshot.cta.v1.0.blockpadbyte", ftypes.UINT8)
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.cqs.snapshot.cta.v1.0.blocksequencenumber", ftypes.UINT32, nil, nil, nil, "Packet Sequence Number")
+omi_siac_cqs_snapshot_cta_v1_0.fields.block_size = ProtoField.new("Block Size", "siac.cqs.snapshot.cta.v1.0.blocksize", ftypes.UINT16, nil, nil, nil, "Size In Bytes Of Entire Transmission Block")
+omi_siac_cqs_snapshot_cta_v1_0.fields.deliveryflag = ProtoField.new("Deliveryflag", "siac.cqs.snapshot.cta.v1.0.deliveryflag", ftypes.UINT8, nil, nil, nil, "Used to identify all messages associated with a specific Snapshot request")
 omi_siac_cqs_snapshot_cta_v1_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cqs.snapshot.cta.v1.0.financialstatusindicator", ftypes.STRING, nil, nil, nil, "Identifies the financial status of the security.")
 omi_siac_cqs_snapshot_cta_v1_0.fields.finra_bbo_luld_indicator = ProtoField.new("Finra Bbo Luld Indicator", "siac.cqs.snapshot.cta.v1.0.finrabboluldindicator", ftypes.STRING, nil, nil, nil, "Indicates the affect that the Limit Up-Limit Down Price Bands have on the FINRA Best Bid and FINRA Best Offer")
 omi_siac_cqs_snapshot_cta_v1_0.fields.finra_best_bid_market_maker_id = ProtoField.new("Finra Best Bid Market Maker Id", "siac.cqs.snapshot.cta.v1.0.finrabestbidmarketmakerid", ftypes.STRING, nil, nil, nil, "Contains the FINRA ADF provided FINRA Best Bid Market Maker identifier of the Market Maker that had the FINRA Best Bid (FBBO).")
@@ -39,14 +39,14 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.future = ProtoField.new("Future", "siac.cq
 omi_siac_cqs_snapshot_cta_v1_0.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cqs.snapshot.cta.v1.0.haltreason", ftypes.STRING, nil, nil, nil, "Denotes the reason for the Trading Halt")
 omi_siac_cqs_snapshot_cta_v1_0.fields.high_indication_price = ProtoField.new("High Indication Price", "siac.cqs.snapshot.cta.v1.0.highindicationprice", ftypes.DOUBLE, nil, nil, nil, "The High Indication Price represents an approximation of what the high end ‘Offer’ price of a security's trading range may be.")
 omi_siac_cqs_snapshot_cta_v1_0.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cqs.snapshot.cta.v1.0.instrumenttype", ftypes.STRING, nil, nil, nil, "Identifies the instrument type relevant to the quote")
-omi_siac_cqs_snapshot_cta_v1_0.fields.last_seq_num = ProtoField.new("Last Seq Num", "siac.cqs.snapshot.cta.v1.0.lastseqnum", ftypes.STRING, nil, nil, nil, "It indicates the as-of Message Sequence Number for the Symbol published on the Production Output line")
+omi_siac_cqs_snapshot_cta_v1_0.fields.lastseqnum = ProtoField.new("Lastseqnum", "siac.cqs.snapshot.cta.v1.0.lastseqnum", ftypes.UINT32, nil, nil, nil, "It indicates the as-of Message Sequence Number for the Symbol published on the Production Output line")
 omi_siac_cqs_snapshot_cta_v1_0.fields.low_indication_price = ProtoField.new("Low Indication Price", "siac.cqs.snapshot.cta.v1.0.lowindicationprice", ftypes.DOUBLE, nil, nil, nil, "The Low Indication Price represents an approximation of what the low end \"Bid\" price of a security's trading range may be")
 omi_siac_cqs_snapshot_cta_v1_0.fields.lower_limit_price_band = ProtoField.new("Lower Limit Price Band", "siac.cqs.snapshot.cta.v1.0.lowerlimitpriceband", ftypes.DOUBLE, nil, nil, nil, "It represents the lower price band value for a security.")
 omi_siac_cqs_snapshot_cta_v1_0.fields.luld_indicator = ProtoField.new("Luld Indicator", "siac.cqs.snapshot.cta.v1.0.luldindicator", ftypes.STRING, nil, nil, nil, "Indicates the affect the Quote has on the Limit Up-Limit Down Price Band range.")
 omi_siac_cqs_snapshot_cta_v1_0.fields.market_condition = ProtoField.new("Market Condition", "siac.cqs.snapshot.cta.v1.0.marketcondition", ftypes.STRING, nil, nil, nil, "Identifies the market condition of a quote for a security.")
 omi_siac_cqs_snapshot_cta_v1_0.fields.message_category = ProtoField.new("Message Category", "siac.cqs.snapshot.cta.v1.0.messagecategory", ftypes.STRING, nil, nil, nil, "The Message Category represents the message classification")
 omi_siac_cqs_snapshot_cta_v1_0.fields.message_length = ProtoField.new("Message Length", "siac.cqs.snapshot.cta.v1.0.messagelength", ftypes.UINT16, nil, nil, nil, "The Message Length identifies the total message length inclusive of the Message Header and Message Body")
-omi_siac_cqs_snapshot_cta_v1_0.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.snapshot.cta.v1.0.messagesinblock", ftypes.UINT8, nil, nil, nil, "The number of messages contained in the transmission block")
+omi_siac_cqs_snapshot_cta_v1_0.fields.messages_in_block = ProtoField.new("Messages In Block", "siac.cqs.snapshot.cta.v1.0.messagesinblock", ftypes.UINT8, nil, nil, nil, "The Number Of Messages Contained In The Block Data Of The Transmission Block")
 omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1", "siac.cqs.snapshot.cta.v1.0.mwcblevel1", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 7%")
 omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "siac.cqs.snapshot.cta.v1.0.mwcblevel2", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 13%")
 omi_siac_cqs_snapshot_cta_v1_0.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "siac.cqs.snapshot.cta.v1.0.mwcblevel3", ftypes.DOUBLE, nil, nil, nil, "Identifies the daily established drop level value (trigger value) associated with each Decline Level 20%")
@@ -77,9 +77,9 @@ omi_siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp = ProtoField.new("Sip 
 omi_siac_cqs_snapshot_cta_v1_0.fields.sip_block_timestamp_utc = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v1.0.sipblocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_message = ProtoField.new("Snapshot Message", "siac.cqs.snapshot.cta.v1.0.snapshotmessage", ftypes.STRING, nil, nil, nil, "Snapshot Message Header")
 omi_siac_cqs_snapshot_cta_v1_0.fields.snapshot_message_type = ProtoField.new("Snapshot Message Type", "siac.cqs.snapshot.cta.v1.0.snapshotmessagetype", ftypes.STRING)
-omi_siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover = ProtoField.new("Tot Pub Seq Rollover", "siac.cqs.snapshot.cta.v1.0.totpubseqrollover", ftypes.UINT8, nil, nil, nil, "Indicates the number of times the sequence number has previously rolled over for the Real-Time Output line on which the symbol resides")
+omi_siac_cqs_snapshot_cta_v1_0.fields.totpubseqrollover = ProtoField.new("Totpubseqrollover", "siac.cqs.snapshot.cta.v1.0.totpubseqrollover", ftypes.UINT8, nil, nil, nil, "Indicates the number of times the sequence number has previously rolled over for the Real-Time Output line on which the symbol resides")
 omi_siac_cqs_snapshot_cta_v1_0.fields.upper_limit_price_band = ProtoField.new("Upper Limit Price Band", "siac.cqs.snapshot.cta.v1.0.upperlimitpriceband", ftypes.DOUBLE, nil, nil, nil, "It represents the upper price band value for a security")
-omi_siac_cqs_snapshot_cta_v1_0.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v1.0.version", ftypes.UINT8, nil, nil, nil, "CQS binary protocol version")
+omi_siac_cqs_snapshot_cta_v1_0.fields.version = ProtoField.new("Version", "siac.cqs.snapshot.cta.v1.0.version", ftypes.UINT8, nil, nil, nil, "Designates The Cqs Binary Version")
 
 -- Siac Cqs Snapshot Cta 1.0 Framing
 omi_siac_cqs_snapshot_cta_v1_0.fields.block_header = ProtoField.new("Block Header", "siac.cqs.snapshot.cta.v1.0.blockheader", ftypes.STRING, nil, nil, nil, "Cqs Snapshot packet header")
@@ -408,32 +408,32 @@ siac_cqs_snapshot_cta_v1_0.block_size.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Delivery Flag
-siac_cqs_snapshot_cta_v1_0.delivery_flag = {}
+-- Deliveryflag
+siac_cqs_snapshot_cta_v1_0.deliveryflag = {}
 
--- Size: Delivery Flag
-siac_cqs_snapshot_cta_v1_0.delivery_flag.size = 1
+-- Size: Deliveryflag
+siac_cqs_snapshot_cta_v1_0.deliveryflag.size = 1
 
--- Display: Delivery Flag
-siac_cqs_snapshot_cta_v1_0.delivery_flag.labels = {
-  [1] = "Delivery Flag: First Block (1)",
-  [2] = "Delivery Flag: Intermediate Block (2)",
-  [3] = "Delivery Flag: Last Block (3)",
-  [4] = "Delivery Flag: Only One Block (4)",
+-- Display: Deliveryflag
+siac_cqs_snapshot_cta_v1_0.deliveryflag.labels = {
+  [1] = "Deliveryflag: First Block (1)",
+  [2] = "Deliveryflag: Intermediate Block (2)",
+  [3] = "Deliveryflag: Last Block (3)",
+  [4] = "Deliveryflag: Only One Block (4)",
 }
 
-siac_cqs_snapshot_cta_v1_0.delivery_flag.display = function(value)
-  return siac_cqs_snapshot_cta_v1_0.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
+siac_cqs_snapshot_cta_v1_0.deliveryflag.display = function(value)
+  return siac_cqs_snapshot_cta_v1_0.deliveryflag.labels[value] or "Deliveryflag: Unknown("..value..")"
 end
 
--- Dissect: Delivery Flag
-siac_cqs_snapshot_cta_v1_0.delivery_flag.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.delivery_flag.size
+-- Dissect: Deliveryflag
+siac_cqs_snapshot_cta_v1_0.deliveryflag.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.deliveryflag.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.delivery_flag.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_snapshot_cta_v1_0.deliveryflag.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.delivery_flag, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.deliveryflag, range, value, display)
 
   return offset + length, value
 end
@@ -953,25 +953,25 @@ siac_cqs_snapshot_cta_v1_0.instrument_type.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Last Seq Num
-siac_cqs_snapshot_cta_v1_0.last_seq_num = {}
+-- Lastseqnum
+siac_cqs_snapshot_cta_v1_0.lastseqnum = {}
 
--- Size: Last Seq Num
-siac_cqs_snapshot_cta_v1_0.last_seq_num.size = 1
+-- Size: Lastseqnum
+siac_cqs_snapshot_cta_v1_0.lastseqnum.size = 4
 
--- Display: Last Seq Num
-siac_cqs_snapshot_cta_v1_0.last_seq_num.display = function(value)
-  return "Last Seq Num: "..value
+-- Display: Lastseqnum
+siac_cqs_snapshot_cta_v1_0.lastseqnum.display = function(value)
+  return "Lastseqnum: "..value
 end
 
--- Dissect: Last Seq Num
-siac_cqs_snapshot_cta_v1_0.last_seq_num.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.last_seq_num.size
+-- Dissect: Lastseqnum
+siac_cqs_snapshot_cta_v1_0.lastseqnum.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.lastseqnum.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = siac_cqs_snapshot_cta_v1_0.last_seq_num.display(value, buffer, offset, packet, parent)
+  local value = range:uint()
+  local display = siac_cqs_snapshot_cta_v1_0.lastseqnum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.last_seq_num, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.lastseqnum, range, value, display)
 
   return offset + length, value
 end
@@ -2145,25 +2145,25 @@ siac_cqs_snapshot_cta_v1_0.snapshot_message_type.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Tot Pub Seq Rollover
-siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover = {}
+-- Totpubseqrollover
+siac_cqs_snapshot_cta_v1_0.totpubseqrollover = {}
 
--- Size: Tot Pub Seq Rollover
-siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size = 1
+-- Size: Totpubseqrollover
+siac_cqs_snapshot_cta_v1_0.totpubseqrollover.size = 1
 
--- Display: Tot Pub Seq Rollover
-siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.display = function(value)
-  return "Tot Pub Seq Rollover: "..value
+-- Display: Totpubseqrollover
+siac_cqs_snapshot_cta_v1_0.totpubseqrollover.display = function(value)
+  return "Totpubseqrollover: "..value
 end
 
--- Dissect: Tot Pub Seq Rollover
-siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.dissect = function(buffer, offset, packet, parent)
-  local length = siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size
+-- Dissect: Totpubseqrollover
+siac_cqs_snapshot_cta_v1_0.totpubseqrollover.dissect = function(buffer, offset, packet, parent)
+  local length = siac_cqs_snapshot_cta_v1_0.totpubseqrollover.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.display(value, buffer, offset, packet, parent)
+  local display = siac_cqs_snapshot_cta_v1_0.totpubseqrollover.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.tot_pub_seq_rollover, range, value, display)
+  parent:add(omi_siac_cqs_snapshot_cta_v1_0.fields.totpubseqrollover, range, value, display)
 
   return offset + length, value
 end
@@ -2860,9 +2860,9 @@ siac_cqs_snapshot_cta_v1_0.block_header.size =
   siac_cqs_snapshot_cta_v1_0.block_size.size + 
   siac_cqs_snapshot_cta_v1_0.block_sequence_number.size + 
   siac_cqs_snapshot_cta_v1_0.messages_in_block.size + 
-  siac_cqs_snapshot_cta_v1_0.delivery_flag.size + 
-  siac_cqs_snapshot_cta_v1_0.last_seq_num.size + 
-  siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.size + 
+  siac_cqs_snapshot_cta_v1_0.deliveryflag.size + 
+  siac_cqs_snapshot_cta_v1_0.lastseqnum.size + 
+  siac_cqs_snapshot_cta_v1_0.totpubseqrollover.size + 
   siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.size + 
   siac_cqs_snapshot_cta_v1_0.block_checksum.size
 
@@ -2875,31 +2875,31 @@ end
 siac_cqs_snapshot_cta_v1_0.block_header.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Version: Byte
+  -- Version: unsigned integer
   index, version = siac_cqs_snapshot_cta_v1_0.version.dissect(buffer, index, packet, parent)
 
-  -- Block Size: Short
+  -- Block Size: unsigned integer
   index, block_size = siac_cqs_snapshot_cta_v1_0.block_size.dissect(buffer, index, packet, parent)
 
-  -- Block Sequence Number: Integer
+  -- Block Sequence Number: unsigned integer
   index, block_sequence_number = siac_cqs_snapshot_cta_v1_0.block_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Messages In Block: Byte
+  -- Messages In Block: unsigned integer
   index, messages_in_block = siac_cqs_snapshot_cta_v1_0.messages_in_block.dissect(buffer, index, packet, parent)
 
-  -- Delivery Flag: Byte
-  index, delivery_flag = siac_cqs_snapshot_cta_v1_0.delivery_flag.dissect(buffer, index, packet, parent)
+  -- Deliveryflag: unsigned integer
+  index, deliveryflag = siac_cqs_snapshot_cta_v1_0.deliveryflag.dissect(buffer, index, packet, parent)
 
-  -- Last Seq Num: Char
-  index, last_seq_num = siac_cqs_snapshot_cta_v1_0.last_seq_num.dissect(buffer, index, packet, parent)
+  -- Lastseqnum: unsigned integer
+  index, lastseqnum = siac_cqs_snapshot_cta_v1_0.lastseqnum.dissect(buffer, index, packet, parent)
 
-  -- Tot Pub Seq Rollover: Byte
-  index, tot_pub_seq_rollover = siac_cqs_snapshot_cta_v1_0.tot_pub_seq_rollover.dissect(buffer, index, packet, parent)
+  -- Totpubseqrollover: unsigned integer
+  index, totpubseqrollover = siac_cqs_snapshot_cta_v1_0.totpubseqrollover.dissect(buffer, index, packet, parent)
 
   -- Sip Block Timestamp: Struct of 2 fields
   index, sip_block_timestamp = siac_cqs_snapshot_cta_v1_0.sip_block_timestamp.dissect(buffer, index, packet, parent)
 
-  -- Block Checksum: Short
+  -- Block Checksum: unsigned integer
   index, block_checksum = siac_cqs_snapshot_cta_v1_0.block_checksum.dissect(buffer, index, packet, parent)
 
   return index
@@ -2939,7 +2939,7 @@ siac_cqs_snapshot_cta_v1_0.packet.dissect = function(buffer, packet, parent)
   index, block_header = siac_cqs_snapshot_cta_v1_0.block_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Messages In Block
-  local messages_in_block = buffer(index - 14, 1):uint()
+  local messages_in_block = buffer(index - 17, 1):uint()
 
   -- Repeating: Message
   for message_index = 1, messages_in_block do

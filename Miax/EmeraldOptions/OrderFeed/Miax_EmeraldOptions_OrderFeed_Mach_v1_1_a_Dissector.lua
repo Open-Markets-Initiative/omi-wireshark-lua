@@ -920,7 +920,7 @@ end
 miax_emeraldoptions_orderfeed_mach_v1_1_a.number_of_legs.dissect = function(buffer, offset, packet, parent)
   local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.number_of_legs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.number_of_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.number_of_legs, range, value, display)
@@ -1304,7 +1304,7 @@ end
 miax_emeraldoptions_orderfeed_mach_v1_1_a.packet_type.dissect = function(buffer, offset, packet, parent)
   local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.packet_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.packet_type, range, value, display)
@@ -1863,7 +1863,7 @@ end
 miax_emeraldoptions_orderfeed_mach_v1_1_a.session_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_emeraldoptions_orderfeed_mach_v1_1_a.session_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_emeraldoptions_orderfeed_mach_v1_1_a.session_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_emeraldoptions_orderfeed_mach_v1_1_a.fields.session_number, range, value, display)
@@ -2941,7 +2941,7 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.complex_strategy_definition_update_mes
   index = index + miax_emeraldoptions_orderfeed_mach_v1_1_a.number_of_legs.size
 
   -- Calculate field size from count
-  local leg_definition_count = buffer(offset + index - 1, 1):le_uint()
+  local leg_definition_count = buffer(offset + index - 1, 1):uint()
   index = index + leg_definition_count * 15
 
   return index
@@ -4006,7 +4006,7 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.mach_message.fields = function(buffer,
   index, mach_packet_header = miax_emeraldoptions_orderfeed_mach_v1_1_a.mach_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Type
-  local packet_type = buffer(index - 2, 1):le_uint()
+  local packet_type = buffer(index - 2, 1):uint()
 
   -- Payload: Runtime Type with 4 branches
   index = miax_emeraldoptions_orderfeed_mach_v1_1_a.payload.dissect(buffer, index, packet, parent, packet_type)
@@ -4114,7 +4114,7 @@ miax_emeraldoptions_orderfeed_mach_v1_1_a.udp_packet.fingerprint = function(buff
     return false
   end
 
-  local packet_type = buffer(10, 1):le_uint()
+  local packet_type = buffer(10, 1):uint()
 
   -- Heartbeat
   if packet_type == 0 then

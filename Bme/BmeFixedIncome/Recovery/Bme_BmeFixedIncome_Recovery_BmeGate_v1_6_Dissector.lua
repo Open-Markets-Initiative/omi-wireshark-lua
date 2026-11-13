@@ -429,7 +429,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.admission_requested_by_issuer.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.admission_requested_by_issuer.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.admission_requested_by_issuer.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.admission_requested_by_issuer, range, value, display)
@@ -462,7 +462,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.algo_flag.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.algo_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.algo_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.algo_flag, range, value, display)
@@ -1185,7 +1185,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.benchmark.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.benchmark.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.benchmark.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.benchmark, range, value, display)
@@ -1249,7 +1249,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.benchmark_curve_points_value.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.benchmark_curve_points_value.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.benchmark_curve_points_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.benchmark_curve_points_value, range, value, display)
@@ -1952,7 +1952,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.coupon_periodicity.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.coupon_periodicity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.coupon_periodicity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.coupon_periodicity, range, value, display)
@@ -1985,7 +1985,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.coupon_quotation.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.coupon_quotation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.coupon_quotation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.coupon_quotation, range, value, display)
@@ -2166,7 +2166,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.data_count.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.data_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.data_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.data_count, range, value, display)
@@ -2644,7 +2644,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.heart_bt_int.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.heart_bt_int.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.heart_bt_int.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.heart_bt_int, range, value, display)
@@ -2934,7 +2934,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.last_change_flag.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.last_change_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.last_change_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.last_change_flag, range, value, display)
@@ -3077,7 +3077,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.liquid_instrument.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.liquid_instrument.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.liquid_instrument.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.liquid_instrument, range, value, display)
@@ -3111,7 +3111,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.logout_reason.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.logout_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.logout_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.logout_reason, range, value, display)
@@ -3718,7 +3718,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.non_availability_reason.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.non_availability_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.non_availability_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.non_availability_reason, range, value, display)
@@ -3741,7 +3741,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.number_of_decimals.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.number_of_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.number_of_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.number_of_decimals, range, value, display)
@@ -3764,7 +3764,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.order_number_of_decimals.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.order_number_of_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.order_number_of_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.order_number_of_decimals, range, value, display)
@@ -4415,7 +4415,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.security_trading_status.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.security_trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.security_trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.security_trading_status, range, value, display)
@@ -4584,7 +4584,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.session_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.session_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.session_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.session_reject_reason, range, value, display)
@@ -4913,7 +4913,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.strippable.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.strippable.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.strippable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.strippable, range, value, display)
@@ -4936,7 +4936,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.subscriptions.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.subscriptions.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.subscriptions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.subscriptions, range, value, display)
@@ -5113,7 +5113,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.trad_ses_status.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.trad_ses_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.trad_ses_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.trad_ses_status, range, value, display)
@@ -5264,7 +5264,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.trading_obligation.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.trading_obligation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.trading_obligation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.trading_obligation, range, value, display)
@@ -5287,7 +5287,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.trading_scope_b_1.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.trading_scope_b_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.trading_scope_b_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.trading_scope_b_1, range, value, display)
@@ -5317,7 +5317,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.trading_session_id.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.trading_session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.trading_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.trading_session_id, range, value, display)
@@ -5349,7 +5349,7 @@ end
 bme_bmefixedincome_recovery_bmegate_v1_6.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmefixedincome_recovery_bmegate_v1_6.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmefixedincome_recovery_bmegate_v1_6.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmefixedincome_recovery_bmegate_v1_6.fields.trading_session_sub_id, range, value, display)
@@ -7351,7 +7351,7 @@ bme_bmefixedincome_recovery_bmegate_v1_6.statistics_message.size = function(buff
   index = index + bme_bmefixedincome_recovery_bmegate_v1_6.data_count.size
 
   -- Calculate field size from count
-  local statistics_repeating_group_count = buffer(offset + index - 1, 1):le_uint()
+  local statistics_repeating_group_count = buffer(offset + index - 1, 1):uint()
   index = index + statistics_repeating_group_count * 9
 
   return index

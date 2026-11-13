@@ -228,7 +228,7 @@ end
 aquis_aquisequities_replay_amd_v2_5.response_code.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_replay_amd_v2_5.response_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_replay_amd_v2_5.response_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_replay_amd_v2_5.fields.response_code, range, value, display)

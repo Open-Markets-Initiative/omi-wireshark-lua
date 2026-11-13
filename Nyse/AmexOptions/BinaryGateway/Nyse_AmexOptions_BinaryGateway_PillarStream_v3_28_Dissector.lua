@@ -406,7 +406,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.ack_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.ack_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.ack_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.ack_status, range, value, display)
@@ -445,7 +445,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.ack_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.ack_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.ack_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.ack_type, range, value, display)
@@ -468,7 +468,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.allocation_pct.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.allocation_pct.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.allocation_pct.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.allocation_pct, range, value, display)
@@ -496,7 +496,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.appointment_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.appointment_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.appointment_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.appointment_status, range, value, display)
@@ -572,7 +572,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.blocked_by_breach_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.blocked_by_breach_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.blocked_by_breach_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.blocked_by_breach_indicator, range, value, display)
@@ -600,7 +600,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.blocked_by_kill_switch_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.blocked_by_kill_switch_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.blocked_by_kill_switch_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.blocked_by_kill_switch_indicator, range, value, display)
@@ -632,7 +632,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.bold_designation.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.bold_designation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.bold_designation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.bold_designation, range, value, display)
@@ -662,7 +662,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.breach_action_request.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.breach_action_request.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.breach_action_request.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.breach_action_request, range, value, display)
@@ -692,7 +692,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.breach_action_response.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.breach_action_response.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.breach_action_response.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.breach_action_response, range, value, display)
@@ -724,7 +724,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.bulk_action.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.bulk_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.bulk_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.bulk_action, range, value, display)
@@ -752,7 +752,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.bust_correct_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.bust_correct_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.bust_correct_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.bust_correct_indicator, range, value, display)
@@ -780,7 +780,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.cancel_on_disconnect.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.cancel_on_disconnect.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.cancel_on_disconnect.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.cancel_on_disconnect, range, value, display)
@@ -809,7 +809,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.cancel_scope.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.cancel_scope.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.cancel_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.cancel_scope, range, value, display)
@@ -832,7 +832,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.channel_id, range, value, display)
@@ -1156,7 +1156,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.closing_only_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.closing_only_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.closing_only_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.closing_only_indicator, range, value, display)
@@ -1263,7 +1263,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.contra_covered_or_uncovered.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.contra_covered_or_uncovered.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.contra_covered_or_uncovered.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.contra_covered_or_uncovered, range, value, display)
@@ -1327,7 +1327,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.contra_customer_or_firm.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.contra_customer_or_firm.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.contra_customer_or_firm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.contra_customer_or_firm, range, value, display)
@@ -1434,7 +1434,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.contra_open_close.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.contra_open_close.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.contra_open_close.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.contra_open_close, range, value, display)
@@ -1532,7 +1532,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.covered_or_uncovered.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.covered_or_uncovered.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.covered_or_uncovered.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.covered_or_uncovered, range, value, display)
@@ -1715,7 +1715,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.ioc_attribution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.ioc_attribution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.ioc_attribution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.ioc_attribution, range, value, display)
@@ -1869,7 +1869,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.leg_side.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.leg_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.leg_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.leg_side, range, value, display)
@@ -1915,7 +1915,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.legal_width_multiplier.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.legal_width_multiplier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.legal_width_multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.legal_width_multiplier, range, value, display)
@@ -2020,7 +2020,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.locate_reqd_u_81.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.locate_reqd_u_81.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.locate_reqd_u_81.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.locate_reqd_u_81, range, value, display)
@@ -2308,7 +2308,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.mm_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.mm_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.mm_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.mm_type, range, value, display)
@@ -2438,7 +2438,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.mpid_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.mpid_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.mpid_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.mpid_status, range, value, display)
@@ -2626,7 +2626,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.multileg_reporting_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.multileg_reporting_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.multileg_reporting_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.multileg_reporting_type, range, value, display)
@@ -2724,7 +2724,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.open_close_u_81.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.open_close_u_81.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.open_close_u_81.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.open_close_u_81, range, value, display)
@@ -2922,7 +2922,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.order_priority_update_ack_subscription.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.order_priority_update_ack_subscription.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.order_priority_update_ack_subscription.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.order_priority_update_ack_subscription, range, value, display)
@@ -2995,7 +2995,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.participant_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.participant_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.participant_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.participant_type, range, value, display)
@@ -3155,7 +3155,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.price_scale.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.price_scale.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.price_scale.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.price_scale, range, value, display)
@@ -3183,7 +3183,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.put_or_call, range, value, display)
@@ -3619,7 +3619,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.reinstatement_required_by_other.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.reinstatement_required_by_other.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.reinstatement_required_by_other.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.reinstatement_required_by_other, range, value, display)
@@ -3647,7 +3647,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.reinstatement_required_by_self.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.reinstatement_required_by_self.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.reinstatement_required_by_self.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.reinstatement_required_by_self, range, value, display)
@@ -3682,7 +3682,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.reject_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.reject_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.reject_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.reject_type, range, value, display)
@@ -3705,7 +3705,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.repeating_groups.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.repeating_groups.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.repeating_groups.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.repeating_groups, range, value, display)
@@ -3958,7 +3958,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_ack_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_ack_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_ack_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.risk_ack_type, range, value, display)
@@ -3993,7 +3993,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_action_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_action_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_action_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.risk_action_type, range, value, display)
@@ -4021,7 +4021,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_control_activation.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_control_activation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_control_activation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.risk_control_activation, range, value, display)
@@ -4066,7 +4066,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_control_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_control_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_control_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.risk_control_type, range, value, display)
@@ -4112,7 +4112,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_range_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_range_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.risk_range_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.risk_range_id, range, value, display)
@@ -4223,7 +4223,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.self_trade_prevention.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.self_trade_prevention.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.self_trade_prevention.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.self_trade_prevention, range, value, display)
@@ -4254,7 +4254,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.self_trade_type_u_81.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.self_trade_type_u_81.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.self_trade_type_u_81.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.self_trade_type_u_81, range, value, display)
@@ -4468,7 +4468,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.series_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.series_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.series_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.series_type, range, value, display)
@@ -4520,7 +4520,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.side_u_81.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.side_u_81.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.side_u_81.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.side_u_81, range, value, display)
@@ -4756,7 +4756,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.symbol_eligibility.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.symbol_eligibility.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.symbol_eligibility.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.symbol_eligibility, range, value, display)
@@ -4869,7 +4869,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.test_symbol_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.test_symbol_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.test_symbol_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.test_symbol_indicator, range, value, display)
@@ -4897,7 +4897,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.threshold_breach_level.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.threshold_breach_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.threshold_breach_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.threshold_breach_level, range, value, display)
@@ -4925,7 +4925,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.throttle_preference.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.throttle_preference.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.throttle_preference.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.throttle_preference, range, value, display)
@@ -5322,7 +5322,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.user_session_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.user_session_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.user_session_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.user_session_status, range, value, display)
@@ -5352,7 +5352,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.user_session_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.user_session_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.user_session_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.user_session_type, range, value, display)
@@ -5465,7 +5465,7 @@ end
 nyse_amexoptions_binarygateway_pillarstream_v3_28.working_away_from_display.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_binarygateway_pillarstream_v3_28.working_away_from_display.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_binarygateway_pillarstream_v3_28.working_away_from_display.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_binarygateway_pillarstream_v3_28.fields.working_away_from_display, range, value, display)

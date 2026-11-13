@@ -387,7 +387,7 @@ end
 iex_iexequities_iextpheader_udp_v1_0.version.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexequities_iextpheader_udp_v1_0.version.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexequities_iextpheader_udp_v1_0.version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexequities_iextpheader_udp_v1_0.fields.version, range, value, display)

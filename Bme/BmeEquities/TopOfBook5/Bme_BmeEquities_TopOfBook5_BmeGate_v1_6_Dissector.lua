@@ -312,7 +312,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.admission_requested_by_issuer.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.admission_requested_by_issuer.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.admission_requested_by_issuer.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.admission_requested_by_issuer, range, value, display)
@@ -403,7 +403,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.algo_flag.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.algo_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.algo_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.algo_flag, range, value, display)
@@ -968,7 +968,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.auction_origin.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.auction_origin.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.auction_origin.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.auction_origin, range, value, display)
@@ -1030,7 +1030,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.automatic_expiration.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.automatic_expiration.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.automatic_expiration.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.automatic_expiration, range, value, display)
@@ -1740,7 +1740,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.bonus_warrants_with_active_bonus.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.bonus_warrants_with_active_bonus.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.bonus_warrants_with_active_bonus.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.bonus_warrants_with_active_bonus, range, value, display)
@@ -1900,7 +1900,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.cp_reg_type.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.cp_reg_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.cp_reg_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.cp_reg_type, range, value, display)
@@ -2011,7 +2011,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.data_count.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.data_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.data_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.data_count, range, value, display)
@@ -2129,7 +2129,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.double_volume_cap_reached.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.double_volume_cap_reached.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.double_volume_cap_reached.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.double_volume_cap_reached, range, value, display)
@@ -2181,7 +2181,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.dynamic_range_multiplier.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.dynamic_range_multiplier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.dynamic_range_multiplier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.dynamic_range_multiplier, range, value, display)
@@ -2547,7 +2547,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.heart_bt_int.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.heart_bt_int.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.heart_bt_int.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.heart_bt_int, range, value, display)
@@ -2648,7 +2648,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.investment_fund_class.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.investment_fund_class.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.investment_fund_class.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.investment_fund_class, range, value, display)
@@ -2870,7 +2870,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.investment_fund_number_of_decimals.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.investment_fund_number_of_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.investment_fund_number_of_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.investment_fund_number_of_decimals, range, value, display)
@@ -3027,7 +3027,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.last_change_flag.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.last_change_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.last_change_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.last_change_flag, range, value, display)
@@ -3193,7 +3193,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.liquid_instrument.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.liquid_instrument.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.liquid_instrument.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.liquid_instrument, range, value, display)
@@ -3279,7 +3279,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.logout_reason.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.logout_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.logout_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.logout_reason, range, value, display)
@@ -3837,7 +3837,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.net_asset_value_indicator.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.net_asset_value_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.net_asset_value_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.net_asset_value_indicator, range, value, display)
@@ -3867,7 +3867,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.network_status_value.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.network_status_value.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.network_status_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.network_status_value, range, value, display)
@@ -3937,7 +3937,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.non_availability_reason.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.non_availability_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.non_availability_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.non_availability_reason, range, value, display)
@@ -3983,7 +3983,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.number_of_decimals.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.number_of_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.number_of_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.number_of_decimals, range, value, display)
@@ -4029,7 +4029,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.order_number_of_decimals.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.order_number_of_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.order_number_of_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.order_number_of_decimals, range, value, display)
@@ -4201,7 +4201,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.price_tick_rule.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.price_tick_rule.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.price_tick_rule.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.price_tick_rule, range, value, display)
@@ -4388,7 +4388,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.retail_service_flag.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.retail_service_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.retail_service_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.retail_service_flag, range, value, display)
@@ -4697,7 +4697,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.security_trading_status.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.security_trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.security_trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.security_trading_status, range, value, display)
@@ -4796,7 +4796,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.self_match_prevention.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.self_match_prevention.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.self_match_prevention.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.self_match_prevention, range, value, display)
@@ -5346,7 +5346,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.trad_ses_status.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.trad_ses_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.trad_ses_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.trad_ses_status, range, value, display)
@@ -5520,7 +5520,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.trading_obligation.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.trading_obligation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.trading_obligation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.trading_obligation, range, value, display)
@@ -5589,7 +5589,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.trading_scope.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.trading_scope.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.trading_scope.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.trading_scope, range, value, display)
@@ -5622,7 +5622,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.trading_session_id.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.trading_session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.trading_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.trading_session_id, range, value, display)
@@ -5661,7 +5661,7 @@ end
 bme_bmeequities_topofbook5_bmegate_v1_6.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = bme_bmeequities_topofbook5_bmegate_v1_6.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_bmeequities_topofbook5_bmegate_v1_6.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_bmeequities_topofbook5_bmegate_v1_6.fields.trading_session_sub_id, range, value, display)
@@ -7413,7 +7413,7 @@ bme_bmeequities_topofbook5_bmegate_v1_6.statistics_message.size = function(buffe
   index = index + bme_bmeequities_topofbook5_bmegate_v1_6.data_count.size
 
   -- Calculate field size from count
-  local statistics_repeating_group_count = buffer(offset + index - 1, 1):le_uint()
+  local statistics_repeating_group_count = buffer(offset + index - 1, 1):uint()
   index = index + statistics_repeating_group_count * 9
 
   return index

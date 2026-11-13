@@ -312,7 +312,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.auction_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.auction_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.auction_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.auction_status, range, value, display)
@@ -416,7 +416,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.channel_id, range, value, display)
@@ -548,7 +548,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.delivery_flag, range, value, display)
@@ -576,7 +576,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.eth_eligible.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.eth_eligible.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.eth_eligible.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.eth_eligible, range, value, display)
@@ -691,7 +691,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.freeze_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.freeze_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.freeze_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.freeze_status, range, value, display)
@@ -899,7 +899,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.late_close_eligible.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.late_close_eligible.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.late_close_eligible.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.late_close_eligible, range, value, display)
@@ -1235,7 +1235,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.num_extensions.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.num_extensions.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.num_extensions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.num_extensions, range, value, display)
@@ -1258,7 +1258,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.number_msgs.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.number_msgs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.number_msgs, range, value, display)
@@ -1350,7 +1350,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.position_change.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.position_change.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.position_change.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.position_change, range, value, display)
@@ -1494,7 +1494,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.price_resolution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.price_resolution, range, value, display)
@@ -1523,7 +1523,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.price_scale_code, range, value, display)
@@ -1551,7 +1551,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.printable_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.printable_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.printable_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.printable_flag, range, value, display)
@@ -1574,7 +1574,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.product_id, range, value, display)
@@ -2435,7 +2435,7 @@ end
 nyse_amexequities_integratedfeed_pillar_v2_5_h.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_integratedfeed_pillar_v2_5_h.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_integratedfeed_pillar_v2_5_h.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_integratedfeed_pillar_v2_5_h.fields.system_id, range, value, display)
@@ -4863,7 +4863,7 @@ nyse_amexequities_integratedfeed_pillar_v2_5_h.packet.dissect = function(buffer,
   index, packet_header = nyse_amexequities_integratedfeed_pillar_v2_5_h.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Delivery Flag
-  local delivery_flag = buffer(index - 14, 1):le_uint()
+  local delivery_flag = buffer(index - 14, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = nyse_amexequities_integratedfeed_pillar_v2_5_h.messages.dissect(buffer, index, packet, parent, delivery_flag)

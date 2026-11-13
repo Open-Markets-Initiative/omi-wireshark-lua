@@ -467,7 +467,7 @@ end
 jse_itac_marketdata_mitch_v4_07.book_type.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_marketdata_mitch_v4_07.book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.book_type, range, value, display)
@@ -1271,7 +1271,7 @@ end
 jse_itac_marketdata_mitch_v4_07.message_count.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_marketdata_mitch_v4_07.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.message_count, range, value, display)
@@ -2373,7 +2373,7 @@ end
 jse_itac_marketdata_mitch_v4_07.session_change_reason.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.session_change_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_marketdata_mitch_v4_07.session_change_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.session_change_reason, range, value, display)
@@ -2467,7 +2467,7 @@ end
 jse_itac_marketdata_mitch_v4_07.snapshot_type.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.snapshot_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_marketdata_mitch_v4_07.snapshot_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.snapshot_type, range, value, display)
@@ -2601,7 +2601,7 @@ end
 jse_itac_marketdata_mitch_v4_07.sub_book.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_marketdata_mitch_v4_07.sub_book.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = jse_itac_marketdata_mitch_v4_07.sub_book.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.sub_book, range, value, display)

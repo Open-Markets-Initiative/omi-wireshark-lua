@@ -1433,7 +1433,7 @@ end
 tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.sequence_0.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.sequence_0.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.sequence_0.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.fields.sequence_0, range, value, display)
@@ -1698,7 +1698,7 @@ end
 tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.stock_group.dissect = function(buffer, offset, packet, parent)
   local length = tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.stock_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.stock_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_tsxalpha_quantumfeedlevel1recovery_xmt_v2_2.fields.stock_group, range, value, display)

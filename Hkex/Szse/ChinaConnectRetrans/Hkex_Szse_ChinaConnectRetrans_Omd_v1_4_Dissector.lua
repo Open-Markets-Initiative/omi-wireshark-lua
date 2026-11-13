@@ -1067,7 +1067,7 @@ end
 hkex_szse_chinaconnectretrans_omd_v1_4.retrans_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_szse_chinaconnectretrans_omd_v1_4.retrans_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_szse_chinaconnectretrans_omd_v1_4.retrans_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_szse_chinaconnectretrans_omd_v1_4.fields.retrans_status, range, value, display)
@@ -1164,7 +1164,7 @@ end
 hkex_szse_chinaconnectretrans_omd_v1_4.security_trading_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_szse_chinaconnectretrans_omd_v1_4.security_trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_szse_chinaconnectretrans_omd_v1_4.security_trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_szse_chinaconnectretrans_omd_v1_4.fields.security_trading_status, range, value, display)
@@ -1240,7 +1240,7 @@ end
 hkex_szse_chinaconnectretrans_omd_v1_4.session_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_szse_chinaconnectretrans_omd_v1_4.session_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_szse_chinaconnectretrans_omd_v1_4.session_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_szse_chinaconnectretrans_omd_v1_4.fields.session_status, range, value, display)

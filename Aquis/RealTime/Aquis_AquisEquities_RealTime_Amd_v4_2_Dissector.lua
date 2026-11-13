@@ -440,7 +440,7 @@ end
 aquis_aquisequities_realtime_amd_v4_2.lot_size_decimal.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_2.lot_size_decimal.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_realtime_amd_v4_2.lot_size_decimal.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_2.fields.lot_size_decimal, range, value, display)
@@ -889,7 +889,7 @@ end
 aquis_aquisequities_realtime_amd_v4_2.side.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_2.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_realtime_amd_v4_2.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_2.fields.side, range, value, display)
@@ -970,7 +970,7 @@ end
 aquis_aquisequities_realtime_amd_v4_2.tick_table_id.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_2.tick_table_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_realtime_amd_v4_2.tick_table_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_2.fields.tick_table_id, range, value, display)
@@ -1050,7 +1050,7 @@ end
 aquis_aquisequities_realtime_amd_v4_2.trade_type.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_2.trade_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_realtime_amd_v4_2.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_2.fields.trade_type, range, value, display)
@@ -1101,7 +1101,7 @@ end
 aquis_aquisequities_realtime_amd_v4_2.trading_phase.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_2.trading_phase.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_realtime_amd_v4_2.trading_phase.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_2.fields.trading_phase, range, value, display)
@@ -1132,7 +1132,7 @@ end
 aquis_aquisequities_realtime_amd_v4_2.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_realtime_amd_v4_2.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_realtime_amd_v4_2.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_2.fields.trading_status, range, value, display)

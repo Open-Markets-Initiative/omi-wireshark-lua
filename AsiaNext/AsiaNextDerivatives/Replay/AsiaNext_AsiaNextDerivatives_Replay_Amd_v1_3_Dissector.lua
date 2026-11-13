@@ -229,7 +229,7 @@ end
 asianext_asianextderivatives_replay_amd_v1_3.response_code.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_replay_amd_v1_3.response_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_replay_amd_v1_3.response_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_replay_amd_v1_3.fields.response_code, range, value, display)

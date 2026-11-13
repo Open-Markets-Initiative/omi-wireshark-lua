@@ -327,7 +327,7 @@ end
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.correction_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.correction_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.correction_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.correction_number, range, value, display)
@@ -944,7 +944,7 @@ end
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.market_state.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.market_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.market_state, range, value, display)
@@ -1221,7 +1221,7 @@ end
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.number_of_legs.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.number_of_legs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.number_of_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.number_of_legs, range, value, display)
@@ -1816,7 +1816,7 @@ end
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.session_id.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.session_id, range, value, display)
@@ -2264,7 +2264,7 @@ end
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.trading_status, range, value, display)
@@ -3278,7 +3278,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.complex_instrument_defini
   index = index + miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.number_of_legs.size
 
   -- Calculate field size from count
-  local deprecated_instrument_leg_count = buffer(offset + index - 1, 1):le_uint()
+  local deprecated_instrument_leg_count = buffer(offset + index - 1, 1):uint()
   index = index + deprecated_instrument_leg_count * 20
 
   return index
@@ -3506,7 +3506,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.complex_instrument_defini
   index = index + miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.number_of_legs.size
 
   -- Calculate field size from count
-  local instrument_leg_count = buffer(offset + index - 1, 1):le_uint()
+  local instrument_leg_count = buffer(offset + index - 1, 1):uint()
   index = index + instrument_leg_count * 42
 
   return index

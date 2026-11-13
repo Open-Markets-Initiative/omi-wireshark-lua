@@ -565,7 +565,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.country.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.country.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.country.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.country, range, value, display)
@@ -756,7 +756,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.effective_tomorrow.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.effective_tomorrow.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.effective_tomorrow.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.effective_tomorrow, range, value, display)
@@ -935,7 +935,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.financial_product.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.financial_product.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.financial_product.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.financial_product, range, value, display)
@@ -989,7 +989,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.info_type.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.info_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.info_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.info_type, range, value, display)
@@ -1050,7 +1050,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.instrument.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.instrument.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.instrument.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.instrument, range, value, display)
@@ -1156,7 +1156,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.instrument_group.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.instrument_group.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.instrument_group.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.instrument_group, range, value, display)
@@ -1360,7 +1360,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.locked.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.locked.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.locked.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.locked, range, value, display)
@@ -1383,7 +1383,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.lot_type.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.lot_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.lot_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.lot_type, range, value, display)
@@ -1458,7 +1458,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.market.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.market.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.market, range, value, display)
@@ -1481,7 +1481,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.modifier.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.modifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.modifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.modifier, range, value, display)
@@ -1591,7 +1591,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.no_lines.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.no_lines.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.no_lines.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.no_lines, range, value, display)
@@ -1660,7 +1660,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.number_of_legs.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.number_of_legs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.number_of_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.number_of_legs, range, value, display)
@@ -1856,7 +1856,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.premium_unit_4_price.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.premium_unit_4_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.premium_unit_4_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.premium_unit_4_price, range, value, display)
@@ -1913,7 +1913,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.price_method.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.price_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.price_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.price_method, range, value, display)
@@ -1967,7 +1967,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.priority.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.priority.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.priority.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.priority, range, value, display)
@@ -1996,7 +1996,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.put_or_call, range, value, display)
@@ -2157,7 +2157,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.series_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.series_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.series_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.series_status, range, value, display)
@@ -2208,7 +2208,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.side.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.side, range, value, display)
@@ -2405,7 +2405,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.suspension_indicator.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.suspension_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.suspension_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.suspension_indicator, range, value, display)
@@ -2479,7 +2479,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.tradable.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.tradable.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.tradable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.tradable, range, value, display)
@@ -2537,7 +2537,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.underlying_price_unit.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.underlying_price_unit.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.underlying_price_unit.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.underlying_price_unit, range, value, display)
@@ -2575,7 +2575,7 @@ end
 hkex_hkexderivatives_fulltickrefresh_omd_v1_49.underlying_type.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.underlying_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_fulltickrefresh_omd_v1_49.underlying_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.underlying_type, range, value, display)
@@ -3689,7 +3689,7 @@ hkex_hkexderivatives_fulltickrefresh_omd_v1_49.market_alert_message.size = funct
   index = index + hkex_hkexderivatives_fulltickrefresh_omd_v1_49.no_lines.size
 
   -- Calculate field size from count
-  local content_count = buffer(offset + index - 1, 1):le_uint()
+  local content_count = buffer(offset + index - 1, 1):uint()
   index = index + content_count * 320
 
   return index

@@ -275,7 +275,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.buy_order_capacity.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.buy_order_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.buy_order_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.buy_order_capacity, range, value, display)
@@ -327,7 +327,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.ccp_code.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.ccp_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.ccp_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.ccp_code, range, value, display)
@@ -453,7 +453,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.liq_indicator.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.liq_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.liq_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.liq_indicator, range, value, display)
@@ -486,7 +486,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.logout_reason_code.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.logout_reason_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.logout_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.logout_reason_code, range, value, display)
@@ -680,7 +680,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_capacity.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.order_capacity, range, value, display)
@@ -735,7 +735,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_type.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.order_type, range, value, display)
@@ -1073,7 +1073,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.result_code.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.result_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.result_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.result_code, range, value, display)
@@ -1170,7 +1170,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.sell_order_capacity.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.sell_order_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.sell_order_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.sell_order_capacity, range, value, display)
@@ -1237,7 +1237,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.side.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.side, range, value, display)
@@ -1267,7 +1267,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.time_in_force, range, value, display)
@@ -1320,7 +1320,7 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.trade_capture_type.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_tradingprotocol_atp_v2_9_3.trade_capture_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_3.trade_capture_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_3.fields.trade_capture_type, range, value, display)

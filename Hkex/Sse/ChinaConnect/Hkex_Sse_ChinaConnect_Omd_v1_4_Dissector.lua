@@ -1076,7 +1076,7 @@ end
 hkex_sse_chinaconnect_omd_v1_4.security_trading_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_sse_chinaconnect_omd_v1_4.security_trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_sse_chinaconnect_omd_v1_4.security_trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_sse_chinaconnect_omd_v1_4.fields.security_trading_status, range, value, display)

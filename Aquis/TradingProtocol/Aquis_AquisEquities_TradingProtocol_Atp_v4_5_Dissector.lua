@@ -213,7 +213,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.account.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.account.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.account.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.account, range, value, display)
@@ -346,7 +346,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.ccp_code.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.ccp_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.ccp_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.ccp_code, range, value, display)
@@ -558,7 +558,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.ioi_order_type.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.ioi_order_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.ioi_order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.ioi_order_type, range, value, display)
@@ -589,7 +589,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.liq_indicator.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.liq_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.liq_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.liq_indicator, range, value, display)
@@ -622,7 +622,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.logout_reason_code.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.logout_reason_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.logout_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.logout_reason_code, range, value, display)
@@ -847,7 +847,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.optim_x_universe.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.optim_x_universe.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.optim_x_universe.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.optim_x_universe, range, value, display)
@@ -876,7 +876,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.order_capacity.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.order_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.order_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.order_capacity, range, value, display)
@@ -936,7 +936,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.order_type.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.order_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.order_type, range, value, display)
@@ -1251,7 +1251,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.result_code.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.result_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.result_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.result_code, range, value, display)
@@ -1449,7 +1449,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.side.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.side, range, value, display)
@@ -1479,7 +1479,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.time_in_force, range, value, display)
@@ -1535,7 +1535,7 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_5.trade_capture_type.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisequities_tradingprotocol_atp_v4_5.trade_capture_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisequities_tradingprotocol_atp_v4_5.trade_capture_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_5.fields.trade_capture_type, range, value, display)

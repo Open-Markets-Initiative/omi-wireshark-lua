@@ -1377,7 +1377,7 @@ end
 iex_iexequities_tops_iextp_v1_64.version.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexequities_tops_iextp_v1_64.version.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = iex_iexequities_tops_iextp_v1_64.version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_iex_iexequities_tops_iextp_v1_64.fields.version, range, value, display)
@@ -2525,7 +2525,7 @@ iex_iexequities_tops_iextp_v1_64.version.verify = function(buffer)
   end
 
   -- Attempt to read field
-  local value = buffer(0, 1):le_uint()
+  local value = buffer(0, 1):uint()
 
   if value == 1 then
     return true

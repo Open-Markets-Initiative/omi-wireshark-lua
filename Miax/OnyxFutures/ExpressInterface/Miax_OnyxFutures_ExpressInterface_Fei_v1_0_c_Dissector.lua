@@ -456,7 +456,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.correction_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.correction_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.correction_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.correction_number, range, value, display)
@@ -1016,7 +1016,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.number_of_legs.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.number_of_legs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.number_of_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.number_of_legs, range, value, display)
@@ -1745,7 +1745,7 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.session_id.dissect = function(buffer, offset, packet, parent)
   local length = miax_onyxfutures_expressinterface_fei_v1_0_c.session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.session_id, range, value, display)
@@ -2653,7 +2653,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_request.size = fu
   index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.number_of_legs.size
 
   -- Calculate field size from count
-  local strategy_leg_count = buffer(offset + index - 1, 1):le_uint()
+  local strategy_leg_count = buffer(offset + index - 1, 1):uint()
   index = index + strategy_leg_count * 16
 
   return index

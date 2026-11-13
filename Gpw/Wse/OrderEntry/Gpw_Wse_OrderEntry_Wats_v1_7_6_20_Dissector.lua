@@ -290,7 +290,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.account_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.account_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.account_type, range, value, display)
@@ -319,7 +319,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.action.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.action, range, value, display)
@@ -348,7 +348,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.algorithmic_trade_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.algorithmic_trade_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.algorithmic_trade_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.algorithmic_trade_indicator, range, value, display)
@@ -400,7 +400,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.capacity.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.capacity, range, value, display)
@@ -429,7 +429,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.clearing_member_clearing_identifier.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.clearing_member_clearing_identifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.clearing_member_clearing_identifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.clearing_member_clearing_identifier, range, value, display)
@@ -521,7 +521,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.count.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.count, range, value, display)
@@ -828,7 +828,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.event_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.event_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.event_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.event_type, range, value, display)
@@ -860,7 +860,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.exec_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.exec_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.exec_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.exec_type, range, value, display)
@@ -907,7 +907,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.exec_type_reason, range, value, display)
@@ -954,7 +954,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.fee_structure_id.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.fee_structure_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.fee_structure_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.fee_structure_id, range, value, display)
@@ -1174,7 +1174,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.liquidity_indicator.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.liquidity_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.liquidity_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.liquidity_indicator, range, value, display)
@@ -1249,7 +1249,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_cancel_request_type, range, value, display)
@@ -1426,7 +1426,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.order_capacity.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.order_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.order_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.order_capacity, range, value, display)
@@ -1458,7 +1458,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.order_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.order_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.order_type, range, value, display)
@@ -1515,7 +1515,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.priority_flag.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.priority_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.priority_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.priority_flag, range, value, display)
@@ -1568,7 +1568,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.qualifier.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.qualifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.qualifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.qualifier, range, value, display)
@@ -1648,7 +1648,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_connection_close_reason, range, value, display)
@@ -1893,7 +1893,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_request_for_execution_reason, range, value, display)
@@ -2059,7 +2059,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reject_reason, range, value, display)
@@ -2128,7 +2128,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.result_command_result, range, value, display)
@@ -2163,7 +2163,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.result_login_result, range, value, display)
@@ -2309,7 +2309,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.side.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.side, range, value, display)
@@ -2361,7 +2361,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.status_mass_quote_status, range, value, display)
@@ -2393,7 +2393,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.status_order_status, range, value, display)
@@ -2423,7 +2423,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.status_tcr_status, range, value, display)
@@ -2446,7 +2446,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.stp_id.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.stp_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.stp_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.stp_id, range, value, display)
@@ -2502,7 +2502,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.target_party_role.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.target_party_role.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.target_party_role.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.target_party_role, range, value, display)
@@ -2560,7 +2560,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.time_in_force, range, value, display)
@@ -2774,7 +2774,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.trade_report_trans_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.trade_report_trans_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.trade_report_trans_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.trade_report_trans_type, range, value, display)
@@ -2806,7 +2806,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.trade_report_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.trade_report_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.trade_report_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.trade_report_type, range, value, display)
@@ -2834,7 +2834,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.trade_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.trade_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.trade_type, range, value, display)
@@ -2864,7 +2864,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.trading_session_event.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.trading_session_event.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.trading_session_event.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.trading_session_event, range, value, display)
@@ -2921,7 +2921,7 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.update_type.dissect = function(buffer, offset, packet, parent)
   local length = gpw_wse_orderentry_wats_v1_7_6_20.update_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = gpw_wse_orderentry_wats_v1_7_6_20.update_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.update_type, range, value, display)

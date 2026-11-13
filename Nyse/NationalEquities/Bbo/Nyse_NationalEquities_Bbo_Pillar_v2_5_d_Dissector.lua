@@ -350,7 +350,7 @@ end
 nyse_nationalequities_bbo_pillar_v2_5_d.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bbo_pillar_v2_5_d.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_bbo_pillar_v2_5_d.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.channel_id, range, value, display)
@@ -410,7 +410,7 @@ end
 nyse_nationalequities_bbo_pillar_v2_5_d.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bbo_pillar_v2_5_d.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_bbo_pillar_v2_5_d.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.delivery_flag, range, value, display)
@@ -911,7 +911,7 @@ end
 nyse_nationalequities_bbo_pillar_v2_5_d.number_msgs.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bbo_pillar_v2_5_d.number_msgs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_bbo_pillar_v2_5_d.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.number_msgs, range, value, display)
@@ -1049,7 +1049,7 @@ end
 nyse_nationalequities_bbo_pillar_v2_5_d.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bbo_pillar_v2_5_d.price_resolution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_bbo_pillar_v2_5_d.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.price_resolution, range, value, display)
@@ -1072,7 +1072,7 @@ end
 nyse_nationalequities_bbo_pillar_v2_5_d.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bbo_pillar_v2_5_d.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_bbo_pillar_v2_5_d.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.price_scale_code, range, value, display)
@@ -1095,7 +1095,7 @@ end
 nyse_nationalequities_bbo_pillar_v2_5_d.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bbo_pillar_v2_5_d.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_bbo_pillar_v2_5_d.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.product_id, range, value, display)
@@ -1253,7 +1253,7 @@ end
 nyse_nationalequities_bbo_pillar_v2_5_d.retransmit_method.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bbo_pillar_v2_5_d.retransmit_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_bbo_pillar_v2_5_d.retransmit_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.retransmit_method, range, value, display)
@@ -2056,7 +2056,7 @@ end
 nyse_nationalequities_bbo_pillar_v2_5_d.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_bbo_pillar_v2_5_d.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_bbo_pillar_v2_5_d.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_bbo_pillar_v2_5_d.fields.system_id, range, value, display)
@@ -3425,7 +3425,7 @@ nyse_nationalequities_bbo_pillar_v2_5_d.packet.dissect = function(buffer, packet
   index, packet_header = nyse_nationalequities_bbo_pillar_v2_5_d.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Delivery Flag
-  local delivery_flag = buffer(index - 14, 1):le_uint()
+  local delivery_flag = buffer(index - 14, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = nyse_nationalequities_bbo_pillar_v2_5_d.messages.dissect(buffer, index, packet, parent, delivery_flag)

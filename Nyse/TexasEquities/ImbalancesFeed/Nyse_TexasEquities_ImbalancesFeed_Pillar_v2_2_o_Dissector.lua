@@ -281,7 +281,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.auction_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.auction_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.auction_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.auction_status, range, value, display)
@@ -408,7 +408,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.channel_id, range, value, display)
@@ -491,7 +491,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.delivery_flag, range, value, display)
@@ -542,7 +542,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.eth_eligible.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.eth_eligible, range, value, display)
@@ -634,7 +634,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.freeze_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.freeze_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.freeze_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.freeze_status, range, value, display)
@@ -888,7 +888,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.late_close_eligible.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.late_close_eligible, range, value, display)
@@ -1197,7 +1197,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.num_extensions.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.num_extensions.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.num_extensions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.num_extensions, range, value, display)
@@ -1220,7 +1220,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.number_msgs.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.number_msgs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.number_msgs, range, value, display)
@@ -1387,7 +1387,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.price_resolution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.price_resolution, range, value, display)
@@ -1416,7 +1416,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.price_scale_code, range, value, display)
@@ -1439,7 +1439,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.product_id, range, value, display)
@@ -1558,7 +1558,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.retransmit_method.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.retransmit_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.retransmit_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.retransmit_method, range, value, display)
@@ -2344,7 +2344,7 @@ end
 nyse_texasequities_imbalancesfeed_pillar_v2_2_o.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_texasequities_imbalancesfeed_pillar_v2_2_o.fields.system_id, range, value, display)
@@ -4002,7 +4002,7 @@ nyse_texasequities_imbalancesfeed_pillar_v2_2_o.packet.dissect = function(buffer
   index, packet_header = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Delivery Flag
-  local delivery_flag = buffer(index - 14, 1):le_uint()
+  local delivery_flag = buffer(index - 14, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = nyse_texasequities_imbalancesfeed_pillar_v2_2_o.messages.dissect(buffer, index, packet, parent, delivery_flag)

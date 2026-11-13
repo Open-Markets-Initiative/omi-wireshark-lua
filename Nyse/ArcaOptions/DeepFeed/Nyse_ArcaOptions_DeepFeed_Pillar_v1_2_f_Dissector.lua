@@ -316,7 +316,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.auction_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.auction_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.auction_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.auction_status, range, value, display)
@@ -460,7 +460,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.channel_id, range, value, display)
@@ -744,7 +744,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.delivery_flag, range, value, display)
@@ -1480,7 +1480,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.number_msgs.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.number_msgs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.number_msgs, range, value, display)
@@ -1657,7 +1657,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.position_change.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.position_change.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.position_change.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.position_change, range, value, display)
@@ -1801,7 +1801,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_resolution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.price_resolution, range, value, display)
@@ -1830,7 +1830,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.price_scale_code, range, value, display)
@@ -1858,7 +1858,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.price_type, range, value, display)
@@ -1886,7 +1886,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.printable_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.printable_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.printable_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.printable_flag, range, value, display)
@@ -1909,7 +1909,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.product_id, range, value, display)
@@ -1937,7 +1937,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.put_or_call, range, value, display)
@@ -2098,7 +2098,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.retransmit_method.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.retransmit_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.retransmit_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.retransmit_method, range, value, display)
@@ -2551,7 +2551,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.series_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.series_type, range, value, display)
@@ -2574,7 +2574,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.session_state.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.session_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.session_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.session_state, range, value, display)
@@ -3085,7 +3085,7 @@ end
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.system_id, range, value, display)
@@ -5630,7 +5630,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.packet.dissect = function(buffer, packet
   index, packet_header = nyse_arcaoptions_deepfeed_pillar_v1_2_f.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Delivery Flag
-  local delivery_flag = buffer(index - 14, 1):le_uint()
+  local delivery_flag = buffer(index - 14, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = nyse_arcaoptions_deepfeed_pillar_v1_2_f.messages.dissect(buffer, index, packet, parent, delivery_flag)

@@ -298,7 +298,7 @@ end
 nyse_nyseequities_openbook_xdp_v1_9_a.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_openbook_xdp_v1_9_a.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_openbook_xdp_v1_9_a.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.delivery_flag, range, value, display)
@@ -413,7 +413,7 @@ end
 nyse_nyseequities_openbook_xdp_v1_9_a.message_count.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_openbook_xdp_v1_9_a.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_openbook_xdp_v1_9_a.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.message_count, range, value, display)
@@ -544,7 +544,7 @@ end
 nyse_nyseequities_openbook_xdp_v1_9_a.order_idgtc_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_openbook_xdp_v1_9_a.order_idgtc_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_openbook_xdp_v1_9_a.order_idgtc_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.order_idgtc_indicator, range, value, display)
@@ -636,7 +636,7 @@ end
 nyse_nyseequities_openbook_xdp_v1_9_a.reason_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_openbook_xdp_v1_9_a.reason_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_openbook_xdp_v1_9_a.reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.reason_code, range, value, display)
@@ -942,7 +942,7 @@ end
 nyse_nyseequities_openbook_xdp_v1_9_a.trade_session.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nyseequities_openbook_xdp_v1_9_a.trade_session.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nyseequities_openbook_xdp_v1_9_a.trade_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.trade_session, range, value, display)

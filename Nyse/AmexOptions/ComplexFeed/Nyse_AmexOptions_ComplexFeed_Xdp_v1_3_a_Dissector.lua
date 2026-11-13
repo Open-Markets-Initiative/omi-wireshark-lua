@@ -306,7 +306,7 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_xdp_v1_3_a.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_complexfeed_xdp_v1_3_a.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.channel_id, range, value, display)
@@ -400,7 +400,7 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_xdp_v1_3_a.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_complexfeed_xdp_v1_3_a.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.delivery_flag, range, value, display)
@@ -560,7 +560,7 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.message_count.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_xdp_v1_3_a.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_complexfeed_xdp_v1_3_a.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_count, range, value, display)
@@ -734,7 +734,7 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_xdp_v1_3_a.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_complexfeed_xdp_v1_3_a.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.product_id, range, value, display)
@@ -1144,7 +1144,7 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_complexfeed_xdp_v1_3_a.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_complexfeed_xdp_v1_3_a.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.system_id, range, value, display)

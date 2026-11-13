@@ -241,7 +241,7 @@ end
 asianext_asianextderivatives_snapshot_amd_v1_3.contract_size_decimals.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_snapshot_amd_v1_3.contract_size_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_snapshot_amd_v1_3.contract_size_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.contract_size_decimals, range, value, display)
@@ -372,7 +372,7 @@ end
 asianext_asianextderivatives_snapshot_amd_v1_3.exercise_style.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_snapshot_amd_v1_3.exercise_style.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_snapshot_amd_v1_3.exercise_style.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.exercise_style, range, value, display)
@@ -486,7 +486,7 @@ end
 asianext_asianextderivatives_snapshot_amd_v1_3.lot_size_decimal.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_snapshot_amd_v1_3.lot_size_decimal.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_snapshot_amd_v1_3.lot_size_decimal.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.lot_size_decimal, range, value, display)
@@ -720,7 +720,7 @@ end
 asianext_asianextderivatives_snapshot_amd_v1_3.option_type.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_snapshot_amd_v1_3.option_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_snapshot_amd_v1_3.option_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.option_type, range, value, display)
@@ -892,7 +892,7 @@ end
 asianext_asianextderivatives_snapshot_amd_v1_3.settlement_type.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_snapshot_amd_v1_3.settlement_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_snapshot_amd_v1_3.settlement_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.settlement_type, range, value, display)
@@ -920,7 +920,7 @@ end
 asianext_asianextderivatives_snapshot_amd_v1_3.side.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_snapshot_amd_v1_3.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_snapshot_amd_v1_3.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.side, range, value, display)
@@ -1047,7 +1047,7 @@ end
 asianext_asianextderivatives_snapshot_amd_v1_3.tick_table_id.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_snapshot_amd_v1_3.tick_table_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_snapshot_amd_v1_3.tick_table_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.tick_table_id, range, value, display)
@@ -1098,7 +1098,7 @@ end
 asianext_asianextderivatives_snapshot_amd_v1_3.trading_phase.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_snapshot_amd_v1_3.trading_phase.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_snapshot_amd_v1_3.trading_phase.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.trading_phase, range, value, display)
@@ -1127,7 +1127,7 @@ end
 asianext_asianextderivatives_snapshot_amd_v1_3.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_snapshot_amd_v1_3.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_snapshot_amd_v1_3.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.trading_status, range, value, display)

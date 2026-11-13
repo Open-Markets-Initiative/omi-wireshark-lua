@@ -244,7 +244,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.account_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.account_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.account_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.account_type, range, value, display)
@@ -275,7 +275,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.app_id, range, value, display)
@@ -304,7 +304,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.app_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.app_status, range, value, display)
@@ -332,7 +332,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_cancel.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_cancel.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_cancel.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.auto_cancel, range, value, display)
@@ -360,7 +360,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_rfq_exec_strategy.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_rfq_exec_strategy.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.auto_rfq_exec_strategy.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.auto_rfq_exec_strategy, range, value, display)
@@ -509,7 +509,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.capacity.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.capacity, range, value, display)
@@ -537,7 +537,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.clearing_account.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.clearing_account.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.clearing_account.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.clearing_account, range, value, display)
@@ -671,7 +671,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_order_book.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_order_book.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.contra_order_book.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.contra_order_book, range, value, display)
@@ -981,7 +981,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_order_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_order_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_order_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.execution_report_order_status, range, value, display)
@@ -1009,7 +1009,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_exec_inst.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_exec_inst.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.execution_report_pegged_exec_inst.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.execution_report_pegged_exec_inst, range, value, display)
@@ -1228,7 +1228,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.last_market.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.last_market.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.last_market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.last_market, range, value, display)
@@ -1427,7 +1427,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker_rank.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker_rank.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.market_maker_rank.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.market_maker_rank, range, value, display)
@@ -1517,7 +1517,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.mass_cancel_response.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.mass_cancel_response.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.mass_cancel_response.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.mass_cancel_response, range, value, display)
@@ -1607,7 +1607,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.message_version.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.message_version.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.message_version.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.message_version, range, value, display)
@@ -1659,7 +1659,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_response_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_response_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_report_response_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.missed_message_report_response_type, range, value, display)
@@ -1689,7 +1689,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_ack_response_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_ack_response_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.missed_message_request_ack_response_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.missed_message_request_ack_response_type, range, value, display)
@@ -1774,7 +1774,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.num_of_competitors.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.num_of_competitors.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.num_of_competitors.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.num_of_competitors, range, value, display)
@@ -1892,7 +1892,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_book.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_book.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_book.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.order_book, range, value, display)
@@ -1921,7 +1921,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_capacity.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.order_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.order_capacity, range, value, display)
@@ -2035,7 +2035,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.owner_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.owner_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.owner_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.owner_type, range, value, display)
@@ -2058,7 +2058,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.partition_id.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.partition_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.partition_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.partition_id, range, value, display)
@@ -2192,7 +2192,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.private_quote.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.private_quote.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.private_quote.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.private_quote, range, value, display)
@@ -2259,7 +2259,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_ack_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.quote_ack_status, range, value, display)
@@ -2369,7 +2369,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_request_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.quote_request_type, range, value, display)
@@ -2403,7 +2403,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_resp_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_resp_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_resp_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.quote_resp_type, range, value, display)
@@ -2431,7 +2431,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.quote_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.quote_status, range, value, display)
@@ -2693,7 +2693,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.restatement_reason.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.restatement_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.restatement_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.restatement_reason, range, value, display)
@@ -2721,7 +2721,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_disclose_side.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_disclose_side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_disclose_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.rfq_disclose_side, range, value, display)
@@ -2744,7 +2744,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_delay.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_delay.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_delay.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.rfq_execution_delay, range, value, display)
@@ -2774,7 +2774,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_order_status.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_order_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_execution_report_order_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.rfq_execution_report_order_status, range, value, display)
@@ -2836,7 +2836,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_min_quotes.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_min_quotes.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.rfq_min_quotes.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.rfq_min_quotes, range, value, display)
@@ -2958,7 +2958,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.side.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.side, range, value, display)
@@ -3085,7 +3085,7 @@ end
 lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.type_of_trade.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.type_of_trade.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.type_of_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.type_of_trade, range, value, display)

@@ -129,7 +129,7 @@ end
 lseg_millennium_udpunitheader_mitch_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_udpunitheader_mitch_v1_0.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_udpunitheader_mitch_v1_0.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_count, range, value, display)
@@ -152,7 +152,7 @@ end
 lseg_millennium_udpunitheader_mitch_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_udpunitheader_mitch_v1_0.message_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_udpunitheader_mitch_v1_0.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_length, range, value, display)
@@ -296,7 +296,7 @@ lseg_millennium_udpunitheader_mitch_v1_0.message.fields = function(buffer, offse
   index, message_header = lseg_millennium_udpunitheader_mitch_v1_0.message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
-  local message_length = buffer(index - 2, 1):le_uint()
+  local message_length = buffer(index - 2, 1):uint()
 
   -- Runtime Size Of: Payload
   local size_of_payload = message_length - 2
@@ -404,7 +404,7 @@ lseg_millennium_udpunitheader_mitch_v1_0.packet.dissect = function(buffer, packe
     message_index = message_index + 1
 
     -- Dependency element: Message Length
-    local message_length = buffer(index, 1):le_uint()
+    local message_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Message
     index, message = lseg_millennium_udpunitheader_mitch_v1_0.message.dissect(buffer, index, packet, parent, message_length, message_index)

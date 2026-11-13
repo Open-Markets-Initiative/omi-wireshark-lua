@@ -698,7 +698,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_a.correction_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_a.correction_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_expressorders_meo_v2_7_a.correction_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.correction_number, range, value, display)
@@ -980,7 +980,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_a.future.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_a.future.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_expressorders_meo_v2_7_a.future.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.future, range, value, display)
@@ -1753,7 +1753,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_a.number_of_matching_engines.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_a.number_of_matching_engines.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_expressorders_meo_v2_7_a.number_of_matching_engines.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.number_of_matching_engines, range, value, display)
@@ -1776,7 +1776,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_a.number_of_orders_cancelled.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_a.number_of_orders_cancelled.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_expressorders_meo_v2_7_a.number_of_orders_cancelled.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.number_of_orders_cancelled, range, value, display)
@@ -2870,7 +2870,7 @@ end
 miax_pearlequities_expressorders_meo_v2_7_a.session_id.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_expressorders_meo_v2_7_a.session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_expressorders_meo_v2_7_a.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_expressorders_meo_v2_7_a.fields.session_id, range, value, display)
@@ -3695,7 +3695,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.login_response.size = function(buffe
   index = index + miax_pearlequities_expressorders_meo_v2_7_a.number_of_matching_engines.size
 
   -- Calculate field size from count
-  local login_matching_engine_count = buffer(offset + index - 1, 1):le_uint()
+  local login_matching_engine_count = buffer(offset + index - 1, 1):uint()
   index = index + login_matching_engine_count * 10
 
   return index
@@ -3807,7 +3807,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.login_request.size = function(buffer
   index = index + miax_pearlequities_expressorders_meo_v2_7_a.number_of_matching_engines.size
 
   -- Calculate field size from count
-  local requested_matching_engine_count = buffer(offset + index - 1, 1):le_uint()
+  local requested_matching_engine_count = buffer(offset + index - 1, 1):uint()
   index = index + requested_matching_engine_count * 9
 
   return index
@@ -4376,7 +4376,7 @@ miax_pearlequities_expressorders_meo_v2_7_a.mass_cancel_response.size = function
   index = index + miax_pearlequities_expressorders_meo_v2_7_a.number_of_matching_engines.size
 
   -- Calculate field size from count
-  local matching_engine_count = buffer(offset + index - 1, 1):le_uint()
+  local matching_engine_count = buffer(offset + index - 1, 1):uint()
   index = index + matching_engine_count * 1
 
   index = index + miax_pearlequities_expressorders_meo_v2_7_a.reserved_10.size

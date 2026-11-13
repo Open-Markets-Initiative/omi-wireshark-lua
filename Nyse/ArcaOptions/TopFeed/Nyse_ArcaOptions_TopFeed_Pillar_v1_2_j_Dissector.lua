@@ -431,7 +431,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.auction_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.auction_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.auction_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.auction_status, range, value, display)
@@ -647,7 +647,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.channel_id, range, value, display)
@@ -819,7 +819,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.delivery_flag, range, value, display)
@@ -1646,7 +1646,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.number_msgs.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.number_msgs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.number_msgs, range, value, display)
@@ -1987,7 +1987,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.price_resolution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.price_resolution, range, value, display)
@@ -2016,7 +2016,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.price_scale_code, range, value, display)
@@ -2039,7 +2039,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.product_id, range, value, display)
@@ -2067,7 +2067,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.put_or_call, range, value, display)
@@ -2229,7 +2229,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.retransmit_method.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.retransmit_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.retransmit_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.retransmit_method, range, value, display)
@@ -2769,7 +2769,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.series_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.series_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.series_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.series_type, range, value, display)
@@ -3316,7 +3316,7 @@ end
 nyse_arcaoptions_topfeed_pillar_v1_2_j.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_topfeed_pillar_v1_2_j.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaoptions_topfeed_pillar_v1_2_j.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_topfeed_pillar_v1_2_j.fields.system_id, range, value, display)
@@ -6253,7 +6253,7 @@ nyse_arcaoptions_topfeed_pillar_v1_2_j.packet.dissect = function(buffer, packet,
   index, packet_header = nyse_arcaoptions_topfeed_pillar_v1_2_j.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Delivery Flag
-  local delivery_flag = buffer(index - 14, 1):le_uint()
+  local delivery_flag = buffer(index - 14, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = nyse_arcaoptions_topfeed_pillar_v1_2_j.messages.dissect(buffer, index, packet, parent, delivery_flag)

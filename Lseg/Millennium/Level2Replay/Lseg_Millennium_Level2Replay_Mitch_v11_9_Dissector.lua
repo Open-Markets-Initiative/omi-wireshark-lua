@@ -317,7 +317,7 @@ end
 lseg_millennium_level2replay_mitch_v11_9.book_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_level2replay_mitch_v11_9.book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.book_type, range, value, display)
@@ -431,7 +431,7 @@ end
 lseg_millennium_level2replay_mitch_v11_9.cross_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.cross_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_level2replay_mitch_v11_9.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.cross_type, range, value, display)
@@ -698,7 +698,7 @@ end
 lseg_millennium_level2replay_mitch_v11_9.message_count.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_level2replay_mitch_v11_9.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.message_count, range, value, display)
@@ -721,7 +721,7 @@ end
 lseg_millennium_level2replay_mitch_v11_9.message_length.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.message_length.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_level2replay_mitch_v11_9.message_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.message_length, range, value, display)
@@ -1498,7 +1498,7 @@ end
 lseg_millennium_level2replay_mitch_v11_9.session_change_reason.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.session_change_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_level2replay_mitch_v11_9.session_change_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.session_change_reason, range, value, display)
@@ -1582,7 +1582,7 @@ end
 lseg_millennium_level2replay_mitch_v11_9.sub_book.dissect = function(buffer, offset, packet, parent)
   local length = lseg_millennium_level2replay_mitch_v11_9.sub_book.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_millennium_level2replay_mitch_v11_9.sub_book.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.sub_book, range, value, display)
@@ -3852,7 +3852,7 @@ lseg_millennium_level2replay_mitch_v11_9.tcp_unit.fields = function(buffer, offs
     message_index = message_index + 1
 
     -- Dependency element: Message Length
-    local message_length = buffer(index, 1):le_uint()
+    local message_length = buffer(index, 1):uint()
 
     -- Runtime Size Of: Message
     index, message = lseg_millennium_level2replay_mitch_v11_9.message.dissect(buffer, index, packet, parent, message_length, message_index)

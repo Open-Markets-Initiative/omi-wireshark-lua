@@ -769,7 +769,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_contract_size.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_contract_size.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_contract_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.decimal_in_contract_size, range, value, display)
@@ -792,7 +792,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_price.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.decimal_in_price, range, value, display)
@@ -815,7 +815,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_strike_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.decimal_in_strike_price, range, value, display)
@@ -838,7 +838,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_underlying_price.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_underlying_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.decimal_in_underlying_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.decimal_in_underlying_price, range, value, display)
@@ -889,7 +889,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.effective_tomorrow.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.effective_tomorrow.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.effective_tomorrow.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.effective_tomorrow, range, value, display)
@@ -1268,7 +1268,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.info_type.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.info_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.info_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.info_type, range, value, display)
@@ -1472,7 +1472,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status_code.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.instrument_status_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.instrument_status_code, range, value, display)
@@ -1790,7 +1790,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.modifier.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.modifier.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.modifier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.modifier, range, value, display)
@@ -1929,7 +1929,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.no_entries.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.no_entries.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.no_entries.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.no_entries, range, value, display)
@@ -1952,7 +1952,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.noof_lines.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.noof_lines.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.noof_lines.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.noof_lines, range, value, display)
@@ -1975,7 +1975,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.number_of_legs.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.number_of_legs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.number_of_legs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.number_of_legs, range, value, display)
@@ -2169,7 +2169,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.price_level.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.price_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.price_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.price_level, range, value, display)
@@ -2221,7 +2221,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.priority.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.priority.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.priority.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.priority, range, value, display)
@@ -2250,7 +2250,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.put_or_call, range, value, display)
@@ -2325,7 +2325,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.session.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.session.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.session, range, value, display)
@@ -2404,7 +2404,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.side.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.side, range, value, display)
@@ -2585,7 +2585,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.suspension_indicator.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.suspension_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.suspension_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.suspension_indicator, range, value, display)
@@ -2659,7 +2659,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.tradable.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.tradable.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.tradable.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.tradable, range, value, display)
@@ -2712,7 +2712,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.trading_session.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.trading_session.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.trading_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.trading_session, range, value, display)
@@ -2843,7 +2843,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.update_action.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.update_action.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.update_action.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.update_action, range, value, display)
@@ -2871,7 +2871,7 @@ end
 hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_flag.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexderivatives_standardrefresh_omd_v2_2.vcm_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexderivatives_standardrefresh_omd_v2_2.fields.vcm_flag, range, value, display)
@@ -3911,7 +3911,7 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.market_alert_message.size = functi
   index = index + hkex_hkexderivatives_standardrefresh_omd_v2_2.noof_lines.size
 
   -- Calculate field size from count
-  local content_count = buffer(offset + index - 1, 1):le_uint()
+  local content_count = buffer(offset + index - 1, 1):uint()
   index = index + content_count * 320
 
   return index
@@ -4121,7 +4121,7 @@ hkex_hkexderivatives_standardrefresh_omd_v2_2.aggregate_order_book_update_messag
   index = index + hkex_hkexderivatives_standardrefresh_omd_v2_2.no_entries.size
 
   -- Calculate field size from count
-  local book_entry_count = buffer(offset + index - 1, 1):le_uint()
+  local book_entry_count = buffer(offset + index - 1, 1):uint()
   index = index + book_entry_count * 22
 
   return index

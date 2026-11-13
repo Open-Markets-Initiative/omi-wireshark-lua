@@ -288,7 +288,7 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaequities_arcabook_pillar_v2_1.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.delivery_flag, range, value, display)
@@ -496,7 +496,7 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.number_msgs.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.number_msgs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaequities_arcabook_pillar_v2_1.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.number_msgs, range, value, display)
@@ -547,7 +547,7 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.order_idgtc_indicator.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.order_idgtc_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaequities_arcabook_pillar_v2_1.order_idgtc_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.order_idgtc_indicator, range, value, display)
@@ -639,7 +639,7 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.reason_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.reason_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaequities_arcabook_pillar_v2_1.reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.reason_code, range, value, display)
@@ -922,7 +922,7 @@ end
 nyse_arcaequities_arcabook_pillar_v2_1.trade_session.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaequities_arcabook_pillar_v2_1.trade_session.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_arcaequities_arcabook_pillar_v2_1.trade_session.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.trade_session, range, value, display)
@@ -1879,7 +1879,7 @@ nyse_arcaequities_arcabook_pillar_v2_1.packet.dissect = function(buffer, packet,
   index, packet_header = nyse_arcaequities_arcabook_pillar_v2_1.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Delivery Flag
-  local delivery_flag = buffer(index - 14, 1):le_uint()
+  local delivery_flag = buffer(index - 14, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = nyse_arcaequities_arcabook_pillar_v2_1.messages.dissect(buffer, index, packet, parent, delivery_flag)

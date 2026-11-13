@@ -676,7 +676,7 @@ end
 hkex_hkexsecurities_fulltickretrans_omd_v1_44.decimals_in_call_price.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickretrans_omd_v1_44.decimals_in_call_price.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_44.decimals_in_call_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.decimals_in_call_price, range, value, display)
@@ -699,7 +699,7 @@ end
 hkex_hkexsecurities_fulltickretrans_omd_v1_44.decimals_in_entitlement.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickretrans_omd_v1_44.decimals_in_entitlement.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_44.decimals_in_entitlement.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.decimals_in_entitlement, range, value, display)
@@ -722,7 +722,7 @@ end
 hkex_hkexsecurities_fulltickretrans_omd_v1_44.decimals_in_face_value.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickretrans_omd_v1_44.decimals_in_face_value.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_44.decimals_in_face_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.decimals_in_face_value, range, value, display)
@@ -2031,7 +2031,7 @@ end
 hkex_hkexsecurities_fulltickretrans_omd_v1_44.product_type.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickretrans_omd_v1_44.product_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_44.product_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.product_type, range, value, display)
@@ -2114,7 +2114,7 @@ end
 hkex_hkexsecurities_fulltickretrans_omd_v1_44.retrans_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickretrans_omd_v1_44.retrans_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_44.retrans_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.retrans_status, range, value, display)
@@ -2305,7 +2305,7 @@ end
 hkex_hkexsecurities_fulltickretrans_omd_v1_44.session_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickretrans_omd_v1_44.session_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_44.session_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.session_status, range, value, display)
@@ -2563,7 +2563,7 @@ end
 hkex_hkexsecurities_fulltickretrans_omd_v1_44.suspension_indicator.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickretrans_omd_v1_44.suspension_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_44.suspension_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.suspension_indicator, range, value, display)
@@ -2694,7 +2694,7 @@ end
 hkex_hkexsecurities_fulltickretrans_omd_v1_44.trading_ses_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickretrans_omd_v1_44.trading_ses_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_44.trading_ses_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.trading_ses_status, range, value, display)
@@ -2736,7 +2736,7 @@ end
 hkex_hkexsecurities_fulltickretrans_omd_v1_44.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_fulltickretrans_omd_v1_44.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_fulltickretrans_omd_v1_44.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_fulltickretrans_omd_v1_44.fields.trading_session_sub_id, range, value, display)

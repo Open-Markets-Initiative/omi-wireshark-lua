@@ -1238,7 +1238,7 @@ end
 nairobi_nairobiequities_realtime_mitch_v1_22.message_count.dissect = function(buffer, offset, packet, parent)
   local length = nairobi_nairobiequities_realtime_mitch_v1_22.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nairobi_nairobiequities_realtime_mitch_v1_22.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.message_count, range, value, display)
@@ -1762,7 +1762,7 @@ end
 nairobi_nairobiequities_realtime_mitch_v1_22.price_level.dissect = function(buffer, offset, packet, parent)
   local length = nairobi_nairobiequities_realtime_mitch_v1_22.price_level.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nairobi_nairobiequities_realtime_mitch_v1_22.price_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.price_level, range, value, display)
@@ -2051,7 +2051,7 @@ end
 nairobi_nairobiequities_realtime_mitch_v1_22.session_change_reason.dissect = function(buffer, offset, packet, parent)
   local length = nairobi_nairobiequities_realtime_mitch_v1_22.session_change_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nairobi_nairobiequities_realtime_mitch_v1_22.session_change_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.session_change_reason, range, value, display)
@@ -2190,7 +2190,7 @@ end
 nairobi_nairobiequities_realtime_mitch_v1_22.statistics_type.dissect = function(buffer, offset, packet, parent)
   local length = nairobi_nairobiequities_realtime_mitch_v1_22.statistics_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nairobi_nairobiequities_realtime_mitch_v1_22.statistics_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.statistics_type, range, value, display)
@@ -2253,7 +2253,7 @@ end
 nairobi_nairobiequities_realtime_mitch_v1_22.sub_book.dissect = function(buffer, offset, packet, parent)
   local length = nairobi_nairobiequities_realtime_mitch_v1_22.sub_book.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nairobi_nairobiequities_realtime_mitch_v1_22.sub_book.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.sub_book, range, value, display)
@@ -2335,7 +2335,7 @@ end
 nairobi_nairobiequities_realtime_mitch_v1_22.term.dissect = function(buffer, offset, packet, parent)
   local length = nairobi_nairobiequities_realtime_mitch_v1_22.term.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nairobi_nairobiequities_realtime_mitch_v1_22.term.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.term, range, value, display)
@@ -2722,7 +2722,7 @@ end
 nairobi_nairobiequities_realtime_mitch_v1_22.update_type.dissect = function(buffer, offset, packet, parent)
   local length = nairobi_nairobiequities_realtime_mitch_v1_22.update_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nairobi_nairobiequities_realtime_mitch_v1_22.update_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.update_type, range, value, display)

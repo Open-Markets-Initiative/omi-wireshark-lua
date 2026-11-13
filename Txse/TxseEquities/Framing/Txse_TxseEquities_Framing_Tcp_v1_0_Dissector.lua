@@ -301,7 +301,7 @@ end
 txse_txseequities_framing_tcp_v1_0.packet_type.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_framing_tcp_v1_0.packet_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = txse_txseequities_framing_tcp_v1_0.packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.packet_type, range, value, display)
@@ -735,7 +735,7 @@ txse_txseequities_framing_tcp_v1_0.server_rake_tcp_message.fields = function(buf
   index, rake_message_header = txse_txseequities_framing_tcp_v1_0.rake_message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):le_uint()
+  local packet_type = buffer(index - 1, 1):uint()
 
   -- Server Payload: Runtime Type with 4 branches
   index = txse_txseequities_framing_tcp_v1_0.server_payload.dissect(buffer, index, packet, parent, packet_type)
@@ -969,7 +969,7 @@ txse_txseequities_framing_tcp_v1_0.client_rake_tcp_message.fields = function(buf
   index, rake_message_header = txse_txseequities_framing_tcp_v1_0.rake_message_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Type
-  local packet_type = buffer(index - 1, 1):le_uint()
+  local packet_type = buffer(index - 1, 1):uint()
 
   -- Client Payload: Runtime Type with 2 branches
   index = txse_txseequities_framing_tcp_v1_0.client_payload.dissect(buffer, index, packet, parent, packet_type)
@@ -1171,7 +1171,7 @@ txse_txseequities_framing_tcp_v1_0.client_packet.fingerprint = function(buffer)
     return false
   end
 
-  local packet_type = buffer(2, 1):le_uint()
+  local packet_type = buffer(2, 1):uint()
 
   -- Logon Request Packet
   if packet_type == 53 then
@@ -1192,7 +1192,7 @@ txse_txseequities_framing_tcp_v1_0.server_packet.fingerprint = function(buffer)
     return false
   end
 
-  local packet_type = buffer(2, 1):le_uint()
+  local packet_type = buffer(2, 1):uint()
 
   -- Debug Message
   if packet_type == 48 then

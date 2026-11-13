@@ -278,7 +278,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.auction_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.auction_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.auction_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.auction_status, range, value, display)
@@ -382,7 +382,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.channel_id, range, value, display)
@@ -442,7 +442,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.delivery_flag, range, value, display)
@@ -531,7 +531,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.freeze_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.freeze_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.freeze_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.freeze_status, range, value, display)
@@ -990,7 +990,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.num_extensions.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.num_extensions.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.num_extensions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.num_extensions, range, value, display)
@@ -1013,7 +1013,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.number_msgs.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.number_msgs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.number_msgs, range, value, display)
@@ -1082,7 +1082,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.participants.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.participants.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.participants.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.participants, range, value, display)
@@ -1249,7 +1249,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.price_resolution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.price_resolution, range, value, display)
@@ -1272,7 +1272,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.price_scale_code, range, value, display)
@@ -1295,7 +1295,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.product_id, range, value, display)
@@ -2087,7 +2087,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.system_id, range, value, display)
@@ -2258,7 +2258,7 @@ end
 nyse_nationalequities_depthfeed_pillar_v1_6.update_count.dissect = function(buffer, offset, packet, parent)
   local length = nyse_nationalequities_depthfeed_pillar_v1_6.update_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_nationalequities_depthfeed_pillar_v1_6.update_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_nationalequities_depthfeed_pillar_v1_6.fields.update_count, range, value, display)
@@ -2824,11 +2824,11 @@ nyse_nationalequities_depthfeed_pillar_v1_6.price_point.size = function(buffer, 
 
   index = index + nyse_nationalequities_depthfeed_pillar_v1_6.participants.size
 
-  local participants = buffer(offset + 5, 1):le_uint()
+  local participants = buffer(offset + 5, 1):uint()
 
   if participants > 0 then
     -- Calculate field size from count
-    local participant_count = buffer(offset + index - 1, 1):le_uint()
+    local participant_count = buffer(offset + index - 1, 1):uint()
     index = index + participant_count * 8
 
   end
@@ -2911,11 +2911,11 @@ nyse_nationalequities_depthfeed_pillar_v1_6.delta_message.size = function(buffer
 
   index = index + nyse_nationalequities_depthfeed_pillar_v1_6.update_count.size
 
-  local update_count = buffer(offset + 16, 1):le_uint()
+  local update_count = buffer(offset + 16, 1):uint()
 
   if update_count > 0 then
     -- Calculate field size from count
-    local price_point_count = buffer(offset + index - 1, 1):le_uint()
+    local price_point_count = buffer(offset + index - 1, 1):uint()
     for i = 1, price_point_count do
       index = index + nyse_nationalequities_depthfeed_pillar_v1_6.price_point.size(buffer, offset + index)
     end
@@ -3634,7 +3634,7 @@ nyse_nationalequities_depthfeed_pillar_v1_6.packet.dissect = function(buffer, pa
   index, packet_header = nyse_nationalequities_depthfeed_pillar_v1_6.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Delivery Flag
-  local delivery_flag = buffer(index - 14, 1):le_uint()
+  local delivery_flag = buffer(index - 14, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = nyse_nationalequities_depthfeed_pillar_v1_6.messages.dissect(buffer, index, packet, parent, delivery_flag)

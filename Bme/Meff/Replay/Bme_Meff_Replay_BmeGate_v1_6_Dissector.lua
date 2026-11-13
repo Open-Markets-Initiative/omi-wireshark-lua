@@ -371,7 +371,7 @@ end
 bme_meff_replay_bmegate_v1_6.admission_requested_by_issuer.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.admission_requested_by_issuer.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.admission_requested_by_issuer.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.admission_requested_by_issuer, range, value, display)
@@ -404,7 +404,7 @@ end
 bme_meff_replay_bmegate_v1_6.algo_flag.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.algo_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.algo_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.algo_flag, range, value, display)
@@ -1694,7 +1694,7 @@ end
 bme_meff_replay_bmegate_v1_6.data_count.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.data_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.data_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.data_count, range, value, display)
@@ -2276,7 +2276,7 @@ end
 bme_meff_replay_bmegate_v1_6.heart_bt_int.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.heart_bt_int.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.heart_bt_int.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.heart_bt_int, range, value, display)
@@ -2532,7 +2532,7 @@ end
 bme_meff_replay_bmegate_v1_6.last_change_flag.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.last_change_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.last_change_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.last_change_flag, range, value, display)
@@ -3293,7 +3293,7 @@ end
 bme_meff_replay_bmegate_v1_6.liquid_instrument.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.liquid_instrument.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.liquid_instrument.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.liquid_instrument, range, value, display)
@@ -3327,7 +3327,7 @@ end
 bme_meff_replay_bmegate_v1_6.logout_reason.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.logout_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.logout_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.logout_reason, range, value, display)
@@ -3548,7 +3548,7 @@ end
 bme_meff_replay_bmegate_v1_6.maturity_month_year_increment.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.maturity_month_year_increment.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.maturity_month_year_increment.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.maturity_month_year_increment, range, value, display)
@@ -3970,7 +3970,7 @@ end
 bme_meff_replay_bmegate_v1_6.network_status_value.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.network_status_value.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.network_status_value.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.network_status_value, range, value, display)
@@ -4040,7 +4040,7 @@ end
 bme_meff_replay_bmegate_v1_6.non_availability_reason.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.non_availability_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.non_availability_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.non_availability_reason, range, value, display)
@@ -4063,7 +4063,7 @@ end
 bme_meff_replay_bmegate_v1_6.number_of_decimals.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.number_of_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.number_of_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.number_of_decimals, range, value, display)
@@ -4109,7 +4109,7 @@ end
 bme_meff_replay_bmegate_v1_6.order_number_of_decimals.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.order_number_of_decimals.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.order_number_of_decimals.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.order_number_of_decimals, range, value, display)
@@ -4499,7 +4499,7 @@ end
 bme_meff_replay_bmegate_v1_6.retail_cl_ask_flag_1.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.retail_cl_ask_flag_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.retail_cl_ask_flag_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.retail_cl_ask_flag_1, range, value, display)
@@ -4532,7 +4532,7 @@ end
 bme_meff_replay_bmegate_v1_6.retail_cl_bid_flag_1.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.retail_cl_bid_flag_1.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.retail_cl_bid_flag_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.retail_cl_bid_flag_1, range, value, display)
@@ -4565,7 +4565,7 @@ end
 bme_meff_replay_bmegate_v1_6.retail_cl_flag.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.retail_cl_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.retail_cl_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.retail_cl_flag, range, value, display)
@@ -4598,7 +4598,7 @@ end
 bme_meff_replay_bmegate_v1_6.retail_cl_flag_2.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.retail_cl_flag_2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.retail_cl_flag_2.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.retail_cl_flag_2, range, value, display)
@@ -5253,7 +5253,7 @@ end
 bme_meff_replay_bmegate_v1_6.security_trading_status.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.security_trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.security_trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.security_trading_status, range, value, display)
@@ -5330,7 +5330,7 @@ end
 bme_meff_replay_bmegate_v1_6.self_match_prevention.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.self_match_prevention.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.self_match_prevention.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.self_match_prevention, range, value, display)
@@ -5476,7 +5476,7 @@ end
 bme_meff_replay_bmegate_v1_6.session_reject_reason.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.session_reject_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.session_reject_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.session_reject_reason, range, value, display)
@@ -5717,7 +5717,7 @@ end
 bme_meff_replay_bmegate_v1_6.status.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.status, range, value, display)
@@ -5899,7 +5899,7 @@ end
 bme_meff_replay_bmegate_v1_6.subscriptions.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.subscriptions.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.subscriptions.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.subscriptions, range, value, display)
@@ -6076,7 +6076,7 @@ end
 bme_meff_replay_bmegate_v1_6.trad_ses_status.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.trad_ses_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.trad_ses_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.trad_ses_status, range, value, display)
@@ -6224,7 +6224,7 @@ end
 bme_meff_replay_bmegate_v1_6.trading_obligation.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.trading_obligation.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.trading_obligation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.trading_obligation, range, value, display)
@@ -6261,7 +6261,7 @@ end
 bme_meff_replay_bmegate_v1_6.trading_session_id.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.trading_session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.trading_session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.trading_session_id, range, value, display)
@@ -6297,7 +6297,7 @@ end
 bme_meff_replay_bmegate_v1_6.trading_session_sub_id.dissect = function(buffer, offset, packet, parent)
   local length = bme_meff_replay_bmegate_v1_6.trading_session_sub_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = bme_meff_replay_bmegate_v1_6.trading_session_sub_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_bme_meff_replay_bmegate_v1_6.fields.trading_session_sub_id, range, value, display)
@@ -8919,7 +8919,7 @@ bme_meff_replay_bmegate_v1_6.statistics_message.size = function(buffer, offset)
   index = index + bme_meff_replay_bmegate_v1_6.data_count.size
 
   -- Calculate field size from count
-  local statistics_repeating_group_count = buffer(offset + index - 1, 1):le_uint()
+  local statistics_repeating_group_count = buffer(offset + index - 1, 1):uint()
   index = index + statistics_repeating_group_count * 9
 
   return index

@@ -381,7 +381,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.auction_status.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.auction_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.auction_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.auction_status, range, value, display)
@@ -531,7 +531,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.channel_id, range, value, display)
@@ -818,7 +818,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.delivery_flag, range, value, display)
@@ -1790,7 +1790,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.number_msgs.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.number_msgs.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.number_msgs.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.number_msgs, range, value, display)
@@ -2010,7 +2010,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.position_change.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.position_change.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.position_change.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.position_change, range, value, display)
@@ -2154,7 +2154,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.price_resolution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.price_resolution, range, value, display)
@@ -2183,7 +2183,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.price_scale_code, range, value, display)
@@ -2211,7 +2211,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.price_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.price_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.price_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.price_type, range, value, display)
@@ -2239,7 +2239,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.printable_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.printable_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.printable_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.printable_flag, range, value, display)
@@ -2262,7 +2262,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.product_id, range, value, display)
@@ -2290,7 +2290,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.put_or_call.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.put_or_call.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.put_or_call.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.put_or_call, range, value, display)
@@ -2432,7 +2432,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.retransmit_method.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.retransmit_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.retransmit_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.retransmit_method, range, value, display)
@@ -2992,7 +2992,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.series_type.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.series_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.series_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.series_type, range, value, display)
@@ -3542,7 +3542,7 @@ end
 nyse_amexoptions_deepfeed_pillar_v1_2_m.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexoptions_deepfeed_pillar_v1_2_m.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexoptions_deepfeed_pillar_v1_2_m.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexoptions_deepfeed_pillar_v1_2_m.fields.system_id, range, value, display)
@@ -6630,7 +6630,7 @@ nyse_amexoptions_deepfeed_pillar_v1_2_m.packet.dissect = function(buffer, packet
   index, packet_header = nyse_amexoptions_deepfeed_pillar_v1_2_m.packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Delivery Flag
-  local delivery_flag = buffer(index - 14, 1):le_uint()
+  local delivery_flag = buffer(index - 14, 1):uint()
 
   -- Messages: Runtime Type with 2 branches
   index = nyse_amexoptions_deepfeed_pillar_v1_2_m.messages.dissect(buffer, index, packet, parent, delivery_flag)

@@ -480,7 +480,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.cross_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.cross_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_turquoise_level2incremental_gtp_v26_3.cross_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.cross_type, range, value, display)
@@ -719,7 +719,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.hidden_execution_indicator.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.hidden_execution_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_turquoise_level2incremental_gtp_v26_3.hidden_execution_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.hidden_execution_indicator, range, value, display)
@@ -868,7 +868,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.message_count.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_turquoise_level2incremental_gtp_v26_3.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.message_count, range, value, display)
@@ -1150,7 +1150,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.order_book_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.order_book_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_turquoise_level2incremental_gtp_v26_3.order_book_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.order_book_type, range, value, display)
@@ -1196,7 +1196,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.order_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.order_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_turquoise_level2incremental_gtp_v26_3.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.order_type, range, value, display)
@@ -1625,7 +1625,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.session_change_reason.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.session_change_reason.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_turquoise_level2incremental_gtp_v26_3.session_change_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.session_change_reason, range, value, display)
@@ -2138,7 +2138,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.trade_type.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.trade_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_turquoise_level2incremental_gtp_v26_3.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.trade_type, range, value, display)
@@ -2335,7 +2335,7 @@ end
 lseg_turquoise_level2incremental_gtp_v26_3.venue_of_execution.dissect = function(buffer, offset, packet, parent)
   local length = lseg_turquoise_level2incremental_gtp_v26_3.venue_of_execution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = lseg_turquoise_level2incremental_gtp_v26_3.venue_of_execution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_lseg_turquoise_level2incremental_gtp_v26_3.fields.venue_of_execution, range, value, display)

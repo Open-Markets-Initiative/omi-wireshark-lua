@@ -242,7 +242,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.correction_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a.correction_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.correction_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.correction_number, range, value, display)
@@ -341,7 +341,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.mach_packet_type.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a.mach_packet_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.mach_packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_packet_type, range, value, display)
@@ -371,7 +371,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.market_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.market_state, range, value, display)
@@ -684,7 +684,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.session_id.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a.session_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.session_id, range, value, display)
@@ -707,7 +707,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.session_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a.session_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.session_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.session_number, range, value, display)
@@ -781,7 +781,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.spare.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a.spare.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.spare.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.spare, range, value, display)
@@ -939,7 +939,7 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearlequities_depthofmarket_mach_v1_3_a.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trading_status, range, value, display)
@@ -1989,7 +1989,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.mach_message.fields = function(buff
   index, mach_packet_header = miax_pearlequities_depthofmarket_mach_v1_3_a.mach_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Mach Packet Type
-  local mach_packet_type = buffer(index - 2, 1):le_uint()
+  local mach_packet_type = buffer(index - 2, 1):uint()
 
   -- Payload: Runtime Type with 4 branches
   index = miax_pearlequities_depthofmarket_mach_v1_3_a.payload.dissect(buffer, index, packet, parent, mach_packet_type)
@@ -2089,7 +2089,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_a.packet.fingerprint = function(buffe
     return false
   end
 
-  local mach_packet_type = buffer(10, 1):le_uint()
+  local mach_packet_type = buffer(10, 1):uint()
 
   -- Heartbeat
   if mach_packet_type == 0 then

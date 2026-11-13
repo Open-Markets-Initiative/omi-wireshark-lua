@@ -469,7 +469,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_9.correction_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_9.correction_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearloptions_topofmarket_mach_v1_9.correction_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_9.fields.correction_number, range, value, display)
@@ -1164,7 +1164,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_9.packet_type.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_9.packet_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearloptions_topofmarket_mach_v1_9.packet_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_9.fields.packet_type, range, value, display)
@@ -1239,7 +1239,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_9.reference_correction_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_9.reference_correction_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearloptions_topofmarket_mach_v1_9.reference_correction_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_9.fields.reference_correction_number, range, value, display)
@@ -1460,7 +1460,7 @@ end
 miax_pearloptions_topofmarket_mach_v1_9.session_number.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_9.session_number.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = miax_pearloptions_topofmarket_mach_v1_9.session_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_pearloptions_topofmarket_mach_v1_9.fields.session_number, range, value, display)
@@ -2776,7 +2776,7 @@ miax_pearloptions_topofmarket_mach_v1_9.mach_message.fields = function(buffer, o
   index, mach_packet_header = miax_pearloptions_topofmarket_mach_v1_9.mach_packet_header.dissect(buffer, index, packet, parent)
 
   -- Dependency element: Packet Type
-  local packet_type = buffer(index - 2, 1):le_uint()
+  local packet_type = buffer(index - 2, 1):uint()
 
   -- Payload: Runtime Type with 4 branches
   index = miax_pearloptions_topofmarket_mach_v1_9.payload.dissect(buffer, index, packet, parent, packet_type)
@@ -2876,7 +2876,7 @@ miax_pearloptions_topofmarket_mach_v1_9.packet.fingerprint = function(buffer)
     return false
   end
 
-  local packet_type = buffer(10, 1):le_uint()
+  local packet_type = buffer(10, 1):uint()
 
   -- Heartbeat
   if packet_type == 0 then

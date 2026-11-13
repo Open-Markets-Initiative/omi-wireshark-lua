@@ -253,7 +253,7 @@ end
 asianext_asianextderivatives_tradingprotocol_atp_v1_2.ccp_code.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_tradingprotocol_atp_v1_2.ccp_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_tradingprotocol_atp_v1_2.ccp_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.ccp_code, range, value, display)
@@ -373,7 +373,7 @@ end
 asianext_asianextderivatives_tradingprotocol_atp_v1_2.liq_indicator.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_tradingprotocol_atp_v1_2.liq_indicator.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_tradingprotocol_atp_v1_2.liq_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.liq_indicator, range, value, display)
@@ -407,7 +407,7 @@ end
 asianext_asianextderivatives_tradingprotocol_atp_v1_2.logout_reason_code.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_tradingprotocol_atp_v1_2.logout_reason_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_tradingprotocol_atp_v1_2.logout_reason_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.logout_reason_code, range, value, display)
@@ -792,7 +792,7 @@ end
 asianext_asianextderivatives_tradingprotocol_atp_v1_2.order_capacity.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_tradingprotocol_atp_v1_2.order_capacity.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_tradingprotocol_atp_v1_2.order_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.order_capacity, range, value, display)
@@ -846,7 +846,7 @@ end
 asianext_asianextderivatives_tradingprotocol_atp_v1_2.order_type.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_tradingprotocol_atp_v1_2.order_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_tradingprotocol_atp_v1_2.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.order_type, range, value, display)
@@ -989,7 +989,7 @@ end
 asianext_asianextderivatives_tradingprotocol_atp_v1_2.quote_request_status.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_tradingprotocol_atp_v1_2.quote_request_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_tradingprotocol_atp_v1_2.quote_request_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.quote_request_status, range, value, display)
@@ -1083,7 +1083,7 @@ end
 asianext_asianextderivatives_tradingprotocol_atp_v1_2.result_code.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_tradingprotocol_atp_v1_2.result_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_tradingprotocol_atp_v1_2.result_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.result_code, range, value, display)
@@ -1310,7 +1310,7 @@ end
 asianext_asianextderivatives_tradingprotocol_atp_v1_2.side.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_tradingprotocol_atp_v1_2.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_tradingprotocol_atp_v1_2.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.side, range, value, display)
@@ -1349,7 +1349,7 @@ end
 asianext_asianextderivatives_tradingprotocol_atp_v1_2.status_details.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_tradingprotocol_atp_v1_2.status_details.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_tradingprotocol_atp_v1_2.status_details.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.status_details, range, value, display)
@@ -1379,7 +1379,7 @@ end
 asianext_asianextderivatives_tradingprotocol_atp_v1_2.time_in_force.dissect = function(buffer, offset, packet, parent)
   local length = asianext_asianextderivatives_tradingprotocol_atp_v1_2.time_in_force.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = asianext_asianextderivatives_tradingprotocol_atp_v1_2.time_in_force.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.time_in_force, range, value, display)

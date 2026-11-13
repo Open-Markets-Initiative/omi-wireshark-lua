@@ -217,7 +217,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.channel_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.channel_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.channel_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.channel_id, range, value, display)
@@ -277,7 +277,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.delivery_flag.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.delivery_flag.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.delivery_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.delivery_flag, range, value, display)
@@ -647,7 +647,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.message_count.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.message_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.message_count, range, value, display)
@@ -969,7 +969,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_resolution.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_resolution.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_resolution.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.price_resolution, range, value, display)
@@ -992,7 +992,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_scale_code.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_scale_code.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.price_scale_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.price_scale_code, range, value, display)
@@ -1019,7 +1019,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.product_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.product_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.product_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.product_id, range, value, display)
@@ -1161,7 +1161,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.retransmit_method.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.retransmit_method.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.retransmit_method.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.retransmit_method, range, value, display)
@@ -1920,7 +1920,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.system_id.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.system_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.system_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.system_id, range, value, display)
@@ -2106,7 +2106,7 @@ end
 nyse_amexequities_openbookaggregated_xdp_v2_1_d.update_count.dissect = function(buffer, offset, packet, parent)
   local length = nyse_amexequities_openbookaggregated_xdp_v2_1_d.update_count.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = nyse_amexequities_openbookaggregated_xdp_v2_1_d.update_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_amexequities_openbookaggregated_xdp_v2_1_d.fields.update_count, range, value, display)
@@ -2222,7 +2222,7 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.orderbook_delta_update_message.s
   index = index + nyse_amexequities_openbookaggregated_xdp_v2_1_d.update_count.size
 
   -- Calculate field size from count
-  local delta_price_point_count = buffer(offset + index - 1, 1):le_uint()
+  local delta_price_point_count = buffer(offset + index - 1, 1):uint()
   index = index + delta_price_point_count * 11
 
   return index
@@ -2370,7 +2370,7 @@ nyse_amexequities_openbookaggregated_xdp_v2_1_d.orderbook_snapshot_message.size 
   index = index + nyse_amexequities_openbookaggregated_xdp_v2_1_d.update_count.size
 
   -- Calculate field size from count
-  local snapshot_price_point_count = buffer(offset + index - 1, 1):le_uint()
+  local snapshot_price_point_count = buffer(offset + index - 1, 1):uint()
   index = index + snapshot_price_point_count * 11
 
   return index

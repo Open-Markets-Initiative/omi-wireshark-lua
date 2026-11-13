@@ -292,7 +292,7 @@ end
 txse_txseequities_bale_rake_v1_0.auction_type.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.auction_type.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.auction_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.auction_type, range, value, display)
@@ -419,7 +419,7 @@ end
 txse_txseequities_bale_rake_v1_0.excess_auction_side.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.excess_auction_side.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.excess_auction_side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.excess_auction_side, range, value, display)
@@ -465,7 +465,7 @@ end
 txse_txseequities_bale_rake_v1_0.extension_cycle_count.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.extension_cycle_count.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.extension_cycle_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.extension_cycle_count, range, value, display)
@@ -488,7 +488,7 @@ end
 txse_txseequities_bale_rake_v1_0.listing_market.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.listing_market.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.listing_market.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.listing_market, range, value, display)
@@ -571,7 +571,7 @@ end
 txse_txseequities_bale_rake_v1_0.market_hours_state.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.market_hours_state.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.market_hours_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.market_hours_state, range, value, display)
@@ -617,7 +617,7 @@ end
 txse_txseequities_bale_rake_v1_0.matching_engine_id.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.matching_engine_id.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.matching_engine_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.matching_engine_id, range, value, display)
@@ -925,7 +925,7 @@ end
 txse_txseequities_bale_rake_v1_0.session_trading_state.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.session_trading_state.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.session_trading_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.session_trading_state, range, value, display)
@@ -956,7 +956,7 @@ end
 txse_txseequities_bale_rake_v1_0.short_sale_restriction_state.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.short_sale_restriction_state.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.short_sale_restriction_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.short_sale_restriction_state, range, value, display)
@@ -1075,7 +1075,7 @@ end
 txse_txseequities_bale_rake_v1_0.symbol_status_operational_halt_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.symbol_status_operational_halt_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.symbol_status_operational_halt_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.symbol_status_operational_halt_reason, range, value, display)
@@ -1140,7 +1140,7 @@ end
 txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.symbol_status_regulatory_halt_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.symbol_status_regulatory_halt_reason, range, value, display)
@@ -1169,7 +1169,7 @@ end
 txse_txseequities_bale_rake_v1_0.symbol_trading_state.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.symbol_trading_state.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.symbol_trading_state.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.symbol_trading_state, range, value, display)
@@ -1197,7 +1197,7 @@ end
 txse_txseequities_bale_rake_v1_0.trade_through_exemption_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.trade_through_exemption_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.trade_through_exemption_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.trade_through_exemption_reason, range, value, display)
@@ -1224,7 +1224,7 @@ end
 txse_txseequities_bale_rake_v1_0.trading_session_status_operational_halt_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.trading_session_status_operational_halt_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.trading_session_status_operational_halt_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.trading_session_status_operational_halt_reason, range, value, display)
@@ -1289,7 +1289,7 @@ end
 txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason.dissect = function(buffer, offset, packet, parent)
   local length = txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason.size
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local value = range:int()
   local display = txse_txseequities_bale_rake_v1_0.trading_session_status_regulatory_halt_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.trading_session_status_regulatory_halt_reason, range, value, display)

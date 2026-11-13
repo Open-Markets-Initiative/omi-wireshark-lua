@@ -686,7 +686,7 @@ end
 a2x_a2xequities_rtmdf_amd_v2_5.side.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_rtmdf_amd_v2_5.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_rtmdf_amd_v2_5.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.side, range, value, display)
@@ -767,7 +767,7 @@ end
 a2x_a2xequities_rtmdf_amd_v2_5.tick_table_id.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_rtmdf_amd_v2_5.tick_table_id.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_rtmdf_amd_v2_5.tick_table_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.tick_table_id, range, value, display)
@@ -846,7 +846,7 @@ end
 a2x_a2xequities_rtmdf_amd_v2_5.trade_type.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_rtmdf_amd_v2_5.trade_type.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_rtmdf_amd_v2_5.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.trade_type, range, value, display)
@@ -900,7 +900,7 @@ end
 a2x_a2xequities_rtmdf_amd_v2_5.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = a2x_a2xequities_rtmdf_amd_v2_5.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = a2x_a2xequities_rtmdf_amd_v2_5.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_a2x_a2xequities_rtmdf_amd_v2_5.fields.trading_status, range, value, display)

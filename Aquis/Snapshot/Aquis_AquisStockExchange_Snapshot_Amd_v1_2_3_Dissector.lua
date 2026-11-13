@@ -460,7 +460,7 @@ end
 aquis_aquisstockexchange_snapshot_amd_v1_2_3.side.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisstockexchange_snapshot_amd_v1_2_3.side.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisstockexchange_snapshot_amd_v1_2_3.side.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisstockexchange_snapshot_amd_v1_2_3.fields.side, range, value, display)
@@ -536,7 +536,7 @@ end
 aquis_aquisstockexchange_snapshot_amd_v1_2_3.trading_status.dissect = function(buffer, offset, packet, parent)
   local length = aquis_aquisstockexchange_snapshot_amd_v1_2_3.trading_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = aquis_aquisstockexchange_snapshot_amd_v1_2_3.trading_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_aquis_aquisstockexchange_snapshot_amd_v1_2_3.fields.trading_status, range, value, display)

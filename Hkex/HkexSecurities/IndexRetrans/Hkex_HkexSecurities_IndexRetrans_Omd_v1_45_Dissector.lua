@@ -1094,7 +1094,7 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_45.retrans_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_45.retrans_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_indexretrans_omd_v1_45.retrans_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.retrans_status, range, value, display)
@@ -1170,7 +1170,7 @@ end
 hkex_hkexsecurities_indexretrans_omd_v1_45.session_status.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexsecurities_indexretrans_omd_v1_45.session_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:uint()
   local display = hkex_hkexsecurities_indexretrans_omd_v1_45.session_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_hkex_hkexsecurities_indexretrans_omd_v1_45.fields.session_status, range, value, display)
