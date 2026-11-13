@@ -5442,7 +5442,11 @@ koscom_mdcsrealtime_bonda_exture_v2_020.business_date.size = 8
 
 -- Display: Business Date
 koscom_mdcsrealtime_bonda_exture_v2_020.business_date.display = function(value)
-  return "Business Date: "..value
+  if #value < 8 then
+    return "Business Date: "..value
+  end
+
+  return "Business Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Business Date

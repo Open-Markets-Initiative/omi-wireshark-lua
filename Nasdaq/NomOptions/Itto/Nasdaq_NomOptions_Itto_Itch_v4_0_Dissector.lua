@@ -422,7 +422,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.ask_price_long.display(value, buffer, offset, packet, parent)
 
@@ -444,7 +444,7 @@ end
 
 -- Translate: Ask Price Short
 nasdaq_nomoptions_itto_itch_v4_0.ask_price_short.translate = function(raw)
-  return raw/10000
+  return raw/100
 end
 
 -- Dissect: Ask Price Short
@@ -631,7 +631,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.bid_price_long.display(value, buffer, offset, packet, parent)
 
@@ -653,7 +653,7 @@ end
 
 -- Translate: Bid Price Short
 nasdaq_nomoptions_itto_itch_v4_0.bid_price_short.translate = function(raw)
-  return raw/10000
+  return raw/100
 end
 
 -- Dissect: Bid Price Short
@@ -1125,7 +1125,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
@@ -1182,7 +1182,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.imbalance_price.display(value, buffer, offset, packet, parent)
 
@@ -1699,7 +1699,7 @@ end
 nasdaq_nomoptions_itto_itch_v4_0.price_long.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nomoptions_itto_itch_v4_0.price_long.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nomoptions_itto_itch_v4_0.price_long.translate(raw)
   local display = nasdaq_nomoptions_itto_itch_v4_0.price_long.display(value, buffer, offset, packet, parent)
 
@@ -1721,7 +1721,7 @@ end
 
 -- Translate: Price Short
 nasdaq_nomoptions_itto_itch_v4_0.price_short.translate = function(raw)
-  return raw/10000
+  return raw/100
 end
 
 -- Dissect: Price Short
