@@ -1097,7 +1097,18 @@ end
 qse_qsecash_marketdata_xdp_v2_6.date_of_last_trade.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.date_of_last_trade.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = qse_qsecash_marketdata_xdp_v2_6.date_of_last_trade.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.date_of_last_trade, range, value, display)
@@ -1525,7 +1536,18 @@ end
 qse_qsecash_marketdata_xdp_v2_6.first_settlement_date.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.first_settlement_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = qse_qsecash_marketdata_xdp_v2_6.first_settlement_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.first_settlement_date, range, value, display)
@@ -5062,7 +5084,18 @@ end
 qse_qsecash_marketdata_xdp_v2_6.start_date_halting.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.start_date_halting.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = qse_qsecash_marketdata_xdp_v2_6.start_date_halting.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.start_date_halting, range, value, display)

@@ -619,7 +619,18 @@ end
 jse_itac_enhancednativetrading_ntgi_v4_04.far_maturity_date.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_enhancednativetrading_ntgi_v4_04.far_maturity_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = jse_itac_enhancednativetrading_ntgi_v4_04.far_maturity_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.far_maturity_date, range, value, display)
@@ -957,7 +968,18 @@ end
 jse_itac_enhancednativetrading_ntgi_v4_04.maturity_date.dissect = function(buffer, offset, packet, parent)
   local length = jse_itac_enhancednativetrading_ntgi_v4_04.maturity_date.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = jse_itac_enhancednativetrading_ntgi_v4_04.maturity_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.maturity_date, range, value, display)
