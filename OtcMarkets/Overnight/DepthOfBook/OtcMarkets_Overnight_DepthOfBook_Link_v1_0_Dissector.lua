@@ -103,6 +103,7 @@ omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.heartbeat_packet = ProtoFi
 
 -- OtcMarkets Overnight DepthOfBook Link 1.0 Generated Fields
 omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_index = ProtoField.new("Message Index", "otcmarkets.overnight.depthofbook.link.v1.0.messageindex", ftypes.UINT16)
+omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "otcmarkets.overnight.depthofbook.link.v1.0.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
 -- OtcMarkets Overnight DepthOfBook Link 1.0 Formatting
@@ -131,12 +132,14 @@ show.application_messages = true
 show.structs = true
 show.headers = true
 show.indexes = true
+show.sequences = true
 
 -- Register OtcMarkets Overnight DepthOfBook Link 1.0 Show Options
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
@@ -155,6 +158,9 @@ function omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs_changed()
   end
   if show.indexes ~= omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_indexes then
     show.indexes = omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_indexes
+  end
+  if show.sequences ~= omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_sequences then
+    show.sequences = omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.show_sequences
   end
   if otcmarkets_overnight_depthofbook_link_v1_0.timestamp_format ~= omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.timestamp_format then
     otcmarkets_overnight_depthofbook_link_v1_0.timestamp_format = omi_otcmarkets_overnight_depthofbook_link_v1_0.prefs.timestamp_format
@@ -2229,6 +2235,12 @@ otcmarkets_overnight_depthofbook_link_v1_0.message.fields = function(buffer, off
     iteration:set_generated()
   end
 
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and otcmarkets_overnight_depthofbook_link_v1_0.packet_sequence ~= nil then
+    local sequence = parent:add(omi_otcmarkets_overnight_depthofbook_link_v1_0.fields.message_sequence_number, UInt64.new(otcmarkets_overnight_depthofbook_link_v1_0.packet_sequence))
+    sequence:set_generated()
+  end
+
   -- Message Header: Struct of 2 fields
   index, message_header = otcmarkets_overnight_depthofbook_link_v1_0.message_header.dissect(buffer, index, packet, parent)
 
@@ -2404,6 +2416,9 @@ otcmarkets_overnight_depthofbook_link_v1_0.packet_header.fields = function(buffe
 
   -- Packet Milli: 4 Byte Unsigned Fixed Width Integer
   index, packet_milli = otcmarkets_overnight_depthofbook_link_v1_0.packet_milli.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  otcmarkets_overnight_depthofbook_link_v1_0.packet_sequence = seq_num
 
   return index
 end

@@ -5170,6 +5170,7 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d)
 --   Version: 2.6.d
 --   Date: Tuesday, August 4, 2026
 --   Specification: Clearing_Trade_Drop_CTD_v2.6d.pdf
+--   Specification: MIAX Options TcpSessionMgmt SesM v1_1e.pdf
 --
 -- Script:
 --   Compiler: 2.0

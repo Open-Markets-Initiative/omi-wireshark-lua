@@ -48,7 +48,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.offer_condition = Proto
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.opening_time = ProtoField.new("Opening Time", "miax.miaxoptions.complextopofmarket.mach.v1.1.openingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 09:30:00")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.miaxoptions.complextopofmarket.mach.v1.1.openingunderlyingmarketcode", ftypes.STRING, nil, nil, nil, "Options opening will be triggered on receipt of Opening quote/trade from this Underlying market:")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet_length = ProtoField.new("Packet Length", "miax.miaxoptions.complextopofmarket.mach.v1.1.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.complextopofmarket.mach.v1.1.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.complextopofmarket.mach.v1.1.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.miaxoptions.complextopofmarket.mach.v1.1.priorityquotewidth", ftypes.DOUBLE, nil, nil, nil, "Maximum allowable width for a quote for this Option during regular trading in order to be considered as Priority Quote. 0 when Priority Quote Width is not applicable.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.product_id = ProtoField.new("Product Id", "miax.miaxoptions.complextopofmarket.mach.v1.1.productid", ftypes.UINT32, nil, nil, nil, "MIAX Product ID mapped to a given option. It is assigned per trading session and is valid for that session.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.miaxoptions.complextopofmarket.mach.v1.1.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
@@ -101,6 +101,11 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.underlying_trading_stat
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_complex_double_sided_top_of_market_message = ProtoField.new("Wide Complex Double Sided Top Of Market Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.widecomplexdoublesidedtopofmarketmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate both sides of the MIAX top of market for strategies (cMBBO) with net prices or aggregate sizes which cannot be specified in the compact format.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_complex_top_of_market_bid_message = ProtoField.new("Wide Complex Top Of Market Bid Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.widecomplextopofmarketbidmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate MIAX Complex Top of Market for strategies with high net price or large aggregate MIAX Best Bid or Offer (MBBO) size.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.wide_complex_top_of_market_offer_message = ProtoField.new("Wide Complex Top Of Market Offer Message", "miax.miaxoptions.complextopofmarket.mach.v1.1.widecomplextopofmarketoffermessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate MIAX Complex Top of Market for strategies with high net price or large aggregate MIAX Best Offer (MBBO) size.")
+
+-- Miax MiaxOptions ComplexTopOfMarket 1.1 Session Messages
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.end_of_session = ProtoField.new("End Of Session", "miax.miaxoptions.complextopofmarket.mach.v1.1.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "miax.miaxoptions.complextopofmarket.mach.v1.1.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.start_of_session = ProtoField.new("Start Of Session", "miax.miaxoptions.complextopofmarket.mach.v1.1.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax MiaxOptions ComplexTopOfMarket Mach 1.1 Generated Fields
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "miax.miaxoptions.complextopofmarket.mach.v1.1.legdefinitionindex", ftypes.UINT16)
@@ -1946,7 +1951,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.strategy_trade_message.fields = fu
   -- Trade Condition: Alphanumeric
   index, trade_condition = miax_miaxoptions_complextopofmarket_mach_v1_1.trade_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 16: Reserved
+  -- Reserved 16: Alphanumeric
   if show.padding then
     index, reserved_16 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_16.dissect(buffer, index, packet, parent)
   else
@@ -1999,7 +2004,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_offer.fields = function(buffe
   -- Wide Offer Size: BinaryU
   index, wide_offer_size = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_offer_size.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: BinaryU
+  -- Reserved 4: 4 Byte
   if show.padding then
     index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
   else
@@ -2055,7 +2060,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_bid.fields = function(buffer,
   -- Wide Bid Size: BinaryU
   index, wide_bid_size = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: BinaryU
+  -- Reserved 4: 4 Byte
   if show.padding then
     index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
   else
@@ -2163,7 +2168,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_offer.fields = function(bu
   -- Compact Offer Size: BinaryU
   index, compact_offer_size = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_offer_size.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: BinaryU
+  -- Reserved 2: 2 Byte
   if show.padding then
     index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.dissect(buffer, index, packet, parent)
   else
@@ -2219,7 +2224,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_bid.fields = function(buff
   -- Compact Bid Size: BinaryU
   index, compact_bid_size = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_bid_size.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: BinaryU
+  -- Reserved 2: 2 Byte
   if show.padding then
     index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.dissect(buffer, index, packet, parent)
   else
@@ -2335,7 +2340,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_complex_top_of_market_offer_m
   -- Wide Size: BinaryU
   index, wide_size = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_size.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: BinaryU
+  -- Reserved 4: 4 Byte
   if show.padding then
     index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
   else
@@ -2399,7 +2404,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.wide_complex_top_of_market_bid_mes
   -- Wide Size: BinaryU
   index, wide_size = miax_miaxoptions_complextopofmarket_mach_v1_1.wide_size.dissect(buffer, index, packet, parent)
 
-  -- Reserved 4: BinaryU
+  -- Reserved 4: 4 Byte
   if show.padding then
     index, reserved_4 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_4.dissect(buffer, index, packet, parent)
   else
@@ -2463,7 +2468,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.compact_complex_top_of_market_offe
   -- Compact Size: BinaryU
   index, compact_size = miax_miaxoptions_complextopofmarket_mach_v1_1.compact_size.dissect(buffer, index, packet, parent)
 
-  -- Reserved 2: BinaryU
+  -- Reserved 2: 2 Byte
   if show.padding then
     index, reserved_2 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_2.dissect(buffer, index, packet, parent)
   else
@@ -2636,7 +2641,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.leg_definition.fields = function(b
   -- Leg Side: Alphanumeric
   index, leg_side = miax_miaxoptions_complextopofmarket_mach_v1_1.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8: Reserved
+  -- Reserved 8: BinaryU
   if show.padding then
     index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.dissect(buffer, index, packet, parent)
   else
@@ -2841,7 +2846,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.series_update.fields = function(bu
   -- Priority Quote Width: BinaryPrc4U
   index, priority_quote_width = miax_miaxoptions_complextopofmarket_mach_v1_1.priority_quote_width.dissect(buffer, index, packet, parent)
 
-  -- Reserved 8: Reserved
+  -- Reserved 8: BinaryU
   if show.padding then
     index, reserved_8 = miax_miaxoptions_complextopofmarket_mach_v1_1.reserved_8.dissect(buffer, index, packet, parent)
   else
@@ -3300,6 +3305,7 @@ udp_table:add_for_decode_as(omi_miax_miaxoptions_complextopofmarket_mach_v1_1)
 --   Version: 1.1
 --   Date: Friday, July 15, 2016
 --   Specification: Complex Top Of Market Feed cToM v1_1.pdf
+--   Specification: MIAX MACH Protocol v1_2d_re.pdf
 --
 -- Script:
 --   Compiler: 2.0

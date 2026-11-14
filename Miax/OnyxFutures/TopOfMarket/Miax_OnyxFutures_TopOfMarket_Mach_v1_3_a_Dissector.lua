@@ -54,8 +54,8 @@ omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.option_expiration_type = Pro
 omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.option_strike_currency = ProtoField.new("Option Strike Currency", "miax.onyxfutures.topofmarket.mach.v1.3.a.optionstrikecurrency", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.option_strike_price = ProtoField.new("Option Strike Price", "miax.onyxfutures.topofmarket.mach.v1.3.a.optionstrikeprice", ftypes.DOUBLE, nil, nil, nil, "NULL when Instrument Type not equal to")
 omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.option_type = ProtoField.new("Option Type", "miax.onyxfutures.topofmarket.mach.v1.3.a.optiontype", ftypes.STRING)
-omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.topofmarket.mach.v1.3.a.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet. This includes the header and application data")
-omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.topofmarket.mach.v1.3.a.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.topofmarket.mach.v1.3.a.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
+omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.topofmarket.mach.v1.3.a.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.price = ProtoField.new("Price", "miax.onyxfutures.topofmarket.mach.v1.3.a.price", ftypes.DOUBLE, nil, nil, nil, "Execution price")
 omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.product_group_code_alphanumeric_13 = ProtoField.new("Product Group Code Alphanumeric 13", "miax.onyxfutures.topofmarket.mach.v1.3.a.productgroupcodealphanumeric13", ftypes.STRING, nil, nil, nil, "Product Group Code: e.g.: MWE for Hard Red Spring Wheat Standard Deliverable (5000 Bushels) Cross Product Spread example: XXX-YYY")
 omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.product_group_code_alphanumeric_6 = ProtoField.new("Product Group Code Alphanumeric 6", "miax.onyxfutures.topofmarket.mach.v1.3.a.productgroupcodealphanumeric6", ftypes.STRING, nil, nil, nil, "Product Group Code: e.g.: MWE for Hard Red Spring Wheat Standard Deliverable (5000 Bushels)")
@@ -107,6 +107,11 @@ omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.last_sale_message = ProtoFie
 omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.simple_instrument_definition_message = ProtoField.new("Simple Instrument Definition Message", "miax.onyxfutures.topofmarket.mach.v1.3.a.simpleinstrumentdefinitionmessage", ftypes.STRING, nil, nil, nil, "Simple Instrument Definition")
 omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.system_state_message = ProtoField.new("System State Message", "miax.onyxfutures.topofmarket.mach.v1.3.a.systemstatemessage", ftypes.STRING, nil, nil, nil, "System State")
 omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.onyxfutures.topofmarket.mach.v1.3.a.tradecancelmessage", ftypes.STRING)
+
+-- Miax OnyxFutures TopOfMarket 1.3.a Session Messages
+omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.end_of_session = ProtoField.new("End Of Session", "miax.onyxfutures.topofmarket.mach.v1.3.a.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session packet, closing the session it names")
+omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.heartbeat = ProtoField.new("Heartbeat", "miax.onyxfutures.topofmarket.mach.v1.3.a.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet, sent when no message has been for a second")
+omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.start_of_session = ProtoField.new("Start Of Session", "miax.onyxfutures.topofmarket.mach.v1.3.a.startofsession", ftypes.BYTES, nil, nil, nil, "Mach start of session packet, opening the session it names")
 
 -- Miax OnyxFutures TopOfMarket Mach 1.3.a Generated Fields
 omi_miax_onyxfutures_topofmarket_mach_v1_3_a.fields.deprecated_instrument_leg_index = ProtoField.new("Deprecated Instrument Leg Index", "miax.onyxfutures.topofmarket.mach.v1.3.a.deprecatedinstrumentlegindex", ftypes.UINT16)
@@ -535,9 +540,9 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.instrument_type.size = 1
 -- Display: Instrument Type
 miax_onyxfutures_topofmarket_mach_v1_3_a.instrument_type.labels = {
   ["F"] = "Instrument Type: Futures (F)",
-  ["O"] = "Instrument Type: Options On (O)",
-  ["T"] = "Instrument Type: Trade At (T)",
-  ["B"] = "Instrument Type: Basis (B)",
+  ["O"] = "Instrument Type: Options On Futures (O)",
+  ["T"] = "Instrument Type: Trade At Settlement Tas (T)",
+  ["B"] = "Instrument Type: Basis Trade At Index Close Btic (B)",
 }
 
 miax_onyxfutures_topofmarket_mach_v1_3_a.instrument_type.display = function(value)
@@ -1046,9 +1051,9 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.option_expiration_type.size = 1
 
 -- Display: Option Expiration Type
 miax_onyxfutures_topofmarket_mach_v1_3_a.option_expiration_type.labels = {
-  ["A"] = "Option Expiration Type: American Style (A)",
-  ["E"] = "Option Expiration Type: European Style (E)",
-  ["N"] = "Option Expiration Type: Na When (N)",
+  ["A"] = "Option Expiration Type: American Style Options (A)",
+  ["E"] = "Option Expiration Type: European Style Options (E)",
+  ["N"] = "Option Expiration Type: Na When Instrument Type Not Equal To O (N)",
 }
 
 miax_onyxfutures_topofmarket_mach_v1_3_a.option_expiration_type.display = function(value)
@@ -1076,7 +1081,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.option_strike_currency.size = 1
 -- Display: Option Strike Currency
 miax_onyxfutures_topofmarket_mach_v1_3_a.option_strike_currency.labels = {
   ["U"] = "Option Strike Currency: Us Dollar (U)",
-  ["N"] = "Option Strike Currency: Na When (N)",
+  ["N"] = "Option Strike Currency: Na When Instrument Type Not Equal To O (N)",
 }
 
 miax_onyxfutures_topofmarket_mach_v1_3_a.option_strike_currency.display = function(value)
@@ -1142,9 +1147,9 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.option_type.size = 1
 
 -- Display: Option Type
 miax_onyxfutures_topofmarket_mach_v1_3_a.option_type.labels = {
-  ["C"] = "Option Type: Call (C)",
-  ["P"] = "Option Type: Put (P)",
-  ["N"] = "Option Type: Na When (N)",
+  ["C"] = "Option Type: Call Options (C)",
+  ["P"] = "Option Type: Put Options (P)",
+  ["N"] = "Option Type: Na When Instrument Type Not Equal To O (N)",
 }
 
 miax_onyxfutures_topofmarket_mach_v1_3_a.option_type.display = function(value)
@@ -1613,10 +1618,10 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.spread_type.size = 1
 
 -- Display: Spread Type
 miax_onyxfutures_topofmarket_mach_v1_3_a.spread_type.labels = {
-  ["S"] = "Spread Type: Standard (S)",
-  ["E"] = "Spread Type: Equity (E)",
-  ["B"] = "Spread Type: Butterfly (B)",
-  ["C"] = "Spread Type: Cross (C)",
+  ["S"] = "Spread Type: Standard Calendar Spread (S)",
+  ["E"] = "Spread Type: Equity Calendar Spread (E)",
+  ["B"] = "Spread Type: Butterfly Spread (B)",
+  ["C"] = "Spread Type: Cross Product Spread (C)",
 }
 
 miax_onyxfutures_topofmarket_mach_v1_3_a.spread_type.display = function(value)
@@ -1645,7 +1650,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.system_status.size = 1
 miax_onyxfutures_topofmarket_mach_v1_3_a.system_status.labels = {
   ["S"] = "System Status: Start Of System Hours (S)",
   ["C"] = "System Status: End Of System Hours (C)",
-  ["1"] = "System Status: Start Of Test Session (1)",
+  ["1"] = "System Status: Start Of Test Session Sent Before Tests (1)",
   ["2"] = "System Status: End Of Test Session (2)",
 }
 
@@ -1818,12 +1823,12 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.trade_type.size = 1
 
 -- Display: Trade Type
 miax_onyxfutures_topofmarket_mach_v1_3_a.trade_type.labels = {
-  ["O"] = "Trade Type: Outright (O)",
-  ["S"] = "Trade Type: Strategy (S)",
-  ["M"] = "Trade Type: Strategy (M)",
-  ["C"] = "Trade Type: Complex (C)",
-  ["L"] = "Trade Type: Complex (L)",
-  ["A"] = "Trade Type: Adjusted Late (A)",
+  ["O"] = "Trade Type: Outright Trade Between Two Simple Orders (O)",
+  ["S"] = "Trade Type: Strategy Match Net Level Trade (S)",
+  ["M"] = "Trade Type: Strategy Match Component Leg Trade (M)",
+  ["C"] = "Trade Type: Complex Legging Derived Net Level Trade (C)",
+  ["L"] = "Trade Type: Complex Legging Derived Component Leg Trade (L)",
+  ["A"] = "Trade Type: Adjusted Late Manual Trade (A)",
 }
 
 miax_onyxfutures_topofmarket_mach_v1_3_a.trade_type.display = function(value)
@@ -1879,9 +1884,9 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.trading_collar_variation_type.size = 1
 
 -- Display: Trading Collar Variation Type
 miax_onyxfutures_topofmarket_mach_v1_3_a.trading_collar_variation_type.labels = {
-  ["D"] = "Trading Collar Variation Type: Product (D)",
-  ["P"] = "Trading Collar Variation Type: Product (P)",
-  ["N"] = "Trading Collar Variation Type: Not (N)",
+  ["D"] = "Trading Collar Variation Type: Product Dollar Collar Value (D)",
+  ["P"] = "Trading Collar Variation Type: Product Collar Percentage Value (P)",
+  ["N"] = "Trading Collar Variation Type: Not Applicable (N)",
 }
 
 miax_onyxfutures_topofmarket_mach_v1_3_a.trading_collar_variation_type.display = function(value)
@@ -1977,10 +1982,10 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.underlying_asset_type.size = 1
 
 -- Display: Underlying Asset Type
 miax_onyxfutures_topofmarket_mach_v1_3_a.underlying_asset_type.labels = {
-  ["E"] = "Underlying Asset Type: Equity (E)",
+  ["E"] = "Underlying Asset Type: Equity Index (E)",
   ["A"] = "Underlying Asset Type: Commodity Agriculture (A)",
-  ["F"] = "Underlying Asset Type: Futures (F)",
-  ["N"] = "Underlying Asset Type: Not (N)",
+  ["F"] = "Underlying Asset Type: Futures Contract (F)",
+  ["N"] = "Underlying Asset Type: Not Applicable (N)",
 }
 
 miax_onyxfutures_topofmarket_mach_v1_3_a.underlying_asset_type.display = function(value)
@@ -2032,8 +2037,8 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.unit_of_measure.size = 5
 miax_onyxfutures_topofmarket_mach_v1_3_a.unit_of_measure.labels = {
   ["BU"] = "Unit Of Measure: Bushels (BU)",
   ["USD"] = "Unit Of Measure: Usd (USD)",
-  ["FUT"] = "Unit Of Measure: Futures (FUT)",
-  ["ST"] = "Unit Of Measure: Short (ST)",
+  ["FUT"] = "Unit Of Measure: Futures Contract (FUT)",
+  ["ST"] = "Unit Of Measure: Short Tons (ST)",
   ["LB"] = "Unit Of Measure: Pounds (LB)",
 }
 
@@ -3449,6 +3454,7 @@ udp_table:add_for_decode_as(omi_miax_onyxfutures_topofmarket_mach_v1_3_a)
 --   Version: 1.3.a
 --   Date: Friday, July 31, 2026
 --   Specification: ONYX_ToM_Feed_v1.3a.pdf
+--   Specification: onyx miax mach protocol v1.0.pdf
 --
 -- Script:
 --   Compiler: 2.0

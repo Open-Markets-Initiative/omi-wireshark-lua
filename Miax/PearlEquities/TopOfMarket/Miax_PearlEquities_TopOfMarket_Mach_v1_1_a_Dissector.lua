@@ -23,7 +23,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.correction_number = ProtoF
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.flags = ProtoField.new("Flags", "miax.pearlequities.topofmarket.mach.v1.1.a.flags", ftypes.STRING)
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.topofmarket.mach.v1.1.a.lotsize", ftypes.UINT16, nil, nil, nil, "Round Lot size in shares.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_packet_length = ProtoField.new("Mach Packet Length", "miax.pearlequities.topofmarket.mach.v1.1.a.machpacketlength", ftypes.UINT16, nil, nil, nil, "Length of the packet. This includes the header and application data")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_packet_type = ProtoField.new("Mach Packet Type", "miax.pearlequities.topofmarket.mach.v1.1.a.machpackettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.mach_packet_type = ProtoField.new("Mach Packet Type", "miax.pearlequities.topofmarket.mach.v1.1.a.machpackettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.topofmarket.mach.v1.1.a.marketstate", ftypes.UINT8, nil, nil, nil, "Market State enum")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.message_type = ProtoField.new("Message Type", "miax.pearlequities.topofmarket.mach.v1.1.a.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.pearlequities.topofmarket.mach.v1.1.a.nanoseconds", ftypes.UINT32, nil, nil, nil, "Nanoseconds part of the time that applies to this message.")
@@ -63,6 +63,11 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_state_message = Pro
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.pearlequities.topofmarket.mach.v1.1.a.systemtimemessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate the “seconds” part of the timestamp that is applicable to all messages that are sent in the current second.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearlequities.topofmarket.mach.v1.1.a.tradecancelmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate canceled trades that are resulting from Trade cancellations on MIAX PEARL Equities during the current trading session.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.wide_top_of_market_best_bid_and_offer_message = ProtoField.new("Wide Top Of Market Best Bid And Offer Message", "miax.pearlequities.topofmarket.mach.v1.1.a.widetopofmarketbestbidandoffermessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to publish MIAX PEARL Best Bid and Offer (MPBBO) of a security with MPBBO values that will not fit in the compact format.")
+
+-- Miax PearlEquities TopOfMarket 1.1.a Session Messages
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.end_of_session = ProtoField.new("End Of Session", "miax.pearlequities.topofmarket.mach.v1.1.a.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.heartbeat = ProtoField.new("Heartbeat", "miax.pearlequities.topofmarket.mach.v1.1.a.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.start_of_session = ProtoField.new("Start Of Session", "miax.pearlequities.topofmarket.mach.v1.1.a.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax PearlEquities TopOfMarket Mach 1.1.a Generated Fields
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.topofmarket.mach.v1.1.a.timestamp", ftypes.UINT64)
@@ -1906,6 +1911,7 @@ udp_table:add_for_decode_as(omi_miax_pearlequities_topofmarket_mach_v1_1_a)
 --   Version: 1.1.a
 --   Date: Thursday, November 5, 2020
 --   Specification: PEARL_Equities_ToM_Feed_v1.1.a.updated.pdf
+--   Specification: MIAX PEARL Equities MACH Protocol v1_2d.pdf
 --
 -- Script:
 --   Compiler: 2.0

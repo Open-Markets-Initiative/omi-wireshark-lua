@@ -58,7 +58,7 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.order_side = ProtoFiel
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.order_type = ProtoField.new("Order Type", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.ordertype", ftypes.STRING, nil, nil, nil, "Order price type.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.origin = ProtoField.new("Origin", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.origin", ftypes.STRING, nil, nil, nil, "Specifies the order origin type.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.packet_length = ProtoField.new("Packet Length", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.packet_type = ProtoField.new("Packet Type", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.packet_type = ProtoField.new("Packet Type", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.product_id = ProtoField.new("Product Id", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.productid", ftypes.UINT32, nil, nil, nil, "Sapphire Product ID mapped to a given option. It is assigned per trading session and is valid for that session.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.refreshmessagetype", ftypes.STRING, nil, nil, nil, "Identifies the data set the firm is requesting a refresh of.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.remaining_volume_open = ProtoField.new("Remaining Volume Open", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.remainingvolumeopen", ftypes.UINT32, nil, nil, nil, "Number of contracts that are still open for trading at Sapphire.")
@@ -121,6 +121,11 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.simple_order_message =
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.system_state_message = ProtoField.new("System State Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.systemstatemessage", ftypes.STRING, nil, nil, nil, "This message format is used to notify the firms of the state changes of the system. This is a notification that applies to each Underlying group. Firms can use notifications as triggers in their system to ensure electronic synchronization of systems.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.system_time_message = ProtoField.new("System Time Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.systemtimemessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate the \"seconds\" part of the timestamp that is applicable to all messages that are sent in the current second.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.underlyingtradingstatusnotificationmessage", ftypes.STRING, nil, nil, nil, "This message format will be used to notify firms of changes to the trading status of all the options of an underlying.")
+
+-- Miax SapphireOptions LiquidityFeed 1.0.b Session Messages
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.end_of_session = ProtoField.new("End Of Session", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.heartbeat = ProtoField.new("Heartbeat", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.start_of_session = ProtoField.new("Start Of Session", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax SapphireOptions LiquidityFeed Mach 1.0.b Generated Fields
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.legdefinitionindex", ftypes.UINT16)
@@ -4121,6 +4126,7 @@ tcp_table:add_for_decode_as(omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b)
 --   Version: 1.0.b
 --   Date: Thursday, October 15, 2026
 --   Specification: Sapphire_Liquidity_Feed_SLF_v1.0b.pdf
+--   Specification: Sapphire MIAX Mach Protocol v1.2e.pdf
 --
 -- Script:
 --   Compiler: 2.0

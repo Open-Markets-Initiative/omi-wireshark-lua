@@ -32,7 +32,7 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.message_type = ProtoField.new("Message
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.nanoseconds = ProtoField.new("Nanoseconds", "miax.miaxoptions.mpf.mach.v1.1.nanoseconds", ftypes.UINT32, nil, nil, nil, "Time at which this product is added/updated on MIAX system today.")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.miaxoptions.mpf.mach.v1.1.numberofmatchingengines", ftypes.UINT8, nil, nil, nil, "Count of all Matching Engines for the exchange")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.packet_length = ProtoField.new("Packet Length", "miax.miaxoptions.mpf.mach.v1.1.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.mpf.mach.v1.1.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.mpf.mach.v1.1.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.refresh_message_type = ProtoField.new("Refresh Message Type", "miax.miaxoptions.mpf.mach.v1.1.refreshmessagetype", ftypes.STRING, nil, nil, nil, "Identifies the data set the firm is requesting a refresh of.")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.miaxoptions.mpf.mach.v1.1.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.miaxoptions.mpf.mach.v1.1.requestedtradingsessionid", ftypes.UINT8, nil, nil, nil, "Specifies the session the client would like to log into, or zero to log into the currently active session")
@@ -78,6 +78,11 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.refresh_response_message = ProtoField.
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.symbol_definition_message = ProtoField.new("Symbol Definition Message", "miax.miaxoptions.mpf.mach.v1.1.symboldefinitionmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate all Synthetic Future symbol definitions for the current session.")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.synthetic_future_value_message = ProtoField.new("Synthetic Future Value Message", "miax.miaxoptions.mpf.mach.v1.1.syntheticfuturevaluemessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate current Synthetic Future values. The specific Synthetic Future value is identified by the Synthetic Future Symbol.")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.system_time_message = ProtoField.new("System Time Message", "miax.miaxoptions.mpf.mach.v1.1.systemtimemessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate the “seconds” part of the timestamp that is applicable to all messages that are sent in the current second.")
+
+-- Miax MiaxOptions Mpf 1.1 Session Messages
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.end_of_session = ProtoField.new("End Of Session", "miax.miaxoptions.mpf.mach.v1.1.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.heartbeat = ProtoField.new("Heartbeat", "miax.miaxoptions.mpf.mach.v1.1.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.start_of_session = ProtoField.new("Start Of Session", "miax.miaxoptions.mpf.mach.v1.1.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax MiaxOptions Mpf Mach 1.1 Generated Fields
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.mpf.mach.v1.1.timestamp", ftypes.UINT64)
@@ -544,6 +549,7 @@ miax_miaxoptions_mpf_mach_v1_1.refresh_message_type.size = 1
 
 -- Display: Refresh Message Type
 miax_miaxoptions_mpf_mach_v1_1.refresh_message_type.labels = {
+  ["s"] = "Refresh Message Type: Symbol Definition Refresh (s)",
   ["I"] = "Refresh Message Type: Index Update Refresh (I)",
   ["Z"] = "Refresh Message Type: Synthetic Future Values (Z)",
 }

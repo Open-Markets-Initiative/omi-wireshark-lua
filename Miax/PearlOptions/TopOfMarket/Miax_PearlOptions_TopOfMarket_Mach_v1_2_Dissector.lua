@@ -59,7 +59,7 @@ omi_miax_pearloptions_topofmarket_mach_v1_2.fields.offer_size_short = ProtoField
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.opening_time = ProtoField.new("Opening Time", "miax.pearloptions.topofmarket.mach.v1.2.openingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 09:30:00")
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.pearloptions.topofmarket.mach.v1.2.openingunderlyingmarketcode", ftypes.STRING, nil, nil, nil, "Options opening will be triggered on receipt of Opening quote/trade from this Underlying market")
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.packet_length = ProtoField.new("Packet Length", "miax.pearloptions.topofmarket.mach.v1.2.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
-omi_miax_pearloptions_topofmarket_mach_v1_2.fields.packet_type = ProtoField.new("Packet Type", "miax.pearloptions.topofmarket.mach.v1.2.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_pearloptions_topofmarket_mach_v1_2.fields.packet_type = ProtoField.new("Packet Type", "miax.pearloptions.topofmarket.mach.v1.2.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.pbbo_condition = ProtoField.new("Pbbo Condition", "miax.pearloptions.topofmarket.mach.v1.2.pbbocondition", ftypes.STRING, nil, nil, nil, "PBBO Condition Value")
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.pbbo_price_long = ProtoField.new("PBBO Price Long", "miax.pearloptions.topofmarket.mach.v1.2.pbbopricelong", ftypes.DOUBLE, nil, nil, nil, "Pearl Best price at the time stated in Timestamp and side specified in Message Type")
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.pbbo_price_short = ProtoField.new("PBBO Price Short", "miax.pearloptions.topofmarket.mach.v1.2.pbbopriceshort", ftypes.DOUBLE, nil, nil, nil, "Pearl Best price at the time stated in Timestamp and side specified in Message Type")
@@ -134,6 +134,11 @@ omi_miax_pearloptions_topofmarket_mach_v1_2.fields.top_of_market_best_bid_or_off
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.top_of_market_best_bid_or_offer_wide_format_offer_priority_customer_message = ProtoField.new("Top Of Market Best Bid Or Offer Wide Format Offer Priority Customer Message", "miax.pearloptions.topofmarket.mach.v1.2.topofmarketbestbidorofferwideformatofferprioritycustomermessage", ftypes.STRING, nil, nil, nil, "Simple Top of Market on Offer side with Priority Customer establishing new aggressive price.")
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearloptions.topofmarket.mach.v1.2.tradecancelmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate canceled Trades that are resulting from Trade cancellations or corrections on Pearl during the current trading session.")
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.pearloptions.topofmarket.mach.v1.2.underlyingtradingstatusnotificationmessage", ftypes.STRING, nil, nil, nil, "This message format will be used to notify firms of changes to the trading status of all the options of an underlying.")
+
+-- Miax PearlOptions TopOfMarket 1.2 Session Messages
+omi_miax_pearloptions_topofmarket_mach_v1_2.fields.end_of_session = ProtoField.new("End Of Session", "miax.pearloptions.topofmarket.mach.v1.2.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_pearloptions_topofmarket_mach_v1_2.fields.heartbeat = ProtoField.new("Heartbeat", "miax.pearloptions.topofmarket.mach.v1.2.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_pearloptions_topofmarket_mach_v1_2.fields.start_of_session = ProtoField.new("Start Of Session", "miax.pearloptions.topofmarket.mach.v1.2.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax PearlOptions TopOfMarket Mach 1.2 Generated Fields
 omi_miax_pearloptions_topofmarket_mach_v1_2.fields.timestamp = ProtoField.new("Timestamp", "miax.pearloptions.topofmarket.mach.v1.2.timestamp", ftypes.UINT64)
@@ -4775,6 +4780,7 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_topofmarket_mach_v1_2)
 --   Version: 1.2
 --   Date: Tuesday, July 25, 2023
 --   Specification: Pearl_Top_of_Market_Feed_ToM_v1.2.pdf
+--   Specification: MIAX PEARL MIAX MACH Protocol v1_2e.pdf
 --
 -- Script:
 --   Compiler: 2.0

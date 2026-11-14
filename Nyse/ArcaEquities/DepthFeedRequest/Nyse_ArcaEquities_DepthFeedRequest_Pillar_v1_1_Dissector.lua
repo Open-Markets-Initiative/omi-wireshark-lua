@@ -1,0 +1,1522 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Nyse ArcaEquities DepthFeedRequest Pillar 1.1 Protocol
+local omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1 = Proto("Omi.Nyse.ArcaEquities.DepthFeedRequest.Pillar.v1.1", "Nyse ArcaEquities DepthFeedRequest Pillar 1.1")
+
+-- Protocol table
+local nyse_arcaequities_depthfeedrequest_pillar_v1_1 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Nyse ArcaEquities DepthFeedRequest Pillar 1.1 Fields
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.beginseqnum", ftypes.UINT32, nil, nil, nil, "The beginning sequence number of the range of messages to be retransmitted.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.channel_id = ProtoField.new("Channel Id", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.channelid", ftypes.UINT8, nil, nil, nil, "The ID of the multicast channel on which the gap occurred.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.delivery_flag = ProtoField.new("Delivery Flag", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.deliveryflag", ftypes.UINT8, nil, nil, nil, "A flag that indicates whether this is an original, retransmitted, or ‘replayed’ message")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.end_seq_num = ProtoField.new("End Seq Num", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.endseqnum", ftypes.UINT32, nil, nil, nil, "The end sequence number of the range of messages to be retransmitted.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.message_size = ProtoField.new("Message Size", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.messagesize", ftypes.UINT16, nil, nil, nil, "The size of this message in bytes")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.message_type = ProtoField.new("Message Type", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.messagetype", ftypes.UINT16, nil, nil, nil, "The type of this message")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.nanoseconds = ProtoField.new("Nanoseconds", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.nanoseconds", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the Send Time")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.numbermsgs", ftypes.UINT8, nil, nil, nil, "The number of messages in this packet")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.pktsize", ftypes.UINT16, nil, nil, nil, "The size of the packet in bytes, including this 16 byte packet header")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.product_id = ProtoField.new("Product Id", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.productid", ftypes.UINT8, nil, nil, nil, "The unique ID of the feed for which a retransmission is requested (listed in the feed's client specification).")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.request_seq_num = ProtoField.new("Request Seq Num", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.requestseqnum", ftypes.UINT32, nil, nil, nil, "The sequence number of the request message sent by the client. This can be used by the client to couple this response with the original request message.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information. Valid values: 0 - deliver via UDP.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.seconds_utc = ProtoField.new("Seconds", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was sent on the request channel")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was sent on the request channel")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.source_id = ProtoField.new("Source Id", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.sourceid", ftypes.STRING, nil, nil, nil, "The ID of the client requesting this retransmission. All trailing characters should be NULL.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.status = ProtoField.new("Status", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.status", ftypes.STRING, nil, nil, nil, "The reason why the request was rejected.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.symbolindex", ftypes.UINT32, nil, nil, nil, "The ID (from the Symbol Index msg) of the symbol for which a refresh is requested. To request a refresh for all symbols in the specified channel, set this field to 0.")
+
+-- Nyse ArcaEquities DepthFeedRequest Pillar 1.1 Framing
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.client_message = ProtoField.new("Client Message", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.clientmessage", ftypes.STRING, nil, nil, nil, "Pillar message sent by the client")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.client_packet = ProtoField.new("Client Packet", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.clientpacket", ftypes.STRING, nil, nil, nil, "Pillar common client tcp packet sent by the client")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.message_header = ProtoField.new("Message Header", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.messageheader", ftypes.STRING, nil, nil, nil, "Pillar message header")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.packetheader", ftypes.STRING, nil, nil, nil, "Pillar common client tcp packet header")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.server_message = ProtoField.new("Server Message", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.servermessage", ftypes.STRING, nil, nil, nil, "Pillar message sent by the Request Server")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.server_packet = ProtoField.new("Server Packet", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.serverpacket", ftypes.STRING, nil, nil, nil, "Pillar common client tcp packet sent by the Request Server")
+
+-- Nyse ArcaEquities DepthFeedRequest 1.1 Application Messages
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.heartbeat_response_message = ProtoField.new("Heartbeat Response Message", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.heartbeatresponsemessage", ftypes.STRING, nil, nil, nil, "Clients who remain connected to the Retransmission Server intraday must respond to a Heartbeat with a Heartbeat Response message within 5 seconds. If no timely client response is received, the connection will be closed.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.refresh_request_message = ProtoField.new("Refresh Request Message", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.refreshrequestmessage", ftypes.STRING, nil, nil, nil, "Clients who have experienced a failure and need a refresh of the state of one or all symbols in a specific channel should send a Refresh Request message via TCP to the Request Controller.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.request_response_message = ProtoField.new("Request Response Message", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.requestresponsemessage", ftypes.STRING, nil, nil, nil, "This message will be sent immediately via TCP/IP in response to the client's request for retransmission, refresh or Symbol Mapping messages.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.retransmission_request_message = ProtoField.new("Retransmission Request Message", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.retransmissionrequestmessage", ftypes.STRING, nil, nil, nil, "Clients who have experienced a sequence number gap and need a retransmission of the missed messages should send a Retransmission Request message via TCP to the Request Controller.")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.symbol_index_mapping_request_message = ProtoField.new("Symbol Index Mapping Request Message", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.symbolindexmappingrequestmessage", ftypes.STRING, nil, nil, nil, "This message is sent by clients via TCP/IP requesting the Symbol Index Mapping messages for one or all symbols in a specified channel.")
+
+-- Nyse ArcaEquities DepthFeedRequest Pillar 1.1 Generated Fields
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.client_message_index = ProtoField.new("Client Message Index", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.clientmessageindex", ftypes.UINT16)
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.server_message_index = ProtoField.new("Server Message Index", "nyse.arcaequities.depthfeedrequest.pillar.v1.1.servermessageindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Nyse ArcaEquities DepthFeedRequest Pillar 1.1 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.timestamp_format = 2
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Nyse ArcaEquities DepthFeedRequest Pillar 1.1 Element Dissection Options
+show.structs = true
+show.application_messages = true
+show.headers = true
+show.indexes = true
+
+-- Register Nyse ArcaEquities DepthFeedRequest Pillar 1.1 Show Options
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
+-- Handle changed preferences
+function omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_application_messages then
+    show.application_messages = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_application_messages
+  end
+  if show.headers ~= omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_headers then
+    show.headers = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_headers
+  end
+  if show.structs ~= omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_structs then
+    show.structs = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_structs
+  end
+  if show.indexes ~= omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_indexes then
+    show.indexes = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.show_indexes
+  end
+  if nyse_arcaequities_depthfeedrequest_pillar_v1_1.timestamp_format ~= omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.timestamp_format then
+    nyse_arcaequities_depthfeedrequest_pillar_v1_1.timestamp_format = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.timestamp_format
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Nyse ArcaEquities DepthFeedRequest Pillar 1.1 Fields
+-----------------------------------------------------------------------
+
+-- Begin Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.begin_seq_num = {}
+
+-- Size: Begin Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.begin_seq_num.size = 4
+
+-- Display: Begin Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.begin_seq_num.display = function(value)
+  return "Begin Seq Num: "..value
+end
+
+-- Dissect: Begin Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.begin_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.begin_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.begin_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.begin_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Channel Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id = {}
+
+-- Size: Channel Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.size = 1
+
+-- Display: Channel Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.display = function(value)
+  return "Channel Id: "..value
+end
+
+-- Dissect: Channel Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.channel_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Delivery Flag
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.delivery_flag = {}
+
+-- Size: Delivery Flag
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.delivery_flag.size = 1
+
+-- Display: Delivery Flag
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.delivery_flag.labels = {
+  [1] = "Delivery Flag: Heartbeat (1)",
+  [10] = "Delivery Flag: Pillar Failover (10)",
+  [11] = "Delivery Flag: Original Message (11)",
+  [12] = "Delivery Flag: Sequence Number Reset Message (12)",
+  [13] = "Delivery Flag: One Retransmission Packet (13)",
+  [15] = "Delivery Flag: Retransmission Sequence Message (15)",
+  [17] = "Delivery Flag: One Refresh Packet (17)",
+  [18] = "Delivery Flag: Refresh Sequence Start (18)",
+  [19] = "Delivery Flag: Refresh Sequence Message (19)",
+  [20] = "Delivery Flag: Refresh Sequence End (20)",
+  [21] = "Delivery Flag: Message Unavailable (21)",
+}
+
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.delivery_flag.display = function(value)
+  return nyse_arcaequities_depthfeedrequest_pillar_v1_1.delivery_flag.labels[value] or "Delivery Flag: Unknown("..value..")"
+end
+
+-- Dissect: Delivery Flag
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.delivery_flag.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.delivery_flag.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.delivery_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.delivery_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.end_seq_num = {}
+
+-- Size: End Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.end_seq_num.size = 4
+
+-- Display: End Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.end_seq_num.display = function(value)
+  return "End Seq Num: "..value
+end
+
+-- Dissect: End Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.end_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.end_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.end_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.end_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Size
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_size = {}
+
+-- Size: Message Size
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_size.size = 2
+
+-- Display: Message Size
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_size.display = function(value)
+  return "Message Size: "..value
+end
+
+-- Dissect: Message Size
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.message_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_type = {}
+
+-- Size: Message Type
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_type.size = 2
+
+-- Display: Message Type
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_type.labels = {
+  [10] = "Message Type: Retransmission Request Message (10)",
+  [11] = "Message Type: Request Response Message (11)",
+  [12] = "Message Type: Heartbeat Response Message (12)",
+  [13] = "Message Type: Symbol Index Mapping Request Message (13)",
+  [15] = "Message Type: Refresh Request Message (15)",
+}
+
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_type.display = function(value)
+  return nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_type.labels[value] or "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_type.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.nanoseconds = {}
+
+-- Size: Nanoseconds
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Number Msgs
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.number_msgs = {}
+
+-- Size: Number Msgs
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.number_msgs.size = 1
+
+-- Display: Number Msgs
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.number_msgs.display = function(value)
+  return "Number Msgs: "..value
+end
+
+-- Dissect: Number Msgs
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.number_msgs.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.number_msgs.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.number_msgs.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.number_msgs, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pkt Size
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.pkt_size = {}
+
+-- Size: Pkt Size
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.pkt_size.size = 2
+
+-- Display: Pkt Size
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.pkt_size.display = function(value)
+  return "Pkt Size: "..value
+end
+
+-- Dissect: Pkt Size
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.pkt_size.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.pkt_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.pkt_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.pkt_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id = {}
+
+-- Size: Product Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.size = 1
+
+-- Display: Product Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.display = function(value)
+  return "Product Id: "..value
+end
+
+-- Dissect: Product Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.product_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Request Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_seq_num = {}
+
+-- Size: Request Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_seq_num.size = 4
+
+-- Display: Request Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_seq_num.display = function(value)
+  return "Request Seq Num: "..value
+end
+
+-- Dissect: Request Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.request_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Retransmit Method
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmit_method = {}
+
+-- Size: Retransmit Method
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmit_method.size = 1
+
+-- Display: Retransmit Method
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmit_method.labels = {
+  [0] = "Retransmit Method: Deliver Via Udp (0)",
+}
+
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmit_method.display = function(value)
+  return nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmit_method.labels[value] or "Retransmit Method: Unknown("..value..")"
+end
+
+-- Dissect: Retransmit Method
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmit_method.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmit_method.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmit_method.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.retransmit_method, range, value, display)
+
+  return offset + length, value
+end
+
+-- Seconds
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.seconds = {}
+
+-- Size: Seconds
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.seconds.size = 4
+
+-- Dissect: Seconds
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.seconds
+  if nyse_arcaequities_depthfeedrequest_pillar_v1_1.timestamp_format == 3 then field = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.seq_num = {}
+
+-- Size: Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.seq_num.size = 4
+
+-- Display: Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.seq_num.display = function(value)
+  return "Seq Num: "..value
+end
+
+-- Dissect: Seq Num
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id = {}
+
+-- Size: Source Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.size = 10
+
+-- Display: Source Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Source Id: No Value"
+  end
+
+  return "Source Id: "..value
+end
+
+-- Dissect: Source Id
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.source_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Status
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.status = {}
+
+-- Size: Status
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.status.size = 1
+
+-- Display: Status
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Status: No Value"
+  end
+
+  if value == "0" then
+    return "Status: Message Was Accepted (0)"
+  end
+  if value == "1" then
+    return "Status: Rejected Due To An Invalid Source Id (1)"
+  end
+  if value == "3" then
+    return "Status: Rejected Due To Maximum Sequence Range See Threshold Limits (3)"
+  end
+  if value == "4" then
+    return "Status: Rejected Due To Maximum Request In A Day (4)"
+  end
+  if value == "5" then
+    return "Status: Rejected Due To Maximum Number Of Refresh Requests In A Day (5)"
+  end
+  if value == "6" then
+    return "Status: Rejected Request Message Seq Num Ttl Time To Live Is Too Old Use Refresh To Recover Current State If Necessary (6)"
+  end
+  if value == "7" then
+    return "Status: Rejected Due To An Invalid Channel Id (7)"
+  end
+  if value == "8" then
+    return "Status: Rejected Due To An Invalid Product Id (8)"
+  end
+  if value == "9" then
+    return "Status: Rejected Due To 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
+  end
+
+  return "Status: Unknown("..value..")"
+end
+
+-- Dissect: Status
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.status.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Index
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index = {}
+
+-- Size: Symbol Index
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index.size = 4
+
+-- Display: Symbol Index
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index.display = function(value)
+  return "Symbol Index: "..value
+end
+
+-- Dissect: Symbol Index
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index.dissect = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.symbol_index, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Nyse ArcaEquities DepthFeedRequest Pillar 1.1
+-----------------------------------------------------------------------
+
+-- Request Response Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_response_message = {}
+
+-- Size: Request Response Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_response_message.size =
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_seq_num.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.begin_seq_num.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.end_seq_num.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.status.size
+
+-- Display: Request Response Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Request Response Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Request Seq Num: Binary
+  index, request_seq_num = nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Begin Seq Num: Binary
+  index, begin_seq_num = nyse_arcaequities_depthfeedrequest_pillar_v1_1.begin_seq_num.dissect(buffer, index, packet, parent)
+
+  -- End Seq Num: Binary
+  index, end_seq_num = nyse_arcaequities_depthfeedrequest_pillar_v1_1.end_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Source Id: ASCII
+  index, source_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.dissect(buffer, index, packet, parent)
+
+  -- Status: ASCII
+  index, status = nyse_arcaequities_depthfeedrequest_pillar_v1_1.status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Request Response Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.request_response_message, buffer(offset, 0))
+    local index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Payload
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_payload = {}
+
+-- Dispatch: Server Payload
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_payload.dispatch = {
+  [11] = nyse_arcaequities_depthfeedrequest_pillar_v1_1.request_response_message.dissect,
+}
+
+-- Dissect: Server Payload
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_payload.dissect = function(buffer, offset, packet, parent, message_type)
+  local dissect = nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_header = {}
+
+-- Size: Message Header
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_header.size =
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_size.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_type.size
+
+-- Display: Message Header
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Size: 2 Byte Unsigned Fixed Width Integer
+  index, message_size = nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_size.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, message_type = nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.message_header, buffer(offset, 0))
+    local index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_message = {}
+
+-- Display: Server Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_message.fields = function(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+  local index = offset
+
+  -- Implicit Server Message Index
+  if server_message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.server_message_index, server_message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 2, 2):le_uint()
+
+  -- Server Payload: Runtime Type with 1 branches
+  index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Server Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+  local index = offset + size_of_server_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.server_message, buffer(offset, 0))
+    local current = nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_message.fields(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+    parent:set_len(size_of_server_message)
+    local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_message.fields(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+
+    return index
+  end
+end
+
+-- Send Time
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.send_time = {}
+
+-- Size: Send Time
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.send_time.size =
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.seconds.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.nanoseconds.size
+
+-- Display: Send Time
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.send_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  local format = nyse_arcaequities_depthfeedrequest_pillar_v1_1.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect Fields: Send Time
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.send_time.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = nyse_arcaequities_depthfeedrequest_pillar_v1_1.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: Binary
+  index, nanoseconds = nyse_arcaequities_depthfeedrequest_pillar_v1_1.nanoseconds.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local send_time = UInt64.new(seconds) * 1000000000 + nanoseconds
+
+  return index, send_time
+end
+
+-- Dissect: Send Time
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.send_time.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = nyse_arcaequities_depthfeedrequest_pillar_v1_1.send_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.send_time
+    if nyse_arcaequities_depthfeedrequest_pillar_v1_1.timestamp_format == 3 then field = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.send_time_utc end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.send_time.fields(buffer, offset, packet, parent)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_depthfeedrequest_pillar_v1_1.send_time.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet Header
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header = {}
+
+-- Size: Packet Header
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.size =
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.pkt_size.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.delivery_flag.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.number_msgs.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.seq_num.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.send_time.size
+
+-- Display: Packet Header
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Pkt Size: 2 Byte Unsigned Fixed Width Integer
+  index, pkt_size = nyse_arcaequities_depthfeedrequest_pillar_v1_1.pkt_size.dissect(buffer, index, packet, parent)
+
+  -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
+  index, delivery_flag = nyse_arcaequities_depthfeedrequest_pillar_v1_1.delivery_flag.dissect(buffer, index, packet, parent)
+
+  -- Number Msgs: 1 Byte Unsigned Fixed Width Integer
+  index, number_msgs = nyse_arcaequities_depthfeedrequest_pillar_v1_1.number_msgs.dissect(buffer, index, packet, parent)
+
+  -- Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, seq_num = nyse_arcaequities_depthfeedrequest_pillar_v1_1.seq_num.dissect(buffer, index, packet, parent)
+
+  -- Send Time: Struct of 2 fields
+  index, send_time = nyse_arcaequities_depthfeedrequest_pillar_v1_1.send_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Packet Header
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.packet_header, buffer(offset, 0))
+    local index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Packet
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_packet = {}
+
+-- Verify required size of Tcp packet
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.size
+end
+
+-- Dissect Server Packet
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Packet Header: Struct of 5 fields
+  index, packet_header = nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Number Msgs
+  local number_msgs = buffer(index - 13, 1):uint()
+
+  -- Repeating: Server Message
+  for server_message_index = 1, number_msgs do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Server Message
+    index, server_message = nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_message.dissect(buffer, index, packet, parent, message_size, server_message_index)
+  end
+
+  return index
+end
+
+-- Refresh Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.refresh_request_message = {}
+
+-- Size: Refresh Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.refresh_request_message.size =
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.size
+
+-- Display: Refresh Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.refresh_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Refresh Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.refresh_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Source Id: ASCII
+  index, source_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Refresh Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.refresh_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.refresh_request_message, buffer(offset, 0))
+    local index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.refresh_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.refresh_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_depthfeedrequest_pillar_v1_1.refresh_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Symbol Index Mapping Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index_mapping_request_message = {}
+
+-- Size: Symbol Index Mapping Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index_mapping_request_message.size =
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmit_method.size
+
+-- Display: Symbol Index Mapping Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index_mapping_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Symbol Index Mapping Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol Index: Binary
+  index, symbol_index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index.dissect(buffer, index, packet, parent)
+
+  -- Source Id: ASCII
+  index, source_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.dissect(buffer, index, packet, parent)
+
+  -- Retransmit Method: Binary
+  index, retransmit_method = nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmit_method.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Symbol Index Mapping Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index_mapping_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.symbol_index_mapping_request_message, buffer(offset, 0))
+    local index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index_mapping_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index_mapping_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Heartbeat Response Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.heartbeat_response_message = {}
+
+-- Size: Heartbeat Response Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.heartbeat_response_message.size =
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.size
+
+-- Display: Heartbeat Response Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.heartbeat_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat Response Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.heartbeat_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Source Id: ASCII
+  index, source_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Heartbeat Response Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.heartbeat_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.heartbeat_response_message, buffer(offset, 0))
+    local index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.heartbeat_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.heartbeat_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_depthfeedrequest_pillar_v1_1.heartbeat_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Retransmission Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmission_request_message = {}
+
+-- Size: Retransmission Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmission_request_message.size =
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.begin_seq_num.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.end_seq_num.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.size + 
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.size
+
+-- Display: Retransmission Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmission_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retransmission Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmission_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Begin Seq Num: Binary
+  index, begin_seq_num = nyse_arcaequities_depthfeedrequest_pillar_v1_1.begin_seq_num.dissect(buffer, index, packet, parent)
+
+  -- End Seq Num: Binary
+  index, end_seq_num = nyse_arcaequities_depthfeedrequest_pillar_v1_1.end_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Source Id: ASCII
+  index, source_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.source_id.dissect(buffer, index, packet, parent)
+
+  -- Product Id: Binary
+  index, product_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.product_id.dissect(buffer, index, packet, parent)
+
+  -- Channel Id: Binary
+  index, channel_id = nyse_arcaequities_depthfeedrequest_pillar_v1_1.channel_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retransmission Request Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmission_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.retransmission_request_message, buffer(offset, 0))
+    local index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmission_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmission_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmission_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_payload = {}
+
+-- Dispatch: Client Payload
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_payload.dispatch = {
+  [10] = nyse_arcaequities_depthfeedrequest_pillar_v1_1.retransmission_request_message.dissect,
+  [12] = nyse_arcaequities_depthfeedrequest_pillar_v1_1.heartbeat_response_message.dissect,
+  [13] = nyse_arcaequities_depthfeedrequest_pillar_v1_1.symbol_index_mapping_request_message.dissect,
+  [15] = nyse_arcaequities_depthfeedrequest_pillar_v1_1.refresh_request_message.dissect,
+}
+
+-- Dissect: Client Payload
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_payload.dissect = function(buffer, offset, packet, parent, message_type)
+  local dissect = nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_message = {}
+
+-- Display: Client Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_message.fields = function(buffer, offset, packet, parent, size_of_client_message, client_message_index)
+  local index = offset
+
+  -- Implicit Client Message Index
+  if client_message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.client_message_index, client_message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = nyse_arcaequities_depthfeedrequest_pillar_v1_1.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 2, 2):le_uint()
+
+  -- Client Payload: Runtime Type with 4 branches
+  index = nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Client Message
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message, client_message_index)
+  local index = offset + size_of_client_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.fields.client_message, buffer(offset, 0))
+    local current = nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_message.fields(buffer, offset, packet, parent, size_of_client_message, client_message_index)
+    parent:set_len(size_of_client_message)
+    local display = nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_message.fields(buffer, offset, packet, parent, size_of_client_message, client_message_index)
+
+    return index
+  end
+end
+
+-- Client Packet
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_packet = {}
+
+-- Verify required size of Tcp packet
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.size
+end
+
+-- Dissect Client Packet
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Packet Header: Struct of 5 fields
+  index, packet_header = nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Number Msgs
+  local number_msgs = buffer(index - 13, 1):uint()
+
+  -- Repeating: Client Message
+  for client_message_index = 1, number_msgs do
+
+    -- Dependency element: Message Size
+    local message_size = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Client Message
+    index, client_message = nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_message.dissect(buffer, index, packet, parent, message_size, client_message_index)
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.init()
+end
+
+-- Connection roles for Nyse ArcaEquities DepthFeedRequest Pillar 1.1: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.role = function(packet)
+  if omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
+-- Dissector for Nyse ArcaEquities DepthFeedRequest Pillar 1.1
+function omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.name
+
+  local role = nyse_arcaequities_depthfeedrequest_pillar_v1_1.role(packet)
+  local dissect = nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_packet.dissect
+  if role == "initiator" then
+    dissect = nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_packet.dissect
+  end
+
+  local length = buffer:len()
+  local index = 0
+
+  -- Dissect each message the segment carries
+  while index < length do
+    local remaining = length - index
+
+    -- The message length lives in the header: wait for the header before reading it
+    if remaining < nyse_arcaequities_depthfeedrequest_pillar_v1_1.packet_header.size then
+      packet.desegment_offset = index
+      packet.desegment_len = DESEGMENT_ONE_MORE_SEGMENT
+      return length
+    end
+
+    local size = buffer(index, 2):le_uint()
+    -- A message split across segments: ask TCP for exactly the bytes still missing
+    if remaining < size then
+      packet.desegment_offset = index
+      packet.desegment_len = size - remaining
+      return length
+    end
+
+    local protocol = parent:add(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1, buffer(index, size), omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.description, "("..size.." Bytes)")
+    dissect(buffer(index, size):tvb(), packet, protocol)
+    protocol:set_len(size)
+    index = index + size
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):le_uint()
+
+  -- Retransmission Request Message
+  if message_type == 10 then
+    return true
+  end
+
+  -- Heartbeat Response Message
+  if message_type == 12 then
+    return true
+  end
+
+  -- Symbol Index Mapping Request Message
+  if message_type == 13 then
+    return true
+  end
+
+  -- Refresh Request Message
+  if message_type == 15 then
+    return true
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local message_type = buffer(18, 2):le_uint()
+
+  -- Request Response Message
+  if message_type == 11 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Nyse ArcaEquities DepthFeedRequest Pillar 1.1 (Tcp)
+local function omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1_tcp_initiator_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp client packet message dispatch
+  if not nyse_arcaequities_depthfeedrequest_pillar_v1_1.client_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1
+  omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nyse ArcaEquities DepthFeedRequest Pillar 1.1 (Tcp)
+local function omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp server packet message dispatch
+  if not nyse_arcaequities_depthfeedrequest_pillar_v1_1.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1
+  omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Nyse ArcaEquities DepthFeedRequest Pillar 1.1 (Tcp): apply the heuristic of the sender's connection role
+local function omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1_tcp_heuristic(buffer, packet, parent)
+  local role = nyse_arcaequities_depthfeedrequest_pillar_v1_1.role(packet)
+  local initiator = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1_tcp_initiator_heuristic
+  local acceptor = omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  nyse_arcaequities_depthfeedrequest_pillar_v1_1.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Nyse ArcaEquities DepthFeedRequest Pillar 1.1
+omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1:register_heuristic("tcp", omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1_tcp_heuristic)
+
+-- Register Nyse ArcaEquities DepthFeedRequest Pillar 1.1 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_nyse_arcaequities_depthfeedrequest_pillar_v1_1)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: New York Stock Exchange
+--   Version: 1.1
+--   Since: 1.0
+--   Date: Thursday, July 25, 2024
+--   Specification: NYSE_Pillar_Depth_Client_Specification.pdf
+--
+-- Script:
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

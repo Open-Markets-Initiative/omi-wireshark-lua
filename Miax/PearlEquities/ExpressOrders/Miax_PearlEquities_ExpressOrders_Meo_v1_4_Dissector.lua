@@ -1,0 +1,5020 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Miax PearlEquities ExpressOrders Meo 1.4 Protocol
+local omi_miax_pearlequities_expressorders_meo_v1_4 = Proto("Omi.Miax.PearlEquities.ExpressOrders.Meo.v1.4", "Miax PearlEquities ExpressOrders Meo 1.4")
+
+-- Protocol table
+local miax_pearlequities_expressorders_meo_v1_4 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Miax PearlEquities ExpressOrders Meo 1.4 Fields
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.account = ProtoField.new("Account", "miax.pearlequities.expressorders.meo.v1.4.account", ftypes.STRING, nil, nil, nil, "Optional customer ID provided by the Firm")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.action = ProtoField.new("Action", "miax.pearlequities.expressorders.meo.v1.4.action", ftypes.STRING, nil, nil, nil, "‘B’ – Block only The system will reject all new")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.application_protocol = ProtoField.new("Application Protocol", "miax.pearlequities.expressorders.meo.v1.4.applicationprotocol", ftypes.STRING, nil, nil, nil, "Miax Application Protocol")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.attributable_order = ProtoField.new("Attributable Order", "miax.pearlequities.expressorders.meo.v1.4.attributableorder", ftypes.UINT16, {[0]="No", [1]="Attributed To Firm Mpid", [2]="Attributed Rtal To This Order"}, base.DEC, 0x0300)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.cancel_reason = ProtoField.new("Cancel Reason", "miax.pearlequities.expressorders.meo.v1.4.cancelreason", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.cancel_status = ProtoField.new("Cancel Status", "miax.pearlequities.expressorders.meo.v1.4.cancelstatus", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.capacity = ProtoField.new("Capacity", "miax.pearlequities.expressorders.meo.v1.4.capacity", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.clearing_account = ProtoField.new("Clearing Account", "miax.pearlequities.expressorders.meo.v1.4.clearingaccount", ftypes.STRING, nil, nil, nil, "Optional supplemental order identifier")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.client_order_id = ProtoField.new("Client Order Id", "miax.pearlequities.expressorders.meo.v1.4.clientorderid", ftypes.STRING, nil, nil, nil, "Firm specified unique order Id")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.closing_time = ProtoField.new("Closing Time", "miax.pearlequities.expressorders.meo.v1.4.closingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format Eg:")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.computer_id = ProtoField.new("Computer Id", "miax.pearlequities.expressorders.meo.v1.4.computerid", ftypes.STRING, nil, nil, nil, "ID issued by MIAX during initial setup")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.correction_number = ProtoField.new("Correction Number", "miax.pearlequities.expressorders.meo.v1.4.correctionnumber", ftypes.UINT8, nil, nil, nil, "Trade correction number")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.displayed = ProtoField.new("Displayed", "miax.pearlequities.expressorders.meo.v1.4.displayed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.pearlequities.expressorders.meo.v1.4.endsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the last packet to be retransmitted")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_packet_length = ProtoField.new("Esesm Packet Length", "miax.pearlequities.expressorders.meo.v1.4.esesmpacketlength", ftypes.UINT16, nil, nil, nil, "The length of rest of the packet")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_packet_type = ProtoField.new("Esesm Packet Type", "miax.pearlequities.expressorders.meo.v1.4.esesmpackettype", ftypes.STRING, nil, nil, nil, "ESesM protocol packet type")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_version = ProtoField.new("Esesm Version", "miax.pearlequities.expressorders.meo.v1.4.esesmversion", ftypes.STRING, nil, nil, nil, "Protocol version")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.executing_exchange = ProtoField.new("Executing Exchange", "miax.pearlequities.expressorders.meo.v1.4.executingexchange", ftypes.STRING, nil, nil, nil, "Exchange at which trade was executed")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.execution_id = ProtoField.new("Execution Id", "miax.pearlequities.expressorders.meo.v1.4.executionid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique Execution ID See notes")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.goodbye_reason = ProtoField.new("Goodbye Reason", "miax.pearlequities.expressorders.meo.v1.4.goodbyereason", ftypes.STRING, nil, nil, nil, "GoodBye Packet Reason")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.pearlequities.expressorders.meo.v1.4.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "The highest sequence number the server currently has for the client from the Matching Engine")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.iso = ProtoField.new("Iso", "miax.pearlequities.expressorders.meo.v1.4.iso", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.last_price = ProtoField.new("Last Price", "miax.pearlequities.expressorders.meo.v1.4.lastprice", ftypes.DOUBLE, nil, nil, nil, "Match price if the order had not been prevented")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.last_size = ProtoField.new("Last Size", "miax.pearlequities.expressorders.meo.v1.4.lastsize", ftypes.UINT32, nil, nil, nil, "Number of shares that would have matched if the")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.leaves_qty = ProtoField.new("Leaves Qty", "miax.pearlequities.expressorders.meo.v1.4.leavesqty", ftypes.UINT32, nil, nil, nil, "Size of the order that is still open, includes size on")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "miax.pearlequities.expressorders.meo.v1.4.liquidityindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the trade added or removed liquidity")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.locate_required = ProtoField.new("Locate Required", "miax.pearlequities.expressorders.meo.v1.4.locaterequired", ftypes.UINT16, {[0]="Not Applicable", [1]="Yes"}, base.DEC, 0x0020)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_matching_engine = ProtoField.new("Login Matching Engine", "miax.pearlequities.expressorders.meo.v1.4.loginmatchingengine", ftypes.STRING, nil, nil, nil, "The login status, trading session and highest sequence number of one matching engine, repeated once for each the login response counts")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_status = ProtoField.new("Login Status", "miax.pearlequities.expressorders.meo.v1.4.loginstatus", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.logout_reason = ProtoField.new("Logout Reason", "miax.pearlequities.expressorders.meo.v1.4.logoutreason", ftypes.STRING, nil, nil, nil, "Logout Request Reason")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.logout_text = ProtoField.new("Logout Text", "miax.pearlequities.expressorders.meo.v1.4.logouttext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.expressorders.meo.v1.4.lotsize", ftypes.UINT32, nil, nil, nil, "Round Lot size in shares")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine = ProtoField.new("Matching Engine", "miax.pearlequities.expressorders.meo.v1.4.matchingengine", ftypes.STRING, nil, nil, nil, "Status response for the Mass Cancel Request from each Matching Engine, in sequential order")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_id = ProtoField.new("Matching Engine Id", "miax.pearlequities.expressorders.meo.v1.4.matchingengineid", ftypes.UINT8, nil, nil, nil, "Matching Engine that originated the packet")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_status = ProtoField.new("Matching Engine Status", "miax.pearlequities.expressorders.meo.v1.4.matchingenginestatus", ftypes.STRING, nil, nil, nil, "Status response for the Mass Cancel Request from the Matching Engine")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_time = ProtoField.new("Matching Engine Time", "miax.pearlequities.expressorders.meo.v1.4.matchingenginetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time at which this message was generated by the Matching Engine")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_time_utc = ProtoField.new("Matching Engine Time", "miax.pearlequities.expressorders.meo.v1.4.matchingenginetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time at which this message was generated by the Matching Engine")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.meo_version = ProtoField.new("Meo Version", "miax.pearlequities.expressorders.meo.v1.4.meoversion", ftypes.STRING, nil, nil, nil, "MEO interface version Eg: MEO1 0")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.modify_order_instructions = ProtoField.new("Modify Order Instructions", "miax.pearlequities.expressorders.meo.v1.4.modifyorderinstructions", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.modify_status = ProtoField.new("Modify Status", "miax.pearlequities.expressorders.meo.v1.4.modifystatus", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.mpid = ProtoField.new("Mpid", "miax.pearlequities.expressorders.meo.v1.4.mpid", ftypes.STRING, nil, nil, nil, "Four character NSCC MPID of the Firm")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.new_order_instructions = ProtoField.new("New Order Instructions", "miax.pearlequities.expressorders.meo.v1.4.neworderinstructions", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.notification_time = ProtoField.new("Notification Time", "miax.pearlequities.expressorders.meo.v1.4.notificationtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time at which this message was generated by the MEO interface")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.notification_time_utc = ProtoField.new("Notification Time", "miax.pearlequities.expressorders.meo.v1.4.notificationtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time at which this message was generated by the MEO interface")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.number_of_matching_engines = ProtoField.new("Number Of Matching Engines", "miax.pearlequities.expressorders.meo.v1.4.numberofmatchingengines", ftypes.UINT8, nil, nil, nil, "24 This is the number of Matching Engines in")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.opening_time = ProtoField.new("Opening Time", "miax.pearlequities.expressorders.meo.v1.4.openingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format Eg:")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.order_execution_instructions = ProtoField.new("Order Execution Instructions", "miax.pearlequities.expressorders.meo.v1.4.orderexecutioninstructions", ftypes.STRING, nil, nil, nil, "Order Exucution Instructions")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.order_id = ProtoField.new("Order Id", "miax.pearlequities.expressorders.meo.v1.4.orderid", ftypes.UINT64, nil, nil, nil, "Exchanged assigned unique order ID when order is accepted")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.order_status = ProtoField.new("Order Status", "miax.pearlequities.expressorders.meo.v1.4.orderstatus", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.order_type = ProtoField.new("Order Type", "miax.pearlequities.expressorders.meo.v1.4.ordertype", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.original_client_order_id = ProtoField.new("Original Client Order Id", "miax.pearlequities.expressorders.meo.v1.4.originalclientorderid", ftypes.STRING, nil, nil, nil, "Target Client Order ID that is being modified")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.post_only = ProtoField.new("Post Only", "miax.pearlequities.expressorders.meo.v1.4.postonly", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "PostOnly")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.price = ProtoField.new("Price", "miax.pearlequities.expressorders.meo.v1.4.price", ftypes.DOUBLE, nil, nil, nil, "Limit price of the order")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.price_sliding_and_reprice_frequency = ProtoField.new("Price Sliding And Reprice Frequency", "miax.pearlequities.expressorders.meo.v1.4.priceslidingandrepricefrequency", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.primary_market_code = ProtoField.new("Primary Market Code", "miax.pearlequities.expressorders.meo.v1.4.primarymarketcode", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.requested_matching_engine = ProtoField.new("Requested Matching Engine", "miax.pearlequities.expressorders.meo.v1.4.requestedmatchingengine", ftypes.STRING, nil, nil, nil, "The trading session and sequence number the client asks of one matching engine, repeated once for each the login request counts")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.pearlequities.expressorders.meo.v1.4.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number for the Matching Engine")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.pearlequities.expressorders.meo.v1.4.requestedtradingsessionid", ftypes.UINT8, nil, nil, nil, "Specifies the Matching Engine trading session the client would like to log into, or zero to log into the currently active trading session")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.expressorders.meo.v1.4.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_10 = ProtoField.new("Reserved 10", "miax.pearlequities.expressorders.meo.v1.4.reserved10", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearlequities.expressorders.meo.v1.4.reserved12", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_20 = ProtoField.new("Reserved 20", "miax.pearlequities.expressorders.meo.v1.4.reserved20", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.pearlequities.expressorders.meo.v1.4.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.retail_order = ProtoField.new("Retail Order", "miax.pearlequities.expressorders.meo.v1.4.retailorder", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.routing = ProtoField.new("Routing", "miax.pearlequities.expressorders.meo.v1.4.routing", ftypes.STRING, nil, nil, nil, "Routing Flags")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.routing_instruction = ProtoField.new("Routing Instruction", "miax.pearlequities.expressorders.meo.v1.4.routinginstruction", ftypes.UINT8, {[0]="Route Once", [1]="Reroutable", [2]="Do Not Route"}, base.DEC, 0x07)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.routing_strategy = ProtoField.new("Routing Strategy", "miax.pearlequities.expressorders.meo.v1.4.routingstrategy", ftypes.UINT8, {[0]="Not Applicable", [1]="Order Protection"}, base.DEC, 0xF8)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.scope = ProtoField.new("Scope", "miax.pearlequities.expressorders.meo.v1.4.scope", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.security_type = ProtoField.new("Security Type", "miax.pearlequities.expressorders.meo.v1.4.securitytype", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.self_trade_protection = ProtoField.new("Self Trade Protection", "miax.pearlequities.expressorders.meo.v1.4.selftradeprotection", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.self_trade_protection_group = ProtoField.new("Self Trade Protection Group", "miax.pearlequities.expressorders.meo.v1.4.selftradeprotectiongroup", ftypes.STRING, nil, nil, nil, "Customer specified protection group")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.self_trade_protection_instruction = ProtoField.new("Self Trade Protection Instruction", "miax.pearlequities.expressorders.meo.v1.4.selftradeprotectioninstruction", ftypes.UINT8, {[0]="Not Applicable", [1]="Cancel Newest", [2]="Cancel Oldest", [3]="Cancel Both", [4]="Decrement And Cancel"}, base.DEC, 0x38)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.self_trade_protection_level = ProtoField.new("Self Trade Protection Level", "miax.pearlequities.expressorders.meo.v1.4.selftradeprotectionlevel", ftypes.UINT8, {[0]="Self Trade Protection Disabled", [1]="Firm", [2]="Mpid"}, base.DEC, 0x07)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.expressorders.meo.v1.4.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this sequenced data packet")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearlequities.expressorders.meo.v1.4.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The ESesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.pearlequities.expressorders.meo.v1.4.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "ESesM sequenced message type")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.session_id = ProtoField.new("Session Id", "miax.pearlequities.expressorders.meo.v1.4.sessionid", ftypes.UINT8, nil, nil, nil, "MIAX PEARL Equities assigned ID for the current")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.short_sale_indicator = ProtoField.new("Short Sale Indicator", "miax.pearlequities.expressorders.meo.v1.4.shortsaleindicator", ftypes.UINT16, {[0]="Not Applicable", [1]="Sell Long", [2]="Sell Short", [3]="Sell Short Exempt"}, base.DEC, 0x0006)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.side = ProtoField.new("Side", "miax.pearlequities.expressorders.meo.v1.4.side", ftypes.UINT16, {[0]="Buy", [1]="Sell"}, base.DEC, 0x0001)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.size = ProtoField.new("Size", "miax.pearlequities.expressorders.meo.v1.4.size", ftypes.UINT32, nil, nil, nil, "Number of shares to buy/sell")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.pearlequities.expressorders.meo.v1.4.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.symbol_id = ProtoField.new("Symbol Id", "miax.pearlequities.expressorders.meo.v1.4.symbolid", ftypes.UINT32, nil, nil, nil, "Symbol ID mapped to a given symbol")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.system_status = ProtoField.new("System Status", "miax.pearlequities.expressorders.meo.v1.4.systemstatus", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.test_security_indicator = ProtoField.new("Test Security Indicator", "miax.pearlequities.expressorders.meo.v1.4.testsecurityindicator", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.test_text = ProtoField.new("Test Text", "miax.pearlequities.expressorders.meo.v1.4.testtext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.ticker_symbol = ProtoField.new("Ticker Symbol", "miax.pearlequities.expressorders.meo.v1.4.tickersymbol", ftypes.STRING, nil, nil, nil, "Ticker symbol for the security in NASDAQ")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.time_in_force = ProtoField.new("Time In Force", "miax.pearlequities.expressorders.meo.v1.4.timeinforce", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.expressorders.meo.v1.4.tradeid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique Trade ID See notes")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.trade_status = ProtoField.new("Trade Status", "miax.pearlequities.expressorders.meo.v1.4.tradestatus", ftypes.STRING, nil, nil, nil, "Possible values:")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_collar_dollar_value_price_6s_8 = ProtoField.new("Trading Collar Dollar Value Price 6s 8", "miax.pearlequities.expressorders.meo.v1.4.tradingcollardollarvalueprice6s8", ftypes.DOUBLE, nil, nil, nil, "Market Order Custom Dollar Value Trading Collar Protection")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_collar_dollar_value_price_6u_8 = ProtoField.new("Trading Collar Dollar Value Price 6u 8", "miax.pearlequities.expressorders.meo.v1.4.tradingcollardollarvalueprice6u8", ftypes.DOUBLE, nil, nil, nil, "As specified in the New Order Request")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.pearlequities.expressorders.meo.v1.4.tradingsessionid", ftypes.UINT8, nil, nil, nil, "The current trading session ID of the corresponding Matching Engine")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.pearlequities.expressorders.meo.v1.4.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "Each unsequenced data packet carries one unsequenced message from the higher-lever protocol")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.expressorders.meo.v1.4.unsequencedmessagetype", ftypes.STRING, nil, nil, nil, "ESesM unsequenced message type")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.unused_15 = ProtoField.new("Unused 15", "miax.pearlequities.expressorders.meo.v1.4.unused15", ftypes.UINT16, nil, base.DEC, 0xFFFE, "Reserved for future use")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.unused_2 = ProtoField.new("Unused 2", "miax.pearlequities.expressorders.meo.v1.4.unused2", ftypes.UINT8, nil, base.DEC, 0xC0, "Reserved for future use")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.unused_5 = ProtoField.new("Unused 5", "miax.pearlequities.expressorders.meo.v1.4.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved for future use")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.unused_6 = ProtoField.new("Unused 6", "miax.pearlequities.expressorders.meo.v1.4.unused6", ftypes.UINT16, nil, base.DEC, 0xFC00, "Reserved for future use")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.username = ProtoField.new("Username", "miax.pearlequities.expressorders.meo.v1.4.username", ftypes.STRING, nil, nil, nil, "issued by MIAX during initial setup")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.working_price = ProtoField.new("Working Price", "miax.pearlequities.expressorders.meo.v1.4.workingprice", ftypes.DOUBLE, nil, nil, nil, "Current Working Price of the order")
+
+-- Miax PearlEquities ExpressOrders Meo 1.4 Framing
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_packet_header = ProtoField.new("Esesm Packet Header", "miax.pearlequities.expressorders.meo.v1.4.esesmpacketheader", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_tcp_packet = ProtoField.new("Esesm Tcp Packet", "miax.pearlequities.expressorders.meo.v1.4.esesmtcppacket", ftypes.STRING)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.packet = ProtoField.new("Packet", "miax.pearlequities.expressorders.meo.v1.4.packet", ftypes.STRING, nil, nil, nil, "ESesM Packet")
+
+-- Miax PearlEquities ExpressOrders 1.4 Application Messages
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.cancel_order_request = ProtoField.new("Cancel Order Request", "miax.pearlequities.expressorders.meo.v1.4.cancelorderrequest", ftypes.STRING, nil, nil, nil, "Firms can use this format to send a cancel request for a resting order")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.cancel_order_response = ProtoField.new("Cancel Order Response", "miax.pearlequities.expressorders.meo.v1.4.cancelorderresponse", ftypes.STRING, nil, nil, nil, "This message format provides response to an Order Cancel Request")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.cancel_reduce_size_order_notification = ProtoField.new("Cancel Reduce Size Order Notification", "miax.pearlequities.expressorders.meo.v1.4.cancelreducesizeordernotification", ftypes.STRING, nil, nil, nil, "This is the message format that will be used when Cancel Order Request is accepted by MIAX PEARL Equities or when unsolicited order cancels or order size reductions are to be notified to firms")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.execution_notification = ProtoField.new("Execution Notification", "miax.pearlequities.expressorders.meo.v1.4.executionnotification", ftypes.STRING, nil, nil, nil, "This message format will be used to notify the firms of their order executions, trade corrections and cancellations")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.mass_cancel_request = ProtoField.new("Mass Cancel Request", "miax.pearlequities.expressorders.meo.v1.4.masscancelrequest", ftypes.STRING, nil, nil, nil, "Firms can use this message format to request the cancellation of all orders for an MPID")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.mass_cancel_response = ProtoField.new("Mass Cancel Response", "miax.pearlequities.expressorders.meo.v1.4.masscancelresponse", ftypes.STRING, nil, nil, nil, "This message format will be used to inform the Firm about the status of their previous Mass Cancel Request")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.modify_order_notification = ProtoField.new("Modify Order Notification", "miax.pearlequities.expressorders.meo.v1.4.modifyordernotification", ftypes.STRING, nil, nil, nil, "This message is published whenever a Modify Order Request is accepted by MIAX PEARL Equities")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.modify_order_request_message = ProtoField.new("Modify Order Request Message", "miax.pearlequities.expressorders.meo.v1.4.modifyorderrequestmessage", ftypes.STRING, nil, nil, nil, "Firms can use this format to send a request to modify a resting order")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.modify_order_response = ProtoField.new("Modify Order Response", "miax.pearlequities.expressorders.meo.v1.4.modifyorderresponse", ftypes.STRING, nil, nil, nil, "This message format provides acknowledgement for a Modify Order Request accepted by MIAX PEARL Equities")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.new_order_notification = ProtoField.new("New Order Notification", "miax.pearlequities.expressorders.meo.v1.4.newordernotification", ftypes.STRING, nil, nil, nil, "This message is published whenever New Order Request is accepted by MIAX PEARL Equities exchange")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.new_order_request_message = ProtoField.new("New Order Request Message", "miax.pearlequities.expressorders.meo.v1.4.neworderrequestmessage", ftypes.STRING, nil, nil, nil, "Firms can use this format to send a single New Order Request")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.new_order_response_message = ProtoField.new("New Order Response Message", "miax.pearlequities.expressorders.meo.v1.4.neworderresponsemessage", ftypes.STRING, nil, nil, nil, "provides an acknowledgement for a New Order Request accepted by MIAX PEARL Equities")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.order_price_update_notification = ProtoField.new("Order Price Update Notification", "miax.pearlequities.expressorders.meo.v1.4.orderpriceupdatenotification", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to notify firms about order reprices")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.symbol_update_message = ProtoField.new("Symbol Update Message", "miax.pearlequities.expressorders.meo.v1.4.symbolupdatemessage", ftypes.STRING, nil, nil, nil, "used to disseminate all security symbols traded on MIAX PEARL Equities for the current session")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.system_state_notification = ProtoField.new("System State Notification", "miax.pearlequities.expressorders.meo.v1.4.systemstatenotification", ftypes.STRING, nil, nil, nil, "This message is published whenever system state events take place")
+
+-- Miax PearlEquities ExpressOrders 1.4 Session Messages
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "miax.pearlequities.expressorders.meo.v1.4.clientheartbeat", ftypes.BYTES, nil, nil, nil, "The ESesM client sends a Client Heartbeat packet anytime more than 1 second passes where no data has been sent to the server")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.expressorders.meo.v1.4.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_request = ProtoField.new("Login Request", "miax.pearlequities.expressorders.meo.v1.4.loginrequest", ftypes.STRING, nil, nil, nil, "The ESesM client must send a Login request packet immediately upon establishing a new TCP/IP socket connection to the server")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_response = ProtoField.new("Login Response", "miax.pearlequities.expressorders.meo.v1.4.loginresponse", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Login response packet in response to a Login request packet from the client")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.expressorders.meo.v1.4.logoutrequest", ftypes.STRING, nil, nil, nil, "The client may send a Logout request packet to request the connection be terminated")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.expressorders.meo.v1.4.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The ESesM client uses this packet to request a retransmission server to retransmit a range of packets")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "miax.pearlequities.expressorders.meo.v1.4.serverheartbeat", ftypes.BYTES, nil, nil, nil, "The ESesM server sends a Server Heartbeat packet anytime more than 1 second passes where no data has been sent to the client")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.expressorders.meo.v1.4.synchronizationcomplete", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Synchronization complete packet when it is done replaying all the old packets and is ready to start sending new packets from the Matching Engine")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.expressorders.meo.v1.4.testpacket", ftypes.STRING, nil, nil, nil, "Test packets are intended to provide human readable text that may aid in debugging problems")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_session_update = ProtoField.new("Trading Session Update", "miax.pearlequities.expressorders.meo.v1.4.tradingsessionupdate", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Trading Session Update packet to inform the client that a new trading session is starting on the specified Matching Engine")
+
+-- Miax PearlEquities ExpressOrders Meo 1.4 Generated Fields
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_matching_engine_index = ProtoField.new("Login Matching Engine Index", "miax.pearlequities.expressorders.meo.v1.4.loginmatchingengineindex", ftypes.UINT16)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_index = ProtoField.new("Matching Engine Index", "miax.pearlequities.expressorders.meo.v1.4.matchingengineindex", ftypes.UINT16)
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.requested_matching_engine_index = ProtoField.new("Requested Matching Engine Index", "miax.pearlequities.expressorders.meo.v1.4.requestedmatchingengineindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Miax PearlEquities ExpressOrders Meo 1.4 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+miax_pearlequities_expressorders_meo_v1_4.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Miax PearlEquities ExpressOrders Meo 1.4 Element Dissection Options
+show.application_messages = true
+show.headers = true
+show.structs = true
+show.session_messages = true
+show.repeating_groups = true
+show.padding = false
+show.indexes = true
+
+-- Register Miax PearlEquities ExpressOrders Meo 1.4 Show Options
+omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
+omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+
+omi_miax_pearlequities_expressorders_meo_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
+-- Handle changed preferences
+function omi_miax_pearlequities_expressorders_meo_v1_4.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_application_messages then
+    show.application_messages = omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_headers then
+    show.headers = omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_headers
+  end
+  if show.padding ~= omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_padding then
+    show.padding = omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_padding
+  end
+  if show.repeating_groups ~= omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_repeating_groups then
+    show.repeating_groups = omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_repeating_groups
+  end
+  if show.session_messages ~= omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_session_messages then
+    show.session_messages = omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_session_messages
+  end
+  if show.structs ~= omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_structs then
+    show.structs = omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_structs
+  end
+  if show.indexes ~= omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_indexes then
+    show.indexes = omi_miax_pearlequities_expressorders_meo_v1_4.prefs.show_indexes
+  end
+  if miax_pearlequities_expressorders_meo_v1_4.timestamp_format ~= omi_miax_pearlequities_expressorders_meo_v1_4.prefs.timestamp_format then
+    miax_pearlequities_expressorders_meo_v1_4.timestamp_format = omi_miax_pearlequities_expressorders_meo_v1_4.prefs.timestamp_format
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+
+-----------------------------------------------------------------------
+-- Miax PearlEquities ExpressOrders Meo 1.4 Fields
+-----------------------------------------------------------------------
+
+-- Account
+miax_pearlequities_expressorders_meo_v1_4.account = {}
+
+-- Size: Account
+miax_pearlequities_expressorders_meo_v1_4.account.size = 16
+
+-- Display: Account
+miax_pearlequities_expressorders_meo_v1_4.account.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Account: No Value"
+  end
+
+  return "Account: "..value
+end
+
+-- Dissect: Account
+miax_pearlequities_expressorders_meo_v1_4.account.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.account.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = miax_pearlequities_expressorders_meo_v1_4.account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Action
+miax_pearlequities_expressorders_meo_v1_4.action = {}
+
+-- Size: Action
+miax_pearlequities_expressorders_meo_v1_4.action.size = 1
+
+-- Display: Action
+miax_pearlequities_expressorders_meo_v1_4.action.labels = {
+  ["B"] = "Action: Block Only (B)",
+  ["M"] = "Action: Mass Cancel Only (M)",
+  ["X"] = "Action: Block And Mass Cancel (X)",
+  ["R"] = "Action: Remove Blocking For The Specified Scope (R)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.action.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.action.labels[value] or "Action: Unknown("..value..")"
+end
+
+-- Dissect: Action
+miax_pearlequities_expressorders_meo_v1_4.action.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.action.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Application Protocol
+miax_pearlequities_expressorders_meo_v1_4.application_protocol = {}
+
+-- Size: Application Protocol
+miax_pearlequities_expressorders_meo_v1_4.application_protocol.size = 8
+
+-- Display: Application Protocol
+miax_pearlequities_expressorders_meo_v1_4.application_protocol.display = function(value)
+  return "Application Protocol: "..value
+end
+
+-- Dissect: Application Protocol
+miax_pearlequities_expressorders_meo_v1_4.application_protocol.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.application_protocol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_expressorders_meo_v1_4.application_protocol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.application_protocol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Reason
+miax_pearlequities_expressorders_meo_v1_4.cancel_reason = {}
+
+-- Size: Cancel Reason
+miax_pearlequities_expressorders_meo_v1_4.cancel_reason.size = 1
+
+-- Display: Cancel Reason
+miax_pearlequities_expressorders_meo_v1_4.cancel_reason.labels = {
+  ["A"] = "Cancel Reason: Canceled Due To Cumulative Risk Metrics (A)",
+  ["B"] = "Cancel Reason: Full Partial Cancel Due To Self Trade Protection (B)",
+  ["C"] = "Cancel Reason: Time In Force Canceled (C)",
+  ["D"] = "Cancel Reason: Auto Cancel On Disconnect Acod (D)",
+  ["E"] = "Cancel Reason: Post Only Order Is Lockingcrossing Miax Pearl Equities Bbo (E)",
+  ["F"] = "Cancel Reason: Auto Cancel On System Failure Acosf (F)",
+  ["G"] = "Cancel Reason: Canceled Due To Price Sliding Instruction (G)",
+  ["H"] = "Cancel Reason: Canceled By Helpdesk Or Over Miax Member Firm Portal (H)",
+  ["I"] = "Cancel Reason: Order Expired (I)",
+  ["K"] = "Cancel Reason: Trading Collar Protection (K)",
+  ["L"] = "Cancel Reason: Sell Short Iso When Short Sale Price Test Is In Effect (L)",
+  ["M"] = "Cancel Reason: Symbol Is Not Trading (M)",
+  ["N"] = "Cancel Reason: Limit Order Price Protection (N)",
+  ["P"] = "Cancel Reason: Cancelled By A Mass Cancel Request Over A Priority Purge Port (P)",
+  ["U"] = "Cancel Reason: Canceled By User (U)",
+  ["Z"] = "Cancel Reason: Undefined Reason (Z)",
+  ["*"] = "Cancel Reason: Downgraded From Older Version (*)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.cancel_reason.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Reason
+miax_pearlequities_expressorders_meo_v1_4.cancel_reason.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.cancel_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.cancel_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.cancel_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Status
+miax_pearlequities_expressorders_meo_v1_4.cancel_status = {}
+
+-- Size: Cancel Status
+miax_pearlequities_expressorders_meo_v1_4.cancel_status.size = 1
+
+-- Display: Cancel Status
+miax_pearlequities_expressorders_meo_v1_4.cancel_status.display = function(value)
+  if value == " " then
+    return "Cancel Status: Successful (<whitespace>)"
+  end
+  if value == "A" then
+    return "Cancel Status: Duplicate Client Order Id (A)"
+  end
+  if value == "B" then
+    return "Cancel Status: Not In Live Order Window (B)"
+  end
+  if value == "C" then
+    return "Cancel Status: Matching Engine Is Not Available (C)"
+  end
+  if value == "D" then
+    return "Cancel Status: Cannot Find Order With Target Client Order Id (D)"
+  end
+  if value == "E" then
+    return "Cancel Status: Exceeded Test Symbol Throttle (E)"
+  end
+  if value == "F" then
+    return "Cancel Status: Routed Order Already Pending Cancel (F)"
+  end
+  if value == "I" then
+    return "Cancel Status: Invalid Mpid (I)"
+  end
+  if value == "O" then
+    return "Cancel Status: Invalid Client Order Id (O)"
+  end
+  if value == "P" then
+    return "Cancel Status: Request Is Not Permitted For This Session (P)"
+  end
+  if value == "Q" then
+    return "Cancel Status: Unknown Order For The Session (Q)"
+  end
+  if value == "S" then
+    return "Cancel Status: Invalid Symbol Id (S)"
+  end
+  if value == "T" then
+    return "Cancel Status: Invalid Target Order Id (T)"
+  end
+  if value == "Z" then
+    return "Cancel Status: Undefined Reason (Z)"
+  end
+  if value == "*" then
+    return "Cancel Status: Downgraded From Older Version (*)"
+  end
+
+  return "Cancel Status: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Status
+miax_pearlequities_expressorders_meo_v1_4.cancel_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.cancel_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.cancel_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.cancel_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Capacity
+miax_pearlequities_expressorders_meo_v1_4.capacity = {}
+
+-- Size: Capacity
+miax_pearlequities_expressorders_meo_v1_4.capacity.size = 1
+
+-- Display: Capacity
+miax_pearlequities_expressorders_meo_v1_4.capacity.labels = {
+  ["A"] = "Capacity: Agency (A)",
+  ["P"] = "Capacity: Principal (P)",
+  ["R"] = "Capacity: Riskless Principal (R)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.capacity.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.capacity.labels[value] or "Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Capacity
+miax_pearlequities_expressorders_meo_v1_4.capacity.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.capacity.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Account
+miax_pearlequities_expressorders_meo_v1_4.clearing_account = {}
+
+-- Size: Clearing Account
+miax_pearlequities_expressorders_meo_v1_4.clearing_account.size = 4
+
+-- Display: Clearing Account
+miax_pearlequities_expressorders_meo_v1_4.clearing_account.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Clearing Account: No Value"
+  end
+
+  return "Clearing Account: "..value
+end
+
+-- Dissect: Clearing Account
+miax_pearlequities_expressorders_meo_v1_4.clearing_account.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.clearing_account.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = miax_pearlequities_expressorders_meo_v1_4.clearing_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.clearing_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Order Id
+miax_pearlequities_expressorders_meo_v1_4.client_order_id = {}
+
+-- Size: Client Order Id
+miax_pearlequities_expressorders_meo_v1_4.client_order_id.size = 20
+
+-- Display: Client Order Id
+miax_pearlequities_expressorders_meo_v1_4.client_order_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Client Order Id: No Value"
+  end
+
+  return "Client Order Id: "..value
+end
+
+-- Dissect: Client Order Id
+miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.client_order_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = miax_pearlequities_expressorders_meo_v1_4.client_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.client_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Closing Time
+miax_pearlequities_expressorders_meo_v1_4.closing_time = {}
+
+-- Size: Closing Time
+miax_pearlequities_expressorders_meo_v1_4.closing_time.size = 8
+
+-- Display: Closing Time
+miax_pearlequities_expressorders_meo_v1_4.closing_time.display = function(value)
+  return "Closing Time: "..value
+end
+
+-- Dissect: Closing Time
+miax_pearlequities_expressorders_meo_v1_4.closing_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.closing_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_expressorders_meo_v1_4.closing_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.closing_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Computer Id
+miax_pearlequities_expressorders_meo_v1_4.computer_id = {}
+
+-- Size: Computer Id
+miax_pearlequities_expressorders_meo_v1_4.computer_id.size = 8
+
+-- Display: Computer Id
+miax_pearlequities_expressorders_meo_v1_4.computer_id.display = function(value)
+  return "Computer Id: "..value
+end
+
+-- Dissect: Computer Id
+miax_pearlequities_expressorders_meo_v1_4.computer_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.computer_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_expressorders_meo_v1_4.computer_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.computer_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Correction Number
+miax_pearlequities_expressorders_meo_v1_4.correction_number = {}
+
+-- Size: Correction Number
+miax_pearlequities_expressorders_meo_v1_4.correction_number.size = 1
+
+-- Display: Correction Number
+miax_pearlequities_expressorders_meo_v1_4.correction_number.display = function(value)
+  return "Correction Number: "..value
+end
+
+-- Dissect: Correction Number
+miax_pearlequities_expressorders_meo_v1_4.correction_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.correction_number.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.correction_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.correction_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.end_sequence_number = {}
+
+-- Size: End Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.end_sequence_number.size = 8
+
+-- Display: End Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.end_sequence_number.display = function(value)
+  return "End Sequence Number: "..value
+end
+
+-- Dissect: End Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.end_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.end_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_pearlequities_expressorders_meo_v1_4.end_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.end_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Esesm Packet Length
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_length = {}
+
+-- Size: Esesm Packet Length
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_length.size = 2
+
+-- Display: Esesm Packet Length
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_length.display = function(value)
+  return "Esesm Packet Length: "..value
+end
+
+-- Dissect: Esesm Packet Length
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_length.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.esesm_packet_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.esesm_packet_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_packet_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Esesm Packet Type
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_type = {}
+
+-- Size: Esesm Packet Type
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_type.size = 1
+
+-- Display: Esesm Packet Type
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_type.labels = {
+  ["s"] = "Esesm Packet Type: Sequenced Data Packet (s)",
+  ["U"] = "Esesm Packet Type: Unsequenced Data Packet (U)",
+  ["l"] = "Esesm Packet Type: Login Request (l)",
+  ["r"] = "Esesm Packet Type: Login Response (r)",
+  ["c"] = "Esesm Packet Type: Synchronization Complete (c)",
+  ["a"] = "Esesm Packet Type: Retransmission Request (a)",
+  ["X"] = "Esesm Packet Type: Logout Request (X)",
+  ["G"] = "Esesm Packet Type: Goodbye Packet (G)",
+  ["u"] = "Esesm Packet Type: Trading Session Update (u)",
+  ["0"] = "Esesm Packet Type: Server Heartbeat (0)",
+  ["1"] = "Esesm Packet Type: Client Heartbeat (1)",
+  ["T"] = "Esesm Packet Type: Test Packet (T)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_type.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.esesm_packet_type.labels[value] or "Esesm Packet Type: Unknown("..value..")"
+end
+
+-- Dissect: Esesm Packet Type
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.esesm_packet_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.esesm_packet_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_packet_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Esesm Version
+miax_pearlequities_expressorders_meo_v1_4.esesm_version = {}
+
+-- Size: Esesm Version
+miax_pearlequities_expressorders_meo_v1_4.esesm_version.size = 5
+
+-- Display: Esesm Version
+miax_pearlequities_expressorders_meo_v1_4.esesm_version.display = function(value)
+  return "Esesm Version: "..value
+end
+
+-- Dissect: Esesm Version
+miax_pearlequities_expressorders_meo_v1_4.esesm_version.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.esesm_version.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_expressorders_meo_v1_4.esesm_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executing Exchange
+miax_pearlequities_expressorders_meo_v1_4.executing_exchange = {}
+
+-- Size: Executing Exchange
+miax_pearlequities_expressorders_meo_v1_4.executing_exchange.size = 1
+
+-- Display: Executing Exchange
+miax_pearlequities_expressorders_meo_v1_4.executing_exchange.labels = {
+  ["A"] = "Executing Exchange: Nyse American (A)",
+  ["B"] = "Executing Exchange: Nasdaq Bx (B)",
+  ["C"] = "Executing Exchange: Nyse National (C)",
+  ["H"] = "Executing Exchange: Miax Pearl Equities (H)",
+  ["I"] = "Executing Exchange: Nasdaq Ise (I)",
+  ["J"] = "Executing Exchange: Cboe Edga Exchange (J)",
+  ["K"] = "Executing Exchange: Cboe Edgx Exchange (K)",
+  ["L"] = "Executing Exchange: Long Term Stock Exchange (L)",
+  ["M"] = "Executing Exchange: Nyse Chicago (M)",
+  ["N"] = "Executing Exchange: New York Stock Exchange (N)",
+  ["P"] = "Executing Exchange: Nyse Arca (P)",
+  ["Q"] = "Executing Exchange: Nasdaq (Q)",
+  ["U"] = "Executing Exchange: Members Exchange (U)",
+  ["V"] = "Executing Exchange: Investors Exchange (V)",
+  ["X"] = "Executing Exchange: Nasdaq Phlx (X)",
+  ["Y"] = "Executing Exchange: Cboe Byx Exchange (Y)",
+  ["Z"] = "Executing Exchange: Cboe Bzx Exchange (Z)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.executing_exchange.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.executing_exchange.labels[value] or "Executing Exchange: Unknown("..value..")"
+end
+
+-- Dissect: Executing Exchange
+miax_pearlequities_expressorders_meo_v1_4.executing_exchange.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.executing_exchange.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.executing_exchange.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.executing_exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Id
+miax_pearlequities_expressorders_meo_v1_4.execution_id = {}
+
+-- Size: Execution Id
+miax_pearlequities_expressorders_meo_v1_4.execution_id.size = 8
+
+-- Display: Execution Id
+miax_pearlequities_expressorders_meo_v1_4.execution_id.display = function(value)
+  return "Execution Id: "..value
+end
+
+-- Dissect: Execution Id
+miax_pearlequities_expressorders_meo_v1_4.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.execution_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_pearlequities_expressorders_meo_v1_4.execution_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Goodbye Reason
+miax_pearlequities_expressorders_meo_v1_4.goodbye_reason = {}
+
+-- Size: Goodbye Reason
+miax_pearlequities_expressorders_meo_v1_4.goodbye_reason.size = 1
+
+-- Display: Goodbye Reason
+miax_pearlequities_expressorders_meo_v1_4.goodbye_reason.labels = {
+  ["B"] = "Goodbye Reason: Bad Packet (B)",
+  ["L"] = "Goodbye Reason: Timed Out (L)",
+  ["A"] = "Goodbye Reason: Application Terminating Connection (A)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.goodbye_reason.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.goodbye_reason.labels[value] or "Goodbye Reason: Unknown("..value..")"
+end
+
+-- Dissect: Goodbye Reason
+miax_pearlequities_expressorders_meo_v1_4.goodbye_reason.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.goodbye_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.goodbye_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.goodbye_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Highest Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.highest_sequence_number = {}
+
+-- Size: Highest Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.highest_sequence_number.size = 8
+
+-- Display: Highest Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.highest_sequence_number.display = function(value)
+  return "Highest Sequence Number: "..value
+end
+
+-- Dissect: Highest Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.highest_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.highest_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_pearlequities_expressorders_meo_v1_4.highest_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.highest_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Price
+miax_pearlequities_expressorders_meo_v1_4.last_price = {}
+
+-- Size: Last Price
+miax_pearlequities_expressorders_meo_v1_4.last_price.size = 8
+
+-- Display: Last Price
+miax_pearlequities_expressorders_meo_v1_4.last_price.display = function(value)
+  return "Last Price: "..value
+end
+
+-- Translate: Last Price
+miax_pearlequities_expressorders_meo_v1_4.last_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Last Price
+miax_pearlequities_expressorders_meo_v1_4.last_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.last_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = miax_pearlequities_expressorders_meo_v1_4.last_price.translate(raw)
+  local display = miax_pearlequities_expressorders_meo_v1_4.last_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.last_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Size
+miax_pearlequities_expressorders_meo_v1_4.last_size = {}
+
+-- Size: Last Size
+miax_pearlequities_expressorders_meo_v1_4.last_size.size = 4
+
+-- Display: Last Size
+miax_pearlequities_expressorders_meo_v1_4.last_size.display = function(value)
+  return "Last Size: "..value
+end
+
+-- Dissect: Last Size
+miax_pearlequities_expressorders_meo_v1_4.last_size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.last_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.last_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.last_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Qty
+miax_pearlequities_expressorders_meo_v1_4.leaves_qty = {}
+
+-- Size: Leaves Qty
+miax_pearlequities_expressorders_meo_v1_4.leaves_qty.size = 4
+
+-- Display: Leaves Qty
+miax_pearlequities_expressorders_meo_v1_4.leaves_qty.display = function(value)
+  return "Leaves Qty: "..value
+end
+
+-- Dissect: Leaves Qty
+miax_pearlequities_expressorders_meo_v1_4.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.leaves_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.leaves_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.leaves_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Liquidity Indicator
+miax_pearlequities_expressorders_meo_v1_4.liquidity_indicator = {}
+
+-- Size: Liquidity Indicator
+miax_pearlequities_expressorders_meo_v1_4.liquidity_indicator.size = 1
+
+-- Display: Liquidity Indicator
+miax_pearlequities_expressorders_meo_v1_4.liquidity_indicator.labels = {
+  ["A"] = "Liquidity Indicator: Added Liquidity (A)",
+  ["R"] = "Liquidity Indicator: Removed Liquidity (R)",
+  ["X"] = "Liquidity Indicator: Routed Trade (X)",
+  ["O"] = "Liquidity Indicator: Opening Re Opening (O)",
+  ["*"] = "Liquidity Indicator: Downgraded For Older Version (*)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.liquidity_indicator.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.liquidity_indicator.labels[value] or "Liquidity Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Liquidity Indicator
+miax_pearlequities_expressorders_meo_v1_4.liquidity_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.liquidity_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.liquidity_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.liquidity_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Login Status
+miax_pearlequities_expressorders_meo_v1_4.login_status = {}
+
+-- Size: Login Status
+miax_pearlequities_expressorders_meo_v1_4.login_status.size = 1
+
+-- Display: Login Status
+miax_pearlequities_expressorders_meo_v1_4.login_status.display = function(value)
+  if value == " " then
+    return "Login Status: Successful (<whitespace>)"
+  end
+  if value == "S" then
+    return "Login Status: Invalid Trading Session Requested (S)"
+  end
+  if value == "N" then
+    return "Login Status: Invalid Start Sequence Number Requested (N)"
+  end
+  if value == "U" then
+    return "Login Status: No Active Trading Session Exists (U)"
+  end
+  if value == "X" then
+    return "Login Status: Rejected (X)"
+  end
+  if value == "I" then
+    return "Login Status: Incompatible Session Protocol Version (I)"
+  end
+  if value == "A" then
+    return "Login Status: Incompatible Application Protocol Version (A)"
+  end
+  if value == "C" then
+    return "Login Status: Invalid Number Of Matching Engines Specified In Login Request (C)"
+  end
+  if value == "L" then
+    return "Login Status: Request Rejected Because Client Already Logged In (L)"
+  end
+
+  return "Login Status: Unknown("..value..")"
+end
+
+-- Dissect: Login Status
+miax_pearlequities_expressorders_meo_v1_4.login_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.login_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.login_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Logout Reason
+miax_pearlequities_expressorders_meo_v1_4.logout_reason = {}
+
+-- Size: Logout Reason
+miax_pearlequities_expressorders_meo_v1_4.logout_reason.size = 1
+
+-- Display: Logout Reason
+miax_pearlequities_expressorders_meo_v1_4.logout_reason.display = function(value)
+  if value == " " then
+    return "Logout Reason: Graceful Logout (<whitespace>)"
+  end
+  if value == "B" then
+    return "Logout Reason: Bad Packet (B)"
+  end
+  if value == "L" then
+    return "Logout Reason: Timed Out (L)"
+  end
+  if value == "A" then
+    return "Logout Reason: Application Terminating Connection (A)"
+  end
+
+  return "Logout Reason: Unknown("..value..")"
+end
+
+-- Dissect: Logout Reason
+miax_pearlequities_expressorders_meo_v1_4.logout_reason.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.logout_reason.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.logout_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.logout_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Logout Text
+miax_pearlequities_expressorders_meo_v1_4.logout_text = {}
+
+-- Display: Logout Text
+miax_pearlequities_expressorders_meo_v1_4.logout_text.display = function(value)
+  return "Logout Text: "..value
+end
+
+-- Dissect runtime sized field: Logout Text
+miax_pearlequities_expressorders_meo_v1_4.logout_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.logout_text.display(value, packet, parent, size)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.logout_text, range, value, display)
+
+  return offset + size, value
+end
+
+-- Lot Size
+miax_pearlequities_expressorders_meo_v1_4.lot_size = {}
+
+-- Size: Lot Size
+miax_pearlequities_expressorders_meo_v1_4.lot_size.size = 4
+
+-- Display: Lot Size
+miax_pearlequities_expressorders_meo_v1_4.lot_size.display = function(value)
+  return "Lot Size: "..value
+end
+
+-- Dissect: Lot Size
+miax_pearlequities_expressorders_meo_v1_4.lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.lot_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.lot_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Matching Engine Id
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_id = {}
+
+-- Size: Matching Engine Id
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_id.size = 1
+
+-- Display: Matching Engine Id
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_id.display = function(value)
+  return "Matching Engine Id: "..value
+end
+
+-- Dissect: Matching Engine Id
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.matching_engine_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.matching_engine_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Matching Engine Status
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_status = {}
+
+-- Size: Matching Engine Status
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_status.size = 1
+
+-- Display: Matching Engine Status
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_status.display = function(value)
+  if value == " " then
+    return "Matching Engine Status: Successful (<whitespace>)"
+  end
+  if value == "I" then
+    return "Matching Engine Status: Invalid Mpid (I)"
+  end
+  if value == "X" then
+    return "Matching Engine Status: Mpid Not Permitted (X)"
+  end
+  if value == "P" then
+    return "Matching Engine Status: Request Is Not Permitted For This Session (P)"
+  end
+  if value == "R" then
+    return "Matching Engine Status: Invalid Scope (R)"
+  end
+  if value == "A" then
+    return "Matching Engine Status: Invalid Action (A)"
+  end
+  if value == "C" then
+    return "Matching Engine Status: Matching Engine Not Available (C)"
+  end
+  if value == "U" then
+    return "Matching Engine Status: State Of The Request For This Matching Engine Is Unknown (U)"
+  end
+  if value == "O" then
+    return "Matching Engine Status: Invalid Client Order Id (O)"
+  end
+  if value == "Z" then
+    return "Matching Engine Status: Undefined Reason (Z)"
+  end
+  if value == "*" then
+    return "Matching Engine Status: Downgraded From Older Version (*)"
+  end
+
+  return "Matching Engine Status: Unknown("..value..")"
+end
+
+-- Dissect: Matching Engine Status
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.matching_engine_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.matching_engine_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Matching Engine Time
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_time = {}
+
+-- Size: Matching Engine Time
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size = 8
+
+-- Dissect: Matching Engine Time
+miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_time
+  if miax_pearlequities_expressorders_meo_v1_4.timestamp_format == 3 then field = omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Meo Version
+miax_pearlequities_expressorders_meo_v1_4.meo_version = {}
+
+-- Size: Meo Version
+miax_pearlequities_expressorders_meo_v1_4.meo_version.size = 8
+
+-- Display: Meo Version
+miax_pearlequities_expressorders_meo_v1_4.meo_version.display = function(value)
+  return "Meo Version: "..value
+end
+
+-- Dissect: Meo Version
+miax_pearlequities_expressorders_meo_v1_4.meo_version.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.meo_version.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_expressorders_meo_v1_4.meo_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.meo_version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Modify Status
+miax_pearlequities_expressorders_meo_v1_4.modify_status = {}
+
+-- Size: Modify Status
+miax_pearlequities_expressorders_meo_v1_4.modify_status.size = 1
+
+-- Display: Modify Status
+miax_pearlequities_expressorders_meo_v1_4.modify_status.display = function(value)
+  if value == " " then
+    return "Modify Status: Successful (<whitespace>)"
+  end
+  if value == "A" then
+    return "Modify Status: Duplicate Client Order Id (A)"
+  end
+  if value == "B" then
+    return "Modify Status: Not In Live Order Window (B)"
+  end
+  if value == "C" then
+    return "Modify Status: Matching Engine Is Not Available (C)"
+  end
+  if value == "D" then
+    return "Modify Status: Cannot Find Order With Target Client Order Id (D)"
+  end
+  if value == "E" then
+    return "Modify Status: Exceeded Test Symbol Throttle (E)"
+  end
+  if value == "F" then
+    return "Modify Status: Order Is Routed (F)"
+  end
+  if value == "G" then
+    return "Modify Status: Short Sale Orders Not Allowed (G)"
+  end
+  if value == "H" then
+    return "Modify Status: Blocked By Meo User (H)"
+  end
+  if value == "I" then
+    return "Modify Status: Invalid Mpid (I)"
+  end
+  if value == "J" then
+    return "Modify Status: Invalid Price (J)"
+  end
+  if value == "K" then
+    return "Modify Status: Invalid Size (K)"
+  end
+  if value == "L" then
+    return "Modify Status: Blocked By Firm Over Miax Member Firm Portal Or By Helpdesk (L)"
+  end
+  if value == "M" then
+    return "Modify Status: Exceeded Max Allowed Size (M)"
+  end
+  if value == "N" then
+    return "Modify Status: Exceeded Max Notional Value (N)"
+  end
+  if value == "O" then
+    return "Modify Status: Invalid Client Order Id (O)"
+  end
+  if value == "P" then
+    return "Modify Status: Request Is Not Permitted For This Session (P)"
+  end
+  if value == "Q" then
+    return "Modify Status: Unknown Order For The Session (Q)"
+  end
+  if value == "R" then
+    return "Modify Status: Blocked By Cumulative Risk Metrics (R)"
+  end
+  if value == "S" then
+    return "Modify Status: Invalid Symbol Id (S)"
+  end
+  if value == "T" then
+    return "Modify Status: Invalid Target Client Order Id (T)"
+  end
+  if value == "U" then
+    return "Modify Status: Invalid Use Of Locate Required (U)"
+  end
+  if value == "V" then
+    return "Modify Status: Invalid Sell Short (V)"
+  end
+  if value == "W" then
+    return "Modify Status: Limit Order Price Protection (W)"
+  end
+  if value == "X" then
+    return "Modify Status: Mpid Not Permitted (X)"
+  end
+  if value == "Z" then
+    return "Modify Status: Undefined Reason (Z)"
+  end
+  if value == "*" then
+    return "Modify Status: Downgraded From Older Version (*)"
+  end
+
+  return "Modify Status: Unknown("..value..")"
+end
+
+-- Dissect: Modify Status
+miax_pearlequities_expressorders_meo_v1_4.modify_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.modify_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.modify_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.modify_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mpid
+miax_pearlequities_expressorders_meo_v1_4.mpid = {}
+
+-- Size: Mpid
+miax_pearlequities_expressorders_meo_v1_4.mpid.size = 4
+
+-- Display: Mpid
+miax_pearlequities_expressorders_meo_v1_4.mpid.display = function(value)
+  return "Mpid: "..value
+end
+
+-- Dissect: Mpid
+miax_pearlequities_expressorders_meo_v1_4.mpid.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.mpid.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_expressorders_meo_v1_4.mpid.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.mpid, range, value, display)
+
+  return offset + length, value
+end
+
+-- Notification Time
+miax_pearlequities_expressorders_meo_v1_4.notification_time = {}
+
+-- Size: Notification Time
+miax_pearlequities_expressorders_meo_v1_4.notification_time.size = 8
+
+-- Dissect: Notification Time
+miax_pearlequities_expressorders_meo_v1_4.notification_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.notification_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_pearlequities_expressorders_meo_v1_4.fields.notification_time
+  if miax_pearlequities_expressorders_meo_v1_4.timestamp_format == 3 then field = omi_miax_pearlequities_expressorders_meo_v1_4.fields.notification_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Number Of Matching Engines
+miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines = {}
+
+-- Size: Number Of Matching Engines
+miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.size = 1
+
+-- Display: Number Of Matching Engines
+miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.display = function(value)
+  return "Number Of Matching Engines: "..value
+end
+
+-- Dissect: Number Of Matching Engines
+miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.number_of_matching_engines, range, value, display)
+
+  return offset + length, value
+end
+
+-- Opening Time
+miax_pearlequities_expressorders_meo_v1_4.opening_time = {}
+
+-- Size: Opening Time
+miax_pearlequities_expressorders_meo_v1_4.opening_time.size = 8
+
+-- Display: Opening Time
+miax_pearlequities_expressorders_meo_v1_4.opening_time.display = function(value)
+  return "Opening Time: "..value
+end
+
+-- Dissect: Opening Time
+miax_pearlequities_expressorders_meo_v1_4.opening_time.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.opening_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_expressorders_meo_v1_4.opening_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.opening_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+miax_pearlequities_expressorders_meo_v1_4.order_id = {}
+
+-- Size: Order Id
+miax_pearlequities_expressorders_meo_v1_4.order_id.size = 8
+
+-- Display: Order Id
+miax_pearlequities_expressorders_meo_v1_4.order_id.display = function(value)
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+miax_pearlequities_expressorders_meo_v1_4.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.order_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_pearlequities_expressorders_meo_v1_4.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Status
+miax_pearlequities_expressorders_meo_v1_4.order_status = {}
+
+-- Size: Order Status
+miax_pearlequities_expressorders_meo_v1_4.order_status.size = 1
+
+-- Display: Order Status
+miax_pearlequities_expressorders_meo_v1_4.order_status.display = function(value)
+  if value == " " then
+    return "Order Status: Successful (<whitespace>)"
+  end
+  if value == "A" then
+    return "Order Status: Duplicate Client Order Id (A)"
+  end
+  if value == "B" then
+    return "Order Status: Not In Live Order Window (B)"
+  end
+  if value == "C" then
+    return "Order Status: Matching Engine Is Not Available (C)"
+  end
+  if value == "D" then
+    return "Order Status: Duplicate Order Check Rejected (D)"
+  end
+  if value == "E" then
+    return "Order Status: Exceeded Test Symbol Throttle (E)"
+  end
+  if value == "F" then
+    return "Order Status: Iso Orders Not Allowed (F)"
+  end
+  if value == "G" then
+    return "Order Status: Invalid Self Trade Protection Group Or Its Use (G)"
+  end
+  if value == "H" then
+    return "Order Status: Blocked By Meo User (H)"
+  end
+  if value == "I" then
+    return "Order Status: Invalid Mpid (I)"
+  end
+  if value == "J" then
+    return "Order Status: Invalid Price (J)"
+  end
+  if value == "K" then
+    return "Order Status: Invalid Size (K)"
+  end
+  if value == "L" then
+    return "Order Status: Blocked By Firm Over Miax Member Firm Portal Or By Helpdesk (L)"
+  end
+  if value == "M" then
+    return "Order Status: Exceeded Max Allowed Size (M)"
+  end
+  if value == "N" then
+    return "Order Status: Exceeded Max Notional Value (N)"
+  end
+  if value == "O" then
+    return "Order Status: Invalid Client Order Id (O)"
+  end
+  if value == "P" then
+    return "Order Status: Request Is Not Permitted For This Session (P)"
+  end
+  if value == "Q" then
+    return "Order Status: Short Sale Orders Not Allowed (Q)"
+  end
+  if value == "R" then
+    return "Order Status: Blocked By Cumulative Risk Metrics (R)"
+  end
+  if value == "S" then
+    return "Order Status: Invalid Symbol Id (S)"
+  end
+  if value == "T" then
+    return "Order Status: Invalid Order Type (T)"
+  end
+  if value == "U" then
+    return "Order Status: Invalid Use Of Locate Required (U)"
+  end
+  if value == "V" then
+    return "Order Status: Invalid Sell Short (V)"
+  end
+  if value == "W" then
+    return "Order Status: Limit Order Price Protection (W)"
+  end
+  if value == "X" then
+    return "Order Status: Mpid Not Permitted (X)"
+  end
+  if value == "Y" then
+    return "Order Status: Iso Attribute Not Compatible With The Order Type (Y)"
+  end
+  if value == "Z" then
+    return "Order Status: Undefined Reason (Z)"
+  end
+  if value == "a" then
+    return "Order Status: Invalid Capacity (a)"
+  end
+  if value == "b" then
+    return "Order Status: Invalid Time In Force (b)"
+  end
+  if value == "c" then
+    return "Order Status: Invalid Routing Instruction Or Its Use (c)"
+  end
+  if value == "d" then
+    return "Order Status: Invalid Self Trade Protection Level (d)"
+  end
+  if value == "e" then
+    return "Order Status: Invalid Self Trade Protection Instruction Or Its Use (e)"
+  end
+  if value == "f" then
+    return "Order Status: Invalid Attributable Value Or Use (f)"
+  end
+  if value == "g" then
+    return "Order Status: Invalid Price Sliding And Reprice Frequency Value Or Use (g)"
+  end
+  if value == "h" then
+    return "Order Status: Invalid Use Of Post Only Instruction (h)"
+  end
+  if value == "i" then
+    return "Order Status: Invalid Use Of Display Instruction (i)"
+  end
+  if value == "j" then
+    return "Order Status: Invalid Value Or Use For Available When Locked Instruction (j)"
+  end
+  if value == "k" then
+    return "Order Status: Market Order Price Protection (k)"
+  end
+  if value == "l" then
+    return "Order Status: Invalid Routing Strategy Or Its Use (l)"
+  end
+  if value == "m" then
+    return "Order Status: Invalid Value In Account Field (m)"
+  end
+  if value == "n" then
+    return "Order Status: Invalid Value In Clearing Account Field (n)"
+  end
+  if value == "o" then
+    return "Order Status: Invalid Use Of Trading Collar Dollar Value (o)"
+  end
+  if value == "p" then
+    return "Order Status: Invalid For Current Symbol Trading Status (p)"
+  end
+  if value == "q" then
+    return "Order Status: Primary Exchange Ipo Not Complete Ipo In Progress (q)"
+  end
+  if value == "*" then
+    return "Order Status: Downgraded From Older Version (*)"
+  end
+
+  return "Order Status: Unknown("..value..")"
+end
+
+-- Dissect: Order Status
+miax_pearlequities_expressorders_meo_v1_4.order_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.order_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.order_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.order_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Type
+miax_pearlequities_expressorders_meo_v1_4.order_type = {}
+
+-- Size: Order Type
+miax_pearlequities_expressorders_meo_v1_4.order_type.size = 1
+
+-- Display: Order Type
+miax_pearlequities_expressorders_meo_v1_4.order_type.labels = {
+  ["1"] = "Order Type: Limit (1)",
+  ["2"] = "Order Type: Market (2)",
+  ["M"] = "Order Type: Midpoint Peg (M)",
+  ["m"] = "Order Type: Midpoint Peg But Do Not Match When Nbbo Is Locked (m)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.order_type.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.order_type.labels[value] or "Order Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Type
+miax_pearlequities_expressorders_meo_v1_4.order_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.order_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.order_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.order_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Original Client Order Id
+miax_pearlequities_expressorders_meo_v1_4.original_client_order_id = {}
+
+-- Size: Original Client Order Id
+miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.size = 20
+
+-- Display: Original Client Order Id
+miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Original Client Order Id: No Value"
+  end
+
+  return "Original Client Order Id: "..value
+end
+
+-- Dissect: Original Client Order Id
+miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.original_client_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+miax_pearlequities_expressorders_meo_v1_4.price = {}
+
+-- Size: Price
+miax_pearlequities_expressorders_meo_v1_4.price.size = 8
+
+-- Display: Price
+miax_pearlequities_expressorders_meo_v1_4.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+miax_pearlequities_expressorders_meo_v1_4.price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Price
+miax_pearlequities_expressorders_meo_v1_4.price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = miax_pearlequities_expressorders_meo_v1_4.price.translate(raw)
+  local display = miax_pearlequities_expressorders_meo_v1_4.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Sliding And Reprice Frequency
+miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency = {}
+
+-- Size: Price Sliding And Reprice Frequency
+miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.size = 1
+
+-- Display: Price Sliding And Reprice Frequency
+miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.labels = {
+  ["D"] = "Price Sliding And Reprice Frequency: Reprice Once (D)",
+  ["C"] = "Price Sliding And Reprice Frequency: Reprice Once But Cancel If Crossed At Entry (C)",
+  ["M"] = "Price Sliding And Reprice Frequency: Reprice Multiple Times (M)",
+  ["N"] = "Price Sliding And Reprice Frequency: No Price Sliding (N)",
+  ["Q"] = "Price Sliding And Reprice Frequency: Not Applicable (Q)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.labels[value] or "Price Sliding And Reprice Frequency: Unknown("..value..")"
+end
+
+-- Dissect: Price Sliding And Reprice Frequency
+miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.price_sliding_and_reprice_frequency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Primary Market Code
+miax_pearlequities_expressorders_meo_v1_4.primary_market_code = {}
+
+-- Size: Primary Market Code
+miax_pearlequities_expressorders_meo_v1_4.primary_market_code.size = 1
+
+-- Display: Primary Market Code
+miax_pearlequities_expressorders_meo_v1_4.primary_market_code.labels = {
+  ["A"] = "Primary Market Code: Nyse American (A)",
+  ["B"] = "Primary Market Code: Nasdaq Bx (B)",
+  ["C"] = "Primary Market Code: Nyse National (C)",
+  ["H"] = "Primary Market Code: Miax Pearl Equities (H)",
+  ["I"] = "Primary Market Code: Nasdaq Ise (I)",
+  ["J"] = "Primary Market Code: Cboe Edga Exchange (J)",
+  ["K"] = "Primary Market Code: Cboe Edgx Exchange (K)",
+  ["L"] = "Primary Market Code: Long Term Stock Exchange (L)",
+  ["M"] = "Primary Market Code: Nyse Chicago (M)",
+  ["N"] = "Primary Market Code: New York Stock Exchange (N)",
+  ["P"] = "Primary Market Code: Nyse Arca (P)",
+  ["Q"] = "Primary Market Code: Nasdaq (Q)",
+  ["U"] = "Primary Market Code: Members Exchange (U)",
+  ["V"] = "Primary Market Code: Investors Exchange (V)",
+  ["X"] = "Primary Market Code: Nasdaq Phlx (X)",
+  ["Y"] = "Primary Market Code: Cboe Byx Exchange (Y)",
+  ["Z"] = "Primary Market Code: Cboe Bzx Exchange (Z)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.primary_market_code.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.primary_market_code.labels[value] or "Primary Market Code: Unknown("..value..")"
+end
+
+-- Dissect: Primary Market Code
+miax_pearlequities_expressorders_meo_v1_4.primary_market_code.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.primary_market_code.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.primary_market_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.primary_market_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.requested_sequence_number = {}
+
+-- Size: Requested Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.requested_sequence_number.size = 8
+
+-- Display: Requested Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.requested_sequence_number.display = function(value)
+  return "Requested Sequence Number: "..value
+end
+
+-- Dissect: Requested Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.requested_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.requested_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_pearlequities_expressorders_meo_v1_4.requested_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.requested_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Requested Trading Session Id
+miax_pearlequities_expressorders_meo_v1_4.requested_trading_session_id = {}
+
+-- Size: Requested Trading Session Id
+miax_pearlequities_expressorders_meo_v1_4.requested_trading_session_id.size = 1
+
+-- Display: Requested Trading Session Id
+miax_pearlequities_expressorders_meo_v1_4.requested_trading_session_id.display = function(value)
+  return "Requested Trading Session Id: "..value
+end
+
+-- Dissect: Requested Trading Session Id
+miax_pearlequities_expressorders_meo_v1_4.requested_trading_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.requested_trading_session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.requested_trading_session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.requested_trading_session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+miax_pearlequities_expressorders_meo_v1_4.reserved_1 = {}
+
+-- Size: Reserved 1
+miax_pearlequities_expressorders_meo_v1_4.reserved_1.size = 1
+
+-- Display: Reserved 1
+miax_pearlequities_expressorders_meo_v1_4.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+miax_pearlequities_expressorders_meo_v1_4.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = miax_pearlequities_expressorders_meo_v1_4.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_1, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 10
+miax_pearlequities_expressorders_meo_v1_4.reserved_10 = {}
+
+-- Size: Reserved 10
+miax_pearlequities_expressorders_meo_v1_4.reserved_10.size = 10
+
+-- Display: Reserved 10
+miax_pearlequities_expressorders_meo_v1_4.reserved_10.display = function(value)
+  return "Reserved 10: "..value
+end
+
+-- Dissect: Reserved 10
+miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = miax_pearlequities_expressorders_meo_v1_4.reserved_10.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_10, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 12
+miax_pearlequities_expressorders_meo_v1_4.reserved_12 = {}
+
+-- Size: Reserved 12
+miax_pearlequities_expressorders_meo_v1_4.reserved_12.size = 12
+
+-- Display: Reserved 12
+miax_pearlequities_expressorders_meo_v1_4.reserved_12.display = function(value)
+  return "Reserved 12: "..value
+end
+
+-- Dissect: Reserved 12
+miax_pearlequities_expressorders_meo_v1_4.reserved_12.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.reserved_12.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = miax_pearlequities_expressorders_meo_v1_4.reserved_12.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_12, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 20
+miax_pearlequities_expressorders_meo_v1_4.reserved_20 = {}
+
+-- Size: Reserved 20
+miax_pearlequities_expressorders_meo_v1_4.reserved_20.size = 20
+
+-- Display: Reserved 20
+miax_pearlequities_expressorders_meo_v1_4.reserved_20.display = function(value)
+  return "Reserved 20: "..value
+end
+
+-- Dissect: Reserved 20
+miax_pearlequities_expressorders_meo_v1_4.reserved_20.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.reserved_20.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = miax_pearlequities_expressorders_meo_v1_4.reserved_20.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_20, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 8
+miax_pearlequities_expressorders_meo_v1_4.reserved_8 = {}
+
+-- Size: Reserved 8
+miax_pearlequities_expressorders_meo_v1_4.reserved_8.size = 8
+
+-- Display: Reserved 8
+miax_pearlequities_expressorders_meo_v1_4.reserved_8.display = function(value)
+  return "Reserved 8: "..value
+end
+
+-- Dissect: Reserved 8
+miax_pearlequities_expressorders_meo_v1_4.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = miax_pearlequities_expressorders_meo_v1_4.reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Scope
+miax_pearlequities_expressorders_meo_v1_4.scope = {}
+
+-- Size: Scope
+miax_pearlequities_expressorders_meo_v1_4.scope.size = 1
+
+-- Display: Scope
+miax_pearlequities_expressorders_meo_v1_4.scope.labels = {
+  ["M"] = "Scope: Purge All Orders For Specified Mpid (M)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.scope.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.scope.labels[value] or "Scope: Unknown("..value..")"
+end
+
+-- Dissect: Scope
+miax_pearlequities_expressorders_meo_v1_4.scope.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.scope.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.scope.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.scope, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Type
+miax_pearlequities_expressorders_meo_v1_4.security_type = {}
+
+-- Size: Security Type
+miax_pearlequities_expressorders_meo_v1_4.security_type.size = 1
+
+-- Display: Security Type
+miax_pearlequities_expressorders_meo_v1_4.security_type.labels = {
+  ["E"] = "Security Type: Equity (E)",
+  ["F"] = "Security Type: Etf (F)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.security_type.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.security_type.labels[value] or "Security Type: Unknown("..value..")"
+end
+
+-- Dissect: Security Type
+miax_pearlequities_expressorders_meo_v1_4.security_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.security_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.security_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.security_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Self Trade Protection Group
+miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group = {}
+
+-- Size: Self Trade Protection Group
+miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.size = 1
+
+-- Display: Self Trade Protection Group
+miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.display = function(value)
+  return "Self Trade Protection Group: "..value
+end
+
+-- Dissect: Self Trade Protection Group
+miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.self_trade_protection_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.sequence_number = {}
+
+-- Size: Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.sequence_number.size = 8
+
+-- Display: Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_pearlequities_expressorders_meo_v1_4.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequenced Message Type
+miax_pearlequities_expressorders_meo_v1_4.sequenced_message_type = {}
+
+-- Size: Sequenced Message Type
+miax_pearlequities_expressorders_meo_v1_4.sequenced_message_type.size = 2
+
+-- Display: Sequenced Message Type
+miax_pearlequities_expressorders_meo_v1_4.sequenced_message_type.labels = {
+  ["SU"] = "Sequenced Message Type: Symbol Update Message (SU)",
+  ["NR"] = "Sequenced Message Type: New Order Response Message (NR)",
+  ["MR"] = "Sequenced Message Type: Modify Order Response (MR)",
+  ["CR"] = "Sequenced Message Type: Cancel Order Response (CR)",
+  ["SN"] = "Sequenced Message Type: System State Notification (SN)",
+  ["ON"] = "Sequenced Message Type: New Order Notification (ON)",
+  ["OM"] = "Sequenced Message Type: Modify Order Notification (OM)",
+  ["XN"] = "Sequenced Message Type: Cancel Reduce Size Order Notification (XN)",
+  ["PU"] = "Sequenced Message Type: Order Price Update Notification (PU)",
+  ["EN"] = "Sequenced Message Type: Execution Notification (EN)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.sequenced_message_type.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.sequenced_message_type.labels[value] or "Sequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Sequenced Message Type
+miax_pearlequities_expressorders_meo_v1_4.sequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.sequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.sequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Id
+miax_pearlequities_expressorders_meo_v1_4.session_id = {}
+
+-- Size: Session Id
+miax_pearlequities_expressorders_meo_v1_4.session_id.size = 1
+
+-- Display: Session Id
+miax_pearlequities_expressorders_meo_v1_4.session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Session Id
+miax_pearlequities_expressorders_meo_v1_4.session_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size
+miax_pearlequities_expressorders_meo_v1_4.size = {}
+
+-- Size: Size
+miax_pearlequities_expressorders_meo_v1_4.size.size = 4
+
+-- Display: Size
+miax_pearlequities_expressorders_meo_v1_4.size.display = function(value)
+  return "Size: "..value
+end
+
+-- Dissect: Size
+miax_pearlequities_expressorders_meo_v1_4.size.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Start Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.start_sequence_number = {}
+
+-- Size: Start Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.start_sequence_number.size = 8
+
+-- Display: Start Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.start_sequence_number.display = function(value)
+  return "Start Sequence Number: "..value
+end
+
+-- Dissect: Start Sequence Number
+miax_pearlequities_expressorders_meo_v1_4.start_sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.start_sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_pearlequities_expressorders_meo_v1_4.start_sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.start_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol Id
+miax_pearlequities_expressorders_meo_v1_4.symbol_id = {}
+
+-- Size: Symbol Id
+miax_pearlequities_expressorders_meo_v1_4.symbol_id.size = 4
+
+-- Display: Symbol Id
+miax_pearlequities_expressorders_meo_v1_4.symbol_id.display = function(value)
+  return "Symbol Id: "..value
+end
+
+-- Dissect: Symbol Id
+miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.symbol_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.symbol_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.symbol_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- System Status
+miax_pearlequities_expressorders_meo_v1_4.system_status = {}
+
+-- Size: System Status
+miax_pearlequities_expressorders_meo_v1_4.system_status.size = 1
+
+-- Display: System Status
+miax_pearlequities_expressorders_meo_v1_4.system_status.labels = {
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Of Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.system_status.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.system_status.labels[value] or "System Status: Unknown("..value..")"
+end
+
+-- Dissect: System Status
+miax_pearlequities_expressorders_meo_v1_4.system_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.system_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.system_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.system_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Test Security Indicator
+miax_pearlequities_expressorders_meo_v1_4.test_security_indicator = {}
+
+-- Size: Test Security Indicator
+miax_pearlequities_expressorders_meo_v1_4.test_security_indicator.size = 1
+
+-- Display: Test Security Indicator
+miax_pearlequities_expressorders_meo_v1_4.test_security_indicator.labels = {
+  ["Y"] = "Test Security Indicator: Yes (Y)",
+  ["N"] = "Test Security Indicator: No (N)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.test_security_indicator.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.test_security_indicator.labels[value] or "Test Security Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Test Security Indicator
+miax_pearlequities_expressorders_meo_v1_4.test_security_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.test_security_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.test_security_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.test_security_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Test Text
+miax_pearlequities_expressorders_meo_v1_4.test_text = {}
+
+-- Display: Test Text
+miax_pearlequities_expressorders_meo_v1_4.test_text.display = function(value)
+  return "Test Text: "..value
+end
+
+-- Dissect runtime sized field: Test Text
+miax_pearlequities_expressorders_meo_v1_4.test_text.dissect = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.test_text.display(value, packet, parent, size)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.test_text, range, value, display)
+
+  return offset + size, value
+end
+
+-- Ticker Symbol
+miax_pearlequities_expressorders_meo_v1_4.ticker_symbol = {}
+
+-- Size: Ticker Symbol
+miax_pearlequities_expressorders_meo_v1_4.ticker_symbol.size = 11
+
+-- Display: Ticker Symbol
+miax_pearlequities_expressorders_meo_v1_4.ticker_symbol.display = function(value)
+  return "Ticker Symbol: "..value
+end
+
+-- Dissect: Ticker Symbol
+miax_pearlequities_expressorders_meo_v1_4.ticker_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.ticker_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_expressorders_meo_v1_4.ticker_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.ticker_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time In Force
+miax_pearlequities_expressorders_meo_v1_4.time_in_force = {}
+
+-- Size: Time In Force
+miax_pearlequities_expressorders_meo_v1_4.time_in_force.size = 1
+
+-- Display: Time In Force
+miax_pearlequities_expressorders_meo_v1_4.time_in_force.labels = {
+  ["R"] = "Time In Force: Regular Hours Only (R)",
+  ["I"] = "Time In Force: Immediate Or Cancel (I)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.time_in_force.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
+end
+
+-- Dissect: Time In Force
+miax_pearlequities_expressorders_meo_v1_4.time_in_force.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.time_in_force.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.time_in_force.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.time_in_force, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id
+miax_pearlequities_expressorders_meo_v1_4.trade_id = {}
+
+-- Size: Trade Id
+miax_pearlequities_expressorders_meo_v1_4.trade_id.size = 8
+
+-- Display: Trade Id
+miax_pearlequities_expressorders_meo_v1_4.trade_id.display = function(value)
+  return "Trade Id: "..value
+end
+
+-- Dissect: Trade Id
+miax_pearlequities_expressorders_meo_v1_4.trade_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.trade_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = miax_pearlequities_expressorders_meo_v1_4.trade_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Status
+miax_pearlequities_expressorders_meo_v1_4.trade_status = {}
+
+-- Size: Trade Status
+miax_pearlequities_expressorders_meo_v1_4.trade_status.size = 1
+
+-- Display: Trade Status
+miax_pearlequities_expressorders_meo_v1_4.trade_status.labels = {
+  ["E"] = "Trade Status: New Execution (E)",
+  ["C"] = "Trade Status: Price Size Correction (C)",
+  ["X"] = "Trade Status: Trade Cancellation (X)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.trade_status.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.trade_status.labels[value] or "Trade Status: Unknown("..value..")"
+end
+
+-- Dissect: Trade Status
+miax_pearlequities_expressorders_meo_v1_4.trade_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.trade_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.trade_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.trade_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Collar Dollar Value Price 6s 8
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8 = {}
+
+-- Size: Trading Collar Dollar Value Price 6s 8
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.size = 8
+
+-- Display: Trading Collar Dollar Value Price 6s 8
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.display = function(value)
+  return "Trading Collar Dollar Value Price 6s 8: "..value
+end
+
+-- Translate: Trading Collar Dollar Value Price 6s 8
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Trading Collar Dollar Value Price 6s 8
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.translate(raw)
+  local display = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_collar_dollar_value_price_6s_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Collar Dollar Value Price 6u 8
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8 = {}
+
+-- Size: Trading Collar Dollar Value Price 6u 8
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.size = 8
+
+-- Display: Trading Collar Dollar Value Price 6u 8
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.display = function(value)
+  return "Trading Collar Dollar Value Price 6u 8: "..value
+end
+
+-- Translate: Trading Collar Dollar Value Price 6u 8
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Trading Collar Dollar Value Price 6u 8
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.translate(raw)
+  local display = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_collar_dollar_value_price_6u_8, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session Id
+miax_pearlequities_expressorders_meo_v1_4.trading_session_id = {}
+
+-- Size: Trading Session Id
+miax_pearlequities_expressorders_meo_v1_4.trading_session_id.size = 1
+
+-- Display: Trading Session Id
+miax_pearlequities_expressorders_meo_v1_4.trading_session_id.display = function(value)
+  return "Trading Session Id: "..value
+end
+
+-- Dissect: Trading Session Id
+miax_pearlequities_expressorders_meo_v1_4.trading_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.trading_session_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.trading_session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_session_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unsequenced Message Type
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_message_type = {}
+
+-- Size: Unsequenced Message Type
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_message_type.size = 2
+
+-- Display: Unsequenced Message Type
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_message_type.labels = {
+  ["NO"] = "Unsequenced Message Type: New Order Request Message (NO)",
+  ["NR"] = "Unsequenced Message Type: New Order Response Message (NR)",
+  ["MO"] = "Unsequenced Message Type: Modify Order Request Message (MO)",
+  ["MR"] = "Unsequenced Message Type: Modify Order Response (MR)",
+  ["CO"] = "Unsequenced Message Type: Cancel Order Request (CO)",
+  ["CR"] = "Unsequenced Message Type: Cancel Order Response (CR)",
+  ["XQ"] = "Unsequenced Message Type: Mass Cancel Request (XQ)",
+  ["XR"] = "Unsequenced Message Type: Mass Cancel Response (XR)",
+  ["EN"] = "Unsequenced Message Type: Execution Notification (EN)",
+}
+
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_message_type.display = function(value)
+  return miax_pearlequities_expressorders_meo_v1_4.unsequenced_message_type.labels[value] or "Unsequenced Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Unsequenced Message Type
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.unsequenced_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_pearlequities_expressorders_meo_v1_4.unsequenced_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.unsequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Username
+miax_pearlequities_expressorders_meo_v1_4.username = {}
+
+-- Size: Username
+miax_pearlequities_expressorders_meo_v1_4.username.size = 5
+
+-- Display: Username
+miax_pearlequities_expressorders_meo_v1_4.username.display = function(value)
+  return "Username: "..value
+end
+
+-- Dissect: Username
+miax_pearlequities_expressorders_meo_v1_4.username.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.username.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = miax_pearlequities_expressorders_meo_v1_4.username.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Working Price
+miax_pearlequities_expressorders_meo_v1_4.working_price = {}
+
+-- Size: Working Price
+miax_pearlequities_expressorders_meo_v1_4.working_price.size = 8
+
+-- Display: Working Price
+miax_pearlequities_expressorders_meo_v1_4.working_price.display = function(value)
+  return "Working Price: "..value
+end
+
+-- Translate: Working Price
+miax_pearlequities_expressorders_meo_v1_4.working_price.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Working Price
+miax_pearlequities_expressorders_meo_v1_4.working_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.working_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = miax_pearlequities_expressorders_meo_v1_4.working_price.translate(raw)
+  local display = miax_pearlequities_expressorders_meo_v1_4.working_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.working_price, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Miax PearlEquities ExpressOrders Meo 1.4
+-----------------------------------------------------------------------
+
+-- Test Packet
+miax_pearlequities_expressorders_meo_v1_4.test_packet = {}
+
+-- Calculate size of: Test Packet
+miax_pearlequities_expressorders_meo_v1_4.test_packet.size = function(buffer, offset)
+  local index = 0
+
+  -- Parse runtime size of: Test Text
+  index = index + buffer(offset + index - 3, 2):le_uint()
+
+  return index
+end
+
+-- Display: Test Packet
+miax_pearlequities_expressorders_meo_v1_4.test_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Test Packet
+miax_pearlequities_expressorders_meo_v1_4.test_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
+
+  -- Runtime Size Of: Test Text
+  local size_of_test_text = esesm_packet_length - 1
+
+  -- Test Text: 0 Byte Ascii String
+  index, test_text = miax_pearlequities_expressorders_meo_v1_4.test_text.dissect(buffer, index, packet, parent, size_of_test_text)
+
+  return index
+end
+
+-- Dissect: Test Packet
+miax_pearlequities_expressorders_meo_v1_4.test_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.test_packet, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.test_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.test_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.test_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Heartbeat
+miax_pearlequities_expressorders_meo_v1_4.client_heartbeat = {}
+
+-- Display: Client Heartbeat
+miax_pearlequities_expressorders_meo_v1_4.client_heartbeat.display = function(packet, parent, length)
+  return "Client Heartbeat"
+end
+
+
+-- Dissect: Client Heartbeat
+miax_pearlequities_expressorders_meo_v1_4.client_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_pearlequities_expressorders_meo_v1_4.client_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Heartbeat
+miax_pearlequities_expressorders_meo_v1_4.server_heartbeat = {}
+
+-- Display: Server Heartbeat
+miax_pearlequities_expressorders_meo_v1_4.server_heartbeat.display = function(packet, parent, length)
+  return "Server Heartbeat"
+end
+
+
+-- Dissect: Server Heartbeat
+miax_pearlequities_expressorders_meo_v1_4.server_heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = miax_pearlequities_expressorders_meo_v1_4.server_heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Trading Session Update
+miax_pearlequities_expressorders_meo_v1_4.trading_session_update = {}
+
+-- Size: Trading Session Update
+miax_pearlequities_expressorders_meo_v1_4.trading_session_update.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.trading_session_id.size
+
+-- Display: Trading Session Update
+miax_pearlequities_expressorders_meo_v1_4.trading_session_update.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trading Session Update
+miax_pearlequities_expressorders_meo_v1_4.trading_session_update.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
+  index, matching_engine_id = miax_pearlequities_expressorders_meo_v1_4.matching_engine_id.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, trading_session_id = miax_pearlequities_expressorders_meo_v1_4.trading_session_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trading Session Update
+miax_pearlequities_expressorders_meo_v1_4.trading_session_update.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_session_update, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.trading_session_update.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.trading_session_update.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.trading_session_update.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Goodbye Packet
+miax_pearlequities_expressorders_meo_v1_4.goodbye_packet = {}
+
+-- Calculate size of: Goodbye Packet
+miax_pearlequities_expressorders_meo_v1_4.goodbye_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.goodbye_reason.size
+
+  -- Parse runtime size of: Logout Text
+  index = index + buffer(offset + index - 4, 2):le_uint()
+
+  return index
+end
+
+-- Display: Goodbye Packet
+miax_pearlequities_expressorders_meo_v1_4.goodbye_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Goodbye Packet
+miax_pearlequities_expressorders_meo_v1_4.goodbye_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Goodbye Reason: 1 Byte Ascii String Enum with 3 values
+  index, goodbye_reason = miax_pearlequities_expressorders_meo_v1_4.goodbye_reason.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
+
+  -- Runtime Size Of: Logout Text
+  local size_of_logout_text = esesm_packet_length - 2
+
+  -- Logout Text: 0 Byte Ascii String
+  index, logout_text = miax_pearlequities_expressorders_meo_v1_4.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
+
+  return index
+end
+
+-- Dissect: Goodbye Packet
+miax_pearlequities_expressorders_meo_v1_4.goodbye_packet.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.goodbye_packet, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.goodbye_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.goodbye_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.goodbye_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Logout Request
+miax_pearlequities_expressorders_meo_v1_4.logout_request = {}
+
+-- Calculate size of: Logout Request
+miax_pearlequities_expressorders_meo_v1_4.logout_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.logout_reason.size
+
+  -- Parse runtime size of: Logout Text
+  index = index + buffer(offset + index - 4, 2):le_uint()
+
+  return index
+end
+
+-- Display: Logout Request
+miax_pearlequities_expressorders_meo_v1_4.logout_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logout Request
+miax_pearlequities_expressorders_meo_v1_4.logout_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Logout Reason: 1 Byte Ascii String Enum with 4 values
+  index, logout_reason = miax_pearlequities_expressorders_meo_v1_4.logout_reason.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
+
+  -- Runtime Size Of: Logout Text
+  local size_of_logout_text = esesm_packet_length - 2
+
+  -- Logout Text: 0 Byte Ascii String
+  index, logout_text = miax_pearlequities_expressorders_meo_v1_4.logout_text.dissect(buffer, index, packet, parent, size_of_logout_text)
+
+  return index
+end
+
+-- Dissect: Logout Request
+miax_pearlequities_expressorders_meo_v1_4.logout_request.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.logout_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.logout_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.logout_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.logout_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Retransmission Request
+miax_pearlequities_expressorders_meo_v1_4.retransmission_request = {}
+
+-- Size: Retransmission Request
+miax_pearlequities_expressorders_meo_v1_4.retransmission_request.size =
+  miax_pearlequities_expressorders_meo_v1_4.start_sequence_number.size + 
+  miax_pearlequities_expressorders_meo_v1_4.end_sequence_number.size
+
+-- Display: Retransmission Request
+miax_pearlequities_expressorders_meo_v1_4.retransmission_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Retransmission Request
+miax_pearlequities_expressorders_meo_v1_4.retransmission_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Start Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, start_sequence_number = miax_pearlequities_expressorders_meo_v1_4.start_sequence_number.dissect(buffer, index, packet, parent)
+
+  -- End Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, end_sequence_number = miax_pearlequities_expressorders_meo_v1_4.end_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Retransmission Request
+miax_pearlequities_expressorders_meo_v1_4.retransmission_request.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.retransmission_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.retransmission_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.retransmission_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.retransmission_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Synchronization Complete
+miax_pearlequities_expressorders_meo_v1_4.synchronization_complete = {}
+
+-- Size: Synchronization Complete
+miax_pearlequities_expressorders_meo_v1_4.synchronization_complete.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_id.size
+
+-- Display: Synchronization Complete
+miax_pearlequities_expressorders_meo_v1_4.synchronization_complete.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Synchronization Complete
+miax_pearlequities_expressorders_meo_v1_4.synchronization_complete.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
+  index, matching_engine_id = miax_pearlequities_expressorders_meo_v1_4.matching_engine_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Synchronization Complete
+miax_pearlequities_expressorders_meo_v1_4.synchronization_complete.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.synchronization_complete, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.synchronization_complete.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.synchronization_complete.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.synchronization_complete.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Login Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.login_matching_engine = {}
+
+-- Size: Login Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.login_matching_engine.size =
+  miax_pearlequities_expressorders_meo_v1_4.login_status.size + 
+  miax_pearlequities_expressorders_meo_v1_4.trading_session_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.highest_sequence_number.size
+
+-- Display: Login Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.login_matching_engine.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.login_matching_engine.fields = function(buffer, offset, packet, parent, login_matching_engine_index)
+  local index = offset
+
+  -- Implicit Login Matching Engine Index
+  if login_matching_engine_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_matching_engine_index, login_matching_engine_index)
+    iteration:set_generated()
+  end
+
+  -- Login Status: 1 Byte Ascii String Enum with 9 values
+  index, login_status = miax_pearlequities_expressorders_meo_v1_4.login_status.dissect(buffer, index, packet, parent)
+
+  -- Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, trading_session_id = miax_pearlequities_expressorders_meo_v1_4.trading_session_id.dissect(buffer, index, packet, parent)
+
+  -- Highest Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, highest_sequence_number = miax_pearlequities_expressorders_meo_v1_4.highest_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Login Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.login_matching_engine.dissect = function(buffer, offset, packet, parent, login_matching_engine_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_matching_engine, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.login_matching_engine.fields(buffer, offset, packet, parent, login_matching_engine_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.login_matching_engine.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.login_matching_engine.fields(buffer, offset, packet, parent, login_matching_engine_index)
+  end
+end
+
+-- Login Response
+miax_pearlequities_expressorders_meo_v1_4.login_response = {}
+
+-- Calculate size of: Login Response
+miax_pearlequities_expressorders_meo_v1_4.login_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.size
+
+  -- Calculate field size from count
+  local login_matching_engine_count = buffer(offset + index - 1, 1):uint()
+  index = index + login_matching_engine_count * 10
+
+  return index
+end
+
+-- Display: Login Response
+miax_pearlequities_expressorders_meo_v1_4.login_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Response
+miax_pearlequities_expressorders_meo_v1_4.login_response.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Number Of Matching Engines: BinaryU
+  index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Login Matching Engine
+  for login_matching_engine_index = 1, number_of_matching_engines do
+    index, login_matching_engine = miax_pearlequities_expressorders_meo_v1_4.login_matching_engine.dissect(buffer, index, packet, parent, login_matching_engine_index)
+  end
+
+  return index
+end
+
+-- Dissect: Login Response
+miax_pearlequities_expressorders_meo_v1_4.login_response.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_response, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.login_response.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.login_response.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.login_response.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Requested Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.requested_matching_engine = {}
+
+-- Size: Requested Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.requested_matching_engine.size =
+  miax_pearlequities_expressorders_meo_v1_4.requested_trading_session_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.requested_sequence_number.size
+
+-- Display: Requested Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.requested_matching_engine.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Requested Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.requested_matching_engine.fields = function(buffer, offset, packet, parent, requested_matching_engine_index)
+  local index = offset
+
+  -- Implicit Requested Matching Engine Index
+  if requested_matching_engine_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.requested_matching_engine_index, requested_matching_engine_index)
+    iteration:set_generated()
+  end
+
+  -- Requested Trading Session Id: 1 Byte Unsigned Fixed Width Integer
+  index, requested_trading_session_id = miax_pearlequities_expressorders_meo_v1_4.requested_trading_session_id.dissect(buffer, index, packet, parent)
+
+  -- Requested Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, requested_sequence_number = miax_pearlequities_expressorders_meo_v1_4.requested_sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Requested Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.requested_matching_engine.dissect = function(buffer, offset, packet, parent, requested_matching_engine_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.requested_matching_engine, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.requested_matching_engine.fields(buffer, offset, packet, parent, requested_matching_engine_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.requested_matching_engine.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.requested_matching_engine.fields(buffer, offset, packet, parent, requested_matching_engine_index)
+  end
+end
+
+-- Login Request
+miax_pearlequities_expressorders_meo_v1_4.login_request = {}
+
+-- Calculate size of: Login Request
+miax_pearlequities_expressorders_meo_v1_4.login_request.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.esesm_version.size
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.username.size
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.computer_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.application_protocol.size
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.size
+
+  -- Calculate field size from count
+  local requested_matching_engine_count = buffer(offset + index - 1, 1):uint()
+  index = index + requested_matching_engine_count * 9
+
+  return index
+end
+
+-- Display: Login Request
+miax_pearlequities_expressorders_meo_v1_4.login_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Login Request
+miax_pearlequities_expressorders_meo_v1_4.login_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Esesm Version: 5 Byte Ascii String
+  index, esesm_version = miax_pearlequities_expressorders_meo_v1_4.esesm_version.dissect(buffer, index, packet, parent)
+
+  -- Username: 5 Byte Ascii String
+  index, username = miax_pearlequities_expressorders_meo_v1_4.username.dissect(buffer, index, packet, parent)
+
+  -- Computer Id: 8 Byte Ascii String
+  index, computer_id = miax_pearlequities_expressorders_meo_v1_4.computer_id.dissect(buffer, index, packet, parent)
+
+  -- Application Protocol: 8 Byte Ascii String
+  index, application_protocol = miax_pearlequities_expressorders_meo_v1_4.application_protocol.dissect(buffer, index, packet, parent)
+
+  -- Number Of Matching Engines: BinaryU
+  index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Requested Matching Engine
+  for requested_matching_engine_index = 1, number_of_matching_engines do
+    index, requested_matching_engine = miax_pearlequities_expressorders_meo_v1_4.requested_matching_engine.dissect(buffer, index, packet, parent, requested_matching_engine_index)
+  end
+
+  return index
+end
+
+-- Dissect: Login Request
+miax_pearlequities_expressorders_meo_v1_4.login_request.dissect = function(buffer, offset, packet, parent)
+  if show.session_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.login_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.login_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.login_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Execution Instructions
+miax_pearlequities_expressorders_meo_v1_4.order_execution_instructions = {}
+
+-- Size: Order Execution Instructions
+miax_pearlequities_expressorders_meo_v1_4.order_execution_instructions.size = 2
+
+-- Display: Order Execution Instructions
+miax_pearlequities_expressorders_meo_v1_4.order_execution_instructions.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Side flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    flags[#flags + 1] = "Side"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Order Execution Instructions
+miax_pearlequities_expressorders_meo_v1_4.order_execution_instructions.bits = function(range, value, packet, parent)
+
+  -- Side: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.side, range, value)
+
+  -- Unused 15: 15 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.unused_15, range, value)
+end
+
+-- Dissect: Order Execution Instructions
+miax_pearlequities_expressorders_meo_v1_4.order_execution_instructions.dissect = function(buffer, offset, packet, parent)
+  local size = miax_pearlequities_expressorders_meo_v1_4.order_execution_instructions.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.order_execution_instructions.display(range, value, packet, parent)
+  local element = parent:add_le(omi_miax_pearlequities_expressorders_meo_v1_4.fields.order_execution_instructions, range, display)
+
+  if show.structs then
+    miax_pearlequities_expressorders_meo_v1_4.order_execution_instructions.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Execution Notification
+miax_pearlequities_expressorders_meo_v1_4.execution_notification = {}
+
+-- Size: Execution Notification
+miax_pearlequities_expressorders_meo_v1_4.execution_notification.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.trade_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.execution_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.correction_number.size + 
+  miax_pearlequities_expressorders_meo_v1_4.trade_status.size + 
+  miax_pearlequities_expressorders_meo_v1_4.last_price.size + 
+  miax_pearlequities_expressorders_meo_v1_4.last_size.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_execution_instructions.size + 
+  miax_pearlequities_expressorders_meo_v1_4.liquidity_indicator.size + 
+  miax_pearlequities_expressorders_meo_v1_4.executing_exchange.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_20.size
+
+-- Display: Execution Notification
+miax_pearlequities_expressorders_meo_v1_4.execution_notification.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Notification
+miax_pearlequities_expressorders_meo_v1_4.execution_notification.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect(buffer, index, packet, parent)
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Trade Id: BinaryU
+  index, trade_id = miax_pearlequities_expressorders_meo_v1_4.trade_id.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: BinaryU
+  index, execution_id = miax_pearlequities_expressorders_meo_v1_4.execution_id.dissect(buffer, index, packet, parent)
+
+  -- Correction Number: BinaryU
+  index, correction_number = miax_pearlequities_expressorders_meo_v1_4.correction_number.dissect(buffer, index, packet, parent)
+
+  -- Trade Status: Alphanumeric
+  index, trade_status = miax_pearlequities_expressorders_meo_v1_4.trade_status.dissect(buffer, index, packet, parent)
+
+  -- Last Price: Price6U
+  index, last_price = miax_pearlequities_expressorders_meo_v1_4.last_price.dissect(buffer, index, packet, parent)
+
+  -- Last Size: BinaryU
+  index, last_size = miax_pearlequities_expressorders_meo_v1_4.last_size.dissect(buffer, index, packet, parent)
+
+  -- Order Execution Instructions: Struct of 2 fields
+  index, order_execution_instructions = miax_pearlequities_expressorders_meo_v1_4.order_execution_instructions.dissect(buffer, index, packet, parent)
+
+  -- Liquidity Indicator: Alphanumeric
+  index, liquidity_indicator = miax_pearlequities_expressorders_meo_v1_4.liquidity_indicator.dissect(buffer, index, packet, parent)
+
+  -- Executing Exchange: Alphanumeric
+  index, executing_exchange = miax_pearlequities_expressorders_meo_v1_4.executing_exchange.dissect(buffer, index, packet, parent)
+
+  -- Reserved 20: BinaryU
+  if show.padding then
+    index, reserved_20 = miax_pearlequities_expressorders_meo_v1_4.reserved_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_20.size
+  end
+
+  return index
+end
+
+-- Dissect: Execution Notification
+miax_pearlequities_expressorders_meo_v1_4.execution_notification.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.execution_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.execution_notification.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.execution_notification.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.execution_notification.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.matching_engine = {}
+
+-- Size: Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.matching_engine.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_status.size
+
+-- Display: Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.matching_engine.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.matching_engine.fields = function(buffer, offset, packet, parent, matching_engine_index)
+  local index = offset
+
+  -- Implicit Matching Engine Index
+  if matching_engine_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_index, matching_engine_index)
+    iteration:set_generated()
+  end
+
+  -- Matching Engine Status: Alphanumeric
+  index, matching_engine_status = miax_pearlequities_expressorders_meo_v1_4.matching_engine_status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Matching Engine
+miax_pearlequities_expressorders_meo_v1_4.matching_engine.dissect = function(buffer, offset, packet, parent, matching_engine_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.matching_engine.fields(buffer, offset, packet, parent, matching_engine_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.matching_engine.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.matching_engine.fields(buffer, offset, packet, parent, matching_engine_index)
+  end
+end
+
+-- Mass Cancel Response
+miax_pearlequities_expressorders_meo_v1_4.mass_cancel_response = {}
+
+-- Calculate size of: Mass Cancel Response
+miax_pearlequities_expressorders_meo_v1_4.mass_cancel_response.size = function(buffer, offset)
+  local index = 0
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.notification_time.size
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.mpid.size
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.client_order_id.size
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.size
+
+  -- Calculate field size from count
+  local matching_engine_count = buffer(offset + index - 1, 1):uint()
+  index = index + matching_engine_count * 1
+
+  index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+  return index
+end
+
+-- Display: Mass Cancel Response
+miax_pearlequities_expressorders_meo_v1_4.mass_cancel_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Response
+miax_pearlequities_expressorders_meo_v1_4.mass_cancel_response.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Notification Time: NanoTime
+  index, notification_time = miax_pearlequities_expressorders_meo_v1_4.notification_time.dissect(buffer, index, packet, parent)
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Number Of Matching Engines: BinaryU
+  index, number_of_matching_engines = miax_pearlequities_expressorders_meo_v1_4.number_of_matching_engines.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Matching Engine
+  for matching_engine_index = 1, number_of_matching_engines do
+    index, matching_engine = miax_pearlequities_expressorders_meo_v1_4.matching_engine.dissect(buffer, index, packet, parent, matching_engine_index)
+  end
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: Mass Cancel Response
+miax_pearlequities_expressorders_meo_v1_4.mass_cancel_response.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.mass_cancel_response, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.mass_cancel_response.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.mass_cancel_response.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.mass_cancel_response.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Mass Cancel Request
+miax_pearlequities_expressorders_meo_v1_4.mass_cancel_request = {}
+
+-- Size: Mass Cancel Request
+miax_pearlequities_expressorders_meo_v1_4.mass_cancel_request.size =
+  miax_pearlequities_expressorders_meo_v1_4.reserved_8.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.scope.size + 
+  miax_pearlequities_expressorders_meo_v1_4.action.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: Mass Cancel Request
+miax_pearlequities_expressorders_meo_v1_4.mass_cancel_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mass Cancel Request
+miax_pearlequities_expressorders_meo_v1_4.mass_cancel_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reserved 8: BinaryU
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v1_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_8.size
+  end
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Scope: Alphanumeric
+  index, scope = miax_pearlequities_expressorders_meo_v1_4.scope.dissect(buffer, index, packet, parent)
+
+  -- Action: Alphanumeric
+  index, action = miax_pearlequities_expressorders_meo_v1_4.action.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: Mass Cancel Request
+miax_pearlequities_expressorders_meo_v1_4.mass_cancel_request.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.mass_cancel_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.mass_cancel_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.mass_cancel_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.mass_cancel_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cancel Order Response
+miax_pearlequities_expressorders_meo_v1_4.cancel_order_response = {}
+
+-- Size: Cancel Order Response
+miax_pearlequities_expressorders_meo_v1_4.cancel_order_response.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.leaves_qty.size + 
+  miax_pearlequities_expressorders_meo_v1_4.cancel_status.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: Cancel Order Response
+miax_pearlequities_expressorders_meo_v1_4.cancel_order_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cancel Order Response
+miax_pearlequities_expressorders_meo_v1_4.cancel_order_response.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect(buffer, index, packet, parent)
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Original Client Order Id: String
+  index, original_client_order_id = miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: BinaryU
+  index, order_id = miax_pearlequities_expressorders_meo_v1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: BinaryU
+  index, leaves_qty = miax_pearlequities_expressorders_meo_v1_4.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cancel Status: Alphanumeric
+  index, cancel_status = miax_pearlequities_expressorders_meo_v1_4.cancel_status.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: Cancel Order Response
+miax_pearlequities_expressorders_meo_v1_4.cancel_order_response.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.cancel_order_response, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.cancel_order_response.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.cancel_order_response.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.cancel_order_response.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cancel Order Request
+miax_pearlequities_expressorders_meo_v1_4.cancel_order_request = {}
+
+-- Size: Cancel Order Request
+miax_pearlequities_expressorders_meo_v1_4.cancel_order_request.size =
+  miax_pearlequities_expressorders_meo_v1_4.reserved_8.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: Cancel Order Request
+miax_pearlequities_expressorders_meo_v1_4.cancel_order_request.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cancel Order Request
+miax_pearlequities_expressorders_meo_v1_4.cancel_order_request.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reserved 8: BinaryU
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v1_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_8.size
+  end
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Original Client Order Id: String
+  index, original_client_order_id = miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: Cancel Order Request
+miax_pearlequities_expressorders_meo_v1_4.cancel_order_request.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.cancel_order_request, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.cancel_order_request.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.cancel_order_request.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.cancel_order_request.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Modify Order Response
+miax_pearlequities_expressorders_meo_v1_4.modify_order_response = {}
+
+-- Size: Modify Order Response
+miax_pearlequities_expressorders_meo_v1_4.modify_order_response.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.leaves_qty.size + 
+  miax_pearlequities_expressorders_meo_v1_4.price.size + 
+  miax_pearlequities_expressorders_meo_v1_4.modify_status.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: Modify Order Response
+miax_pearlequities_expressorders_meo_v1_4.modify_order_response.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Response
+miax_pearlequities_expressorders_meo_v1_4.modify_order_response.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect(buffer, index, packet, parent)
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Original Client Order Id: String
+  index, original_client_order_id = miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: BinaryU
+  index, order_id = miax_pearlequities_expressorders_meo_v1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: BinaryU
+  index, leaves_qty = miax_pearlequities_expressorders_meo_v1_4.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Price: Price6U
+  index, price = miax_pearlequities_expressorders_meo_v1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Modify Status: Alphanumeric
+  index, modify_status = miax_pearlequities_expressorders_meo_v1_4.modify_status.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: Modify Order Response
+miax_pearlequities_expressorders_meo_v1_4.modify_order_response.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.modify_order_response, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.modify_order_response.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.modify_order_response.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.modify_order_response.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Modify Order Instructions
+miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions = {}
+
+-- Size: Modify Order Instructions
+miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.size = 1
+
+-- Display: Modify Order Instructions
+miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Locate Required flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Locate Required"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Modify Order Instructions
+miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.bits = function(range, value, packet, parent)
+
+  -- Short Sale Indicator: 2 Bit Unsigned Fixed Width Integer Enum with 4 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.short_sale_indicator, range, value)
+
+  -- Locate Required: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.locate_required, range, value)
+
+  -- Unused 5: 5 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.unused_5, range, value)
+end
+
+-- Dissect: Modify Order Instructions
+miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.dissect = function(buffer, offset, packet, parent)
+  local size = miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.display(range, value, packet, parent)
+  local element = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.modify_order_instructions, range, display)
+
+  if show.structs then
+    miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Modify Order Request Message
+miax_pearlequities_expressorders_meo_v1_4.modify_order_request_message = {}
+
+-- Size: Modify Order Request Message
+miax_pearlequities_expressorders_meo_v1_4.modify_order_request_message.size =
+  miax_pearlequities_expressorders_meo_v1_4.reserved_8.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.price.size + 
+  miax_pearlequities_expressorders_meo_v1_4.size.size + 
+  miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: Modify Order Request Message
+miax_pearlequities_expressorders_meo_v1_4.modify_order_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Request Message
+miax_pearlequities_expressorders_meo_v1_4.modify_order_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reserved 8: BinaryU
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v1_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_8.size
+  end
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Original Client Order Id: String
+  index, original_client_order_id = miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Price6U
+  index, price = miax_pearlequities_expressorders_meo_v1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Size: BinaryU
+  index, size = miax_pearlequities_expressorders_meo_v1_4.size.dissect(buffer, index, packet, parent)
+
+  -- Modify Order Instructions: Struct of 3 fields
+  index, modify_order_instructions = miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: Modify Order Request Message
+miax_pearlequities_expressorders_meo_v1_4.modify_order_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.modify_order_request_message, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.modify_order_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.modify_order_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.modify_order_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Order Response Message
+miax_pearlequities_expressorders_meo_v1_4.new_order_response_message = {}
+
+-- Size: New Order Response Message
+miax_pearlequities_expressorders_meo_v1_4.new_order_response_message.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.price.size + 
+  miax_pearlequities_expressorders_meo_v1_4.size.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_status.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: New Order Response Message
+miax_pearlequities_expressorders_meo_v1_4.new_order_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Response Message
+miax_pearlequities_expressorders_meo_v1_4.new_order_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect(buffer, index, packet, parent)
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: BinaryU
+  index, order_id = miax_pearlequities_expressorders_meo_v1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Price6U
+  index, price = miax_pearlequities_expressorders_meo_v1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Size: BinaryU
+  index, size = miax_pearlequities_expressorders_meo_v1_4.size.dissect(buffer, index, packet, parent)
+
+  -- Order Status: Alphanumeric
+  index, order_status = miax_pearlequities_expressorders_meo_v1_4.order_status.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: New Order Response Message
+miax_pearlequities_expressorders_meo_v1_4.new_order_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.new_order_response_message, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.new_order_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.new_order_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.new_order_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Routing
+miax_pearlequities_expressorders_meo_v1_4.routing = {}
+
+-- Size: Routing
+miax_pearlequities_expressorders_meo_v1_4.routing.size = 1
+
+-- Display: Routing
+miax_pearlequities_expressorders_meo_v1_4.routing.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Routing Instruction: 3 Bits
+  flags[#flags + 1] = "Routing Instruction: "..bit.rshift(bit.band(value, 0x07), 0)
+  -- Routing Strategy: 5 Bits
+  flags[#flags + 1] = "Routing Strategy: "..bit.rshift(bit.band(value, 0xF8), 3)
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Routing
+miax_pearlequities_expressorders_meo_v1_4.routing.bits = function(range, value, packet, parent)
+
+  -- Routing Instruction: 3 Bit Unsigned Fixed Width Integer Enum with 3 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.routing_instruction, range, value)
+
+  -- Routing Strategy: 5 Bit Unsigned Fixed Width Integer Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.routing_strategy, range, value)
+end
+
+-- Dissect: Routing
+miax_pearlequities_expressorders_meo_v1_4.routing.dissect = function(buffer, offset, packet, parent)
+  local size = miax_pearlequities_expressorders_meo_v1_4.routing.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.routing.display(range, value, packet, parent)
+  local element = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.routing, range, display)
+
+  if show.structs then
+    miax_pearlequities_expressorders_meo_v1_4.routing.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Self Trade Protection
+miax_pearlequities_expressorders_meo_v1_4.self_trade_protection = {}
+
+-- Size: Self Trade Protection
+miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.size = 1
+
+-- Display: Self Trade Protection
+miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Self Trade Protection Level: 3 Bits
+  flags[#flags + 1] = "Self Trade Protection Level: "..bit.rshift(bit.band(value, 0x07), 0)
+  -- Self Trade Protection Instruction: 3 Bits
+  flags[#flags + 1] = "Self Trade Protection Instruction: "..bit.rshift(bit.band(value, 0x38), 3)
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Self Trade Protection
+miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.bits = function(range, value, packet, parent)
+
+  -- Self Trade Protection Level: 3 Bit Unsigned Fixed Width Integer Enum with 3 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.self_trade_protection_level, range, value)
+
+  -- Self Trade Protection Instruction: 3 Bit Unsigned Fixed Width Integer Enum with 5 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.self_trade_protection_instruction, range, value)
+
+  -- Unused 2: 2 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.unused_2, range, value)
+end
+
+-- Dissect: Self Trade Protection
+miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.dissect = function(buffer, offset, packet, parent)
+  local size = miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.display(range, value, packet, parent)
+  local element = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.self_trade_protection, range, display)
+
+  if show.structs then
+    miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- New Order Instructions
+miax_pearlequities_expressorders_meo_v1_4.new_order_instructions = {}
+
+-- Size: New Order Instructions
+miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.size = 2
+
+-- Display: New Order Instructions
+miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Side flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    flags[#flags + 1] = "Side"
+  end
+  -- Is Displayed flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    flags[#flags + 1] = "Displayed"
+  end
+  -- Is Post Only flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    flags[#flags + 1] = "Post Only"
+  end
+  -- Is Locate Required flag set?
+  if bit.band(value, 0x0020) ~= 0 then
+    flags[#flags + 1] = "Locate Required"
+  end
+  -- Is Iso flag set?
+  if bit.band(value, 0x0040) ~= 0 then
+    flags[#flags + 1] = "Iso"
+  end
+  -- Is Retail Order flag set?
+  if bit.band(value, 0x0080) ~= 0 then
+    flags[#flags + 1] = "Retail Order"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: New Order Instructions
+miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.bits = function(range, value, packet, parent)
+
+  -- Side: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.side, range, value)
+
+  -- Short Sale Indicator: 2 Bit Unsigned Fixed Width Integer Enum with 4 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.short_sale_indicator, range, value)
+
+  -- Displayed: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.displayed, range, value)
+
+  -- Post Only: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.post_only, range, value)
+
+  -- Locate Required: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.locate_required, range, value)
+
+  -- Iso: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.iso, range, value)
+
+  -- Retail Order: 1 Bit Enum with 2 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.retail_order, range, value)
+
+  -- Attributable Order: 2 Bit Unsigned Fixed Width Integer Enum with 3 values
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.attributable_order, range, value)
+
+  -- Unused 6: 6 Bit
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.unused_6, range, value)
+end
+
+-- Dissect: New Order Instructions
+miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.dissect = function(buffer, offset, packet, parent)
+  local size = miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.display(range, value, packet, parent)
+  local element = parent:add_le(omi_miax_pearlequities_expressorders_meo_v1_4.fields.new_order_instructions, range, display)
+
+  if show.structs then
+    miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- New Order Request Message
+miax_pearlequities_expressorders_meo_v1_4.new_order_request_message = {}
+
+-- Size: New Order Request Message
+miax_pearlequities_expressorders_meo_v1_4.new_order_request_message.size =
+  miax_pearlequities_expressorders_meo_v1_4.reserved_8.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.price.size + 
+  miax_pearlequities_expressorders_meo_v1_4.size.size + 
+  miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.size + 
+  miax_pearlequities_expressorders_meo_v1_4.time_in_force.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_type.size + 
+  miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.size + 
+  miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.size + 
+  miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.size + 
+  miax_pearlequities_expressorders_meo_v1_4.routing.size + 
+  miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.size + 
+  miax_pearlequities_expressorders_meo_v1_4.capacity.size + 
+  miax_pearlequities_expressorders_meo_v1_4.account.size + 
+  miax_pearlequities_expressorders_meo_v1_4.clearing_account.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: New Order Request Message
+miax_pearlequities_expressorders_meo_v1_4.new_order_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Request Message
+miax_pearlequities_expressorders_meo_v1_4.new_order_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reserved 8: BinaryU
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v1_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_8.size
+  end
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Price6U
+  index, price = miax_pearlequities_expressorders_meo_v1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Size: BinaryU
+  index, size = miax_pearlequities_expressorders_meo_v1_4.size.dissect(buffer, index, packet, parent)
+
+  -- New Order Instructions: Struct of 9 fields
+  index, new_order_instructions = miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: Alphanumeric
+  index, time_in_force = miax_pearlequities_expressorders_meo_v1_4.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alphanumeric
+  index, order_type = miax_pearlequities_expressorders_meo_v1_4.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price Sliding And Reprice Frequency: Alphanumeric
+  index, price_sliding_and_reprice_frequency = miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.dissect(buffer, index, packet, parent)
+
+  -- Self Trade Protection: Struct of 3 fields
+  index, self_trade_protection = miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.dissect(buffer, index, packet, parent)
+
+  -- Self Trade Protection Group: Alphanumeric
+  index, self_trade_protection_group = miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.dissect(buffer, index, packet, parent)
+
+  -- Routing: Struct of 2 fields
+  index, routing = miax_pearlequities_expressorders_meo_v1_4.routing.dissect(buffer, index, packet, parent)
+
+  -- Trading Collar Dollar Value Price 6s 8: Price6S
+  index, trading_collar_dollar_value_price_6s_8 = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alphanumeric
+  index, capacity = miax_pearlequities_expressorders_meo_v1_4.capacity.dissect(buffer, index, packet, parent)
+
+  -- Account: String
+  index, account = miax_pearlequities_expressorders_meo_v1_4.account.dissect(buffer, index, packet, parent)
+
+  -- Clearing Account: String
+  index, clearing_account = miax_pearlequities_expressorders_meo_v1_4.clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: New Order Request Message
+miax_pearlequities_expressorders_meo_v1_4.new_order_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.new_order_request_message, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.new_order_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.new_order_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.new_order_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Unsequenced Message
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_message = {}
+
+-- Dispatch: Unsequenced Message
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_message.dispatch = {
+  ["NO"] = miax_pearlequities_expressorders_meo_v1_4.new_order_request_message.dissect,
+  ["NR"] = miax_pearlequities_expressorders_meo_v1_4.new_order_response_message.dissect,
+  ["MO"] = miax_pearlequities_expressorders_meo_v1_4.modify_order_request_message.dissect,
+  ["MR"] = miax_pearlequities_expressorders_meo_v1_4.modify_order_response.dissect,
+  ["CO"] = miax_pearlequities_expressorders_meo_v1_4.cancel_order_request.dissect,
+  ["CR"] = miax_pearlequities_expressorders_meo_v1_4.cancel_order_response.dissect,
+  ["XQ"] = miax_pearlequities_expressorders_meo_v1_4.mass_cancel_request.dissect,
+  ["XR"] = miax_pearlequities_expressorders_meo_v1_4.mass_cancel_response.dissect,
+  ["EN"] = miax_pearlequities_expressorders_meo_v1_4.execution_notification.dissect,
+}
+
+-- Dissect: Unsequenced Message
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_message.dissect = function(buffer, offset, packet, parent, unsequenced_message_type)
+  local dissect = miax_pearlequities_expressorders_meo_v1_4.unsequenced_message.dispatch[unsequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Unsequenced Data Packet
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_data_packet = {}
+
+-- Read runtime size of: Unsequenced Data Packet
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
+
+  return esesm_packet_length - 1
+end
+
+-- Display: Unsequenced Data Packet
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unsequenced Data Packet
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local index = offset
+
+  -- Unsequenced Message Type: 2 Byte Ascii String Enum with 9 values
+  index, unsequenced_message_type = miax_pearlequities_expressorders_meo_v1_4.unsequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Unsequenced Message: Runtime Type with 9 branches
+  index = miax_pearlequities_expressorders_meo_v1_4.unsequenced_message.dissect(buffer, index, packet, parent, unsequenced_message_type)
+
+  return index
+end
+
+-- Dissect: Unsequenced Data Packet
+miax_pearlequities_expressorders_meo_v1_4.unsequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+  local size_of_unsequenced_data_packet = miax_pearlequities_expressorders_meo_v1_4.unsequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_unsequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.unsequenced_data_packet, buffer(offset, 0))
+    local current = miax_pearlequities_expressorders_meo_v1_4.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+    parent:set_len(size_of_unsequenced_data_packet)
+    local display = miax_pearlequities_expressorders_meo_v1_4.unsequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    miax_pearlequities_expressorders_meo_v1_4.unsequenced_data_packet.fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Order Price Update Notification
+miax_pearlequities_expressorders_meo_v1_4.order_price_update_notification = {}
+
+-- Size: Order Price Update Notification
+miax_pearlequities_expressorders_meo_v1_4.order_price_update_notification.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.working_price.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: Order Price Update Notification
+miax_pearlequities_expressorders_meo_v1_4.order_price_update_notification.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Price Update Notification
+miax_pearlequities_expressorders_meo_v1_4.order_price_update_notification.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: BinaryU
+  index, order_id = miax_pearlequities_expressorders_meo_v1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Working Price: Price6U
+  index, working_price = miax_pearlequities_expressorders_meo_v1_4.working_price.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: Order Price Update Notification
+miax_pearlequities_expressorders_meo_v1_4.order_price_update_notification.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.order_price_update_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.order_price_update_notification.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.order_price_update_notification.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.order_price_update_notification.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Cancel Reduce Size Order Notification
+miax_pearlequities_expressorders_meo_v1_4.cancel_reduce_size_order_notification = {}
+
+-- Size: Cancel Reduce Size Order Notification
+miax_pearlequities_expressorders_meo_v1_4.cancel_reduce_size_order_notification.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.leaves_qty.size + 
+  miax_pearlequities_expressorders_meo_v1_4.cancel_reason.size + 
+  miax_pearlequities_expressorders_meo_v1_4.last_price.size + 
+  miax_pearlequities_expressorders_meo_v1_4.last_size.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: Cancel Reduce Size Order Notification
+miax_pearlequities_expressorders_meo_v1_4.cancel_reduce_size_order_notification.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Cancel Reduce Size Order Notification
+miax_pearlequities_expressorders_meo_v1_4.cancel_reduce_size_order_notification.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect(buffer, index, packet, parent)
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: BinaryU
+  index, order_id = miax_pearlequities_expressorders_meo_v1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: BinaryU
+  index, leaves_qty = miax_pearlequities_expressorders_meo_v1_4.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Cancel Reason: Alphanumeric
+  index, cancel_reason = miax_pearlequities_expressorders_meo_v1_4.cancel_reason.dissect(buffer, index, packet, parent)
+
+  -- Last Price: Price6U
+  index, last_price = miax_pearlequities_expressorders_meo_v1_4.last_price.dissect(buffer, index, packet, parent)
+
+  -- Last Size: BinaryU
+  index, last_size = miax_pearlequities_expressorders_meo_v1_4.last_size.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: Cancel Reduce Size Order Notification
+miax_pearlequities_expressorders_meo_v1_4.cancel_reduce_size_order_notification.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.cancel_reduce_size_order_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.cancel_reduce_size_order_notification.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.cancel_reduce_size_order_notification.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.cancel_reduce_size_order_notification.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Modify Order Notification
+miax_pearlequities_expressorders_meo_v1_4.modify_order_notification = {}
+
+-- Size: Modify Order Notification
+miax_pearlequities_expressorders_meo_v1_4.modify_order_notification.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.price.size + 
+  miax_pearlequities_expressorders_meo_v1_4.size.size + 
+  miax_pearlequities_expressorders_meo_v1_4.leaves_qty.size + 
+  miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: Modify Order Notification
+miax_pearlequities_expressorders_meo_v1_4.modify_order_notification.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Modify Order Notification
+miax_pearlequities_expressorders_meo_v1_4.modify_order_notification.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect(buffer, index, packet, parent)
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Original Client Order Id: String
+  index, original_client_order_id = miax_pearlequities_expressorders_meo_v1_4.original_client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: BinaryU
+  index, order_id = miax_pearlequities_expressorders_meo_v1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Price6U
+  index, price = miax_pearlequities_expressorders_meo_v1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Size: BinaryU
+  index, size = miax_pearlequities_expressorders_meo_v1_4.size.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: BinaryU
+  index, leaves_qty = miax_pearlequities_expressorders_meo_v1_4.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Modify Order Instructions: Struct of 3 fields
+  index, modify_order_instructions = miax_pearlequities_expressorders_meo_v1_4.modify_order_instructions.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: Modify Order Notification
+miax_pearlequities_expressorders_meo_v1_4.modify_order_notification.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.modify_order_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.modify_order_notification.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.modify_order_notification.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.modify_order_notification.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- New Order Notification
+miax_pearlequities_expressorders_meo_v1_4.new_order_notification = {}
+
+-- Size: New Order Notification
+miax_pearlequities_expressorders_meo_v1_4.new_order_notification.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.mpid.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.client_order_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.price.size + 
+  miax_pearlequities_expressorders_meo_v1_4.size.size + 
+  miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.size + 
+  miax_pearlequities_expressorders_meo_v1_4.time_in_force.size + 
+  miax_pearlequities_expressorders_meo_v1_4.order_type.size + 
+  miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.size + 
+  miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.size + 
+  miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.size + 
+  miax_pearlequities_expressorders_meo_v1_4.routing.size + 
+  miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.size + 
+  miax_pearlequities_expressorders_meo_v1_4.capacity.size + 
+  miax_pearlequities_expressorders_meo_v1_4.account.size + 
+  miax_pearlequities_expressorders_meo_v1_4.clearing_account.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+
+-- Display: New Order Notification
+miax_pearlequities_expressorders_meo_v1_4.new_order_notification.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: New Order Notification
+miax_pearlequities_expressorders_meo_v1_4.new_order_notification.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect(buffer, index, packet, parent)
+
+  -- Mpid: Alphanumeric
+  index, mpid = miax_pearlequities_expressorders_meo_v1_4.mpid.dissect(buffer, index, packet, parent)
+
+  -- Order Id: BinaryU
+  index, order_id = miax_pearlequities_expressorders_meo_v1_4.order_id.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = miax_pearlequities_expressorders_meo_v1_4.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Price6U
+  index, price = miax_pearlequities_expressorders_meo_v1_4.price.dissect(buffer, index, packet, parent)
+
+  -- Size: BinaryU
+  index, size = miax_pearlequities_expressorders_meo_v1_4.size.dissect(buffer, index, packet, parent)
+
+  -- New Order Instructions: Struct of 9 fields
+  index, new_order_instructions = miax_pearlequities_expressorders_meo_v1_4.new_order_instructions.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: Alphanumeric
+  index, time_in_force = miax_pearlequities_expressorders_meo_v1_4.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Order Type: Alphanumeric
+  index, order_type = miax_pearlequities_expressorders_meo_v1_4.order_type.dissect(buffer, index, packet, parent)
+
+  -- Price Sliding And Reprice Frequency: Alphanumeric
+  index, price_sliding_and_reprice_frequency = miax_pearlequities_expressorders_meo_v1_4.price_sliding_and_reprice_frequency.dissect(buffer, index, packet, parent)
+
+  -- Self Trade Protection: Struct of 3 fields
+  index, self_trade_protection = miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.dissect(buffer, index, packet, parent)
+
+  -- Self Trade Protection Group: Alphanumeric
+  index, self_trade_protection_group = miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.dissect(buffer, index, packet, parent)
+
+  -- Routing: Struct of 2 fields
+  index, routing = miax_pearlequities_expressorders_meo_v1_4.routing.dissect(buffer, index, packet, parent)
+
+  -- Trading Collar Dollar Value Price 6u 8: Price6U
+  index, trading_collar_dollar_value_price_6u_8 = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.dissect(buffer, index, packet, parent)
+
+  -- Capacity: Alphanumeric
+  index, capacity = miax_pearlequities_expressorders_meo_v1_4.capacity.dissect(buffer, index, packet, parent)
+
+  -- Account: String
+  index, account = miax_pearlequities_expressorders_meo_v1_4.account.dissect(buffer, index, packet, parent)
+
+  -- Clearing Account: String
+  index, clearing_account = miax_pearlequities_expressorders_meo_v1_4.clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: New Order Notification
+miax_pearlequities_expressorders_meo_v1_4.new_order_notification.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.new_order_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.new_order_notification.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.new_order_notification.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.new_order_notification.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- System State Notification
+miax_pearlequities_expressorders_meo_v1_4.system_state_notification = {}
+
+-- Size: System State Notification
+miax_pearlequities_expressorders_meo_v1_4.system_state_notification.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.meo_version.size + 
+  miax_pearlequities_expressorders_meo_v1_4.session_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.system_status.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_8.size
+
+-- Display: System State Notification
+miax_pearlequities_expressorders_meo_v1_4.system_state_notification.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: System State Notification
+miax_pearlequities_expressorders_meo_v1_4.system_state_notification.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect(buffer, index, packet, parent)
+
+  -- Meo Version: Alphanumeric
+  index, meo_version = miax_pearlequities_expressorders_meo_v1_4.meo_version.dissect(buffer, index, packet, parent)
+
+  -- Session Id: BinaryU
+  index, session_id = miax_pearlequities_expressorders_meo_v1_4.session_id.dissect(buffer, index, packet, parent)
+
+  -- System Status: Alphanumeric
+  index, system_status = miax_pearlequities_expressorders_meo_v1_4.system_status.dissect(buffer, index, packet, parent)
+
+  -- Reserved 8: BinaryU
+  if show.padding then
+    index, reserved_8 = miax_pearlequities_expressorders_meo_v1_4.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_8.size
+  end
+
+  return index
+end
+
+-- Dissect: System State Notification
+miax_pearlequities_expressorders_meo_v1_4.system_state_notification.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.system_state_notification, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.system_state_notification.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.system_state_notification.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.system_state_notification.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Symbol Update Message
+miax_pearlequities_expressorders_meo_v1_4.symbol_update_message = {}
+
+-- Size: Symbol Update Message
+miax_pearlequities_expressorders_meo_v1_4.symbol_update_message.size =
+  miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.symbol_id.size + 
+  miax_pearlequities_expressorders_meo_v1_4.ticker_symbol.size + 
+  miax_pearlequities_expressorders_meo_v1_4.security_type.size + 
+  miax_pearlequities_expressorders_meo_v1_4.test_security_indicator.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_1.size + 
+  miax_pearlequities_expressorders_meo_v1_4.lot_size.size + 
+  miax_pearlequities_expressorders_meo_v1_4.opening_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.closing_time.size + 
+  miax_pearlequities_expressorders_meo_v1_4.primary_market_code.size + 
+  miax_pearlequities_expressorders_meo_v1_4.reserved_12.size
+
+-- Display: Symbol Update Message
+miax_pearlequities_expressorders_meo_v1_4.symbol_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Symbol Update Message
+miax_pearlequities_expressorders_meo_v1_4.symbol_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_pearlequities_expressorders_meo_v1_4.matching_engine_time.dissect(buffer, index, packet, parent)
+
+  -- Symbol Id: BinaryU
+  index, symbol_id = miax_pearlequities_expressorders_meo_v1_4.symbol_id.dissect(buffer, index, packet, parent)
+
+  -- Ticker Symbol: Alphanumeric
+  index, ticker_symbol = miax_pearlequities_expressorders_meo_v1_4.ticker_symbol.dissect(buffer, index, packet, parent)
+
+  -- Security Type: Alphanumeric
+  index, security_type = miax_pearlequities_expressorders_meo_v1_4.security_type.dissect(buffer, index, packet, parent)
+
+  -- Test Security Indicator: Alphanumeric
+  index, test_security_indicator = miax_pearlequities_expressorders_meo_v1_4.test_security_indicator.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: BinaryU
+  if show.padding then
+    index, reserved_1 = miax_pearlequities_expressorders_meo_v1_4.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_1.size
+  end
+
+  -- Lot Size: BinaryU
+  index, lot_size = miax_pearlequities_expressorders_meo_v1_4.lot_size.dissect(buffer, index, packet, parent)
+
+  -- Opening Time: Alphanumeric
+  index, opening_time = miax_pearlequities_expressorders_meo_v1_4.opening_time.dissect(buffer, index, packet, parent)
+
+  -- Closing Time: Alphanumeric
+  index, closing_time = miax_pearlequities_expressorders_meo_v1_4.closing_time.dissect(buffer, index, packet, parent)
+
+  -- Primary Market Code: Alphanumeric
+  index, primary_market_code = miax_pearlequities_expressorders_meo_v1_4.primary_market_code.dissect(buffer, index, packet, parent)
+
+  -- Reserved 12: BinaryU
+  if show.padding then
+    index, reserved_12 = miax_pearlequities_expressorders_meo_v1_4.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_pearlequities_expressorders_meo_v1_4.reserved_12.size
+  end
+
+  return index
+end
+
+-- Dissect: Symbol Update Message
+miax_pearlequities_expressorders_meo_v1_4.symbol_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.symbol_update_message, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.symbol_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.symbol_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.symbol_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Sequenced Message
+miax_pearlequities_expressorders_meo_v1_4.sequenced_message = {}
+
+-- Dispatch: Sequenced Message
+miax_pearlequities_expressorders_meo_v1_4.sequenced_message.dispatch = {
+  ["SU"] = miax_pearlequities_expressorders_meo_v1_4.symbol_update_message.dissect,
+  ["NR"] = miax_pearlequities_expressorders_meo_v1_4.new_order_response_message.dissect,
+  ["MR"] = miax_pearlequities_expressorders_meo_v1_4.modify_order_response.dissect,
+  ["CR"] = miax_pearlequities_expressorders_meo_v1_4.cancel_order_response.dissect,
+  ["SN"] = miax_pearlequities_expressorders_meo_v1_4.system_state_notification.dissect,
+  ["ON"] = miax_pearlequities_expressorders_meo_v1_4.new_order_notification.dissect,
+  ["OM"] = miax_pearlequities_expressorders_meo_v1_4.modify_order_notification.dissect,
+  ["XN"] = miax_pearlequities_expressorders_meo_v1_4.cancel_reduce_size_order_notification.dissect,
+  ["PU"] = miax_pearlequities_expressorders_meo_v1_4.order_price_update_notification.dissect,
+  ["EN"] = miax_pearlequities_expressorders_meo_v1_4.execution_notification.dissect,
+}
+
+-- Dissect: Sequenced Message
+miax_pearlequities_expressorders_meo_v1_4.sequenced_message.dissect = function(buffer, offset, packet, parent, sequenced_message_type)
+  local dissect = miax_pearlequities_expressorders_meo_v1_4.sequenced_message.dispatch[sequenced_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Sequenced Data Packet
+miax_pearlequities_expressorders_meo_v1_4.sequenced_data_packet = {}
+
+-- Read runtime size of: Sequenced Data Packet
+miax_pearlequities_expressorders_meo_v1_4.sequenced_data_packet.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Esesm Packet Length
+  local esesm_packet_length = buffer(offset - 3, 2):le_uint()
+
+  return esesm_packet_length - 1
+end
+
+-- Display: Sequenced Data Packet
+miax_pearlequities_expressorders_meo_v1_4.sequenced_data_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sequenced Data Packet
+miax_pearlequities_expressorders_meo_v1_4.sequenced_data_packet.fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+  local index = offset
+
+  -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
+  index, sequence_number = miax_pearlequities_expressorders_meo_v1_4.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Matching Engine Id: 1 Byte Unsigned Fixed Width Integer
+  index, matching_engine_id = miax_pearlequities_expressorders_meo_v1_4.matching_engine_id.dissect(buffer, index, packet, parent)
+
+  -- Sequenced Message Type: 2 Byte Ascii String Enum with 10 values
+  index, sequenced_message_type = miax_pearlequities_expressorders_meo_v1_4.sequenced_message_type.dissect(buffer, index, packet, parent)
+
+  -- Sequenced Message: Runtime Type with 10 branches
+  index = miax_pearlequities_expressorders_meo_v1_4.sequenced_message.dissect(buffer, index, packet, parent, sequenced_message_type)
+
+  return index
+end
+
+-- Dissect: Sequenced Data Packet
+miax_pearlequities_expressorders_meo_v1_4.sequenced_data_packet.dissect = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+  local size_of_sequenced_data_packet = miax_pearlequities_expressorders_meo_v1_4.sequenced_data_packet.size(buffer, offset)
+  local index = offset + size_of_sequenced_data_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.sequenced_data_packet, buffer(offset, 0))
+    local current = miax_pearlequities_expressorders_meo_v1_4.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+    parent:set_len(size_of_sequenced_data_packet)
+    local display = miax_pearlequities_expressorders_meo_v1_4.sequenced_data_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    miax_pearlequities_expressorders_meo_v1_4.sequenced_data_packet.fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+
+    return index
+  end
+end
+
+-- Esesm Payload
+miax_pearlequities_expressorders_meo_v1_4.esesm_payload = {}
+
+-- Dispatch: Esesm Payload
+miax_pearlequities_expressorders_meo_v1_4.esesm_payload.dispatch = {
+  ["s"] = miax_pearlequities_expressorders_meo_v1_4.sequenced_data_packet.dissect,
+  ["U"] = miax_pearlequities_expressorders_meo_v1_4.unsequenced_data_packet.dissect,
+  ["l"] = miax_pearlequities_expressorders_meo_v1_4.login_request.dissect,
+  ["r"] = miax_pearlequities_expressorders_meo_v1_4.login_response.dissect,
+  ["c"] = miax_pearlequities_expressorders_meo_v1_4.synchronization_complete.dissect,
+  ["a"] = miax_pearlequities_expressorders_meo_v1_4.retransmission_request.dissect,
+  ["X"] = miax_pearlequities_expressorders_meo_v1_4.logout_request.dissect,
+  ["G"] = miax_pearlequities_expressorders_meo_v1_4.goodbye_packet.dissect,
+  ["u"] = miax_pearlequities_expressorders_meo_v1_4.trading_session_update.dissect,
+  ["0"] = miax_pearlequities_expressorders_meo_v1_4.server_heartbeat.dissect,
+  ["1"] = miax_pearlequities_expressorders_meo_v1_4.client_heartbeat.dissect,
+  ["T"] = miax_pearlequities_expressorders_meo_v1_4.test_packet.dissect,
+}
+
+-- Dissect: Esesm Payload
+miax_pearlequities_expressorders_meo_v1_4.esesm_payload.dissect = function(buffer, offset, packet, parent, esesm_packet_type)
+  local dissect = miax_pearlequities_expressorders_meo_v1_4.esesm_payload.dispatch[esesm_packet_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Esesm Packet Header
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header = {}
+
+-- Size: Esesm Packet Header
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header.size =
+  miax_pearlequities_expressorders_meo_v1_4.esesm_packet_length.size + 
+  miax_pearlequities_expressorders_meo_v1_4.esesm_packet_type.size
+
+-- Display: Esesm Packet Header
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Esesm Packet Header
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Esesm Packet Length: 2 Byte Unsigned Fixed Width Integer
+  index, esesm_packet_length = miax_pearlequities_expressorders_meo_v1_4.esesm_packet_length.dissect(buffer, index, packet, parent)
+
+  -- Esesm Packet Type: 1 Byte Ascii String Enum with 12 values
+  index, esesm_packet_type = miax_pearlequities_expressorders_meo_v1_4.esesm_packet_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Esesm Packet Header
+miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_packet_header, buffer(offset, 0))
+    local index = miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Esesm Tcp Packet
+miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet = {}
+
+-- Display: Esesm Tcp Packet
+miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Esesm Tcp Packet
+miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.fields = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+  local index = offset
+
+  -- Esesm Packet Header: Struct of 2 fields
+  index, esesm_packet_header = miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Esesm Packet Type
+  local esesm_packet_type = buffer(index - 1, 1):string()
+
+  -- Esesm Payload: Runtime Type with 12 branches
+  index = miax_pearlequities_expressorders_meo_v1_4.esesm_payload.dissect(buffer, index, packet, parent, esesm_packet_type)
+
+  return index
+end
+
+-- Dissect: Esesm Tcp Packet
+miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+  local index = offset + size_of_esesm_tcp_packet
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_tcp_packet, buffer(offset, 0))
+    local current = miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    parent:set_len(size_of_esesm_tcp_packet)
+    local display = miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Esesm Tcp Packet
+local esesm_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint() + 2
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Packet
+miax_pearlequities_expressorders_meo_v1_4.packet = {}
+
+-- Verify required size of Tcp packet
+miax_pearlequities_expressorders_meo_v1_4.packet.requiredsize = function(buffer)
+  return buffer:len() >= miax_pearlequities_expressorders_meo_v1_4.esesm_packet_header.size
+end
+
+-- Dissect Packet
+miax_pearlequities_expressorders_meo_v1_4.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Esesm Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Esesm Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_esesm_tcp_packet = esesm_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_esesm_tcp_packet):tvb()
+      index = miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.dissect(frame, index, packet, parent, size_of_esesm_tcp_packet)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_miax_pearlequities_expressorders_meo_v1_4.init()
+end
+
+-- Dissector for Miax PearlEquities ExpressOrders Meo 1.4
+function omi_miax_pearlequities_expressorders_meo_v1_4.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_miax_pearlequities_expressorders_meo_v1_4.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4, buffer(), omi_miax_pearlequities_expressorders_meo_v1_4.description, "("..buffer:len().." Bytes)")
+  return miax_pearlequities_expressorders_meo_v1_4.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Miax PearlEquities ExpressOrders Meo 1.4 (Tcp)
+local function omi_miax_pearlequities_expressorders_meo_v1_4_tcp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not miax_pearlequities_expressorders_meo_v1_4.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_miax_pearlequities_expressorders_meo_v1_4
+  omi_miax_pearlequities_expressorders_meo_v1_4.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Miax PearlEquities ExpressOrders Meo 1.4
+omi_miax_pearlequities_expressorders_meo_v1_4:register_heuristic("tcp", omi_miax_pearlequities_expressorders_meo_v1_4_tcp_heuristic)
+
+-- Register Miax PearlEquities ExpressOrders Meo 1.4 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_miax_pearlequities_expressorders_meo_v1_4)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Miami International Holdings
+--   Version: 1.4
+--   Date: Monday, August 10, 2020
+--   Specification: MIAX PEARL Equities Express Orders MEO v1.4.pdf
+--   Specification: tcp_session_mgmt_esesm.pdf
+--
+-- Script:
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

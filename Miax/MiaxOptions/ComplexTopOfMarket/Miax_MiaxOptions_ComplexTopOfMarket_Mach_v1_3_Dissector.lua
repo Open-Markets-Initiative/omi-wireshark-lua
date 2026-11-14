@@ -51,7 +51,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.offer_size_4 = ProtoFie
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.opening_time = ProtoField.new("Opening Time", "miax.miaxoptions.complextopofmarket.mach.v1.3.openingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 09:30:00")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.miaxoptions.complextopofmarket.mach.v1.3.openingunderlyingmarketcode", ftypes.STRING, nil, nil, nil, "Options opening will be triggered on receipt of Opening quote/trade from this Underlying market:")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet_length = ProtoField.new("Packet Length", "miax.miaxoptions.complextopofmarket.mach.v1.3.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.complextopofmarket.mach.v1.3.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.complextopofmarket.mach.v1.3.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.price_2 = ProtoField.new("Price 2", "miax.miaxoptions.complextopofmarket.mach.v1.3.price2", ftypes.DOUBLE, nil, nil, nil, "MIAX Best price at the time stated in Timestamp and side specified in Message Type.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.price_8 = ProtoField.new("Price 8", "miax.miaxoptions.complextopofmarket.mach.v1.3.price8", ftypes.DOUBLE, nil, nil, nil, "MIAX Best price at the time stated in Timestamp and side specified in Message Type.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.priority_customer_size_2 = ProtoField.new("Priority Customer Size 2", "miax.miaxoptions.complextopofmarket.mach.v1.3.prioritycustomersize2", ftypes.UINT16, nil, nil, nil, "Aggregate size of Priority Customer contracts at MIAX Best Price for the Complex Strategy")
@@ -101,6 +101,11 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.strategy_last_sale_mess
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.system_state_message = ProtoField.new("System State Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.systemstatemessage", ftypes.STRING, nil, nil, nil, "This message format is used to notify the firms of the state changes of the system. This is a notification that applies to each Underlying group. Firms can use notifications as triggers in their system to ensure electronic synchronization of systems.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.system_time_message = ProtoField.new("System Time Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.systemtimemessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate the “seconds” part of the timestamp that is applicable to all messages that are sent in the current second.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.miaxoptions.complextopofmarket.mach.v1.3.underlyingtradingstatusnotificationmessage", ftypes.STRING, nil, nil, nil, "This message format will be used to notify firms of changes to the trading status of all the options of an underlying")
+
+-- Miax MiaxOptions ComplexTopOfMarket 1.3 Session Messages
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.end_of_session = ProtoField.new("End Of Session", "miax.miaxoptions.complextopofmarket.mach.v1.3.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.heartbeat = ProtoField.new("Heartbeat", "miax.miaxoptions.complextopofmarket.mach.v1.3.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.start_of_session = ProtoField.new("Start Of Session", "miax.miaxoptions.complextopofmarket.mach.v1.3.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax MiaxOptions ComplexTopOfMarket Mach 1.3 Generated Fields
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "miax.miaxoptions.complextopofmarket.mach.v1.3.legdefinitionindex", ftypes.UINT16)
@@ -2042,7 +2047,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.strategy_last_sale_message.fields 
   -- Trade Condition: Alphanumeric
   index, trade_condition = miax_miaxoptions_complextopofmarket_mach_v1_3.trade_condition.dissect(buffer, index, packet, parent)
 
-  -- Reserved 16: Reserved
+  -- Reserved 16: Alphanumeric
   if show.padding then
     index, reserved_16 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_16.dissect(buffer, index, packet, parent)
   else
@@ -2627,7 +2632,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.complex_strategy_definition_messag
   -- Active On Miax: Alphanumeric
   index, active_on_miax = miax_miaxoptions_complextopofmarket_mach_v1_3.active_on_miax.dissect(buffer, index, packet, parent)
 
-  -- Reserved 1: Reserved
+  -- Reserved 1: BinaryU
   if show.padding then
     index, reserved_1 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_1.dissect(buffer, index, packet, parent)
   else
@@ -2637,7 +2642,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.complex_strategy_definition_messag
   -- Update Reason: Alphanumeric
   index, update_reason = miax_miaxoptions_complextopofmarket_mach_v1_3.update_reason.dissect(buffer, index, packet, parent)
 
-  -- Reserved 10: Reserved
+  -- Reserved 10: BinaryU
   if show.padding then
     index, reserved_10 = miax_miaxoptions_complextopofmarket_mach_v1_3.reserved_10.dissect(buffer, index, packet, parent)
   else
@@ -3212,6 +3217,7 @@ udp_table:add_for_decode_as(omi_miax_miaxoptions_complextopofmarket_mach_v1_3)
 --   Version: 1.3
 --   Date: Friday, March 16, 2018
 --   Specification: Complex Top Of Market Feed cToM v1.3.pdf
+--   Specification: MIAX MACH Protocol v1_2d_re.pdf
 --
 -- Script:
 --   Compiler: 2.0

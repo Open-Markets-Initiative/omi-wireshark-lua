@@ -22,7 +22,7 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.correction_number = Prot
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.do_m_version = ProtoField.new("Do M Version", "miax.pearlequities.depthofmarket.mach.v1.3.a.domversion", ftypes.STRING, nil, nil, nil, "Eg: DoM1.0")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.lot_size = ProtoField.new("Lot Size", "miax.pearlequities.depthofmarket.mach.v1.3.a.lotsize", ftypes.UINT16, nil, nil, nil, "Round Lot size in shares.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_packet_length = ProtoField.new("Mach Packet Length", "miax.pearlequities.depthofmarket.mach.v1.3.a.machpacketlength", ftypes.UINT16, nil, nil, nil, "Length of the packet. This includes the header and application data")
-omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_packet_type = ProtoField.new("Mach Packet Type", "miax.pearlequities.depthofmarket.mach.v1.3.a.machpackettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.mach_packet_type = ProtoField.new("Mach Packet Type", "miax.pearlequities.depthofmarket.mach.v1.3.a.machpackettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.market_state = ProtoField.new("Market State", "miax.pearlequities.depthofmarket.mach.v1.3.a.marketstate", ftypes.UINT8, nil, nil, nil, "Market State enum")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.message_type = ProtoField.new("Message Type", "miax.pearlequities.depthofmarket.mach.v1.3.a.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.modify_order_flags = ProtoField.new("Modify Order Flags", "miax.pearlequities.depthofmarket.mach.v1.3.a.modifyorderflags", ftypes.STRING)
@@ -70,6 +70,11 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.system_state_message = P
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.systemtimemessage", ftypes.STRING, nil, nil, nil, "This message is used to disseminate the “seconds” part of the timestamp that is applicable to all messages that are sent in the current second.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.tradecancelmessage", ftypes.STRING, nil, nil, nil, "This message format is used to publish cancellation of a trade which was previously published via an Order Execution Message or a Trade Message.")
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.trade_message = ProtoField.new("Trade Message", "miax.pearlequities.depthofmarket.mach.v1.3.a.trademessage", ftypes.STRING, nil, nil, nil, "This message format is used to publish trade executions for orders not displayed on the book. Executions for orders routed and executed in another trading center and trade corrections are also published using this message.")
+
+-- Miax PearlEquities DepthOfMarket 1.3.a Session Messages
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.end_of_session = ProtoField.new("End Of Session", "miax.pearlequities.depthofmarket.mach.v1.3.a.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.heartbeat = ProtoField.new("Heartbeat", "miax.pearlequities.depthofmarket.mach.v1.3.a.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.start_of_session = ProtoField.new("Start Of Session", "miax.pearlequities.depthofmarket.mach.v1.3.a.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax PearlEquities DepthOfMarket Mach 1.3.a Generated Fields
 omi_miax_pearlequities_depthofmarket_mach_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.depthofmarket.mach.v1.3.a.timestamp", ftypes.UINT64)
@@ -2151,6 +2156,7 @@ udp_table:add_for_decode_as(omi_miax_pearlequities_depthofmarket_mach_v1_3_a)
 --   Version: 1.3.a
 --   Date: Thursday, November 5, 2020
 --   Specification: MIAX_PEARL_Equities_DoM_Feed_v1.3a.pdf
+--   Specification: MIAX PEARL Equities MACH Protocol v1_2d.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -4728,6 +4728,7 @@ tcp_table:add_for_decode_as(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_1_
 --   Version: 2.1.a
 --   Date: Tuesday, August 4, 2026
 --   Specification: Sapphire_Clearing_Trade_Drop_CTD_v2.1a.pdf
+--   Specification: Sapphire TcpSessionMgmt SesM v1.1e.pdf
 --
 -- Script:
 --   Compiler: 2.0

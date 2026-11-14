@@ -36,7 +36,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.exec_id = ProtoField.
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.fill_price = ProtoField.new("Fill Price", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.fillprice", ftypes.DOUBLE, nil, nil, nil, "fillPrice")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.fill_qty = ProtoField.new("Fill Qty", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.fillqty", ftypes.INT32, nil, nil, nil, "fillQty")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.filled_vwap = ProtoField.new("Filled Vwap", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.filledvwap", ftypes.DOUBLE, nil, nil, nil, "filledVwap")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.flags", ftypes.STRING, nil, nil, nil, "NewOrderFlags bit set")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.flags", ftypes.STRING, nil, nil, nil, "Uint8 bit set carrying the isResend indicator")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.fromsequencenumber", ftypes.UINT32, nil, nil, nil, "fromSequenceNumber")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.gap_fill_padding = ProtoField.new("Gap Fill Padding", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.gapfillpadding", ftypes.UINT32, nil, nil, nil, "padding")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.good_til_date = ProtoField.new("Good Til Date", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.goodtildate", ftypes.UINT16, nil, nil, nil, "goodTilDate")
@@ -45,6 +45,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.instrument_id = Proto
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.instrument_status = ProtoField.new("Instrument Status", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.instrumentstatus", ftypes.UINT8, nil, nil, nil, "status")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.is_aggressor = ProtoField.new("Is Aggressor", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.isaggressor", ftypes.INT8, nil, nil, nil, "isAggressor")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.is_last_message = ProtoField.new("Is Last Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.islastmessage", ftypes.INT8, nil, nil, nil, "isLastMessage")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.is_resend = ProtoField.new("Is Resend", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.isresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Possibly resent message indicator (Bit 0)")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.last_exec_id = ProtoField.new("Last Exec Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.lastexecid", ftypes.INT64, nil, nil, nil, "lastExecId")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.last_processed_fill_id = ProtoField.new("Last Processed Fill Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.lastprocessedfillid", ftypes.INT64, nil, nil, nil, "lastProcessedFillId")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.lastprocessedseqno", ftypes.UINT32, nil, nil, nil, "Highest sequence number the sender has processed from the counterparty")
@@ -55,6 +56,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.match_id = ProtoField
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.message_length = ProtoField.new("Message Length", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.messagelength", ftypes.UINT16, nil, nil, nil, "Total message length in bytes including this header")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.min_qty = ProtoField.new("Min Qty", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.minqty", ftypes.INT32, nil, nil, nil, "minQty")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.new_limit_price = ProtoField.new("New Limit Price", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.newlimitprice", ftypes.DOUBLE, nil, nil, nil, "newLimitPrice")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.new_order_flags = ProtoField.new("New Order Flags", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.neworderflags", ftypes.STRING, nil, nil, nil, "NewOrderFlags bit set")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.new_quantity = ProtoField.new("New Quantity", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.newquantity", ftypes.INT32, nil, nil, nil, "newQuantity")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.new_sequence_number = ProtoField.new("New Sequence Number", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.newsequencenumber", ftypes.UINT32, nil, nil, nil, "newSequenceNumber")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.num_users_affected = ProtoField.new("Num Users Affected", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.numusersaffected", ftypes.INT32, nil, nil, nil, "numUsersAffected")
@@ -78,6 +80,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.resend_reject_reason 
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.resent_event_count = ProtoField.new("Resent Event Count", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.resenteventcount", ftypes.INT32, nil, nil, nil, "resentEventCount")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved = ProtoField.new("Reserved", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reserved", ftypes.UINT32, nil, nil, nil, "Reserved for future use")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_7 = ProtoField.new("Reserved 7", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFE, "Bits reserved for future use")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_byte = ProtoField.new("Reserved Byte", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reservedbyte", ftypes.INT8, nil, nil, nil, "reserved")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.resetseqnum", ftypes.INT8, nil, nil, nil, "resetSeqNum")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
@@ -3629,14 +3632,14 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_ioc_order_message.dissect = 
   end
 end
 
--- Flags
-coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags = {}
+-- New Order Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags = {}
 
--- Size: Flags
-coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.size = 1
+-- Size: New Order Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags.size = 1
 
--- Display: Flags
-coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.display = function(range, value, packet, parent)
+-- Display: New Order Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags.display = function(range, value, packet, parent)
   local flags = {}
 
   -- Is Post Only flag set?
@@ -3647,8 +3650,8 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.display = function(range, 
   return table.concat(flags, "|")
 end
 
--- Dissect Bit Fields: Flags
-coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.bits = function(range, value, packet, parent)
+-- Dissect Bit Fields: New Order Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags.bits = function(range, value, packet, parent)
 
   -- Post Only: 1 Bit
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.post_only, range, value)
@@ -3657,16 +3660,16 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.bits = function(range, val
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_7, range, value)
 end
 
--- Dissect: Flags
-coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.dissect = function(buffer, offset, packet, parent)
-  local size = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.size
+-- Dissect: New Order Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags.dissect = function(buffer, offset, packet, parent)
+  local size = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags.size
   local range = buffer(offset, size)
   local value = range:le_uint()
-  local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.display(range, value, packet, parent)
-  local element = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.flags, range, display)
+  local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.new_order_flags, range, display)
 
   if show.structs then
-    coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.bits(range, value, packet, element)
+    coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags.bits(range, value, packet, element)
   end
 
   return offset + size, value
@@ -3683,7 +3686,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_message.size =
   coinbase_coinbasederivatives_ordersapi_sbe_v1_7.quantity.size + 
   coinbase_coinbasederivatives_ordersapi_sbe_v1_7.instrument_id.size + 
   coinbase_coinbasederivatives_ordersapi_sbe_v1_7.side.size + 
-  coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.size + 
+  coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags.size + 
   coinbase_coinbasederivatives_ordersapi_sbe_v1_7.good_til_date.size
 
 -- Display: New Order Message
@@ -3713,8 +3716,8 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_message.fields = funct
   -- Side: Side
   index, side = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.side.dissect(buffer, index, packet, parent)
 
-  -- Flags: Struct of 2 fields
-  index, flags = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.dissect(buffer, index, packet, parent)
+  -- New Order Flags: Struct of 2 fields
+  index, new_order_flags = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags.dissect(buffer, index, packet, parent)
 
   -- Good Til Date: EpochDay
   index, good_til_date = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.good_til_date.dissect(buffer, index, packet, parent)
@@ -4683,6 +4686,49 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_7.payload.dissect = function(buffe
   end
 
   return offset
+end
+
+-- Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags = {}
+
+-- Size: Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.size = 1
+
+-- Display: Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Is Resend flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Is Resend"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.bits = function(range, value, packet, parent)
+
+  -- Is Resend: choice
+  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.is_resend, range, value)
+
+  -- Reserved Bits: 7 Bit
+  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_bits, range, value)
+end
+
+-- Dissect: Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.dissect = function(buffer, offset, packet, parent)
+  local size = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.display(range, value, packet, parent)
+  local element = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.flags, range, display)
+
+  if show.structs then
+    coinbase_coinbasederivatives_ordersapi_sbe_v1_7.flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
 end
 
 -- Message Header

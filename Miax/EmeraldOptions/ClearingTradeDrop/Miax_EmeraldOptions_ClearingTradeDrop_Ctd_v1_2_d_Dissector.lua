@@ -5161,6 +5161,7 @@ tcp_table:add_for_decode_as(omi_miax_emeraldoptions_clearingtradedrop_ctd_v1_2_d
 --   Version: 1.2.d
 --   Date: Tuesday, August 4, 2026
 --   Specification: Clearing_Trade_Drop_CTD_v1.2d.pdf
+--   Specification: MIAX Emerald TcpSessionMgmt SesM v1.1e_re.pdf
 --
 -- Script:
 --   Compiler: 2.0

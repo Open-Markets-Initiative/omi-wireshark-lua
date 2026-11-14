@@ -158,18 +158,17 @@ runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/SymbolUpdate.pcap" \
   -X "lua_script:Miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \
   -T json \
-  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr \
-  || { echo "--- tshark FAILED (SymbolUpdate) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json.stderr; exit 1; }
+  > Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json 2> Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json.stderr \
+  || { echo "--- tshark FAILED (SymbolUpdate) ---"; cat Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json.stderr; exit 1; }
 
-grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
-grep "miax.pearlequities.expressorders.meo.v2.6.symbolid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
-grep "miax.pearlequities.expressorders.meo.v2.6.tickersymbol" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
-grep "miax.pearlequities.expressorders.meo.v2.6.testsecurityindicator" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
-grep "miax.pearlequities.expressorders.meo.v2.6.future" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
-grep "miax.pearlequities.expressorders.meo.v2.6.lotsize" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
-grep "miax.pearlequities.expressorders.meo.v2.6.openingtime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
-grep "miax.pearlequities.expressorders.meo.v2.6.closingtime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
-grep "miax.pearlequities.expressorders.meo.v2.6.primarymarketcode" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdate.json
+grep "miax.pearlequities.expressorders.meo.v2.6.matchingenginetime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.symbolid" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.tickersymbol" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.testsecurityindicator" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.lotsize" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.openingtime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.closingtime" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json
+grep "miax.pearlequities.expressorders.meo.v2.6.primarymarketcode" Miax.PearlEquities.ExpressOrders.Meo.v2.6.SymbolUpdateMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Miax/PearlEquities.ExpressOrders.Meo.v2.6/SystemStateNotification.pcap" \
   -X "lua_script:Miax/PearlEquities/ExpressOrders/Miax_PearlEquities_ExpressOrders_Meo_v2_6_Dissector.lua" \

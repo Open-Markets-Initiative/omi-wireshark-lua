@@ -91,12 +91,15 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.udp_packet = ProtoField.ne
 
 -- Miax PearlEquities TopOfMarket 1.1.c Session Messages
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "miax.pearlequities.topofmarket.mach.v1.1.c.clientheartbeat", ftypes.BYTES, nil, nil, nil, "The ESesM client sends a Client Heartbeat packet anytime more than 1 second passes where no data has been sent to the server")
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.end_of_session = ProtoField.new("End Of Session", "miax.pearlequities.topofmarket.mach.v1.1.c.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.heartbeat = ProtoField.new("Heartbeat", "miax.pearlequities.topofmarket.mach.v1.1.c.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.login_request = ProtoField.new("Login Request", "miax.pearlequities.topofmarket.mach.v1.1.c.loginrequest", ftypes.STRING, nil, nil, nil, "The ESesM client must send a Login request packet immediately upon establishing a new TCP/IP socket connection to the server")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.login_response = ProtoField.new("Login Response", "miax.pearlequities.topofmarket.mach.v1.1.c.loginresponse", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Login response packet in response to a Login request packet from the client")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.logout_request = ProtoField.new("Logout Request", "miax.pearlequities.topofmarket.mach.v1.1.c.logoutrequest", ftypes.STRING, nil, nil, nil, "The client may send a Logout request packet to request the connection be terminated")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.pearlequities.topofmarket.mach.v1.1.c.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The ESesM client uses this packet to request a retransmission server to retransmit a range of packets")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "miax.pearlequities.topofmarket.mach.v1.1.c.serverheartbeat", ftypes.BYTES, nil, nil, nil, "The ESesM server sends a Server Heartbeat packet anytime more than 1 second passes where no data has been sent to the client")
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.start_of_session = ProtoField.new("Start Of Session", "miax.pearlequities.topofmarket.mach.v1.1.c.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.pearlequities.topofmarket.mach.v1.1.c.synchronizationcomplete", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Synchronization complete packet when it is done replaying all the old packets and is ready to start sending new packets from the Matching Engine")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.test_packet = ProtoField.new("Test Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.testpacket", ftypes.STRING, nil, nil, nil, "Test packets are intended to provide human readable text that may aid in debugging problems")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.trading_session_update = ProtoField.new("Trading Session Update", "miax.pearlequities.topofmarket.mach.v1.1.c.tradingsessionupdate", ftypes.STRING, nil, nil, nil, "The ESesM server sends a Trading Session Update packet to inform the client that a new trading session is starting on the specified Matching Engine")
@@ -3682,6 +3685,7 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_topofmarket_mach_v1_1_c)
 --   Date: Wednesday, February 4, 2026
 --   Specification: pearl_equities_tom_feed.pdf
 --   Specification: miax mach protocol.pdf
+--   Specification: tcp_session_mgmt_esesm.pdf
 --
 -- Script:
 --   Compiler: 2.0

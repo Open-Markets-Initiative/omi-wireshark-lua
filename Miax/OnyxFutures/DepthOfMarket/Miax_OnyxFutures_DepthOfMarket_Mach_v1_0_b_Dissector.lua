@@ -44,8 +44,8 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_id = ProtoField.new(
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_position = ProtoField.new("Order Position", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderposition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_side = ProtoField.new("Order Side", "miax.onyxfutures.depthofmarket.mach.v1.0.b.orderside", ftypes.STRING, nil, nil, nil, "Side of order.")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.order_type = ProtoField.new("Order Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.ordertype", ftypes.STRING, nil, nil, nil, "Order type.")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet. This includes the header and application data")
-omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_length = ProtoField.new("Packet Length", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.packet_type = ProtoField.new("Packet Type", "miax.onyxfutures.depthofmarket.mach.v1.0.b.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.price = ProtoField.new("Price", "miax.onyxfutures.depthofmarket.mach.v1.0.b.price", ftypes.DOUBLE, nil, nil, nil, "Order price")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.depthofmarket.mach.v1.0.b.productgroupcode", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.onyxfutures.depthofmarket.mach.v1.0.b.reserved16", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
@@ -96,6 +96,11 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.simple_instrument_definiti
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.system_state_message = ProtoField.new("System State Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.systemstatemessage", ftypes.STRING)
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.total_volume_update_message = ProtoField.new("Total Volume Update Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.totalvolumeupdatemessage", ftypes.STRING, nil, nil, nil, "used to publish a Total Volume Update for each Simple Instrument at the end of the last Trading Session")
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.onyxfutures.depthofmarket.mach.v1.0.b.tradecancelmessage", ftypes.STRING, nil, nil, nil, "used to publish cancellation of a Simple Instrument trade which was previously published via an Order Execution Message")
+
+-- Miax OnyxFutures DepthOfMarket 1.0.b Session Messages
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.end_of_session = ProtoField.new("End Of Session", "miax.onyxfutures.depthofmarket.mach.v1.0.b.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session packet, closing the session it names")
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.heartbeat = ProtoField.new("Heartbeat", "miax.onyxfutures.depthofmarket.mach.v1.0.b.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet, sent when no message has been for a second")
+omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.start_of_session = ProtoField.new("Start Of Session", "miax.onyxfutures.depthofmarket.mach.v1.0.b.startofsession", ftypes.BYTES, nil, nil, nil, "Mach start of session packet, opening the session it names")
 
 -- Miax OnyxFutures DepthOfMarket Mach 1.0.b Generated Fields
 omi_miax_onyxfutures_depthofmarket_mach_v1_0_b.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "miax.onyxfutures.depthofmarket.mach.v1.0.b.instrumentlegindex", ftypes.UINT16)
@@ -3060,6 +3065,7 @@ udp_table:add_for_decode_as(omi_miax_onyxfutures_depthofmarket_mach_v1_0_b)
 --   Version: 1.0.b
 --   Date: Tuesday, March 25, 2025
 --   Specification: onyx dom feed v1.0b.pdf
+--   Specification: onyx miax mach protocol v1.0.pdf
 --
 -- Script:
 --   Compiler: 2.0

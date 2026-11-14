@@ -59,7 +59,7 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.offer_size_short = Proto
 omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.opening_time = ProtoField.new("Opening Time", "miax.sapphireoptions.topofmarket.mach.v2.0.a.openingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. e.g.: 09:30:00")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.sapphireoptions.topofmarket.mach.v2.0.a.openingunderlyingmarketcode", ftypes.STRING, nil, nil, nil, "Options opening will be triggered on receipt of Opening quote/trade from this Underlying market")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.packet_length = ProtoField.new("Packet Length", "miax.sapphireoptions.topofmarket.mach.v2.0.a.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
-omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.packet_type = ProtoField.new("Packet Type", "miax.sapphireoptions.topofmarket.mach.v2.0.a.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.packet_type = ProtoField.new("Packet Type", "miax.sapphireoptions.topofmarket.mach.v2.0.a.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.product_id = ProtoField.new("Product Id", "miax.sapphireoptions.topofmarket.mach.v2.0.a.productid", ftypes.UINT32, nil, nil, nil, "Sapphire Product ID mapped to a given option. It is assigned per trading session and is valid for that session.")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "miax.sapphireoptions.topofmarket.mach.v2.0.a.referencecorrectionnumber", ftypes.UINT8, nil, nil, nil, "Correction Number of the trade that was just corrected/adjusted. 0 for new trades.")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.reference_trade_id = ProtoField.new("Reference Trade Id", "miax.sapphireoptions.topofmarket.mach.v2.0.a.referencetradeid", ftypes.UINT32, nil, nil, nil, "0 (zero) if new trade. Trade ID of the original trade if this trade originated as a correction of the original trade.")
@@ -134,6 +134,11 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.system_state_message = P
 omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.sapphireoptions.topofmarket.mach.v2.0.a.systemtimemessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate the \"seconds\" part of the timestamp that is applicable to all messages that are sent in the current second.")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.sapphireoptions.topofmarket.mach.v2.0.a.tradecancelmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate canceled Trades that are resulting from Trade cancellations or corrections on Sapphire during the current trading session.")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.sapphireoptions.topofmarket.mach.v2.0.a.underlyingtradingstatusnotificationmessage", ftypes.STRING, nil, nil, nil, "This message format will be used to notify firms of changes to the trading status of all the options of an underlying.")
+
+-- Miax SapphireOptions TopOfMarket 2.0.a Session Messages
+omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.end_of_session = ProtoField.new("End Of Session", "miax.sapphireoptions.topofmarket.mach.v2.0.a.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.heartbeat = ProtoField.new("Heartbeat", "miax.sapphireoptions.topofmarket.mach.v2.0.a.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.start_of_session = ProtoField.new("Start Of Session", "miax.sapphireoptions.topofmarket.mach.v2.0.a.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax SapphireOptions TopOfMarket Mach 2.0.a Generated Fields
 omi_miax_sapphireoptions_topofmarket_mach_v2_0_a.fields.timestamp = ProtoField.new("Timestamp", "miax.sapphireoptions.topofmarket.mach.v2.0.a.timestamp", ftypes.UINT64)
@@ -4777,6 +4782,7 @@ tcp_table:add_for_decode_as(omi_miax_sapphireoptions_topofmarket_mach_v2_0_a)
 --   Version: 2.0.a
 --   Date: Thursday, October 15, 2026
 --   Specification: Sapphire_Top_of_Market_Feed_ToM_v2.0a.pdf
+--   Specification: Sapphire MIAX Mach Protocol v1.2e.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -6867,6 +6867,7 @@ tcp_table:add_for_decode_as(omi_miax_sapphireoptions_expressorders_meo_v1_3_a)
 --   Version: 1.3.a
 --   Date: Thursday, October 15, 2026
 --   Specification: Sapphire_MIAX_Express_Orders_MEO_v1.3a.pdf
+--   Specification: Sapphire TcpSessionMgmt SesM v1.1e.pdf
 --
 -- Script:
 --   Compiler: 2.0

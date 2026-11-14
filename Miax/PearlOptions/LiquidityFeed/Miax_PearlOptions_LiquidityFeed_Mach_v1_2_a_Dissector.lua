@@ -53,7 +53,7 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.order_side = ProtoField.n
 omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.order_type = ProtoField.new("Order Type", "miax.pearloptions.liquidityfeed.mach.v1.2.a.ordertype", ftypes.STRING, nil, nil, nil, "Order price type.")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.origin = ProtoField.new("Origin", "miax.pearloptions.liquidityfeed.mach.v1.2.a.origin", ftypes.STRING, nil, nil, nil, "Specifies the order origin type.")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.packet_length = ProtoField.new("Packet Length", "miax.pearloptions.liquidityfeed.mach.v1.2.a.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
-omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.packet_type = ProtoField.new("Packet Type", "miax.pearloptions.liquidityfeed.mach.v1.2.a.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.packet_type = ProtoField.new("Packet Type", "miax.pearloptions.liquidityfeed.mach.v1.2.a.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.pearl_bbo_posting_increment_indicator = ProtoField.new("Pearl Bbo Posting Increment Indicator", "miax.pearloptions.liquidityfeed.mach.v1.2.a.pearlbbopostingincrementindicator", ftypes.STRING, nil, nil, nil, "This is the Minimum Price Variation as agreed to by the Options industry (penny pilot program) and as published by Pearl")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.plf_version = ProtoField.new("Plf Version", "miax.pearloptions.liquidityfeed.mach.v1.2.a.plfversion", ftypes.STRING, nil, nil, nil, "Eg: PLF1.0")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.product_id = ProtoField.new("Product Id", "miax.pearloptions.liquidityfeed.mach.v1.2.a.productid", ftypes.UINT32, nil, nil, nil, "Pearl Product ID mapped to a given option. It is assigned per trading session and is valid for that session.")
@@ -108,6 +108,11 @@ omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.series_update_message = P
 omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.system_state_message = ProtoField.new("System State Message", "miax.pearloptions.liquidityfeed.mach.v1.2.a.systemstatemessage", ftypes.STRING, nil, nil, nil, "This message format is used to notify the firms of the state changes of the system. This is a notification that applies to each Underlying group. Firms can use notifications as triggers in their system to ensure electronic synchronization of systems.")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.pearloptions.liquidityfeed.mach.v1.2.a.systemtimemessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate the \"seconds\" part of the timestamp that is applicable to all messages that are sent in the current second.")
 omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.pearloptions.liquidityfeed.mach.v1.2.a.underlyingtradingstatusnotificationmessage", ftypes.STRING, nil, nil, nil, "This message format will be used to notify firms of changes to the trading status of all the options of an underlying.")
+
+-- Miax PearlOptions LiquidityFeed 1.2.a Session Messages
+omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.end_of_session = ProtoField.new("End Of Session", "miax.pearloptions.liquidityfeed.mach.v1.2.a.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.heartbeat = ProtoField.new("Heartbeat", "miax.pearloptions.liquidityfeed.mach.v1.2.a.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.start_of_session = ProtoField.new("Start Of Session", "miax.pearloptions.liquidityfeed.mach.v1.2.a.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax PearlOptions LiquidityFeed Mach 1.2.a Generated Fields
 omi_miax_pearloptions_liquidityfeed_mach_v1_2_a.fields.timestamp = ProtoField.new("Timestamp", "miax.pearloptions.liquidityfeed.mach.v1.2.a.timestamp", ftypes.UINT64)
@@ -3592,6 +3597,7 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_liquidityfeed_mach_v1_2_a)
 --   Version: 1.2.a
 --   Date: Thursday, October 15, 2026
 --   Specification: Pearl_Liquidity_Feed_PLF_v1.2a.pdf
+--   Specification: MIAX PEARL MIAX MACH Protocol v1_2e.pdf
 --
 -- Script:
 --   Compiler: 2.0

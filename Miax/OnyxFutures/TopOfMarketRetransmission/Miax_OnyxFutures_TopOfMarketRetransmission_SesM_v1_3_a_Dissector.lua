@@ -80,12 +80,12 @@ omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.reserved_32 = 
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.reserved_4 = ProtoField.new("Reserved 4", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.reserved4", ftypes.BYTES, nil, nil, nil, "Previously was Maturity Month-Year field; replaced by the Maturity Date field below")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.reserved_6 = ProtoField.new("Reserved 6", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.reserved6", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.reserved_64 = ProtoField.new("Reserved 64", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.reserved64", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
-omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The SesM server sends a Login response packet in response a Login request packet from the client")
+omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The SesM client uses this packet to request the server to retransmit a range of packets")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.sequencenumber", ftypes.UINT64, nil, nil, nil, "Original sequence number from the live feed")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "Gap fill replay of a sequenced packet from the live feed, carrying one application message")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.sesmpacketlength", ftypes.UINT16, nil, nil, nil, "The length of rest of the packet")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.sesmpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
-omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.sesm_version = ProtoField.new("Sesm Version", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.sesmversion", ftypes.STRING)
+omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.sesm_version = ProtoField.new("Sesm Version", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.sesmversion", ftypes.STRING, nil, nil, nil, "SesM protocol version: 1.0 (right padded with spaces)")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.session_id = ProtoField.new("Session Id", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.sessionid", ftypes.UINT8, nil, nil, nil, "Current trading session identifier")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.settlement_currency = ProtoField.new("Settlement Currency", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.settlementcurrency", ftypes.STRING, nil, nil, nil, "The Currency in which the Product settles")
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.fields.settlement_price = ProtoField.new("Settlement Price", "miax.onyxfutures.topofmarketretransmission.sesm.v1.3.a.settlementprice", ftypes.DOUBLE, nil, nil, nil, "The previous day")
@@ -649,9 +649,9 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_type.size = 1
 -- Display: Instrument Type
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_type.labels = {
   ["F"] = "Instrument Type: Futures (F)",
-  ["O"] = "Instrument Type: Options On (O)",
-  ["T"] = "Instrument Type: Trade At (T)",
-  ["B"] = "Instrument Type: Basis (B)",
+  ["O"] = "Instrument Type: Options On Futures (O)",
+  ["T"] = "Instrument Type: Trade At Settlement Tas (T)",
+  ["B"] = "Instrument Type: Basis Trade At Index Close Btic (B)",
 }
 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.instrument_type.display = function(value)
@@ -1260,9 +1260,9 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_expiration_type.si
 
 -- Display: Option Expiration Type
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_expiration_type.labels = {
-  ["A"] = "Option Expiration Type: American Style (A)",
-  ["E"] = "Option Expiration Type: European Style (E)",
-  ["N"] = "Option Expiration Type: Na When (N)",
+  ["A"] = "Option Expiration Type: American Style Options (A)",
+  ["E"] = "Option Expiration Type: European Style Options (E)",
+  ["N"] = "Option Expiration Type: Na When Instrument Type Not Equal To O (N)",
 }
 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_expiration_type.display = function(value)
@@ -1290,7 +1290,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_strike_currency.si
 -- Display: Option Strike Currency
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_strike_currency.labels = {
   ["U"] = "Option Strike Currency: Us Dollar (U)",
-  ["N"] = "Option Strike Currency: Na When (N)",
+  ["N"] = "Option Strike Currency: Na When Instrument Type Not Equal To O (N)",
 }
 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_strike_currency.display = function(value)
@@ -1356,9 +1356,9 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_type.size = 1
 
 -- Display: Option Type
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_type.labels = {
-  ["C"] = "Option Type: Call (C)",
-  ["P"] = "Option Type: Put (P)",
-  ["N"] = "Option Type: Na When (N)",
+  ["C"] = "Option Type: Call Options (C)",
+  ["P"] = "Option Type: Put Options (P)",
+  ["N"] = "Option Type: Na When Instrument Type Not Equal To O (N)",
 }
 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.option_type.display = function(value)
@@ -1939,10 +1939,10 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.spread_type.size = 1
 
 -- Display: Spread Type
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.spread_type.labels = {
-  ["S"] = "Spread Type: Standard (S)",
-  ["E"] = "Spread Type: Equity (E)",
-  ["B"] = "Spread Type: Butterfly (B)",
-  ["C"] = "Spread Type: Cross (C)",
+  ["S"] = "Spread Type: Standard Calendar Spread (S)",
+  ["E"] = "Spread Type: Equity Calendar Spread (E)",
+  ["B"] = "Spread Type: Butterfly Spread (B)",
+  ["C"] = "Spread Type: Cross Product Spread (C)",
 }
 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.spread_type.display = function(value)
@@ -1994,7 +1994,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.system_status.size = 1
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.system_status.labels = {
   ["S"] = "System Status: Start Of System Hours (S)",
   ["C"] = "System Status: End Of System Hours (C)",
-  ["1"] = "System Status: Start Of Test Session (1)",
+  ["1"] = "System Status: Start Of Test Session Sent Before Tests (1)",
   ["2"] = "System Status: End Of Test Session (2)",
 }
 
@@ -2167,12 +2167,12 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_type.size = 1
 
 -- Display: Trade Type
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_type.labels = {
-  ["O"] = "Trade Type: Outright (O)",
-  ["S"] = "Trade Type: Strategy (S)",
-  ["M"] = "Trade Type: Strategy (M)",
-  ["C"] = "Trade Type: Complex (C)",
-  ["L"] = "Trade Type: Complex (L)",
-  ["A"] = "Trade Type: Adjusted Late (A)",
+  ["O"] = "Trade Type: Outright Trade Between Two Simple Orders (O)",
+  ["S"] = "Trade Type: Strategy Match Net Level Trade (S)",
+  ["M"] = "Trade Type: Strategy Match Component Leg Trade (M)",
+  ["C"] = "Trade Type: Complex Legging Derived Net Level Trade (C)",
+  ["L"] = "Trade Type: Complex Legging Derived Component Leg Trade (L)",
+  ["A"] = "Trade Type: Adjusted Late Manual Trade (A)",
 }
 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trade_type.display = function(value)
@@ -2228,9 +2228,9 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_collar_variation_
 
 -- Display: Trading Collar Variation Type
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_collar_variation_type.labels = {
-  ["D"] = "Trading Collar Variation Type: Product (D)",
-  ["P"] = "Trading Collar Variation Type: Product (P)",
-  ["N"] = "Trading Collar Variation Type: Not (N)",
+  ["D"] = "Trading Collar Variation Type: Product Dollar Collar Value (D)",
+  ["P"] = "Trading Collar Variation Type: Product Collar Percentage Value (P)",
+  ["N"] = "Trading Collar Variation Type: Not Applicable (N)",
 }
 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.trading_collar_variation_type.display = function(value)
@@ -2326,10 +2326,10 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.underlying_asset_type.siz
 
 -- Display: Underlying Asset Type
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.underlying_asset_type.labels = {
-  ["E"] = "Underlying Asset Type: Equity (E)",
+  ["E"] = "Underlying Asset Type: Equity Index (E)",
   ["A"] = "Underlying Asset Type: Commodity Agriculture (A)",
-  ["F"] = "Underlying Asset Type: Futures (F)",
-  ["N"] = "Underlying Asset Type: Not (N)",
+  ["F"] = "Underlying Asset Type: Futures Contract (F)",
+  ["N"] = "Underlying Asset Type: Not Applicable (N)",
 }
 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.underlying_asset_type.display = function(value)
@@ -2381,8 +2381,8 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unit_of_measure.size = 5
 miax_onyxfutures_topofmarketretransmission_sesm_v1_3_a.unit_of_measure.labels = {
   ["BU"] = "Unit Of Measure: Bushels (BU)",
   ["USD"] = "Unit Of Measure: Usd (USD)",
-  ["FUT"] = "Unit Of Measure: Futures (FUT)",
-  ["ST"] = "Unit Of Measure: Short (ST)",
+  ["FUT"] = "Unit Of Measure: Futures Contract (FUT)",
+  ["ST"] = "Unit Of Measure: Short Tons (ST)",
   ["LB"] = "Unit Of Measure: Pounds (LB)",
 }
 
@@ -4305,6 +4305,7 @@ tcp_table:add_for_decode_as(omi_miax_onyxfutures_topofmarketretransmission_sesm_
 --   Version: 1.3.a
 --   Date: Friday, July 31, 2026
 --   Specification: ONYX_ToM_Feed_v1.3a.pdf
+--   Specification: onyx tcp session mgmt sesm v1.0a.pdf
 --
 -- Script:
 --   Compiler: 2.0

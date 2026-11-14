@@ -54,7 +54,7 @@ omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.offer_size_4 = ProtoField.new(
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.opening_time = ProtoField.new("Opening Time", "miax.miaxoptions.topofmarket.mach.v1.9.openingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 09:30:00")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.miaxoptions.topofmarket.mach.v1.9.openingunderlyingmarketcode", ftypes.STRING, nil, nil, nil, "Options opening will be triggered on receipt of Opening quote/trade from this Underlying market:")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.packet_length = ProtoField.new("Packet Length", "miax.miaxoptions.topofmarket.mach.v1.9.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.topofmarket.mach.v1.9.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.packet_type = ProtoField.new("Packet Type", "miax.miaxoptions.topofmarket.mach.v1.9.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.miaxoptions.topofmarket.mach.v1.9.priorityquotewidth", ftypes.DOUBLE, nil, nil, nil, "Maximum allowable width for a quote for this Option during regular trading in order to be considered as Priority Quote. 0 when Priority Quote Width is not applicable.")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.product_id = ProtoField.new("Product Id", "miax.miaxoptions.topofmarket.mach.v1.9.productid", ftypes.UINT32, nil, nil, nil, "MIAX Product ID mapped to a given option. It is assigned per trading session and is valid for that session.")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "miax.miaxoptions.topofmarket.mach.v1.9.referencecorrectionnumber", ftypes.UINT8, nil, nil, nil, "Correction Number of the trade that was just corrected/adjusted. 0 for new trades.")
@@ -92,9 +92,14 @@ omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.top_of_market_offer_compact_me
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.miaxoptions.topofmarket.mach.v1.9.tradecancelmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate canceled Trades that are resulting from Trade cancellations or corrections on MIAX during the current trading session")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.trade_message = ProtoField.new("Trade Message", "miax.miaxoptions.topofmarket.mach.v1.9.trademessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate Trades that are resulting from executions on MIAX during the current trading session.")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.underlying_trading_status_message = ProtoField.new("Underlying Trading Status Message", "miax.miaxoptions.topofmarket.mach.v1.9.underlyingtradingstatusmessage", ftypes.STRING, nil, nil, nil, "This message format will be used to notify firms of changes to the trading status of all the options of an underlying")
-omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_double_sided_top_of_market_message = ProtoField.new("Wide Double Sided Top Of Market Message", "miax.miaxoptions.topofmarket.mach.v1.9.widedoublesidedtopofmarketmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate the “seconds” part of the timestamp that is applicable to all messages that are sent in the current second.This is the message format that will be used, in the refresh service only, to disseminate both sides of the MIAX Top of Market for options with high premiums or large aggregate MIAX Best Bid or Offer (MBBO) sizes.")
+omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_double_sided_top_of_market_message = ProtoField.new("Wide Double Sided Top Of Market Message", "miax.miaxoptions.topofmarket.mach.v1.9.widedoublesidedtopofmarketmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used, in the refresh service only, to disseminate both sides of the MIAX Top of Market for options with high premiums or large aggregate MIAX Best Bid or Offer (MBBO) sizes.")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_top_of_market_bid_message = ProtoField.new("Wide Top Of Market Bid Message", "miax.miaxoptions.topofmarket.mach.v1.9.widetopofmarketbidmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate MIAX Top of Market for options with high premiums or large aggregate MIAX Best Bid or Offer (MBBO) size.")
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.wide_top_of_market_offer_message = ProtoField.new("Wide Top Of Market Offer Message", "miax.miaxoptions.topofmarket.mach.v1.9.widetopofmarketoffermessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate MIAX Top of Market for options with high premiums or large aggregate MIAX Best Bid or Offer (MBBO) size.")
+
+-- Miax MiaxOptions TopOfMarket 1.9 Session Messages
+omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.end_of_session = ProtoField.new("End Of Session", "miax.miaxoptions.topofmarket.mach.v1.9.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.heartbeat = ProtoField.new("Heartbeat", "miax.miaxoptions.topofmarket.mach.v1.9.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.start_of_session = ProtoField.new("Start Of Session", "miax.miaxoptions.topofmarket.mach.v1.9.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax MiaxOptions TopOfMarket Mach 1.9 Generated Fields
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.topofmarket.mach.v1.9.timestamp", ftypes.UINT64)
@@ -2949,6 +2954,7 @@ udp_table:add_for_decode_as(omi_miax_miaxoptions_topofmarket_mach_v1_9)
 --   Version: 1.9
 --   Date: Friday, January 15, 2016
 --   Specification: Top Of Market Feed ToM v1_9.pdf
+--   Specification: MIAX MACH Protocol v1_2d_re.pdf
 --
 -- Script:
 --   Compiler: 2.0

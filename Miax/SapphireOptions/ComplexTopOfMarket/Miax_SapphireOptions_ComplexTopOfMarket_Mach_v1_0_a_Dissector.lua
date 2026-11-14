@@ -65,7 +65,7 @@ omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.offer_size_short 
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.opening_time = ProtoField.new("Opening Time", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.openingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. e.g.: 09:30:00")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.openingunderlyingmarketcode", ftypes.STRING, nil, nil, nil, "Options opening will be triggered on receipt of Opening quote/trade from this Underlying market")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.packet_length = ProtoField.new("Packet Length", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
-omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.packet_type = ProtoField.new("Packet Type", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.packet_type = ProtoField.new("Packet Type", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.price_long = ProtoField.new("Price Long", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.pricelong", ftypes.DOUBLE, nil, nil, nil, "Sapphire Best price at the time stated in Timestamp and side specified in Message Type. The net limit price for the strategy.")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.price_short = ProtoField.new("Price Short", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.priceshort", ftypes.DOUBLE, nil, nil, nil, "Sapphire Best price at the time stated in Timestamp and side specified in Message Type. The net limit price for the strategy.")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.priority_customer_size_long = ProtoField.new("Priority Customer Size Long", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.prioritycustomersizelong", ftypes.UINT32, nil, nil, nil, "Aggregate size of Priority Customer contracts at Sapphire Best Price for the Complex Strategy")
@@ -135,6 +135,11 @@ omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.strategy_last_sal
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.system_state_message = ProtoField.new("System State Message", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.systemstatemessage", ftypes.STRING, nil, nil, nil, "This message format is used to notify the firms of the state changes of the system. This is a notification that applies to each Underlying group. Firms can use notifications as triggers in their system to ensure electronic synchronization of systems.")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.systemtimemessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate the \"seconds\" part of the timestamp that is applicable to all messages that are sent in the current second.")
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.underlyingtradingstatusnotificationmessage", ftypes.STRING, nil, nil, nil, "This message format will be used to notify firms of changes to the trading status of all the options of an underlying.")
+
+-- Miax SapphireOptions ComplexTopOfMarket 1.0.a Session Messages
+omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.end_of_session = ProtoField.new("End Of Session", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.heartbeat = ProtoField.new("Heartbeat", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.start_of_session = ProtoField.new("Start Of Session", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax SapphireOptions ComplexTopOfMarket Mach 1.0.a Generated Fields
 omi_miax_sapphireoptions_complextopofmarket_mach_v1_0_a.fields.leg_definition_index = ProtoField.new("Leg Definition Index", "miax.sapphireoptions.complextopofmarket.mach.v1.0.a.legdefinitionindex", ftypes.UINT16)
@@ -4605,6 +4610,7 @@ tcp_table:add_for_decode_as(omi_miax_sapphireoptions_complextopofmarket_mach_v1_
 --   Version: 1.0.a
 --   Date: Thursday, January 25, 2024
 --   Specification: Sapphire Complex Top Of Market Feed cToM v1.0a.pdf
+--   Specification: Sapphire MIAX Mach Protocol v1.2e.pdf
 --
 -- Script:
 --   Compiler: 2.0

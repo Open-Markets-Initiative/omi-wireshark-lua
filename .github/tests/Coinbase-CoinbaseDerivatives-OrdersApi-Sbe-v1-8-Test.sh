@@ -127,7 +127,7 @@ grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.limitprice" Coinbase.Coinb
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.quantity" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.NewOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.instrumentid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.NewOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.side" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.NewOrderMessage.json
-grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.flags" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.NewOrderMessage.json
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.neworderflags" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.NewOrderMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.goodtildate" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.NewOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.8/OrderCanceledMessage.pcap" \

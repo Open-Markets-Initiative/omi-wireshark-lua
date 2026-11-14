@@ -67,7 +67,7 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.offer_size_short = ProtoF
 omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.opening_time = ProtoField.new("Opening Time", "miax.emeraldoptions.topofmarket.mach.v1.3.a.openingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 09:30:00")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.emeraldoptions.topofmarket.mach.v1.3.a.openingunderlyingmarketcode", ftypes.STRING, nil, nil, nil, "Options opening will be triggered on receipt of Opening quote/trade from this Underlying market")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.packet_length = ProtoField.new("Packet Length", "miax.emeraldoptions.topofmarket.mach.v1.3.a.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet, including the header and application data")
-omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.packet_type = ProtoField.new("Packet Type", "miax.emeraldoptions.topofmarket.mach.v1.3.a.packettype", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.packet_type = ProtoField.new("Packet Type", "miax.emeraldoptions.topofmarket.mach.v1.3.a.packettype", ftypes.UINT8, nil, nil, nil, "Mach protocol packet type")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.emeraldoptions.topofmarket.mach.v1.3.a.priorityquotewidth", ftypes.DOUBLE, nil, nil, nil, "Maximum allowable width for a quote for this Option during regular trading in order to be considered as Priority Quote. 0 when Priority Quote Width is not applicable.")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.product_id = ProtoField.new("Product Id", "miax.emeraldoptions.topofmarket.mach.v1.3.a.productid", ftypes.UINT32, nil, nil, nil, "Emerald Product ID mapped to a given option. It is assigned per trading session and is valid for that session.")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.reference_correction_number = ProtoField.new("Reference Correction Number", "miax.emeraldoptions.topofmarket.mach.v1.3.a.referencecorrectionnumber", ftypes.UINT8, nil, nil, nil, "Correction Number of the trade that was just corrected/adjusted. 0 for new trades.")
@@ -135,6 +135,11 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.system_state_message = Pr
 omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.system_time_message = ProtoField.new("System Time Message", "miax.emeraldoptions.topofmarket.mach.v1.3.a.systemtimemessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate the \"seconds\" part of the timestamp that is applicable to all messages that are sent in the current second.")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "miax.emeraldoptions.topofmarket.mach.v1.3.a.tradecancelmessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate canceled Trades that are resulting from Trade cancellations or corrections on Emerald during the current trading session.")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.underlying_trading_status_notification_message = ProtoField.new("Underlying Trading Status Notification Message", "miax.emeraldoptions.topofmarket.mach.v1.3.a.underlyingtradingstatusnotificationmessage", ftypes.STRING, nil, nil, nil, "This message format will be used to notify firms of changes to the trading status of all the options of an underlying.")
+
+-- Miax EmeraldOptions TopOfMarket 1.3.a Session Messages
+omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.end_of_session = ProtoField.new("End Of Session", "miax.emeraldoptions.topofmarket.mach.v1.3.a.endofsession", ftypes.BYTES, nil, nil, nil, "Mach end of session")
+omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.heartbeat = ProtoField.new("Heartbeat", "miax.emeraldoptions.topofmarket.mach.v1.3.a.heartbeat", ftypes.BYTES, nil, nil, nil, "Mach heartbeat packet")
+omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.start_of_session = ProtoField.new("Start Of Session", "miax.emeraldoptions.topofmarket.mach.v1.3.a.startofsession", ftypes.BYTES, nil, nil, nil, "Mach Start of session")
 
 -- Miax EmeraldOptions TopOfMarket Mach 1.3.a Generated Fields
 omi_miax_emeraldoptions_topofmarket_mach_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "miax.emeraldoptions.topofmarket.mach.v1.3.a.timestamp", ftypes.UINT64)
@@ -4728,6 +4733,7 @@ tcp_table:add_for_decode_as(omi_miax_emeraldoptions_topofmarket_mach_v1_3_a)
 --   Version: 1.3.a
 --   Date: Friday, October 16, 2026
 --   Specification: Top_Of_Market_Feed_ToM_v1.3a.pdf
+--   Specification: MIAX Emerald MIAX MACH Protocol v1_2e_re.pdf
 --
 -- Script:
 --   Compiler: 2.0

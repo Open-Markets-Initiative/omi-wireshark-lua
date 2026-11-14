@@ -67,7 +67,7 @@ omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.matching_engine_time_utc 
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.max_floor_qty = ProtoField.new("Max Floor Qty", "miax.pearlequities.expressorders.meo.v2.7.b.maxfloorqty", ftypes.UINT32, nil, nil, nil, "Number of shares of the order to display")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.meo_version = ProtoField.new("Meo Version", "miax.pearlequities.expressorders.meo.v2.7.b.meoversion", ftypes.STRING, nil, nil, nil, "MEO interface version Eg: MEO1 0")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.min_qty = ProtoField.new("Min Qty", "miax.pearlequities.expressorders.meo.v2.7.b.minqty", ftypes.UINT32, nil, nil, nil, "Minimum fill quantity")
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.min_qty_exec_type = ProtoField.new("Min Qty Exec Type", "miax.pearlequities.expressorders.meo.v2.7.b.minqtyexectype", ftypes.UINT16, {[0]="Not Applicable", [1]="Single Contra Order", [2]="Multiple Contra Orders"}, base.DEC, 0x0C00, "Attributable Order")
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.min_qty_exec_type = ProtoField.new("Min Qty Exec Type", "miax.pearlequities.expressorders.meo.v2.7.b.minqtyexectype", ftypes.UINT16, {[0]="Not Applicable", [1]="Single Contra Order", [2]="Multiple Contra Orders"}, base.DEC, 0x0C00, "MinQty Exec Type")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.modify_order_instructions = ProtoField.new("Modify Order Instructions", "miax.pearlequities.expressorders.meo.v2.7.b.modifyorderinstructions", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.modify_status = ProtoField.new("Modify Status", "miax.pearlequities.expressorders.meo.v2.7.b.modifystatus", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.mpid = ProtoField.new("Mpid", "miax.pearlequities.expressorders.meo.v2.7.b.mpid", ftypes.STRING, nil, nil, nil, "Four character NSCC MPID of the Firm")
@@ -134,7 +134,7 @@ omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.ticker_symbol = ProtoFiel
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.time_in_force = ProtoField.new("Time In Force", "miax.pearlequities.expressorders.meo.v2.7.b.timeinforce", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.expressorders.meo.v2.7.b.tradeid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique Trade ID See notes")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.trade_status = ProtoField.new("Trade Status", "miax.pearlequities.expressorders.meo.v2.7.b.tradestatus", ftypes.STRING, nil, nil, nil, "Possible values:")
-omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.trading_collar_dollar_value = ProtoField.new("Trading Collar Dollar Value", "miax.pearlequities.expressorders.meo.v2.7.b.tradingcollardollarvalue", ftypes.DOUBLE, nil, nil, nil, "Market Order Custom Dollar Value Trading Collar Protection")
+omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.trading_collar_dollar_value = ProtoField.new("Trading Collar Dollar Value", "miax.pearlequities.expressorders.meo.v2.7.b.tradingcollardollarvalue", ftypes.DOUBLE, nil, nil, nil, "Custom Dollar Value Trading Collar Protection")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.pearlequities.expressorders.meo.v2.7.b.tradingsessionid", ftypes.UINT8, nil, nil, nil, "The current trading session ID of the corresponding Matching Engine")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.pearlequities.expressorders.meo.v2.7.b.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "Each unsequenced data packet carries one unsequenced message from the higher-lever protocol")
 omi_miax_pearlequities_expressorders_meo_v2_7_b.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.expressorders.meo.v2.7.b.unsequencedmessagetype", ftypes.STRING, nil, nil, nil, "ESesM unsequenced message type")
@@ -5134,7 +5134,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.new_order_response_message.size =
   miax_pearlequities_expressorders_meo_v2_7_b.price.size + 
   miax_pearlequities_expressorders_meo_v2_7_b.size.size + 
   miax_pearlequities_expressorders_meo_v2_7_b.order_status.size + 
-  miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.size
+  miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
 
 -- Display: New Order Response Message
 miax_pearlequities_expressorders_meo_v2_7_b.new_order_response_message.display = function(packet, parent, length)
@@ -5169,11 +5169,11 @@ miax_pearlequities_expressorders_meo_v2_7_b.new_order_response_message.fields = 
   -- Order Status: Alphanumeric
   index, order_status = miax_pearlequities_expressorders_meo_v2_7_b.order_status.dissect(buffer, index, packet, parent)
 
-  -- Reserved 19: BinaryU
+  -- Reserved 10: BinaryU
   if show.padding then
-    index, reserved_19 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.dissect(buffer, index, packet, parent)
+    index, reserved_10 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.dissect(buffer, index, packet, parent)
   else
-    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_19.size
+    index = index + miax_pearlequities_expressorders_meo_v2_7_b.reserved_10.size
   end
 
   return index
@@ -5855,7 +5855,7 @@ miax_pearlequities_expressorders_meo_v2_7_b.modify_order_notification_message.fi
   -- Order Expiry Time: MilliTime
   index, order_expiry_time = miax_pearlequities_expressorders_meo_v2_7_b.order_expiry_time.dissect(buffer, index, packet, parent)
 
-  -- Reserved 17: Alphanumeric
+  -- Reserved 17: BinaryU
   if show.padding then
     index, reserved_17 = miax_pearlequities_expressorders_meo_v2_7_b.reserved_17.dissect(buffer, index, packet, parent)
   else
@@ -6501,6 +6501,7 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_expressorders_meo_v2_7_b)
 --   Version: 2.7.b
 --   Date: Wednesday, February 4, 2026
 --   Specification: miax_express_orders_meo.pdf
+--   Specification: tcp_session_mgmt_esesm.pdf
 --
 -- Script:
 --   Compiler: 2.0
