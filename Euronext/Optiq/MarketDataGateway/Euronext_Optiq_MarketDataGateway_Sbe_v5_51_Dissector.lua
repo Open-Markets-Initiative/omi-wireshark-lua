@@ -3560,11 +3560,15 @@ euronext_optiq_marketdatagateway_sbe_v5_51.expiry_date.size = 8
 -- Display: Expiry Date
 euronext_optiq_marketdatagateway_sbe_v5_51.expiry_date.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == '' then
     return "Expiry Date: No Value"
   end
 
-  return "Expiry Date: "..value
+  if #value < 8 then
+    return "Expiry Date: "..value
+  end
+
+  return "Expiry Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiry Date
@@ -5514,12 +5518,11 @@ euronext_optiq_marketdatagateway_sbe_v5_51.maturity_date.size = 8
 
 -- Display: Maturity Date
 euronext_optiq_marketdatagateway_sbe_v5_51.maturity_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Maturity Date: No Value"
+  if #value < 8 then
+    return "Maturity Date: "..value
   end
 
-  return "Maturity Date: "..value
+  return "Maturity Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Maturity Date
@@ -5554,11 +5557,15 @@ euronext_optiq_marketdatagateway_sbe_v5_51.maturity_date_optional.size = 8
 -- Display: Maturity Date Optional
 euronext_optiq_marketdatagateway_sbe_v5_51.maturity_date_optional.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == '' then
     return "Maturity Date Optional: No Value"
   end
 
-  return "Maturity Date Optional: "..value
+  if #value < 8 then
+    return "Maturity Date Optional: "..value
+  end
+
+  return "Maturity Date Optional: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Maturity Date Optional
