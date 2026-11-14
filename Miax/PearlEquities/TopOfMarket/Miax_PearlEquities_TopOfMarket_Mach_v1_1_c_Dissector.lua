@@ -3681,6 +3681,7 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_topofmarket_mach_v1_1_c)
 --   Version: 1.1.c
 --   Date: Wednesday, February 4, 2026
 --   Specification: pearl_equities_tom_feed.pdf
+--   Specification: miax mach protocol.pdf
 --
 -- Script:
 --   Compiler: 2.0

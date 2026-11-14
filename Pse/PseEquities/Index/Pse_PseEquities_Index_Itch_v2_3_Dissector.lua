@@ -561,6 +561,50 @@ pse_pseequities_index_itch_v2_3.orderbook = {}
 -- Size: Orderbook
 pse_pseequities_index_itch_v2_3.orderbook.size = 4
 
+-- Lookup: Orderbook
+pse_pseequities_index_itch_v2_3.orderbook.lookup = function(buffer, offset, packet, parent)
+  local length = pse_pseequities_index_itch_v2_3.orderbook.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = pse_pseequities_index_itch_v2_3.orderbook.display(value, buffer, offset, packet, parent)
+
+  if not show.records then
+    pse_pseequities_index_itch_v2_3.orderbook_directory_message.current = nil
+    parent:add(omi_pse_pseequities_index_itch_v2_3.fields.orderbook, range, value, display)
+
+    return offset + length, value
+  end
+
+  -- Lookup Orderbook Directory Message record
+  local record = pse_pseequities_index_itch_v2_3.conversation.current.orderbook_directory_message[value]
+
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  pse_pseequities_index_itch_v2_3.orderbook_directory_message.current = record
+  if record ~= nil and record.sec_code ~= nil then
+    display = "Orderbook: " .. tostring(record.sec_code) .. " (" .. tostring(value) .. ")"
+  end
+
+  local field_tree = parent:add(omi_pse_pseequities_index_itch_v2_3.fields.orderbook, range, value, display)
+
+  if record ~= nil then
+    if record.sec_code ~= nil then
+      local entry_sec_code = field_tree:add(omi_pse_pseequities_index_itch_v2_3.fields.sec_code, record.sec_code)
+      entry_sec_code:set_generated()
+    end
+    if record.price_decimals ~= nil then
+      local entry_price_decimals = field_tree:add(omi_pse_pseequities_index_itch_v2_3.fields.price_decimals, record.price_decimals)
+      entry_price_decimals:set_generated()
+    end
+  end
+
+  return offset + length, value, record
+end
+
 -- Display: Orderbook
 pse_pseequities_index_itch_v2_3.orderbook.display = function(value)
   return "Orderbook: "..value

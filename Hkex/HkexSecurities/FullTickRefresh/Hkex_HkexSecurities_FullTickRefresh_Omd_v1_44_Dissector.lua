@@ -289,7 +289,10 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.bond_maturity_date.size = 4
 
 -- Display: Bond Maturity Date
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.bond_maturity_date.display = function(value)
-  return "Bond Maturity Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Bond Maturity Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Bond Maturity Date
@@ -670,7 +673,15 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.delisting_date.size = 4
 
 -- Display: Delisting Date
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.delisting_date.display = function(value)
-  return "Delisting Date: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "Delisting Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Delisting Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Delisting Date
@@ -780,6 +791,13 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.end_date_time.dissect = function(b
   -- protocol declares one per base and the preference picks between them
   local field = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.end_date_time
   if hkex_hkexsecurities_fulltickrefresh_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.end_date_time_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("End Date Time: Not Available")
+    return offset + length, value
+  end
 
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
@@ -1222,7 +1240,15 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.listing_date.size = 4
 
 -- Display: Listing Date
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.listing_date.display = function(value)
-  return "Listing Date: "..value
+  -- Check if field has value
+  if value == 19000101 then
+    return "Listing Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Listing Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Listing Date
@@ -2233,6 +2259,13 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.start_date_time.dissect = function
   local field = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.start_date_time
   if hkex_hkexsecurities_fulltickrefresh_omd_v1_44.timestamp_format == 3 then field = omi_hkex_hkexsecurities_fulltickrefresh_omd_v1_44.fields.start_date_time_utc end
 
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Start Date Time: Not Available")
+    return offset + length, value
+  end
+
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
   parent:add(field, range, NSTime.new(seconds, nanos))
@@ -2660,7 +2693,10 @@ hkex_hkexsecurities_fulltickrefresh_omd_v1_44.warrant_maturity_date.size = 4
 
 -- Display: Warrant Maturity Date
 hkex_hkexsecurities_fulltickrefresh_omd_v1_44.warrant_maturity_date.display = function(value)
-  return "Warrant Maturity Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Warrant Maturity Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Warrant Maturity Date

@@ -39,8 +39,10 @@ omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.cooling_off_end_time = 
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.cooling_off_end_time_utc = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.coolingoffendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period ends (UTC timestamp)")
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.coolingoffstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period starts (UTC timestamp)")
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.cooling_off_start_time_utc = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.coolingoffstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period starts (UTC timestamp)")
-omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_first_trading = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.datetimefirsttrading", ftypes.UINT64, nil, nil, nil, "The first trading time of the instrument in UTC timestamp (nanoseconds since 1970)")
-omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_last_trading = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.datetimelasttrading", ftypes.UINT64, nil, nil, nil, "The last trading time of the instrument in UTC timestamp (nanoseconds since 1970)")
+omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_first_trading = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.datetimefirsttrading", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The first trading time of the instrument in UTC timestamp (nanoseconds since 1970)")
+omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_first_trading_utc = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.datetimefirsttrading.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The first trading time of the instrument in UTC timestamp (nanoseconds since 1970)")
+omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_last_trading = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.datetimelasttrading", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The last trading time of the instrument in UTC timestamp (nanoseconds since 1970)")
+omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_last_trading_utc = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.datetimelasttrading.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The last trading time of the instrument in UTC timestamp (nanoseconds since 1970)")
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.decimal_in_contract_size = ProtoField.new("Decimal In Contract Size", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.decimalincontractsize", ftypes.UINT8, nil, nil, nil, "Implicit decimals in Contract Size and Price Quotation Factor")
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.decimal_in_price = ProtoField.new("Decimal In Price", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.decimalinprice", ftypes.UINT8, nil, nil, nil, "Number of implicit decimals in Price fields and Tick Size")
 omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.decimal_in_strike_price = ProtoField.new("Decimal In Strike Price", "hkex.hkexderivatives.fulltickretrans.omd.v2.3.decimalinstrikeprice", ftypes.UINT8, nil, nil, nil, "Number of implicit decimals in the Strike Price")
@@ -770,19 +772,20 @@ hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_first_trading = {}
 -- Size: Date Time First Trading
 hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_first_trading.size = 8
 
--- Display: Date Time First Trading
-hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_first_trading.display = function(value)
-  return "Date Time First Trading: "..value
-end
-
 -- Dissect: Date Time First Trading
 hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_first_trading.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_first_trading.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_first_trading.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_first_trading, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_first_trading
+  if hkex_hkexderivatives_fulltickretrans_omd_v2_3.timestamp_format == 3 then field = omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_first_trading_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -793,19 +796,20 @@ hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_last_trading = {}
 -- Size: Date Time Last Trading
 hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_last_trading.size = 8
 
--- Display: Date Time Last Trading
-hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_last_trading.display = function(value)
-  return "Date Time Last Trading: "..value
-end
-
 -- Dissect: Date Time Last Trading
 hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_last_trading.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_last_trading.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_fulltickretrans_omd_v2_3.date_time_last_trading.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_last_trading, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_last_trading
+  if hkex_hkexderivatives_fulltickretrans_omd_v2_3.timestamp_format == 3 then field = omi_hkex_hkexderivatives_fulltickretrans_omd_v2_3.fields.date_time_last_trading_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -938,7 +942,15 @@ hkex_hkexderivatives_fulltickretrans_omd_v2_3.effective_last_trading_date.size =
 
 -- Display: Effective Last Trading Date
 hkex_hkexderivatives_fulltickretrans_omd_v2_3.effective_last_trading_date.display = function(value)
-  return "Effective Last Trading Date: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "Effective Last Trading Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Effective Last Trading Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Effective Last Trading Date
@@ -1584,7 +1596,15 @@ hkex_hkexderivatives_fulltickretrans_omd_v2_3.last_trading_date.size = 4
 
 -- Display: Last Trading Date
 hkex_hkexderivatives_fulltickretrans_omd_v2_3.last_trading_date.display = function(value)
-  return "Last Trading Date: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "Last Trading Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Last Trading Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Last Trading Date

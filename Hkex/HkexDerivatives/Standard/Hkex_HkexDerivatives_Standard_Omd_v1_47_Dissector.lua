@@ -653,6 +653,13 @@ hkex_hkexderivatives_standard_omd_v1_47.date_time_first_trading.dissect = functi
   local field = omi_hkex_hkexderivatives_standard_omd_v1_47.fields.date_time_first_trading
   if hkex_hkexderivatives_standard_omd_v1_47.timestamp_format == 3 then field = omi_hkex_hkexderivatives_standard_omd_v1_47.fields.date_time_first_trading_utc end
 
+  if value == Int64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Date Time First Trading: Not Applicable")
+    return offset + length, value
+  end
+
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
   parent:add(field, range, NSTime.new(seconds, nanos))

@@ -841,7 +841,15 @@ hkex_hkexderivatives_premium_omd_v2_0.effective_last_trading_date.size = 4
 
 -- Display: Effective Last Trading Date
 hkex_hkexderivatives_premium_omd_v2_0.effective_last_trading_date.display = function(value)
-  return "Effective Last Trading Date: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "Effective Last Trading Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Effective Last Trading Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Effective Last Trading Date
@@ -1076,7 +1084,15 @@ hkex_hkexderivatives_premium_omd_v2_0.first_trading_date.size = 4
 
 -- Display: First Trading Date
 hkex_hkexderivatives_premium_omd_v2_0.first_trading_date.display = function(value)
-  return "First Trading Date: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "First Trading Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("First Trading Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: First Trading Date
@@ -1662,7 +1678,10 @@ hkex_hkexderivatives_premium_omd_v2_0.last_trading_date.size = 4
 
 -- Display: Last Trading Date
 hkex_hkexderivatives_premium_omd_v2_0.last_trading_date.display = function(value)
-  return "Last Trading Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Last Trading Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Last Trading Date

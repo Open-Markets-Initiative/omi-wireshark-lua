@@ -50,27 +50,8 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.arbitrage_bid_principal
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.arbitrage_bid_trust_trading_value = ProtoField.new("Arbitrage Bid Trust Trading Value", "koscom.mdcsrealtime.securitiesa.exture.v2.020.arbitragebidtrusttradingvalue", ftypes.DOUBLE, nil, nil, nil, "Arbitrage Bid Trust Trading Value.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.arbitrage_bid_trust_trading_volume = ProtoField.new("Arbitrage Bid Trust Trading Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.arbitragebidtrusttradingvolume", ftypes.UINT64, nil, nil, nil, "Arbitrage Bid Trust Trading Volume.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_bid_type_code = ProtoField.new("Ask Bid Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.askbidtypecode", ftypes.STRING, nil, nil, nil, "Ask/Bid Type Code 1: ASK 2: BID 3: BID + ASK")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_1_price = ProtoField.new("Ask Level 1 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel1price", ftypes.DOUBLE, nil, nil, nil, "The best ask.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_1_volume = ProtoField.new("Ask Level 1 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel1volume", ftypes.UINT64, nil, nil, nil, "The best ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_10_price = ProtoField.new("Ask Level 10 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel10price", ftypes.DOUBLE, nil, nil, nil, "The tenth highest ask price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_10_volume = ProtoField.new("Ask Level 10 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel10volume", ftypes.UINT64, nil, nil, nil, "The tenth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_2_price = ProtoField.new("Ask Level 2 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel2price", ftypes.DOUBLE, nil, nil, nil, "The second highest ask price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_2_volume = ProtoField.new("Ask Level 2 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel2volume", ftypes.UINT64, nil, nil, nil, "The second highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_3_price = ProtoField.new("Ask Level 3 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel3price", ftypes.DOUBLE, nil, nil, nil, "The third highest ask price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_3_volume = ProtoField.new("Ask Level 3 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel3volume", ftypes.UINT64, nil, nil, nil, "The third highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_4_price = ProtoField.new("Ask Level 4 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel4price", ftypes.DOUBLE, nil, nil, nil, "The fourth highest ask price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_4_volume = ProtoField.new("Ask Level 4 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel4volume", ftypes.UINT64, nil, nil, nil, "The fourth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_5_price = ProtoField.new("Ask Level 5 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel5price", ftypes.DOUBLE, nil, nil, nil, "The fifth highest ask price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_5_volume = ProtoField.new("Ask Level 5 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel5volume", ftypes.UINT64, nil, nil, nil, "The fifth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_6_price = ProtoField.new("Ask Level 6 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel6price", ftypes.DOUBLE, nil, nil, nil, "The sixth highest ask price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_6_volume = ProtoField.new("Ask Level 6 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel6volume", ftypes.UINT64, nil, nil, nil, "The sixth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_7_price = ProtoField.new("Ask Level 7 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel7price", ftypes.DOUBLE, nil, nil, nil, "The seventh highest ask price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_7_volume = ProtoField.new("Ask Level 7 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel7volume", ftypes.UINT64, nil, nil, nil, "The seventh highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_8_price = ProtoField.new("Ask Level 8 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel8price", ftypes.DOUBLE, nil, nil, nil, "The eighth highest ask price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_8_volume = ProtoField.new("Ask Level 8 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel8volume", ftypes.UINT64, nil, nil, nil, "The eighth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_9_price = ProtoField.new("Ask Level 9 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel9price", ftypes.DOUBLE, nil, nil, nil, "The ninth highest ask price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_9_volume = ProtoField.new("Ask Level 9 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asklevel9volume", ftypes.UINT64, nil, nil, nil, "The ninth highest ask volume.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_mid_price_total_volume = ProtoField.new("Ask Mid Price Total Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.askmidpricetotalvolume", ftypes.UINT64, nil, nil, nil, "Ask Mid Price Total Volume.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_price = ProtoField.new("Ask Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.askprice", ftypes.DOUBLE, nil, nil, nil, "The best ask.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_total_volume = ProtoField.new("Ask Total Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asktotalvolume", ftypes.UINT64)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_trading_value_1 = ProtoField.new("Ask Trading Value 1", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asktradingvalue1", ftypes.DOUBLE, nil, nil, nil, "Ask-side trading value for the #1 trader.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_trading_value_2 = ProtoField.new("Ask Trading Value 2", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asktradingvalue2", ftypes.DOUBLE, nil, nil, nil, "Ask-side trading value for the #2 trader.")
@@ -83,6 +64,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_trading_volume_3 = 
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_trading_volume_4 = ProtoField.new("Ask Trading Volume 4", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asktradingvolume4", ftypes.UINT64, nil, nil, nil, "Ask-side trading volume for the #4 trader.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_trading_volume_5 = ProtoField.new("Ask Trading Volume 5", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asktradingvolume5", ftypes.UINT64, nil, nil, nil, "Ask-side trading volume for the #5 trader.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_treasury_stock_declaration_id = ProtoField.new("Ask Treasury Stock Declaration Id", "koscom.mdcsrealtime.securitiesa.exture.v2.020.asktreasurystockdeclarationid", ftypes.STRING, nil, nil, nil, "Ask_Treasury Stock Declaration ID 0: N/A N: Treasury Stock_direct_general S: Treasury Stock_direct_stock options 1 - 99999 Treasury Stock_Trust(report sequence number).")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_volume = ProtoField.new("Ask Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.askvolume", ftypes.UINT64, nil, nil, nil, "The best ask volume.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.average_convexity = ProtoField.new("Average Convexity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.averageconvexity", ftypes.DOUBLE, nil, nil, nil, "Average convexity across the index constituents (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.average_coupon_price = ProtoField.new("Average Coupon Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.averagecouponprice", ftypes.DOUBLE, nil, nil, nil, "Average coupon price (16 ASCII digits with 6 implied decimal places).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.average_current_yield = ProtoField.new("Average Current Yield", "koscom.mdcsrealtime.securitiesa.exture.v2.020.averagecurrentyield", ftypes.DOUBLE, nil, nil, nil, "Average current yield (16 ASCII digits with 6 implied decimal places).")
@@ -105,27 +87,8 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.basis_price = ProtoFiel
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.basket_trading_in_the_pre_opening_market = ProtoField.new("Basket Trading In The Pre Opening Market", "koscom.mdcsrealtime.securitiesa.exture.v2.020.baskettradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Basket Trading in the Pre-opening Market.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.best_favorable_order_permission_type_code = ProtoField.new("Best Favorable Order Permission Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bestfavorableorderpermissiontypecode", ftypes.UINT24, nil, nil, nil, "Bitwise opration 1: FAS (Fill And Stay) 2: FOK (Fill Or Kill) 4: FAK (Fill And Kill) 8: GTS (Good for the Session) 16: GTC (Good Till Cancel) 32: GTD (Good Till Date).")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_ask_spread_unit_code = ProtoField.new("Bid Ask Spread Unit Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidaskspreadunitcode", ftypes.STRING, nil, nil, nil, "R: Price Ratio Y: Yield Ratio T: Tick.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_1_price = ProtoField.new("Bid Level 1 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel1price", ftypes.DOUBLE, nil, nil, nil, "The best bid.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_1_volume = ProtoField.new("Bid Level 1 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel1volume", ftypes.UINT64, nil, nil, nil, "The best bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_10_price = ProtoField.new("Bid Level 10 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel10price", ftypes.DOUBLE, nil, nil, nil, "The tenth lowest bid price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_10_volume = ProtoField.new("Bid Level 10 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel10volume", ftypes.UINT64, nil, nil, nil, "The tenth lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_2_price = ProtoField.new("Bid Level 2 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel2price", ftypes.DOUBLE, nil, nil, nil, "The second lowest bid price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_2_volume = ProtoField.new("Bid Level 2 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel2volume", ftypes.UINT64, nil, nil, nil, "The second lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_3_price = ProtoField.new("Bid Level 3 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel3price", ftypes.DOUBLE, nil, nil, nil, "The third lowest bid price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_3_volume = ProtoField.new("Bid Level 3 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel3volume", ftypes.UINT64, nil, nil, nil, "The third lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_4_price = ProtoField.new("Bid Level 4 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel4price", ftypes.DOUBLE, nil, nil, nil, "The fourth lowest bid price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_4_volume = ProtoField.new("Bid Level 4 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel4volume", ftypes.UINT64, nil, nil, nil, "The fourth lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_5_price = ProtoField.new("Bid Level 5 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel5price", ftypes.DOUBLE, nil, nil, nil, "The fifth lowest bid price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_5_volume = ProtoField.new("Bid Level 5 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel5volume", ftypes.UINT64, nil, nil, nil, "The fifth lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_6_price = ProtoField.new("Bid Level 6 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel6price", ftypes.DOUBLE, nil, nil, nil, "The sixth lowest bid price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_6_volume = ProtoField.new("Bid Level 6 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel6volume", ftypes.UINT64, nil, nil, nil, "The sixth lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_7_price = ProtoField.new("Bid Level 7 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel7price", ftypes.DOUBLE, nil, nil, nil, "The seventh lowest bid price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_7_volume = ProtoField.new("Bid Level 7 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel7volume", ftypes.UINT64, nil, nil, nil, "The seventh lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_8_price = ProtoField.new("Bid Level 8 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel8price", ftypes.DOUBLE, nil, nil, nil, "The eighth lowest bid price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_8_volume = ProtoField.new("Bid Level 8 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel8volume", ftypes.UINT64, nil, nil, nil, "The eighth lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_9_price = ProtoField.new("Bid Level 9 Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel9price", ftypes.DOUBLE, nil, nil, nil, "The ninth lowest bid price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_9_volume = ProtoField.new("Bid Level 9 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidlevel9volume", ftypes.UINT64, nil, nil, nil, "The ninth lowest bid volume.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_mid_price_total_volume = ProtoField.new("Bid Mid Price Total Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidmidpricetotalvolume", ftypes.UINT64, nil, nil, nil, "Bid Mid Price Total Volume.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_price = ProtoField.new("Bid Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidprice", ftypes.DOUBLE, nil, nil, nil, "The best bid.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_total_volume = ProtoField.new("Bid Total Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidtotalvolume", ftypes.UINT64)
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_trading_value_1 = ProtoField.new("Bid Trading Value 1", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidtradingvalue1", ftypes.DOUBLE, nil, nil, nil, "Bid-side trading value for the #1 trader.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_trading_value_2 = ProtoField.new("Bid Trading Value 2", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidtradingvalue2", ftypes.DOUBLE, nil, nil, nil, "Bid-side trading value for the #2 trader.")
@@ -138,6 +101,7 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_trading_volume_3 = 
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_trading_volume_4 = ProtoField.new("Bid Trading Volume 4", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidtradingvolume4", ftypes.UINT64, nil, nil, nil, "Bid-side trading volume for the #4 trader.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_trading_volume_5 = ProtoField.new("Bid Trading Volume 5", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidtradingvolume5", ftypes.UINT64, nil, nil, nil, "Bid-side trading volume for the #5 trader.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_treasury_stock_declaration_id = ProtoField.new("Bid Treasury Stock Declaration Id", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidtreasurystockdeclarationid", ftypes.STRING, nil, nil, nil, "Bid_Treasury Stock Declaration ID 0: N/A N: Treasury Stock_direct_general S: Treasury Stock_direct_stock options 1 - 99999 Treasury Stock_Trust(report sequence number).")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_volume = ProtoField.new("Bid Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.bidvolume", ftypes.UINT64, nil, nil, nil, "The best bid volume.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.block_trading_in_the_pre_opening_market = ProtoField.new("Block Trading In The Pre Opening Market", "koscom.mdcsrealtime.securitiesa.exture.v2.020.blocktradinginthepreopeningmarket", ftypes.STRING, nil, nil, nil, "Block Trading in the Pre-opening Market.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.board_event_group_code = ProtoField.new("Board Event Group Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.boardeventgroupcode", ftypes.UINT24, nil, nil, nil, "Board Event Group Code (Bitwise operation) ▦▦ Code ▦▦ 1: A regular Issue (Not an issue on the last trading day) 2: An issue on the Last trading day 4: A regular issue (Not a discrete-time traded issue.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.board_event_id = ProtoField.new("Board Event Id", "koscom.mdcsrealtime.securitiesa.exture.v2.020.boardeventid", ftypes.STRING, nil, nil, nil, "An ID indicates an event that occurs on a Board in a designated time.")
@@ -342,26 +306,8 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.low_liquidity = ProtoFi
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lower_limit_of_base_price = ProtoField.new("Lower Limit Of Base Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lowerlimitofbaseprice", ftypes.DOUBLE, nil, nil, nil, "Lower Price of Base Price.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lower_limit_price = ProtoField.new("Lower Limit Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lowerlimitprice", ftypes.DOUBLE, nil, nil, nil, "A price subtracting the price limit from the base price.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lowest_order_price = ProtoField.new("Lowest Order Price", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lowestorderprice", ftypes.DOUBLE, nil, nil, nil, "An lower limit price of an issue of which base price is settled with today's single price.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_1_volume = ProtoField.new("Lp Ask Level 1 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpasklevel1volume", ftypes.UINT64, nil, nil, nil, "LP_The best ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_10_volume = ProtoField.new("Lp Ask Level 10 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpasklevel10volume", ftypes.UINT64, nil, nil, nil, "LP_The tenth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_2_volume = ProtoField.new("Lp Ask Level 2 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpasklevel2volume", ftypes.UINT64, nil, nil, nil, "LP_The second highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_3_volume = ProtoField.new("Lp Ask Level 3 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpasklevel3volume", ftypes.UINT64, nil, nil, nil, "LP_The third highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_4_volume = ProtoField.new("Lp Ask Level 4 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpasklevel4volume", ftypes.UINT64, nil, nil, nil, "LP_The fourth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_5_volume = ProtoField.new("Lp Ask Level 5 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpasklevel5volume", ftypes.UINT64, nil, nil, nil, "LP_The fifth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_6_volume = ProtoField.new("Lp Ask Level 6 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpasklevel6volume", ftypes.UINT64, nil, nil, nil, "LP_The sixth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_7_volume = ProtoField.new("Lp Ask Level 7 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpasklevel7volume", ftypes.UINT64, nil, nil, nil, "LP_The seventh highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_8_volume = ProtoField.new("Lp Ask Level 8 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpasklevel8volume", ftypes.UINT64, nil, nil, nil, "LP_The eighth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_9_volume = ProtoField.new("Lp Ask Level 9 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpasklevel9volume", ftypes.UINT64, nil, nil, nil, "LP_The ninth highest ask volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_1_volume = ProtoField.new("Lp Bid Level 1 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidlevel1volume", ftypes.UINT64, nil, nil, nil, "LP_The best bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_10_volume = ProtoField.new("Lp Bid Level 10 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidlevel10volume", ftypes.UINT64, nil, nil, nil, "LP_The tenth lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_2_volume = ProtoField.new("Lp Bid Level 2 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidlevel2volume", ftypes.UINT64, nil, nil, nil, "LP_The second lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_3_volume = ProtoField.new("Lp Bid Level 3 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidlevel3volume", ftypes.UINT64, nil, nil, nil, "LP_The third lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_4_volume = ProtoField.new("Lp Bid Level 4 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidlevel4volume", ftypes.UINT64, nil, nil, nil, "LP_The fourth lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_5_volume = ProtoField.new("Lp Bid Level 5 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidlevel5volume", ftypes.UINT64, nil, nil, nil, "LP_The fifth lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_6_volume = ProtoField.new("Lp Bid Level 6 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidlevel6volume", ftypes.UINT64, nil, nil, nil, "LP_The sixth lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_7_volume = ProtoField.new("Lp Bid Level 7 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidlevel7volume", ftypes.UINT64, nil, nil, nil, "LP_The seventh lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_8_volume = ProtoField.new("Lp Bid Level 8 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidlevel8volume", ftypes.UINT64, nil, nil, nil, "LP_The eighth lowest bid volume.")
-omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_9_volume = ProtoField.new("Lp Bid Level 9 Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidlevel9volume", ftypes.UINT64, nil, nil, nil, "LP_The ninth lowest bid volume.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_volume = ProtoField.new("LP Ask Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpaskvolume", ftypes.UINT64, nil, nil, nil, "LP_The best ask volume.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_volume = ProtoField.new("LP Bid Volume", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpbidvolume", ftypes.UINT64, nil, nil, nil, "LP_The best bid volume.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_end_date = ProtoField.new("Lp End Date", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpenddate", ftypes.STRING, nil, nil, nil, "End date of Liquidity Provide.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_holding_quantity = ProtoField.new("Lp Holding Quantity", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lpholdingquantity", ftypes.UINT64, nil, nil, nil, "LP holding quantity per each account.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_order = ProtoField.new("Lp Order", "koscom.mdcsrealtime.securitiesa.exture.v2.020.lporder", ftypes.STRING, nil, nil, nil, "Y/N to LP Order.")
@@ -522,6 +468,8 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.strip_bond_type_code = 
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.substitute_price_of_securities = ProtoField.new("Substitute Price Of Securities", "koscom.mdcsrealtime.securitiesa.exture.v2.020.substitutepriceofsecurities", ftypes.DOUBLE, nil, nil, nil, "Substitute price of securities as a consignment guarantee money.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.target_stock_isin_code = ProtoField.new("Target Stock Isin Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.targetstockisincode", ftypes.STRING, nil, nil, nil, "Target Stock_ISIN Code.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.tax_type_code = ProtoField.new("Tax Type Code", "koscom.mdcsrealtime.securitiesa.exture.v2.020.taxtypecode", ftypes.STRING, nil, nil, nil, "Dividend Income Tax, Securities Transaction Tax, etc.")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ten_levels = ProtoField.new("Ten Levels", "koscom.mdcsrealtime.securitiesa.exture.v2.020.tenlevels", ftypes.STRING, nil, nil, nil, "One of the book's best 10 levels: price and volume of each side; an empty level has volume 0")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ten_levels_with_lp = ProtoField.new("Ten Levels With LP", "koscom.mdcsrealtime.securitiesa.exture.v2.020.tenlevelswithlp", ftypes.STRING, nil, nil, nil, "One of the book's best 10 levels: price and volume of each side (and the LP part of each volume); an empty level has volume 0")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_best_ask = ProtoField.new("The Best Ask", "koscom.mdcsrealtime.securitiesa.exture.v2.020.thebestask", ftypes.DOUBLE, nil, nil, nil, "The lowest offer price.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_best_bid = ProtoField.new("The Best Bid", "koscom.mdcsrealtime.securitiesa.exture.v2.020.thebestbid", ftypes.DOUBLE, nil, nil, nil, "The highest quoted bid.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.the_date_knock_out_occurred = ProtoField.new("The Date Knock Out Occurred", "koscom.mdcsrealtime.securitiesa.exture.v2.020.thedateknockoutoccurred", ftypes.STRING, nil, nil, nil, "The Date Knock-out occurred.")
@@ -664,6 +612,10 @@ omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.securities_treasury_sto
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.securities_treasury_stocks_traded_message = ProtoField.new("Securities Treasury Stocks Traded Message", "koscom.mdcsrealtime.securitiesa.exture.v2.020.securitiestreasurystockstradedmessage", ftypes.STRING, nil, nil, nil, "Treasury Stocks Traded Information. Real-time treasury-stock trade dissemination per issue.")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.securities_triggering_vi_message = ProtoField.new("Securities Triggering Vi Message", "koscom.mdcsrealtime.securitiesa.exture.v2.020.securitiestriggeringvimessage", ftypes.STRING, nil, nil, nil, "Triggering/Removing VI (Volatility Interruption). Per-issue VI trigger or release event.")
 
+-- Koscom MdcsRealtime SecuritiesA Exture 2.020 Generated Fields
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ten_levels_index = ProtoField.new("Ten Levels Index", "koscom.mdcsrealtime.securitiesa.exture.v2.020.tenlevelsindex", ftypes.UINT16)
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ten_levels_with_lp_index = ProtoField.new("Ten Levels With LP Index", "koscom.mdcsrealtime.securitiesa.exture.v2.020.tenlevelswithlpindex", ftypes.UINT16)
+
 -- Koscom MdcsRealtime SecuritiesA Exture 2.020 Expert Info
 koscom_mdcsrealtime_securitiesa_exture_v2_020.experts = {}
 koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number = ProtoExpert.new("koscom.mdcsrealtime.securitiesa.exture.v2.020.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
@@ -687,11 +639,13 @@ local show = {}
 show.application_messages = true
 show.structs = true
 show.padding = false
+show.indexes = true
 
 -- Register Koscom MdcsRealtime SecuritiesA Exture 2.020 Show Options
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
+omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 -- Handle changed preferences
 function omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.prefs_changed()
@@ -705,6 +659,9 @@ function omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.prefs_changed()
   end
   if show.structs ~= omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.prefs.show_structs then
     show.structs = omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.prefs.show_structs
+  end
+  if show.indexes ~= omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.prefs.show_indexes then
+    show.indexes = omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.prefs.show_indexes
   end
 end
 
@@ -1938,696 +1895,6 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_bid_type_code.dissect = functi
   return offset + length, value
 end
 
--- Ask Level 1 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price = {}
-
--- Size: Ask Level 1 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.size = 11
-
--- Display: Ask Level 1 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 1 Price: No Value"
-  end
-
-  return "Ask Level 1 Price: "..text
-end
-
--- Dissect: Ask Level 1 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_1_price, range, value, "Ask Level 1 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 1 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_1_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume = {}
-
--- Size: Ask Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.size = 12
-
--- Display: Ask Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.display = function(value)
-  return "Ask Level 1 Volume: "..value
-end
-
--- Dissect: Ask Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_1_volume, range, value, "Ask Level 1 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 1 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_1_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 10 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price = {}
-
--- Size: Ask Level 10 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.size = 11
-
--- Display: Ask Level 10 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 10 Price: No Value"
-  end
-
-  return "Ask Level 10 Price: "..text
-end
-
--- Dissect: Ask Level 10 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_10_price, range, value, "Ask Level 10 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 10 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_10_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume = {}
-
--- Size: Ask Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.size = 12
-
--- Display: Ask Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.display = function(value)
-  return "Ask Level 10 Volume: "..value
-end
-
--- Dissect: Ask Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_10_volume, range, value, "Ask Level 10 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 10 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_10_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 2 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price = {}
-
--- Size: Ask Level 2 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.size = 11
-
--- Display: Ask Level 2 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 2 Price: No Value"
-  end
-
-  return "Ask Level 2 Price: "..text
-end
-
--- Dissect: Ask Level 2 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_2_price, range, value, "Ask Level 2 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 2 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_2_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume = {}
-
--- Size: Ask Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.size = 12
-
--- Display: Ask Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.display = function(value)
-  return "Ask Level 2 Volume: "..value
-end
-
--- Dissect: Ask Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_2_volume, range, value, "Ask Level 2 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 2 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_2_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 3 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price = {}
-
--- Size: Ask Level 3 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.size = 11
-
--- Display: Ask Level 3 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 3 Price: No Value"
-  end
-
-  return "Ask Level 3 Price: "..text
-end
-
--- Dissect: Ask Level 3 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_3_price, range, value, "Ask Level 3 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 3 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_3_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume = {}
-
--- Size: Ask Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.size = 12
-
--- Display: Ask Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.display = function(value)
-  return "Ask Level 3 Volume: "..value
-end
-
--- Dissect: Ask Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_3_volume, range, value, "Ask Level 3 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 3 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_3_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 4 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price = {}
-
--- Size: Ask Level 4 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.size = 11
-
--- Display: Ask Level 4 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 4 Price: No Value"
-  end
-
-  return "Ask Level 4 Price: "..text
-end
-
--- Dissect: Ask Level 4 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_4_price, range, value, "Ask Level 4 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 4 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_4_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume = {}
-
--- Size: Ask Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.size = 12
-
--- Display: Ask Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.display = function(value)
-  return "Ask Level 4 Volume: "..value
-end
-
--- Dissect: Ask Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_4_volume, range, value, "Ask Level 4 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 4 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_4_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 5 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price = {}
-
--- Size: Ask Level 5 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.size = 11
-
--- Display: Ask Level 5 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 5 Price: No Value"
-  end
-
-  return "Ask Level 5 Price: "..text
-end
-
--- Dissect: Ask Level 5 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_5_price, range, value, "Ask Level 5 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 5 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_5_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume = {}
-
--- Size: Ask Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.size = 12
-
--- Display: Ask Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.display = function(value)
-  return "Ask Level 5 Volume: "..value
-end
-
--- Dissect: Ask Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_5_volume, range, value, "Ask Level 5 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 5 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_5_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 6 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price = {}
-
--- Size: Ask Level 6 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.size = 11
-
--- Display: Ask Level 6 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 6 Price: No Value"
-  end
-
-  return "Ask Level 6 Price: "..text
-end
-
--- Dissect: Ask Level 6 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_6_price, range, value, "Ask Level 6 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 6 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_6_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume = {}
-
--- Size: Ask Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.size = 12
-
--- Display: Ask Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.display = function(value)
-  return "Ask Level 6 Volume: "..value
-end
-
--- Dissect: Ask Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_6_volume, range, value, "Ask Level 6 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 6 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_6_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 7 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price = {}
-
--- Size: Ask Level 7 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.size = 11
-
--- Display: Ask Level 7 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 7 Price: No Value"
-  end
-
-  return "Ask Level 7 Price: "..text
-end
-
--- Dissect: Ask Level 7 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_7_price, range, value, "Ask Level 7 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 7 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_7_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume = {}
-
--- Size: Ask Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.size = 12
-
--- Display: Ask Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.display = function(value)
-  return "Ask Level 7 Volume: "..value
-end
-
--- Dissect: Ask Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_7_volume, range, value, "Ask Level 7 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 7 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_7_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 8 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price = {}
-
--- Size: Ask Level 8 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.size = 11
-
--- Display: Ask Level 8 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 8 Price: No Value"
-  end
-
-  return "Ask Level 8 Price: "..text
-end
-
--- Dissect: Ask Level 8 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_8_price, range, value, "Ask Level 8 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 8 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_8_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume = {}
-
--- Size: Ask Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.size = 12
-
--- Display: Ask Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.display = function(value)
-  return "Ask Level 8 Volume: "..value
-end
-
--- Dissect: Ask Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_8_volume, range, value, "Ask Level 8 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 8 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_8_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 9 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price = {}
-
--- Size: Ask Level 9 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.size = 11
-
--- Display: Ask Level 9 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Ask Level 9 Price: No Value"
-  end
-
-  return "Ask Level 9 Price: "..text
-end
-
--- Dissect: Ask Level 9 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_9_price, range, value, "Ask Level 9 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 9 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_9_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Ask Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume = {}
-
--- Size: Ask Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.size = 12
-
--- Display: Ask Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.display = function(value)
-  return "Ask Level 9 Volume: "..value
-end
-
--- Dissect: Ask Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_9_volume, range, value, "Ask Level 9 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Level 9 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_level_9_volume, range, value, display)
-
-  return offset + length, value
-end
-
 -- Ask Mid Price Total Volume
 koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_mid_price_total_volume = {}
 
@@ -2655,6 +1922,44 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_mid_price_total_volume.dissect
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_mid_price_total_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_mid_price_total_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price = {}
+
+-- Size: Ask Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price.size = 11
+
+-- Display: Ask Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Ask Price: No Value"
+  end
+
+  return "Ask Price: "..text
+end
+
+-- Dissect: Ask Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_price, range, value, "Ask Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -3089,6 +2394,37 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_treasury_stock_declaration_id.
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_treasury_stock_declaration_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_treasury_stock_declaration_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_volume = {}
+
+-- Size: Ask Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_volume.size = 12
+
+-- Display: Ask Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_volume.display = function(value)
+  return "Ask Volume: "..value
+end
+
+-- Dissect: Ask Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_volume.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_volume, range, value, "Ask Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Ask Volume is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ask_volume, range, value, display)
 
   return offset + length, value
 end
@@ -3904,696 +3240,6 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_ask_spread_unit_code.dissect =
   return offset + length, value
 end
 
--- Bid Level 1 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price = {}
-
--- Size: Bid Level 1 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.size = 11
-
--- Display: Bid Level 1 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 1 Price: No Value"
-  end
-
-  return "Bid Level 1 Price: "..text
-end
-
--- Dissect: Bid Level 1 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_1_price, range, value, "Bid Level 1 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 1 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_1_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume = {}
-
--- Size: Bid Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.size = 12
-
--- Display: Bid Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.display = function(value)
-  return "Bid Level 1 Volume: "..value
-end
-
--- Dissect: Bid Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_1_volume, range, value, "Bid Level 1 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 1 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_1_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 10 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price = {}
-
--- Size: Bid Level 10 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.size = 11
-
--- Display: Bid Level 10 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 10 Price: No Value"
-  end
-
-  return "Bid Level 10 Price: "..text
-end
-
--- Dissect: Bid Level 10 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_10_price, range, value, "Bid Level 10 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 10 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_10_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume = {}
-
--- Size: Bid Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.size = 12
-
--- Display: Bid Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.display = function(value)
-  return "Bid Level 10 Volume: "..value
-end
-
--- Dissect: Bid Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_10_volume, range, value, "Bid Level 10 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 10 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_10_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 2 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price = {}
-
--- Size: Bid Level 2 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.size = 11
-
--- Display: Bid Level 2 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 2 Price: No Value"
-  end
-
-  return "Bid Level 2 Price: "..text
-end
-
--- Dissect: Bid Level 2 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_2_price, range, value, "Bid Level 2 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 2 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_2_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume = {}
-
--- Size: Bid Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.size = 12
-
--- Display: Bid Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.display = function(value)
-  return "Bid Level 2 Volume: "..value
-end
-
--- Dissect: Bid Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_2_volume, range, value, "Bid Level 2 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 2 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_2_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 3 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price = {}
-
--- Size: Bid Level 3 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.size = 11
-
--- Display: Bid Level 3 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 3 Price: No Value"
-  end
-
-  return "Bid Level 3 Price: "..text
-end
-
--- Dissect: Bid Level 3 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_3_price, range, value, "Bid Level 3 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 3 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_3_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume = {}
-
--- Size: Bid Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.size = 12
-
--- Display: Bid Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.display = function(value)
-  return "Bid Level 3 Volume: "..value
-end
-
--- Dissect: Bid Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_3_volume, range, value, "Bid Level 3 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 3 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_3_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 4 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price = {}
-
--- Size: Bid Level 4 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.size = 11
-
--- Display: Bid Level 4 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 4 Price: No Value"
-  end
-
-  return "Bid Level 4 Price: "..text
-end
-
--- Dissect: Bid Level 4 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_4_price, range, value, "Bid Level 4 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 4 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_4_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume = {}
-
--- Size: Bid Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.size = 12
-
--- Display: Bid Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.display = function(value)
-  return "Bid Level 4 Volume: "..value
-end
-
--- Dissect: Bid Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_4_volume, range, value, "Bid Level 4 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 4 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_4_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 5 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price = {}
-
--- Size: Bid Level 5 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.size = 11
-
--- Display: Bid Level 5 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 5 Price: No Value"
-  end
-
-  return "Bid Level 5 Price: "..text
-end
-
--- Dissect: Bid Level 5 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_5_price, range, value, "Bid Level 5 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 5 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_5_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume = {}
-
--- Size: Bid Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.size = 12
-
--- Display: Bid Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.display = function(value)
-  return "Bid Level 5 Volume: "..value
-end
-
--- Dissect: Bid Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_5_volume, range, value, "Bid Level 5 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 5 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_5_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 6 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price = {}
-
--- Size: Bid Level 6 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.size = 11
-
--- Display: Bid Level 6 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 6 Price: No Value"
-  end
-
-  return "Bid Level 6 Price: "..text
-end
-
--- Dissect: Bid Level 6 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_6_price, range, value, "Bid Level 6 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 6 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_6_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume = {}
-
--- Size: Bid Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.size = 12
-
--- Display: Bid Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.display = function(value)
-  return "Bid Level 6 Volume: "..value
-end
-
--- Dissect: Bid Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_6_volume, range, value, "Bid Level 6 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 6 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_6_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 7 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price = {}
-
--- Size: Bid Level 7 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.size = 11
-
--- Display: Bid Level 7 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 7 Price: No Value"
-  end
-
-  return "Bid Level 7 Price: "..text
-end
-
--- Dissect: Bid Level 7 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_7_price, range, value, "Bid Level 7 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 7 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_7_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume = {}
-
--- Size: Bid Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.size = 12
-
--- Display: Bid Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.display = function(value)
-  return "Bid Level 7 Volume: "..value
-end
-
--- Dissect: Bid Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_7_volume, range, value, "Bid Level 7 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 7 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_7_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 8 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price = {}
-
--- Size: Bid Level 8 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.size = 11
-
--- Display: Bid Level 8 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 8 Price: No Value"
-  end
-
-  return "Bid Level 8 Price: "..text
-end
-
--- Dissect: Bid Level 8 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_8_price, range, value, "Bid Level 8 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 8 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_8_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume = {}
-
--- Size: Bid Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.size = 12
-
--- Display: Bid Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.display = function(value)
-  return "Bid Level 8 Volume: "..value
-end
-
--- Dissect: Bid Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_8_volume, range, value, "Bid Level 8 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 8 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_8_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 9 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price = {}
-
--- Size: Bid Level 9 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.size = 11
-
--- Display: Bid Level 9 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.display = function(value, buffer, offset, packet, parent)
-  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.size):string()
-  local text = format_decimal_text(raw)
-
-  if text == nil then
-    return "Bid Level 9 Price: No Value"
-  end
-
-  return "Bid Level 9 Price: "..text
-end
-
--- Dissect: Bid Level 9 Price
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_9_price, range, value, "Bid Level 9 Price: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 9 Price is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_9_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Bid Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume = {}
-
--- Size: Bid Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.size = 12
-
--- Display: Bid Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.display = function(value)
-  return "Bid Level 9 Volume: "..value
-end
-
--- Dissect: Bid Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_9_volume, range, value, "Bid Level 9 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Level 9 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_level_9_volume, range, value, display)
-
-  return offset + length, value
-end
-
 -- Bid Mid Price Total Volume
 koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_mid_price_total_volume = {}
 
@@ -4621,6 +3267,44 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_mid_price_total_volume.dissect
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_mid_price_total_volume.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_mid_price_total_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price = {}
+
+-- Size: Bid Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price.size = 11
+
+-- Display: Bid Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Bid Price: No Value"
+  end
+
+  return "Bid Price: "..text
+end
+
+-- Dissect: Bid Price
+koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_price, range, value, "Bid Price: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -5055,6 +3739,37 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_treasury_stock_declaration_id.
   local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_treasury_stock_declaration_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_treasury_stock_declaration_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_volume = {}
+
+-- Size: Bid Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_volume.size = 12
+
+-- Display: Bid Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_volume.display = function(value)
+  return "Bid Volume: "..value
+end
+
+-- Dissect: Bid Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_volume.size
+  local range = buffer(offset, length)
+  local value = ascii_to_uint64(range:string())
+
+  if value == nil then
+    value = UInt64.new("0")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_volume, range, value, "Bid Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Bid Volume is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.bid_volume, range, value, display)
 
   return offset + length, value
 end
@@ -11157,622 +9872,64 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.lowest_order_price.dissect = funct
   return offset + length, value
 end
 
--- Lp Ask Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_1_volume = {}
+-- LP Ask Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_volume = {}
 
--- Size: Lp Ask Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_1_volume.size = 12
+-- Size: LP Ask Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_volume.size = 12
 
--- Display: Lp Ask Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_1_volume.display = function(value)
-  return "Lp Ask Level 1 Volume: "..value
+-- Display: LP Ask Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_volume.display = function(value)
+  return "LP Ask Volume: "..value
 end
 
--- Dissect: Lp Ask Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_1_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_1_volume.size
+-- Dissect: LP Ask Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_1_volume, range, value, "Lp Ask Level 1 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Ask Level 1 Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_volume, range, value, "LP Ask Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "LP Ask Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_1_volume.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_1_volume, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Lp Ask Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_10_volume = {}
+-- LP Bid Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_volume = {}
 
--- Size: Lp Ask Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_10_volume.size = 12
+-- Size: LP Bid Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_volume.size = 12
 
--- Display: Lp Ask Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_10_volume.display = function(value)
-  return "Lp Ask Level 10 Volume: "..value
+-- Display: LP Bid Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_volume.display = function(value)
+  return "LP Bid Volume: "..value
 end
 
--- Dissect: Lp Ask Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_10_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_10_volume.size
+-- Dissect: LP Bid Volume
+koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_volume.dissect = function(buffer, offset, packet, parent)
+  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_volume.size
   local range = buffer(offset, length)
   local value = ascii_to_uint64(range:string())
 
   if value == nil then
     value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_10_volume, range, value, "Lp Ask Level 10 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Ask Level 10 Volume is not a number: '"..range:string().."'")
+    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_volume, range, value, "LP Bid Volume: Not Applicable")
+    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "LP Bid Volume is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_10_volume.display(value, buffer, offset, packet, parent)
+  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_10_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Ask Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_2_volume = {}
-
--- Size: Lp Ask Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_2_volume.size = 12
-
--- Display: Lp Ask Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_2_volume.display = function(value)
-  return "Lp Ask Level 2 Volume: "..value
-end
-
--- Dissect: Lp Ask Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_2_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_2_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_2_volume, range, value, "Lp Ask Level 2 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Ask Level 2 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_2_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_2_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Ask Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_3_volume = {}
-
--- Size: Lp Ask Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_3_volume.size = 12
-
--- Display: Lp Ask Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_3_volume.display = function(value)
-  return "Lp Ask Level 3 Volume: "..value
-end
-
--- Dissect: Lp Ask Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_3_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_3_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_3_volume, range, value, "Lp Ask Level 3 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Ask Level 3 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_3_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_3_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Ask Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_4_volume = {}
-
--- Size: Lp Ask Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_4_volume.size = 12
-
--- Display: Lp Ask Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_4_volume.display = function(value)
-  return "Lp Ask Level 4 Volume: "..value
-end
-
--- Dissect: Lp Ask Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_4_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_4_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_4_volume, range, value, "Lp Ask Level 4 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Ask Level 4 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_4_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_4_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Ask Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_5_volume = {}
-
--- Size: Lp Ask Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_5_volume.size = 12
-
--- Display: Lp Ask Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_5_volume.display = function(value)
-  return "Lp Ask Level 5 Volume: "..value
-end
-
--- Dissect: Lp Ask Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_5_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_5_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_5_volume, range, value, "Lp Ask Level 5 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Ask Level 5 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_5_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_5_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Ask Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_6_volume = {}
-
--- Size: Lp Ask Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_6_volume.size = 12
-
--- Display: Lp Ask Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_6_volume.display = function(value)
-  return "Lp Ask Level 6 Volume: "..value
-end
-
--- Dissect: Lp Ask Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_6_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_6_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_6_volume, range, value, "Lp Ask Level 6 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Ask Level 6 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_6_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_6_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Ask Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_7_volume = {}
-
--- Size: Lp Ask Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_7_volume.size = 12
-
--- Display: Lp Ask Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_7_volume.display = function(value)
-  return "Lp Ask Level 7 Volume: "..value
-end
-
--- Dissect: Lp Ask Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_7_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_7_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_7_volume, range, value, "Lp Ask Level 7 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Ask Level 7 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_7_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_7_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Ask Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_8_volume = {}
-
--- Size: Lp Ask Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_8_volume.size = 12
-
--- Display: Lp Ask Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_8_volume.display = function(value)
-  return "Lp Ask Level 8 Volume: "..value
-end
-
--- Dissect: Lp Ask Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_8_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_8_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_8_volume, range, value, "Lp Ask Level 8 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Ask Level 8 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_8_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_8_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Ask Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_9_volume = {}
-
--- Size: Lp Ask Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_9_volume.size = 12
-
--- Display: Lp Ask Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_9_volume.display = function(value)
-  return "Lp Ask Level 9 Volume: "..value
-end
-
--- Dissect: Lp Ask Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_9_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_9_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_9_volume, range, value, "Lp Ask Level 9 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Ask Level 9 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_9_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_ask_level_9_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Bid Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_1_volume = {}
-
--- Size: Lp Bid Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_1_volume.size = 12
-
--- Display: Lp Bid Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_1_volume.display = function(value)
-  return "Lp Bid Level 1 Volume: "..value
-end
-
--- Dissect: Lp Bid Level 1 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_1_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_1_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_1_volume, range, value, "Lp Bid Level 1 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Bid Level 1 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_1_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_1_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Bid Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_10_volume = {}
-
--- Size: Lp Bid Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_10_volume.size = 12
-
--- Display: Lp Bid Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_10_volume.display = function(value)
-  return "Lp Bid Level 10 Volume: "..value
-end
-
--- Dissect: Lp Bid Level 10 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_10_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_10_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_10_volume, range, value, "Lp Bid Level 10 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Bid Level 10 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_10_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_10_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Bid Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_2_volume = {}
-
--- Size: Lp Bid Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_2_volume.size = 12
-
--- Display: Lp Bid Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_2_volume.display = function(value)
-  return "Lp Bid Level 2 Volume: "..value
-end
-
--- Dissect: Lp Bid Level 2 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_2_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_2_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_2_volume, range, value, "Lp Bid Level 2 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Bid Level 2 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_2_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_2_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Bid Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_3_volume = {}
-
--- Size: Lp Bid Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_3_volume.size = 12
-
--- Display: Lp Bid Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_3_volume.display = function(value)
-  return "Lp Bid Level 3 Volume: "..value
-end
-
--- Dissect: Lp Bid Level 3 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_3_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_3_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_3_volume, range, value, "Lp Bid Level 3 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Bid Level 3 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_3_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_3_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Bid Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_4_volume = {}
-
--- Size: Lp Bid Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_4_volume.size = 12
-
--- Display: Lp Bid Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_4_volume.display = function(value)
-  return "Lp Bid Level 4 Volume: "..value
-end
-
--- Dissect: Lp Bid Level 4 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_4_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_4_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_4_volume, range, value, "Lp Bid Level 4 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Bid Level 4 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_4_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_4_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Bid Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_5_volume = {}
-
--- Size: Lp Bid Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_5_volume.size = 12
-
--- Display: Lp Bid Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_5_volume.display = function(value)
-  return "Lp Bid Level 5 Volume: "..value
-end
-
--- Dissect: Lp Bid Level 5 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_5_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_5_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_5_volume, range, value, "Lp Bid Level 5 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Bid Level 5 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_5_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_5_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Bid Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_6_volume = {}
-
--- Size: Lp Bid Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_6_volume.size = 12
-
--- Display: Lp Bid Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_6_volume.display = function(value)
-  return "Lp Bid Level 6 Volume: "..value
-end
-
--- Dissect: Lp Bid Level 6 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_6_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_6_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_6_volume, range, value, "Lp Bid Level 6 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Bid Level 6 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_6_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_6_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Bid Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_7_volume = {}
-
--- Size: Lp Bid Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_7_volume.size = 12
-
--- Display: Lp Bid Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_7_volume.display = function(value)
-  return "Lp Bid Level 7 Volume: "..value
-end
-
--- Dissect: Lp Bid Level 7 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_7_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_7_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_7_volume, range, value, "Lp Bid Level 7 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Bid Level 7 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_7_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_7_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Bid Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_8_volume = {}
-
--- Size: Lp Bid Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_8_volume.size = 12
-
--- Display: Lp Bid Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_8_volume.display = function(value)
-  return "Lp Bid Level 8 Volume: "..value
-end
-
--- Dissect: Lp Bid Level 8 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_8_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_8_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_8_volume, range, value, "Lp Bid Level 8 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Bid Level 8 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_8_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_8_volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Lp Bid Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_9_volume = {}
-
--- Size: Lp Bid Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_9_volume.size = 12
-
--- Display: Lp Bid Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_9_volume.display = function(value)
-  return "Lp Bid Level 9 Volume: "..value
-end
-
--- Dissect: Lp Bid Level 9 Volume
-koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_9_volume.dissect = function(buffer, offset, packet, parent)
-  local length = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_9_volume.size
-  local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
-
-  if value == nil then
-    value = UInt64.new("0")
-    local item = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_9_volume, range, value, "Lp Bid Level 9 Volume: Not Applicable")
-    item:add_proto_expert_info(koscom_mdcsrealtime_securitiesa_exture_v2_020.experts.not_a_number, "Lp Bid Level 9 Volume is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_9_volume.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_level_9_volume, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.lp_bid_volume, range, value, display)
 
   return offset + length, value
 end
@@ -24353,6 +22510,72 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_order_filled_message.di
   end
 end
 
+-- Ten Levels With LP
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp = {}
+
+-- Size: Ten Levels With LP
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.size =
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_volume.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_volume.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_volume.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_volume.size
+
+-- Display: Ten Levels With LP
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ten Levels With LP
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.fields = function(buffer, offset, packet, parent, ten_levels_with_lp_index)
+  local index = offset
+
+  -- Implicit Ten Levels With LP Index
+  if ten_levels_with_lp_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ten_levels_with_lp_index, ten_levels_with_lp_index)
+    iteration:set_generated()
+  end
+
+  -- Ask Price: Double
+  index, ask_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Price: Double
+  index, bid_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Ask Volume: Long
+  index, ask_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_volume.dissect(buffer, index, packet, parent)
+
+  -- Bid Volume: Long
+  index, bid_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_volume.dissect(buffer, index, packet, parent)
+
+  -- LP Ask Volume: Long
+  index, lp_ask_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_volume.dissect(buffer, index, packet, parent)
+
+  -- LP Bid Volume: Long
+  index, lp_bid_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_volume.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ten Levels With LP
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.dissect = function(buffer, offset, packet, parent, ten_levels_with_lp_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ten_levels_with_lp, buffer(offset, 0))
+    local index = koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.fields(buffer, offset, packet, parent, ten_levels_with_lp_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.fields(buffer, offset, packet, parent, ten_levels_with_lp_index)
+  end
+end
+
 -- Securities Snapshot Mm Lp Included Message
 koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_snapshot_mm_lp_included_message = {}
 
@@ -24373,66 +22596,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_snapshot_mm_lp_included
   koscom_mdcsrealtime_securitiesa_exture_v2_020.accumulated_trading_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.accumulated_trading_value.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.final_ask_bid_type_code.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_10_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_10_volume.size + 
+  10 * koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.total_ask_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.total_bid_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.estimated_trading_price.size + 
@@ -24500,185 +22664,10 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_snapshot_mm_lp_included
   -- Final Ask Bid Type Code: String
   index, final_ask_bid_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.final_ask_bid_type_code.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Long
-  index, ask_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Long
-  index, bid_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 1 Volume: Long
-  index, lp_ask_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 1 Volume: Long
-  index, lp_bid_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Long
-  index, ask_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Long
-  index, bid_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 2 Volume: Long
-  index, lp_ask_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 2 Volume: Long
-  index, lp_bid_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Long
-  index, ask_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Long
-  index, bid_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 3 Volume: Long
-  index, lp_ask_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 3 Volume: Long
-  index, lp_bid_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Long
-  index, ask_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Long
-  index, bid_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 4 Volume: Long
-  index, lp_ask_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 4 Volume: Long
-  index, lp_bid_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Long
-  index, ask_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Long
-  index, bid_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 5 Volume: Long
-  index, lp_ask_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 5 Volume: Long
-  index, lp_bid_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Price: Double
-  index, ask_level_6_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Price: Double
-  index, bid_level_6_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Volume: Long
-  index, ask_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Volume: Long
-  index, bid_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 6 Volume: Long
-  index, lp_ask_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 6 Volume: Long
-  index, lp_bid_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Price: Double
-  index, ask_level_7_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Price: Double
-  index, bid_level_7_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Volume: Long
-  index, ask_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Volume: Long
-  index, bid_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 7 Volume: Long
-  index, lp_ask_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 7 Volume: Long
-  index, lp_bid_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Price: Double
-  index, ask_level_8_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Price: Double
-  index, bid_level_8_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Volume: Long
-  index, ask_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Volume: Long
-  index, bid_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 8 Volume: Long
-  index, lp_ask_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 8 Volume: Long
-  index, lp_bid_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Price: Double
-  index, ask_level_9_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Price: Double
-  index, bid_level_9_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Volume: Long
-  index, ask_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Volume: Long
-  index, bid_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 9 Volume: Long
-  index, lp_ask_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 9 Volume: Long
-  index, lp_bid_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Price: Double
-  index, ask_level_10_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Price: Double
-  index, bid_level_10_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Volume: Long
-  index, ask_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Volume: Long
-  index, bid_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 10 Volume: Long
-  index, lp_ask_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 10 Volume: Long
-  index, lp_bid_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_10_volume.dissect(buffer, index, packet, parent)
+  -- Array Of: Ten Levels With LP
+  for ten_levels_with_lp_index = 1, 10 do
+    index, ten_levels_with_lp = koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.dissect(buffer, index, packet, parent, ten_levels_with_lp_index)
+  end
 
   -- Total Ask Volume: Long
   index, total_ask_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.total_ask_volume.dissect(buffer, index, packet, parent)
@@ -24737,6 +22726,64 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_snapshot_mm_lp_included
   end
 end
 
+-- Ten Levels
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels = {}
+
+-- Size: Ten Levels
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.size =
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_volume.size + 
+  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_volume.size
+
+-- Display: Ten Levels
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Ten Levels
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.fields = function(buffer, offset, packet, parent, ten_levels_index)
+  local index = offset
+
+  -- Implicit Ten Levels Index
+  if ten_levels_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ten_levels_index, ten_levels_index)
+    iteration:set_generated()
+  end
+
+  -- Ask Price: Double
+  index, ask_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Price: Double
+  index, bid_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Ask Volume: Long
+  index, ask_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_volume.dissect(buffer, index, packet, parent)
+
+  -- Bid Volume: Long
+  index, bid_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_volume.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Ten Levels
+koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.dissect = function(buffer, offset, packet, parent, ten_levels_index)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_koscom_mdcsrealtime_securitiesa_exture_v2_020.fields.ten_levels, buffer(offset, 0))
+    local index = koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.fields(buffer, offset, packet, parent, ten_levels_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.fields(buffer, offset, packet, parent, ten_levels_index)
+  end
+end
+
 -- Securities Snapshot Mm Lp Excluded Message
 koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_snapshot_mm_lp_excluded_message = {}
 
@@ -24757,46 +22804,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_snapshot_mm_lp_excluded
   koscom_mdcsrealtime_securitiesa_exture_v2_020.accumulated_trading_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.accumulated_trading_value.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.final_ask_bid_type_code.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.size + 
+  10 * koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.total_ask_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.total_bid_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.estimated_trading_price.size + 
@@ -24862,125 +22870,10 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_snapshot_mm_lp_excluded
   -- Final Ask Bid Type Code: String
   index, final_ask_bid_type_code = koscom_mdcsrealtime_securitiesa_exture_v2_020.final_ask_bid_type_code.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Long
-  index, ask_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Long
-  index, bid_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Long
-  index, ask_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Long
-  index, bid_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Long
-  index, ask_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Long
-  index, bid_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Long
-  index, ask_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Long
-  index, bid_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Long
-  index, ask_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Long
-  index, bid_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Price: Double
-  index, ask_level_6_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Price: Double
-  index, bid_level_6_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Volume: Long
-  index, ask_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Volume: Long
-  index, bid_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Price: Double
-  index, ask_level_7_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Price: Double
-  index, bid_level_7_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Volume: Long
-  index, ask_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Volume: Long
-  index, bid_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Price: Double
-  index, ask_level_8_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Price: Double
-  index, bid_level_8_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Volume: Long
-  index, ask_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Volume: Long
-  index, bid_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Price: Double
-  index, ask_level_9_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Price: Double
-  index, bid_level_9_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Volume: Long
-  index, ask_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Volume: Long
-  index, bid_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Price: Double
-  index, ask_level_10_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Price: Double
-  index, bid_level_10_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Volume: Long
-  index, ask_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Volume: Long
-  index, bid_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.dissect(buffer, index, packet, parent)
+  -- Array Of: Ten Levels
+  for ten_levels_index = 1, 10 do
+    index, ten_levels = koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.dissect(buffer, index, packet, parent, ten_levels_index)
+  end
 
   -- Total Ask Volume: Long
   index, total_ask_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.total_ask_volume.dissect(buffer, index, packet, parent)
@@ -25044,66 +22937,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_quote_mm_lp_included_me
   koscom_mdcsrealtime_securitiesa_exture_v2_020.isin_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.a_designated_number_for_an_issue.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.processing_time_of_trading_system.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_10_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_10_volume.size + 
+  10 * koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.total_ask_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.total_bid_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.estimated_trading_price.size + 
@@ -25140,185 +22974,10 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_quote_mm_lp_included_me
   -- Processing Time Of Trading System: String
   index, processing_time_of_trading_system = koscom_mdcsrealtime_securitiesa_exture_v2_020.processing_time_of_trading_system.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Long
-  index, ask_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Long
-  index, bid_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 1 Volume: Long
-  index, lp_ask_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 1 Volume: Long
-  index, lp_bid_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Long
-  index, ask_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Long
-  index, bid_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 2 Volume: Long
-  index, lp_ask_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 2 Volume: Long
-  index, lp_bid_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Long
-  index, ask_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Long
-  index, bid_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 3 Volume: Long
-  index, lp_ask_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 3 Volume: Long
-  index, lp_bid_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Long
-  index, ask_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Long
-  index, bid_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 4 Volume: Long
-  index, lp_ask_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 4 Volume: Long
-  index, lp_bid_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Long
-  index, ask_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Long
-  index, bid_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 5 Volume: Long
-  index, lp_ask_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 5 Volume: Long
-  index, lp_bid_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Price: Double
-  index, ask_level_6_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Price: Double
-  index, bid_level_6_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Volume: Long
-  index, ask_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Volume: Long
-  index, bid_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 6 Volume: Long
-  index, lp_ask_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 6 Volume: Long
-  index, lp_bid_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Price: Double
-  index, ask_level_7_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Price: Double
-  index, bid_level_7_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Volume: Long
-  index, ask_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Volume: Long
-  index, bid_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 7 Volume: Long
-  index, lp_ask_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 7 Volume: Long
-  index, lp_bid_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Price: Double
-  index, ask_level_8_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Price: Double
-  index, bid_level_8_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Volume: Long
-  index, ask_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Volume: Long
-  index, bid_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 8 Volume: Long
-  index, lp_ask_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 8 Volume: Long
-  index, lp_bid_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Price: Double
-  index, ask_level_9_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Price: Double
-  index, bid_level_9_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Volume: Long
-  index, ask_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Volume: Long
-  index, bid_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 9 Volume: Long
-  index, lp_ask_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 9 Volume: Long
-  index, lp_bid_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Price: Double
-  index, ask_level_10_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Price: Double
-  index, bid_level_10_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Volume: Long
-  index, ask_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Volume: Long
-  index, bid_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Ask Level 10 Volume: Long
-  index, lp_ask_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_ask_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Lp Bid Level 10 Volume: Long
-  index, lp_bid_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.lp_bid_level_10_volume.dissect(buffer, index, packet, parent)
+  -- Array Of: Ten Levels With LP
+  for ten_levels_with_lp_index = 1, 10 do
+    index, ten_levels_with_lp = koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels_with_lp.dissect(buffer, index, packet, parent, ten_levels_with_lp_index)
+  end
 
   -- Total Ask Volume: Long
   index, total_ask_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.total_ask_volume.dissect(buffer, index, packet, parent)
@@ -25376,46 +23035,7 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_quote_mm_lp_excluded_me
   koscom_mdcsrealtime_securitiesa_exture_v2_020.isin_code.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.a_designated_number_for_an_issue.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.processing_time_of_trading_system.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.size + 
-  koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.size + 
+  10 * koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.total_ask_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.total_bid_volume.size + 
   koscom_mdcsrealtime_securitiesa_exture_v2_020.estimated_trading_price.size + 
@@ -25452,125 +23072,10 @@ koscom_mdcsrealtime_securitiesa_exture_v2_020.securities_quote_mm_lp_excluded_me
   -- Processing Time Of Trading System: String
   index, processing_time_of_trading_system = koscom_mdcsrealtime_securitiesa_exture_v2_020.processing_time_of_trading_system.dissect(buffer, index, packet, parent)
 
-  -- Ask Level 1 Price: Double
-  index, ask_level_1_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Price: Double
-  index, bid_level_1_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 1 Volume: Long
-  index, ask_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 1 Volume: Long
-  index, bid_level_1_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_1_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Price: Double
-  index, ask_level_2_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Price: Double
-  index, bid_level_2_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 2 Volume: Long
-  index, ask_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 2 Volume: Long
-  index, bid_level_2_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_2_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Price: Double
-  index, ask_level_3_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Price: Double
-  index, bid_level_3_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 3 Volume: Long
-  index, ask_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 3 Volume: Long
-  index, bid_level_3_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_3_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Price: Double
-  index, ask_level_4_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Price: Double
-  index, bid_level_4_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 4 Volume: Long
-  index, ask_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 4 Volume: Long
-  index, bid_level_4_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_4_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Price: Double
-  index, ask_level_5_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Price: Double
-  index, bid_level_5_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 5 Volume: Long
-  index, ask_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 5 Volume: Long
-  index, bid_level_5_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_5_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Price: Double
-  index, ask_level_6_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Price: Double
-  index, bid_level_6_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 6 Volume: Long
-  index, ask_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 6 Volume: Long
-  index, bid_level_6_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_6_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Price: Double
-  index, ask_level_7_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Price: Double
-  index, bid_level_7_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 7 Volume: Long
-  index, ask_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 7 Volume: Long
-  index, bid_level_7_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_7_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Price: Double
-  index, ask_level_8_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Price: Double
-  index, bid_level_8_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 8 Volume: Long
-  index, ask_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 8 Volume: Long
-  index, bid_level_8_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_8_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Price: Double
-  index, ask_level_9_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Price: Double
-  index, bid_level_9_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 9 Volume: Long
-  index, ask_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 9 Volume: Long
-  index, bid_level_9_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_9_volume.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Price: Double
-  index, ask_level_10_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Price: Double
-  index, bid_level_10_price = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_price.dissect(buffer, index, packet, parent)
-
-  -- Ask Level 10 Volume: Long
-  index, ask_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.ask_level_10_volume.dissect(buffer, index, packet, parent)
-
-  -- Bid Level 10 Volume: Long
-  index, bid_level_10_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.bid_level_10_volume.dissect(buffer, index, packet, parent)
+  -- Array Of: Ten Levels
+  for ten_levels_index = 1, 10 do
+    index, ten_levels = koscom_mdcsrealtime_securitiesa_exture_v2_020.ten_levels.dissect(buffer, index, packet, parent, ten_levels_index)
+  end
 
   -- Total Ask Volume: Long
   index, total_ask_volume = koscom_mdcsrealtime_securitiesa_exture_v2_020.total_ask_volume.dissect(buffer, index, packet, parent)
