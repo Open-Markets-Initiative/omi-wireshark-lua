@@ -25,7 +25,8 @@ omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.composite_market_bid_price =
 omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.c1options.auctionfeed.pitch.v1.1.44.compositemarketofferprice", ftypes.DOUBLE, nil, nil, nil, "Offer Price of the prevailing Composite Market.")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.contracts = ProtoField.new("Contracts", "cboe.c1options.auctionfeed.pitch.v1.1.44.contracts", ftypes.UINT32, nil, nil, nil, "Number of contracts available in the auction.")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.auctionfeed.pitch.v1.1.44.customerindicator", ftypes.STRING, nil, nil, nil, "N = Non-Customer, C = Customer.")
-omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.auctionfeed.pitch.v1.1.44.epochtime", ftypes.UINT32, nil, nil, nil, "C1 Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.auctionfeed.pitch.v1.1.44.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.auctionfeed.pitch.v1.1.44.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "C1 Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.auctionfeed.pitch.v1.1.44.executionid", ftypes.UINT64, nil, nil, nil, "Day specific identifier assigned to this execution.")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.expanded_symbol = ProtoField.new("Expanded Symbol", "cboe.c1options.auctionfeed.pitch.v1.1.44.expandedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
 omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.auctionfeed.pitch.v1.1.44.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
@@ -467,19 +468,20 @@ cboe_c1options_auctionfeed_pitch_v1_1_44.epoch_time = {}
 -- Size: Epoch Time
 cboe_c1options_auctionfeed_pitch_v1_1_44.epoch_time.size = 4
 
--- Display: Epoch Time
-cboe_c1options_auctionfeed_pitch_v1_1_44.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
 -- Dissect: Epoch Time
 cboe_c1options_auctionfeed_pitch_v1_1_44.epoch_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_auctionfeed_pitch_v1_1_44.epoch_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_auctionfeed_pitch_v1_1_44.epoch_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.epoch_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.epoch_time
+  if cboe_c1options_auctionfeed_pitch_v1_1_44.timestamp_format == 3 then field = omi_cboe_c1options_auctionfeed_pitch_v1_1_44.fields.epoch_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1179,7 +1181,10 @@ cboe_c1options_auctionfeed_pitch_v1_1_44.trade_date.size = 4
 
 -- Display: Trade Date
 cboe_c1options_auctionfeed_pitch_v1_1_44.trade_date.display = function(value)
-  return "Trade Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date

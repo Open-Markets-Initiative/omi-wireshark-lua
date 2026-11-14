@@ -37,7 +37,8 @@ omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.composite_market_offer_pric
 omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.customer = ProtoField.new("Customer", "cboe.c1options.multicasttop.pitch.v1.2.64.customer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "C1 Only. 0 = Not customer specific, 1 = Price Level is specifically for firm customer quotes.")
 omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.customer_quantity_long = ProtoField.new("Customer Quantity Long", "cboe.c1options.multicasttop.pitch.v1.2.64.customerquantitylong", ftypes.UINT32, nil, nil, nil, "Number of customer contracts on the inside book. A zero value denotes that there are no customer contracts at the inside price. If Customer bit is set, this will be the number of customer contracts on the inside book considering only customer firm quotes. Will always be zero for C2.")
 omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.customer_quantity_short = ProtoField.new("Customer Quantity Short", "cboe.c1options.multicasttop.pitch.v1.2.64.customerquantityshort", ftypes.UINT16, nil, nil, nil, "Number of customer contracts on the inside book. A zero value denotes that there are no customer contracts at the inside price. If Customer bit is set, this will be the number of customer contracts on the inside book considering only customer firm quotes. Will always be zero for C2.")
-omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.multicasttop.pitch.v1.2.64.epochtime", ftypes.UINT32, nil, nil, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.multicasttop.pitch.v1.2.64.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.multicasttop.pitch.v1.2.64.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.multicasttop.pitch.v1.2.64.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this trade. Execution Id is also referenced in the Trade Break message.")
 omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.expanded_symbol = ProtoField.new("Expanded Symbol", "cboe.c1options.multicasttop.pitch.v1.2.64.expandedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
 omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.multicasttop.pitch.v1.2.64.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
@@ -719,19 +720,20 @@ cboe_c1options_multicasttop_pitch_v1_2_64.epoch_time = {}
 -- Size: Epoch Time
 cboe_c1options_multicasttop_pitch_v1_2_64.epoch_time.size = 4
 
--- Display: Epoch Time
-cboe_c1options_multicasttop_pitch_v1_2_64.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
 -- Dissect: Epoch Time
 cboe_c1options_multicasttop_pitch_v1_2_64.epoch_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_multicasttop_pitch_v1_2_64.epoch_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_multicasttop_pitch_v1_2_64.epoch_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.epoch_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.epoch_time
+  if cboe_c1options_multicasttop_pitch_v1_2_64.timestamp_format == 3 then field = omi_cboe_c1options_multicasttop_pitch_v1_2_64.fields.epoch_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1666,7 +1668,10 @@ cboe_c1options_multicasttop_pitch_v1_2_64.trade_date.size = 4
 
 -- Display: Trade Date
 cboe_c1options_multicasttop_pitch_v1_2_64.trade_date.display = function(value)
-  return "Trade Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date

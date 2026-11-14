@@ -3887,7 +3887,11 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.expiration_date.size = 8
 
 -- Display: Expiration Date
 koscom_mdcsrealtime_equityderivatives_exture_v2_020.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date

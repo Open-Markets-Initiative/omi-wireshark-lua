@@ -280,7 +280,7 @@ cme_brokertec_ustreasury_sbe_v10_1.maturity_date.display = function(value)
     return "Maturity Date: No Value"
   end
 
-  return "Maturity Date: "..value
+  return string.format("Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Maturity Date
@@ -835,7 +835,7 @@ cme_brokertec_ustreasury_sbe_v10_1.trade_date.display = function(value)
     return "Trade Date: No Value"
   end
 
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date

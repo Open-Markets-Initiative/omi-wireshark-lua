@@ -6410,7 +6410,11 @@ koscom_mdcsrealtime_koscom_exture_v1_20.trading_time.size = 6
 
 -- Display: Trading Time
 koscom_mdcsrealtime_koscom_exture_v1_20.trading_time.display = function(value)
-  return "Trading Time: "..value
+  if #value < 6 then
+    return "Trading Time: "..value
+  end
+
+  return "Trading Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Trading Time

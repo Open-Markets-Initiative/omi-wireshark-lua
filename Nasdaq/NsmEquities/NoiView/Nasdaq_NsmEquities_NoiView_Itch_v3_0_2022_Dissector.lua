@@ -660,7 +660,11 @@ nasdaq_nsmequities_noiview_itch_v3_0_2022.ipo_quotation_release_time.size = 4
 
 -- Display: Ipo Quotation Release Time
 nasdaq_nsmequities_noiview_itch_v3_0_2022.ipo_quotation_release_time.display = function(value)
-  return "Ipo Quotation Release Time: "..value
+  local hour = math.floor(value / 10000)
+  local minute = math.floor(value / 100) % 100
+  local second = value % 100
+
+  return string.format("Ipo Quotation Release Time: %02d:%02d:%02d", hour, minute, second)
 end
 
 -- Dissect: Ipo Quotation Release Time

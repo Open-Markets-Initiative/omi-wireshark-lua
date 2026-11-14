@@ -66,7 +66,8 @@ omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.time = ProtoField.ne
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.time_offset = ProtoField.new("Time Offset", "cboe.bxeequities.multicastdepthofbook.pitch.v6.7.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.trade_flags = ProtoField.new("Trade Flags", "cboe.bxeequities.multicastdepthofbook.pitch.v6.7.tradeflags", ftypes.STRING)
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.trade_id = ProtoField.new("Trade Id", "cboe.bxeequities.multicastdepthofbook.pitch.v6.7.tradeid", ftypes.UINT64, nil, nil, nil, "BATS Chi-X Europe generated identifier of this trade. This identifier is guaranteed to be unique for at least 7 calendar days.")
-omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.trade_timestamp = ProtoField.new("Trade Timestamp", "cboe.bxeequities.multicastdepthofbook.pitch.v6.7.tradetimestamp", ftypes.UINT64, nil, nil, nil, "Date/Time on which the trade occurred, encoded as the number of nanoseconds since the January 1st 1970 UTC (also known as the Unix epoch).")
+omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.trade_timestamp = ProtoField.new("Trade Timestamp", "cboe.bxeequities.multicastdepthofbook.pitch.v6.7.tradetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date/Time on which the trade occurred, encoded as the number of nanoseconds since the January 1st 1970 UTC (also known as the Unix epoch).")
+omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.trade_timestamp_utc = ProtoField.new("Trade Timestamp", "cboe.bxeequities.multicastdepthofbook.pitch.v6.7.tradetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date/Time on which the trade occurred, encoded as the number of nanoseconds since the January 1st 1970 UTC (also known as the Unix epoch).")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.trading_mode = ProtoField.new("Trading Mode", "cboe.bxeequities.multicastdepthofbook.pitch.v6.7.tradingmode", ftypes.STRING, nil, nil, nil, "MMT Level 2")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.bxeequities.multicastdepthofbook.pitch.v6.7.transactioncategory", ftypes.STRING, nil, nil, nil, "MMT Level 3.1")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.unit = ProtoField.new("Unit", "cboe.bxeequities.multicastdepthofbook.pitch.v6.7.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
@@ -1490,19 +1491,20 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_7.trade_timestamp = {}
 -- Size: Trade Timestamp
 cboe_bxeequities_multicastdepthofbook_pitch_v6_7.trade_timestamp.size = 8
 
--- Display: Trade Timestamp
-cboe_bxeequities_multicastdepthofbook_pitch_v6_7.trade_timestamp.display = function(value)
-  return "Trade Timestamp: "..value
-end
-
 -- Dissect: Trade Timestamp
 cboe_bxeequities_multicastdepthofbook_pitch_v6_7.trade_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bxeequities_multicastdepthofbook_pitch_v6_7.trade_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_bxeequities_multicastdepthofbook_pitch_v6_7.trade_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.trade_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.trade_timestamp
+  if cboe_bxeequities_multicastdepthofbook_pitch_v6_7.timestamp_format == 3 then field = omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_7.fields.trade_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

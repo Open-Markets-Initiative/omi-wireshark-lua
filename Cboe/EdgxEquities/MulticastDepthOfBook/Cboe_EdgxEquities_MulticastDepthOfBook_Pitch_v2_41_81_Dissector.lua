@@ -24,7 +24,8 @@ omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.canceled_quanti
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.canceled_quantity_short = ProtoField.new("Canceled Quantity Short", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.81.canceledquantityshort", ftypes.UINT16, nil, nil, nil, "Number of shares/contracts canceled.")
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.81.customerindicator", ftypes.STRING, nil, nil, nil, "BZX/C1/EDGX Options Only (space filled on C2 Options and all equities markets). N = Non-Customer, C = Customer, R = Retail Priority order (EDGX Equities only).")
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.display = ProtoField.new("Display", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.81.display", ftypes.UINT8, {[0]="Order Is Not Aggregated In The Cboe Sip Quote", [1]="Order Is Aggregated In The Cboe Sip Quote"}, base.DEC, 0x01, "Bit 0 - Display: 0 = Order is not aggregated in the Cboe SIP quote, 1 = Order is aggregated in the Cboe SIP quote.")
-omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.81.epochtime", ftypes.UINT32, nil, nil, nil, "C1 Options Only and effective 11/02/26 for BZX/EDGX Equities. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.81.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only and effective 11/02/26 for BZX/EDGX Equities. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.81.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "C1 Options Only and effective 11/02/26 for BZX/EDGX Equities. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.81.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares/contracts executed.")
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.execution_id = ProtoField.new("Execution Id", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.81.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution. Execution Id is also referenced in the Trade Break message.")
 omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.edgxequities.multicastdepthofbook.pitch.v2.41.81.indicativeprice", ftypes.UINT64, nil, nil, nil, "Price at which the auction book and the continuous book would match. For BYX, N/A. Populated with zero.")
@@ -377,19 +378,20 @@ cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.epoch_time = {}
 -- Size: Epoch Time
 cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.epoch_time.size = 4
 
--- Display: Epoch Time
-cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
 -- Dissect: Epoch Time
 cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.epoch_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.epoch_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.epoch_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.epoch_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.epoch_time
+  if cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.timestamp_format == 3 then field = omi_cboe_edgxequities_multicastdepthofbook_pitch_v2_41_81.fields.epoch_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

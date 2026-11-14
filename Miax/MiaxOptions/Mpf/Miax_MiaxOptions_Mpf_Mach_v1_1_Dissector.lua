@@ -47,7 +47,7 @@ omi_miax_miaxoptions_mpf_mach_v1_1.fields.sequenced_message_type = ProtoField.ne
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_packet_length = ProtoField.new("Sesm Packet Length", "miax.miaxoptions.mpf.mach.v1.1.sesmpacketlength", ftypes.UINT16, nil, nil, nil, "The length of rest of the packet")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.miaxoptions.mpf.mach.v1.1.sesmpackettype", ftypes.STRING, nil, nil, nil, "SesM protocol packet type")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.sesm_version = ProtoField.new("Sesm Version", "miax.miaxoptions.mpf.mach.v1.1.sesmversion", ftypes.STRING, nil, nil, nil, "Protocol version")
-omi_miax_miaxoptions_mpf_mach_v1_1.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.mpf.mach.v1.1.sessionnumber", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_miaxoptions_mpf_mach_v1_1.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.mpf.mach.v1.1.sessionnumber", ftypes.UINT8, nil, nil, nil, "The Session this packet was generated from")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.settlement_date = ProtoField.new("Settlement Date", "miax.miaxoptions.mpf.mach.v1.1.settlementdate", ftypes.STRING, nil, nil, nil, "Settlement date of the Option associated with the Synthetic Future in YYYYMMDD format")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.miaxoptions.mpf.mach.v1.1.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
 omi_miax_miaxoptions_mpf_mach_v1_1.fields.symbol = ProtoField.new("Symbol", "miax.miaxoptions.mpf.mach.v1.1.symbol", ftypes.STRING, nil, nil, nil, "Index or Settlement Symbol")
@@ -854,7 +854,11 @@ miax_miaxoptions_mpf_mach_v1_1.settlement_date.size = 8
 
 -- Display: Settlement Date
 miax_miaxoptions_mpf_mach_v1_1.settlement_date.display = function(value)
-  return "Settlement Date: "..value
+  if #value < 8 then
+    return "Settlement Date: "..value
+  end
+
+  return "Settlement Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Settlement Date

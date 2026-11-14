@@ -1146,7 +1146,10 @@ asx_asxderivatives_t24_itch_v1_13.last_trading_date.size = 4
 
 -- Display: Last Trading Date
 asx_asxderivatives_t24_itch_v1_13.last_trading_date.display = function(value)
-  return "Last Trading Date: "..value
+  -- the count names midnight in Australia/Sydney; half a day clears the zone's offset
+  local seconds = value + 43200
+
+  return string.format("Last Trading Date: %s", os.date("!%Y-%m-%d", seconds))
 end
 
 -- Dissect: Last Trading Date

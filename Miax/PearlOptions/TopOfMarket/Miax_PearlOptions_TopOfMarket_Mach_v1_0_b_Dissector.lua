@@ -26,7 +26,8 @@ omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.closing_time = ProtoField.n
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.correction_number = ProtoField.new("Correction Number", "miax.pearloptions.topofmarket.mach.v1.0.b.correctionnumber", ftypes.UINT8, nil, nil, nil, "Trade correction number. 0 for New trades. Greater than or equal to 0 for trades resulting from corrections/adjustments.")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.event_reason = ProtoField.new("Event Reason", "miax.pearloptions.topofmarket.mach.v1.0.b.eventreason", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.pearloptions.topofmarket.mach.v1.0.b.expectedeventtimenanosecondspart", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in “Expected Event Time Seconds” field.")
-omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.pearloptions.topofmarket.mach.v1.0.b.expectedeventtimesecondspart", ftypes.UINT32, nil, nil, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.pearloptions.topofmarket.mach.v1.0.b.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_seconds_part_utc = ProtoField.new("Expected Event Time Seconds Part", "miax.pearloptions.topofmarket.mach.v1.0.b.expectedeventtimesecondspart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expiration_date = ProtoField.new("Expiration Date", "miax.pearloptions.topofmarket.mach.v1.0.b.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.pearloptions.topofmarket.mach.v1.0.b.liquidityacceptanceincrementindicator", ftypes.STRING, nil, nil, nil, "This is the Minimum Price Variation for Quote/Order acceptance as per PEARL rules")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.long_term_option = ProtoField.new("Long Term Option", "miax.pearloptions.topofmarket.mach.v1.0.b.longtermoption", ftypes.STRING)
@@ -55,7 +56,7 @@ omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.seconds_utc = ProtoField.ne
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.security_symbol = ProtoField.new("Security Symbol", "miax.pearloptions.topofmarket.mach.v1.0.b.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearloptions.topofmarket.mach.v1.0.b.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this data packet")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.session_id = ProtoField.new("Session Id", "miax.pearloptions.topofmarket.mach.v1.0.b.sessionid", ftypes.UINT32, nil, nil, nil, "PEARL assigned ID for the current trading session")
-omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.session_number = ProtoField.new("Session Number", "miax.pearloptions.topofmarket.mach.v1.0.b.sessionnumber", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.session_number = ProtoField.new("Session Number", "miax.pearloptions.topofmarket.mach.v1.0.b.sessionnumber", ftypes.UINT8, nil, nil, nil, "The Session this packet was generated from")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.strike_price = ProtoField.new("Strike Price", "miax.pearloptions.topofmarket.mach.v1.0.b.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price of the option. Refer to data types for field processing notes")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.system_status = ProtoField.new("System Status", "miax.pearloptions.topofmarket.mach.v1.0.b.systemstatus", ftypes.STRING, nil, nil, nil, "Current system status:")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.to_m_version = ProtoField.new("To M Version", "miax.pearloptions.topofmarket.mach.v1.0.b.tomversion", ftypes.STRING, nil, nil, nil, "Eg: TOM1.0")
@@ -469,19 +470,27 @@ miax_pearloptions_topofmarket_mach_v1_0_b.expected_event_time_seconds_part = {}
 -- Size: Expected Event Time Seconds Part
 miax_pearloptions_topofmarket_mach_v1_0_b.expected_event_time_seconds_part.size = 4
 
--- Display: Expected Event Time Seconds Part
-miax_pearloptions_topofmarket_mach_v1_0_b.expected_event_time_seconds_part.display = function(value)
-  return "Expected Event Time Seconds Part: "..value
-end
-
 -- Dissect: Expected Event Time Seconds Part
 miax_pearloptions_topofmarket_mach_v1_0_b.expected_event_time_seconds_part.dissect = function(buffer, offset, packet, parent)
   local length = miax_pearloptions_topofmarket_mach_v1_0_b.expected_event_time_seconds_part.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_pearloptions_topofmarket_mach_v1_0_b.expected_event_time_seconds_part.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_seconds_part, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_seconds_part
+  if miax_pearloptions_topofmarket_mach_v1_0_b.timestamp_format == 3 then field = omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_seconds_part_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expected Event Time Seconds Part: Not Applicable")
+    return offset + length, value
+  end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -494,7 +503,11 @@ miax_pearloptions_topofmarket_mach_v1_0_b.expiration_date.size = 8
 
 -- Display: Expiration Date
 miax_pearloptions_topofmarket_mach_v1_0_b.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date
@@ -1273,10 +1286,10 @@ miax_pearloptions_topofmarket_mach_v1_0_b.system_status.size = 1
 
 -- Display: System Status
 miax_pearloptions_topofmarket_mach_v1_0_b.system_status.labels = {
-  ["S"] = "System Status: Start (S)",
-  ["C"] = "System Status: End (C)",
-  ["1"] = "System Status: Start (1)",
-  ["2"] = "System Status: End (2)",
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Of Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
 }
 
 miax_pearloptions_topofmarket_mach_v1_0_b.system_status.display = function(value)

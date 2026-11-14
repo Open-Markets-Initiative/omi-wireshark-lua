@@ -21,7 +21,8 @@ omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.bid_price_short = ProtoField.ne
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.block_length = ProtoField.new("Block Length", "memx.memxoptions.memoirtop.sbe.v1.6.a.blocklength", ftypes.UINT16, nil, nil, nil, "Memx Udp Message Type")
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.capacity = ProtoField.new("Capacity", "memx.memxoptions.memoirtop.sbe.v1.6.a.capacity", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.closing_only = ProtoField.new("Closing Only", "memx.memxoptions.memoirtop.sbe.v1.6.a.closingonly", ftypes.UINT8, nil, nil, nil, "ClosingOnly")
-omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.closing_time = ProtoField.new("Closing Time", "memx.memxoptions.memoirtop.sbe.v1.6.a.closingtime", ftypes.UINT64, nil, nil, nil, "ClosingTime")
+omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.closing_time = ProtoField.new("Closing Time", "memx.memxoptions.memoirtop.sbe.v1.6.a.closingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "ClosingTime")
+omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.closing_time_utc = ProtoField.new("Closing Time", "memx.memxoptions.memoirtop.sbe.v1.6.a.closingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "ClosingTime")
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.corrected_price = ProtoField.new("Corrected Price", "memx.memxoptions.memoirtop.sbe.v1.6.a.correctedprice", ftypes.DOUBLE, nil, nil, nil, "CorrectedPrice")
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "memx.memxoptions.memoirtop.sbe.v1.6.a.correctedquantity", ftypes.UINT32, nil, nil, nil, "CorrectedQuantity")
 omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.cust_bid_size = ProtoField.new("Cust Bid Size", "memx.memxoptions.memoirtop.sbe.v1.6.a.custbidsize", ftypes.UINT32, nil, nil, nil, "CustBidSize")
@@ -344,19 +345,20 @@ memx_memxoptions_memoirtop_sbe_v1_6_a.closing_time = {}
 -- Size: Closing Time
 memx_memxoptions_memoirtop_sbe_v1_6_a.closing_time.size = 8
 
--- Display: Closing Time
-memx_memxoptions_memoirtop_sbe_v1_6_a.closing_time.display = function(value)
-  return "Closing Time: "..value
-end
-
 -- Dissect: Closing Time
 memx_memxoptions_memoirtop_sbe_v1_6_a.closing_time.dissect = function(buffer, offset, packet, parent)
   local length = memx_memxoptions_memoirtop_sbe_v1_6_a.closing_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = memx_memxoptions_memoirtop_sbe_v1_6_a.closing_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.closing_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.closing_time
+  if memx_memxoptions_memoirtop_sbe_v1_6_a.timestamp_format == 3 then field = omi_memx_memxoptions_memoirtop_sbe_v1_6_a.fields.closing_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

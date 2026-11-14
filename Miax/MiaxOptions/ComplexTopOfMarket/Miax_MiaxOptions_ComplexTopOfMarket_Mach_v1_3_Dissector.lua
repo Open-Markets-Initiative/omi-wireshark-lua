@@ -28,7 +28,8 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.call_or_put = ProtoFiel
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.closing_time = ProtoField.new("Closing Time", "miax.miaxoptions.complextopofmarket.mach.v1.3.closingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 16:15:00")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.event_reason = ProtoField.new("Event Reason", "miax.miaxoptions.complextopofmarket.mach.v1.3.eventreason", ftypes.STRING, nil, nil, nil, "Event Reason value")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.expected_event_time_nano_seconds = ProtoField.new("Expected Event Time Nano Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.3.expectedeventtimenanoseconds", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in “Expected Event Time Seconds” field.")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.expected_event_time_seconds = ProtoField.new("Expected Event Time Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.3.expectedeventtimeseconds", ftypes.UINT32, nil, nil, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.expected_event_time_seconds = ProtoField.new("Expected Event Time Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.3.expectedeventtimeseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.expected_event_time_seconds_utc = ProtoField.new("Expected Event Time Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.3.expectedeventtimeseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.expiration_date = ProtoField.new("Expiration Date", "miax.miaxoptions.complextopofmarket.mach.v1.3.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_definition = ProtoField.new("Leg Definition", "miax.miaxoptions.complextopofmarket.mach.v1.3.legdefinition", ftypes.STRING, nil, nil, nil, "Complex Strategy Number of Legs")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "miax.miaxoptions.complextopofmarket.mach.v1.3.legratioqty", ftypes.UINT16, nil, nil, nil, "The ratio of this individual leg")
@@ -67,7 +68,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.seconds_utc = ProtoFiel
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.security_symbol = ProtoField.new("Security Symbol", "miax.miaxoptions.complextopofmarket.mach.v1.3.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.complextopofmarket.mach.v1.3.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this data packet")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.session_id = ProtoField.new("Session Id", "miax.miaxoptions.complextopofmarket.mach.v1.3.sessionid", ftypes.UINT32, nil, nil, nil, "MIAX assigned ID for the current trading session")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.complextopofmarket.mach.v1.3.sessionnumber", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.complextopofmarket.mach.v1.3.sessionnumber", ftypes.UINT8, nil, nil, nil, "The Session this packet was generated from")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.size_2 = ProtoField.new("Size 2", "miax.miaxoptions.complextopofmarket.mach.v1.3.size2", ftypes.UINT16, nil, nil, nil, "Aggregate size at MIAX Best Price at the time stated in Timestamp and side specified in Message Type")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.size_4 = ProtoField.new("Size 4", "miax.miaxoptions.complextopofmarket.mach.v1.3.size4", ftypes.UINT32, nil, nil, nil, "Aggregate size at MIAX Best Price at the time stated in Timestamp and side specified in Message Type")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.strategy_id = ProtoField.new("Strategy Id", "miax.miaxoptions.complextopofmarket.mach.v1.3.strategyid", ftypes.UINT32, nil, nil, nil, "MIAX Strategy ID is assigned per trading day and is valid only for that day.")
@@ -541,19 +542,27 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.expected_event_time_seconds = {}
 -- Size: Expected Event Time Seconds
 miax_miaxoptions_complextopofmarket_mach_v1_3.expected_event_time_seconds.size = 4
 
--- Display: Expected Event Time Seconds
-miax_miaxoptions_complextopofmarket_mach_v1_3.expected_event_time_seconds.display = function(value)
-  return "Expected Event Time Seconds: "..value
-end
-
 -- Dissect: Expected Event Time Seconds
 miax_miaxoptions_complextopofmarket_mach_v1_3.expected_event_time_seconds.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_complextopofmarket_mach_v1_3.expected_event_time_seconds.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_3.expected_event_time_seconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.expected_event_time_seconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.expected_event_time_seconds
+  if miax_miaxoptions_complextopofmarket_mach_v1_3.timestamp_format == 3 then field = omi_miax_miaxoptions_complextopofmarket_mach_v1_3.fields.expected_event_time_seconds_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expected Event Time Seconds: Not Applicable")
+    return offset + length, value
+  end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -566,7 +575,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.size = 8
 
 -- Display: Expiration Date
 miax_miaxoptions_complextopofmarket_mach_v1_3.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date

@@ -38,7 +38,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds = ProtoField.new("
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.seconds_utc = ProtoField.new("Seconds", "miax.pearlequities.topofmarket.mach.v1.1.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.topofmarket.mach.v1.1.a.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this data packet")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.session_id = ProtoField.new("Session Id", "miax.pearlequities.topofmarket.mach.v1.1.a.sessionid", ftypes.UINT8, nil, nil, nil, "Current trading session identifier.")
-omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.session_number = ProtoField.new("Session Number", "miax.pearlequities.topofmarket.mach.v1.1.a.sessionnumber", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.session_number = ProtoField.new("Session Number", "miax.pearlequities.topofmarket.mach.v1.1.a.sessionnumber", ftypes.UINT8, nil, nil, nil, "The Session this packet was generated from")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "miax.pearlequities.topofmarket.mach.v1.1.a.shortsalerestriction", ftypes.STRING, nil, nil, nil, "Current state of short sale restriction.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.size = ProtoField.new("Size", "miax.pearlequities.topofmarket.mach.v1.1.a.size", ftypes.UINT32, nil, nil, nil, "Number of shares executed.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_a.fields.symbol_id = ProtoField.new("Symbol Id", "miax.pearlequities.topofmarket.mach.v1.1.a.symbolid", ftypes.UINT32, nil, nil, nil, "Symbol ID mapped to a given symbol. It is assigned per trading session and is valid for that session.")
@@ -840,10 +840,10 @@ miax_pearlequities_topofmarket_mach_v1_1_a.system_status.size = 1
 
 -- Display: System Status
 miax_pearlequities_topofmarket_mach_v1_1_a.system_status.labels = {
-  ["S"] = "System Status: Start (S)",
-  ["C"] = "System Status: End (C)",
-  ["1"] = "System Status: Start (1)",
-  ["2"] = "System Status: End (2)",
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Of Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
 }
 
 miax_pearlequities_topofmarket_mach_v1_1_a.system_status.display = function(value)

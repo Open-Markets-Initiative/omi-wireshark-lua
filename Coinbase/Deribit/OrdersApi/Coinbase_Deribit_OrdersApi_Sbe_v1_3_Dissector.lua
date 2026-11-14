@@ -61,7 +61,8 @@ omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.flags_replace_order_flags = Proto
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.3.fromsequencenumber", ftypes.INT64, nil, nil, nil, "fromSequenceNumber")
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.frozen_until = ProtoField.new("Frozen Until", "coinbase.deribit.ordersapi.sbe.v1.3.frozenuntil", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "frozenUntil")
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.frozen_until_utc = ProtoField.new("Frozen Until", "coinbase.deribit.ordersapi.sbe.v1.3.frozenuntil.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "frozenUntil")
-omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.frozen_until_time = ProtoField.new("Frozen Until Time", "coinbase.deribit.ordersapi.sbe.v1.3.frozenuntiltime", ftypes.INT64, nil, nil, nil, "frozenUntilTime")
+omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.frozen_until_time = ProtoField.new("Frozen Until Time", "coinbase.deribit.ordersapi.sbe.v1.3.frozenuntiltime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "frozenUntilTime")
+omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.frozen_until_time_utc = ProtoField.new("Frozen Until Time", "coinbase.deribit.ordersapi.sbe.v1.3.frozenuntiltime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "frozenUntilTime")
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "coinbase.deribit.ordersapi.sbe.v1.3.groupsizeencoding", ftypes.STRING, nil, nil, nil, "groupSizeEncoding")
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.deribit.ordersapi.sbe.v1.3.heartbeatintervalseconds", ftypes.INT32, nil, nil, nil, "heartbeatIntervalSeconds")
 omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.deribit.ordersapi.sbe.v1.3.instrumentid", ftypes.INT64, nil, nil, nil, "instrumentId")
@@ -1089,24 +1090,27 @@ coinbase_deribit_ordersapi_sbe_v1_3.frozen_until_time = {}
 -- Size: Frozen Until Time
 coinbase_deribit_ordersapi_sbe_v1_3.frozen_until_time.size = 8
 
--- Display: Frozen Until Time
-coinbase_deribit_ordersapi_sbe_v1_3.frozen_until_time.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Frozen Until Time: No Value"
-  end
-
-  return "Frozen Until Time: "..value
-end
-
 -- Dissect: Frozen Until Time
 coinbase_deribit_ordersapi_sbe_v1_3.frozen_until_time.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_ordersapi_sbe_v1_3.frozen_until_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_deribit_ordersapi_sbe_v1_3.frozen_until_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.frozen_until_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.frozen_until_time
+  if coinbase_deribit_ordersapi_sbe_v1_3.timestamp_format == 3 then field = omi_coinbase_deribit_ordersapi_sbe_v1_3.fields.frozen_until_time_utc end
+
+  if value == Int64(0x00000000, 0x80000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Frozen Until Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

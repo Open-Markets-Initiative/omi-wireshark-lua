@@ -20,7 +20,8 @@ omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.auction_type = ProtoField
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.buy_contracts = ProtoField.new("Buy Contracts", "cboe.c1options.openingprocess.pitch.v1.0.30.buycontracts", ftypes.UINT32, nil, nil, nil, "Cumulative Buy contracts at the Reference Price and above.")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.c1options.openingprocess.pitch.v1.0.30.compositemarketbidprice", ftypes.DOUBLE, nil, nil, nil, "Bid Price of the prevailing Composite Market")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.c1options.openingprocess.pitch.v1.0.30.compositemarketofferprice", ftypes.DOUBLE, nil, nil, nil, "Offer Price of the prevailing Composite Market.")
-omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.openingprocess.pitch.v1.0.30.epochtime", ftypes.UINT32, nil, nil, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.openingprocess.pitch.v1.0.30.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.openingprocess.pitch.v1.0.30.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.openingprocess.pitch.v1.0.30.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.c1options.openingprocess.pitch.v1.0.30.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Collared VMIM price computed on the combined queuing book and the continuous book. Equal to Reference Price for options that do not have a GTH trading session.")
 omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.length = ProtoField.new("Length", "cboe.c1options.openingprocess.pitch.v1.0.30.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
@@ -329,19 +330,20 @@ cboe_c1options_openingprocess_pitch_v1_0_30.epoch_time = {}
 -- Size: Epoch Time
 cboe_c1options_openingprocess_pitch_v1_0_30.epoch_time.size = 4
 
--- Display: Epoch Time
-cboe_c1options_openingprocess_pitch_v1_0_30.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
 -- Dissect: Epoch Time
 cboe_c1options_openingprocess_pitch_v1_0_30.epoch_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_openingprocess_pitch_v1_0_30.epoch_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_openingprocess_pitch_v1_0_30.epoch_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.epoch_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.epoch_time
+  if cboe_c1options_openingprocess_pitch_v1_0_30.timestamp_format == 3 then field = omi_cboe_c1options_openingprocess_pitch_v1_0_30.fields.epoch_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -932,7 +934,10 @@ cboe_c1options_openingprocess_pitch_v1_0_30.trade_date.size = 4
 
 -- Display: Trade Date
 cboe_c1options_openingprocess_pitch_v1_0_30.trade_date.display = function(value)
-  return "Trade Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date

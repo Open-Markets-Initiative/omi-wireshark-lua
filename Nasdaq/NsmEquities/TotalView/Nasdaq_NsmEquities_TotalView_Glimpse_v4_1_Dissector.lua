@@ -92,6 +92,15 @@ omi_nasdaq_nsmequities_totalview_glimpse_v4_1.experts = { nasdaq_nsmequities_tot
 -- Nasdaq NsmEquities TotalView Glimpse 4.1 Formatting
 -----------------------------------------------------------------------
 
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nasdaq_nsmequities_totalview_glimpse_v4_1.timestamp_format = 2
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -125,6 +134,8 @@ omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.show_session_messages = Pref
 omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs_changed()
 
@@ -146,6 +157,9 @@ function omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs_changed()
   end
   if show.sequences ~= omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.show_sequences then
     show.sequences = omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.show_sequences
+  end
+  if nasdaq_nsmequities_totalview_glimpse_v4_1.timestamp_format ~= omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.timestamp_format then
+    nasdaq_nsmequities_totalview_glimpse_v4_1.timestamp_format = omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.timestamp_format
   end
 end
 

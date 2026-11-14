@@ -78,6 +78,22 @@ omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.fields.message_index = ProtoField.
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.bzxequities.summarydepth.csdp.v1.0.4.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe BzxEquities SummaryDepth Csdp 1.0.4 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -100,6 +116,8 @@ omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs.show_headers = Pref.bool("Sh
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+
+omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs_changed()
@@ -125,6 +143,9 @@ function omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs_changed()
   end
   if show.sequences ~= omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs.show_sequences then
     show.sequences = omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs.show_sequences
+  end
+  if cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format ~= omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs.timestamp_format then
+    cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format = omi_cboe_bzxequities_summarydepth_csdp_v1_0_4.prefs.timestamp_format
   end
 end
 
@@ -794,8 +815,34 @@ cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp = {}
 cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp.size = 8
 
 -- Display: Timestamp
-cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp.display = function(value)
-  return "Timestamp: "..value
+cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -840,8 +887,34 @@ cboe_bzxequities_summarydepth_csdp_v1_0_4.transaction_time = {}
 cboe_bzxequities_summarydepth_csdp_v1_0_4.transaction_time.size = 8
 
 -- Display: Transaction Time
-cboe_bzxequities_summarydepth_csdp_v1_0_4.transaction_time.display = function(value)
-  return "Transaction Time: "..value
+cboe_bzxequities_summarydepth_csdp_v1_0_4.transaction_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 0 then
+    return "Transaction Time: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Transaction Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Transaction Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transaction Time

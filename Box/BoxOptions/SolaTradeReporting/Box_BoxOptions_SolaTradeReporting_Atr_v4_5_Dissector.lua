@@ -1454,22 +1454,18 @@ box_boxoptions_solatradereporting_atr_v4_5.time.size = 6
 
 -- Display: Time
 box_boxoptions_solatradereporting_atr_v4_5.time.display = function(value)
-  return "Time: "..value
+  if #value < 6 then
+    return "Time: "..value
+  end
+
+  return "Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Time
 box_boxoptions_solatradereporting_atr_v4_5.time.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solatradereporting_atr_v4_5.time.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.time, range, value, "Time: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solatradereporting_atr_v4_5.experts.not_a_number, "Time is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
+  local value = range:string()
   local display = box_boxoptions_solatradereporting_atr_v4_5.time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solatradereporting_atr_v4_5.fields.time, range, value, display)
@@ -1485,7 +1481,11 @@ box_boxoptions_solatradereporting_atr_v4_5.timestamp.size = 6
 
 -- Display: Timestamp
 box_boxoptions_solatradereporting_atr_v4_5.timestamp.display = function(value)
-  return "Timestamp: "..value
+  if #value < 6 then
+    return "Timestamp: "..value
+  end
+
+  return "Timestamp: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Timestamp

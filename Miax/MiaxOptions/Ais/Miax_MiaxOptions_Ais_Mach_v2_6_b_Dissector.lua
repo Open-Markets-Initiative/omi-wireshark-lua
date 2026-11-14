@@ -28,7 +28,8 @@ omi_miax_miaxoptions_ais_mach_v2_6_b.fields.event_id = ProtoField.new("Event Id"
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.event_reason = ProtoField.new("Event Reason", "miax.miaxoptions.ais.mach.v2.6.b.eventreason", ftypes.STRING, nil, nil, nil, "Event Reason value")
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.event_type = ProtoField.new("Event Type", "miax.miaxoptions.ais.mach.v2.6.b.eventtype", ftypes.STRING, nil, nil, nil, "Type of Event")
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.miaxoptions.ais.mach.v2.6.b.expectedeventtimenanosecondspart", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in \"Expected Event Time Seconds\" field.")
-omi_miax_miaxoptions_ais_mach_v2_6_b.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.ais.mach.v2.6.b.expectedeventtimesecondspart", ftypes.UINT32, nil, nil, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_miaxoptions_ais_mach_v2_6_b.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.ais.mach.v2.6.b.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_miaxoptions_ais_mach_v2_6_b.fields.expected_event_time_seconds_part_utc = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.ais.mach.v2.6.b.expectedeventtimesecondspart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.expiration_date = ProtoField.new("Expiration Date", "miax.miaxoptions.ais.mach.v2.6.b.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format")
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.miaxoptions.ais.mach.v2.6.b.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.miaxoptions.ais.mach.v2.6.b.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
@@ -98,7 +99,7 @@ omi_miax_miaxoptions_ais_mach_v2_6_b.fields.sesm_packet_length = ProtoField.new(
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.miaxoptions.ais.mach.v2.6.b.sesmpackettype", ftypes.STRING, nil, nil, nil, "SesM protocol packet type")
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.sesm_version = ProtoField.new("Sesm Version", "miax.miaxoptions.ais.mach.v2.6.b.sesmversion", ftypes.STRING, nil, nil, nil, "Protocol version")
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.session_id = ProtoField.new("Session Id", "miax.miaxoptions.ais.mach.v2.6.b.sessionid", ftypes.UINT32, nil, nil, nil, "MIAX assigned ID for the current trading session")
-omi_miax_miaxoptions_ais_mach_v2_6_b.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.ais.mach.v2.6.b.sessionnumber", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_miaxoptions_ais_mach_v2_6_b.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.ais.mach.v2.6.b.sessionnumber", ftypes.UINT8, nil, nil, nil, "The Session this packet was generated from")
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.settlement_reference_price = ProtoField.new("Settlement Reference Price", "miax.miaxoptions.ais.mach.v2.6.b.settlementreferenceprice", ftypes.DOUBLE, nil, nil, nil, "Current Settlement Reference Price (SRP) of the Option could be theoretical (TSRP) or final (FSRP)")
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.settlement_reference_price_type = ProtoField.new("Settlement Reference Price Type", "miax.miaxoptions.ais.mach.v2.6.b.settlementreferencepricetype", ftypes.STRING, nil, nil, nil, "Type of the Settlement Reference Price")
 omi_miax_miaxoptions_ais_mach_v2_6_b.fields.settlement_symbol = ProtoField.new("Settlement Symbol", "miax.miaxoptions.ais.mach.v2.6.b.settlementsymbol", ftypes.STRING)
@@ -571,19 +572,27 @@ miax_miaxoptions_ais_mach_v2_6_b.expected_event_time_seconds_part = {}
 -- Size: Expected Event Time Seconds Part
 miax_miaxoptions_ais_mach_v2_6_b.expected_event_time_seconds_part.size = 4
 
--- Display: Expected Event Time Seconds Part
-miax_miaxoptions_ais_mach_v2_6_b.expected_event_time_seconds_part.display = function(value)
-  return "Expected Event Time Seconds Part: "..value
-end
-
 -- Dissect: Expected Event Time Seconds Part
 miax_miaxoptions_ais_mach_v2_6_b.expected_event_time_seconds_part.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_ais_mach_v2_6_b.expected_event_time_seconds_part.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_miaxoptions_ais_mach_v2_6_b.expected_event_time_seconds_part.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_ais_mach_v2_6_b.fields.expected_event_time_seconds_part, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_miaxoptions_ais_mach_v2_6_b.fields.expected_event_time_seconds_part
+  if miax_miaxoptions_ais_mach_v2_6_b.timestamp_format == 3 then field = omi_miax_miaxoptions_ais_mach_v2_6_b.fields.expected_event_time_seconds_part_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expected Event Time Seconds Part: Not Applicable")
+    return offset + length, value
+  end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -596,7 +605,11 @@ miax_miaxoptions_ais_mach_v2_6_b.expiration_date.size = 8
 
 -- Display: Expiration Date
 miax_miaxoptions_ais_mach_v2_6_b.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date

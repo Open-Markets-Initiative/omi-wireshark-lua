@@ -992,22 +992,18 @@ nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.ipo_quotation_re
 
 -- Display: Ipo Quotation Release Time
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.ipo_quotation_release_time.display = function(value)
-  return "Ipo Quotation Release Time: "..value
+  if #value < 6 then
+    return "Ipo Quotation Release Time: "..value
+  end
+
+  return "Ipo Quotation Release Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Ipo Quotation Release Time
 nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.ipo_quotation_release_time.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.ipo_quotation_release_time.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.fields.ipo_quotation_release_time, range, value, "Ipo Quotation Release Time: Not Applicable")
-    item:add_proto_expert_info(nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.experts.not_a_number, "Ipo Quotation Release Time is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
+  local value = trim_left_spaces(range:string())
   local display = nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.ipo_quotation_release_time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_lastsaletradesfilterview_asciiitch_v2_0_2013.fields.ipo_quotation_release_time, range, value, display)

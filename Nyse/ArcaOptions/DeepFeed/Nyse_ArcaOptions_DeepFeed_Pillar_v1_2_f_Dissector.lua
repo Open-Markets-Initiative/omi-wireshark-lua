@@ -1323,30 +1323,18 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.maturity_date.size = 6
 
 -- Display: Maturity Date
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.maturity_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Maturity Date: No Value"
+  if #value < 6 then
+    return "Maturity Date: "..value
   end
 
-  return "Maturity Date: "..value
+  return "Maturity Date: 20"..value:sub(1, 2).."-"..value:sub(3, 4).."-"..value:sub(5, 6)
 end
 
 -- Dissect: Maturity Date
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.maturity_date.dissect = function(buffer, offset, packet, parent)
   local length = nyse_arcaoptions_deepfeed_pillar_v1_2_f.maturity_date.size
   local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
+  local value = range:string()
   local display = nyse_arcaoptions_deepfeed_pillar_v1_2_f.maturity_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nyse_arcaoptions_deepfeed_pillar_v1_2_f.fields.maturity_date, range, value, display)

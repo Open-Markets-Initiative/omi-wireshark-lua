@@ -3030,7 +3030,10 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.maturity_date.size = 4
 
 -- Display: Maturity Date
 cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.maturity_date.display = function(value)
-  return "Maturity Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Maturity Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Maturity Date
@@ -5556,7 +5559,10 @@ cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.trade_date.size = 4
 
 -- Display: Trade Date
 cboe_bzxoptions_binaryorderentry_boe3_v1_1_23.trade_date.display = function(value)
-  return "Trade Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date

@@ -1015,7 +1015,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.clearing_business_date.size = 2
 
 -- Display: Clearing Business Date
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.clearing_business_date.display = function(value)
-  return "Clearing Business Date: "..value
+  return string.format("Clearing Business Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Clearing Business Date
@@ -2141,7 +2141,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.expire_date.display = function(value)
     return "Expire Date: No Value"
   end
 
-  return "Expire Date: "..value
+  return string.format("Expire Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Expire Date
@@ -6702,7 +6702,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.trade_date.size = 2
 
 -- Display: Trade Date
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.trade_date.display = function(value)
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date
@@ -6730,7 +6730,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.trade_date_optional.display = functio
     return "Trade Date Optional: No Value"
   end
 
-  return "Trade Date Optional: "..value
+  return string.format("Trade Date Optional: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date Optional

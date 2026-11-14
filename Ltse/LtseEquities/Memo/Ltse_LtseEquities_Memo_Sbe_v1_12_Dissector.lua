@@ -32,7 +32,8 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.exec_id = ProtoField.new("Exec Id", 
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.exec_inst = ProtoField.new("Exec Inst", "ltse.ltseequities.memo.sbe.v1.12.execinst", ftypes.STRING, nil, nil, nil, "ExecInstType bit set")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "ltse.ltseequities.memo.sbe.v1.12.execrefid", ftypes.UINT64, nil, nil, nil, "ExecRefID")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "ltse.ltseequities.memo.sbe.v1.12.execrestatementreason", ftypes.UINT8, nil, nil, nil, "ExecRestatementReason")
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.expire_time = ProtoField.new("Expire Time", "ltse.ltseequities.memo.sbe.v1.12.expiretime", ftypes.UINT64, nil, nil, nil, "ExpireTime")
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.expire_time = ProtoField.new("Expire Time", "ltse.ltseequities.memo.sbe.v1.12.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "ExpireTime")
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.expire_time_utc = ProtoField.new("Expire Time", "ltse.ltseequities.memo.sbe.v1.12.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "ExpireTime")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.extended_restatement_reason = ProtoField.new("Extended Restatement Reason", "ltse.ltseequities.memo.sbe.v1.12.extendedrestatementreason", ftypes.UINT8, nil, nil, nil, "ExtendedRestatementReason")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "ltse.ltseequities.memo.sbe.v1.12.externalroutingnotallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "ExternalRoutingNotAllowed")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.higher_than_price = ProtoField.new("Higher Than Price", "ltse.ltseequities.memo.sbe.v1.12.higherthanprice", ftypes.DOUBLE, nil, nil, nil, "HigherThanPrice")
@@ -111,7 +112,8 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.time_in_force = ProtoField.new("Time
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.token = ProtoField.new("Token", "ltse.ltseequities.memo.sbe.v1.12.token", ftypes.STRING, nil, nil, nil, "Login Token")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.token_type = ProtoField.new("Token Type", "ltse.ltseequities.memo.sbe.v1.12.tokentype", ftypes.STRING, nil, nil, nil, "Login Token type")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "ltse.ltseequities.memo.sbe.v1.12.totalsequencecount", ftypes.UINT64, nil, nil, nil, "The count of messages that were sent on this stream")
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.transact_time = ProtoField.new("Transact Time", "ltse.ltseequities.memo.sbe.v1.12.transacttime", ftypes.UINT64, nil, nil, nil, "TransactTime")
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.transact_time = ProtoField.new("Transact Time", "ltse.ltseequities.memo.sbe.v1.12.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.transact_time_utc = ProtoField.new("Transact Time", "ltse.ltseequities.memo.sbe.v1.12.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TransactTime")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.trd_match_id = ProtoField.new("Trd Match Id", "ltse.ltseequities.memo.sbe.v1.12.trdmatchid", ftypes.UINT64, nil, nil, nil, "TrdMatchID")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "ltse.ltseequities.memo.sbe.v1.12.trdmatchingid", ftypes.UINT64, nil, nil, nil, "TrdMatchingID")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.ltseequities.memo.sbe.v1.12.unsequencedmessage", ftypes.STRING, nil, nil, nil, "Ltse Tcp unsequenced message")
@@ -756,24 +758,27 @@ ltse_ltseequities_memo_sbe_v1_12.expire_time = {}
 -- Size: Expire Time
 ltse_ltseequities_memo_sbe_v1_12.expire_time.size = 8
 
--- Display: Expire Time
-ltse_ltseequities_memo_sbe_v1_12.expire_time.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Expire Time: No Value"
-  end
-
-  return "Expire Time: "..value
-end
-
 -- Dissect: Expire Time
 ltse_ltseequities_memo_sbe_v1_12.expire_time.dissect = function(buffer, offset, packet, parent)
   local length = ltse_ltseequities_memo_sbe_v1_12.expire_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = ltse_ltseequities_memo_sbe_v1_12.expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ltse_ltseequities_memo_sbe_v1_12.fields.expire_time
+  if ltse_ltseequities_memo_sbe_v1_12.timestamp_format == 3 then field = omi_ltse_ltseequities_memo_sbe_v1_12.fields.expire_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expire Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2927,19 +2932,20 @@ ltse_ltseequities_memo_sbe_v1_12.transact_time = {}
 -- Size: Transact Time
 ltse_ltseequities_memo_sbe_v1_12.transact_time.size = 8
 
--- Display: Transact Time
-ltse_ltseequities_memo_sbe_v1_12.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 ltse_ltseequities_memo_sbe_v1_12.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = ltse_ltseequities_memo_sbe_v1_12.transact_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = ltse_ltseequities_memo_sbe_v1_12.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ltse_ltseequities_memo_sbe_v1_12.fields.transact_time
+  if ltse_ltseequities_memo_sbe_v1_12.timestamp_format == 3 then field = omi_ltse_ltseequities_memo_sbe_v1_12.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

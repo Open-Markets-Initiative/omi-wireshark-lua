@@ -13499,7 +13499,11 @@ koscom_mdcsrealtime_bonda_exture_v2_020.trading_date.size = 8
 
 -- Display: Trading Date
 koscom_mdcsrealtime_bonda_exture_v2_020.trading_date.display = function(value)
-  return "Trading Date: "..value
+  if #value < 8 then
+    return "Trading Date: "..value
+  end
+
+  return "Trading Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Trading Date

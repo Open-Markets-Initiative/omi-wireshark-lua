@@ -21,7 +21,8 @@ omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.close_price = Proto
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.contract_date = ProtoField.new("Contract Date", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.contractdate", ftypes.UINT32, nil, nil, nil, "Populated for single leg instruments only. Zero-filled for spread instruments. The date that should be used in describing the future's third party symbol and the measurement period of the contract.")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.contract_size = ProtoField.new("Contract Size", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.contractsize", ftypes.UINT16, nil, nil, nil, "Contract size of Instrument. Contract sizes less than 1 are represented with a 0 value; refer to the product specification for the contract size.")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.ecrp_volume = ProtoField.new("Ecrp Volume", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.ecrpvolume", ftypes.UINT32, nil, nil, nil, "Total number of contracts traded for the day.")
-omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.epochtime", ftypes.UINT32, nil, nil, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.expirationdate", ftypes.UINT32, nil, nil, nil, "Expiration Date of Instrument.")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.feedsymbol", ftypes.STRING, nil, nil, nil, "Six character, base 62 symbol.")
 omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.filler = ProtoField.new("Filler", "cboe.cfefutures.multicastdepthofbook.spin.v1.2.13.filler", ftypes.STRING, nil, nil, nil, "(space filled)")
@@ -382,19 +383,20 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.epoch_time = {}
 -- Size: Epoch Time
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.epoch_time.size = 4
 
--- Display: Epoch Time
-cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
 -- Dissect: Epoch Time
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.epoch_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.epoch_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.epoch_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.epoch_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.epoch_time
+  if cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.timestamp_format == 3 then field = omi_cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.fields.epoch_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1553,7 +1555,10 @@ cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.trade_date.size = 4
 
 -- Display: Trade Date
 cboe_cfefutures_multicastdepthofbook_spin_v1_2_13.trade_date.display = function(value)
-  return "Trade Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date

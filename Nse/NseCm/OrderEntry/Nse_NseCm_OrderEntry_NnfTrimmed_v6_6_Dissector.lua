@@ -82,7 +82,8 @@ omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.symbol = ProtoField.new("Symbol"
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1_char_8 = ProtoField.new("Time Stamp 1 Char 8", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp1char8", ftypes.STRING, nil, nil, nil, "Time the message arrives at the trading system host")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1_long_long_8 = ProtoField.new("Time Stamp 1 Long Long 8", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp1longlong8", ftypes.INT64, nil, nil, nil, "Time the message arrives at the trading system host")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp2", ftypes.STRING, nil, nil, nil, "Reserved for the host")
-omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp", ftypes.INT64, nil, nil, nil, "Time stamped at the matching engine, in nanoseconds from January 1 1980 for the transaction codes the appendix lists")
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamped at the matching engine, in nanoseconds from January 1 1980 for the transaction codes the appendix lists")
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp_utc = ProtoField.new("Timestamp", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time stamped at the matching engine, in nanoseconds from January 1 1980 for the transaction codes the appendix lists")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.total_vol_remaining = ProtoField.new("Total Vol Remaining", "nse.nsecm.orderentry.nnftrimmed.v6.6.totalvolremaining", ftypes.INT32, nil, nil, nil, "Total quantity remaining")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.traded = ProtoField.new("Traded", "nse.nsecm.orderentry.nnftrimmed.v6.6.traded", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "Order has traded at least partly")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.trader_id = ProtoField.new("Trader Id", "nse.nsecm.orderentry.nnftrimmed.v6.6.traderid", ftypes.INT32, nil, nil, nil, "User ID of the user entering the order")
@@ -1233,19 +1234,20 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp = {}
 -- Size: Timestamp
 nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp.size = 8
 
--- Display: Timestamp
-nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp
+  if nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

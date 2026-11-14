@@ -672,14 +672,18 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.size = 8
 
 -- Display: Contract Date
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.display = function(value)
-  return "Contract Date: "..value
+  if #value < 8 then
+    return "Contract Date: "..value
+  end
+
+  return "Contract Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Contract Date
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.dissect = function(buffer, offset, packet, parent)
   local length = taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.contract_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.contract_date, range, value, display)

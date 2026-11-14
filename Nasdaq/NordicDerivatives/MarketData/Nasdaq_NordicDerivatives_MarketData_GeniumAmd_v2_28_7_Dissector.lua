@@ -75,7 +75,8 @@ omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.reserved_alpha_
 omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.reserved_alpha_5 = ProtoField.new("Reserved Alpha 5", "nasdaq.nordicderivatives.marketdata.geniumamd.v2.28.7.reservedalpha5", ftypes.STRING)
 omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.reserved_alpha_7 = ProtoField.new("Reserved Alpha 7", "nasdaq.nordicderivatives.marketdata.geniumamd.v2.28.7.reservedalpha7", ftypes.STRING)
 omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nordicderivatives.marketdata.geniumamd.v2.28.7.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the quantity that represent a round lot for the issue The document states no data type for this field. Numeric is taken from the Nasdaq Nordic Equities TotalView Itch specification, which types Round Lot Size as Integer.")
-omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.second = ProtoField.new("Second", "nasdaq.nordicderivatives.marketdata.geniumamd.v2.28.7.second", ftypes.UINT32, nil, nil, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.second = ProtoField.new("Second", "nasdaq.nordicderivatives.marketdata.geniumamd.v2.28.7.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.second_utc = ProtoField.new("Second", "nasdaq.nordicderivatives.marketdata.geniumamd.v2.28.7.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
 omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.second_reserved = ProtoField.new("Second Reserved", "nasdaq.nordicderivatives.marketdata.geniumamd.v2.28.7.secondreserved", ftypes.STRING)
 omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nordicderivatives.marketdata.geniumamd.v2.28.7.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.session = ProtoField.new("Session", "nasdaq.nordicderivatives.marketdata.geniumamd.v2.28.7.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
@@ -1757,19 +1758,20 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.second = {}
 -- Size: Second
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.second.size = 4
 
--- Display: Second
-nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.second.display = function(value)
-  return "Second: "..value
-end
-
 -- Dissect: Second
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.second.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.second.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.second.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.second, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.second
+  if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 3 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.second_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

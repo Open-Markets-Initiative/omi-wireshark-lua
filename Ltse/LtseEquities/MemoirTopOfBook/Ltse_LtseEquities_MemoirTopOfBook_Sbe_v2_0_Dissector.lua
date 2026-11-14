@@ -69,7 +69,8 @@ omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.short_sale_restriction = P
 omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.symbol = ProtoField.new("Symbol", "ltse.ltseequities.memoirtopofbook.sbe.v2.0.symbol", ftypes.STRING)
 omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "ltse.ltseequities.memoirtopofbook.sbe.v2.0.symbolsfx", ftypes.STRING, nil, nil, nil, "SymbolSfx")
 omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.template_id = ProtoField.new("Template Id", "ltse.ltseequities.memoirtopofbook.sbe.v2.0.templateid", ftypes.UINT8, nil, nil, nil, "T8 Identifier of the message template")
-omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.timestamp = ProtoField.new("Timestamp", "ltse.ltseequities.memoirtopofbook.sbe.v2.0.timestamp", ftypes.UINT64)
+omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.timestamp = ProtoField.new("Timestamp", "ltse.ltseequities.memoirtopofbook.sbe.v2.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.timestamp_utc = ProtoField.new("Timestamp", "ltse.ltseequities.memoirtopofbook.sbe.v2.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.trade_id = ProtoField.new("Trade Id", "ltse.ltseequities.memoirtopofbook.sbe.v2.0.tradeid", ftypes.UINT64, nil, nil, nil, "TradeID")
 omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.trading_session = ProtoField.new("Trading Session", "ltse.ltseequities.memoirtopofbook.sbe.v2.0.tradingsession", ftypes.STRING, nil, nil, nil, "TradingSession")
 omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.version = ProtoField.new("Version", "ltse.ltseequities.memoirtopofbook.sbe.v2.0.version", ftypes.UINT16, nil, nil, nil, "The version number of the message schema that was used to encode a message")
@@ -105,6 +106,20 @@ omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.message_index = ProtoField
 omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "ltse.ltseequities.memoirtopofbook.sbe.v2.0.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Ltse LtseEquities MemoirTopOfBook Sbe 2.0 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+ltse_ltseequities_memoirtopofbook_sbe_v2_0.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -124,6 +139,8 @@ omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.prefs.show_headers = Pref.bool("S
 omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.prefs_changed()
 
@@ -142,6 +159,9 @@ function omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.prefs_changed()
   end
   if show.sequences ~= omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.prefs.show_sequences then
     show.sequences = omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.prefs.show_sequences
+  end
+  if ltse_ltseequities_memoirtopofbook_sbe_v2_0.timestamp_format ~= omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.prefs.timestamp_format then
+    ltse_ltseequities_memoirtopofbook_sbe_v2_0.timestamp_format = omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.prefs.timestamp_format
   end
 end
 
@@ -1717,19 +1737,20 @@ ltse_ltseequities_memoirtopofbook_sbe_v2_0.timestamp = {}
 -- Size: Timestamp
 ltse_ltseequities_memoirtopofbook_sbe_v2_0.timestamp.size = 8
 
--- Display: Timestamp
-ltse_ltseequities_memoirtopofbook_sbe_v2_0.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 ltse_ltseequities_memoirtopofbook_sbe_v2_0.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = ltse_ltseequities_memoirtopofbook_sbe_v2_0.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = ltse_ltseequities_memoirtopofbook_sbe_v2_0.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.timestamp
+  if ltse_ltseequities_memoirtopofbook_sbe_v2_0.timestamp_format == 3 then field = omi_ltse_ltseequities_memoirtopofbook_sbe_v2_0.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

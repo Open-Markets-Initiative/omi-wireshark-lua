@@ -125,7 +125,8 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.event_exec_w_firm_short_code
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.event_id = ProtoField.new("Event Id", "euronext.optiq.dropcopygateway.sbe.v6.64.eventid", ftypes.UINT64, nil, nil, nil, "eventId")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.event_investor_id = ProtoField.new("Event Investor Id", "euronext.optiq.dropcopygateway.sbe.v6.64.eventinvestorid", ftypes.STRING, nil, nil, nil, "eventInvestorID")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.event_short_code_type = ProtoField.new("Event Short Code Type", "euronext.optiq.dropcopygateway.sbe.v6.64.eventshortcodetype", ftypes.UINT8, nil, nil, nil, "eventShortCodeType")
-omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.event_time = ProtoField.new("Event Time", "euronext.optiq.dropcopygateway.sbe.v6.64.eventtime", ftypes.UINT64, nil, nil, nil, "eventTime")
+omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.event_time = ProtoField.new("Event Time", "euronext.optiq.dropcopygateway.sbe.v6.64.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "eventTime")
+omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.event_time_utc = ProtoField.new("Event Time", "euronext.optiq.dropcopygateway.sbe.v6.64.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "eventTime")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.exceptional_market_conditions = ProtoField.new("Exceptional Market Conditions", "euronext.optiq.dropcopygateway.sbe.v6.64.exceptionalmarketconditions", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080, "ExceptionalMarketConditions")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.exec_phase = ProtoField.new("Exec Phase", "euronext.optiq.dropcopygateway.sbe.v6.64.execphase", ftypes.UINT8, nil, nil, nil, "execPhase")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.executed_upon_entry_flag = ProtoField.new("Executed Upon Entry Flag", "euronext.optiq.dropcopygateway.sbe.v6.64.executeduponentryflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "ExecutedUponEntryFlag")
@@ -309,7 +310,8 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.rfq_confirmation = ProtoFiel
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.rfq_status = ProtoField.new("Rfq Status", "euronext.optiq.dropcopygateway.sbe.v6.64.rfqstatus", ftypes.UINT8, nil, nil, nil, "rFQStatus")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.rfq_type = ProtoField.new("Rfq Type", "euronext.optiq.dropcopygateway.sbe.v6.64.rfqtype", ftypes.UINT8, nil, nil, nil, "rFQType")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.scheduled_event = ProtoField.new("Scheduled Event", "euronext.optiq.dropcopygateway.sbe.v6.64.scheduledevent", ftypes.UINT8, nil, nil, nil, "scheduledEvent")
-omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.scheduled_event_time = ProtoField.new("Scheduled Event Time", "euronext.optiq.dropcopygateway.sbe.v6.64.scheduledeventtime", ftypes.UINT64, nil, nil, nil, "scheduledEventTime")
+omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.scheduled_event_time = ProtoField.new("Scheduled Event Time", "euronext.optiq.dropcopygateway.sbe.v6.64.scheduledeventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "scheduledEventTime")
+omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.scheduled_event_time_utc = ProtoField.new("Scheduled Event Time", "euronext.optiq.dropcopygateway.sbe.v6.64.scheduledeventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "scheduledEventTime")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.schema_id = ProtoField.new("Schema Id", "euronext.optiq.dropcopygateway.sbe.v6.64.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.sell_revision_flag = ProtoField.new("Sell Revision Flag", "euronext.optiq.dropcopygateway.sbe.v6.64.sellrevisionflag", ftypes.UINT8, nil, nil, nil, "sellRevisionFlag")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.sender_location_id = ProtoField.new("Sender Location Id", "euronext.optiq.dropcopygateway.sbe.v6.64.senderlocationid", ftypes.STRING, nil, nil, nil, "senderLocationID")
@@ -436,6 +438,20 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.trade_bust_notification_shor
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.trade_bust_notification_short_codes_details_non_modifiable_group_index = ProtoField.new("Trade Bust Notification Short Codes Details Non Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.64.tradebustnotificationshortcodesdetailsnonmodifiablegroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Euronext Optiq DropCopyGateway Sbe 6.64 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+euronext_optiq_dropcopygateway_sbe_v6_64.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -455,6 +471,8 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_64.prefs.show_headers = Pref.bool("Sho
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v6_64.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_euronext_optiq_dropcopygateway_sbe_v6_64.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_euronext_optiq_dropcopygateway_sbe_v6_64.prefs_changed()
 
@@ -473,6 +491,9 @@ function omi_euronext_optiq_dropcopygateway_sbe_v6_64.prefs_changed()
   end
   if show.indexes ~= omi_euronext_optiq_dropcopygateway_sbe_v6_64.prefs.show_indexes then
     show.indexes = omi_euronext_optiq_dropcopygateway_sbe_v6_64.prefs.show_indexes
+  end
+  if euronext_optiq_dropcopygateway_sbe_v6_64.timestamp_format ~= omi_euronext_optiq_dropcopygateway_sbe_v6_64.prefs.timestamp_format then
+    euronext_optiq_dropcopygateway_sbe_v6_64.timestamp_format = omi_euronext_optiq_dropcopygateway_sbe_v6_64.prefs.timestamp_format
   end
 end
 
@@ -2749,19 +2770,20 @@ euronext_optiq_dropcopygateway_sbe_v6_64.event_time = {}
 -- Size: Event Time
 euronext_optiq_dropcopygateway_sbe_v6_64.event_time.size = 8
 
--- Display: Event Time
-euronext_optiq_dropcopygateway_sbe_v6_64.event_time.display = function(value)
-  return "Event Time: "..value
-end
-
 -- Dissect: Event Time
 euronext_optiq_dropcopygateway_sbe_v6_64.event_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v6_64.event_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v6_64.event_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.event_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.event_time
+  if euronext_optiq_dropcopygateway_sbe_v6_64.timestamp_format == 3 then field = omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.event_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5597,7 +5619,12 @@ euronext_optiq_dropcopygateway_sbe_v6_64.phase_time.display = function(value)
     return "Phase Time: No Value"
   end
 
-  return "Phase Time: "..value
+  value = value:tonumber()
+  local hour = math.floor(value / 10000)
+  local minute = math.floor(value / 100) % 100
+  local second = value % 100
+
+  return string.format("Phase Time: %02d:%02d:%02d", hour, minute, second)
 end
 
 -- Dissect: Phase Time
@@ -6260,24 +6287,27 @@ euronext_optiq_dropcopygateway_sbe_v6_64.scheduled_event_time = {}
 -- Size: Scheduled Event Time
 euronext_optiq_dropcopygateway_sbe_v6_64.scheduled_event_time.size = 8
 
--- Display: Scheduled Event Time
-euronext_optiq_dropcopygateway_sbe_v6_64.scheduled_event_time.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Scheduled Event Time: No Value"
-  end
-
-  return "Scheduled Event Time: "..value
-end
-
 -- Dissect: Scheduled Event Time
 euronext_optiq_dropcopygateway_sbe_v6_64.scheduled_event_time.dissect = function(buffer, offset, packet, parent)
   local length = euronext_optiq_dropcopygateway_sbe_v6_64.scheduled_event_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = euronext_optiq_dropcopygateway_sbe_v6_64.scheduled_event_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.scheduled_event_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.scheduled_event_time
+  if euronext_optiq_dropcopygateway_sbe_v6_64.timestamp_format == 3 then field = omi_euronext_optiq_dropcopygateway_sbe_v6_64.fields.scheduled_event_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Scheduled Event Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

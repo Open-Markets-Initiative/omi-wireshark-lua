@@ -22,7 +22,8 @@ omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.aggregate_quantity = ProtoF
 omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.alert_id = ProtoField.new("Alert Id", "hkex.hkexderivatives.literefresh.omd.v2.3.alertid", ftypes.UINT64, nil, nil, nil, "The reference ID for this alert, unique for any given day")
 omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.base_currency = ProtoField.new("Base Currency", "hkex.hkexderivatives.literefresh.omd.v2.3.basecurrency", ftypes.STRING, nil, nil, nil, "Defines the trading currency")
 omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.book_entry = ProtoField.new("Book Entry", "hkex.hkexderivatives.literefresh.omd.v2.3.bookentry", ftypes.STRING, nil, nil, nil, "The aggregate order book is sent whenever there is a orderbook change")
-omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.business_time = ProtoField.new("Business Time", "hkex.hkexderivatives.literefresh.omd.v2.3.businesstime", ftypes.UINT64, nil, nil, nil, "Transaction time. UTC nanoseconds since 1970-01-01 00:00:00 GMT, precision to nearest microsecond. Null means N/A.")
+omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.business_time = ProtoField.new("Business Time", "hkex.hkexderivatives.literefresh.omd.v2.3.businesstime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction time. UTC nanoseconds since 1970-01-01 00:00:00 GMT, precision to nearest microsecond. Null means N/A.")
+omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.business_time_utc = ProtoField.new("Business Time", "hkex.hkexderivatives.literefresh.omd.v2.3.businesstime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction time. UTC nanoseconds since 1970-01-01 00:00:00 GMT, precision to nearest microsecond. Null means N/A.")
 omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.ca_created = ProtoField.new("Ca Created", "hkex.hkexderivatives.literefresh.omd.v2.3.cacreated", ftypes.STRING, nil, nil, nil, "Whether it is created by Capital Adjustment (CA) process")
 omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "hkex.hkexderivatives.literefresh.omd.v2.3.calculatedopeningprice", ftypes.INT64)
 omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.calculated_opening_quantity = ProtoField.new("Calculated Opening Quantity", "hkex.hkexderivatives.literefresh.omd.v2.3.calculatedopeningquantity", ftypes.UINT64, nil, nil, nil, "Shows the quantity available at Calculated Opening Price")
@@ -402,19 +403,20 @@ hkex_hkexderivatives_literefresh_omd_v2_3.business_time = {}
 -- Size: Business Time
 hkex_hkexderivatives_literefresh_omd_v2_3.business_time.size = 8
 
--- Display: Business Time
-hkex_hkexderivatives_literefresh_omd_v2_3.business_time.display = function(value)
-  return "Business Time: "..value
-end
-
 -- Dissect: Business Time
 hkex_hkexderivatives_literefresh_omd_v2_3.business_time.dissect = function(buffer, offset, packet, parent)
   local length = hkex_hkexderivatives_literefresh_omd_v2_3.business_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = hkex_hkexderivatives_literefresh_omd_v2_3.business_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.business_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.business_time
+  if hkex_hkexderivatives_literefresh_omd_v2_3.timestamp_format == 3 then field = omi_hkex_hkexderivatives_literefresh_omd_v2_3.fields.business_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

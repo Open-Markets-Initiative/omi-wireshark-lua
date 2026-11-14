@@ -517,12 +517,22 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.size = 8
 
 -- Display: Mbb Price
-miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.display = function(value)
+miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x589C0001, 0xF21F494C) then
+    return "Mbb Price: No Value"
+  end
+
   return "Mbb Price: "..value
 end
 
 -- Translate: Mbb Price
 miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x589C0001, 0xF21F494C) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000000
 end
 
@@ -532,7 +542,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.dissect = function(buffer, of
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.translate(raw)
-  local display = miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.display(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbb_price, range, value, display)
 
@@ -569,12 +579,22 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price = {}
 miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.size = 8
 
 -- Display: Mbo Price
-miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.display = function(value)
+miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
+    return "Mbo Price: No Value"
+  end
+
   return "Mbo Price: "..value
 end
 
 -- Translate: Mbo Price
 miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
+    return 0/0
+  end
+
   return raw:tonumber()/1000000000
 end
 
@@ -584,7 +604,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.dissect = function(buffer, of
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.translate(raw)
-  local display = miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.display(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.mbo_price, range, value, display)
 
@@ -1226,7 +1246,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.trade_date.size = 2
 
 -- Display: Trade Date
 miax_onyxfutures_topofmarket_mach_v1_0_b.trade_date.display = function(value)
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date

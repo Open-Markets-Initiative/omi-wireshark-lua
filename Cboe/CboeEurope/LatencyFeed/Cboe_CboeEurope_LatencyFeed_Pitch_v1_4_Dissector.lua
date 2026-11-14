@@ -53,6 +53,22 @@ omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.message_index = ProtoField.new
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.cboeeurope.latencyfeed.pitch.v1.4.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- Cboe CboeEurope LatencyFeed Pitch 1.4 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+cboe_cboeeurope_latencyfeed_pitch_v1_4.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -72,6 +88,8 @@ omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.prefs.show_headers = Pref.bool("Show 
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.prefs_changed()
 
@@ -90,6 +108,9 @@ function omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.prefs_changed()
   end
   if show.sequences ~= omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.prefs.show_sequences then
     show.sequences = omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.prefs.show_sequences
+  end
+  if cboe_cboeeurope_latencyfeed_pitch_v1_4.timestamp_format ~= omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.prefs.timestamp_format then
+    cboe_cboeeurope_latencyfeed_pitch_v1_4.timestamp_format = omi_cboe_cboeeurope_latencyfeed_pitch_v1_4.prefs.timestamp_format
   end
 end
 
@@ -128,8 +149,34 @@ cboe_cboeeurope_latencyfeed_pitch_v1_4.begin_time = {}
 cboe_cboeeurope_latencyfeed_pitch_v1_4.begin_time.size = 4
 
 -- Display: Begin Time
-cboe_cboeeurope_latencyfeed_pitch_v1_4.begin_time.display = function(value)
-  return "Begin Time: "..value
+cboe_cboeeurope_latencyfeed_pitch_v1_4.begin_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if cboe_cboeeurope_latencyfeed_pitch_v1_4.timestamp_format == 0 then
+    return "Begin Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_cboeeurope_latencyfeed_pitch_v1_4.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_cboeeurope_latencyfeed_pitch_v1_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Begin Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Begin Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Begin Time
@@ -174,8 +221,34 @@ cboe_cboeeurope_latencyfeed_pitch_v1_4.end_time = {}
 cboe_cboeeurope_latencyfeed_pitch_v1_4.end_time.size = 4
 
 -- Display: End Time
-cboe_cboeeurope_latencyfeed_pitch_v1_4.end_time.display = function(value)
-  return "End Time: "..value
+cboe_cboeeurope_latencyfeed_pitch_v1_4.end_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if cboe_cboeeurope_latencyfeed_pitch_v1_4.timestamp_format == 0 then
+    return "End Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_cboeeurope_latencyfeed_pitch_v1_4.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_cboeeurope_latencyfeed_pitch_v1_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "End Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "End Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: End Time

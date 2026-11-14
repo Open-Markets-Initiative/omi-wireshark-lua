@@ -553,8 +553,8 @@ udp_table:add_for_decode_as(omi_miax_onyxfutures_headeronly_mach_v1_0)
 -- Protocol:
 --   Organization: Miami International Holdings
 --   Version: 1.0
---   Date: Friday, June 26, 2020
---   Specification: tcp_session_mgmt_esesm.pdf
+--   Date: Thursday, October 31, 2024
+--   Specification: onyx miax mach protocol v1.0.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -7611,7 +7611,11 @@ koscom_mdcsrealtime_securitiesa_exture_v2_009.expiration_date.size = 8
 
 -- Display: Expiration Date
 koscom_mdcsrealtime_securitiesa_exture_v2_009.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date
@@ -9488,7 +9492,11 @@ koscom_mdcsrealtime_securitiesa_exture_v2_009.last_trading_date.size = 8
 
 -- Display: Last Trading Date
 koscom_mdcsrealtime_securitiesa_exture_v2_009.last_trading_date.display = function(value)
-  return "Last Trading Date: "..value
+  if #value < 8 then
+    return "Last Trading Date: "..value
+  end
+
+  return "Last Trading Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Last Trading Date

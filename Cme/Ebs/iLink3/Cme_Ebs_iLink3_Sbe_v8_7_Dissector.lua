@@ -1502,7 +1502,7 @@ cme_ebs_ilink3_sbe_v8_7.end_date.display = function(value)
     return "End Date: No Value"
   end
 
-  return "End Date: "..value
+  return string.format("End Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: End Date
@@ -1860,7 +1860,7 @@ cme_ebs_ilink3_sbe_v8_7.expire_date.display = function(value)
     return "Expire Date: No Value"
   end
 
-  return "Expire Date: "..value
+  return string.format("Expire Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Expire Date
@@ -3210,7 +3210,7 @@ cme_ebs_ilink3_sbe_v8_7.maturity_date.display = function(value)
     return "Maturity Date: No Value"
   end
 
-  return "Maturity Date: "..value
+  return string.format("Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Maturity Date
@@ -5967,7 +5967,7 @@ cme_ebs_ilink3_sbe_v8_7.settl_date.display = function(value)
     return "Settl Date: No Value"
   end
 
-  return "Settl Date: "..value
+  return string.format("Settl Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Settl Date
@@ -6178,7 +6178,7 @@ cme_ebs_ilink3_sbe_v8_7.start_date.display = function(value)
     return "Start Date: No Value"
   end
 
-  return "Start Date: "..value
+  return string.format("Start Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Start Date
@@ -6587,7 +6587,7 @@ cme_ebs_ilink3_sbe_v8_7.trade_date.display = function(value)
     return "Trade Date: No Value"
   end
 
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date

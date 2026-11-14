@@ -1130,7 +1130,7 @@ cme_globex_settlements_sbe_v7_0.trading_reference_date.display = function(value)
     return "Trading Reference Date: No Value"
   end
 
-  return "Trading Reference Date: "..value
+  return string.format("Trading Reference Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trading Reference Date

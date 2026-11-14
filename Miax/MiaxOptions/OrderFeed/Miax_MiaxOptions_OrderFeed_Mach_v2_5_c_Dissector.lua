@@ -26,7 +26,8 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.computer_id = ProtoField.new("
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.miaxoptions.orderfeed.mach.v2.5.c.endsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the last packet to be retransmitted")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.event_reason = ProtoField.new("Event Reason", "miax.miaxoptions.orderfeed.mach.v2.5.c.eventreason", ftypes.STRING, nil, nil, nil, "Event Reason value")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.miaxoptions.orderfeed.mach.v2.5.c.expectedeventtimenanosecondspart", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in “Expected Event Time Seconds” field.")
-omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.orderfeed.mach.v2.5.c.expectedeventtimesecondspart", ftypes.UINT32, nil, nil, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.orderfeed.mach.v2.5.c.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.expected_event_time_seconds_part_utc = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.orderfeed.mach.v2.5.c.expectedeventtimesecondspart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.expiration_date = ProtoField.new("Expiration Date", "miax.miaxoptions.orderfeed.mach.v2.5.c.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.miaxoptions.orderfeed.mach.v2.5.c.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.miaxoptions.orderfeed.mach.v2.5.c.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
@@ -84,7 +85,7 @@ omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.sesm_packet_length = ProtoFiel
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.miaxoptions.orderfeed.mach.v2.5.c.sesmpackettype", ftypes.STRING, nil, nil, nil, "SesM protocol packet type")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.sesm_version = ProtoField.new("Sesm Version", "miax.miaxoptions.orderfeed.mach.v2.5.c.sesmversion", ftypes.STRING, nil, nil, nil, "Protocol version")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.session_id = ProtoField.new("Session Id", "miax.miaxoptions.orderfeed.mach.v2.5.c.sessionid", ftypes.UINT32, nil, nil, nil, "MIAX assigned ID for the current trading session")
-omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.orderfeed.mach.v2.5.c.sessionnumber", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.orderfeed.mach.v2.5.c.sessionnumber", ftypes.UINT8, nil, nil, nil, "The Session this packet was generated from")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.simple_or_complex_order = ProtoField.new("Simple Or Complex Order", "miax.miaxoptions.orderfeed.mach.v2.5.c.simpleorcomplexorder", ftypes.STRING, nil, nil, nil, "Simple or Complex Order indicator")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.miaxoptions.orderfeed.mach.v2.5.c.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
 omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.strategy_id = ProtoField.new("Strategy Id", "miax.miaxoptions.orderfeed.mach.v2.5.c.strategyid", ftypes.UINT32, nil, nil, nil, "MIAX Strategy ID is assigned per trading day and is valid only for that day.")
@@ -499,19 +500,27 @@ miax_miaxoptions_orderfeed_mach_v2_5_c.expected_event_time_seconds_part = {}
 -- Size: Expected Event Time Seconds Part
 miax_miaxoptions_orderfeed_mach_v2_5_c.expected_event_time_seconds_part.size = 4
 
--- Display: Expected Event Time Seconds Part
-miax_miaxoptions_orderfeed_mach_v2_5_c.expected_event_time_seconds_part.display = function(value)
-  return "Expected Event Time Seconds Part: "..value
-end
-
 -- Dissect: Expected Event Time Seconds Part
 miax_miaxoptions_orderfeed_mach_v2_5_c.expected_event_time_seconds_part.dissect = function(buffer, offset, packet, parent)
   local length = miax_miaxoptions_orderfeed_mach_v2_5_c.expected_event_time_seconds_part.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_miaxoptions_orderfeed_mach_v2_5_c.expected_event_time_seconds_part.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.expected_event_time_seconds_part, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.expected_event_time_seconds_part
+  if miax_miaxoptions_orderfeed_mach_v2_5_c.timestamp_format == 3 then field = omi_miax_miaxoptions_orderfeed_mach_v2_5_c.fields.expected_event_time_seconds_part_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expected Event Time Seconds Part: Not Applicable")
+    return offset + length, value
+  end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -524,7 +533,11 @@ miax_miaxoptions_orderfeed_mach_v2_5_c.expiration_date.size = 8
 
 -- Display: Expiration Date
 miax_miaxoptions_orderfeed_mach_v2_5_c.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date

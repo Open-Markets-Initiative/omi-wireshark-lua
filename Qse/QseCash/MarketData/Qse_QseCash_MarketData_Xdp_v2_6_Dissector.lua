@@ -3738,7 +3738,10 @@ qse_qsecash_marketdata_xdp_v2_6.order_date.size = 4
 
 -- Display: Order Date
 qse_qsecash_marketdata_xdp_v2_6.order_date.display = function(value)
-  return "Order Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Order Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Order Date

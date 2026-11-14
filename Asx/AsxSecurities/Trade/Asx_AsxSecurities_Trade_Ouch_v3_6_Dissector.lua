@@ -61,7 +61,8 @@ omi_asx_asxsecurities_trade_ouch_v3_6.fields.server_packet_type = ProtoField.new
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.short_sell_quantity = ProtoField.new("Short Sell Quantity", "asx.asxsecurities.trade.ouch.v3.6.shortsellquantity", ftypes.UINT64, nil, nil, nil, "For short sell orders, the portion of the quantity that is short.")
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.side = ProtoField.new("Side", "asx.asxsecurities.trade.ouch.v3.6.side", ftypes.STRING, nil, nil, nil, "The type of order being entered.")
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.time_in_force = ProtoField.new("Time In Force", "asx.asxsecurities.trade.ouch.v3.6.timeinforce", ftypes.UINT8, nil, nil, nil, "The time validity of the order.")
-omi_asx_asxsecurities_trade_ouch_v3_6.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.asxsecurities.trade.ouch.v3.6.timestampnanoseconds", ftypes.UINT64, nil, nil, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC).")
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.asxsecurities.trade.ouch.v3.6.timestampnanoseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC).")
+omi_asx_asxsecurities_trade_ouch_v3_6.fields.timestamp_nanoseconds_utc = ProtoField.new("Timestamp Nanoseconds", "asx.asxsecurities.trade.ouch.v3.6.timestampnanoseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC).")
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.trade_price = ProtoField.new("Trade Price", "asx.asxsecurities.trade.ouch.v3.6.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Price that the order traded at")
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.traded_quantity = ProtoField.new("Traded Quantity", "asx.asxsecurities.trade.ouch.v3.6.tradedquantity", ftypes.UINT64, nil, nil, nil, "Quantity that traded.")
 omi_asx_asxsecurities_trade_ouch_v3_6.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "asx.asxsecurities.trade.ouch.v3.6.unsequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying unsequenced message type")
@@ -110,6 +111,15 @@ omi_asx_asxsecurities_trade_ouch_v3_6.experts = { asx_asxsecurities_trade_ouch_v
 -- Asx AsxSecurities Trade Ouch 3.6 Formatting
 -----------------------------------------------------------------------
 
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+asx_asxsecurities_trade_ouch_v3_6.timestamp_format = 2
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -141,6 +151,8 @@ omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_headers = Pref.bool("Show Heade
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_asx_asxsecurities_trade_ouch_v3_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_asx_asxsecurities_trade_ouch_v3_6.prefs_changed()
 
@@ -159,6 +171,9 @@ function omi_asx_asxsecurities_trade_ouch_v3_6.prefs_changed()
   end
   if show.sequences ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_sequences then
     show.sequences = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.show_sequences
+  end
+  if asx_asxsecurities_trade_ouch_v3_6.timestamp_format ~= omi_asx_asxsecurities_trade_ouch_v3_6.prefs.timestamp_format then
+    asx_asxsecurities_trade_ouch_v3_6.timestamp_format = omi_asx_asxsecurities_trade_ouch_v3_6.prefs.timestamp_format
   end
 end
 
@@ -1313,19 +1328,20 @@ asx_asxsecurities_trade_ouch_v3_6.timestamp_nanoseconds = {}
 -- Size: Timestamp Nanoseconds
 asx_asxsecurities_trade_ouch_v3_6.timestamp_nanoseconds.size = 8
 
--- Display: Timestamp Nanoseconds
-asx_asxsecurities_trade_ouch_v3_6.timestamp_nanoseconds.display = function(value)
-  return "Timestamp Nanoseconds: "..value
-end
-
 -- Dissect: Timestamp Nanoseconds
 asx_asxsecurities_trade_ouch_v3_6.timestamp_nanoseconds.dissect = function(buffer, offset, packet, parent)
   local length = asx_asxsecurities_trade_ouch_v3_6.timestamp_nanoseconds.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = asx_asxsecurities_trade_ouch_v3_6.timestamp_nanoseconds.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_asxsecurities_trade_ouch_v3_6.fields.timestamp_nanoseconds, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_asx_asxsecurities_trade_ouch_v3_6.fields.timestamp_nanoseconds
+  if asx_asxsecurities_trade_ouch_v3_6.timestamp_format == 3 then field = omi_asx_asxsecurities_trade_ouch_v3_6.fields.timestamp_nanoseconds_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

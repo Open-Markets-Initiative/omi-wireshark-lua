@@ -188,6 +188,15 @@ omi_nasdaq_phlxoptions_cti_itch_v3_0.experts = { nasdaq_phlxoptions_cti_itch_v3_
 -- Nasdaq PhlxOptions Cti Itch 3.0 Formatting
 -----------------------------------------------------------------------
 
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nasdaq_phlxoptions_cti_itch_v3_0.timestamp_format = 2
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -225,6 +234,8 @@ omi_nasdaq_phlxoptions_cti_itch_v3_0.prefs.show_padding = Pref.bool("Show Paddin
 omi_nasdaq_phlxoptions_cti_itch_v3_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_phlxoptions_cti_itch_v3_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_nasdaq_phlxoptions_cti_itch_v3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_phlxoptions_cti_itch_v3_0.prefs_changed()
 
@@ -252,6 +263,9 @@ function omi_nasdaq_phlxoptions_cti_itch_v3_0.prefs_changed()
   end
   if show.sequences ~= omi_nasdaq_phlxoptions_cti_itch_v3_0.prefs.show_sequences then
     show.sequences = omi_nasdaq_phlxoptions_cti_itch_v3_0.prefs.show_sequences
+  end
+  if nasdaq_phlxoptions_cti_itch_v3_0.timestamp_format ~= omi_nasdaq_phlxoptions_cti_itch_v3_0.prefs.timestamp_format then
+    nasdaq_phlxoptions_cti_itch_v3_0.timestamp_format = omi_nasdaq_phlxoptions_cti_itch_v3_0.prefs.timestamp_format
   end
 end
 

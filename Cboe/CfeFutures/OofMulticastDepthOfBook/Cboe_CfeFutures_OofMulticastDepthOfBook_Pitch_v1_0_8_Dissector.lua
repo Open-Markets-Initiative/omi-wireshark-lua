@@ -24,7 +24,8 @@ omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.complex_instrume
 omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.complex_instrument_type = ProtoField.new("Complex Instrument Type", "cboe.cfefutures.oofmulticastdepthofbook.pitch.v1.0.8.complexinstrumenttype", ftypes.STRING, nil, nil, nil, "4 character field; each field describes a characteristic. Character 1: Complex Option Type O = All legs are options Characters 2-4: Reserved")
 omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.complex_instrument_underlying = ProtoField.new("Complex Instrument Underlying", "cboe.cfefutures.oofmulticastdepthofbook.pitch.v1.0.8.complexinstrumentunderlying", ftypes.STRING, nil, nil, nil, "Complex Instrument Underlying right padded with spaces.")
 omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.ecrp_volume = ProtoField.new("Ecrp Volume", "cboe.cfefutures.oofmulticastdepthofbook.pitch.v1.0.8.ecrpvolume", ftypes.UINT32, nil, nil, nil, "Always zero.")
-omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.cfefutures.oofmulticastdepthofbook.pitch.v1.0.8.epochtime", ftypes.UINT32, nil, nil, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.cfefutures.oofmulticastdepthofbook.pitch.v1.0.8.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.cfefutures.oofmulticastdepthofbook.pitch.v1.0.8.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.cfefutures.oofmulticastdepthofbook.pitch.v1.0.8.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts executed.")
 omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.execution_id = ProtoField.new("Execution Id", "cboe.cfefutures.oofmulticastdepthofbook.pitch.v1.0.8.executionid", ftypes.UINT64, nil, nil, nil, "CFE generated day-unique execution identifier of this execution. Execution Id is also referenced in the Trade Break message.")
 omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.cfefutures.oofmulticastdepthofbook.pitch.v1.0.8.feedsymbol", ftypes.STRING, nil, nil, nil, "Option symbol. Six character, base 62.")
@@ -454,19 +455,20 @@ cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.epoch_time = {}
 -- Size: Epoch Time
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.epoch_time.size = 4
 
--- Display: Epoch Time
-cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
 -- Dissect: Epoch Time
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.epoch_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.epoch_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.epoch_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.epoch_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.epoch_time
+  if cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.timestamp_format == 3 then field = omi_cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.fields.epoch_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1542,7 +1544,10 @@ cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trade_date.size = 4
 
 -- Display: Trade Date
 cboe_cfefutures_oofmulticastdepthofbook_pitch_v1_0_8.trade_date.display = function(value)
-  return "Trade Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date

@@ -834,7 +834,7 @@ cme_globex_ilink3_sbe_v8_8.broken_date_end.display = function(value)
     return "Broken Date End: No Value"
   end
 
-  return "Broken Date End: "..value
+  return string.format("Broken Date End: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Broken Date End
@@ -918,7 +918,7 @@ cme_globex_ilink3_sbe_v8_8.broken_date_start.display = function(value)
     return "Broken Date Start: No Value"
   end
 
-  return "Broken Date Start: "..value
+  return string.format("Broken Date Start: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Broken Date Start
@@ -1852,7 +1852,7 @@ cme_globex_ilink3_sbe_v8_8.end_date.display = function(value)
     return "End Date: No Value"
   end
 
-  return "End Date: "..value
+  return string.format("End Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: End Date
@@ -2219,7 +2219,7 @@ cme_globex_ilink3_sbe_v8_8.expire_date.display = function(value)
     return "Expire Date: No Value"
   end
 
-  return "Expire Date: "..value
+  return string.format("Expire Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Expire Date
@@ -3803,7 +3803,7 @@ cme_globex_ilink3_sbe_v8_8.maturity_date.display = function(value)
     return "Maturity Date: No Value"
   end
 
-  return "Maturity Date: "..value
+  return string.format("Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Maturity Date
@@ -6867,7 +6867,7 @@ cme_globex_ilink3_sbe_v8_8.settl_date.display = function(value)
     return "Settl Date: No Value"
   end
 
-  return "Settl Date: "..value
+  return string.format("Settl Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Settl Date
@@ -7111,7 +7111,7 @@ cme_globex_ilink3_sbe_v8_8.start_date.display = function(value)
     return "Start Date: No Value"
   end
 
-  return "Start Date: "..value
+  return string.format("Start Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Start Date
@@ -7566,7 +7566,7 @@ cme_globex_ilink3_sbe_v8_8.trade_date.display = function(value)
     return "Trade Date: No Value"
   end
 
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date

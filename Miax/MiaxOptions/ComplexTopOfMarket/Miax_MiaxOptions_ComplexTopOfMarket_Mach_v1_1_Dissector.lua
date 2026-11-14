@@ -31,6 +31,8 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_price = ProtoFi
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.compact_size = ProtoField.new("Compact Size", "miax.miaxoptions.complextopofmarket.mach.v1.1.compactsize", ftypes.UINT16, nil, nil, nil, "Aggregate size at MIAX Best Price at the time stated in Timestamp and side specified in Message Type")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.event_reason = ProtoField.new("Event Reason", "miax.miaxoptions.complextopofmarket.mach.v1.1.eventreason", ftypes.STRING, nil, nil, nil, "Values: “A” = This event resulted from automatic/market driven event “M” = MIAX manually initiated this event")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.miaxoptions.complextopofmarket.mach.v1.1.expectedeventtimenanosecondspart", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in “Expected Event Time Seconds” field.")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.complextopofmarket.mach.v1.1.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.expected_event_time_seconds_part_utc = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.complextopofmarket.mach.v1.1.expectedeventtimesecondspart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.expiration_date = ProtoField.new("Expiration Date", "miax.miaxoptions.complextopofmarket.mach.v1.1.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.leg_definition = ProtoField.new("Leg Definition", "miax.miaxoptions.complextopofmarket.mach.v1.1.legdefinition", ftypes.STRING, nil, nil, nil, "Complex Strategy Number of Legs")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "miax.miaxoptions.complextopofmarket.mach.v1.1.legratioqty", ftypes.UINT16, nil, nil, nil, "The ratio of this individual leg")
@@ -58,11 +60,10 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.reserved_8 = ProtoField
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.restricted_option = ProtoField.new("Restricted Option", "miax.miaxoptions.complextopofmarket.mach.v1.1.restrictedoption", ftypes.STRING)
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.1.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.seconds_utc = ProtoField.new("Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.1.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.seconds_part = ProtoField.new("Seconds Part", "miax.miaxoptions.complextopofmarket.mach.v1.1.secondspart", ftypes.UINT32, nil, nil, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.security_symbol = ProtoField.new("Security Symbol", "miax.miaxoptions.complextopofmarket.mach.v1.1.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.complextopofmarket.mach.v1.1.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this data packet")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.session_id = ProtoField.new("Session Id", "miax.miaxoptions.complextopofmarket.mach.v1.1.sessionid", ftypes.UINT32, nil, nil, nil, "MIAX assigned ID for the current trading session")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.complextopofmarket.mach.v1.1.sessionnumber", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.session_number = ProtoField.new("Session Number", "miax.miaxoptions.complextopofmarket.mach.v1.1.sessionnumber", ftypes.UINT8, nil, nil, nil, "The Session this packet was generated from")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.strategy_id = ProtoField.new("Strategy Id", "miax.miaxoptions.complextopofmarket.mach.v1.1.strategyid", ftypes.UINT32, nil, nil, nil, "MIAX Strategy ID is assigned per trading day and is valid only for that day.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.strike_price = ProtoField.new("Strike Price", "miax.miaxoptions.complextopofmarket.mach.v1.1.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price of the option. Refer to data types for field processing notes")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.system_status = ProtoField.new("System Status", "miax.miaxoptions.complextopofmarket.mach.v1.1.systemstatus", ftypes.STRING, nil, nil, nil, "Current system status: “S” = Start of System hours “C” = End of System hours, “1” = Start of Test Session (sent before tests). “2” = End of Test Session.")
@@ -564,6 +565,37 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.expected_event_time_nano_seconds_p
   return offset + length, value
 end
 
+-- Expected Event Time Seconds Part
+miax_miaxoptions_complextopofmarket_mach_v1_1.expected_event_time_seconds_part = {}
+
+-- Size: Expected Event Time Seconds Part
+miax_miaxoptions_complextopofmarket_mach_v1_1.expected_event_time_seconds_part.size = 4
+
+-- Dissect: Expected Event Time Seconds Part
+miax_miaxoptions_complextopofmarket_mach_v1_1.expected_event_time_seconds_part.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_complextopofmarket_mach_v1_1.expected_event_time_seconds_part.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.expected_event_time_seconds_part
+  if miax_miaxoptions_complextopofmarket_mach_v1_1.timestamp_format == 3 then field = omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.expected_event_time_seconds_part_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expected Event Time Seconds Part: Not Applicable")
+    return offset + length, value
+  end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
 -- Expiration Date
 miax_miaxoptions_complextopofmarket_mach_v1_1.expiration_date = {}
 
@@ -572,7 +604,11 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.expiration_date.size = 8
 
 -- Display: Expiration Date
 miax_miaxoptions_complextopofmarket_mach_v1_1.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date
@@ -1244,29 +1280,6 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.seconds.dissect = function(buffer,
   return offset + length, value
 end
 
--- Seconds Part
-miax_miaxoptions_complextopofmarket_mach_v1_1.seconds_part = {}
-
--- Size: Seconds Part
-miax_miaxoptions_complextopofmarket_mach_v1_1.seconds_part.size = 4
-
--- Display: Seconds Part
-miax_miaxoptions_complextopofmarket_mach_v1_1.seconds_part.display = function(value)
-  return "Seconds Part: "..value
-end
-
--- Dissect: Seconds Part
-miax_miaxoptions_complextopofmarket_mach_v1_1.seconds_part.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_complextopofmarket_mach_v1_1.seconds_part.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_complextopofmarket_mach_v1_1.seconds_part.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_complextopofmarket_mach_v1_1.fields.seconds_part, range, value, display)
-
-  return offset + length, value
-end
-
 -- Security Symbol
 miax_miaxoptions_complextopofmarket_mach_v1_1.security_symbol = {}
 
@@ -1842,7 +1855,7 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.underlying_trading_status_message.
   miax_miaxoptions_complextopofmarket_mach_v1_1.underlying_symbol.size + 
   miax_miaxoptions_complextopofmarket_mach_v1_1.trading_status.size + 
   miax_miaxoptions_complextopofmarket_mach_v1_1.event_reason.size + 
-  miax_miaxoptions_complextopofmarket_mach_v1_1.seconds_part.size + 
+  miax_miaxoptions_complextopofmarket_mach_v1_1.expected_event_time_seconds_part.size + 
   miax_miaxoptions_complextopofmarket_mach_v1_1.expected_event_time_nano_seconds_part.size
 
 -- Display: Underlying Trading Status Message
@@ -1866,8 +1879,8 @@ miax_miaxoptions_complextopofmarket_mach_v1_1.underlying_trading_status_message.
   -- Event Reason: Alphanumeric
   index, event_reason = miax_miaxoptions_complextopofmarket_mach_v1_1.event_reason.dissect(buffer, index, packet, parent)
 
-  -- Seconds Part: SecTime
-  index, seconds_part = miax_miaxoptions_complextopofmarket_mach_v1_1.seconds_part.dissect(buffer, index, packet, parent)
+  -- Expected Event Time Seconds Part: SecTime
+  index, expected_event_time_seconds_part = miax_miaxoptions_complextopofmarket_mach_v1_1.expected_event_time_seconds_part.dissect(buffer, index, packet, parent)
 
   -- Expected Event Time Nano Seconds Part: BinaryU
   index, expected_event_time_nano_seconds_part = miax_miaxoptions_complextopofmarket_mach_v1_1.expected_event_time_nano_seconds_part.dissect(buffer, index, packet, parent)

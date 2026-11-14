@@ -1558,22 +1558,18 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.trade_date.size = 8
 
 -- Display: Trade Date
 cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.trade_date.display = function(value)
-  return "Trade Date: "..value
+  if #value < 8 then
+    return "Trade Date: "..value
+  end
+
+  return "Trade Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Trade Date
 cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.trade_date.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.trade_date.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.trade_date, range, value, "Trade Date: Not Applicable")
-    item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Trade Date is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
+  local value = trim_right_spaces(range:string())
   local display = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.trade_date.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.trade_date, range, value, display)

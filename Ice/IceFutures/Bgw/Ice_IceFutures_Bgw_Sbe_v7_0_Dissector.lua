@@ -61,8 +61,10 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.currency = ProtoField.new("Currency", "ic
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "ice.icefutures.bgw.sbe.v7.0.custorderhandlinginst", ftypes.STRING, nil, nil, nil, "custOrderHandlingInst")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.customer_account_ref_id = ProtoField.new("Customer Account Ref Id", "ice.icefutures.bgw.sbe.v7.0.customeraccountrefid", ftypes.STRING, nil, nil, nil, "customerAccountRefID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.deal_adjust_indicator = ProtoField.new("Deal Adjust Indicator", "ice.icefutures.bgw.sbe.v7.0.dealadjustindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "dealAdjustIndicator")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_end_date = ProtoField.new("Delivery End Date", "ice.icefutures.bgw.sbe.v7.0.deliveryenddate", ftypes.UINT64, nil, nil, nil, "deliveryEndDate")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_start_date = ProtoField.new("Delivery Start Date", "ice.icefutures.bgw.sbe.v7.0.deliverystartdate", ftypes.UINT64, nil, nil, nil, "deliveryStartDate")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_end_date = ProtoField.new("Delivery End Date", "ice.icefutures.bgw.sbe.v7.0.deliveryenddate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "deliveryEndDate")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_end_date_utc = ProtoField.new("Delivery End Date", "ice.icefutures.bgw.sbe.v7.0.deliveryenddate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "deliveryEndDate")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_start_date = ProtoField.new("Delivery Start Date", "ice.icefutures.bgw.sbe.v7.0.deliverystartdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "deliveryStartDate")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_start_date_utc = ProtoField.new("Delivery Start Date", "ice.icefutures.bgw.sbe.v7.0.deliverystartdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "deliveryStartDate")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.denominator = ProtoField.new("Denominator", "ice.icefutures.bgw.sbe.v7.0.denominator", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.direct_electronic_access = ProtoField.new("Direct Electronic Access", "ice.icefutures.bgw.sbe.v7.0.directelectronicaccess", ftypes.UINT8, nil, nil, nil, "directElectronicAccess")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.encoding_type = ProtoField.new("Encoding Type", "ice.icefutures.bgw.sbe.v7.0.encodingtype", ftypes.UINT16, nil, nil, nil, "encodingType")
@@ -158,8 +160,10 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quotes_allowed = ProtoField.new("Mas
 omi_ice_icefutures_bgw_sbe_v7_0.fields.maturity_date = ProtoField.new("Maturity Date", "ice.icefutures.bgw.sbe.v7.0.maturitydate", ftypes.UINT16, nil, nil, nil, "maturityDate")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.max_price = ProtoField.new("Max Price", "ice.icefutures.bgw.sbe.v7.0.maxprice", ftypes.INT64, nil, nil, nil, "maxPrice")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.max_show = ProtoField.new("Max Show", "ice.icefutures.bgw.sbe.v7.0.maxshow", ftypes.INT64, nil, nil, nil, "maxShow")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time = ProtoField.new("Me Acceptance Time", "ice.icefutures.bgw.sbe.v7.0.meacceptancetime", ftypes.UINT64, nil, nil, nil, "meAcceptanceTime")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional = ProtoField.new("Me Acceptance Time optional", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeoptional", ftypes.UINT64, nil, nil, nil, "meAcceptanceTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time = ProtoField.new("Me Acceptance Time", "ice.icefutures.bgw.sbe.v7.0.meacceptancetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "meAcceptanceTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_utc = ProtoField.new("Me Acceptance Time", "ice.icefutures.bgw.sbe.v7.0.meacceptancetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "meAcceptanceTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional = ProtoField.new("Me Acceptance Time optional", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "meAcceptanceTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional_utc = ProtoField.new("Me Acceptance Time optional", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "meAcceptanceTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.memo = ProtoField.new("Memo", "ice.icefutures.bgw.sbe.v7.0.memo", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.message_length = ProtoField.new("Message Length", "ice.icefutures.bgw.sbe.v7.0.messagelength", ftypes.UINT16, nil, nil, nil, "messageLength")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_id = ProtoField.new("Mifid Id", "ice.icefutures.bgw.sbe.v7.0.mifidid", ftypes.INT64, nil, nil, nil, "mifidID")
@@ -344,7 +348,8 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.text_var_string_16_null = ProtoField.new(
 omi_ice_icefutures_bgw_sbe_v7_0.fields.tick_value = ProtoField.new("Tick Value", "ice.icefutures.bgw.sbe.v7.0.tickvalue", ftypes.INT64, nil, nil, nil, "tickValue")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force = ProtoField.new("Time In Force", "ice.icefutures.bgw.sbe.v7.0.timeinforce", ftypes.UINT8, nil, nil, nil, "timeInForce")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force_optional = ProtoField.new("Time In Force optional", "ice.icefutures.bgw.sbe.v7.0.timeinforceoptional", ftypes.UINT8, nil, nil, nil, "timeInForce")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority", ftypes.UINT64, nil, nil, nil, "timePriority")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "timePriority")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority_utc = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "timePriority")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags = ProtoField.new("Trade Flags", "ice.icefutures.bgw.sbe.v7.0.tradeflags", ftypes.STRING, nil, nil, nil, "TradeFlags bit set")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_2 = ProtoField.new("Trade Flags reserved 2", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "reserved2")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_3 = ProtoField.new("Trade Flags reserved 3", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "reserved3")
@@ -355,9 +360,12 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_7 = ProtoField.new("
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_type = ProtoField.new("Trade Type", "ice.icefutures.bgw.sbe.v7.0.tradetype", ftypes.STRING, nil, nil, nil, "tradeType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trading_capacity = ProtoField.new("Trading Capacity", "ice.icefutures.bgw.sbe.v7.0.tradingcapacity", ftypes.UINT8, nil, nil, nil, "tradingCapacity")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_details = ProtoField.new("Transact Details", "ice.icefutures.bgw.sbe.v7.0.transactdetails", ftypes.STRING, nil, nil, nil, "transactDetails")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "ice.icefutures.bgw.sbe.v7.0.transacttime", ftypes.UINT64, nil, nil, nil, "transactTime")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional = ProtoField.new("Transact Time optional", "ice.icefutures.bgw.sbe.v7.0.transacttimeoptional", ftypes.UINT64, nil, nil, nil, "transactTime")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp = ProtoField.new("Transact Time Utc Timestamp", "ice.icefutures.bgw.sbe.v7.0.transacttimeutctimestamp", ftypes.UINT64, nil, nil, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "ice.icefutures.bgw.sbe.v7.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc = ProtoField.new("Transact Time", "ice.icefutures.bgw.sbe.v7.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional = ProtoField.new("Transact Time optional", "ice.icefutures.bgw.sbe.v7.0.transacttimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional_utc = ProtoField.new("Transact Time optional", "ice.icefutures.bgw.sbe.v7.0.transacttimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp = ProtoField.new("Transact Time Utc Timestamp", "ice.icefutures.bgw.sbe.v7.0.transacttimeutctimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp_utc = ProtoField.new("Transact Time Utc Timestamp", "ice.icefutures.bgw.sbe.v7.0.transacttimeutctimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.uds_futures_allowed = ProtoField.new("Uds Futures Allowed", "ice.icefutures.bgw.sbe.v7.0.udsfuturesallowed", ftypes.UINT8, nil, nil, nil, "udsFuturesAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.uds_options_allowed = ProtoField.new("Uds Options Allowed", "ice.icefutures.bgw.sbe.v7.0.udsoptionsallowed", ftypes.UINT8, nil, nil, nil, "udsOptionsAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_product = ProtoField.new("Underlying Product", "ice.icefutures.bgw.sbe.v7.0.underlyingproduct", ftypes.INT32, nil, nil, nil, "underlyingProduct")
@@ -1909,24 +1917,27 @@ ice_icefutures_bgw_sbe_v7_0.delivery_end_date = {}
 -- Size: Delivery End Date
 ice_icefutures_bgw_sbe_v7_0.delivery_end_date.size = 8
 
--- Display: Delivery End Date
-ice_icefutures_bgw_sbe_v7_0.delivery_end_date.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Delivery End Date: No Value"
-  end
-
-  return "Delivery End Date: "..value
-end
-
 -- Dissect: Delivery End Date
 ice_icefutures_bgw_sbe_v7_0.delivery_end_date.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.delivery_end_date.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = ice_icefutures_bgw_sbe_v7_0.delivery_end_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_end_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_end_date
+  if ice_icefutures_bgw_sbe_v7_0.timestamp_format == 3 then field = omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_end_date_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Delivery End Date: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1937,24 +1948,27 @@ ice_icefutures_bgw_sbe_v7_0.delivery_start_date = {}
 -- Size: Delivery Start Date
 ice_icefutures_bgw_sbe_v7_0.delivery_start_date.size = 8
 
--- Display: Delivery Start Date
-ice_icefutures_bgw_sbe_v7_0.delivery_start_date.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Delivery Start Date: No Value"
-  end
-
-  return "Delivery Start Date: "..value
-end
-
 -- Dissect: Delivery Start Date
 ice_icefutures_bgw_sbe_v7_0.delivery_start_date.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.delivery_start_date.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = ice_icefutures_bgw_sbe_v7_0.delivery_start_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_start_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_start_date
+  if ice_icefutures_bgw_sbe_v7_0.timestamp_format == 3 then field = omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_start_date_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Delivery Start Date: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2051,7 +2065,7 @@ ice_icefutures_bgw_sbe_v7_0.end_date.display = function(value)
     return "End Date: No Value"
   end
 
-  return "End Date: "..value
+  return string.format("End Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: End Date
@@ -2384,7 +2398,7 @@ ice_icefutures_bgw_sbe_v7_0.expire_date.display = function(value)
     return "Expire Date: No Value"
   end
 
-  return "Expire Date: "..value
+  return string.format("Expire Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Expire Date
@@ -4158,7 +4172,7 @@ ice_icefutures_bgw_sbe_v7_0.maturity_date.display = function(value)
     return "Maturity Date: No Value"
   end
 
-  return "Maturity Date: "..value
+  return string.format("Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Maturity Date
@@ -4230,19 +4244,20 @@ ice_icefutures_bgw_sbe_v7_0.me_acceptance_time = {}
 -- Size: Me Acceptance Time
 ice_icefutures_bgw_sbe_v7_0.me_acceptance_time.size = 8
 
--- Display: Me Acceptance Time
-ice_icefutures_bgw_sbe_v7_0.me_acceptance_time.display = function(value)
-  return "Me Acceptance Time: "..value
-end
-
 -- Dissect: Me Acceptance Time
 ice_icefutures_bgw_sbe_v7_0.me_acceptance_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.me_acceptance_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = ice_icefutures_bgw_sbe_v7_0.me_acceptance_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time
+  if ice_icefutures_bgw_sbe_v7_0.timestamp_format == 3 then field = omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -4253,24 +4268,27 @@ ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional = {}
 -- Size: Me Acceptance Time optional
 ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional.size = 8
 
--- Display: Me Acceptance Time optional
-ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Me Acceptance Time optional: No Value"
-  end
-
-  return "Me Acceptance Time optional: "..value
-end
-
 -- Dissect: Me Acceptance Time optional
 ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional
+  if ice_icefutures_bgw_sbe_v7_0.timestamp_format == 3 then field = omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Me Acceptance Time optional: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -6751,7 +6769,7 @@ ice_icefutures_bgw_sbe_v7_0.screen_last_trade_date.display = function(value)
     return "Screen Last Trade Date: No Value"
   end
 
-  return "Screen Last Trade Date: "..value
+  return string.format("Screen Last Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Screen Last Trade Date
@@ -7597,7 +7615,7 @@ ice_icefutures_bgw_sbe_v7_0.start_date.display = function(value)
     return "Start Date: No Value"
   end
 
-  return "Start Date: "..value
+  return string.format("Start Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Start Date
@@ -8377,19 +8395,20 @@ ice_icefutures_bgw_sbe_v7_0.time_priority = {}
 -- Size: Time Priority
 ice_icefutures_bgw_sbe_v7_0.time_priority.size = 8
 
--- Display: Time Priority
-ice_icefutures_bgw_sbe_v7_0.time_priority.display = function(value)
-  return "Time Priority: "..value
-end
-
 -- Dissect: Time Priority
 ice_icefutures_bgw_sbe_v7_0.time_priority.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.time_priority.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = ice_icefutures_bgw_sbe_v7_0.time_priority.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority
+  if ice_icefutures_bgw_sbe_v7_0.timestamp_format == 3 then field = omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8514,19 +8533,20 @@ ice_icefutures_bgw_sbe_v7_0.transact_time = {}
 -- Size: Transact Time
 ice_icefutures_bgw_sbe_v7_0.transact_time.size = 8
 
--- Display: Transact Time
-ice_icefutures_bgw_sbe_v7_0.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 ice_icefutures_bgw_sbe_v7_0.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = ice_icefutures_bgw_sbe_v7_0.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time
+  if ice_icefutures_bgw_sbe_v7_0.timestamp_format == 3 then field = omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8537,24 +8557,27 @@ ice_icefutures_bgw_sbe_v7_0.transact_time_optional = {}
 -- Size: Transact Time optional
 ice_icefutures_bgw_sbe_v7_0.transact_time_optional.size = 8
 
--- Display: Transact Time optional
-ice_icefutures_bgw_sbe_v7_0.transact_time_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Transact Time optional: No Value"
-  end
-
-  return "Transact Time optional: "..value
-end
-
 -- Dissect: Transact Time optional
 ice_icefutures_bgw_sbe_v7_0.transact_time_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.transact_time_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = ice_icefutures_bgw_sbe_v7_0.transact_time_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional
+  if ice_icefutures_bgw_sbe_v7_0.timestamp_format == 3 then field = omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Transact Time optional: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -8565,19 +8588,20 @@ ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp = {}
 -- Size: Transact Time Utc Timestamp
 ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.size = 8
 
--- Display: Transact Time Utc Timestamp
-ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.display = function(value)
-  return "Transact Time Utc Timestamp: "..value
-end
-
 -- Dissect: Transact Time Utc Timestamp
 ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = ice_icefutures_bgw_sbe_v7_0.transact_time_utc_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp
+  if ice_icefutures_bgw_sbe_v7_0.timestamp_format == 3 then field = omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

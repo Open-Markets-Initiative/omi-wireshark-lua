@@ -17,7 +17,8 @@ local coinbase_coinbasederivatives_marketdataapi_sbe_v1_9 = {}
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.9 Fields
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.active_instrument_count = ProtoField.new("Active Instrument Count", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.activeinstrumentcount", ftypes.INT32, nil, nil, nil, "activeInstrumentCount")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.aggressororderid", ftypes.INT64, nil, nil, nil, "aggressorOrderId")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.aggressorreceivetime", ftypes.INT64, nil, nil, nil, "aggressorReceiveTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.aggressorreceivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "aggressorReceiveTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.aggressor_receive_time_utc = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.aggressorreceivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "aggressorReceiveTime")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.beginseqnum", ftypes.INT64, nil, nil, nil, "beginSeqNum")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.bestaskimpliedprice", ftypes.DOUBLE, nil, nil, nil, "bestAskImpliedPrice")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.best_ask_implied_qty = ProtoField.new("Best Ask Implied Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.bestaskimpliedqty", ftypes.INT32, nil, nil, nil, "bestAskImpliedQty")
@@ -43,7 +44,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value = Prot
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value_limit = ProtoField.new("Fair Value Limit", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.fairvaluelimit", ftypes.INT32, nil, nil, nil, "fairValueLimit")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.fair_value_optional = ProtoField.new("Fair Value Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.fairvalueoptional", ftypes.DOUBLE, nil, nil, nil, "fairValue")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_funding_rate = ProtoField.new("Final Funding Rate", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.finalfundingrate", ftypes.DOUBLE, nil, nil, nil, "finalFundingRate")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_funding_rate_timestamp = ProtoField.new("Final Funding Rate Timestamp", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.finalfundingratetimestamp", ftypes.INT64, nil, nil, nil, "finalFundingRateTimestamp")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_funding_rate_timestamp = ProtoField.new("Final Funding Rate Timestamp", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.finalfundingratetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "finalFundingRateTimestamp")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_funding_rate_timestamp_utc = ProtoField.new("Final Funding Rate Timestamp", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.finalfundingratetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "finalFundingRateTimestamp")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_futures_mark_price = ProtoField.new("Final Futures Mark Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.finalfuturesmarkprice", ftypes.DOUBLE, nil, nil, nil, "finalFuturesMarkPrice")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.first_trading_session_date = ProtoField.new("First Trading Session Date", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.firsttradingsessiondate", ftypes.UINT16, nil, nil, nil, "firstTradingSessionDate")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.9.flags", ftypes.STRING, nil, nil, nil, "FundingRateFlags bit set")
@@ -294,19 +296,20 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.aggressor_receive_time = {}
 -- Size: Aggressor Receive Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.aggressor_receive_time.size = 8
 
--- Display: Aggressor Receive Time
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.aggressor_receive_time.display = function(value)
-  return "Aggressor Receive Time: "..value
-end
-
 -- Dissect: Aggressor Receive Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.aggressor_receive_time.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.aggressor_receive_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.aggressor_receive_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.aggressor_receive_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.aggressor_receive_time
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.aggressor_receive_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1072,24 +1075,27 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate_timestamp
 -- Size: Final Funding Rate Timestamp
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate_timestamp.size = 8
 
--- Display: Final Funding Rate Timestamp
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate_timestamp.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Final Funding Rate Timestamp: No Value"
-  end
-
-  return "Final Funding Rate Timestamp: "..value
-end
-
 -- Dissect: Final Funding Rate Timestamp
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.final_funding_rate_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_funding_rate_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_funding_rate_timestamp
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.fields.final_funding_rate_timestamp_utc end
+
+  if value == Int64(0x00000000, 0x80000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Final Funding Rate Timestamp: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

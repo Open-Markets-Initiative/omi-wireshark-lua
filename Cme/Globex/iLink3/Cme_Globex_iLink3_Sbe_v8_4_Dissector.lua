@@ -1526,7 +1526,7 @@ cme_globex_ilink3_sbe_v8_4.end_date.display = function(value)
     return "End Date: No Value"
   end
 
-  return "End Date: "..value
+  return string.format("End Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: End Date
@@ -1884,7 +1884,7 @@ cme_globex_ilink3_sbe_v8_4.expire_date.display = function(value)
     return "Expire Date: No Value"
   end
 
-  return "Expire Date: "..value
+  return string.format("Expire Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Expire Date
@@ -6440,7 +6440,7 @@ cme_globex_ilink3_sbe_v8_4.start_date.display = function(value)
     return "Start Date: No Value"
   end
 
-  return "Start Date: "..value
+  return string.format("Start Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Start Date
@@ -6879,7 +6879,7 @@ cme_globex_ilink3_sbe_v8_4.trade_date.display = function(value)
     return "Trade Date: No Value"
   end
 
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date

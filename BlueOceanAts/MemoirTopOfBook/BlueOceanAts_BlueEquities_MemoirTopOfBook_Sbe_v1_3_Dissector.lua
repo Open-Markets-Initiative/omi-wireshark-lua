@@ -43,7 +43,8 @@ omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.short_sale_restric
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.symbol", ftypes.STRING, nil, nil, nil, "The Cms root for the tradable instrument")
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.symbolsfx", ftypes.STRING, nil, nil, nil, "The Cms suffix for the tradable instrument")
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.templateid", ftypes.UINT8, nil, nil, nil, "T8 Identifier of the message template")
-omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.timestamp", ftypes.UINT64, nil, nil, nil, "The timestamp when the event occurred, nanoseconds since the unix epoch")
+omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The timestamp when the event occurred, nanoseconds since the unix epoch")
+omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.timestamp_utc = ProtoField.new("Timestamp", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The timestamp when the event occurred, nanoseconds since the unix epoch")
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.tradingsession", ftypes.STRING, nil, nil, nil, "The trading session which was entered")
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.version = ProtoField.new("Version", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.version", ftypes.UINT16, nil, nil, nil, "The version number of the message schema that was used to encode a message")
 
@@ -76,6 +77,20 @@ omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.message_index = Pr
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "blueoceanats.blueequities.memoirtopofbook.sbe.v1.3.messagesequencenumber", ftypes.UINT64)
 
 -----------------------------------------------------------------------
+-- BlueOceanAts BlueEquities MemoirTopOfBook Sbe 1.3 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -95,6 +110,8 @@ omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.show_structs = Pref
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs_changed()
 
@@ -113,6 +130,9 @@ function omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs_changed()
   end
   if show.sequences ~= omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.show_sequences then
     show.sequences = omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.show_sequences
+  end
+  if blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.timestamp_format ~= omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.timestamp_format then
+    blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.timestamp_format = omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.prefs.timestamp_format
   end
 end
 
@@ -893,19 +913,20 @@ blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.timestamp = {}
 -- Size: Timestamp
 blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.timestamp.size = 8
 
--- Display: Timestamp
-blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.timestamp.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.timestamp
+  if blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.timestamp_format == 3 then field = omi_blueoceanats_blueequities_memoirtopofbook_sbe_v1_3.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

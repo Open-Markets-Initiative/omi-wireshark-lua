@@ -31,7 +31,8 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.delivery_price = ProtoField.n
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.details = ProtoField.new("Details", "coinbase.deribit.marketdataapi.sbe.v0.1.details", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.end_of_transaction = ProtoField.new("End Of Transaction", "coinbase.deribit.marketdataapi.sbe.v0.1.endoftransaction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "End of transaction indicator")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.estimated_delivery_price = ProtoField.new("Estimated Delivery Price", "coinbase.deribit.marketdataapi.sbe.v0.1.estimateddeliveryprice", ftypes.DOUBLE, nil, nil, nil, "estimatedDeliveryPrice")
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.expiry_time = ProtoField.new("Expiry Time", "coinbase.deribit.marketdataapi.sbe.v0.1.expirytime", ftypes.INT64, nil, nil, nil, "expiryTime")
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.expiry_time = ProtoField.new("Expiry Time", "coinbase.deribit.marketdataapi.sbe.v0.1.expirytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "expiryTime")
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.expiry_time_utc = ProtoField.new("Expiry Time", "coinbase.deribit.marketdataapi.sbe.v0.1.expirytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "expiryTime")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.fill_price = ProtoField.new("Fill Price", "coinbase.deribit.marketdataapi.sbe.v0.1.fillprice", ftypes.DOUBLE, nil, nil, nil, "fillPrice")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.fill_qty_mantissa = ProtoField.new("Fill Qty Mantissa", "coinbase.deribit.marketdataapi.sbe.v0.1.fillqtymantissa", ftypes.INT64, nil, nil, nil, "fillQtyMantissa")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.flags = ProtoField.new("Flags", "coinbase.deribit.marketdataapi.sbe.v0.1.flags", ftypes.STRING, nil, nil, nil, "InstrumentFlags bit set")
@@ -39,7 +40,8 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.funding_8h = ProtoField.new("
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.implied_volatility = ProtoField.new("Implied Volatility", "coinbase.deribit.marketdataapi.sbe.v0.1.impliedvolatility", ftypes.DOUBLE, nil, nil, nil, "impliedVolatility")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.increment_seq_num = ProtoField.new("Increment Seq Num", "coinbase.deribit.marketdataapi.sbe.v0.1.incrementseqnum", ftypes.INT64, nil, nil, nil, "incrementSeqNum")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.incremental_seq_num = ProtoField.new("Incremental Seq Num", "coinbase.deribit.marketdataapi.sbe.v0.1.incrementalseqnum", ftypes.INT64, nil, nil, nil, "incrementalSeqNum")
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.incremental_timestamp = ProtoField.new("Incremental Timestamp", "coinbase.deribit.marketdataapi.sbe.v0.1.incrementaltimestamp", ftypes.INT64, nil, nil, nil, "incrementalTimestamp")
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.incremental_timestamp = ProtoField.new("Incremental Timestamp", "coinbase.deribit.marketdataapi.sbe.v0.1.incrementaltimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "incrementalTimestamp")
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.incremental_timestamp_utc = ProtoField.new("Incremental Timestamp", "coinbase.deribit.marketdataapi.sbe.v0.1.incrementaltimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "incrementalTimestamp")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.incremental_update = ProtoField.new("Incremental Update", "coinbase.deribit.marketdataapi.sbe.v0.1.incrementalupdate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Incremental update packet indicator (Bit 0)")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.index_price = ProtoField.new("Index Price", "coinbase.deribit.marketdataapi.sbe.v0.1.indexprice", ftypes.DOUBLE, nil, nil, nil, "indexPrice")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid", ftypes.INT64, nil, nil, nil, "instrumentId")
@@ -94,7 +96,8 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.taker_flags = ProtoField.new(
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.taker_order_id = ProtoField.new("Taker Order Id", "coinbase.deribit.marketdataapi.sbe.v0.1.takerorderid", ftypes.INT64, nil, nil, nil, "takerOrderId")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.template_id = ProtoField.new("Template Id", "coinbase.deribit.marketdataapi.sbe.v0.1.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.tick_size = ProtoField.new("Tick Size", "coinbase.deribit.marketdataapi.sbe.v0.1.ticksize", ftypes.DOUBLE, nil, nil, nil, "tickSize")
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.timestamp = ProtoField.new("Timestamp", "coinbase.deribit.marketdataapi.sbe.v0.1.timestamp", ftypes.INT64)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.timestamp = ProtoField.new("Timestamp", "coinbase.deribit.marketdataapi.sbe.v0.1.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.timestamp_utc = ProtoField.new("Timestamp", "coinbase.deribit.marketdataapi.sbe.v0.1.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.total_filled_mantissa = ProtoField.new("Total Filled Mantissa", "coinbase.deribit.marketdataapi.sbe.v0.1.totalfilledmantissa", ftypes.INT64, nil, nil, nil, "totalFilledMantissa")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.trading_status = ProtoField.new("Trading Status", "coinbase.deribit.marketdataapi.sbe.v0.1.tradingstatus", ftypes.INT8, nil, nil, nil, "tradingStatus")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.transact_time = ProtoField.new("Transact Time", "coinbase.deribit.marketdataapi.sbe.v0.1.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the transaction occurred, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
@@ -612,24 +615,27 @@ coinbase_deribit_marketdataapi_sbe_v0_1.expiry_time = {}
 -- Size: Expiry Time
 coinbase_deribit_marketdataapi_sbe_v0_1.expiry_time.size = 8
 
--- Display: Expiry Time
-coinbase_deribit_marketdataapi_sbe_v0_1.expiry_time.display = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Expiry Time: No Value"
-  end
-
-  return "Expiry Time: "..value
-end
-
 -- Dissect: Expiry Time
 coinbase_deribit_marketdataapi_sbe_v0_1.expiry_time.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v0_1.expiry_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_deribit_marketdataapi_sbe_v0_1.expiry_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.expiry_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.expiry_time
+  if coinbase_deribit_marketdataapi_sbe_v0_1.timestamp_format == 3 then field = omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.expiry_time_utc end
+
+  if value == Int64(0x00000000, 0x80000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expiry Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -784,19 +790,20 @@ coinbase_deribit_marketdataapi_sbe_v0_1.incremental_timestamp = {}
 -- Size: Incremental Timestamp
 coinbase_deribit_marketdataapi_sbe_v0_1.incremental_timestamp.size = 8
 
--- Display: Incremental Timestamp
-coinbase_deribit_marketdataapi_sbe_v0_1.incremental_timestamp.display = function(value)
-  return "Incremental Timestamp: "..value
-end
-
 -- Dissect: Incremental Timestamp
 coinbase_deribit_marketdataapi_sbe_v0_1.incremental_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v0_1.incremental_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_deribit_marketdataapi_sbe_v0_1.incremental_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.incremental_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.incremental_timestamp
+  if coinbase_deribit_marketdataapi_sbe_v0_1.timestamp_format == 3 then field = omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.incremental_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1831,19 +1838,20 @@ coinbase_deribit_marketdataapi_sbe_v0_1.timestamp = {}
 -- Size: Timestamp
 coinbase_deribit_marketdataapi_sbe_v0_1.timestamp.size = 8
 
--- Display: Timestamp
-coinbase_deribit_marketdataapi_sbe_v0_1.timestamp.display = function(value)
-  return "Timestamp: "..value
-end
-
 -- Dissect: Timestamp
 coinbase_deribit_marketdataapi_sbe_v0_1.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_deribit_marketdataapi_sbe_v0_1.timestamp.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_deribit_marketdataapi_sbe_v0_1.timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.timestamp
+  if coinbase_deribit_marketdataapi_sbe_v0_1.timestamp_format == 3 then field = omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

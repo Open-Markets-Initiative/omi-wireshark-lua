@@ -811,7 +811,7 @@ cme_globex_streamlined_sbe_v5_9.fed_funds_date.display = function(value)
     return "Fed Funds Date: No Value"
   end
 
-  return "Fed Funds Date: "..value
+  return string.format("Fed Funds Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Fed Funds Date
@@ -1147,7 +1147,7 @@ cme_globex_streamlined_sbe_v5_9.leg_maturity_date.display = function(value)
     return "Leg Maturity Date: No Value"
   end
 
-  return "Leg Maturity Date: "..value
+  return string.format("Leg Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Leg Maturity Date
@@ -1867,7 +1867,7 @@ cme_globex_streamlined_sbe_v5_9.maturity_date.display = function(value)
     return "Maturity Date: No Value"
   end
 
-  return "Maturity Date: "..value
+  return string.format("Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Maturity Date
@@ -2517,7 +2517,7 @@ cme_globex_streamlined_sbe_v5_9.next_fixed_payment_date.display = function(value
     return "Next Fixed Payment Date: No Value"
   end
 
-  return "Next Fixed Payment Date: "..value
+  return string.format("Next Fixed Payment Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Next Fixed Payment Date
@@ -2545,7 +2545,7 @@ cme_globex_streamlined_sbe_v5_9.next_floating_payment_date.display = function(va
     return "Next Floating Payment Date: No Value"
   end
 
-  return "Next Floating Payment Date: "..value
+  return string.format("Next Floating Payment Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Next Floating Payment Date
@@ -2902,7 +2902,7 @@ cme_globex_streamlined_sbe_v5_9.previous_fixing_date.display = function(value)
     return "Previous Fixing Date: No Value"
   end
 
-  return "Previous Fixing Date: "..value
+  return string.format("Previous Fixing Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Previous Fixing Date
@@ -4207,7 +4207,7 @@ cme_globex_streamlined_sbe_v5_9.settl_date.display = function(value)
     return "Settl Date: No Value"
   end
 
-  return "Settl Date: "..value
+  return string.format("Settl Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Settl Date
@@ -4495,7 +4495,7 @@ cme_globex_streamlined_sbe_v5_9.trade_date.display = function(value)
     return "Trade Date: No Value"
   end
 
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date
@@ -4546,7 +4546,7 @@ cme_globex_streamlined_sbe_v5_9.trading_reference_date.display = function(value)
     return "Trading Reference Date: No Value"
   end
 
-  return "Trading Reference Date: "..value
+  return string.format("Trading Reference Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trading Reference Date

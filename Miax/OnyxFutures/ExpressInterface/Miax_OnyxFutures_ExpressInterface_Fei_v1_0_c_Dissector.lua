@@ -19,7 +19,8 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.account = ProtoField.new
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.action = ProtoField.new("Action", "miax.onyxfutures.expressinterface.fei.v1.0.c.action", ftypes.STRING, nil, nil, nil, "Action to be taken for the specified Scope:")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.additional_order_indicators = ProtoField.new("Additional Order Indicators", "miax.onyxfutures.expressinterface.fei.v1.0.c.additionalorderindicators", ftypes.STRING, nil, nil, nil, "Additional Order Indicators Flags")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.application_protocol = ProtoField.new("Application Protocol", "miax.onyxfutures.expressinterface.fei.v1.0.c.applicationprotocol", ftypes.STRING, nil, nil, nil, "Miax Application Protocol")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reason = ProtoField.new("Cancel Reason", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelreason", ftypes.STRING, nil, nil, nil, "Note,Can")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reason = ProtoField.new("Cancel Reason", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelreason", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_status = ProtoField.new("Cancel Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.cancelstatus", ftypes.STRING, nil, nil, nil, "Status")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_order_id = ProtoField.new("Client Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.clientorderid", ftypes.STRING, nil, nil, nil, "Firm specified unique order ID")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_send_time = ProtoField.new("Client Send Time", "miax.onyxfutures.expressinterface.fei.v1.0.c.clientsendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Firm’s send time")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.client_send_time_utc = ProtoField.new("Client Send Time", "miax.onyxfutures.expressinterface.fei.v1.0.c.clientsendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Firm’s send time")
@@ -27,45 +28,44 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.complex_trade_id = Proto
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.computer_id = ProtoField.new("Computer Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.computerid", ftypes.STRING, nil, nil, nil, "issued by MIAX Futures Exchange during initial setup")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.correction_number = ProtoField.new("Correction Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.correctionnumber", ftypes.UINT8, nil, nil, nil, "Trade correction number.")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cti_code = ProtoField.new("Cti Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.cticode", ftypes.STRING, nil, nil, nil, "CTI Code values")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation = ProtoField.new("Customer Of Firm Designation", "miax.onyxfutures.expressinterface.fei.v1.0.c.customeroffirmdesignation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation = ProtoField.new("Customer Of Firm Designation", "miax.onyxfutures.expressinterface.fei.v1.0.c.customeroffirmdesignation", ftypes.UINT8, {[0]="Customer", [1]="Firm"}, base.DEC, 0x01)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_order_handling_instruction = ProtoField.new("Customer Order Handling Instruction", "miax.onyxfutures.expressinterface.fei.v1.0.c.customerorderhandlinginstruction", ftypes.STRING, nil, nil, nil, "Customer Order Handling Instruction:")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.endsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the last packet to be retransmitted")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.execution_id = ProtoField.new("Execution Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.executionid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique Execution ID. See")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.execution_id = ProtoField.new("Execution Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.executionid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique Execution ID. See notes below for details.")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_binary_u_4 = ProtoField.new("Instrument Id Binary U 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.instrumentidbinaryu4", ftypes.UINT32, nil, nil, nil, "Instrument ID mapped to a given Instrument assigned by MIAX Futures Onyx")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_string_20 = ProtoField.new("Instrument Id String 20", "miax.onyxfutures.expressinterface.fei.v1.0.c.instrumentidstring20", ftypes.STRING, nil, nil, nil, "Instrument ID for the requested strategy")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id = ProtoField.new("Instrument Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.instrumentid", ftypes.UINT32, nil, nil, nil, "Instrument ID mapped to a given Instrument assigned by MIAX Futures Onyx")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_net_price = ProtoField.new("Last Net Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastnetprice", ftypes.DOUBLE, nil, nil, nil, "Net Price of this execution")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_price = ProtoField.new("Last Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastprice", ftypes.DOUBLE, nil, nil, nil, "Match price if the order had not been prevented")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_size = ProtoField.new("Last Size", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastsize", ftypes.UINT32, nil, nil, nil, "Number of contracts that would have matched if the order had not been prevented from execution")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_price = ProtoField.new("Last Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastprice", ftypes.DOUBLE, nil, nil, nil, "Match price if the order had not been prevented from execution by Self Trade Protection.")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.last_size = ProtoField.new("Last Size", "miax.onyxfutures.expressinterface.fei.v1.0.c.lastsize", ftypes.UINT32, nil, nil, nil, "Number of contracts that would have matched if the order had not been prevented from execution by Self Trade Protection.")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.leaves_qty = ProtoField.new("Leaves Qty", "miax.onyxfutures.expressinterface.fei.v1.0.c.leavesqty", ftypes.UINT32, nil, nil, nil, "Size of the order that is still open")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.leg_ratio = ProtoField.new("Leg Ratio", "miax.onyxfutures.expressinterface.fei.v1.0.c.legratio", ftypes.INT32, nil, nil, nil, "Leg ratio for the specified instrument")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.liquidityindicator", ftypes.STRING, nil, nil, nil, "Please refer to MIAX Onyx Futures Liquidity")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.liquidityindicator", ftypes.STRING, nil, nil, nil, "Please refer to MIAX Onyx Futures Liquidity Indicator Codes document (available on the MIAX website) for the list of codes.")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_request = ProtoField.new("Login Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.loginrequest", ftypes.STRING, nil, nil, nil, "The SesM client must send a Login request packet immediately upon establishing a new TCP/IP socket connection to the server")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_response = ProtoField.new("Login Response", "miax.onyxfutures.expressinterface.fei.v1.0.c.loginresponse", ftypes.STRING, nil, nil, nil, "The SesM server sends a Login response packet in response a Login request packet from the client")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.login_status = ProtoField.new("Login Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.loginstatus", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_reason = ProtoField.new("Logout Reason", "miax.onyxfutures.expressinterface.fei.v1.0.c.logoutreason", ftypes.STRING, nil, nil, nil, "Logout Request Reason")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_request = ProtoField.new("Logout Request", "miax.onyxfutures.expressinterface.fei.v1.0.c.logoutrequest", ftypes.STRING, nil, nil, nil, "The client may send a Logout request packet to request the connection be terminated")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.logout_text = ProtoField.new("Logout Text", "miax.onyxfutures.expressinterface.fei.v1.0.c.logouttext", ftypes.STRING, nil, nil, nil, "Free form human readable text")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.manualorderindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine = ProtoField.new("Matching Engine", "miax.onyxfutures.expressinterface.fei.v1.0.c.matchingengine", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time at which this message was generated by the Matching Engine")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_utc = ProtoField.new("Matching Engine", "miax.onyxfutures.expressinterface.fei.v1.0.c.matchingengine.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time at which this message was generated by the Matching Engine")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.manualorderindicator", ftypes.UINT8, {[0]="Automated", [1]="Manual"}, base.DEC, 0x02)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_status = ProtoField.new("Mass Cancel Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.masscancelstatus", ftypes.STRING, nil, nil, nil, "Status")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_time = ProtoField.new("Matching Engine Time", "miax.onyxfutures.expressinterface.fei.v1.0.c.matchingenginetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time at which this message was generated by the Matching Engine")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_time_utc = ProtoField.new("Matching Engine Time", "miax.onyxfutures.expressinterface.fei.v1.0.c.matchingenginetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time at which this message was generated by the Matching Engine")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.min_qty = ProtoField.new("Min Qty", "miax.onyxfutures.expressinterface.fei.v1.0.c.minqty", ftypes.UINT32, nil, nil, nil, "Minimum fill quantity")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_status = ProtoField.new("Modify Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.modifystatus", ftypes.STRING, nil, nil, nil, "Status")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mp_id = ProtoField.new("Mp Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.mpid", ftypes.STRING, nil, nil, nil, "Five character MPID of the Firm whose order is sent")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.onyxfutures.expressinterface.fei.v1.0.c.numberoflegs", ftypes.UINT8, nil, nil, nil, "Number of strategy legs. The fields below")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator = ProtoField.new("Open Close Position Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.openclosepositionindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.onyxfutures.expressinterface.fei.v1.0.c.numberoflegs", ftypes.UINT8, nil, nil, nil, "Number of strategy legs. The fields below (marked with →) are repeated for each specified leg")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator = ProtoField.new("Open Close Position Indicator", "miax.onyxfutures.expressinterface.fei.v1.0.c.openclosepositionindicator", ftypes.UINT8, {[0]="Open", [1]="Close"}, base.DEC, 0x04)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_id = ProtoField.new("Operator Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.operatorid", ftypes.STRING, nil, nil, nil, "This must contain a 2 to 18 character Operator.")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.operator_location = ProtoField.new("Operator Location", "miax.onyxfutures.expressinterface.fei.v1.0.c.operatorlocation", ftypes.STRING, nil, nil, nil, "The location associated with Operator ID")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_expiry_date = ProtoField.new("Order Expiry Date", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderexpirydate", ftypes.UINT16, nil, nil, nil, "GTD Order Expiry date, set to zero for all other tifs")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_id = ProtoField.new("Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique order ID when order is")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_id = ProtoField.new("Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique order ID when order is accepted.")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_instructions = ProtoField.new("Order Instructions", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderinstructions", ftypes.STRING)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_status = ProtoField.new("Order Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.orderstatus", ftypes.STRING, nil, nil, nil, "Status")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_type = ProtoField.new("Order Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.ordertype", ftypes.STRING)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order = ProtoField.new("Original Client Order", "miax.onyxfutures.expressinterface.fei.v1.0.c.originalclientorder", ftypes.STRING, nil, nil, nil, "As specified in the Cancel Order Request")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order_id = ProtoField.new("Original Client Order Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.originalclientorderid", ftypes.STRING, nil, nil, nil, "Target Client Order ID that is being modified")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.price = ProtoField.new("Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.price", ftypes.DOUBLE, nil, nil, nil, "Limit price of the order")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.productgroupcode", ftypes.STRING, nil, nil, nil, "Product Group Code: e.g. MWE for Hard Red")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_group_code = ProtoField.new("Product Group Code", "miax.onyxfutures.expressinterface.fei.v1.0.c.productgroupcode", ftypes.STRING, nil, nil, nil, "Product Group Code: e.g. MWE for Hard Red Spring Wheat Standard Deliverable (5000 Bushels)")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.product_type = ProtoField.new("Product Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.producttype", ftypes.STRING, nil, nil, nil, "Product Type:")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.purge_group = ProtoField.new("Purge Group", "miax.onyxfutures.expressinterface.fei.v1.0.c.purgegroup", ftypes.STRING, nil, nil, nil, "Customer specified purge group")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number")
@@ -79,8 +79,8 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.retransmission_request =
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.scope = ProtoField.new("Scope", "miax.onyxfutures.expressinterface.fei.v1.0.c.scope", ftypes.STRING, nil, nil, nil, "Mass-Cancel Scope:")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection = ProtoField.new("Self Trade Protection", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotection", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_group = ProtoField.new("Self Trade Protection Group", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectiongroup", ftypes.STRING, nil, nil, nil, "Customer specified protection group, if empty string, group is not specified")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_instruction = ProtoField.new("Self Trade Protection Instruction", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectioninstruction", ftypes.UINT8, nil, base.DEC, 0x38)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level = ProtoField.new("Self Trade Protection Level", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectionlevel", ftypes.UINT8, nil, base.DEC, 0x07)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_instruction = ProtoField.new("Self Trade Protection Instruction", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectioninstruction", ftypes.UINT8, {[0]="Not Applicable", [1]="Cancel Newest", [2]="Cancel Oldest", [3]="Cancel Both", [4]="Decrement And Cancel"}, base.DEC, 0x38)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level = ProtoField.new("Self Trade Protection Level", "miax.onyxfutures.expressinterface.fei.v1.0.c.selftradeprotectionlevel", ftypes.UINT8, {[0]="Self Trade Protection Disabled", [1]="Firm", [2]="Mpid", [3]="Parent Group"}, base.DEC, 0x07)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequence_number = ProtoField.new("Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this sequenced data packet")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The SesM server use Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "SesM sequenced message type")
@@ -88,13 +88,13 @@ omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_length = Pro
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.sesm_version = ProtoField.new("Sesm Version", "miax.onyxfutures.expressinterface.fei.v1.0.c.sesmversion", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.session_id = ProtoField.new("Session Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.sessionid", ftypes.UINT8, nil, nil, nil, "MIAX Futures Onyx assigned ID for the current trading session for the Matching Engine")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side = ProtoField.new("Side", "miax.onyxfutures.expressinterface.fei.v1.0.c.side", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001)
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_trade_id = ProtoField.new("Simple Trade Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.simpletradeid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique Simple Trade ID. See")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side = ProtoField.new("Side", "miax.onyxfutures.expressinterface.fei.v1.0.c.side", ftypes.UINT16, {[0]="Buy", [1]="Sell"}, base.DEC, 0x0001)
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.simple_trade_id = ProtoField.new("Simple Trade Id", "miax.onyxfutures.expressinterface.fei.v1.0.c.simpletradeid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique Simple Trade ID. See notes below for details.")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_s_4 = ProtoField.new("Size Binary S 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.sizebinarys4", ftypes.INT32, nil, nil, nil, "New size of the order if size is being modified")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.size_binary_u_4 = ProtoField.new("Size Binary U 4", "miax.onyxfutures.expressinterface.fei.v1.0.c.sizebinaryu4", ftypes.UINT32, nil, nil, nil, "Number of contracts to buy/sell.")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.onyxfutures.expressinterface.fei.v1.0.c.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.status = ProtoField.new("Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.status", ftypes.STRING, nil, nil, nil, "Note,RejectRe")
-omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.stop_order_trigger_price = ProtoField.new("Stop Order Trigger Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.stopordertriggerprice", ftypes.DOUBLE, nil, nil, nil, "Stop Order Trigger Price, Ignored if not a stop order")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.stop_order_trigger_price = ProtoField.new("Stop Order Trigger Price", "miax.onyxfutures.expressinterface.fei.v1.0.c.stopordertriggerprice", ftypes.DOUBLE, nil, nil, nil, "Stop Order Trigger Price. Ignored if not a stop order.")
+omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_status = ProtoField.new("Strategy Creation Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategycreationstatus", ftypes.STRING, nil, nil, nil, "Status")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_leg = ProtoField.new("Strategy Leg", "miax.onyxfutures.expressinterface.fei.v1.0.c.strategyleg", ftypes.STRING, nil, nil, nil, "Number of Legs")
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.system_status = ProtoField.new("System Status", "miax.onyxfutures.expressinterface.fei.v1.0.c.systemstatus", ftypes.STRING)
 omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.text_memo = ProtoField.new("Text Memo", "miax.onyxfutures.expressinterface.fei.v1.0.c.textmemo", ftypes.STRING, nil, nil, nil, "Clearing Text Memo")
@@ -270,8 +270,15 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.action = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.action.size = 1
 
 -- Display: Action
+miax_onyxfutures_expressinterface_fei_v1_0_c.action.labels = {
+  ["B"] = "Action: Block Only (B)",
+  ["M"] = "Action: Mass Cancel Only (M)",
+  ["X"] = "Action: Block And Mass Cancel (X)",
+  ["R"] = "Action: Remove Blocking For The Specified Scope (R)",
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.action.display = function(value)
-  return "Action: "..value
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.action.labels[value] or "Action: Unknown("..value..")"
 end
 
 -- Dissect: Action
@@ -316,8 +323,36 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reason = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reason.size = 1
 
 -- Display: Cancel Reason
+miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reason.labels = {
+  ["A"] = "Cancel Reason: Min Quantity Not Satisfied Or Fok Min Quantity Not Satisfied (A)",
+  ["B"] = "Cancel Reason: Reserved For Future Use (B)",
+  ["C"] = "Cancel Reason: Time In Force Canceled (C)",
+  ["D"] = "Cancel Reason: Auto Cancel On Disconnect Acod (D)",
+  ["E"] = "Cancel Reason: Breached Daily Trading Price Range (E)",
+  ["F"] = "Cancel Reason: Auto Cancel On System Failure Acosf (F)",
+  ["G"] = "Cancel Reason: Trading Collar Protection (G)",
+  ["H"] = "Cancel Reason: Canceled By Helpdesk Or Over Miax Member Firm Portal (H)",
+  ["J"] = "Cancel Reason: Mass Cancel Mpid Or Product Group Product Type By User (J)",
+  ["K"] = "Cancel Reason: Mass Cancel Mpid Or Product Group Product Type By Helpdesk Or Over Miax Member Firm Portal (K)",
+  ["L"] = "Cancel Reason: Mass Cancel Session By User (L)",
+  ["M"] = "Cancel Reason: Mass Cancel Session By Helpdesk Or Over Miax Member Firm Portal (M)",
+  ["N"] = "Cancel Reason: Crossing Strategy Match Price Range Smpr (N)",
+  ["O"] = "Cancel Reason: Crm Protection (O)",
+  ["P"] = "Cancel Reason: Drop Copy Acodacosf Event (P)",
+  ["Q"] = "Cancel Reason: Marketable Order Outside Strategy Match Price Range Smpr (Q)",
+  ["R"] = "Cancel Reason: Gtcgtd Order Introduction Breached Per Order Risk Metrics (R)",
+  ["U"] = "Cancel Reason: Canceled By User Through Order Entry Session (U)",
+  ["V"] = "Cancel Reason: Canceled By User Through A Session Other Than The Order Entry Session (V)",
+  ["1"] = "Cancel Reason: Cancel Newest Instruction (1)",
+  ["2"] = "Cancel Reason: Cancel Oldest Instruction (2)",
+  ["3"] = "Cancel Reason: Cancel Both Instruction (3)",
+  ["4"] = "Cancel Reason: Decrement And Cancel Instruction (4)",
+  ["Z"] = "Cancel Reason: Undefined Reason (Z)",
+  ["*"] = "Cancel Reason: Downgraded From Older Version (*)",
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reason.display = function(value)
-  return "Cancel Reason: "..value
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -328,6 +363,78 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reason.dissect = function(bu
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reason.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_status = {}
+
+-- Size: Cancel Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_status.size = 1
+
+-- Display: Cancel Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_status.display = function(value)
+  if value == " " then
+    return "Cancel Status: Successful (<whitespace>)"
+  end
+  if value == "A" then
+    return "Cancel Status: Duplicate Client Order Id (A)"
+  end
+  if value == "B" then
+    return "Cancel Status: Not In Live Order Window (B)"
+  end
+  if value == "D" then
+    return "Cancel Status: Cannot Find Order With Target Client Order Id (D)"
+  end
+  if value == "I" then
+    return "Cancel Status: Invalid Mpid (I)"
+  end
+  if value == "J" then
+    return "Cancel Status: Mpid Does Not Match Target Order (J)"
+  end
+  if value == "N" then
+    return "Cancel Status: Invalid For Current Trading Status (N)"
+  end
+  if value == "O" then
+    return "Cancel Status: Invalid Client Order Id (O)"
+  end
+  if value == "S" then
+    return "Cancel Status: Invalid Instrument Id (S)"
+  end
+  if value == "T" then
+    return "Cancel Status: Invalid Target Order Id (T)"
+  end
+  if value == "e" then
+    return "Cancel Status: Invalid Order Id Or Its Use (e)"
+  end
+  if value == "f" then
+    return "Cancel Status: Request Not Permitted (f)"
+  end
+  if value == "g" then
+    return "Cancel Status: Invalid Operator Id (g)"
+  end
+  if value == "h" then
+    return "Cancel Status: Invalid Operator Location (h)"
+  end
+  if value == "Z" then
+    return "Cancel Status: Undefined Reason (Z)"
+  end
+  if value == "*" then
+    return "Cancel Status: Downgraded From Older Version (*)"
+  end
+
+  return "Cancel Status: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.cancel_status, range, value, display)
 
   return offset + length, value
 end
@@ -471,8 +578,15 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code.size = 1
 
 -- Display: Cti Code
+miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code.labels = {
+  ["1"] = "Cti Code: Cti 1 (1)",
+  ["2"] = "Cti Code: Cti 2 (2)",
+  ["3"] = "Cti Code: Cti 3 (3)",
+  ["4"] = "Cti Code: Cti 4 (4)",
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code.display = function(value)
-  return "Cti Code: "..value
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.cti_code.labels[value] or "Cti Code: Unknown("..value..")"
 end
 
 -- Dissect: Cti Code
@@ -494,8 +608,17 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction
 miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.size = 1
 
 -- Display: Customer Order Handling Instruction
+miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.labels = {
+  ["W"] = "Customer Order Handling Instruction: Desk (W)",
+  ["Y"] = "Customer Order Handling Instruction: Electronic (Y)",
+  ["C"] = "Customer Order Handling Instruction: Vendor Provided Platform Billed By Executing Broker (C)",
+  ["G"] = "Customer Order Handling Instruction: Sponsored Access Via Exchange Api Or Fix Provided By Executing Broker (G)",
+  ["H"] = "Customer Order Handling Instruction: Premium Algorithmic Trading Provider Billed By Executing Broker (H)",
+  ["D"] = "Customer Order Handling Instruction: Other (D)",
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.display = function(value)
-  return "Customer Order Handling Instruction: "..value
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.customer_order_handling_instruction.labels[value] or "Customer Order Handling Instruction: Unknown("..value..")"
 end
 
 -- Dissect: Customer Order Handling Instruction
@@ -579,64 +702,25 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.highest_sequence_number.dissect = f
   return offset + length, value
 end
 
--- Instrument Id Binary U 4
-miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4 = {}
+-- Instrument Id
+miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id = {}
 
--- Size: Instrument Id Binary U 4
-miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size = 4
+-- Size: Instrument Id
+miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size = 4
 
--- Display: Instrument Id Binary U 4
-miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.display = function(value)
-  return "Instrument Id Binary U 4: "..value
+-- Display: Instrument Id
+miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.display = function(value)
+  return "Instrument Id: "..value
 end
 
--- Dissect: Instrument Id Binary U 4
-miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size
+-- Dissect: Instrument Id
+miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_binary_u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Instrument Id String 20
-miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_string_20 = {}
-
--- Size: Instrument Id String 20
-miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_string_20.size = 20
-
--- Display: Instrument Id String 20
-miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_string_20.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Instrument Id String 20: No Value"
-  end
-
-  return "Instrument Id String 20: "..value
-end
-
--- Dissect: Instrument Id String 20
-miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_string_20.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_string_20.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_string_20.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id_string_20, range, value, display)
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -907,26 +991,65 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.logout_text.dissect = function(buff
   return offset + size, value
 end
 
--- Matching Engine
-miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine = {}
+-- Mass Cancel Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_status = {}
 
--- Size: Matching Engine
-miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine.size = 8
+-- Size: Mass Cancel Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_status.size = 1
 
--- Dissect: Matching Engine
-miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine.size
+-- Display: Mass Cancel Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_status.display = function(value)
+  if value == " " then
+    return "Mass Cancel Status: Successful (<whitespace>)"
+  end
+  if value == "A" then
+    return "Mass Cancel Status: Invalid Action (A)"
+  end
+  if value == "B" then
+    return "Mass Cancel Status: Invalid Scope (B)"
+  end
+  if value == "C" then
+    return "Mass Cancel Status: Invalid Purge Group (C)"
+  end
+  if value == "D" then
+    return "Mass Cancel Status: Not In Live Order Window (D)"
+  end
+  if value == "E" then
+    return "Mass Cancel Status: Invalid Product Group Code (E)"
+  end
+  if value == "F" then
+    return "Mass Cancel Status: Invalid Product Type (F)"
+  end
+  if value == "I" then
+    return "Mass Cancel Status: Invalid Mpid (I)"
+  end
+  if value == "O" then
+    return "Mass Cancel Status: Invalid Client Order Id (O)"
+  end
+  if value == "g" then
+    return "Mass Cancel Status: Invalid Operator Id (g)"
+  end
+  if value == "h" then
+    return "Mass Cancel Status: Invalid Operator Location (h)"
+  end
+  if value == "*" then
+    return "Mass Cancel Status: Downgraded From Older Version (*)"
+  end
+  if value == "Z" then
+    return "Mass Cancel Status: Undefined (Z)"
+  end
+
+  return "Mass Cancel Status: Unknown("..value..")"
+end
+
+-- Dissect: Mass Cancel Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_status.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:string()
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_status.display(value, buffer, offset, packet, parent)
 
-  -- A field's absolute time base is fixed when it is declared, so the
-  -- protocol declares one per base and the preference picks between them
-  local field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine
-  if miax_onyxfutures_expressinterface_fei_v1_0_c.timestamp_format == 3 then field = omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.matching_engine_utc end
-
-  local seconds = (value / UInt64(1000000000)):tonumber()
-  local nanos = (value % UInt64(1000000000)):tonumber()
-  parent:add(field, range, NSTime.new(seconds, nanos))
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.mass_cancel_status, range, value, display)
 
   return offset + length, value
 end
@@ -974,6 +1097,120 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.min_qty.dissect = function(buffer, 
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.min_qty.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.min_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Modify Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.modify_status = {}
+
+-- Size: Modify Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.modify_status.size = 1
+
+-- Display: Modify Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.modify_status.display = function(value)
+  if value == " " then
+    return "Modify Status: Successful (<whitespace>)"
+  end
+  if value == "A" then
+    return "Modify Status: Duplicate Client Order Id (A)"
+  end
+  if value == "B" then
+    return "Modify Status: Not In Live Order Window (B)"
+  end
+  if value == "D" then
+    return "Modify Status: Cannot Find Order With Target Client Order Id (D)"
+  end
+  if value == "E" then
+    return "Modify Status: Invalid Customer Order Handling Instruction (E)"
+  end
+  if value == "F" then
+    return "Modify Status: Invalid For Time In Force (F)"
+  end
+  if value == "I" then
+    return "Modify Status: Invalid Mpid (I)"
+  end
+  if value == "J" then
+    return "Modify Status: Mpid Does Not Match Target Order (J)"
+  end
+  if value == "L" then
+    return "Modify Status: Invalid Self Trade Protection Group (L)"
+  end
+  if value == "M" then
+    return "Modify Status: Invalid Use Self Trade Protection Group (M)"
+  end
+  if value == "N" then
+    return "Modify Status: Invalid For Current Trading Status (N)"
+  end
+  if value == "O" then
+    return "Modify Status: Invalid Client Order Id (O)"
+  end
+  if value == "P" then
+    return "Modify Status: Invalid Price (P)"
+  end
+  if value == "Q" then
+    return "Modify Status: Invalid Size (Q)"
+  end
+  if value == "S" then
+    return "Modify Status: Invalid Instrument Id (S)"
+  end
+  if value == "T" then
+    return "Modify Status: Invalid Target Client Order Id (T)"
+  end
+  if value == "V" then
+    return "Modify Status: Invalid Purge Group (V)"
+  end
+  if value == "W" then
+    return "Modify Status: Invalid Order Expiry Date Or Its Use (W)"
+  end
+  if value == "Y" then
+    return "Modify Status: Blocked By User Mass Cancel (Y)"
+  end
+  if value == "a" then
+    return "Modify Status: Blocked By Mfp Help Desk Mass Cancel (a)"
+  end
+  if value == "b" then
+    return "Modify Status: Blocked By Crm (b)"
+  end
+  if value == "g" then
+    return "Modify Status: Invalid Operator Id (g)"
+  end
+  if value == "h" then
+    return "Modify Status: Invalid Operator Location (h)"
+  end
+  if value == "k" then
+    return "Modify Status: Blocked By Drop Copy Acodacosf Event (k)"
+  end
+  if value == "l" then
+    return "Modify Status: Daily Trading Limit Breach (l)"
+  end
+  if value == "m" then
+    return "Modify Status: Trading Collar Protection (m)"
+  end
+  if value == "p" then
+    return "Modify Status: Restriction For Current Trading Session (p)"
+  end
+  if value == "q" then
+    return "Modify Status: Product Restriction (q)"
+  end
+  if value == "Z" then
+    return "Modify Status: Undefined Reason (Z)"
+  end
+  if value == "*" then
+    return "Modify Status: Downgraded From Older Version (*)"
+  end
+
+  return "Modify Status: Unknown("..value..")"
+end
+
+-- Dissect: Modify Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.modify_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.modify_status, range, value, display)
 
   return offset + length, value
 end
@@ -1110,7 +1347,12 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.order_expiry_date.size = 2
 
 -- Display: Order Expiry Date
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_expiry_date.display = function(value)
-  return "Order Expiry Date: "..value
+  -- Check if field has value
+  if value == 0 then
+    return "Order Expiry Date: No Value"
+  end
+
+  return string.format("Order Expiry Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Order Expiry Date
@@ -1148,6 +1390,147 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Order Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.order_status = {}
+
+-- Size: Order Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.order_status.size = 1
+
+-- Display: Order Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.order_status.display = function(value)
+  if value == " " then
+    return "Order Status: Successful (<whitespace>)"
+  end
+  if value == "A" then
+    return "Order Status: Duplicate Client Order Id (A)"
+  end
+  if value == "B" then
+    return "Order Status: Not In Live Order Window (B)"
+  end
+  if value == "C" then
+    return "Order Status: Invalid Order Type (C)"
+  end
+  if value == "E" then
+    return "Order Status: Invalid Customer Order Handling Instruction (E)"
+  end
+  if value == "F" then
+    return "Order Status: Invalid Time In Force Or Its Use (F)"
+  end
+  if value == "G" then
+    return "Order Status: Invalid Self Trade Protection Level (G)"
+  end
+  if value == "H" then
+    return "Order Status: Invalid Self Trade Protection Instruction (H)"
+  end
+  if value == "I" then
+    return "Order Status: Invalid Mpid (I)"
+  end
+  if value == "K" then
+    return "Order Status: Invalid Use Self Trade Protection Instruction (K)"
+  end
+  if value == "L" then
+    return "Order Status: Invalid Self Trade Protection Group (L)"
+  end
+  if value == "M" then
+    return "Order Status: Invalid Use Self Trade Protection Group (M)"
+  end
+  if value == "N" then
+    return "Order Status: Invalid For Current Trading Status (N)"
+  end
+  if value == "O" then
+    return "Order Status: Invalid Client Order Id (O)"
+  end
+  if value == "P" then
+    return "Order Status: Invalid Price (P)"
+  end
+  if value == "Q" then
+    return "Order Status: Invalid Size (Q)"
+  end
+  if value == "R" then
+    return "Order Status: Invalid Use Minimum Qty (R)"
+  end
+  if value == "S" then
+    return "Order Status: Invalid Instrument Id (S)"
+  end
+  if value == "U" then
+    return "Order Status: Invalid Use Order Type (U)"
+  end
+  if value == "V" then
+    return "Order Status: Invalid Purge Group (V)"
+  end
+  if value == "W" then
+    return "Order Status: Invalid Order Expiry Date Or Its Use (W)"
+  end
+  if value == "Y" then
+    return "Order Status: Blocked By User Mass Cancel (Y)"
+  end
+  if value == "a" then
+    return "Order Status: Blocked By Mfp Help Desk Mass Cancel (a)"
+  end
+  if value == "b" then
+    return "Order Status: Blocked By Crm (b)"
+  end
+  if value == "c" then
+    return "Order Status: Invalid Account (c)"
+  end
+  if value == "d" then
+    return "Order Status: Invalid Trading Collar (d)"
+  end
+  if value == "g" then
+    return "Order Status: Invalid Operator Id (g)"
+  end
+  if value == "h" then
+    return "Order Status: Invalid Operator Location (h)"
+  end
+  if value == "i" then
+    return "Order Status: Invalid Cti Code (i)"
+  end
+  if value == "j" then
+    return "Order Status: Invalid Text Memo (j)"
+  end
+  if value == "k" then
+    return "Order Status: Blocked By Drop Copy Acodacosf Event (k)"
+  end
+  if value == "l" then
+    return "Order Status: Daily Trading Limit Breach (l)"
+  end
+  if value == "m" then
+    return "Order Status: Trading Collar Protection (m)"
+  end
+  if value == "n" then
+    return "Order Status: Duplicate Order Protection (n)"
+  end
+  if value == "o" then
+    return "Order Status: Order Type Restriction (o)"
+  end
+  if value == "p" then
+    return "Order Status: Restriction For Current Trading Session (p)"
+  end
+  if value == "q" then
+    return "Order Status: Product Restriction (q)"
+  end
+  if value == "Z" then
+    return "Order Status: Undefined Reason (Z)"
+  end
+  if value == "*" then
+    return "Order Status: Downgraded From Older Version (*)"
+  end
+
+  return "Order Status: Unknown("..value..")"
+end
+
+-- Dissect: Order Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.order_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.order_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.order_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_status, range, value, display)
+
+  return offset + length, value
+end
+
 -- Order Type
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_type = {}
 
@@ -1155,8 +1538,15 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.order_type = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_type.size = 1
 
 -- Display: Order Type
+miax_onyxfutures_expressinterface_fei_v1_0_c.order_type.labels = {
+  ["1"] = "Order Type: Limit (1)",
+  ["2"] = "Order Type: Stop Limit Order (2)",
+  ["3"] = "Order Type: Market (3)",
+  ["4"] = "Order Type: Stop Market Order (4)",
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_type.display = function(value)
-  return "Order Type: "..value
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.order_type.labels[value] or "Order Type: Unknown("..value..")"
 end
 
 -- Dissect: Order Type
@@ -1167,45 +1557,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.order_type.dissect = function(buffe
   local display = miax_onyxfutures_expressinterface_fei_v1_0_c.order_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.order_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Original Client Order
-miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order = {}
-
--- Size: Original Client Order
-miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order.size = 20
-
--- Display: Original Client Order
-miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Original Client Order: No Value"
-  end
-
-  return "Original Client Order: "..value
-end
-
--- Dissect: Original Client Order
-miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.original_client_order, range, value, display)
 
   return offset + length, value
 end
@@ -1324,8 +1675,15 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.product_type = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.product_type.size = 1
 
 -- Display: Product Type
+miax_onyxfutures_expressinterface_fei_v1_0_c.product_type.labels = {
+  ["O"] = "Product Type: Outright Futures (O)",
+  ["S"] = "Product Type: Standard Calendar Spread (S)",
+  ["E"] = "Product Type: Equity Calendar Spread (E)",
+  ["B"] = "Product Type: Butterfly Spread (B)",
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.product_type.display = function(value)
-  return "Product Type: "..value
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.product_type.labels[value] or "Product Type: Unknown("..value..")"
 end
 
 -- Dissect: Product Type
@@ -1531,8 +1889,15 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.scope = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.scope.size = 1
 
 -- Display: Scope
+miax_onyxfutures_expressinterface_fei_v1_0_c.scope.labels = {
+  ["M"] = "Scope: Mpid (M)",
+  ["P"] = "Scope: Mpid Product Group (P)",
+  ["T"] = "Scope: Mpid Product Group Product Type (T)",
+  ["S"] = "Scope: Session (S)",
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.scope.display = function(value)
-  return "Scope: "..value
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.scope.labels[value] or "Scope: Unknown("..value..")"
 end
 
 -- Dissect: Scope
@@ -1845,29 +2210,6 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.start_sequence_number.dissect = fun
   return offset + length, value
 end
 
--- Status
-miax_onyxfutures_expressinterface_fei_v1_0_c.status = {}
-
--- Size: Status
-miax_onyxfutures_expressinterface_fei_v1_0_c.status.size = 1
-
--- Display: Status
-miax_onyxfutures_expressinterface_fei_v1_0_c.status.display = function(value)
-  return "Status: "..value
-end
-
--- Dissect: Status
-miax_onyxfutures_expressinterface_fei_v1_0_c.status.dissect = function(buffer, offset, packet, parent)
-  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.status.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stop Order Trigger Price
 miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price = {}
 
@@ -1897,6 +2239,75 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.dissect = 
   return offset + length, value
 end
 
+-- Strategy Creation Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_status = {}
+
+-- Size: Strategy Creation Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_status.size = 1
+
+-- Display: Strategy Creation Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_status.display = function(value)
+  if value == " " then
+    return "Strategy Creation Status: Successful (<whitespace>)"
+  end
+  if value == "A" then
+    return "Strategy Creation Status: Invalid Number Of Legs (A)"
+  end
+  if value == "B" then
+    return "Strategy Creation Status: Invalid Not Allowed Strategy (B)"
+  end
+  if value == "C" then
+    return "Strategy Creation Status: Invalid Leg Ratio (C)"
+  end
+  if value == "D" then
+    return "Strategy Creation Status: Legs From Different Products (D)"
+  end
+  if value == "E" then
+    return "Strategy Creation Status: Repeating Instrument (E)"
+  end
+  if value == "F" then
+    return "Strategy Creation Status: No More Strategies Can Be Created (F)"
+  end
+  if value == "G" then
+    return "Strategy Creation Status: Not In Live Order Window (G)"
+  end
+  if value == "H" then
+    return "Strategy Creation Status: Invalid Leg Instrument (H)"
+  end
+  if value == "I" then
+    return "Strategy Creation Status: Invalid Mpid (I)"
+  end
+  if value == "O" then
+    return "Strategy Creation Status: Invalid Client Order Id (O)"
+  end
+  if value == "Z" then
+    return "Strategy Creation Status: Undefined (Z)"
+  end
+  if value == "g" then
+    return "Strategy Creation Status: Invalid Operator Id (g)"
+  end
+  if value == "h" then
+    return "Strategy Creation Status: Invalid Operator Location (h)"
+  end
+  if value == "*" then
+    return "Strategy Creation Status: Downgraded For Older Version (*)"
+  end
+
+  return "Strategy Creation Status: Unknown("..value..")"
+end
+
+-- Dissect: Strategy Creation Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_status.dissect = function(buffer, offset, packet, parent)
+  local length = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.strategy_creation_status, range, value, display)
+
+  return offset + length, value
+end
+
 -- System Status
 miax_onyxfutures_expressinterface_fei_v1_0_c.system_status = {}
 
@@ -1904,8 +2315,16 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.system_status = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.system_status.size = 1
 
 -- Display: System Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.system_status.labels = {
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Of Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
+  ["*"] = "System Status: Downgraded For Older Version (*)",
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.system_status.display = function(value)
-  return "System Status: "..value
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.system_status.labels[value] or "System Status: Unknown("..value..")"
 end
 
 -- Dissect: System Status
@@ -1998,7 +2417,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.trade_date.size = 2
 
 -- Display: Trade Date
 miax_onyxfutures_expressinterface_fei_v1_0_c.trade_date.display = function(value)
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date
@@ -2020,8 +2439,14 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.trade_status = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.trade_status.size = 1
 
 -- Display: Trade Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.trade_status.labels = {
+  ["E"] = "Trade Status: New Execution (E)",
+  ["C"] = "Trade Status: Price Size Correction (C)",
+  ["X"] = "Trade Status: Trade Cancellation (X)",
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.trade_status.display = function(value)
-  return "Trade Status: "..value
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.trade_status.labels[value] or "Trade Status: Unknown("..value..")"
 end
 
 -- Dissect: Trade Status
@@ -2108,8 +2533,12 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.update_status = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.update_status.size = 1
 
 -- Display: Update Status
+miax_onyxfutures_expressinterface_fei_v1_0_c.update_status.labels = {
+  ["S"] = "Update Status: Stop Order Triggered (S)",
+}
+
 miax_onyxfutures_expressinterface_fei_v1_0_c.update_status.display = function(value)
-  return "Update Status: "..value
+  return miax_onyxfutures_expressinterface_fei_v1_0_c.update_status.labels[value] or "Update Status: Unknown("..value..")"
 end
 
 -- Dissect: Update Status
@@ -2517,8 +2946,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.
   miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_string_20.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_status.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_16.size
 
 -- Display: Strategy Creation Response Message
@@ -2539,11 +2968,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_response_message.
   -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id String 20: String
-  index, instrument_id_string_20 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_string_20.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Status: Alphanumeric
-  index, status = miax_onyxfutures_expressinterface_fei_v1_0_c.status.dissect(buffer, index, packet, parent)
+  -- Strategy Creation Status: Alphanumeric
+  index, strategy_creation_status = miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_creation_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: BinaryU
   if show.padding then
@@ -2578,7 +3007,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg = {}
 
 -- Size: Strategy Leg
 miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg.size =
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.leg_ratio.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_8.size
 
@@ -2597,8 +3026,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.strategy_leg.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Leg Ratio: BinaryS
   index, leg_ratio = miax_onyxfutures_expressinterface_fei_v1_0_c.leg_ratio.dissect(buffer, index, packet, parent)
@@ -2727,7 +3156,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.size =
   miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_status.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
 
 -- Display: Mass Cancel Response
@@ -2748,8 +3177,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_response.fields = funct
   -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Status: Alphanumeric
-  index, status = miax_onyxfutures_expressinterface_fei_v1_0_c.status.dissect(buffer, index, packet, parent)
+  -- Mass Cancel Status: Alphanumeric
+  index, mass_cancel_status = miax_onyxfutures_expressinterface_fei_v1_0_c.mass_cancel_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
   if show.padding then
@@ -2879,10 +3308,11 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.size =
   miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.status.size
+  miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
 
 -- Display: Cancel Order Response
 miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.display = function(packet, parent, length)
@@ -2902,17 +3332,24 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_response.fields = func
   -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Original Client Order: String
-  index, original_client_order = miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order.dissect(buffer, index, packet, parent)
+  -- Original Client Order Id: String
+  index, original_client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.dissect(buffer, index, packet, parent)
 
-  -- Status: Alphanumeric
-  index, status = miax_onyxfutures_expressinterface_fei_v1_0_c.status.dissect(buffer, index, packet, parent)
+  -- Cancel Status: Alphanumeric
+  index, cancel_status = miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_status.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: BinaryU
+  if show.padding then
+    index, reserved_10 = miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
+  end
 
   return index
 end
@@ -2947,7 +3384,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.size =
   miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
 
 -- Display: Cancel Order Request Message
@@ -2980,8 +3417,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_order_request_message.fields
   -- Original Client Order Id: String
   index, original_client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
   if show.padding then
@@ -3020,10 +3457,10 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.size =
   miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.leaves_qty.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.modify_status.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
 
 -- Display: Modify Order Response
@@ -3047,8 +3484,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.fields = func
   -- Original Client Order Id: String
   index, original_client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.dissect(buffer, index, packet, parent)
@@ -3056,8 +3493,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_response.fields = func
   -- Leaves Qty: BinaryU
   index, leaves_qty = miax_onyxfutures_expressinterface_fei_v1_0_c.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Status: Alphanumeric
-  index, status = miax_onyxfutures_expressinterface_fei_v1_0_c.status.dissect(buffer, index, packet, parent)
+  -- Modify Status: Alphanumeric
+  index, modify_status = miax_onyxfutures_expressinterface_fei_v1_0_c.modify_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
   if show.padding then
@@ -3116,13 +3553,13 @@ end
 -- Dissect Bit Fields: Additional Order Indicators
 miax_onyxfutures_expressinterface_fei_v1_0_c.additional_order_indicators.bits = function(range, value, packet, parent)
 
-  -- Customer Of Firm Designation: 1 Bit
+  -- Customer Of Firm Designation: 1 Bit Enum with 2 values
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.customer_of_firm_designation, range, value)
 
-  -- Manual Order Indicator: 1 Bit
+  -- Manual Order Indicator: 1 Bit Enum with 2 values
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.manual_order_indicator, range, value)
 
-  -- Open Close Position Indicator: 1 Bit
+  -- Open Close Position Indicator: 1 Bit Enum with 2 values
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.open_close_position_indicator, range, value)
 
   -- Unused 5: 5 Bit
@@ -3155,7 +3592,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.size =
   miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.price.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_s_4.size + 
@@ -3193,8 +3630,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_request_message.fields
   -- Original Client Order Id: String
   index, original_client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Price: Price9S
   index, price = miax_onyxfutures_expressinterface_fei_v1_0_c.price.dissect(buffer, index, packet, parent)
@@ -3253,12 +3690,12 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message = {}
 
 -- Size: New Order Response Message
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.size =
-  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.status.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.order_status.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_10.size
 
 -- Display: New Order Response Message
@@ -3270,8 +3707,8 @@ end
 miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Matching Engine: NanoTime
-  index, matching_engine = miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine.dissect(buffer, index, packet, parent)
+  -- Matching Engine Time: NanoTime
+  index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.dissect(buffer, index, packet, parent)
 
   -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.dissect(buffer, index, packet, parent)
@@ -3279,14 +3716,14 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_response_message.fields =
   -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.dissect(buffer, index, packet, parent)
 
-  -- Status: Alphanumeric
-  index, status = miax_onyxfutures_expressinterface_fei_v1_0_c.status.dissect(buffer, index, packet, parent)
+  -- Order Status: Alphanumeric
+  index, order_status = miax_onyxfutures_expressinterface_fei_v1_0_c.order_status.dissect(buffer, index, packet, parent)
 
   -- Reserved 10: BinaryU
   if show.padding then
@@ -3337,10 +3774,10 @@ end
 -- Dissect Bit Fields: Self Trade Protection
 miax_onyxfutures_expressinterface_fei_v1_0_c.self_trade_protection.bits = function(range, value, packet, parent)
 
-  -- Self Trade Protection Level: 3 Bit Unsigned Fixed Width Integer
+  -- Self Trade Protection Level: 3 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_level, range, value)
 
-  -- Self Trade Protection Instruction: 3 Bit Unsigned Fixed Width Integer
+  -- Self Trade Protection Instruction: 3 Bit Unsigned Fixed Width Integer Enum with 5 values
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.self_trade_protection_instruction, range, value)
 
   -- Unused 2: 2 Bit
@@ -3383,7 +3820,7 @@ end
 -- Dissect Bit Fields: Order Instructions
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_instructions.bits = function(range, value, packet, parent)
 
-  -- Side: 1 Bit
+  -- Side: 1 Bit Enum with 2 values
   parent:add(omi_miax_onyxfutures_expressinterface_fei_v1_0_c.fields.side, range, value)
 
   -- Unused 15: 15 Bit
@@ -3416,7 +3853,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.size =
   miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.account.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.price.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_u_4.size + 
@@ -3462,8 +3899,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_request_message.fields = 
   -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Price: Price9S
   index, price = miax_onyxfutures_expressinterface_fei_v1_0_c.price.dissect(buffer, index, packet, parent)
@@ -3628,7 +4065,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification = {}
 miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.size =
   miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.complex_trade_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.trade_date.size + 
@@ -3652,8 +4089,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.complex_execution_notification.fiel
   -- Mp Id: Alphanumeric
   index, mp_id = miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
@@ -3710,7 +4147,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.size 
   miax_onyxfutures_expressinterface_fei_v1_0_c.mp_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.simple_trade_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.complex_trade_id.size + 
@@ -3747,8 +4184,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.simple_execution_notification.field
   -- Operator Location: String
   index, operator_location = miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
@@ -3823,7 +4260,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification = 
 -- Size: Order Status Update Notification
 miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.size =
   miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.update_status.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.reserved_32.size
@@ -3840,8 +4277,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.order_status_update_notification.fi
   -- Matching Engine Time: NanoTime
   index, matching_engine_time = miax_onyxfutures_expressinterface_fei_v1_0_c.matching_engine_time.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.dissect(buffer, index, packet, parent)
@@ -3887,7 +4324,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notificati
   miax_onyxfutures_expressinterface_fei_v1_0_c.operator_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_send_time.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.leaves_qty.size + 
@@ -3920,8 +4357,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.cancel_reduce_size_order_notificati
   -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Order Id: BinaryU
   index, order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.order_id.dissect(buffer, index, packet, parent)
@@ -3983,7 +4420,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.size =
   miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.price.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_s_4.size + 
@@ -4030,8 +4467,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.modify_order_notification.fields = 
   -- Original Client Order Id: String
   index, original_client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.original_client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Price: Price9S
   index, price = miax_onyxfutures_expressinterface_fei_v1_0_c.price.dissect(buffer, index, packet, parent)
@@ -4098,7 +4535,7 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.size =
   miax_onyxfutures_expressinterface_fei_v1_0_c.operator_location.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.account.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.size + 
-  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.size + 
+  miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.price.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.stop_order_trigger_price.size + 
   miax_onyxfutures_expressinterface_fei_v1_0_c.size_binary_u_4.size + 
@@ -4150,8 +4587,8 @@ miax_onyxfutures_expressinterface_fei_v1_0_c.new_order_notification.fields = fun
   -- Client Order Id: String
   index, client_order_id = miax_onyxfutures_expressinterface_fei_v1_0_c.client_order_id.dissect(buffer, index, packet, parent)
 
-  -- Instrument Id Binary U 4: BinaryU
-  index, instrument_id_binary_u_4 = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Instrument Id: BinaryU
+  index, instrument_id = miax_onyxfutures_expressinterface_fei_v1_0_c.instrument_id.dissect(buffer, index, packet, parent)
 
   -- Price: Price9S
   index, price = miax_onyxfutures_expressinterface_fei_v1_0_c.price.dissect(buffer, index, packet, parent)

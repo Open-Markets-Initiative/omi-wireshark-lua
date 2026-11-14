@@ -254,7 +254,10 @@ biva_bivaequities_lastsale_itch_v1_12.delisting_or_maturity_date.size = 4
 
 -- Display: Delisting Or Maturity Date
 biva_bivaequities_lastsale_itch_v1_12.delisting_or_maturity_date.display = function(value)
-  return "Delisting Or Maturity Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Delisting Or Maturity Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Delisting Or Maturity Date
@@ -277,7 +280,11 @@ biva_bivaequities_lastsale_itch_v1_12.delisting_time.size = 4
 
 -- Display: Delisting Time
 biva_bivaequities_lastsale_itch_v1_12.delisting_time.display = function(value)
-  return "Delisting Time: "..value
+  local hour = math.floor(value / 10000)
+  local minute = math.floor(value / 100) % 100
+  local second = value % 100
+
+  return string.format("Delisting Time: %02d:%02d:%02d", hour, minute, second)
 end
 
 -- Dissect: Delisting Time

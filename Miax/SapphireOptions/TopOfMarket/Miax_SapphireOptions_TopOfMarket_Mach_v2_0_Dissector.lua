@@ -32,7 +32,8 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.correction_number = ProtoF
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.sapphireoptions.topofmarket.mach.v2.0.endsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the last packet to be retransmitted")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.event_reason = ProtoField.new("Event Reason", "miax.sapphireoptions.topofmarket.mach.v2.0.eventreason", ftypes.STRING, nil, nil, nil, "Event Reason value")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.sapphireoptions.topofmarket.mach.v2.0.expectedeventtimenanosecondspart", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in \"Expected Event Time Seconds\" field.")
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.sapphireoptions.topofmarket.mach.v2.0.expectedeventtimesecondspart", ftypes.UINT32, nil, nil, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.sapphireoptions.topofmarket.mach.v2.0.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.expected_event_time_seconds_part_utc = ProtoField.new("Expected Event Time Seconds Part", "miax.sapphireoptions.topofmarket.mach.v2.0.expectedeventtimesecondspart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.expiration_date = ProtoField.new("Expiration Date", "miax.sapphireoptions.topofmarket.mach.v2.0.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format.")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.sapphireoptions.topofmarket.mach.v2.0.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.sapphireoptions.topofmarket.mach.v2.0.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
@@ -86,7 +87,7 @@ omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_packet_length = Proto
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmpackettype", ftypes.STRING, nil, nil, nil, "SesM protocol packet type")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.sesm_version = ProtoField.new("Sesm Version", "miax.sapphireoptions.topofmarket.mach.v2.0.sesmversion", ftypes.STRING, nil, nil, nil, "Protocol version")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.session_id = ProtoField.new("Session Id", "miax.sapphireoptions.topofmarket.mach.v2.0.sessionid", ftypes.UINT32, nil, nil, nil, "Sapphire assigned ID for the current trading session")
-omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.session_number = ProtoField.new("Session Number", "miax.sapphireoptions.topofmarket.mach.v2.0.sessionnumber", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.session_number = ProtoField.new("Session Number", "miax.sapphireoptions.topofmarket.mach.v2.0.sessionnumber", ftypes.UINT8, nil, nil, nil, "The Session this packet was generated from")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.sapphireoptions.topofmarket.mach.v2.0.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.strike_price = ProtoField.new("Strike Price", "miax.sapphireoptions.topofmarket.mach.v2.0.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price of the option. Refer to data types for field processing notes.")
 omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.sapphireoptions.topofmarket.mach.v2.0.synchronizationcomplete", ftypes.STRING, nil, nil, nil, "The SesM server sends a Login response packet in response a Login request packet from the client")
@@ -653,19 +654,27 @@ miax_sapphireoptions_topofmarket_mach_v2_0.expected_event_time_seconds_part = {}
 -- Size: Expected Event Time Seconds Part
 miax_sapphireoptions_topofmarket_mach_v2_0.expected_event_time_seconds_part.size = 4
 
--- Display: Expected Event Time Seconds Part
-miax_sapphireoptions_topofmarket_mach_v2_0.expected_event_time_seconds_part.display = function(value)
-  return "Expected Event Time Seconds Part: "..value
-end
-
 -- Dissect: Expected Event Time Seconds Part
 miax_sapphireoptions_topofmarket_mach_v2_0.expected_event_time_seconds_part.dissect = function(buffer, offset, packet, parent)
   local length = miax_sapphireoptions_topofmarket_mach_v2_0.expected_event_time_seconds_part.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_sapphireoptions_topofmarket_mach_v2_0.expected_event_time_seconds_part.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.expected_event_time_seconds_part, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.expected_event_time_seconds_part
+  if miax_sapphireoptions_topofmarket_mach_v2_0.timestamp_format == 3 then field = omi_miax_sapphireoptions_topofmarket_mach_v2_0.fields.expected_event_time_seconds_part_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expected Event Time Seconds Part: Not Applicable")
+    return offset + length, value
+  end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -678,7 +687,11 @@ miax_sapphireoptions_topofmarket_mach_v2_0.expiration_date.size = 8
 
 -- Display: Expiration Date
 miax_sapphireoptions_topofmarket_mach_v2_0.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date

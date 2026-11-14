@@ -76,7 +76,8 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.reject_reason_code = Pr
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.remarks = ProtoField.new("Remarks", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.remarks", ftypes.STRING, nil, nil, nil, "Security board remarks for conditional markets.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.requested_session = ProtoField.new("Requested Session", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time = ProtoField.new("Scheduled Time", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.scheduledtime", ftypes.UINT64, nil, nil, nil, "Event trigger time in nanoseconds since Epoch (UTC).")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time = ProtoField.new("Scheduled Time", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.scheduledtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Event trigger time in nanoseconds since Epoch (UTC).")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time_utc = ProtoField.new("Scheduled Time", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.scheduledtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Event trigger time in nanoseconds since Epoch (UTC).")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.security_code = ProtoField.new("Security Code", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.securitycode", ftypes.STRING, nil, nil, nil, "Unique text identifier for the security.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.security_name = ProtoField.new("Security Name", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.securityname", ftypes.STRING, nil, nil, nil, "Descriptive name for the security.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.sell_firm_id = ProtoField.new("Sell Firm Id", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.sellfirmid", ftypes.UINT32, nil, nil, nil, "Firm ID of sell-side counterparty.")
@@ -1805,19 +1806,20 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.scheduled_time = {}
 -- Size: Scheduled Time
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.scheduled_time.size = 8
 
--- Display: Scheduled Time
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.scheduled_time.display = function(value)
-  return "Scheduled Time: "..value
-end
-
 -- Dissect: Scheduled Time
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.scheduled_time.dissect = function(buffer, offset, packet, parent)
   local length = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.scheduled_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.scheduled_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format == 3 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1976,7 +1978,10 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.settle_date.size = 4
 
 -- Display: Settle Date
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.settle_date.display = function(value)
-  return "Settle Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Settle Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Settle Date

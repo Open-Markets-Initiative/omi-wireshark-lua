@@ -35,7 +35,8 @@ omi_cboe_c1options_complex_pitch_v2_1_61.fields.customer_indicator = ProtoField.
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.edci_subtype = ProtoField.new("Edci Subtype", "cboe.c1options.complex.pitch.v2.1.61.edcisubtype", ftypes.STRING, nil, nil, nil, "Exchange Designated Complex Instrument subtype right padded with spaces.")
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.edci_type = ProtoField.new("Edci Type", "cboe.c1options.complex.pitch.v2.1.61.edcitype", ftypes.STRING, nil, nil, nil, "Exchange Designated Complex Instrument type right padded with spaces.")
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.edcid_leg = ProtoField.new("Edcid Leg", "cboe.c1options.complex.pitch.v2.1.61.edcidleg", ftypes.STRING, nil, nil, nil, "Repeating leg definition group inside the Exchange Designated Complex Instrument Definition message. Repeats Leg Count times.")
-omi_cboe_c1options_complex_pitch_v2_1_61.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complex.pitch.v2.1.61.epochtime", ftypes.UINT32, nil, nil, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_complex_pitch_v2_1_61.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complex.pitch.v2.1.61.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_complex_pitch_v2_1_61.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.complex.pitch.v2.1.61.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.c1options.complex.pitch.v2.1.61.executedquantity", ftypes.UINT32, nil, nil, nil, "Instrument quantity executed.")
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.complex.pitch.v2.1.61.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution.")
 omi_cboe_c1options_complex_pitch_v2_1_61.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.complex.pitch.v2.1.61.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
@@ -694,19 +695,20 @@ cboe_c1options_complex_pitch_v2_1_61.epoch_time = {}
 -- Size: Epoch Time
 cboe_c1options_complex_pitch_v2_1_61.epoch_time.size = 4
 
--- Display: Epoch Time
-cboe_c1options_complex_pitch_v2_1_61.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
 -- Dissect: Epoch Time
 cboe_c1options_complex_pitch_v2_1_61.epoch_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_complex_pitch_v2_1_61.epoch_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_complex_pitch_v2_1_61.epoch_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_complex_pitch_v2_1_61.fields.epoch_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_complex_pitch_v2_1_61.fields.epoch_time
+  if cboe_c1options_complex_pitch_v2_1_61.timestamp_format == 3 then field = omi_cboe_c1options_complex_pitch_v2_1_61.fields.epoch_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1772,7 +1774,10 @@ cboe_c1options_complex_pitch_v2_1_61.trade_date.size = 4
 
 -- Display: Trade Date
 cboe_c1options_complex_pitch_v2_1_61.trade_date.display = function(value)
-  return "Trade Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date

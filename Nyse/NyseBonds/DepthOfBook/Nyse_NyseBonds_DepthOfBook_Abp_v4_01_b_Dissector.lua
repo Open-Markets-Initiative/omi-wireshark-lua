@@ -89,6 +89,17 @@ omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.test_request_message = ProtoFi
 -- Nyse NyseBonds DepthOfBook Abp 4.01.b Formatting
 -----------------------------------------------------------------------
 
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_nysebonds_depthofbook_abp_v4_01_b.timestamp_format = 2
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -118,6 +129,8 @@ omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.show_headers = Pref.bool("Show 
 omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
+omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs_changed()
 
@@ -133,6 +146,9 @@ function omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs_changed()
   end
   if show.structs ~= omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.show_structs then
     show.structs = omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.show_structs
+  end
+  if nyse_nysebonds_depthofbook_abp_v4_01_b.timestamp_format ~= omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.timestamp_format then
+    nyse_nysebonds_depthofbook_abp_v4_01_b.timestamp_format = omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.timestamp_format
   end
 end
 
@@ -1397,8 +1413,34 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.time = {}
 nyse_nysebonds_depthofbook_abp_v4_01_b.time.size = 4
 
 -- Display: Time
-nyse_nysebonds_depthofbook_abp_v4_01_b.time.display = function(value)
-  return "Time: "..value
+nyse_nysebonds_depthofbook_abp_v4_01_b.time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nyse_nysebonds_depthofbook_abp_v4_01_b.timestamp_format == 0 then
+    return "Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if nyse_nysebonds_depthofbook_abp_v4_01_b.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = nyse_nysebonds_depthofbook_abp_v4_01_b.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Time

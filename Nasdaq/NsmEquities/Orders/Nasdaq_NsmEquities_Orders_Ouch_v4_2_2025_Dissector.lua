@@ -113,6 +113,17 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.experts = { nasdaq_nsmequities_orde
 -- Nasdaq NsmEquities Orders Ouch 4.2.2025 Formatting
 -----------------------------------------------------------------------
 
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nasdaq_nsmequities_orders_ouch_v4_2_2025.timestamp_format = 2
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -144,6 +155,8 @@ omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.prefs.show_headers = Pref.bool("Sho
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
+omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.prefs_changed()
 
@@ -162,6 +175,9 @@ function omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.prefs_changed()
   end
   if show.sequences ~= omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.prefs.show_sequences then
     show.sequences = omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.prefs.show_sequences
+  end
+  if nasdaq_nsmequities_orders_ouch_v4_2_2025.timestamp_format ~= omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.prefs.timestamp_format then
+    nasdaq_nsmequities_orders_ouch_v4_2_2025.timestamp_format = omi_nasdaq_nsmequities_orders_ouch_v4_2_2025.prefs.timestamp_format
   end
 end
 
@@ -1480,8 +1496,34 @@ nasdaq_nsmequities_orders_ouch_v4_2_2025.timestamp = {}
 nasdaq_nsmequities_orders_ouch_v4_2_2025.timestamp.size = 8
 
 -- Display: Timestamp
-nasdaq_nsmequities_orders_ouch_v4_2_2025.timestamp.display = function(value)
-  return "Timestamp: "..value
+nasdaq_nsmequities_orders_ouch_v4_2_2025.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nasdaq_nsmequities_orders_ouch_v4_2_2025.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if nasdaq_nsmequities_orders_ouch_v4_2_2025.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = nasdaq_nsmequities_orders_ouch_v4_2_2025.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp

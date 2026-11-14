@@ -38,8 +38,10 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.best_buy_price = ProtoField.new("Best B
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.best_sell_price = ProtoField.new("Best Sell Price", "nse.nsecm.orderentry.nnf.v6.6.bestsellprice", ftypes.DOUBLE, nil, nil, nil, "Best sell price in the auction, in paise")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.board_lot_quantity = ProtoField.new("Board Lot Quantity", "nse.nsecm.orderentry.nnf.v6.6.boardlotquantity", ftypes.INT32, nil, nil, nil, "This field contains the board lot quantity")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.bonus = ProtoField.new("Bonus", "nse.nsecm.orderentry.nnf.v6.6.bonus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20)
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_end_date = ProtoField.new("Book Closure End Date", "nse.nsecm.orderentry.nnf.v6.6.bookclosureenddate", ftypes.INT32, nil, nil, nil, "This field contains the date when the record books in the company for shareholder names ends")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_start_date = ProtoField.new("Book Closure Start Date", "nse.nsecm.orderentry.nnf.v6.6.bookclosurestartdate", ftypes.INT32, nil, nil, nil, "This field contains the date when the record books in the company for shareholder names starts")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_end_date = ProtoField.new("Book Closure End Date", "nse.nsecm.orderentry.nnf.v6.6.bookclosureenddate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the date when the record books in the company for shareholder names ends")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_end_date_utc = ProtoField.new("Book Closure End Date", "nse.nsecm.orderentry.nnf.v6.6.bookclosureenddate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the date when the record books in the company for shareholder names ends")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_start_date = ProtoField.new("Book Closure Start Date", "nse.nsecm.orderentry.nnf.v6.6.bookclosurestartdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the date when the record books in the company for shareholder names starts")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_start_date_utc = ProtoField.new("Book Closure Start Date", "nse.nsecm.orderentry.nnf.v6.6.bookclosurestartdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the date when the record books in the company for shareholder names starts")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_type = ProtoField.new("Book Type", "nse.nsecm.orderentry.nnf.v6.6.booktype", ftypes.INT16, nil, nil, nil, "This field should contain the type of order")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.books_merged = ProtoField.new("Books Merged", "nse.nsecm.orderentry.nnf.v6.6.booksmerged", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "Books of the security are merged")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.box_id = ProtoField.new("Box Id", "nse.nsecm.orderentry.nnf.v6.6.boxid", ftypes.INT16, nil, nil, nil, "Exchange provided Box ID to be used for this connection 165 SECURE_BOX_REGISTRATION_RESPONSE Exchange provided Box ID to be used for this connection 166 Exchange provided Box ID used for this connection Exchange provided Box ID used for this connection 170")
@@ -96,7 +98,8 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.exec_time_stamp = ProtoField.new("Exec 
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.existing_encryption_tail = ProtoField.new("Existing Encryption Tail", "nse.nsecm.orderentry.nnf.v6.6.existingencryptiontail", ftypes.STRING, nil, nil, nil, "Initialisation vector used by the existing encryption")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsecm.orderentry.nnf.v6.6.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the last date of trading before any corporate action")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.expiry_date_utc = ProtoField.new("Expiry Date", "nse.nsecm.orderentry.nnf.v6.6.expirydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the last date of trading before any corporate action")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.expulsion_date = ProtoField.new("Expulsion Date", "nse.nsecm.orderentry.nnf.v6.6.expulsiondate", ftypes.INT32, nil, nil, nil, "This field contains the date of expulsion")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.expulsion_date = ProtoField.new("Expulsion Date", "nse.nsecm.orderentry.nnf.v6.6.expulsiondate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the date of expulsion")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.expulsion_date_utc = ProtoField.new("Expulsion Date", "nse.nsecm.orderentry.nnf.v6.6.expulsiondate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the date of expulsion")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.face_value = ProtoField.new("Face Value", "nse.nsecm.orderentry.nnf.v6.6.facevalue", ftypes.INT32, nil, nil, nil, "This field contains face value of the security")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.fill_number = ProtoField.new("Fill Number", "nse.nsecm.orderentry.nnf.v6.6.fillnumber", ftypes.INT32, nil, nil, nil, "This field should contain the trade number of the trade to be modified")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.fill_price = ProtoField.new("Fill Price", "nse.nsecm.orderentry.nnf.v6.6.fillprice", ftypes.DOUBLE, nil, nil, nil, "This field should contain the price at which the trade took place")
@@ -125,12 +128,15 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.inner_transaction_code = ProtoField.new
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.inquirydata = ProtoField.new("Inquirydata", "nse.nsecm.orderentry.nnf.v6.6.inquirydata", ftypes.STRING)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.instrument_type = ProtoField.new("Instrument Type", "nse.nsecm.orderentry.nnf.v6.6.instrumenttype", ftypes.INT16, nil, nil, nil, "This field contains the instrument type of the security")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.interest = ProtoField.new("Interest", "nse.nsecm.orderentry.nnf.v6.6.interest", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.interest_payment_date = ProtoField.new("Interest Payment Date", "nse.nsecm.orderentry.nnf.v6.6.interestpaymentdate", ftypes.INT32, nil, nil, nil, "This field contains the interest payment date of the issue")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.interest_payment_date = ProtoField.new("Interest Payment Date", "nse.nsecm.orderentry.nnf.v6.6.interestpaymentdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the interest payment date of the issue")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.interest_payment_date_utc = ProtoField.new("Interest Payment Date", "nse.nsecm.orderentry.nnf.v6.6.interestpaymentdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the interest payment date of the issue")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.ioc = ProtoField.new("Ioc", "nse.nsecm.orderentry.nnf.v6.6.ioc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Immediate or cancel order")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.ip_address = ProtoField.new("Ip Address", "nse.nsecm.orderentry.nnf.v6.6.ipaddress", ftypes.STRING, nil, nil, nil, "IP address assigned by exchange IP address assigned by exchange")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.isin_number = ProtoField.new("Isin Number", "nse.nsecm.orderentry.nnf.v6.6.isinnumber", ftypes.STRING, nil, nil, nil, "I S I N Number")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_maturity_date = ProtoField.new("Issue Maturity Date", "nse.nsecm.orderentry.nnf.v6.6.issuematuritydate", ftypes.INT32, nil, nil, nil, "This field contains the maturity date")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_start_date = ProtoField.new("Issue Start Date", "nse.nsecm.orderentry.nnf.v6.6.issuestartdate", ftypes.INT32, nil, nil, nil, "This field contains the date of issue of the security")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_maturity_date = ProtoField.new("Issue Maturity Date", "nse.nsecm.orderentry.nnf.v6.6.issuematuritydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the maturity date")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_maturity_date_utc = ProtoField.new("Issue Maturity Date", "nse.nsecm.orderentry.nnf.v6.6.issuematuritydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the maturity date")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_start_date = ProtoField.new("Issue Start Date", "nse.nsecm.orderentry.nnf.v6.6.issuestartdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the date of issue of the security")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_start_date_utc = ProtoField.new("Issue Start Date", "nse.nsecm.orderentry.nnf.v6.6.issuestartdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the date of issue of the security")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.issued_capital = ProtoField.new("Issued Capital", "nse.nsecm.orderentry.nnf.v6.6.issuedcapital", ftypes.DOUBLE, nil, nil, nil, "This field contains issue size of the security")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.last_activity_reference = ProtoField.new("Last Activity Reference", "nse.nsecm.orderentry.nnf.v6.6.lastactivityreference", ftypes.INT64, nil, nil, nil, "This field should be set to zero while sending the order entry request")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.last_modified = ProtoField.new("Last Modified", "nse.nsecm.orderentry.nnf.v6.6.lastmodified", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "If the order has been modified, this field contains the time when the order was last modified")
@@ -143,9 +149,11 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.last_update_participant_time = ProtoFie
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.last_update_participant_time_utc = ProtoField.new("Last Update Participant Time", "nse.nsecm.orderentry.nnf.v6.6.lastupdateparticipanttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.last_update_security_time = ProtoField.new("Last Update Security Time", "nse.nsecm.orderentry.nnf.v6.6.lastupdatesecuritytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field should contain the time when the security information was last updated")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.last_update_security_time_utc = ProtoField.new("Last Update Security Time", "nse.nsecm.orderentry.nnf.v6.6.lastupdatesecuritytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field should contain the time when the security information was last updated")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.listing_date = ProtoField.new("Listing Date", "nse.nsecm.orderentry.nnf.v6.6.listingdate", ftypes.INT32, nil, nil, nil, "This field contains the date of listing")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.listing_date = ProtoField.new("Listing Date", "nse.nsecm.orderentry.nnf.v6.6.listingdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the date of listing")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.listing_date_utc = ProtoField.new("Listing Date", "nse.nsecm.orderentry.nnf.v6.6.listingdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the date of listing")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.local_database_data = ProtoField.new("Local Database Data", "nse.nsecm.orderentry.nnf.v6.6.localdatabasedata", ftypes.STRING, nil, nil, nil, "Record body selected by Inner Transaction Code")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.local_update_date_time = ProtoField.new("Local Update Date Time", "nse.nsecm.orderentry.nnf.v6.6.localupdatedatetime", ftypes.INT32, nil, nil, nil, "This field contains the local database update date and time")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.local_update_date_time = ProtoField.new("Local Update Date Time", "nse.nsecm.orderentry.nnf.v6.6.localupdatedatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the local database update date and time")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.local_update_date_time_utc = ProtoField.new("Local Update Date Time", "nse.nsecm.orderentry.nnf.v6.6.localupdatedatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the local database update date and time")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.log_time = ProtoField.new("Log Time", "nse.nsecm.orderentry.nnf.v6.6.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated by the trading system")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.log_time_utc = ProtoField.new("Log Time", "nse.nsecm.orderentry.nnf.v6.6.logtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated by the trading system")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.market_index = ProtoField.new("Market Index", "nse.nsecm.orderentry.nnf.v6.6.marketindex", ftypes.INT32, nil, nil, nil, "This field contains the current market index")
@@ -168,8 +176,10 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.new_encryption_tail = ProtoField.new("N
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.new_password = ProtoField.new("New Password", "nse.nsecm.orderentry.nnf.v6.6.newpassword", ftypes.STRING, nil, nil, nil, "This field should contain the new password entered by the user")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.new_volume = ProtoField.new("New Volume", "nse.nsecm.orderentry.nnf.v6.6.newvolume", ftypes.INT32, nil, nil, nil, "This field value should be same as that of FillQuantity")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.nnf_field = ProtoField.new("Nnf Field", "nse.nsecm.orderentry.nnf.v6.6.nnffield", ftypes.DOUBLE, nil, nil, nil, "This field should contain a 15 digit a unique identifier for various products deployed as per Exchange circular download ref no")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_end_date = ProtoField.new("No Delivery End Date", "nse.nsecm.orderentry.nnf.v6.6.nodeliveryenddate", ftypes.INT32, nil, nil, nil, "This field contains the date from when physical delivery of share certificates starts after book closure")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_start_date = ProtoField.new("No Delivery Start Date", "nse.nsecm.orderentry.nnf.v6.6.nodeliverystartdate", ftypes.INT32, nil, nil, nil, "This field contains the date from when physical delivery of share certificates is stopped for book closure")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_end_date = ProtoField.new("No Delivery End Date", "nse.nsecm.orderentry.nnf.v6.6.nodeliveryenddate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the date from when physical delivery of share certificates starts after book closure")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_end_date_utc = ProtoField.new("No Delivery End Date", "nse.nsecm.orderentry.nnf.v6.6.nodeliveryenddate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the date from when physical delivery of share certificates starts after book closure")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_start_date = ProtoField.new("No Delivery Start Date", "nse.nsecm.orderentry.nnf.v6.6.nodeliverystartdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the date from when physical delivery of share certificates is stopped for book closure")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_start_date_utc = ProtoField.new("No Delivery Start Date", "nse.nsecm.orderentry.nnf.v6.6.nodeliverystartdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the date from when physical delivery of share certificates is stopped for book closure")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.normal = ProtoField.new("Normal", "nse.nsecm.orderentry.nnf.v6.6.normal", ftypes.INT16)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.normal_market = ProtoField.new("Normal Market", "nse.nsecm.orderentry.nnf.v6.6.normalmarket", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000, "Broker is eligible to trade in the normal market")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.normal_market_status = ProtoField.new("Normal Market Status", "nse.nsecm.orderentry.nnf.v6.6.normalmarketstatus", ftypes.INT16, nil, nil, nil, "This field should contain the latest Normal Market status available at TWS")
@@ -200,9 +210,11 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.pro_client = ProtoField.new("Pro Client
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.purpose = ProtoField.new("Purpose", "nse.nsecm.orderentry.nnf.v6.6.purpose", ftypes.STRING)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.purpose_indicator = ProtoField.new("Purpose Indicator", "nse.nsecm.orderentry.nnf.v6.6.purposeindicator", ftypes.STRING, nil, nil, nil, "Flags packed into 1 byte")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.purpose_reserved = ProtoField.new("Purpose Reserved", "nse.nsecm.orderentry.nnf.v6.6.purposereserved", ftypes.UINT8, nil, base.DEC, 0x03, "Reserved")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.re_admission_date = ProtoField.new("Re Admission Date", "nse.nsecm.orderentry.nnf.v6.6.readmissiondate", ftypes.INT32, nil, nil, nil, "This field contains the date of readmission")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.re_admission_date = ProtoField.new("Re Admission Date", "nse.nsecm.orderentry.nnf.v6.6.readmissiondate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the date of readmission")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.re_admission_date_utc = ProtoField.new("Re Admission Date", "nse.nsecm.orderentry.nnf.v6.6.readmissiondate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the date of readmission")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.reason_code = ProtoField.new("Reason Code", "nse.nsecm.orderentry.nnf.v6.6.reasoncode", ftypes.INT16, nil, nil, nil, "This field contains the reason code for a particular order request rejection or order being frozen")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.record_date = ProtoField.new("Record Date", "nse.nsecm.orderentry.nnf.v6.6.recorddate", ftypes.INT32, nil, nil, nil, "This field contains the date of record changed")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.record_date = ProtoField.new("Record Date", "nse.nsecm.orderentry.nnf.v6.6.recorddate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field contains the date of record changed")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.record_date_utc = ProtoField.new("Record Date", "nse.nsecm.orderentry.nnf.v6.6.recorddate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field contains the date of record changed")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.remaining_vol = ProtoField.new("Remaining Vol", "nse.nsecm.orderentry.nnf.v6.6.remainingvol", ftypes.INT32, nil, nil, nil, "This field contains the volume remaining after trade(s)")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.remark = ProtoField.new("Remark", "nse.nsecm.orderentry.nnf.v6.6.remark", ftypes.STRING, nil, nil, nil, "This field contains remarks")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.request_for_open_orders = ProtoField.new("Request For Open Orders", "nse.nsecm.orderentry.nnf.v6.6.requestforopenorders", ftypes.STRING, nil, nil, nil, "This field should be set to ‘G’ if GTC and GTD orders are to be downloaded")
@@ -883,19 +895,20 @@ nse_nsecm_orderentry_nnf_v6_6.book_closure_end_date = {}
 -- Size: Book Closure End Date
 nse_nsecm_orderentry_nnf_v6_6.book_closure_end_date.size = 4
 
--- Display: Book Closure End Date
-nse_nsecm_orderentry_nnf_v6_6.book_closure_end_date.display = function(value)
-  return "Book Closure End Date: "..value
-end
-
 -- Dissect: Book Closure End Date
 nse_nsecm_orderentry_nnf_v6_6.book_closure_end_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.book_closure_end_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.book_closure_end_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_end_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_end_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_end_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -906,19 +919,20 @@ nse_nsecm_orderentry_nnf_v6_6.book_closure_start_date = {}
 -- Size: Book Closure Start Date
 nse_nsecm_orderentry_nnf_v6_6.book_closure_start_date.size = 4
 
--- Display: Book Closure Start Date
-nse_nsecm_orderentry_nnf_v6_6.book_closure_start_date.display = function(value)
-  return "Book Closure Start Date: "..value
-end
-
 -- Dissect: Book Closure Start Date
 nse_nsecm_orderentry_nnf_v6_6.book_closure_start_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.book_closure_start_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.book_closure_start_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_start_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_start_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.book_closure_start_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1790,19 +1804,20 @@ nse_nsecm_orderentry_nnf_v6_6.expulsion_date = {}
 -- Size: Expulsion Date
 nse_nsecm_orderentry_nnf_v6_6.expulsion_date.size = 4
 
--- Display: Expulsion Date
-nse_nsecm_orderentry_nnf_v6_6.expulsion_date.display = function(value)
-  return "Expulsion Date: "..value
-end
-
 -- Dissect: Expulsion Date
 nse_nsecm_orderentry_nnf_v6_6.expulsion_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.expulsion_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.expulsion_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.expulsion_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.expulsion_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.expulsion_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2304,19 +2319,20 @@ nse_nsecm_orderentry_nnf_v6_6.interest_payment_date = {}
 -- Size: Interest Payment Date
 nse_nsecm_orderentry_nnf_v6_6.interest_payment_date.size = 4
 
--- Display: Interest Payment Date
-nse_nsecm_orderentry_nnf_v6_6.interest_payment_date.display = function(value)
-  return "Interest Payment Date: "..value
-end
-
 -- Dissect: Interest Payment Date
 nse_nsecm_orderentry_nnf_v6_6.interest_payment_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.interest_payment_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.interest_payment_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.interest_payment_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.interest_payment_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.interest_payment_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2373,19 +2389,20 @@ nse_nsecm_orderentry_nnf_v6_6.issue_maturity_date = {}
 -- Size: Issue Maturity Date
 nse_nsecm_orderentry_nnf_v6_6.issue_maturity_date.size = 4
 
--- Display: Issue Maturity Date
-nse_nsecm_orderentry_nnf_v6_6.issue_maturity_date.display = function(value)
-  return "Issue Maturity Date: "..value
-end
-
 -- Dissect: Issue Maturity Date
 nse_nsecm_orderentry_nnf_v6_6.issue_maturity_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.issue_maturity_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.issue_maturity_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_maturity_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_maturity_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_maturity_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2396,19 +2413,20 @@ nse_nsecm_orderentry_nnf_v6_6.issue_start_date = {}
 -- Size: Issue Start Date
 nse_nsecm_orderentry_nnf_v6_6.issue_start_date.size = 4
 
--- Display: Issue Start Date
-nse_nsecm_orderentry_nnf_v6_6.issue_start_date.display = function(value)
-  return "Issue Start Date: "..value
-end
-
 -- Dissect: Issue Start Date
 nse_nsecm_orderentry_nnf_v6_6.issue_start_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.issue_start_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.issue_start_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_start_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_start_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.issue_start_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2585,19 +2603,20 @@ nse_nsecm_orderentry_nnf_v6_6.listing_date = {}
 -- Size: Listing Date
 nse_nsecm_orderentry_nnf_v6_6.listing_date.size = 4
 
--- Display: Listing Date
-nse_nsecm_orderentry_nnf_v6_6.listing_date.display = function(value)
-  return "Listing Date: "..value
-end
-
 -- Dissect: Listing Date
 nse_nsecm_orderentry_nnf_v6_6.listing_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.listing_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.listing_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.listing_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.listing_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.listing_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2608,19 +2627,20 @@ nse_nsecm_orderentry_nnf_v6_6.local_update_date_time = {}
 -- Size: Local Update Date Time
 nse_nsecm_orderentry_nnf_v6_6.local_update_date_time.size = 4
 
--- Display: Local Update Date Time
-nse_nsecm_orderentry_nnf_v6_6.local_update_date_time.display = function(value)
-  return "Local Update Date Time: "..value
-end
-
 -- Dissect: Local Update Date Time
 nse_nsecm_orderentry_nnf_v6_6.local_update_date_time.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.local_update_date_time.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.local_update_date_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.local_update_date_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.local_update_date_time
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.local_update_date_time_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2986,19 +3006,20 @@ nse_nsecm_orderentry_nnf_v6_6.no_delivery_end_date = {}
 -- Size: No Delivery End Date
 nse_nsecm_orderentry_nnf_v6_6.no_delivery_end_date.size = 4
 
--- Display: No Delivery End Date
-nse_nsecm_orderentry_nnf_v6_6.no_delivery_end_date.display = function(value)
-  return "No Delivery End Date: "..value
-end
-
 -- Dissect: No Delivery End Date
 nse_nsecm_orderentry_nnf_v6_6.no_delivery_end_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.no_delivery_end_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.no_delivery_end_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_end_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_end_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_end_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3009,19 +3030,20 @@ nse_nsecm_orderentry_nnf_v6_6.no_delivery_start_date = {}
 -- Size: No Delivery Start Date
 nse_nsecm_orderentry_nnf_v6_6.no_delivery_start_date.size = 4
 
--- Display: No Delivery Start Date
-nse_nsecm_orderentry_nnf_v6_6.no_delivery_start_date.display = function(value)
-  return "No Delivery Start Date: "..value
-end
-
 -- Dissect: No Delivery Start Date
 nse_nsecm_orderentry_nnf_v6_6.no_delivery_start_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.no_delivery_start_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.no_delivery_start_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_start_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_start_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.no_delivery_start_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3498,19 +3520,20 @@ nse_nsecm_orderentry_nnf_v6_6.re_admission_date = {}
 -- Size: Re Admission Date
 nse_nsecm_orderentry_nnf_v6_6.re_admission_date.size = 4
 
--- Display: Re Admission Date
-nse_nsecm_orderentry_nnf_v6_6.re_admission_date.display = function(value)
-  return "Re Admission Date: "..value
-end
-
 -- Dissect: Re Admission Date
 nse_nsecm_orderentry_nnf_v6_6.re_admission_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.re_admission_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.re_admission_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.re_admission_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.re_admission_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.re_admission_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -3544,19 +3567,20 @@ nse_nsecm_orderentry_nnf_v6_6.record_date = {}
 -- Size: Record Date
 nse_nsecm_orderentry_nnf_v6_6.record_date.size = 4
 
--- Display: Record Date
-nse_nsecm_orderentry_nnf_v6_6.record_date.display = function(value)
-  return "Record Date: "..value
-end
-
 -- Dissect: Record Date
 nse_nsecm_orderentry_nnf_v6_6.record_date.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.record_date.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.record_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.record_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.record_date
+  if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.record_date_utc end
+
+  local seconds = value + 315532800
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

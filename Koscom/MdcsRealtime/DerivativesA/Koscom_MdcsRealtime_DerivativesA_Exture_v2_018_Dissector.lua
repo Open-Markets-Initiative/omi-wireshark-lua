@@ -1064,7 +1064,11 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.base_date.size = 8
 
 -- Display: Base Date
 koscom_mdcsrealtime_derivativesa_exture_v2_018.base_date.display = function(value)
-  return "Base Date: "..value
+  if #value < 8 then
+    return "Base Date: "..value
+  end
+
+  return "Base Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Base Date
@@ -1894,7 +1898,11 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.calculating_date.size = 8
 
 -- Display: Calculating Date
 koscom_mdcsrealtime_derivativesa_exture_v2_018.calculating_date.display = function(value)
-  return "Calculating Date: "..value
+  if #value < 8 then
+    return "Calculating Date: "..value
+  end
+
+  return "Calculating Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Calculating Date
@@ -2234,7 +2242,11 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.date.size = 8
 
 -- Display: Date
 koscom_mdcsrealtime_derivativesa_exture_v2_018.date.display = function(value)
-  return "Date: "..value
+  if #value < 8 then
+    return "Date: "..value
+  end
+
+  return "Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Date
@@ -7339,7 +7351,11 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.trading_date.size = 8
 
 -- Display: Trading Date
 koscom_mdcsrealtime_derivativesa_exture_v2_018.trading_date.display = function(value)
-  return "Trading Date: "..value
+  if #value < 8 then
+    return "Trading Date: "..value
+  end
+
+  return "Trading Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Trading Date

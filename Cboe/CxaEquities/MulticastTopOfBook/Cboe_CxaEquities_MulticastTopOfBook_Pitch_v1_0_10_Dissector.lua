@@ -55,7 +55,8 @@ omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.unit = ProtoField.n
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.unused_6 = ProtoField.new("Unused 6", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.unused6", ftypes.UINT8, nil, base.DEC, 0xFC, "Unused.")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value = ProtoField.new("Value", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.value", ftypes.DOUBLE, nil, nil, nil, "The calculated value.")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_category = ProtoField.new("Value Category", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.valuecategory", ftypes.STRING, nil, nil, nil, "Category of the calculated value.")
-omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.valuetimestamp", ftypes.UINT64, nil, nil, nil, "Timestamp when the calculated value was generated in nanoseconds since epoch.")
+omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.valuetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp when the calculated value was generated in nanoseconds since epoch.")
+omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_timestamp_utc = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.valuetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp when the calculated value was generated in nanoseconds since epoch.")
 
 -- Cboe CxaEquities MulticastTopOfBook Pitch 1.0.10 Framing
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message = ProtoField.new("Message", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.message", ftypes.STRING)
@@ -1133,19 +1134,20 @@ cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.value_timestamp = {}
 -- Size: Value Timestamp
 cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.value_timestamp.size = 8
 
--- Display: Value Timestamp
-cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.value_timestamp.display = function(value)
-  return "Value Timestamp: "..value
-end
-
 -- Dissect: Value Timestamp
 cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.value_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.value_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.value_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_timestamp
+  if cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.timestamp_format == 3 then field = omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

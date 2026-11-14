@@ -16,7 +16,8 @@ local coinbase_coinbasederivatives_marketdataapi_sbe_v1_3 = {}
 
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.3 Fields
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.3.aggressororderid", ftypes.INT64, nil, nil, nil, "aggressorOrderId")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.3.aggressorreceivetime", ftypes.INT64, nil, nil, nil, "aggressorReceiveTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.3.aggressorreceivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "aggressorReceiveTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.aggressor_receive_time_utc = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.3.aggressorreceivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "aggressorReceiveTime")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.3.beginseqnum", ftypes.INT64, nil, nil, nil, "beginSeqNum")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.3.bestaskimpliedprice", ftypes.DOUBLE, nil, nil, nil, "bestAskImpliedPrice")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.best_ask_implied_qty = ProtoField.new("Best Ask Implied Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.3.bestaskimpliedqty", ftypes.INT32, nil, nil, nil, "bestAskImpliedQty")
@@ -242,19 +243,20 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.aggressor_receive_time = {}
 -- Size: Aggressor Receive Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.aggressor_receive_time.size = 8
 
--- Display: Aggressor Receive Time
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.aggressor_receive_time.display = function(value)
-  return "Aggressor Receive Time: "..value
-end
-
 -- Dissect: Aggressor Receive Time
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.aggressor_receive_time.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.aggressor_receive_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.aggressor_receive_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.aggressor_receive_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.aggressor_receive_time
+  if coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.timestamp_format == 3 then field = omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.fields.aggressor_receive_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

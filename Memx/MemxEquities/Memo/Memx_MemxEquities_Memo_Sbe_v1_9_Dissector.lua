@@ -32,7 +32,8 @@ omi_memx_memxequities_memo_sbe_v1_9.fields.exec_id = ProtoField.new("Exec Id", "
 omi_memx_memxequities_memo_sbe_v1_9.fields.exec_inst = ProtoField.new("Exec Inst", "memx.memxequities.memo.sbe.v1.9.execinst", ftypes.STRING, nil, nil, nil, "ExecInstType bit set")
 omi_memx_memxequities_memo_sbe_v1_9.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "memx.memxequities.memo.sbe.v1.9.execrefid", ftypes.UINT64, nil, nil, nil, "The ExecID of the trade being corrected")
 omi_memx_memxequities_memo_sbe_v1_9.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "memx.memxequities.memo.sbe.v1.9.execrestatementreason", ftypes.UINT8, nil, nil, nil, "The reason for the restatement.")
-omi_memx_memxequities_memo_sbe_v1_9.fields.expire_time = ProtoField.new("Expire Time", "memx.memxequities.memo.sbe.v1.9.expiretime", ftypes.UINT64, nil, nil, nil, "The expiration time of a GoodForTime TimeInForce order. Expiration time must be at least a 1 millisecond in the future. If omitted, expiration time will be set to the end of the MEMX post-market trading session. Specified in UTC timestamp since unix epoch in nanoseconds.")
+omi_memx_memxequities_memo_sbe_v1_9.fields.expire_time = ProtoField.new("Expire Time", "memx.memxequities.memo.sbe.v1.9.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The expiration time of a GoodForTime TimeInForce order. Expiration time must be at least a 1 millisecond in the future. If omitted, expiration time will be set to the end of the MEMX post-market trading session. Specified in UTC timestamp since unix epoch in nanoseconds.")
+omi_memx_memxequities_memo_sbe_v1_9.fields.expire_time_utc = ProtoField.new("Expire Time", "memx.memxequities.memo.sbe.v1.9.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The expiration time of a GoodForTime TimeInForce order. Expiration time must be at least a 1 millisecond in the future. If omitted, expiration time will be set to the end of the MEMX post-market trading session. Specified in UTC timestamp since unix epoch in nanoseconds.")
 omi_memx_memxequities_memo_sbe_v1_9.fields.extended_restatement_reason = ProtoField.new("Extended Restatement Reason", "memx.memxequities.memo.sbe.v1.9.extendedrestatementreason", ftypes.UINT8, nil, nil, nil, "When ExecRestatementReason = 99 (Other) this field contains additional information about the restatement.")
 omi_memx_memxequities_memo_sbe_v1_9.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "memx.memxequities.memo.sbe.v1.9.externalroutingnotallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "ExternalRoutingNotAllowed")
 omi_memx_memxequities_memo_sbe_v1_9.fields.higher_than_price = ProtoField.new("Higher Than Price", "memx.memxequities.memo.sbe.v1.9.higherthanprice", ftypes.DOUBLE, nil, nil, nil, "For Mass Cancel scenario, Any order with a higher or equal limit price would be included in the cancel filter. This filter can only be used in conjunction with a specific symbol.")
@@ -108,7 +109,8 @@ omi_memx_memxequities_memo_sbe_v1_9.fields.time_in_force = ProtoField.new("Time 
 omi_memx_memxequities_memo_sbe_v1_9.fields.token = ProtoField.new("Token", "memx.memxequities.memo.sbe.v1.9.token", ftypes.STRING, nil, nil, nil, "Login Token")
 omi_memx_memxequities_memo_sbe_v1_9.fields.token_type = ProtoField.new("Token Type", "memx.memxequities.memo.sbe.v1.9.tokentype", ftypes.STRING, nil, nil, nil, "Login Token type")
 omi_memx_memxequities_memo_sbe_v1_9.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.memxequities.memo.sbe.v1.9.totalsequencecount", ftypes.UINT64, nil, nil, nil, "The count of messages that were sent on this stream")
-omi_memx_memxequities_memo_sbe_v1_9.fields.transact_time = ProtoField.new("Transact Time", "memx.memxequities.memo.sbe.v1.9.transacttime", ftypes.UINT64, nil, nil, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
+omi_memx_memxequities_memo_sbe_v1_9.fields.transact_time = ProtoField.new("Transact Time", "memx.memxequities.memo.sbe.v1.9.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
+omi_memx_memxequities_memo_sbe_v1_9.fields.transact_time_utc = ProtoField.new("Transact Time", "memx.memxequities.memo.sbe.v1.9.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
 omi_memx_memxequities_memo_sbe_v1_9.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.memxequities.memo.sbe.v1.9.trdmatchid", ftypes.UINT64, nil, nil, nil, "Identifier assigned to the Trade by the matching system. In case of executions on orders routed to another exchange, the TrdMatchID field will be filled on a best-effort basis.")
 omi_memx_memxequities_memo_sbe_v1_9.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "memx.memxequities.memo.sbe.v1.9.trdmatchingid", ftypes.UINT64, nil, nil, nil, "TrdMatchingID")
 omi_memx_memxequities_memo_sbe_v1_9.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.memxequities.memo.sbe.v1.9.unsequencedmessage", ftypes.STRING, nil, nil, nil, "Memx Tcp unsequenced message")
@@ -727,24 +729,27 @@ memx_memxequities_memo_sbe_v1_9.expire_time = {}
 -- Size: Expire Time
 memx_memxequities_memo_sbe_v1_9.expire_time.size = 8
 
--- Display: Expire Time
-memx_memxequities_memo_sbe_v1_9.expire_time.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Expire Time: No Value"
-  end
-
-  return "Expire Time: "..value
-end
-
 -- Dissect: Expire Time
 memx_memxequities_memo_sbe_v1_9.expire_time.dissect = function(buffer, offset, packet, parent)
   local length = memx_memxequities_memo_sbe_v1_9.expire_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = memx_memxequities_memo_sbe_v1_9.expire_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxequities_memo_sbe_v1_9.fields.expire_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_memx_memxequities_memo_sbe_v1_9.fields.expire_time
+  if memx_memxequities_memo_sbe_v1_9.timestamp_format == 3 then field = omi_memx_memxequities_memo_sbe_v1_9.fields.expire_time_utc end
+
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expire Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -2656,19 +2661,20 @@ memx_memxequities_memo_sbe_v1_9.transact_time = {}
 -- Size: Transact Time
 memx_memxequities_memo_sbe_v1_9.transact_time.size = 8
 
--- Display: Transact Time
-memx_memxequities_memo_sbe_v1_9.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 memx_memxequities_memo_sbe_v1_9.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = memx_memxequities_memo_sbe_v1_9.transact_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = memx_memxequities_memo_sbe_v1_9.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxequities_memo_sbe_v1_9.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_memx_memxequities_memo_sbe_v1_9.fields.transact_time
+  if memx_memxequities_memo_sbe_v1_9.timestamp_format == 3 then field = omi_memx_memxequities_memo_sbe_v1_9.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

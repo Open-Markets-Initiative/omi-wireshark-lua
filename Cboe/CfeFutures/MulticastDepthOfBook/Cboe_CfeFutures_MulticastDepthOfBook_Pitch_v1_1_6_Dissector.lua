@@ -1630,7 +1630,10 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.trade_date.size = 4
 
 -- Display: Trade Date
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.trade_date.display = function(value)
-  return "Trade Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date

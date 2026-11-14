@@ -4296,22 +4296,18 @@ box_boxoptions_solaorderentry_sail_v2_25.time.size = 6
 
 -- Display: Time
 box_boxoptions_solaorderentry_sail_v2_25.time.display = function(value)
-  return "Time: "..value
+  if #value < 6 then
+    return "Time: "..value
+  end
+
+  return "Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Time
 box_boxoptions_solaorderentry_sail_v2_25.time.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.time.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time, range, value, "Time: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Time is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
+  local value = range:string()
   local display = box_boxoptions_solaorderentry_sail_v2_25.time.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time, range, value, display)
@@ -4327,22 +4323,18 @@ box_boxoptions_solaorderentry_sail_v2_25.time_hhmmss.size = 6
 
 -- Display: Time Hhmmss
 box_boxoptions_solaorderentry_sail_v2_25.time_hhmmss.display = function(value)
-  return "Time Hhmmss: "..value
+  if #value < 6 then
+    return "Time Hhmmss: "..value
+  end
+
+  return "Time Hhmmss: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Time Hhmmss
 box_boxoptions_solaorderentry_sail_v2_25.time_hhmmss.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.time_hhmmss.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_hhmmss, range, value, "Time Hhmmss: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Time Hhmmss is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
+  local value = range:string()
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_hhmmss.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_hhmmss, range, value, display)
@@ -4389,22 +4381,18 @@ box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.size = 6
 
 -- Display: Time Of The Trade Hhmmss
 box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.display = function(value)
-  return "Time Of The Trade Hhmmss: "..value
+  if #value < 6 then
+    return "Time Of The Trade Hhmmss: "..value
+  end
+
+  return "Time Of The Trade Hhmmss: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Time Of The Trade Hhmmss
 box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_of_the_trade_hhmmss, range, value, "Time Of The Trade Hhmmss: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Time Of The Trade Hhmmss is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
+  local value = range:string()
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_of_the_trade_hhmmss.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_of_the_trade_hhmmss, range, value, display)
@@ -4420,22 +4408,18 @@ box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.size = 6
 
 -- Display: Time Trade Hhmmss
 box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.display = function(value)
-  return "Time Trade Hhmmss: "..value
+  if #value < 6 then
+    return "Time Trade Hhmmss: "..value
+  end
+
+  return "Time Trade Hhmmss: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
 -- Dissect: Time Trade Hhmmss
 box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_trade_hhmmss, range, value, "Time Trade Hhmmss: Not Applicable")
-    item:add_proto_expert_info(box_boxoptions_solaorderentry_sail_v2_25.experts.not_a_number, "Time Trade Hhmmss is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
+  local value = range:string()
   local display = box_boxoptions_solaorderentry_sail_v2_25.time_trade_hhmmss.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_box_boxoptions_solaorderentry_sail_v2_25.fields.time_trade_hhmmss, range, value, display)

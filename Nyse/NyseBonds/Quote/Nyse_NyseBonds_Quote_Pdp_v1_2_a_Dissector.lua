@@ -857,8 +857,34 @@ nyse_nysebonds_quote_pdp_v1_2_a.source_time = {}
 nyse_nysebonds_quote_pdp_v1_2_a.source_time.size = 4
 
 -- Display: Source Time
-nyse_nysebonds_quote_pdp_v1_2_a.source_time.display = function(value)
-  return "Source Time: "..value
+nyse_nysebonds_quote_pdp_v1_2_a.source_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format == 0 then
+    return "Source Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Source Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Source Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Source Time

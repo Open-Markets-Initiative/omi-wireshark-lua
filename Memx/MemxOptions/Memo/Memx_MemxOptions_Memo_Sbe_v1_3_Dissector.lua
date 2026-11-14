@@ -145,7 +145,8 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.total_affected_orders = ProtoField.new
 omi_memx_memxoptions_memo_sbe_v1_3.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.memxoptions.memo.sbe.v1.3.totalsequencecount", ftypes.UINT64, nil, nil, nil, "The count of messages that were sent on this stream")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.trade_date = ProtoField.new("Trade Date", "memx.memxoptions.memo.sbe.v1.3.tradedate", ftypes.STRING, nil, nil, nil, "YYYYMMDD NoExecs - - RepeatingGroupDimensions 124 Y Number of Trades being allocated (always 1) MEMO for Options - SBE - v1.10 COPYRIGHT MEMX LLC 2025. ALL RIGHTS RESERVED. 77 Field Offset Length Type Tag Ref Num Req'd Description ExecutionAllocations - - ExecutionAllocationsGroup N/A Y Specifies the Trade being allocated NoAllocs - - RepeatingGroupDimensions 78 Y The dimensions of the Allocations Repeating Group. ReportedAllocations - - ReportAllocationsGroup N/A Y The allocations assigned to the trade - NOTE: this group contains IndividualAllocIDs for each unit of allocation, used to make further changes on those units. 5.2.12 UserNotification The UserNotification message is used to notify the user of an event or information about the exchange. This message will be used to provide a logical session shutdown warning. This message corresponds to FIX message type CB Field Offset Length Type Tag Ref Num Req’d Meaning SBE Header 0 7 SBE Header Y SBE Header templateID = 29")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.trading_capacity = ProtoField.new("Trading Capacity", "memx.memxoptions.memo.sbe.v1.3.tradingcapacity", ftypes.UINT8, nil, nil, nil, "Trading Capacity of allocation")
-omi_memx_memxoptions_memo_sbe_v1_3.fields.transact_time = ProtoField.new("Transact Time", "memx.memxoptions.memo.sbe.v1.3.transacttime", ftypes.UINT64, nil, nil, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.transact_time = ProtoField.new("Transact Time", "memx.memxoptions.memo.sbe.v1.3.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.transact_time_utc = ProtoField.new("Transact Time", "memx.memxoptions.memo.sbe.v1.3.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.memxoptions.memo.sbe.v1.3.trdmatchid", ftypes.UINT64, nil, nil, nil, "Identifier assigned to the Trade by the matching system.")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.two_sided_quotes_group = ProtoField.new("Two Sided Quotes Group", "memx.memxoptions.memo.sbe.v1.3.twosidedquotesgroup", ftypes.STRING, nil, nil, nil, "Quotes")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.two_sided_quotes_groups = ProtoField.new("Two Sided Quotes Groups", "memx.memxoptions.memo.sbe.v1.3.twosidedquotesgroups", ftypes.STRING, nil, nil, nil, "Quotes Block")
@@ -3270,19 +3271,20 @@ memx_memxoptions_memo_sbe_v1_3.transact_time = {}
 -- Size: Transact Time
 memx_memxoptions_memo_sbe_v1_3.transact_time.size = 8
 
--- Display: Transact Time
-memx_memxoptions_memo_sbe_v1_3.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 memx_memxoptions_memo_sbe_v1_3.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = memx_memxoptions_memo_sbe_v1_3.transact_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = memx_memxoptions_memo_sbe_v1_3.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_memx_memxoptions_memo_sbe_v1_3.fields.transact_time
+  if memx_memxoptions_memo_sbe_v1_3.timestamp_format == 3 then field = omi_memx_memxoptions_memo_sbe_v1_3.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

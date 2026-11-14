@@ -64,7 +64,8 @@ omi_iex_iexoptions_marketdata_sbe_v1_04.fields.request_id = ProtoField.new("Requ
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.marketdata.sbe.v1.04.sbemessage", ftypes.STRING, nil, nil, nil, "Iex Options length-framed Sbe Message")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.marketdata.sbe.v1.04.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message (10000 market data, 20000 session, 20001 order entry business)")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequence_number = ProtoField.new("Sequence Number", "iex.iexoptions.marketdata.sbe.v1.04.sequencenumber", ftypes.UINT64, nil, nil, nil, "sequenceNumber")
-omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequence_time = ProtoField.new("Sequence Time", "iex.iexoptions.marketdata.sbe.v1.04.sequencetime", ftypes.UINT64, nil, nil, nil, "sequenceTime")
+omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequence_time = ProtoField.new("Sequence Time", "iex.iexoptions.marketdata.sbe.v1.04.sequencetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sequenceTime")
+omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequence_time_utc = ProtoField.new("Sequence Time", "iex.iexoptions.marketdata.sbe.v1.04.sequencetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "sequenceTime")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequenced_packet_message_messages_group = ProtoField.new("Sequenced Packet Message messages Group", "iex.iexoptions.marketdata.sbe.v1.04.sequencedpacketmessagemessagesgroup", ftypes.STRING, nil, nil, nil, "messages")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequenced_packet_message_messages_groups = ProtoField.new("Sequenced Packet Message messages Groups", "iex.iexoptions.marketdata.sbe.v1.04.sequencedpacketmessagemessagesgroups", ftypes.STRING, nil, nil, nil, "messages Block")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.side = ProtoField.new("Side", "iex.iexoptions.marketdata.sbe.v1.04.side", ftypes.INT8)
@@ -73,7 +74,8 @@ omi_iex_iexoptions_marketdata_sbe_v1_04.fields.status_retransmission_status_type
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.status_status_type = ProtoField.new("Status Status Type", "iex.iexoptions.marketdata.sbe.v1.04.statusstatustype", ftypes.INT8, nil, nil, nil, "status")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.strike_price = ProtoField.new("Strike Price", "iex.iexoptions.marketdata.sbe.v1.04.strikeprice", ftypes.DOUBLE, nil, nil, nil, "strikePrice")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.template_id = ProtoField.new("Template Id", "iex.iexoptions.marketdata.sbe.v1.04.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
-omi_iex_iexoptions_marketdata_sbe_v1_04.fields.time = ProtoField.new("Time", "iex.iexoptions.marketdata.sbe.v1.04.time", ftypes.UINT64)
+omi_iex_iexoptions_marketdata_sbe_v1_04.fields.time = ProtoField.new("Time", "iex.iexoptions.marketdata.sbe.v1.04.time", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_iex_iexoptions_marketdata_sbe_v1_04.fields.time_utc = ProtoField.new("Time", "iex.iexoptions.marketdata.sbe.v1.04.time.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.total_packet_count = ProtoField.new("Total Packet Count", "iex.iexoptions.marketdata.sbe.v1.04.totalpacketcount", ftypes.UINT32, nil, nil, nil, "totalPacketCount")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.trade_condition = ProtoField.new("Trade Condition", "iex.iexoptions.marketdata.sbe.v1.04.tradecondition", ftypes.STRING, nil, nil, nil, "tradeCondition")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.trade_id = ProtoField.new("Trade Id", "iex.iexoptions.marketdata.sbe.v1.04.tradeid", ftypes.UINT64, nil, nil, nil, "tradeId")
@@ -122,6 +124,20 @@ omi_iex_iexoptions_marketdata_sbe_v1_04.fields.underlying_ref_data_message = Pro
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequenced_packet_message_messages_group_index = ProtoField.new("Sequenced Packet Message messages Group Index", "iex.iexoptions.marketdata.sbe.v1.04.sequencedpacketmessagemessagesgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Iex IexOptions MarketData Sbe 1.04 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+iex_iexoptions_marketdata_sbe_v1_04.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -141,6 +157,8 @@ omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_headers = Pref.bool("Show Hea
 omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_iex_iexoptions_marketdata_sbe_v1_04.prefs_changed()
 
@@ -159,6 +177,9 @@ function omi_iex_iexoptions_marketdata_sbe_v1_04.prefs_changed()
   end
   if show.indexes ~= omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_indexes then
     show.indexes = omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.show_indexes
+  end
+  if iex_iexoptions_marketdata_sbe_v1_04.timestamp_format ~= omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.timestamp_format then
+    iex_iexoptions_marketdata_sbe_v1_04.timestamp_format = omi_iex_iexoptions_marketdata_sbe_v1_04.prefs.timestamp_format
   end
 end
 
@@ -876,12 +897,11 @@ iex_iexoptions_marketdata_sbe_v1_04.maturity_date.size = 8
 
 -- Display: Maturity Date
 iex_iexoptions_marketdata_sbe_v1_04.maturity_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Maturity Date: No Value"
+  if #value < 8 then
+    return "Maturity Date: "..value
   end
 
-  return "Maturity Date: "..value
+  return "Maturity Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Maturity Date
@@ -1386,19 +1406,20 @@ iex_iexoptions_marketdata_sbe_v1_04.sequence_time = {}
 -- Size: Sequence Time
 iex_iexoptions_marketdata_sbe_v1_04.sequence_time.size = 8
 
--- Display: Sequence Time
-iex_iexoptions_marketdata_sbe_v1_04.sequence_time.display = function(value)
-  return "Sequence Time: "..value
-end
-
 -- Dissect: Sequence Time
 iex_iexoptions_marketdata_sbe_v1_04.sequence_time.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_04.sequence_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = iex_iexoptions_marketdata_sbe_v1_04.sequence_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequence_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequence_time
+  if iex_iexoptions_marketdata_sbe_v1_04.timestamp_format == 3 then field = omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequence_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1611,19 +1632,20 @@ iex_iexoptions_marketdata_sbe_v1_04.time = {}
 -- Size: Time
 iex_iexoptions_marketdata_sbe_v1_04.time.size = 8
 
--- Display: Time
-iex_iexoptions_marketdata_sbe_v1_04.time.display = function(value)
-  return "Time: "..value
-end
-
 -- Dissect: Time
 iex_iexoptions_marketdata_sbe_v1_04.time.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_marketdata_sbe_v1_04.time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = iex_iexoptions_marketdata_sbe_v1_04.time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_iex_iexoptions_marketdata_sbe_v1_04.fields.time
+  if iex_iexoptions_marketdata_sbe_v1_04.timestamp_format == 3 then field = omi_iex_iexoptions_marketdata_sbe_v1_04.fields.time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

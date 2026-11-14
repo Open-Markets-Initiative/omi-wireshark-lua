@@ -33,7 +33,8 @@ omi_cboe_c1options_complex_pitch_v2_1_37.fields.complex_symbol_id = ProtoField.n
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.c1options.complex.pitch.v2.1.37.compositemarketbidprice", ftypes.DOUBLE, nil, nil, nil, "Not used for Complex series. Will contain zero value.")
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.c1options.complex.pitch.v2.1.37.compositemarketofferprice", ftypes.DOUBLE, nil, nil, nil, "Not used for complex series. Will contain zero value.")
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.complex.pitch.v2.1.37.customerindicator", ftypes.STRING)
-omi_cboe_c1options_complex_pitch_v2_1_37.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complex.pitch.v2.1.37.epochtime", ftypes.UINT32, nil, nil, nil, "Number of whole seconds since the Epoch Time")
+omi_cboe_c1options_complex_pitch_v2_1_37.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complex.pitch.v2.1.37.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch Time")
+omi_cboe_c1options_complex_pitch_v2_1_37.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.complex.pitch.v2.1.37.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of whole seconds since the Epoch Time")
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.c1options.complex.pitch.v2.1.37.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares/contracts executed")
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.complex.pitch.v2.1.37.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution. Execution Id is also referenced in the Trade Break message")
 omi_cboe_c1options_complex_pitch_v2_1_37.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.complex.pitch.v2.1.37.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
@@ -670,19 +671,20 @@ cboe_c1options_complex_pitch_v2_1_37.epoch_time = {}
 -- Size: Epoch Time
 cboe_c1options_complex_pitch_v2_1_37.epoch_time.size = 4
 
--- Display: Epoch Time
-cboe_c1options_complex_pitch_v2_1_37.epoch_time.display = function(value)
-  return "Epoch Time: "..value
-end
-
 -- Dissect: Epoch Time
 cboe_c1options_complex_pitch_v2_1_37.epoch_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_complex_pitch_v2_1_37.epoch_time.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_c1options_complex_pitch_v2_1_37.epoch_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_complex_pitch_v2_1_37.fields.epoch_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_complex_pitch_v2_1_37.fields.epoch_time
+  if cboe_c1options_complex_pitch_v2_1_37.timestamp_format == 3 then field = omi_cboe_c1options_complex_pitch_v2_1_37.fields.epoch_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1618,7 +1620,10 @@ cboe_c1options_complex_pitch_v2_1_37.trade_date.size = 4
 
 -- Display: Trade Date
 cboe_c1options_complex_pitch_v2_1_37.trade_date.display = function(value)
-  return "Trade Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date

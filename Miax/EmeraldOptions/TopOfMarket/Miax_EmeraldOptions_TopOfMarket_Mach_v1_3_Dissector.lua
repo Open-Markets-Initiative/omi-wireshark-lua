@@ -40,7 +40,8 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.emerald_bbo_posting_increme
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.emeraldoptions.topofmarket.mach.v1.3.endsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the last packet to be retransmitted")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.event_reason = ProtoField.new("Event Reason", "miax.emeraldoptions.topofmarket.mach.v1.3.eventreason", ftypes.STRING, nil, nil, nil, "Event Reason value")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.emeraldoptions.topofmarket.mach.v1.3.expectedeventtimenanosecondspart", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in \"Expected Event Time Seconds\" field.")
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.emeraldoptions.topofmarket.mach.v1.3.expectedeventtimesecondspart", ftypes.UINT32, nil, nil, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.emeraldoptions.topofmarket.mach.v1.3.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.expected_event_time_seconds_part_utc = ProtoField.new("Expected Event Time Seconds Part", "miax.emeraldoptions.topofmarket.mach.v1.3.expectedeventtimesecondspart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.expiration_date = ProtoField.new("Expiration Date", "miax.emeraldoptions.topofmarket.mach.v1.3.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.emeraldoptions.topofmarket.mach.v1.3.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.emeraldoptions.topofmarket.mach.v1.3.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
@@ -87,7 +88,7 @@ omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_packet_length = ProtoF
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmpackettype", ftypes.STRING, nil, nil, nil, "SesM protocol packet type")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.sesm_version = ProtoField.new("Sesm Version", "miax.emeraldoptions.topofmarket.mach.v1.3.sesmversion", ftypes.STRING, nil, nil, nil, "Protocol version")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.session_id = ProtoField.new("Session Id", "miax.emeraldoptions.topofmarket.mach.v1.3.sessionid", ftypes.UINT32, nil, nil, nil, "Emerald assigned ID for the current trading session")
-omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.session_number = ProtoField.new("Session Number", "miax.emeraldoptions.topofmarket.mach.v1.3.sessionnumber", ftypes.UINT8, nil, nil, nil, "protocol packet type")
+omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.session_number = ProtoField.new("Session Number", "miax.emeraldoptions.topofmarket.mach.v1.3.sessionnumber", ftypes.UINT8, nil, nil, nil, "The Session this packet was generated from")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.emeraldoptions.topofmarket.mach.v1.3.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.strike_price = ProtoField.new("Strike Price", "miax.emeraldoptions.topofmarket.mach.v1.3.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price of the option. Refer to data types for field processing notes")
 omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.synchronization_complete = ProtoField.new("Synchronization Complete", "miax.emeraldoptions.topofmarket.mach.v1.3.synchronizationcomplete", ftypes.STRING, nil, nil, nil, "The SesM server sends a Login response packet in response a Login request packet from the client")
@@ -864,19 +865,27 @@ miax_emeraldoptions_topofmarket_mach_v1_3.expected_event_time_seconds_part = {}
 -- Size: Expected Event Time Seconds Part
 miax_emeraldoptions_topofmarket_mach_v1_3.expected_event_time_seconds_part.size = 4
 
--- Display: Expected Event Time Seconds Part
-miax_emeraldoptions_topofmarket_mach_v1_3.expected_event_time_seconds_part.display = function(value)
-  return "Expected Event Time Seconds Part: "..value
-end
-
 -- Dissect: Expected Event Time Seconds Part
 miax_emeraldoptions_topofmarket_mach_v1_3.expected_event_time_seconds_part.dissect = function(buffer, offset, packet, parent)
   local length = miax_emeraldoptions_topofmarket_mach_v1_3.expected_event_time_seconds_part.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_emeraldoptions_topofmarket_mach_v1_3.expected_event_time_seconds_part.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.expected_event_time_seconds_part, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.expected_event_time_seconds_part
+  if miax_emeraldoptions_topofmarket_mach_v1_3.timestamp_format == 3 then field = omi_miax_emeraldoptions_topofmarket_mach_v1_3.fields.expected_event_time_seconds_part_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Expected Event Time Seconds Part: Not Applicable")
+    return offset + length, value
+  end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -889,7 +898,11 @@ miax_emeraldoptions_topofmarket_mach_v1_3.expiration_date.size = 8
 
 -- Display: Expiration Date
 miax_emeraldoptions_topofmarket_mach_v1_3.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  if #value < 8 then
+    return "Expiration Date: "..value
+  end
+
+  return "Expiration Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Expiration Date

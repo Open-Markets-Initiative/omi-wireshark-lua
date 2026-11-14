@@ -505,7 +505,10 @@ bist_borsaistanbul_geniuminet_glimpse_v2_7.expiration_date.size = 4
 
 -- Display: Expiration Date
 bist_borsaistanbul_geniuminet_glimpse_v2_7.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Expiration Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Expiration Date

@@ -1484,7 +1484,11 @@ cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trade_date.size = 8
 
 -- Display: Trade Date
 cboe_cxeequities_tcpdepthofbook_asciipitch_v4_16.trade_date.display = function(value)
-  return "Trade Date: "..value
+  if #value < 8 then
+    return "Trade Date: "..value
+  end
+
+  return "Trade Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Trade Date

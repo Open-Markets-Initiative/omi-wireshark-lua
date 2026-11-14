@@ -325,7 +325,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.first_delivery_date.size = 2
 
 -- Display: First Delivery Date
 miax_onyxfutures_topofmarket_mach_v1_3_a.first_delivery_date.display = function(value)
-  return "First Delivery Date: "..value
+  return string.format("First Delivery Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: First Delivery Date
@@ -348,7 +348,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.first_notice_date.size = 2
 
 -- Display: First Notice Date
 miax_onyxfutures_topofmarket_mach_v1_3_a.first_notice_date.display = function(value)
-  return "First Notice Date: "..value
+  return string.format("First Notice Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: First Notice Date
@@ -371,7 +371,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.first_trade_date.size = 2
 
 -- Display: First Trade Date
 miax_onyxfutures_topofmarket_mach_v1_3_a.first_trade_date.display = function(value)
-  return "First Trade Date: "..value
+  return string.format("First Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: First Trade Date
@@ -564,7 +564,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.last_delivery_date.size = 2
 
 -- Display: Last Delivery Date
 miax_onyxfutures_topofmarket_mach_v1_3_a.last_delivery_date.display = function(value)
-  return "Last Delivery Date: "..value
+  return string.format("Last Delivery Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Last Delivery Date
@@ -587,7 +587,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.last_notice_date.size = 2
 
 -- Display: Last Notice Date
 miax_onyxfutures_topofmarket_mach_v1_3_a.last_notice_date.display = function(value)
-  return "Last Notice Date: "..value
+  return string.format("Last Notice Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Last Notice Date
@@ -610,7 +610,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.last_trade_date.size = 2
 
 -- Display: Last Trade Date
 miax_onyxfutures_topofmarket_mach_v1_3_a.last_trade_date.display = function(value)
-  return "Last Trade Date: "..value
+  return string.format("Last Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Last Trade Date
@@ -773,7 +773,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.maturity_date.size = 2
 
 -- Display: Maturity Date
 miax_onyxfutures_topofmarket_mach_v1_3_a.maturity_date.display = function(value)
-  return "Maturity Date: "..value
+  return string.format("Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Maturity Date
@@ -1643,10 +1643,10 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.system_status.size = 1
 
 -- Display: System Status
 miax_onyxfutures_topofmarket_mach_v1_3_a.system_status.labels = {
-  ["S"] = "System Status: Start Of (S)",
-  ["C"] = "System Status: End Of (C)",
-  ["1"] = "System Status: Start Of (1)",
-  ["2"] = "System Status: End Of (2)",
+  ["S"] = "System Status: Start Of System Hours (S)",
+  ["C"] = "System Status: End Of System Hours (C)",
+  ["1"] = "System Status: Start Of Test Session (1)",
+  ["2"] = "System Status: End Of Test Session (2)",
 }
 
 miax_onyxfutures_topofmarket_mach_v1_3_a.system_status.display = function(value)
@@ -1772,7 +1772,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.trade_date.size = 2
 
 -- Display: Trade Date
 miax_onyxfutures_topofmarket_mach_v1_3_a.trade_date.display = function(value)
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date
@@ -2084,7 +2084,7 @@ miax_onyxfutures_topofmarket_mach_v1_3_a.valuation_date.size = 2
 
 -- Display: Valuation Date
 miax_onyxfutures_topofmarket_mach_v1_3_a.valuation_date.display = function(value)
-  return "Valuation Date: "..value
+  return string.format("Valuation Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Valuation Date

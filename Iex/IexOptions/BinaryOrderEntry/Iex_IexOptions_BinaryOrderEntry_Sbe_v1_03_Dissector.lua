@@ -148,7 +148,8 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.risk_control_optional = Pro
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.risk_control_status = ProtoField.new("Risk Control Status", "iex.iexoptions.binaryorderentry.sbe.v1.03.riskcontrolstatus", ftypes.INT8, nil, nil, nil, "riskControlStatus")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "iex.iexoptions.binaryorderentry.sbe.v1.03.routingfirmid", ftypes.STRING, nil, nil, nil, "routingFirmId")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.binaryorderentry.sbe.v1.03.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message (10000 market data, 20000 session, 20001 order entry business)")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.send_time = ProtoField.new("Send Time", "iex.iexoptions.binaryorderentry.sbe.v1.03.sendtime", ftypes.UINT64, nil, nil, nil, "sendTime")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.send_time = ProtoField.new("Send Time", "iex.iexoptions.binaryorderentry.sbe.v1.03.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendTime")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.send_time_utc = ProtoField.new("Send Time", "iex.iexoptions.binaryorderentry.sbe.v1.03.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "sendTime")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.sequence = ProtoField.new("Sequence", "iex.iexoptions.binaryorderentry.sbe.v1.03.sequence", ftypes.UINT32)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.03.serversbemessage", ftypes.STRING, nil, nil, nil, "Iex Options length-framed Sbe Message sent by Iex Options to the User")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.session_info_group_encoding = ProtoField.new("Session Info Group Encoding", "iex.iexoptions.binaryorderentry.sbe.v1.03.sessioninfogroupencoding", ftypes.STRING, nil, nil, nil, "sessionInfoGroupEncoding")
@@ -176,7 +177,8 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.trade_liquidity_indicator =
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.trade_ref_id = ProtoField.new("Trade Ref Id", "iex.iexoptions.binaryorderentry.sbe.v1.03.traderefid", ftypes.UINT64, nil, nil, nil, "tradeRefId")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.trading_ring = ProtoField.new("Trading Ring", "iex.iexoptions.binaryorderentry.sbe.v1.03.tradingring", ftypes.INT8, nil, nil, nil, "tradingRing")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.trading_ring_optional = ProtoField.new("Trading Ring Optional", "iex.iexoptions.binaryorderentry.sbe.v1.03.tradingringoptional", ftypes.INT8, nil, nil, nil, "tradingRing")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.transact_time = ProtoField.new("Transact Time", "iex.iexoptions.binaryorderentry.sbe.v1.03.transacttime", ftypes.UINT64, nil, nil, nil, "transactTime")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.transact_time = ProtoField.new("Transact Time", "iex.iexoptions.binaryorderentry.sbe.v1.03.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.transact_time_utc = ProtoField.new("Transact Time", "iex.iexoptions.binaryorderentry.sbe.v1.03.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.underlying_id = ProtoField.new("Underlying Id", "iex.iexoptions.binaryorderentry.sbe.v1.03.underlyingid", ftypes.UINT32, nil, nil, nil, "underlyingId")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.underlying_id_optional = ProtoField.new("Underlying Id Optional", "iex.iexoptions.binaryorderentry.sbe.v1.03.underlyingidoptional", ftypes.UINT32, nil, nil, nil, "underlyingId")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "iex.iexoptions.binaryorderentry.sbe.v1.03.underlyingsymbol", ftypes.STRING, nil, nil, nil, "underlyingSymbol")
@@ -246,6 +248,15 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.sub_sessions_group_index = 
 -- Iex IexOptions BinaryOrderEntry Sbe 1.03 Formatting
 -----------------------------------------------------------------------
 
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+iex_iexoptions_binaryorderentry_sbe_v1_03.timestamp_format = 2
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -279,6 +290,8 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_03.prefs.show_schema_messages = Pref.
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_03.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_iex_iexoptions_binaryorderentry_sbe_v1_03.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_iex_iexoptions_binaryorderentry_sbe_v1_03.prefs_changed()
 
@@ -300,6 +313,9 @@ function omi_iex_iexoptions_binaryorderentry_sbe_v1_03.prefs_changed()
   end
   if show.indexes ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_03.prefs.show_indexes then
     show.indexes = omi_iex_iexoptions_binaryorderentry_sbe_v1_03.prefs.show_indexes
+  end
+  if iex_iexoptions_binaryorderentry_sbe_v1_03.timestamp_format ~= omi_iex_iexoptions_binaryorderentry_sbe_v1_03.prefs.timestamp_format then
+    iex_iexoptions_binaryorderentry_sbe_v1_03.timestamp_format = omi_iex_iexoptions_binaryorderentry_sbe_v1_03.prefs.timestamp_format
   end
 end
 
@@ -4587,19 +4603,20 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.send_time = {}
 -- Size: Send Time
 iex_iexoptions_binaryorderentry_sbe_v1_03.send_time.size = 8
 
--- Display: Send Time
-iex_iexoptions_binaryorderentry_sbe_v1_03.send_time.display = function(value)
-  return "Send Time: "..value
-end
-
 -- Dissect: Send Time
 iex_iexoptions_binaryorderentry_sbe_v1_03.send_time.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_03.send_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_03.send_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.send_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.send_time
+  if iex_iexoptions_binaryorderentry_sbe_v1_03.timestamp_format == 3 then field = omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.send_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -5316,19 +5333,20 @@ iex_iexoptions_binaryorderentry_sbe_v1_03.transact_time = {}
 -- Size: Transact Time
 iex_iexoptions_binaryorderentry_sbe_v1_03.transact_time.size = 8
 
--- Display: Transact Time
-iex_iexoptions_binaryorderentry_sbe_v1_03.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 iex_iexoptions_binaryorderentry_sbe_v1_03.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_03.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_03.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.transact_time
+  if iex_iexoptions_binaryorderentry_sbe_v1_03.timestamp_format == 3 then field = omi_iex_iexoptions_binaryorderentry_sbe_v1_03.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

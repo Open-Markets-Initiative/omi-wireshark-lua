@@ -151,7 +151,8 @@ omi_memx_memxoptions_memo_sbe_v1_10.fields.trade_date = ProtoField.new("Trade Da
 omi_memx_memxoptions_memo_sbe_v1_10.fields.trade_id = ProtoField.new("Trade Id", "memx.memxoptions.memo.sbe.v1.10.tradeid", ftypes.UINT64, nil, nil, nil, "TrdMatchID of the original Trade")
 omi_memx_memxoptions_memo_sbe_v1_10.fields.trading_capacity = ProtoField.new("Trading Capacity", "memx.memxoptions.memo.sbe.v1.10.tradingcapacity", ftypes.UINT8, nil, nil, nil, "Trading Capacity of allocation")
 omi_memx_memxoptions_memo_sbe_v1_10.fields.trading_capacity_optional = ProtoField.new("Trading Capacity Optional", "memx.memxoptions.memo.sbe.v1.10.tradingcapacityoptional", ftypes.UINT8, nil, nil, nil, "Trading Capacity of allocation")
-omi_memx_memxoptions_memo_sbe_v1_10.fields.transact_time = ProtoField.new("Transact Time", "memx.memxoptions.memo.sbe.v1.10.transacttime", ftypes.UINT64, nil, nil, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
+omi_memx_memxoptions_memo_sbe_v1_10.fields.transact_time = ProtoField.new("Transact Time", "memx.memxoptions.memo.sbe.v1.10.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
+omi_memx_memxoptions_memo_sbe_v1_10.fields.transact_time_utc = ProtoField.new("Transact Time", "memx.memxoptions.memo.sbe.v1.10.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
 omi_memx_memxoptions_memo_sbe_v1_10.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.memxoptions.memo.sbe.v1.10.trdmatchid", ftypes.UINT64, nil, nil, nil, "Identifier assigned to the Trade by the matching system.")
 omi_memx_memxoptions_memo_sbe_v1_10.fields.two_sided_quotes_group = ProtoField.new("Two Sided Quotes Group", "memx.memxoptions.memo.sbe.v1.10.twosidedquotesgroup", ftypes.STRING, nil, nil, nil, "Quotes")
 omi_memx_memxoptions_memo_sbe_v1_10.fields.two_sided_quotes_groups = ProtoField.new("Two Sided Quotes Groups", "memx.memxoptions.memo.sbe.v1.10.twosidedquotesgroups", ftypes.STRING, nil, nil, nil, "Quotes Block")
@@ -3635,19 +3636,20 @@ memx_memxoptions_memo_sbe_v1_10.transact_time = {}
 -- Size: Transact Time
 memx_memxoptions_memo_sbe_v1_10.transact_time.size = 8
 
--- Display: Transact Time
-memx_memxoptions_memo_sbe_v1_10.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 memx_memxoptions_memo_sbe_v1_10.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = memx_memxoptions_memo_sbe_v1_10.transact_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = memx_memxoptions_memo_sbe_v1_10.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxoptions_memo_sbe_v1_10.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_memx_memxoptions_memo_sbe_v1_10.fields.transact_time
+  if memx_memxoptions_memo_sbe_v1_10.timestamp_format == 3 then field = omi_memx_memxoptions_memo_sbe_v1_10.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

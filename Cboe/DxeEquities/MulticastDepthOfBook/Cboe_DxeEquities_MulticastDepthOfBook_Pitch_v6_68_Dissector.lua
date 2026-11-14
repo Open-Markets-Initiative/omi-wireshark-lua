@@ -77,7 +77,8 @@ omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.time = ProtoField.n
 omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.time_offset = ProtoField.new("Time Offset", "cboe.dxeequities.multicastdepthofbook.pitch.v6.68.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp")
 omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trade_flags = ProtoField.new("Trade Flags", "cboe.dxeequities.multicastdepthofbook.pitch.v6.68.tradeflags", ftypes.STRING)
 omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trade_id = ProtoField.new("Trade Id", "cboe.dxeequities.multicastdepthofbook.pitch.v6.68.tradeid", ftypes.UINT64, nil, nil, nil, "Cboe generated identifier of this trade. This identifier is guaranteed to be unique for at least 7 calendar days.")
-omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trade_timestamp = ProtoField.new("Trade Timestamp", "cboe.dxeequities.multicastdepthofbook.pitch.v6.68.tradetimestamp", ftypes.UINT64, nil, nil, nil, "Date/Time on which the trade occurred, encoded as the number of nanoseconds since the January 1st 1970 UTC (also known as the Unix epoch).")
+omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trade_timestamp = ProtoField.new("Trade Timestamp", "cboe.dxeequities.multicastdepthofbook.pitch.v6.68.tradetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date/Time on which the trade occurred, encoded as the number of nanoseconds since the January 1st 1970 UTC (also known as the Unix epoch).")
+omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trade_timestamp_utc = ProtoField.new("Trade Timestamp", "cboe.dxeequities.multicastdepthofbook.pitch.v6.68.tradetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date/Time on which the trade occurred, encoded as the number of nanoseconds since the January 1st 1970 UTC (also known as the Unix epoch).")
 omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trade_types = ProtoField.new("Trade Types", "cboe.dxeequities.multicastdepthofbook.pitch.v6.68.tradetypes", ftypes.STRING, nil, nil, nil, "MMT Levels 3.5, 3.11, and 3.12")
 omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trading_mode = ProtoField.new("Trading Mode", "cboe.dxeequities.multicastdepthofbook.pitch.v6.68.tradingmode", ftypes.STRING, nil, nil, nil, "MMT Level level 2")
 omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trading_status = ProtoField.new("Trading Status", "cboe.dxeequities.multicastdepthofbook.pitch.v6.68.tradingstatus", ftypes.STRING)
@@ -810,8 +811,34 @@ cboe_dxeequities_multicastdepthofbook_pitch_v6_68.index_timestamp = {}
 cboe_dxeequities_multicastdepthofbook_pitch_v6_68.index_timestamp.size = 8
 
 -- Display: Index Timestamp
-cboe_dxeequities_multicastdepthofbook_pitch_v6_68.index_timestamp.display = function(value)
-  return "Index Timestamp: "..value
+cboe_dxeequities_multicastdepthofbook_pitch_v6_68.index_timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if cboe_dxeequities_multicastdepthofbook_pitch_v6_68.timestamp_format == 0 then
+    return "Index Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_dxeequities_multicastdepthofbook_pitch_v6_68.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = cboe_dxeequities_multicastdepthofbook_pitch_v6_68.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Index Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Index Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Index Timestamp
@@ -1854,19 +1881,20 @@ cboe_dxeequities_multicastdepthofbook_pitch_v6_68.trade_timestamp = {}
 -- Size: Trade Timestamp
 cboe_dxeequities_multicastdepthofbook_pitch_v6_68.trade_timestamp.size = 8
 
--- Display: Trade Timestamp
-cboe_dxeequities_multicastdepthofbook_pitch_v6_68.trade_timestamp.display = function(value)
-  return "Trade Timestamp: "..value
-end
-
 -- Dissect: Trade Timestamp
 cboe_dxeequities_multicastdepthofbook_pitch_v6_68.trade_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_dxeequities_multicastdepthofbook_pitch_v6_68.trade_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_dxeequities_multicastdepthofbook_pitch_v6_68.trade_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trade_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trade_timestamp
+  if cboe_dxeequities_multicastdepthofbook_pitch_v6_68.timestamp_format == 3 then field = omi_cboe_dxeequities_multicastdepthofbook_pitch_v6_68.fields.trade_timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

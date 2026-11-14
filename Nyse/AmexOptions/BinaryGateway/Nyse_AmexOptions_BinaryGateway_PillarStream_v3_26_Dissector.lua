@@ -2104,12 +2104,11 @@ nyse_amexoptions_binarygateway_pillarstream_v3_26.maturity_date.size = 8
 
 -- Display: Maturity Date
 nyse_amexoptions_binarygateway_pillarstream_v3_26.maturity_date.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Maturity Date: No Value"
+  if #value < 8 then
+    return "Maturity Date: "..value
   end
 
-  return "Maturity Date: "..value
+  return "Maturity Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
 end
 
 -- Dissect: Maturity Date

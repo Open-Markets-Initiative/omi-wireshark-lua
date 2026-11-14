@@ -214,7 +214,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.trading_reference_price_legacy =
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.trading_reference_price_optional = ProtoField.new("Trading Reference Price Optional", "b3.b3derivatives.binaryumdf.sbe.v1.8.tradingreferencepriceoptional", ftypes.DOUBLE, nil, nil, nil, "tradingReferencePrice")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.trading_session_id = ProtoField.new("Trading Session Id", "b3.b3derivatives.binaryumdf.sbe.v1.8.tradingsessionid", ftypes.UINT8, nil, nil, nil, "tradingSessionID")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "b3.b3derivatives.binaryumdf.sbe.v1.8.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "tradingSessionSubID")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.transact_time = ProtoField.new("Transact Time", "b3.b3derivatives.binaryumdf.sbe.v1.8.transacttime", ftypes.UINT64, nil, nil, nil, "transactTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.transact_time = ProtoField.new("Transact Time", "b3.b3derivatives.binaryumdf.sbe.v1.8.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.transact_time_utc = ProtoField.new("Transact Time", "b3.b3derivatives.binaryumdf.sbe.v1.8.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "b3.b3derivatives.binaryumdf.sbe.v1.8.trdsubtype", ftypes.UINT8, nil, nil, nil, "trdSubType")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "b3.b3derivatives.binaryumdf.sbe.v1.8.underlyingsecurityid", ftypes.UINT64, nil, nil, nil, "Underlying instrument's security ID.")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "b3.b3derivatives.binaryumdf.sbe.v1.8.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying instrument's ticker symbol.")
@@ -789,7 +790,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.dated_date.display = function(value)
     return "Dated Date: No Value"
   end
 
-  return "Dated Date: "..value
+  return string.format("Dated Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Dated Date
@@ -863,7 +864,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.end_date.display = function(value)
     return "End Date: No Value"
   end
 
-  return "End Date: "..value
+  return string.format("End Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: End Date
@@ -1275,7 +1276,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.issue_date.size = 4
 
 -- Display: Issue Date
 b3_b3derivatives_binaryumdf_sbe_v1_8.issue_date.display = function(value)
-  return "Issue Date: "..value
+  return string.format("Issue Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Issue Date
@@ -1455,7 +1456,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.last_trade_date.display = function(value)
     return "Last Trade Date: No Value"
   end
 
-  return "Last Trade Date: "..value
+  return string.format("Last Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Last Trade Date
@@ -1758,7 +1759,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.maturity_date.display = function(value)
     return "Maturity Date: No Value"
   end
 
-  return "Maturity Date: "..value
+  return string.format("Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Maturity Date
@@ -4263,7 +4264,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.settl_date.display = function(value)
     return "Settl Date: No Value"
   end
 
-  return "Settl Date: "..value
+  return string.format("Settl Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Settl Date
@@ -4348,7 +4349,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.start_date.display = function(value)
     return "Start Date: No Value"
   end
 
-  return "Start Date: "..value
+  return string.format("Start Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Start Date
@@ -4784,7 +4785,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.trade_date.size = 2
 
 -- Display: Trade Date
 b3_b3derivatives_binaryumdf_sbe_v1_8.trade_date.display = function(value)
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date
@@ -5018,24 +5019,27 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.transact_time = {}
 -- Size: Transact Time
 b3_b3derivatives_binaryumdf_sbe_v1_8.transact_time.size = 8
 
--- Display: Transact Time
-b3_b3derivatives_binaryumdf_sbe_v1_8.transact_time.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "Transact Time: No Value"
-  end
-
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 b3_b3derivatives_binaryumdf_sbe_v1_8.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v1_8.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryumdf_sbe_v1_8.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.transact_time
+  if b3_b3derivatives_binaryumdf_sbe_v1_8.timestamp_format == 3 then field = omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.transact_time_utc end
+
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Transact Time: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

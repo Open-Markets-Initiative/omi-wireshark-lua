@@ -88,6 +88,22 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.full_update_message_index = P
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.fields.symbol_index_mapping_response_message_index = ProtoField.new("Symbol Index Mapping Response Message Index", "nyse.nyseequities.openbook.ultra.v2.1.k.symbolindexmappingresponsemessageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
+-- Nyse NyseEquities OpenBook Ultra 2.1.k Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "Full DateTime Local", 2 },
+  { 4, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+nyse_nyseequities_openbook_ultra_v2_1_k.timestamp_format = 2
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -108,6 +124,8 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_structs = Pref.bool("Show
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+
+omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs_changed()
@@ -130,6 +148,9 @@ function omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs_changed()
   end
   if show.indexes ~= omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_indexes then
     show.indexes = omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.show_indexes
+  end
+  if nyse_nyseequities_openbook_ultra_v2_1_k.timestamp_format ~= omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.timestamp_format then
+    nyse_nyseequities_openbook_ultra_v2_1_k.timestamp_format = omi_nyse_nyseequities_openbook_ultra_v2_1_k.prefs.timestamp_format
   end
 end
 
@@ -957,8 +978,34 @@ nyse_nyseequities_openbook_ultra_v2_1_k.source_time = {}
 nyse_nyseequities_openbook_ultra_v2_1_k.source_time.size = 4
 
 -- Display: Source Time
-nyse_nyseequities_openbook_ultra_v2_1_k.source_time.display = function(value)
-  return "Source Time: "..value
+nyse_nyseequities_openbook_ultra_v2_1_k.source_time.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if nyse_nyseequities_openbook_ultra_v2_1_k.timestamp_format == 0 then
+    return "Source Time: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if nyse_nyseequities_openbook_ultra_v2_1_k.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+
+      local format = nyse_nyseequities_openbook_ultra_v2_1_k.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Source Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Source Time: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Source Time

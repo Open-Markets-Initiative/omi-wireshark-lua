@@ -1166,7 +1166,7 @@ cme_globex_mdp3_sbe_v1_12.dated_date.display = function(value)
     return "Dated Date: No Value"
   end
 
-  return "Dated Date: "..value
+  return string.format("Dated Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Dated Date
@@ -1250,7 +1250,7 @@ cme_globex_mdp3_sbe_v1_12.decay_start_date.display = function(value)
     return "Decay Start Date: No Value"
   end
 
-  return "Decay Start Date: "..value
+  return string.format("Decay Start Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Decay Start Date
@@ -1363,7 +1363,7 @@ cme_globex_mdp3_sbe_v1_12.end_date.display = function(value)
     return "End Date: No Value"
   end
 
-  return "End Date: "..value
+  return string.format("End Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: End Date
@@ -1921,7 +1921,7 @@ cme_globex_mdp3_sbe_v1_12.issue_date.display = function(value)
     return "Issue Date: No Value"
   end
 
-  return "Issue Date: "..value
+  return string.format("Issue Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Issue Date
@@ -2460,7 +2460,7 @@ cme_globex_mdp3_sbe_v1_12.maturity_date.display = function(value)
     return "Maturity Date: No Value"
   end
 
-  return "Maturity Date: "..value
+  return string.format("Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Maturity Date
@@ -5666,7 +5666,7 @@ cme_globex_mdp3_sbe_v1_12.settl_date.display = function(value)
     return "Settl Date: No Value"
   end
 
-  return "Settl Date: "..value
+  return string.format("Settl Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Settl Date
@@ -5828,7 +5828,7 @@ cme_globex_mdp3_sbe_v1_12.start_date.display = function(value)
     return "Start Date: No Value"
   end
 
-  return "Start Date: "..value
+  return string.format("Start Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Start Date
@@ -6278,7 +6278,7 @@ cme_globex_mdp3_sbe_v1_12.trade_date.display = function(value)
     return "Trade Date: No Value"
   end
 
-  return "Trade Date: "..value
+  return string.format("Trade Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trade Date
@@ -6357,7 +6357,7 @@ cme_globex_mdp3_sbe_v1_12.trading_reference_date.display = function(value)
     return "Trading Reference Date: No Value"
   end
 
-  return "Trading Reference Date: "..value
+  return string.format("Trading Reference Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Trading Reference Date
@@ -6616,7 +6616,7 @@ cme_globex_mdp3_sbe_v1_12.underlying_maturity_date.display = function(value)
     return "Underlying Maturity Date: No Value"
   end
 
-  return "Underlying Maturity Date: "..value
+  return string.format("Underlying Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
 -- Dissect: Underlying Maturity Date
