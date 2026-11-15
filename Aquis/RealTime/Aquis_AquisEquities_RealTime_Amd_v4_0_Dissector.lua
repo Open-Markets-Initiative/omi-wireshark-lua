@@ -16,8 +16,8 @@ local aquis_aquisequities_realtime_amd_v4_0 = {}
 
 -- Aquis AquisEquities RealTime Amd 4.0 Fields
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "aquis.aquisequities.realtime.amd.v4.0.algorithmicindicator", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x01000000)
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.aod_enabled = ProtoField.new("Aod Enabled", "aquis.aquisequities.realtime.amd.v4.0.aodenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "Security is enabled for the AoD")
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.avx_enabled = ProtoField.new("Avx Enabled", "aquis.aquisequities.realtime.amd.v4.0.avxenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080, "Security is enabled for AVM")
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.aod_enabled = ProtoField.new("Aod Enabled", "aquis.aquisequities.realtime.amd.v4.0.aodenabled", ftypes.UINT16, {[0]="Not Enabled For Aod", [1]="Enabled For Aod"}, base.DEC, 0x0010, "Security is enabled for the AoD")
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.avx_enabled = ProtoField.new("Avx Enabled", "aquis.aquisequities.realtime.amd.v4.0.avxenabled", ftypes.UINT16, {[0]="Not Enabled For Avm", [1]="Enabled For Avm"}, base.DEC, 0x0080, "Security is enabled for AVM")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.benchmark_reference_price_indicator = ProtoField.new("Benchmark Reference Price Indicator", "aquis.aquisequities.realtime.amd.v4.0.benchmarkreferencepriceindicator", ftypes.UINT32, {[1]="Benchmark Trade", [2]="Reference Price Trade", [3]="No Benchmark Or Ref Price"}, base.DEC, 0x00030000, "Benchmark or reference price indicator")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.binary_mmt = ProtoField.new("Binary Mmt", "aquis.aquisequities.realtime.amd.v4.0.binarymmt", ftypes.STRING, nil, nil, nil, "Post-trade regulatory flags (MMT)")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.closing_buy_qty = ProtoField.new("Closing Buy Qty", "aquis.aquisequities.realtime.amd.v4.0.closingbuyqty", ftypes.UINT32, nil, nil, nil, "Total order quantity on the buy side during the closing market")
@@ -29,13 +29,13 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.dividend = ProtoField.new("Divi
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "aquis.aquisequities.realtime.amd.v4.0.duplicativeindicator", ftypes.UINT32, {[0]="Unique", [1]="Duplicative"}, base.DEC, 0x20000000)
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.execution_price = ProtoField.new("Price", "aquis.aquisequities.realtime.amd.v4.0.executionprice", ftypes.DOUBLE, nil, nil, nil, "The execution price")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.flags = ProtoField.new("Flags", "aquis.aquisequities.realtime.amd.v4.0.flags", ftypes.STRING, nil, nil, nil, "Security flags")
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.illiquid = ProtoField.new("Illiquid", "aquis.aquisequities.realtime.amd.v4.0.illiquid", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "Security is illiquid")
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.illiquid = ProtoField.new("Illiquid", "aquis.aquisequities.realtime.amd.v4.0.illiquid", ftypes.UINT16, {[0]="Liquid", [1]="Illiquid"}, base.DEC, 0x0004, "Security is illiquid")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.indicative_price = ProtoField.new("Indicative Price", "aquis.aquisequities.realtime.amd.v4.0.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative auction price")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.isin = ProtoField.new("Isin", "aquis.aquisequities.realtime.amd.v4.0.isin", ftypes.STRING, nil, nil, nil, "ISIN for the security")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.lot_size = ProtoField.new("Lot Size", "aquis.aquisequities.realtime.amd.v4.0.lotsize", ftypes.UINT64, nil, nil, nil, "Lot size for the security. This will always be set to 1,000,000,000 to represent a lot size of 1")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.lot_size_composite = ProtoField.new("Lot Size Composite", "aquis.aquisequities.realtime.amd.v4.0.lotsizecomposite", ftypes.STRING, nil, nil, nil, "Lot size scaled at runtime by lotSizeDecimal")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.lot_size_decimal = ProtoField.new("Lot Size Decimal", "aquis.aquisequities.realtime.amd.v4.0.lotsizedecimal", ftypes.UINT8, nil, nil, nil, "Number of decimals implied in lotSize Will always be set to 9")
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.mac_enabled = ProtoField.new("Mac Enabled", "aquis.aquisequities.realtime.amd.v4.0.macenabled", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Security is enabled for the MaC")
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.mac_enabled = ProtoField.new("Mac Enabled", "aquis.aquisequities.realtime.amd.v4.0.macenabled", ftypes.UINT16, {[0]="Not Enabled For Mac", [1]="Enabled For Mac"}, base.DEC, 0x0001, "Security is enabled for the MaC")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.mac_open = ProtoField.new("Mac Open", "aquis.aquisequities.realtime.amd.v4.0.macopen", ftypes.UINT8, {[0]="Mac Is Closed", [1]="Mac Is Open"}, base.DEC, 0x02, "MaC open or closed")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.mac_run = ProtoField.new("Mac Run", "aquis.aquisequities.realtime.amd.v4.0.macrun", ftypes.UINT8, {[0]="Mac Is Not Locked Down", [1]="Mac Is Locked Down"}, base.DEC, 0x04, "MaC locked down or not")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.market_flags = ProtoField.new("Market Flags", "aquis.aquisequities.realtime.amd.v4.0.marketflags", ftypes.STRING, nil, nil, nil, "Market status flags")
@@ -60,7 +60,7 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.reserved_20 = ProtoField.new("R
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.security_id = ProtoField.new("Security Id", "aquis.aquisequities.realtime.amd.v4.0.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.seq_no = ProtoField.new("Seq No", "aquis.aquisequities.realtime.amd.v4.0.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.side = ProtoField.new("Side", "aquis.aquisequities.realtime.amd.v4.0.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.test_stock = ProtoField.new("Test Stock", "aquis.aquisequities.realtime.amd.v4.0.teststock", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Security is a test stock")
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.test_stock = ProtoField.new("Test Stock", "aquis.aquisequities.realtime.amd.v4.0.teststock", ftypes.UINT16, {[0]="Not Test Stock", [1]="Test Stock"}, base.DEC, 0x0002, "Security is a test stock")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.threshold = ProtoField.new("Threshold", "aquis.aquisequities.realtime.amd.v4.0.threshold", ftypes.DOUBLE, nil, nil, nil, "The price threshold at which this tick data applies")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.tick_size = ProtoField.new("Tick Size", "aquis.aquisequities.realtime.amd.v4.0.ticksize", ftypes.DOUBLE, nil, nil, nil, "The tick size (price increment)")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.tick_table_id = ProtoField.new("Tick Table Id", "aquis.aquisequities.realtime.amd.v4.0.ticktableid", ftypes.UINT8, nil, nil, nil, "Numeric identifier for this tick table or static tick")
@@ -1387,25 +1387,25 @@ end
 -- Dissect Bit Fields: Flags
 aquis_aquisequities_realtime_amd_v4_0.flags.bits = function(range, value, packet, parent)
 
-  -- Mac Enabled: 1 Bit
+  -- Mac Enabled: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.mac_enabled, range, value)
 
-  -- Test Stock: 1 Bit
+  -- Test Stock: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.test_stock, range, value)
 
-  -- Illiquid: 1 Bit
+  -- Illiquid: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.illiquid, range, value)
 
   -- Unused 1: 1 Bit
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_1, range, value)
 
-  -- Aod Enabled: 1 Bit
+  -- Aod Enabled: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.aod_enabled, range, value)
 
   -- Unused 2: 2 Bit
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.unused_2, range, value)
 
-  -- Avx Enabled: 1 Bit
+  -- Avx Enabled: 1 Bit Enum with 2 values
   parent:add(omi_aquis_aquisequities_realtime_amd_v4_0.fields.avx_enabled, range, value)
 
   -- Unused 8: 8 Bit
