@@ -4228,8 +4228,8 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_clearingtradedrop_ctd_v1_2_d)
 --   Organization: Miami International Holdings
 --   Version: 1.2.d
 --   Date: Tuesday, July 25, 2023
---   Specification: Pearl Clearing Trade Drop CTD v1.2d.pdf
---   Specification: MIAX PEARL TcpSessionMgmt SesM v1_1e_0 (2023-11-11).pdf
+--   Specification: Pearl_Clearing_Trade_Drop_CTD_v1.2d.pdf
+--   Specification: MIAX_PEARL_TcpSessionMgmt_SesM_v1_1e_0.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -1464,7 +1464,7 @@ moex_spectra_optinfoincremental_simba_v9_12_0.version.size = 2
 -- Display: Version
 moex_spectra_optinfoincremental_simba_v9_12_0.version.display = function(value)
   if value == 10 then
-    return "Version: Version FIX5SP2"
+    return "Version: FIX5SP2"
   end
 
   return "Version: Unknown("..value..")"

@@ -3000,7 +3000,7 @@ udp_table:add_for_decode_as(omi_miax_onyxfutures_topofmarket_mach_v1_1_a)
 --   Version: 1.1.a
 --   Date: Friday, September 19, 2025
 --   Specification: ONYX ToM Feed v1.1a.pdf
---   Specification: onyx miax mach protocol v1.0.pdf
+--   Specification: onyx_miax_mach_protocol_v1.0.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -7352,7 +7352,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.version.size = 2
 -- Display: Version
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.version.display = function(value)
   if value == 3 then
-    return "Version: Version 8.1.1"
+    return "Version: 8.1.1"
   end
 
   return "Version: Unknown("..value..")"

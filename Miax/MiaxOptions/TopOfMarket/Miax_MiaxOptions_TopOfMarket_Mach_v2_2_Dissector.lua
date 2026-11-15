@@ -3040,7 +3040,7 @@ udp_table:add_for_decode_as(omi_miax_miaxoptions_topofmarket_mach_v2_2)
 --   Version: 2.2
 --   Date: Friday, March 16, 2018
 --   Specification: Top Of Market Feed ToM v2.2.pdf
---   Specification: MIAX MACH Protocol v1_2d_re.pdf
+--   Specification: MIAX_MACH_Protocol_v1_2d_re.pdf
 --
 -- Script:
 --   Compiler: 2.0

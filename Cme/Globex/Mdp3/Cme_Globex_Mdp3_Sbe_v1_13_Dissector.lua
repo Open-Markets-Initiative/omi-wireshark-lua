@@ -7372,7 +7372,10 @@ cme_globex_mdp3_sbe_v1_13.version.size = 2
 -- Display: Version
 cme_globex_mdp3_sbe_v1_13.version.display = function(value)
   if value == 13 then
-    return "Version: Version FIX5SP2"
+    return "Version: FIX5SP2"
+  end
+  if value == 0 then
+    return "Version: FIX5SP2"
   end
 
   return "Version: Unknown("..value..")"

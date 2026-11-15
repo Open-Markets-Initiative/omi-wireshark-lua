@@ -729,7 +729,7 @@ binance_binancespot_marketdata_sbe_v1_0.version.size = 2
 -- Display: Version
 binance_binancespot_marketdata_sbe_v1_0.version.display = function(value)
   if value == 0 then
-    return "Version: Version 5.2"
+    return "Version: 5.2"
   end
 
   return "Version: Unknown("..value..")"

@@ -5799,7 +5799,7 @@ memx_memxoptions_riskcontrol_sbe_v1_7.version.size = 2
 -- Display: Version
 memx_memxoptions_riskcontrol_sbe_v1_7.version.display = function(value)
   if value == 263 then
-    return "Version: Version 1.7"
+    return "Version: 1.7"
   end
 
   return "Version: Unknown("..value..")"

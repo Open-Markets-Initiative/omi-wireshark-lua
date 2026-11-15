@@ -5163,7 +5163,7 @@ tcp_table:add_for_decode_as(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_c)
 --   Organization: Miami International Holdings
 --   Version: 2.6.c
 --   Date: Tuesday, July 25, 2023
---   Specification: Clearing Trade Drop CTD v2.6c.pdf
+--   Specification: Clearing_Trade_Drop_CTD_v2.6c.pdf
 --   Specification: MIAX Options TcpSessionMgmt SesM v1_1e.pdf
 --
 -- Script:

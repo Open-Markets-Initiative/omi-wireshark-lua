@@ -3544,7 +3544,7 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_liquidityfeed_mach_v1_0_a)
 --   Version: 1.0.a
 --   Date: Monday, February 27, 2017
 --   Specification: PEARL Liquidity Feed PLF v1.0a.pdf
---   Specification: MIAX PEARL MIAX MACH Protocol v1_2e.pdf
+--   Specification: MIAX_PEARL_MIAX_MACH_Protocol_v1_2e.pdf
 --
 -- Script:
 --   Compiler: 2.0

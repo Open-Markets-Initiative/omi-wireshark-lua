@@ -4305,7 +4305,7 @@ tcp_table:add_for_decode_as(omi_miax_onyxfutures_topofmarketretransmission_sesm_
 --   Version: 1.3.a
 --   Date: Friday, July 31, 2026
 --   Specification: ONYX_ToM_Feed_v1.3a.pdf
---   Specification: onyx tcp session mgmt sesm v1.0a.pdf
+--   Specification: onyx_tcp_session_mgmt_sesm_v1.0a.pdf
 --
 -- Script:
 --   Compiler: 2.0

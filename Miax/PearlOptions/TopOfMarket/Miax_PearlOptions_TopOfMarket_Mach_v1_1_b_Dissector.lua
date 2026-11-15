@@ -4528,7 +4528,7 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_topofmarket_mach_v1_1_b)
 --   Version: 1.1.b
 --   Date: Wednesday, August 12, 2020
 --   Specification: PEARL_Top_Of_Market_Feed_ToM_v1.1b.pdf
---   Specification: MIAX PEARL MIAX MACH Protocol v1_2e.pdf
+--   Specification: MIAX_PEARL_MIAX_MACH_Protocol_v1_2e.pdf
 --
 -- Script:
 --   Compiler: 2.0

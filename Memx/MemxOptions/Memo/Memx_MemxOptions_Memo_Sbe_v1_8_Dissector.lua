@@ -3780,7 +3780,7 @@ memx_memxoptions_memo_sbe_v1_8.version.size = 2
 -- Display: Version
 memx_memxoptions_memo_sbe_v1_8.version.display = function(value)
   if value == 264 then
-    return "Version: Version 1.8"
+    return "Version: 1.8"
   end
 
   return "Version: Unknown("..value..")"

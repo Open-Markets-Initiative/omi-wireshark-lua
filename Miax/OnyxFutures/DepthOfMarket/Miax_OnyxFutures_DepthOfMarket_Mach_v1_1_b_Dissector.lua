@@ -3575,7 +3575,7 @@ udp_table:add_for_decode_as(omi_miax_onyxfutures_depthofmarket_mach_v1_1_b)
 --   Version: 1.1.b
 --   Date: Thursday, January 15, 2026
 --   Specification: ONYX DoM Feed v1.1b_0.pdf
---   Specification: onyx miax mach protocol v1.0.pdf
+--   Specification: onyx_miax_mach_protocol_v1.0.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -36,7 +36,6 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.exec_id = ProtoField.
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.fill_price = ProtoField.new("Fill Price", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.fillprice", ftypes.DOUBLE, nil, nil, nil, "fillPrice")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.fill_qty = ProtoField.new("Fill Qty", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.fillqty", ftypes.INT32, nil, nil, nil, "fillQty")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.filled_vwap = ProtoField.new("Filled Vwap", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.filledvwap", ftypes.DOUBLE, nil, nil, nil, "filledVwap")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.flags = ProtoField.new("Flags", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.flags", ftypes.STRING, nil, nil, nil, "Uint8 bit set carrying the isResend indicator")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.fromsequencenumber", ftypes.UINT32, nil, nil, nil, "fromSequenceNumber")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.gap_fill_padding = ProtoField.new("Gap Fill Padding", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.gapfillpadding", ftypes.UINT32, nil, nil, nil, "padding")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.heartbeatintervalseconds", ftypes.INT32, nil, nil, nil, "heartbeatIntervalSeconds")
@@ -85,6 +84,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.send_time_epoch_nanos
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.sequencenumber", ftypes.UINT32, nil, nil, nil, "Outbound sequence number per session")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.server_time = ProtoField.new("Server Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.servertime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "serverTime")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.server_time_utc = ProtoField.new("Server Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.servertime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "serverTime")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.session_flags = ProtoField.new("Session Flags", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.sessionflags", ftypes.STRING, nil, nil, nil, "Uint8 bit set carrying the isResend indicator")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.side = ProtoField.new("Side", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.side", ftypes.INT8, nil, nil, nil, "1 buy, -1 sell")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.symbol = ProtoField.new("Symbol", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.symbol", ftypes.STRING, nil, nil, nil, "Instrument symbol")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.template_id = ProtoField.new("Template Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.5.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
@@ -1766,7 +1766,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_5.schema_id.size = 2
 -- Display: Schema Id
 coinbase_coinbasederivatives_ordersapi_sbe_v1_5.schema_id.labels = {
   [1100] = "Schema Id: Session (1100)",
-  [1101] = "Schema Id: Order (1101)",
+  [1101] = "Schema Id: Orders Api (1101)",
 }
 
 coinbase_coinbasederivatives_ordersapi_sbe_v1_5.schema_id.display = function(value)
@@ -2228,7 +2228,10 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_5.version.size = 2
 -- Display: Version
 coinbase_coinbasederivatives_ordersapi_sbe_v1_5.version.display = function(value)
   if value == 0 then
-    return "Version: Version 0.1"
+    return "Version: 0.1"
+  end
+  if value == 3 then
+    return "Version: 1.5"
   end
 
   return "Version: Unknown("..value..")"
@@ -4467,14 +4470,14 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_5.payload.dissect = function(buffe
   return offset
 end
 
--- Flags
-coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags = {}
+-- Session Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_5.session_flags = {}
 
--- Size: Flags
-coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.size = 1
+-- Size: Session Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_5.session_flags.size = 1
 
--- Display: Flags
-coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.display = function(range, value, packet, parent)
+-- Display: Session Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_5.session_flags.display = function(range, value, packet, parent)
   local flags = {}
 
   -- Is Is Resend flag set?
@@ -4485,8 +4488,8 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.display = function(range, 
   return table.concat(flags, "|")
 end
 
--- Dissect Bit Fields: Flags
-coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.bits = function(range, value, packet, parent)
+-- Dissect Bit Fields: Session Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_5.session_flags.bits = function(range, value, packet, parent)
 
   -- Is Resend: choice
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.is_resend, range, value)
@@ -4495,16 +4498,16 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.bits = function(range, val
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.reserved_bits, range, value)
 end
 
--- Dissect: Flags
-coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.dissect = function(buffer, offset, packet, parent)
-  local size = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.size
+-- Dissect: Session Flags
+coinbase_coinbasederivatives_ordersapi_sbe_v1_5.session_flags.dissect = function(buffer, offset, packet, parent)
+  local size = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.session_flags.size
   local range = buffer(offset, size)
   local value = range:le_uint()
-  local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.display(range, value, packet, parent)
-  local element = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.flags, range, display)
+  local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.session_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_5.fields.session_flags, range, display)
 
   if show.structs then
-    coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.bits(range, value, packet, element)
+    coinbase_coinbasederivatives_ordersapi_sbe_v1_5.session_flags.bits(range, value, packet, element)
   end
 
   return offset + size, value
@@ -4516,7 +4519,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_5.message_header = {}
 -- Size: Message Header
 coinbase_coinbasederivatives_ordersapi_sbe_v1_5.message_header.size =
   coinbase_coinbasederivatives_ordersapi_sbe_v1_5.protocol_id.size + 
-  coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.size + 
+  coinbase_coinbasederivatives_ordersapi_sbe_v1_5.session_flags.size + 
   coinbase_coinbasederivatives_ordersapi_sbe_v1_5.message_length.size + 
   coinbase_coinbasederivatives_ordersapi_sbe_v1_5.sequence_number.size + 
   coinbase_coinbasederivatives_ordersapi_sbe_v1_5.last_processed_seq_no.size + 
@@ -4539,8 +4542,8 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_5.message_header.fields = function
   -- Protocol Id: uint8
   index, protocol_id = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.protocol_id.dissect(buffer, index, packet, parent)
 
-  -- Flags: Struct of 2 fields
-  index, flags = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.flags.dissect(buffer, index, packet, parent)
+  -- Session Flags: Struct of 2 fields
+  index, session_flags = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.session_flags.dissect(buffer, index, packet, parent)
 
   -- Message Length: uint16
   index, message_length = coinbase_coinbasederivatives_ordersapi_sbe_v1_5.message_length.dissect(buffer, index, packet, parent)

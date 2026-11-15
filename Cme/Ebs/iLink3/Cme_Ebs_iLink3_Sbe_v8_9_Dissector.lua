@@ -7728,7 +7728,7 @@ cme_ebs_ilink3_sbe_v8_9.version.size = 2
 -- Display: Version
 cme_ebs_ilink3_sbe_v8_9.version.display = function(value)
   if value == 9 then
-    return "Version: Version FIX5.0"
+    return "Version: FIX5.0"
   end
 
   return "Version: Unknown("..value..")"

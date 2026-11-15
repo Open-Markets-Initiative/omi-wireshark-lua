@@ -7898,7 +7898,7 @@ euronext_optiq_dropcopygateway_sbe_v6_63.version.size = 2
 -- Display: Version
 euronext_optiq_dropcopygateway_sbe_v6_63.version.display = function(value)
   if value == 363 then
-    return "Version: Version 363.0.0"
+    return "Version: 363.0.0"
   end
 
   return "Version: Unknown("..value..")"

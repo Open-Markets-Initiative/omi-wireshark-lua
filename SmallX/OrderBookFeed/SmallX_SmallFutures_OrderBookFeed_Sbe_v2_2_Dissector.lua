@@ -2842,7 +2842,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.version.size = 2
 -- Display: Version
 smallx_smallfutures_orderbookfeed_sbe_v2_2.version.display = function(value)
   if value == 6 then
-    return "Version: Version"
+    return "Version: 6"
   end
 
   return "Version: Unknown("..value..")"

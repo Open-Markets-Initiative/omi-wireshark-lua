@@ -4223,7 +4223,7 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_clearingtradedrop_ctd_v1_2_b)
 --   Version: 1.2.b
 --   Date: Monday, July 13, 2020
 --   Specification: PEARL_Clearing_Trade_Drop_CTD_v1.2b.pdf
---   Specification: MIAX PEARL TcpSessionMgmt SesM v1_1e_0 (2023-11-11).pdf
+--   Specification: MIAX_PEARL_TcpSessionMgmt_SesM_v1_1e_0.pdf
 --
 -- Script:
 --   Compiler: 2.0

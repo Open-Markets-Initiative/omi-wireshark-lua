@@ -8892,7 +8892,7 @@ ice_icefutures_bgw_sbe_v7_0.version.size = 2
 -- Display: Version
 ice_icefutures_bgw_sbe_v7_0.version.display = function(value)
   if value == 0 then
-    return "Version: Version 4.2"
+    return "Version: 4.2"
   end
 
   return "Version: Unknown("..value..")"

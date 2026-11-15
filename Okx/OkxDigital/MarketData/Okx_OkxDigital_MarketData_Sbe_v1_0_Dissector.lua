@@ -707,7 +707,7 @@ okx_okxdigital_marketdata_sbe_v1_0.version.size = 2
 -- Display: Version
 okx_okxdigital_marketdata_sbe_v1_0.version.display = function(value)
   if value == 0 then
-    return "Version: Version 1.0.0"
+    return "Version: 1.0.0"
   end
 
   return "Version: Unknown("..value..")"

@@ -6746,7 +6746,7 @@ tcp_table:add_for_decode_as(omi_miax_pearloptions_expressorders_meo_v2_3)
 --   Version: 2.3
 --   Date: Thursday, October 15, 2026
 --   Specification: MIAX_Express_Orders_MEO_v2.3.pdf
---   Specification: MIAX PEARL TcpSessionMgmt SesM v1_1e_0 (2023-11-11).pdf
+--   Specification: MIAX_PEARL_TcpSessionMgmt_SesM_v1_1e_0.pdf
 --
 -- Script:
 --   Compiler: 2.0

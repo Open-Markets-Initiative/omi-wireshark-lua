@@ -897,7 +897,7 @@ cme_ebs_spectrum_sbe_v12_0.version.size = 2
 -- Display: Version
 cme_ebs_spectrum_sbe_v12_0.version.display = function(value)
   if value == 0 then
-    return "Version: Version FIX5SP2"
+    return "Version: FIX5SP2"
   end
 
   return "Version: Unknown("..value..")"

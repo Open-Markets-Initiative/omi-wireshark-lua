@@ -6829,7 +6829,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v7_0.version.size = 2
 -- Display: Version
 b3_b3derivatives_binaryentrypoint_sbe_v7_0.version.display = function(value)
   if value == 0 then
-    return "Version: Version 7.0.1"
+    return "Version: 7.0.1"
   end
 
   return "Version: Unknown("..value..")"

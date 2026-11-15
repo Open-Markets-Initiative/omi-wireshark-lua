@@ -3818,7 +3818,7 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_depthofmarket_mach_v1_3_b)
 --   Version: 1.3.b
 --   Date: Monday, September 25, 2023
 --   Specification: PEARL_Equities_DoM_Feed_v1.3.b.pdf
---   Specification: miax mach protocol.pdf
+--   Specification: miax_mach_protocol.pdf
 --   Specification: tcp_session_mgmt_esesm.pdf
 --
 -- Script:

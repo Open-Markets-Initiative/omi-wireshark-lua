@@ -559,7 +559,7 @@ udp_table:add_for_decode_as(omi_miax_onyxfutures_headeronly_mach_v1_0)
 --   Organization: Miami International Holdings
 --   Version: 1.0
 --   Date: Thursday, October 31, 2024
---   Specification: onyx miax mach protocol v1.0.pdf
+--   Specification: onyx_miax_mach_protocol_v1.0.pdf
 --
 -- Script:
 --   Compiler: 2.0

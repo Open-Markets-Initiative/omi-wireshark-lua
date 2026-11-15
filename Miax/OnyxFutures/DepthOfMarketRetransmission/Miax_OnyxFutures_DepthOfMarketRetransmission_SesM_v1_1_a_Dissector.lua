@@ -4426,7 +4426,7 @@ tcp_table:add_for_decode_as(omi_miax_onyxfutures_depthofmarketretransmission_ses
 --   Version: 1.1.a
 --   Date: Friday, November 7, 2025
 --   Specification: ONYX DoM Feed v1.1a.pdf
---   Specification: onyx tcp session mgmt sesm v1.0a.pdf
+--   Specification: onyx_tcp_session_mgmt_sesm_v1.0a.pdf
 --
 -- Script:
 --   Compiler: 2.0

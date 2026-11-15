@@ -1055,7 +1055,7 @@ blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.version.size = 2
 -- Display: Version
 blueoceanats_blueequities_memoirdepthfeed_sbe_v1_3.version.display = function(value)
   if value == 259 then
-    return "Version: Version 1.3"
+    return "Version: 1.3"
   end
 
   return "Version: Unknown("..value..")"

@@ -8016,7 +8016,7 @@ euronext_optiq_orderentrygateway_sbe_v5_35.version.size = 2
 -- Display: Version
 euronext_optiq_orderentrygateway_sbe_v5_35.version.display = function(value)
   if value == 335 then
-    return "Version: Version 5.35.0"
+    return "Version: 5.35.0"
   end
 
   return "Version: Unknown("..value..")"

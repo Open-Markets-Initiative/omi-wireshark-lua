@@ -973,7 +973,7 @@ cme_globex_sessionmgmt_sbe_v0_2.version.size = 2
 -- Display: Version
 cme_globex_sessionmgmt_sbe_v0_2.version.display = function(value)
   if value == 0 then
-    return "Version: Version FIX5SP2"
+    return "Version: FIX5SP2"
   end
 
   return "Version: Unknown("..value..")"

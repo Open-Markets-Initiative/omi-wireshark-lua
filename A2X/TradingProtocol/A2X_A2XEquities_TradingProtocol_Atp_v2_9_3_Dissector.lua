@@ -1336,6 +1336,11 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_3.trade_ref.size = 4
 
 -- Display: Trade Ref
 a2x_a2xequities_tradingprotocol_atp_v2_9_3.trade_ref.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Trade Ref: No Value"
+  end
+
   return "Trade Ref: "..value
 end
 

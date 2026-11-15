@@ -3820,7 +3820,7 @@ tcp_table:add_for_decode_as(omi_miax_pearlequities_depthofmarket_mach_v1_3_d)
 --   Version: 1.3.d
 --   Date: Wednesday, February 4, 2026
 --   Specification: pearl_equities_dom_feed.pdf
---   Specification: miax mach protocol.pdf
+--   Specification: miax_mach_protocol.pdf
 --   Specification: tcp_session_mgmt_esesm.pdf
 --
 -- Script:

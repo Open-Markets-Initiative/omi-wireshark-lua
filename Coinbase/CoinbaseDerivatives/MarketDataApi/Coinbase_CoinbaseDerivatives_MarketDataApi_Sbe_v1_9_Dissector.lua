@@ -3385,7 +3385,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.version.size = 2
 -- Display: Version
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_9.version.display = function(value)
   if value == 9 then
-    return "Version: Version 1.9"
+    return "Version: 1.9"
   end
 
   return "Version: Unknown("..value..")"

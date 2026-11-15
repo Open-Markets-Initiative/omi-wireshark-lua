@@ -1257,7 +1257,7 @@ memx_memxoptions_memoirdepth_sbe_v1_6_a.version.size = 2
 -- Display: Version
 memx_memxoptions_memoirdepth_sbe_v1_6_a.version.display = function(value)
   if value == 262 then
-    return "Version: Version 1.6"
+    return "Version: 1.6"
   end
 
   return "Version: Unknown("..value..")"

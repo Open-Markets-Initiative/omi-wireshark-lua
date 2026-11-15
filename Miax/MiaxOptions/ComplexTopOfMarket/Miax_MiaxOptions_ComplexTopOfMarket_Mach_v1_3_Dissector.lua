@@ -3217,7 +3217,7 @@ udp_table:add_for_decode_as(omi_miax_miaxoptions_complextopofmarket_mach_v1_3)
 --   Version: 1.3
 --   Date: Friday, March 16, 2018
 --   Specification: Complex Top Of Market Feed cToM v1.3.pdf
---   Specification: MIAX MACH Protocol v1_2d_re.pdf
+--   Specification: MIAX_MACH_Protocol_v1_2d_re.pdf
 --
 -- Script:
 --   Compiler: 2.0

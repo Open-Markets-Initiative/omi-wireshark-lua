@@ -2961,7 +2961,7 @@ memx_memxequities_memo_sbe_v1_11.version.size = 2
 -- Display: Version
 memx_memxequities_memo_sbe_v1_11.version.display = function(value)
   if value == 267 then
-    return "Version: Version 1.11"
+    return "Version: 1.11"
   end
 
   return "Version: Unknown("..value..")"

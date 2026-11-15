@@ -5106,7 +5106,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.version.size = 2
 -- Display: Version
 b3_b3derivatives_binaryumdf_sbe_v2_1.version.display = function(value)
   if value == 15 then
-    return "Version: Version 2.1.0"
+    return "Version: 2.1.0"
   end
 
   return "Version: Unknown("..value..")"

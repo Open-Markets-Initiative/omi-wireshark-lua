@@ -1833,7 +1833,7 @@ n24x_24xequities_memoirtopofbook_sbe_v2_0.version.size = 2
 -- Display: Version
 n24x_24xequities_memoirtopofbook_sbe_v2_0.version.display = function(value)
   if value == 512 then
-    return "Version: Version 2.0"
+    return "Version: 2.0"
   end
 
   return "Version: Unknown("..value..")"

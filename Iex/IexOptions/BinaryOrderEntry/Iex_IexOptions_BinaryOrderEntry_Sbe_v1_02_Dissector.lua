@@ -4549,7 +4549,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.version.size = 2
 -- Display: Version
 iex_iexoptions_binaryorderentry_sbe_v1_02.version.display = function(value)
   if value == 0 then
-    return "Version: Version 1.0"
+    return "Version: 1.0"
   end
 
   return "Version: Unknown("..value..")"

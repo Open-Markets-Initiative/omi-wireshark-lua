@@ -696,29 +696,66 @@ coinbase_deribit_ordersapi_sbe_v1_4.cancel_reason = {}
 coinbase_deribit_ordersapi_sbe_v1_4.cancel_reason.size = 1
 
 -- Display: Cancel Reason
-coinbase_deribit_ordersapi_sbe_v1_4.cancel_reason.labels = {
-  [0] = "Cancel Reason: Unknown (0)",
-  [1] = "Cancel Reason: Self Match Prevention (1)",
-  [2] = "Cancel Reason: Time In Force (2)",
-  [3] = "Cancel Reason: Admin (3)",
-  [4] = "Cancel Reason: Mm Protection (4)",
-  [5] = "Cancel Reason: Liquidation (5)",
-  [6] = "Cancel Reason: Market State Transition (6)",
-  [7] = "Cancel Reason: Client Disconnect (7)",
-  [8] = "Cancel Reason: Reduce Only (8)",
-  [9] = "Cancel Reason: Delivered (9)",
-  [10] = "Cancel Reason: Settlement (10)",
-  [11] = "Cancel Reason: Book Deactivated (11)",
-  [12] = "Cancel Reason: By Request (12)",
-  [13] = "Cancel Reason: Risk Check Timed Out (13)",
-  [14] = "Cancel Reason: Mmp Group Deleted (14)",
-  [15] = "Cancel Reason: Portfolio Locked (15)",
-  [16] = "Cancel Reason: Post Only (16)",
-  [17] = "Cancel Reason: Qty Tick Size Rescale (17)",
-}
-
 coinbase_deribit_ordersapi_sbe_v1_4.cancel_reason.display = function(value)
-  return coinbase_deribit_ordersapi_sbe_v1_4.cancel_reason.labels[value] or "Cancel Reason: Unknown("..value..")"
+  if value == 0 then
+    return "Cancel Reason: Unknown (0)"
+  end
+  if value == 1 then
+    return "Cancel Reason: Self Match Prevention (1)"
+  end
+  if value == 2 then
+    return "Cancel Reason: Time In Force (2)"
+  end
+  if value == 3 then
+    return "Cancel Reason: Admin (3)"
+  end
+  if value == 4 then
+    return "Cancel Reason: Mm Protection (4)"
+  end
+  if value == 5 then
+    return "Cancel Reason: Liquidation (5)"
+  end
+  if value == 6 then
+    return "Cancel Reason: Market State Transition (6)"
+  end
+  if value == 7 then
+    return "Cancel Reason: Client Disconnect (7)"
+  end
+  if value == 8 then
+    return "Cancel Reason: Reduce Only (8)"
+  end
+  if value == 9 then
+    return "Cancel Reason: Delivered (9)"
+  end
+  if value == 10 then
+    return "Cancel Reason: Settlement (10)"
+  end
+  if value == 11 then
+    return "Cancel Reason: Book Deactivated (11)"
+  end
+  if value == 12 then
+    return "Cancel Reason: By Request (12)"
+  end
+  if value == 13 then
+    return "Cancel Reason: Risk Check Timed Out (13)"
+  end
+  if value == 14 then
+    return "Cancel Reason: Mmp Group Deleted (14)"
+  end
+  if value == 15 then
+    return "Cancel Reason: Portfolio Locked (15)"
+  end
+  if value == 16 then
+    return "Cancel Reason: Post Only (16)"
+  end
+  if value == 17 then
+    return "Cancel Reason: Qty Tick Size Rescale (17)"
+  end
+  if value == -128 then
+    return "Cancel Reason: No Value"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
