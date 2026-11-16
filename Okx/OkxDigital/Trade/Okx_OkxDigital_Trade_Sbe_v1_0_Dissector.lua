@@ -15,15 +15,15 @@ local okx_okxdigital_trade_sbe_v1_0 = {}
 -----------------------------------------------------------------------
 
 -- Okx OkxDigital Trade Sbe 1.0 Fields
-omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_message_orders_group = ProtoField.new("Amend Orders Message orders Group", "okx.okxdigital.trade.sbe.v1.0.amendordersmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_message_orders_groups = ProtoField.new("Amend Orders Message orders Groups", "okx.okxdigital.trade.sbe.v1.0.amendordersmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_response_message_data_group = ProtoField.new("Amend Orders Response Message data Group", "okx.okxdigital.trade.sbe.v1.0.amendordersresponsemessagedatagroup", ftypes.STRING, nil, nil, nil, "data")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_response_message_data_groups = ProtoField.new("Amend Orders Response Message data Groups", "okx.okxdigital.trade.sbe.v1.0.amendordersresponsemessagedatagroups", ftypes.STRING, nil, nil, nil, "data Block")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_message_orders_group = ProtoField.new("Amend Orders Message Orders Group", "okx.okxdigital.trade.sbe.v1.0.amendordersmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_message_orders_groups = ProtoField.new("Amend Orders Message Orders Groups", "okx.okxdigital.trade.sbe.v1.0.amendordersmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_response_message_data_group = ProtoField.new("Amend Orders Response Message Data Group", "okx.okxdigital.trade.sbe.v1.0.amendordersresponsemessagedatagroup", ftypes.STRING, nil, nil, nil, "data")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_response_message_data_groups = ProtoField.new("Amend Orders Response Message Data Groups", "okx.okxdigital.trade.sbe.v1.0.amendordersresponsemessagedatagroups", ftypes.STRING, nil, nil, nil, "data Block")
 omi_okx_okxdigital_trade_sbe_v1_0.fields.block_length = ProtoField.new("Block Length", "okx.okxdigital.trade.sbe.v1.0.blocklength", ftypes.UINT16, nil, nil, nil, "blockLength")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_message_orders_group = ProtoField.new("Cancel Orders Message orders Group", "okx.okxdigital.trade.sbe.v1.0.cancelordersmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_message_orders_groups = ProtoField.new("Cancel Orders Message orders Groups", "okx.okxdigital.trade.sbe.v1.0.cancelordersmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_response_message_data_group = ProtoField.new("Cancel Orders Response Message data Group", "okx.okxdigital.trade.sbe.v1.0.cancelordersresponsemessagedatagroup", ftypes.STRING, nil, nil, nil, "data")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_response_message_data_groups = ProtoField.new("Cancel Orders Response Message data Groups", "okx.okxdigital.trade.sbe.v1.0.cancelordersresponsemessagedatagroups", ftypes.STRING, nil, nil, nil, "data Block")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_message_orders_group = ProtoField.new("Cancel Orders Message Orders Group", "okx.okxdigital.trade.sbe.v1.0.cancelordersmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_message_orders_groups = ProtoField.new("Cancel Orders Message Orders Groups", "okx.okxdigital.trade.sbe.v1.0.cancelordersmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_response_message_data_group = ProtoField.new("Cancel Orders Response Message Data Group", "okx.okxdigital.trade.sbe.v1.0.cancelordersresponsemessagedatagroup", ftypes.STRING, nil, nil, nil, "data")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_response_message_data_groups = ProtoField.new("Cancel Orders Response Message Data Groups", "okx.okxdigital.trade.sbe.v1.0.cancelordersresponsemessagedatagroups", ftypes.STRING, nil, nil, nil, "data Block")
 omi_okx_okxdigital_trade_sbe_v1_0.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "okx.okxdigital.trade.sbe.v1.0.clordid", ftypes.INT64, nil, nil, nil, "clOrdId")
 omi_okx_okxdigital_trade_sbe_v1_0.fields.code = ProtoField.new("Code", "okx.okxdigital.trade.sbe.v1.0.code", ftypes.INT32)
 omi_okx_okxdigital_trade_sbe_v1_0.fields.code_optional = ProtoField.new("Code Optional", "okx.okxdigital.trade.sbe.v1.0.codeoptional", ftypes.INT32, nil, nil, nil, "code")
@@ -40,10 +40,10 @@ omi_okx_okxdigital_trade_sbe_v1_0.fields.num_in_group = ProtoField.new("Num In G
 omi_okx_okxdigital_trade_sbe_v1_0.fields.ord_id = ProtoField.new("Ord Id", "okx.okxdigital.trade.sbe.v1.0.ordid", ftypes.INT64, nil, nil, nil, "ordId")
 omi_okx_okxdigital_trade_sbe_v1_0.fields.ord_type = ProtoField.new("Ord Type", "okx.okxdigital.trade.sbe.v1.0.ordtype", ftypes.INT8, nil, nil, nil, "ordType")
 omi_okx_okxdigital_trade_sbe_v1_0.fields.out_time = ProtoField.new("Out Time", "okx.okxdigital.trade.sbe.v1.0.outtime", ftypes.INT64, nil, nil, nil, "outTime")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_message_orders_group = ProtoField.new("Place Orders Message orders Group", "okx.okxdigital.trade.sbe.v1.0.placeordersmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_message_orders_groups = ProtoField.new("Place Orders Message orders Groups", "okx.okxdigital.trade.sbe.v1.0.placeordersmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_response_message_data_group = ProtoField.new("Place Orders Response Message data Group", "okx.okxdigital.trade.sbe.v1.0.placeordersresponsemessagedatagroup", ftypes.STRING, nil, nil, nil, "data")
-omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_response_message_data_groups = ProtoField.new("Place Orders Response Message data Groups", "okx.okxdigital.trade.sbe.v1.0.placeordersresponsemessagedatagroups", ftypes.STRING, nil, nil, nil, "data Block")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_message_orders_group = ProtoField.new("Place Orders Message Orders Group", "okx.okxdigital.trade.sbe.v1.0.placeordersmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_message_orders_groups = ProtoField.new("Place Orders Message Orders Groups", "okx.okxdigital.trade.sbe.v1.0.placeordersmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_response_message_data_group = ProtoField.new("Place Orders Response Message Data Group", "okx.okxdigital.trade.sbe.v1.0.placeordersresponsemessagedatagroup", ftypes.STRING, nil, nil, nil, "data")
+omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_response_message_data_groups = ProtoField.new("Place Orders Response Message Data Groups", "okx.okxdigital.trade.sbe.v1.0.placeordersresponsemessagedatagroups", ftypes.STRING, nil, nil, nil, "data Block")
 omi_okx_okxdigital_trade_sbe_v1_0.fields.px_exponent = ProtoField.new("Px Exponent", "okx.okxdigital.trade.sbe.v1.0.pxexponent", ftypes.INT8, nil, nil, nil, "pxExponent")
 omi_okx_okxdigital_trade_sbe_v1_0.fields.px_mantissa = ProtoField.new("Px Mantissa", "okx.okxdigital.trade.sbe.v1.0.pxmantissa", ftypes.INT64, nil, nil, nil, "pxMantissa")
 omi_okx_okxdigital_trade_sbe_v1_0.fields.req_id = ProtoField.new("Req Id", "okx.okxdigital.trade.sbe.v1.0.reqid", ftypes.INT64, nil, nil, nil, "reqId")
@@ -81,12 +81,12 @@ omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_message = ProtoField.new("
 omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_response_message = ProtoField.new("Place Orders Response Message", "okx.okxdigital.trade.sbe.v1.0.placeordersresponsemessage", ftypes.STRING, nil, nil, nil, "PlaceOrdersResponseMessage")
 
 -- Okx OkxDigital Trade Sbe 1.0 Generated Fields
-omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_message_orders_group_index = ProtoField.new("Amend Orders Message orders Group Index", "okx.okxdigital.trade.sbe.v1.0.amendordersmessageordersgroupindex", ftypes.UINT16)
-omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_response_message_data_group_index = ProtoField.new("Amend Orders Response Message data Group Index", "okx.okxdigital.trade.sbe.v1.0.amendordersresponsemessagedatagroupindex", ftypes.UINT16)
-omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_message_orders_group_index = ProtoField.new("Cancel Orders Message orders Group Index", "okx.okxdigital.trade.sbe.v1.0.cancelordersmessageordersgroupindex", ftypes.UINT16)
-omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_response_message_data_group_index = ProtoField.new("Cancel Orders Response Message data Group Index", "okx.okxdigital.trade.sbe.v1.0.cancelordersresponsemessagedatagroupindex", ftypes.UINT16)
-omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_message_orders_group_index = ProtoField.new("Place Orders Message orders Group Index", "okx.okxdigital.trade.sbe.v1.0.placeordersmessageordersgroupindex", ftypes.UINT16)
-omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_response_message_data_group_index = ProtoField.new("Place Orders Response Message data Group Index", "okx.okxdigital.trade.sbe.v1.0.placeordersresponsemessagedatagroupindex", ftypes.UINT16)
+omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_message_orders_group_index = ProtoField.new("Amend Orders Message Orders Group Index", "okx.okxdigital.trade.sbe.v1.0.amendordersmessageordersgroupindex", ftypes.UINT16)
+omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_response_message_data_group_index = ProtoField.new("Amend Orders Response Message Data Group Index", "okx.okxdigital.trade.sbe.v1.0.amendordersresponsemessagedatagroupindex", ftypes.UINT16)
+omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_message_orders_group_index = ProtoField.new("Cancel Orders Message Orders Group Index", "okx.okxdigital.trade.sbe.v1.0.cancelordersmessageordersgroupindex", ftypes.UINT16)
+omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_response_message_data_group_index = ProtoField.new("Cancel Orders Response Message Data Group Index", "okx.okxdigital.trade.sbe.v1.0.cancelordersresponsemessagedatagroupindex", ftypes.UINT16)
+omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_message_orders_group_index = ProtoField.new("Place Orders Message Orders Group Index", "okx.okxdigital.trade.sbe.v1.0.placeordersmessageordersgroupindex", ftypes.UINT16)
+omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_response_message_data_group_index = ProtoField.new("Place Orders Response Message Data Group Index", "okx.okxdigital.trade.sbe.v1.0.placeordersresponsemessagedatagroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -963,7 +963,7 @@ okx_okxdigital_trade_sbe_v1_0.version.size = 2
 -- Display: Version
 okx_okxdigital_trade_sbe_v1_0.version.display = function(value)
   if value == 0 then
-    return "Version: 1.0.0"
+    return "Version: 0"
   end
 
   return "Version: Unknown("..value..")"
@@ -986,10 +986,10 @@ end
 -- Dissect Okx OkxDigital Trade Sbe 1.0
 -----------------------------------------------------------------------
 
--- Cancel Orders Response Message data Group
+-- Cancel Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_group = {}
 
--- Size: Cancel Orders Response Message data Group
+-- Size: Cancel Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_group.size =
   okx_okxdigital_trade_sbe_v1_0.s_code.size + 
   okx_okxdigital_trade_sbe_v1_0.ord_id.size + 
@@ -998,16 +998,16 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_group.size =
   okx_okxdigital_trade_sbe_v1_0.in_time.size + 
   okx_okxdigital_trade_sbe_v1_0.out_time.size
 
--- Display: Cancel Orders Response Message data Group
+-- Display: Cancel Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Cancel Orders Response Message data Group
+-- Dissect Fields: Cancel Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_group.fields = function(buffer, offset, packet, parent, cancel_orders_response_message_data_group_index)
   local index = offset
 
-  -- Implicit Cancel Orders Response Message data Group Index
+  -- Implicit Cancel Orders Response Message Data Group Index
   if cancel_orders_response_message_data_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_response_message_data_group_index, cancel_orders_response_message_data_group_index)
     iteration:set_generated()
@@ -1034,7 +1034,7 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_group.fields =
   return index
 end
 
--- Dissect: Cancel Orders Response Message data Group
+-- Dissect: Cancel Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_group.dissect = function(buffer, offset, packet, parent, cancel_orders_response_message_data_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1096,10 +1096,10 @@ okx_okxdigital_trade_sbe_v1_0.group_size_encoding.dissect = function(buffer, off
   end
 end
 
--- Cancel Orders Response Message data Groups
+-- Cancel Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_groups = {}
 
--- Calculate size of: Cancel Orders Response Message data Groups
+-- Calculate size of: Cancel Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1112,12 +1112,12 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_groups.size = 
   return index
 end
 
--- Display: Cancel Orders Response Message data Groups
+-- Display: Cancel Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Cancel Orders Response Message data Groups
+-- Dissect Fields: Cancel Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1127,7 +1127,7 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_groups.fields 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Cancel Orders Response Message data Group
+  -- Repeating: Cancel Orders Response Message Data Group
   for cancel_orders_response_message_data_group_index = 1, num_in_group do
     index, cancel_orders_response_message_data_group = okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_group.dissect(buffer, index, packet, parent, cancel_orders_response_message_data_group_index)
   end
@@ -1135,7 +1135,7 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_groups.fields 
   return index
 end
 
--- Dissect: Cancel Orders Response Message data Groups
+-- Dissect: Cancel Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1184,7 +1184,7 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message.fields = function(b
   -- Code Optional: int32
   index, code_optional = okx_okxdigital_trade_sbe_v1_0.code_optional.dissect(buffer, index, packet, parent)
 
-  -- Cancel Orders Response Message data Groups: Struct of 2 fields
+  -- Cancel Orders Response Message Data Groups: Struct of 2 fields
   index, cancel_orders_response_message_data_groups = okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message_data_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -1208,25 +1208,25 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_response_message.dissect = function(
   end
 end
 
--- Cancel Orders Message orders Group
+-- Cancel Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_group = {}
 
--- Size: Cancel Orders Message orders Group
+-- Size: Cancel Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_group.size =
   okx_okxdigital_trade_sbe_v1_0.inst_id_code.size + 
   okx_okxdigital_trade_sbe_v1_0.ord_id.size + 
   okx_okxdigital_trade_sbe_v1_0.cl_ord_id.size
 
--- Display: Cancel Orders Message orders Group
+-- Display: Cancel Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Cancel Orders Message orders Group
+-- Dissect Fields: Cancel Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_group.fields = function(buffer, offset, packet, parent, cancel_orders_message_orders_group_index)
   local index = offset
 
-  -- Implicit Cancel Orders Message orders Group Index
+  -- Implicit Cancel Orders Message Orders Group Index
   if cancel_orders_message_orders_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_trade_sbe_v1_0.fields.cancel_orders_message_orders_group_index, cancel_orders_message_orders_group_index)
     iteration:set_generated()
@@ -1244,7 +1244,7 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_group.fields = functi
   return index
 end
 
--- Dissect: Cancel Orders Message orders Group
+-- Dissect: Cancel Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_group.dissect = function(buffer, offset, packet, parent, cancel_orders_message_orders_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1262,10 +1262,10 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_group.dissect = funct
   end
 end
 
--- Cancel Orders Message orders Groups
+-- Cancel Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_groups = {}
 
--- Calculate size of: Cancel Orders Message orders Groups
+-- Calculate size of: Cancel Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1278,12 +1278,12 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_groups.size = functio
   return index
 end
 
--- Display: Cancel Orders Message orders Groups
+-- Display: Cancel Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Cancel Orders Message orders Groups
+-- Dissect Fields: Cancel Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1293,7 +1293,7 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_groups.fields = funct
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Cancel Orders Message orders Group
+  -- Repeating: Cancel Orders Message Orders Group
   for cancel_orders_message_orders_group_index = 1, num_in_group do
     index, cancel_orders_message_orders_group = okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_group.dissect(buffer, index, packet, parent, cancel_orders_message_orders_group_index)
   end
@@ -1301,7 +1301,7 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_groups.fields = funct
   return index
 end
 
--- Dissect: Cancel Orders Message orders Groups
+-- Dissect: Cancel Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1345,7 +1345,7 @@ okx_okxdigital_trade_sbe_v1_0.cancel_orders_message.fields = function(buffer, of
   -- Id: int64
   index, id = okx_okxdigital_trade_sbe_v1_0.id.dissect(buffer, index, packet, parent)
 
-  -- Cancel Orders Message orders Groups: Struct of 2 fields
+  -- Cancel Orders Message Orders Groups: Struct of 2 fields
   index, cancel_orders_message_orders_groups = okx_okxdigital_trade_sbe_v1_0.cancel_orders_message_orders_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -1485,10 +1485,10 @@ okx_okxdigital_trade_sbe_v1_0.cancel_order_message.dissect = function(buffer, of
   end
 end
 
--- Amend Orders Response Message data Group
+-- Amend Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_group = {}
 
--- Size: Amend Orders Response Message data Group
+-- Size: Amend Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_group.size =
   okx_okxdigital_trade_sbe_v1_0.s_code.size + 
   okx_okxdigital_trade_sbe_v1_0.sub_code.size + 
@@ -1499,16 +1499,16 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_group.size =
   okx_okxdigital_trade_sbe_v1_0.in_time.size + 
   okx_okxdigital_trade_sbe_v1_0.out_time.size
 
--- Display: Amend Orders Response Message data Group
+-- Display: Amend Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Amend Orders Response Message data Group
+-- Dissect Fields: Amend Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_group.fields = function(buffer, offset, packet, parent, amend_orders_response_message_data_group_index)
   local index = offset
 
-  -- Implicit Amend Orders Response Message data Group Index
+  -- Implicit Amend Orders Response Message Data Group Index
   if amend_orders_response_message_data_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_response_message_data_group_index, amend_orders_response_message_data_group_index)
     iteration:set_generated()
@@ -1541,7 +1541,7 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_group.fields = 
   return index
 end
 
--- Dissect: Amend Orders Response Message data Group
+-- Dissect: Amend Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_group.dissect = function(buffer, offset, packet, parent, amend_orders_response_message_data_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1559,10 +1559,10 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_group.dissect =
   end
 end
 
--- Amend Orders Response Message data Groups
+-- Amend Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_groups = {}
 
--- Calculate size of: Amend Orders Response Message data Groups
+-- Calculate size of: Amend Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1575,12 +1575,12 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_groups.size = f
   return index
 end
 
--- Display: Amend Orders Response Message data Groups
+-- Display: Amend Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Amend Orders Response Message data Groups
+-- Dissect Fields: Amend Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1590,7 +1590,7 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_groups.fields =
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Amend Orders Response Message data Group
+  -- Repeating: Amend Orders Response Message Data Group
   for amend_orders_response_message_data_group_index = 1, num_in_group do
     index, amend_orders_response_message_data_group = okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_group.dissect(buffer, index, packet, parent, amend_orders_response_message_data_group_index)
   end
@@ -1598,7 +1598,7 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_groups.fields =
   return index
 end
 
--- Dissect: Amend Orders Response Message data Groups
+-- Dissect: Amend Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1647,7 +1647,7 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message.fields = function(bu
   -- Code Optional: int32
   index, code_optional = okx_okxdigital_trade_sbe_v1_0.code_optional.dissect(buffer, index, packet, parent)
 
-  -- Amend Orders Response Message data Groups: Struct of 2 fields
+  -- Amend Orders Response Message Data Groups: Struct of 2 fields
   index, amend_orders_response_message_data_groups = okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message_data_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -1671,10 +1671,10 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_response_message.dissect = function(b
   end
 end
 
--- Amend Orders Message orders Group
+-- Amend Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_group = {}
 
--- Size: Amend Orders Message orders Group
+-- Size: Amend Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_group.size =
   okx_okxdigital_trade_sbe_v1_0.inst_id_code.size + 
   okx_okxdigital_trade_sbe_v1_0.ord_id.size + 
@@ -1686,16 +1686,16 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_group.size =
   okx_okxdigital_trade_sbe_v1_0.req_id.size + 
   okx_okxdigital_trade_sbe_v1_0.rpi_taker_access.size
 
--- Display: Amend Orders Message orders Group
+-- Display: Amend Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Amend Orders Message orders Group
+-- Dissect Fields: Amend Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_group.fields = function(buffer, offset, packet, parent, amend_orders_message_orders_group_index)
   local index = offset
 
-  -- Implicit Amend Orders Message orders Group Index
+  -- Implicit Amend Orders Message Orders Group Index
   if amend_orders_message_orders_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_trade_sbe_v1_0.fields.amend_orders_message_orders_group_index, amend_orders_message_orders_group_index)
     iteration:set_generated()
@@ -1731,7 +1731,7 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_group.fields = functio
   return index
 end
 
--- Dissect: Amend Orders Message orders Group
+-- Dissect: Amend Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_group.dissect = function(buffer, offset, packet, parent, amend_orders_message_orders_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1749,10 +1749,10 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_group.dissect = functi
   end
 end
 
--- Amend Orders Message orders Groups
+-- Amend Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_groups = {}
 
--- Calculate size of: Amend Orders Message orders Groups
+-- Calculate size of: Amend Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1765,12 +1765,12 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_groups.size = function
   return index
 end
 
--- Display: Amend Orders Message orders Groups
+-- Display: Amend Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Amend Orders Message orders Groups
+-- Dissect Fields: Amend Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1780,7 +1780,7 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_groups.fields = functi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Amend Orders Message orders Group
+  -- Repeating: Amend Orders Message Orders Group
   for amend_orders_message_orders_group_index = 1, num_in_group do
     index, amend_orders_message_orders_group = okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_group.dissect(buffer, index, packet, parent, amend_orders_message_orders_group_index)
   end
@@ -1788,7 +1788,7 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_groups.fields = functi
   return index
 end
 
--- Dissect: Amend Orders Message orders Groups
+-- Dissect: Amend Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1837,7 +1837,7 @@ okx_okxdigital_trade_sbe_v1_0.amend_orders_message.fields = function(buffer, off
   -- Exp Time: int64
   index, exp_time = okx_okxdigital_trade_sbe_v1_0.exp_time.dissect(buffer, index, packet, parent)
 
-  -- Amend Orders Message orders Groups: Struct of 2 fields
+  -- Amend Orders Message Orders Groups: Struct of 2 fields
   index, amend_orders_message_orders_groups = okx_okxdigital_trade_sbe_v1_0.amend_orders_message_orders_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -2013,10 +2013,10 @@ okx_okxdigital_trade_sbe_v1_0.amend_order_message.dissect = function(buffer, off
   end
 end
 
--- Place Orders Response Message data Group
+-- Place Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_group = {}
 
--- Size: Place Orders Response Message data Group
+-- Size: Place Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_group.size =
   okx_okxdigital_trade_sbe_v1_0.s_code.size + 
   okx_okxdigital_trade_sbe_v1_0.sub_code.size + 
@@ -2028,16 +2028,16 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_group.size =
   okx_okxdigital_trade_sbe_v1_0.in_time.size + 
   okx_okxdigital_trade_sbe_v1_0.out_time.size
 
--- Display: Place Orders Response Message data Group
+-- Display: Place Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Place Orders Response Message data Group
+-- Dissect Fields: Place Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_group.fields = function(buffer, offset, packet, parent, place_orders_response_message_data_group_index)
   local index = offset
 
-  -- Implicit Place Orders Response Message data Group Index
+  -- Implicit Place Orders Response Message Data Group Index
   if place_orders_response_message_data_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_response_message_data_group_index, place_orders_response_message_data_group_index)
     iteration:set_generated()
@@ -2073,7 +2073,7 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_group.fields = 
   return index
 end
 
--- Dissect: Place Orders Response Message data Group
+-- Dissect: Place Orders Response Message Data Group
 okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_group.dissect = function(buffer, offset, packet, parent, place_orders_response_message_data_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -2091,10 +2091,10 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_group.dissect =
   end
 end
 
--- Place Orders Response Message data Groups
+-- Place Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_groups = {}
 
--- Calculate size of: Place Orders Response Message data Groups
+-- Calculate size of: Place Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_groups.size = function(buffer, offset)
   local index = 0
 
@@ -2107,12 +2107,12 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_groups.size = f
   return index
 end
 
--- Display: Place Orders Response Message data Groups
+-- Display: Place Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Place Orders Response Message data Groups
+-- Dissect Fields: Place Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2122,7 +2122,7 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_groups.fields =
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Place Orders Response Message data Group
+  -- Repeating: Place Orders Response Message Data Group
   for place_orders_response_message_data_group_index = 1, num_in_group do
     index, place_orders_response_message_data_group = okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_group.dissect(buffer, index, packet, parent, place_orders_response_message_data_group_index)
   end
@@ -2130,7 +2130,7 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_groups.fields =
   return index
 end
 
--- Dissect: Place Orders Response Message data Groups
+-- Dissect: Place Orders Response Message Data Groups
 okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -2179,7 +2179,7 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_response_message.fields = function(bu
   -- Code: int32
   index, code = okx_okxdigital_trade_sbe_v1_0.code.dissect(buffer, index, packet, parent)
 
-  -- Place Orders Response Message data Groups: Struct of 2 fields
+  -- Place Orders Response Message Data Groups: Struct of 2 fields
   index, place_orders_response_message_data_groups = okx_okxdigital_trade_sbe_v1_0.place_orders_response_message_data_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -2203,10 +2203,10 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_response_message.dissect = function(b
   end
 end
 
--- Place Orders Message orders Group
+-- Place Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_group = {}
 
--- Size: Place Orders Message orders Group
+-- Size: Place Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_group.size =
   okx_okxdigital_trade_sbe_v1_0.inst_id_code.size + 
   okx_okxdigital_trade_sbe_v1_0.side.size + 
@@ -2220,16 +2220,16 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_group.size =
   okx_okxdigital_trade_sbe_v1_0.tag.size + 
   okx_okxdigital_trade_sbe_v1_0.rpi_taker_access.size
 
--- Display: Place Orders Message orders Group
+-- Display: Place Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Place Orders Message orders Group
+-- Dissect Fields: Place Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_group.fields = function(buffer, offset, packet, parent, place_orders_message_orders_group_index)
   local index = offset
 
-  -- Implicit Place Orders Message orders Group Index
+  -- Implicit Place Orders Message Orders Group Index
   if place_orders_message_orders_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_trade_sbe_v1_0.fields.place_orders_message_orders_group_index, place_orders_message_orders_group_index)
     iteration:set_generated()
@@ -2271,7 +2271,7 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_group.fields = functio
   return index
 end
 
--- Dissect: Place Orders Message orders Group
+-- Dissect: Place Orders Message Orders Group
 okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_group.dissect = function(buffer, offset, packet, parent, place_orders_message_orders_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -2289,10 +2289,10 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_group.dissect = functi
   end
 end
 
--- Place Orders Message orders Groups
+-- Place Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_groups = {}
 
--- Calculate size of: Place Orders Message orders Groups
+-- Calculate size of: Place Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_groups.size = function(buffer, offset)
   local index = 0
 
@@ -2305,12 +2305,12 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_groups.size = function
   return index
 end
 
--- Display: Place Orders Message orders Groups
+-- Display: Place Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Place Orders Message orders Groups
+-- Dissect Fields: Place Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2320,7 +2320,7 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_groups.fields = functi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Place Orders Message orders Group
+  -- Repeating: Place Orders Message Orders Group
   for place_orders_message_orders_group_index = 1, num_in_group do
     index, place_orders_message_orders_group = okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_group.dissect(buffer, index, packet, parent, place_orders_message_orders_group_index)
   end
@@ -2328,7 +2328,7 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_groups.fields = functi
   return index
 end
 
--- Dissect: Place Orders Message orders Groups
+-- Dissect: Place Orders Message Orders Groups
 okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -2377,7 +2377,7 @@ okx_okxdigital_trade_sbe_v1_0.place_orders_message.fields = function(buffer, off
   -- Exp Time: int64
   index, exp_time = okx_okxdigital_trade_sbe_v1_0.exp_time.dissect(buffer, index, packet, parent)
 
-  -- Place Orders Message orders Groups: Struct of 2 fields
+  -- Place Orders Message Orders Groups: Struct of 2 fields
   index, place_orders_message_orders_groups = okx_okxdigital_trade_sbe_v1_0.place_orders_message_orders_groups.dissect(buffer, index, packet, parent)
 
   return index

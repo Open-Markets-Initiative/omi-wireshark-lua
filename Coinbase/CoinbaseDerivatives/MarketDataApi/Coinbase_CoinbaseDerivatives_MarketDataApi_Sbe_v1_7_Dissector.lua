@@ -31,7 +31,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.buy_order_id = Pr
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.cfi_code = ProtoField.new("Cfi Code", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.cficode", ftypes.STRING, nil, nil, nil, "cfiCode")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.channel_id = ProtoField.new("Channel Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.channelid", ftypes.UINT16, nil, nil, nil, "Channel identifier for product/instrument set")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.close_price = ProtoField.new("Close Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.closeprice", ftypes.DOUBLE, nil, nil, nil, "closePrice")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.contract_size = ProtoField.new("Contract Size", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.contractsize", ftypes.INT64, nil, nil, nil, "contractSize")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.contract_size = ProtoField.new("Contract Size", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.contractsize", ftypes.DOUBLE, nil, nil, nil, "contractSize")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.currency = ProtoField.new("Currency", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.currency", ftypes.STRING, nil, nil, nil, "Currency used for price")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.day_of_month = ProtoField.new("Day Of Month", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.dayofmonth", ftypes.INT16, nil, nil, nil, "dayOfMonth")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.day_open_price = ProtoField.new("Day Open Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.dayopenprice", ftypes.DOUBLE, nil, nil, nil, "dayOpenPrice")
@@ -676,11 +676,17 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.contract_size.display = func
   return "Contract Size: "..value
 end
 
+-- Translate: Contract Size
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.contract_size.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Contract Size
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.contract_size.dissect = function(buffer, offset, packet, parent)
   local length = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.contract_size.size
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.contract_size.translate(raw)
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.contract_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.contract_size, range, value, display)
@@ -1102,7 +1108,20 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.instrument_side.size = 1
 
 -- Display: Instrument Side
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.instrument_side.display = function(value)
-  return "Instrument Side: "..value
+  if value == 1 then
+    return "Instrument Side: Buy (1)"
+  end
+  if value == -1 then
+    return "Instrument Side: Sell (-1)"
+  end
+  if value == 0 then
+    return "Instrument Side: Opening Fill (0)"
+  end
+  if value == -128 then
+    return "Instrument Side: No Value"
+  end
+
+  return "Instrument Side: Unknown("..value..")"
 end
 
 -- Dissect: Instrument Side
@@ -3880,7 +3899,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.instr_header.fields = functi
   -- Instrument Flags: 1 Byte Unsigned Fixed Width Integer
   index, instrument_flags = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.instrument_flags.dissect(buffer, index, packet, parent)
 
-  -- Instrument Side: 1 Byte Signed Fixed Width Integer
+  -- Instrument Side: 1 Byte Signed Fixed Width Integer Enum with 4 values
   index, instrument_side = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.instrument_side.dissect(buffer, index, packet, parent)
 
   -- Instrument Id: int32

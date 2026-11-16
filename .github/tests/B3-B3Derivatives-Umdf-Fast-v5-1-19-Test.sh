@@ -61,26 +61,6 @@ grep "b3.b3derivatives.umdf.fast.v5.1.19.tradedate" B3.B3Derivatives.Umdf.Fast.v
 grep "b3.b3derivatives.umdf.fast.v5.1.19.nomdentries" B3.B3Derivatives.Umdf.Fast.v5.1.19.Mdincrefresh158.json
 decode=()
 while read -r port; do decode+=(-d "udp.port==$port,omi.b3.b3derivatives.umdf.fast.v5.1.19"); done \
-  < <(runuser -u tester -- tshark -r "omi-data-packets/B3/B3Derivatives.Umdf.Fast.v5.1.19/MDIncRefresh_158.Delta.pcap" -T fields -e udp.dstport | tr -d '\r' | sort -u)
-
-[ ${#decode[@]} -gt 0 ] || { echo "--- no udp port in capture (MDIncRefresh_158.Delta) ---"; exit 1; }
-
-runuser -u tester -- tshark \
-  -r "omi-data-packets/B3/B3Derivatives.Umdf.Fast.v5.1.19/MDIncRefresh_158.Delta.pcap" \
-  "${decode[@]}" \
-  -X "lua_script:B3/B3Derivatives/Umdf/B3_B3Derivatives_Umdf_Fast_v5_1_19_Dissector.lua" \
-  -T json \
-  > B3.B3Derivatives.Umdf.Fast.v5.1.19.Mdincrefresh158Delta.json 2> B3.B3Derivatives.Umdf.Fast.v5.1.19.Mdincrefresh158Delta.json.stderr \
-  || { echo "--- tshark FAILED (MDIncRefresh_158.Delta) ---"; cat B3.B3Derivatives.Umdf.Fast.v5.1.19.Mdincrefresh158Delta.json.stderr; exit 1; }
-
-grep "b3.b3derivatives.umdf.fast.v5.1.19.applverid" B3.B3Derivatives.Umdf.Fast.v5.1.19.Mdincrefresh158Delta.json
-grep "b3.b3derivatives.umdf.fast.v5.1.19.msgtype" B3.B3Derivatives.Umdf.Fast.v5.1.19.Mdincrefresh158Delta.json
-grep "b3.b3derivatives.umdf.fast.v5.1.19.msgseqnum" B3.B3Derivatives.Umdf.Fast.v5.1.19.Mdincrefresh158Delta.json
-grep "b3.b3derivatives.umdf.fast.v5.1.19.sendingtime.uint64" B3.B3Derivatives.Umdf.Fast.v5.1.19.Mdincrefresh158Delta.json
-grep "b3.b3derivatives.umdf.fast.v5.1.19.tradedate" B3.B3Derivatives.Umdf.Fast.v5.1.19.Mdincrefresh158Delta.json
-grep "b3.b3derivatives.umdf.fast.v5.1.19.nomdentries" B3.B3Derivatives.Umdf.Fast.v5.1.19.Mdincrefresh158Delta.json
-decode=()
-while read -r port; do decode+=(-d "udp.port==$port,omi.b3.b3derivatives.umdf.fast.v5.1.19"); done \
   < <(runuser -u tester -- tshark -r "omi-data-packets/B3/B3Derivatives.Umdf.Fast.v5.1.19/MDIncRefresh_81.pcap" -T fields -e udp.dstport | tr -d '\r' | sort -u)
 
 [ ${#decode[@]} -gt 0 ] || { echo "--- no udp port in capture (MDIncRefresh_81) ---"; exit 1; }

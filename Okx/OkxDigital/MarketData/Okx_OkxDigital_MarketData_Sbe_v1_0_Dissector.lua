@@ -22,14 +22,14 @@ omi_okx_okxdigital_marketdata_sbe_v1_0.fields.bid_ord_count = ProtoField.new("Bi
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.bid_px_mantissa = ProtoField.new("Bid Px Mantissa", "okx.okxdigital.marketdata.sbe.v1.0.bidpxmantissa", ftypes.INT64, nil, nil, nil, "bidPxMantissa")
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.bid_sz_mantissa = ProtoField.new("Bid Sz Mantissa", "okx.okxdigital.marketdata.sbe.v1.0.bidszmantissa", ftypes.INT64, nil, nil, nil, "bidSzMantissa")
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.block_length = ProtoField.new("Block Length", "okx.okxdigital.marketdata.sbe.v1.0.blocklength", ftypes.UINT16, nil, nil, nil, "blockLength")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_asks_group = ProtoField.new("Books L 2 Tbt Channel Event Message asks Group", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessageasksgroup", ftypes.STRING, nil, nil, nil, "asks")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_asks_groups = ProtoField.new("Books L 2 Tbt Channel Event Message asks Groups", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_bids_group = ProtoField.new("Books L 2 Tbt Channel Event Message bids Group", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_bids_groups = ProtoField.new("Books L 2 Tbt Channel Event Message bids Groups", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_asks_group = ProtoField.new("Books L 2 Tbt Elp Channel Event Message asks Group", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessageasksgroup", ftypes.STRING, nil, nil, nil, "asks")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_asks_groups = ProtoField.new("Books L 2 Tbt Elp Channel Event Message asks Groups", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_bids_group = ProtoField.new("Books L 2 Tbt Elp Channel Event Message bids Group", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_bids_groups = ProtoField.new("Books L 2 Tbt Elp Channel Event Message bids Groups", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_asks_group = ProtoField.new("Books L 2 Tbt Channel Event Message Asks Group", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessageasksgroup", ftypes.STRING, nil, nil, nil, "asks")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_asks_groups = ProtoField.new("Books L 2 Tbt Channel Event Message Asks Groups", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_bids_group = ProtoField.new("Books L 2 Tbt Channel Event Message Bids Group", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_bids_groups = ProtoField.new("Books L 2 Tbt Channel Event Message Bids Groups", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_asks_group = ProtoField.new("Books L 2 Tbt Elp Channel Event Message Asks Group", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessageasksgroup", ftypes.STRING, nil, nil, nil, "asks")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_asks_groups = ProtoField.new("Books L 2 Tbt Elp Channel Event Message Asks Groups", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_bids_group = ProtoField.new("Books L 2 Tbt Elp Channel Event Message Bids Group", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_bids_groups = ProtoField.new("Books L 2 Tbt Elp Channel Event Message Bids Groups", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.count = ProtoField.new("Count", "okx.okxdigital.marketdata.sbe.v1.0.count", ftypes.INT16)
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.group_size_16_encoding = ProtoField.new("Group Size 16 Encoding", "okx.okxdigital.marketdata.sbe.v1.0.groupsize16encoding", ftypes.STRING, nil, nil, nil, "groupSize16Encoding")
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.inst_id_code = ProtoField.new("Inst Id Code", "okx.okxdigital.marketdata.sbe.v1.0.instidcode", ftypes.INT64, nil, nil, nil, "instIdCode")
@@ -42,10 +42,10 @@ omi_okx_okxdigital_marketdata_sbe_v1_0.fields.px_mantissa = ProtoField.new("Px M
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.schema_id = ProtoField.new("Schema Id", "okx.okxdigital.marketdata.sbe.v1.0.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema the message belongs to")
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.seq_id = ProtoField.new("Seq Id", "okx.okxdigital.marketdata.sbe.v1.0.seqid", ftypes.INT64, nil, nil, nil, "seqId")
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.side = ProtoField.new("Side", "okx.okxdigital.marketdata.sbe.v1.0.side", ftypes.INT8)
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_asks_group = ProtoField.new("Snapshot Depth Response Event Message asks Group", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessageasksgroup", ftypes.STRING, nil, nil, nil, "asks")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_asks_groups = ProtoField.new("Snapshot Depth Response Event Message asks Groups", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_bids_group = ProtoField.new("Snapshot Depth Response Event Message bids Group", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_bids_groups = ProtoField.new("Snapshot Depth Response Event Message bids Groups", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_asks_group = ProtoField.new("Snapshot Depth Response Event Message Asks Group", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessageasksgroup", ftypes.STRING, nil, nil, nil, "asks")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_asks_groups = ProtoField.new("Snapshot Depth Response Event Message Asks Groups", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_bids_group = ProtoField.new("Snapshot Depth Response Event Message Bids Group", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_bids_groups = ProtoField.new("Snapshot Depth Response Event Message Bids Groups", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.source = ProtoField.new("Source", "okx.okxdigital.marketdata.sbe.v1.0.source", ftypes.INT8)
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.sz_exponent = ProtoField.new("Sz Exponent", "okx.okxdigital.marketdata.sbe.v1.0.szexponent", ftypes.INT8, nil, nil, nil, "szExponent")
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.sz_mantissa = ProtoField.new("Sz Mantissa", "okx.okxdigital.marketdata.sbe.v1.0.szmantissa", ftypes.INT64, nil, nil, nil, "szMantissa")
@@ -69,12 +69,12 @@ omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_mess
 omi_okx_okxdigital_marketdata_sbe_v1_0.fields.trades_channel_event_message = ProtoField.new("Trades Channel Event Message", "okx.okxdigital.marketdata.sbe.v1.0.tradeschanneleventmessage", ftypes.STRING, nil, nil, nil, "TradesChannelEventMessage")
 
 -- Okx OkxDigital MarketData Sbe 1.0 Generated Fields
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_asks_group_index = ProtoField.new("Books L 2 Tbt Channel Event Message asks Group Index", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessageasksgroupindex", ftypes.UINT16)
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_bids_group_index = ProtoField.new("Books L 2 Tbt Channel Event Message bids Group Index", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessagebidsgroupindex", ftypes.UINT16)
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_asks_group_index = ProtoField.new("Books L 2 Tbt Elp Channel Event Message asks Group Index", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessageasksgroupindex", ftypes.UINT16)
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_bids_group_index = ProtoField.new("Books L 2 Tbt Elp Channel Event Message bids Group Index", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessagebidsgroupindex", ftypes.UINT16)
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_asks_group_index = ProtoField.new("Snapshot Depth Response Event Message asks Group Index", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessageasksgroupindex", ftypes.UINT16)
-omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_bids_group_index = ProtoField.new("Snapshot Depth Response Event Message bids Group Index", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessagebidsgroupindex", ftypes.UINT16)
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_asks_group_index = ProtoField.new("Books L 2 Tbt Channel Event Message Asks Group Index", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessageasksgroupindex", ftypes.UINT16)
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_bids_group_index = ProtoField.new("Books L 2 Tbt Channel Event Message Bids Group Index", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtchanneleventmessagebidsgroupindex", ftypes.UINT16)
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_asks_group_index = ProtoField.new("Books L 2 Tbt Elp Channel Event Message Asks Group Index", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessageasksgroupindex", ftypes.UINT16)
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_bids_group_index = ProtoField.new("Books L 2 Tbt Elp Channel Event Message Bids Group Index", "okx.okxdigital.marketdata.sbe.v1.0.booksl2tbtelpchanneleventmessagebidsgroupindex", ftypes.UINT16)
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_asks_group_index = ProtoField.new("Snapshot Depth Response Event Message Asks Group Index", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessageasksgroupindex", ftypes.UINT16)
+omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_bids_group_index = ProtoField.new("Snapshot Depth Response Event Message Bids Group Index", "okx.okxdigital.marketdata.sbe.v1.0.snapshotdepthresponseeventmessagebidsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -707,7 +707,7 @@ okx_okxdigital_marketdata_sbe_v1_0.version.size = 2
 -- Display: Version
 okx_okxdigital_marketdata_sbe_v1_0.version.display = function(value)
   if value == 0 then
-    return "Version: 1.0.0"
+    return "Version: 0"
   end
 
   return "Version: Unknown("..value..")"
@@ -730,25 +730,25 @@ end
 -- Dissect Okx OkxDigital MarketData Sbe 1.0
 -----------------------------------------------------------------------
 
--- Snapshot Depth Response Event Message bids Group
+-- Snapshot Depth Response Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_group = {}
 
--- Size: Snapshot Depth Response Event Message bids Group
+-- Size: Snapshot Depth Response Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_group.size =
   okx_okxdigital_marketdata_sbe_v1_0.px_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.sz_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.ord_count.size
 
--- Display: Snapshot Depth Response Event Message bids Group
+-- Display: Snapshot Depth Response Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Snapshot Depth Response Event Message bids Group
+-- Dissect Fields: Snapshot Depth Response Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_group.fields = function(buffer, offset, packet, parent, snapshot_depth_response_event_message_bids_group_index)
   local index = offset
 
-  -- Implicit Snapshot Depth Response Event Message bids Group Index
+  -- Implicit Snapshot Depth Response Event Message Bids Group Index
   if snapshot_depth_response_event_message_bids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_bids_group_index, snapshot_depth_response_event_message_bids_group_index)
     iteration:set_generated()
@@ -766,7 +766,7 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_gr
   return index
 end
 
--- Dissect: Snapshot Depth Response Event Message bids Group
+-- Dissect: Snapshot Depth Response Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_group.dissect = function(buffer, offset, packet, parent, snapshot_depth_response_event_message_bids_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -828,10 +828,10 @@ okx_okxdigital_marketdata_sbe_v1_0.group_size_16_encoding.dissect = function(buf
   end
 end
 
--- Snapshot Depth Response Event Message bids Groups
+-- Snapshot Depth Response Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_groups = {}
 
--- Calculate size of: Snapshot Depth Response Event Message bids Groups
+-- Calculate size of: Snapshot Depth Response Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_groups.size = function(buffer, offset)
   local index = 0
 
@@ -844,12 +844,12 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_gr
   return index
 end
 
--- Display: Snapshot Depth Response Event Message bids Groups
+-- Display: Snapshot Depth Response Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Snapshot Depth Response Event Message bids Groups
+-- Dissect Fields: Snapshot Depth Response Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -859,7 +859,7 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_gr
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Snapshot Depth Response Event Message bids Group
+  -- Repeating: Snapshot Depth Response Event Message Bids Group
   for snapshot_depth_response_event_message_bids_group_index = 1, num_in_group do
     index, snapshot_depth_response_event_message_bids_group = okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_group.dissect(buffer, index, packet, parent, snapshot_depth_response_event_message_bids_group_index)
   end
@@ -867,7 +867,7 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_gr
   return index
 end
 
--- Dissect: Snapshot Depth Response Event Message bids Groups
+-- Dissect: Snapshot Depth Response Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -885,25 +885,25 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_gr
   end
 end
 
--- Snapshot Depth Response Event Message asks Group
+-- Snapshot Depth Response Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_group = {}
 
--- Size: Snapshot Depth Response Event Message asks Group
+-- Size: Snapshot Depth Response Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_group.size =
   okx_okxdigital_marketdata_sbe_v1_0.px_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.sz_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.ord_count.size
 
--- Display: Snapshot Depth Response Event Message asks Group
+-- Display: Snapshot Depth Response Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Snapshot Depth Response Event Message asks Group
+-- Dissect Fields: Snapshot Depth Response Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_group.fields = function(buffer, offset, packet, parent, snapshot_depth_response_event_message_asks_group_index)
   local index = offset
 
-  -- Implicit Snapshot Depth Response Event Message asks Group Index
+  -- Implicit Snapshot Depth Response Event Message Asks Group Index
   if snapshot_depth_response_event_message_asks_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_marketdata_sbe_v1_0.fields.snapshot_depth_response_event_message_asks_group_index, snapshot_depth_response_event_message_asks_group_index)
     iteration:set_generated()
@@ -921,7 +921,7 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_gr
   return index
 end
 
--- Dissect: Snapshot Depth Response Event Message asks Group
+-- Dissect: Snapshot Depth Response Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_group.dissect = function(buffer, offset, packet, parent, snapshot_depth_response_event_message_asks_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -939,10 +939,10 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_gr
   end
 end
 
--- Snapshot Depth Response Event Message asks Groups
+-- Snapshot Depth Response Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_groups = {}
 
--- Calculate size of: Snapshot Depth Response Event Message asks Groups
+-- Calculate size of: Snapshot Depth Response Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_groups.size = function(buffer, offset)
   local index = 0
 
@@ -955,12 +955,12 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_gr
   return index
 end
 
--- Display: Snapshot Depth Response Event Message asks Groups
+-- Display: Snapshot Depth Response Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Snapshot Depth Response Event Message asks Groups
+-- Dissect Fields: Snapshot Depth Response Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -970,7 +970,7 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_gr
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Snapshot Depth Response Event Message asks Group
+  -- Repeating: Snapshot Depth Response Event Message Asks Group
   for snapshot_depth_response_event_message_asks_group_index = 1, num_in_group do
     index, snapshot_depth_response_event_message_asks_group = okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_group.dissect(buffer, index, packet, parent, snapshot_depth_response_event_message_asks_group_index)
   end
@@ -978,7 +978,7 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_gr
   return index
 end
 
--- Dissect: Snapshot Depth Response Event Message asks Groups
+-- Dissect: Snapshot Depth Response Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1044,10 +1044,10 @@ okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message.fields 
   -- Sz Exponent: int8
   index, sz_exponent = okx_okxdigital_marketdata_sbe_v1_0.sz_exponent.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Depth Response Event Message asks Groups: Struct of 2 fields
+  -- Snapshot Depth Response Event Message Asks Groups: Struct of 2 fields
   index, snapshot_depth_response_event_message_asks_groups = okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_asks_groups.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Depth Response Event Message bids Groups: Struct of 2 fields
+  -- Snapshot Depth Response Event Message Bids Groups: Struct of 2 fields
   index, snapshot_depth_response_event_message_bids_groups = okx_okxdigital_marketdata_sbe_v1_0.snapshot_depth_response_event_message_bids_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -1219,25 +1219,25 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_exponent_update_event_messa
   end
 end
 
--- Books L 2 Tbt Elp Channel Event Message bids Group
+-- Books L 2 Tbt Elp Channel Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_group = {}
 
--- Size: Books L 2 Tbt Elp Channel Event Message bids Group
+-- Size: Books L 2 Tbt Elp Channel Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_group.size =
   okx_okxdigital_marketdata_sbe_v1_0.px_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.sz_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.ord_count.size
 
--- Display: Books L 2 Tbt Elp Channel Event Message bids Group
+-- Display: Books L 2 Tbt Elp Channel Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Books L 2 Tbt Elp Channel Event Message bids Group
+-- Dissect Fields: Books L 2 Tbt Elp Channel Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_group.fields = function(buffer, offset, packet, parent, books_l_2_tbt_elp_channel_event_message_bids_group_index)
   local index = offset
 
-  -- Implicit Books L 2 Tbt Elp Channel Event Message bids Group Index
+  -- Implicit Books L 2 Tbt Elp Channel Event Message Bids Group Index
   if books_l_2_tbt_elp_channel_event_message_bids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_bids_group_index, books_l_2_tbt_elp_channel_event_message_bids_group_index)
     iteration:set_generated()
@@ -1255,7 +1255,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_
   return index
 end
 
--- Dissect: Books L 2 Tbt Elp Channel Event Message bids Group
+-- Dissect: Books L 2 Tbt Elp Channel Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_group.dissect = function(buffer, offset, packet, parent, books_l_2_tbt_elp_channel_event_message_bids_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1273,10 +1273,10 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_
   end
 end
 
--- Books L 2 Tbt Elp Channel Event Message bids Groups
+-- Books L 2 Tbt Elp Channel Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_groups = {}
 
--- Calculate size of: Books L 2 Tbt Elp Channel Event Message bids Groups
+-- Calculate size of: Books L 2 Tbt Elp Channel Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1289,12 +1289,12 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_
   return index
 end
 
--- Display: Books L 2 Tbt Elp Channel Event Message bids Groups
+-- Display: Books L 2 Tbt Elp Channel Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Books L 2 Tbt Elp Channel Event Message bids Groups
+-- Dissect Fields: Books L 2 Tbt Elp Channel Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1304,7 +1304,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Books L 2 Tbt Elp Channel Event Message bids Group
+  -- Repeating: Books L 2 Tbt Elp Channel Event Message Bids Group
   for books_l_2_tbt_elp_channel_event_message_bids_group_index = 1, num_in_group do
     index, books_l_2_tbt_elp_channel_event_message_bids_group = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_group.dissect(buffer, index, packet, parent, books_l_2_tbt_elp_channel_event_message_bids_group_index)
   end
@@ -1312,7 +1312,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_
   return index
 end
 
--- Dissect: Books L 2 Tbt Elp Channel Event Message bids Groups
+-- Dissect: Books L 2 Tbt Elp Channel Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1330,25 +1330,25 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_
   end
 end
 
--- Books L 2 Tbt Elp Channel Event Message asks Group
+-- Books L 2 Tbt Elp Channel Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_group = {}
 
--- Size: Books L 2 Tbt Elp Channel Event Message asks Group
+-- Size: Books L 2 Tbt Elp Channel Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_group.size =
   okx_okxdigital_marketdata_sbe_v1_0.px_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.sz_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.ord_count.size
 
--- Display: Books L 2 Tbt Elp Channel Event Message asks Group
+-- Display: Books L 2 Tbt Elp Channel Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Books L 2 Tbt Elp Channel Event Message asks Group
+-- Dissect Fields: Books L 2 Tbt Elp Channel Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_group.fields = function(buffer, offset, packet, parent, books_l_2_tbt_elp_channel_event_message_asks_group_index)
   local index = offset
 
-  -- Implicit Books L 2 Tbt Elp Channel Event Message asks Group Index
+  -- Implicit Books L 2 Tbt Elp Channel Event Message Asks Group Index
   if books_l_2_tbt_elp_channel_event_message_asks_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_elp_channel_event_message_asks_group_index, books_l_2_tbt_elp_channel_event_message_asks_group_index)
     iteration:set_generated()
@@ -1366,7 +1366,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_
   return index
 end
 
--- Dissect: Books L 2 Tbt Elp Channel Event Message asks Group
+-- Dissect: Books L 2 Tbt Elp Channel Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_group.dissect = function(buffer, offset, packet, parent, books_l_2_tbt_elp_channel_event_message_asks_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1384,10 +1384,10 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_
   end
 end
 
--- Books L 2 Tbt Elp Channel Event Message asks Groups
+-- Books L 2 Tbt Elp Channel Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_groups = {}
 
--- Calculate size of: Books L 2 Tbt Elp Channel Event Message asks Groups
+-- Calculate size of: Books L 2 Tbt Elp Channel Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1400,12 +1400,12 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_
   return index
 end
 
--- Display: Books L 2 Tbt Elp Channel Event Message asks Groups
+-- Display: Books L 2 Tbt Elp Channel Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Books L 2 Tbt Elp Channel Event Message asks Groups
+-- Dissect Fields: Books L 2 Tbt Elp Channel Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1415,7 +1415,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Books L 2 Tbt Elp Channel Event Message asks Group
+  -- Repeating: Books L 2 Tbt Elp Channel Event Message Asks Group
   for books_l_2_tbt_elp_channel_event_message_asks_group_index = 1, num_in_group do
     index, books_l_2_tbt_elp_channel_event_message_asks_group = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_group.dissect(buffer, index, packet, parent, books_l_2_tbt_elp_channel_event_message_asks_group_index)
   end
@@ -1423,7 +1423,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_
   return index
 end
 
--- Dissect: Books L 2 Tbt Elp Channel Event Message asks Groups
+-- Dissect: Books L 2 Tbt Elp Channel Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1499,10 +1499,10 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message.field
   -- Sz Exponent: int8
   index, sz_exponent = okx_okxdigital_marketdata_sbe_v1_0.sz_exponent.dissect(buffer, index, packet, parent)
 
-  -- Books L 2 Tbt Elp Channel Event Message asks Groups: Struct of 2 fields
+  -- Books L 2 Tbt Elp Channel Event Message Asks Groups: Struct of 2 fields
   index, books_l_2_tbt_elp_channel_event_message_asks_groups = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_asks_groups.dissect(buffer, index, packet, parent)
 
-  -- Books L 2 Tbt Elp Channel Event Message bids Groups: Struct of 2 fields
+  -- Books L 2 Tbt Elp Channel Event Message Bids Groups: Struct of 2 fields
   index, books_l_2_tbt_elp_channel_event_message_bids_groups = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_elp_channel_event_message_bids_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -1590,25 +1590,25 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_exponent_update_event_message.d
   end
 end
 
--- Books L 2 Tbt Channel Event Message bids Group
+-- Books L 2 Tbt Channel Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_group = {}
 
--- Size: Books L 2 Tbt Channel Event Message bids Group
+-- Size: Books L 2 Tbt Channel Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_group.size =
   okx_okxdigital_marketdata_sbe_v1_0.px_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.sz_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.ord_count.size
 
--- Display: Books L 2 Tbt Channel Event Message bids Group
+-- Display: Books L 2 Tbt Channel Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Books L 2 Tbt Channel Event Message bids Group
+-- Dissect Fields: Books L 2 Tbt Channel Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_group.fields = function(buffer, offset, packet, parent, books_l_2_tbt_channel_event_message_bids_group_index)
   local index = offset
 
-  -- Implicit Books L 2 Tbt Channel Event Message bids Group Index
+  -- Implicit Books L 2 Tbt Channel Event Message Bids Group Index
   if books_l_2_tbt_channel_event_message_bids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_bids_group_index, books_l_2_tbt_channel_event_message_bids_group_index)
     iteration:set_generated()
@@ -1626,7 +1626,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_grou
   return index
 end
 
--- Dissect: Books L 2 Tbt Channel Event Message bids Group
+-- Dissect: Books L 2 Tbt Channel Event Message Bids Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_group.dissect = function(buffer, offset, packet, parent, books_l_2_tbt_channel_event_message_bids_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1644,10 +1644,10 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_grou
   end
 end
 
--- Books L 2 Tbt Channel Event Message bids Groups
+-- Books L 2 Tbt Channel Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_groups = {}
 
--- Calculate size of: Books L 2 Tbt Channel Event Message bids Groups
+-- Calculate size of: Books L 2 Tbt Channel Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1660,12 +1660,12 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_grou
   return index
 end
 
--- Display: Books L 2 Tbt Channel Event Message bids Groups
+-- Display: Books L 2 Tbt Channel Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Books L 2 Tbt Channel Event Message bids Groups
+-- Dissect Fields: Books L 2 Tbt Channel Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1675,7 +1675,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_grou
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Books L 2 Tbt Channel Event Message bids Group
+  -- Repeating: Books L 2 Tbt Channel Event Message Bids Group
   for books_l_2_tbt_channel_event_message_bids_group_index = 1, num_in_group do
     index, books_l_2_tbt_channel_event_message_bids_group = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_group.dissect(buffer, index, packet, parent, books_l_2_tbt_channel_event_message_bids_group_index)
   end
@@ -1683,7 +1683,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_grou
   return index
 end
 
--- Dissect: Books L 2 Tbt Channel Event Message bids Groups
+-- Dissect: Books L 2 Tbt Channel Event Message Bids Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1701,25 +1701,25 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_grou
   end
 end
 
--- Books L 2 Tbt Channel Event Message asks Group
+-- Books L 2 Tbt Channel Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_group = {}
 
--- Size: Books L 2 Tbt Channel Event Message asks Group
+-- Size: Books L 2 Tbt Channel Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_group.size =
   okx_okxdigital_marketdata_sbe_v1_0.px_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.sz_mantissa.size + 
   okx_okxdigital_marketdata_sbe_v1_0.ord_count.size
 
--- Display: Books L 2 Tbt Channel Event Message asks Group
+-- Display: Books L 2 Tbt Channel Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Books L 2 Tbt Channel Event Message asks Group
+-- Dissect Fields: Books L 2 Tbt Channel Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_group.fields = function(buffer, offset, packet, parent, books_l_2_tbt_channel_event_message_asks_group_index)
   local index = offset
 
-  -- Implicit Books L 2 Tbt Channel Event Message asks Group Index
+  -- Implicit Books L 2 Tbt Channel Event Message Asks Group Index
   if books_l_2_tbt_channel_event_message_asks_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_okx_okxdigital_marketdata_sbe_v1_0.fields.books_l_2_tbt_channel_event_message_asks_group_index, books_l_2_tbt_channel_event_message_asks_group_index)
     iteration:set_generated()
@@ -1737,7 +1737,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_grou
   return index
 end
 
--- Dissect: Books L 2 Tbt Channel Event Message asks Group
+-- Dissect: Books L 2 Tbt Channel Event Message Asks Group
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_group.dissect = function(buffer, offset, packet, parent, books_l_2_tbt_channel_event_message_asks_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1755,10 +1755,10 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_grou
   end
 end
 
--- Books L 2 Tbt Channel Event Message asks Groups
+-- Books L 2 Tbt Channel Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_groups = {}
 
--- Calculate size of: Books L 2 Tbt Channel Event Message asks Groups
+-- Calculate size of: Books L 2 Tbt Channel Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1771,12 +1771,12 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_grou
   return index
 end
 
--- Display: Books L 2 Tbt Channel Event Message asks Groups
+-- Display: Books L 2 Tbt Channel Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Books L 2 Tbt Channel Event Message asks Groups
+-- Dissect Fields: Books L 2 Tbt Channel Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1786,7 +1786,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_grou
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Books L 2 Tbt Channel Event Message asks Group
+  -- Repeating: Books L 2 Tbt Channel Event Message Asks Group
   for books_l_2_tbt_channel_event_message_asks_group_index = 1, num_in_group do
     index, books_l_2_tbt_channel_event_message_asks_group = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_group.dissect(buffer, index, packet, parent, books_l_2_tbt_channel_event_message_asks_group_index)
   end
@@ -1794,7 +1794,7 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_grou
   return index
 end
 
--- Dissect: Books L 2 Tbt Channel Event Message asks Groups
+-- Dissect: Books L 2 Tbt Channel Event Message Asks Groups
 okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1870,10 +1870,10 @@ okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message.fields = 
   -- Sz Exponent: int8
   index, sz_exponent = okx_okxdigital_marketdata_sbe_v1_0.sz_exponent.dissect(buffer, index, packet, parent)
 
-  -- Books L 2 Tbt Channel Event Message asks Groups: Struct of 2 fields
+  -- Books L 2 Tbt Channel Event Message Asks Groups: Struct of 2 fields
   index, books_l_2_tbt_channel_event_message_asks_groups = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_asks_groups.dissect(buffer, index, packet, parent)
 
-  -- Books L 2 Tbt Channel Event Message bids Groups: Struct of 2 fields
+  -- Books L 2 Tbt Channel Event Message Bids Groups: Struct of 2 fields
   index, books_l_2_tbt_channel_event_message_bids_groups = okx_okxdigital_marketdata_sbe_v1_0.books_l_2_tbt_channel_event_message_bids_groups.dissect(buffer, index, packet, parent)
 
   return index

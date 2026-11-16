@@ -226,17 +226,17 @@ jobs:
       - name: Run Miax PearlEquities ExpressOrders Meo 2.6 Dissector Tests
         run: bash -x .github/tests/Miax-PearlEquities-ExpressOrders-Meo-v2-6-Test.sh
 
-      - name: Run Moex Spectra FutInfoIncremental Simba 9.12.0 Dissector Tests
-        run: bash -x .github/tests/Moex-Spectra-FutInfoIncremental-Simba-v9-12-0-Test.sh
+      - name: Run Moex Spectra FutInfoIncremental Simba 8.0.0 Dissector Tests
+        run: bash -x .github/tests/Moex-Spectra-FutInfoIncremental-Simba-v8-0-0-Test.sh
 
-      - name: Run Moex Spectra OptInfoIncremental Simba 9.12.0 Dissector Tests
-        run: bash -x .github/tests/Moex-Spectra-OptInfoIncremental-Simba-v9-12-0-Test.sh
+      - name: Run Moex Spectra OptInfoIncremental Simba 8.0.0 Dissector Tests
+        run: bash -x .github/tests/Moex-Spectra-OptInfoIncremental-Simba-v8-0-0-Test.sh
 
-      - name: Run Moex Spectra OrdersLogIncremental Simba 9.12.0 Dissector Tests
-        run: bash -x .github/tests/Moex-Spectra-OrdersLogIncremental-Simba-v9-12-0-Test.sh
+      - name: Run Moex Spectra OrdersLogIncremental Simba 8.0.0 Dissector Tests
+        run: bash -x .github/tests/Moex-Spectra-OrdersLogIncremental-Simba-v8-0-0-Test.sh
 
-      - name: Run Moex Spectra OrdersLogSnapshot Simba 9.12.0 Dissector Tests
-        run: bash -x .github/tests/Moex-Spectra-OrdersLogSnapshot-Simba-v9-12-0-Test.sh
+      - name: Run Moex Spectra OrdersLogSnapshot Simba 8.0.0 Dissector Tests
+        run: bash -x .github/tests/Moex-Spectra-OrdersLogSnapshot-Simba-v8-0-0-Test.sh
 
       - name: Run Nasdaq IseOptions OrderComboFeed Itch 1.1 Dissector Tests
         run: bash -x .github/tests/Nasdaq-IseOptions-OrderComboFeed-Itch-v1-1-Test.sh

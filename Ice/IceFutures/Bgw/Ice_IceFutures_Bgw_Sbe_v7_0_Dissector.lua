@@ -389,20 +389,14 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_framing_header = ProtoField.n
 -- Ice IceFutures Bgw 7.0 Application Messages
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cancel_replace_request_message = ProtoField.new("Cancel Replace Request Message", "ice.icefutures.bgw.sbe.v7.0.cancelreplacerequestmessage", ftypes.STRING, nil, nil, nil, "CancelReplaceRequestMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cancel_request_message = ProtoField.new("Cancel Request Message", "ice.icefutures.bgw.sbe.v7.0.cancelrequestmessage", ftypes.STRING, nil, nil, nil, "CancelRequestMessage")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.error_message = ProtoField.new("Error Message", "ice.icefutures.bgw.sbe.v7.0.errormessage", ftypes.STRING, nil, nil, nil, "ErrorMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.execution_report_cancel_message = ProtoField.new("Execution Report Cancel Message", "ice.icefutures.bgw.sbe.v7.0.executionreportcancelmessage", ftypes.STRING, nil, nil, nil, "ExecutionReport_CancelMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.execution_report_modify_message = ProtoField.new("Execution Report Modify Message", "ice.icefutures.bgw.sbe.v7.0.executionreportmodifymessage", ftypes.STRING, nil, nil, nil, "ExecutionReport_ModifyMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.execution_report_new_message = ProtoField.new("Execution Report New Message", "ice.icefutures.bgw.sbe.v7.0.executionreportnewmessage", ftypes.STRING, nil, nil, nil, "ExecutionReport_NewMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.execution_report_reject_message = ProtoField.new("Execution Report Reject Message", "ice.icefutures.bgw.sbe.v7.0.executionreportrejectmessage", ftypes.STRING, nil, nil, nil, "ExecutionReport_RejectMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.execution_report_snapshot_message = ProtoField.new("Execution Report Snapshot Message", "ice.icefutures.bgw.sbe.v7.0.executionreportsnapshotmessage", ftypes.STRING, nil, nil, nil, "ExecutionReport_SnapshotMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.execution_report_trade_message = ProtoField.new("Execution Report Trade Message", "ice.icefutures.bgw.sbe.v7.0.executionreporttrademessage", ftypes.STRING, nil, nil, nil, "ExecutionReport_TradeMessage")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.heart_beat_message = ProtoField.new("Heart Beat Message", "ice.icefutures.bgw.sbe.v7.0.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "HeartBeatMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ip_report_message = ProtoField.new("Ip Report Message", "ice.icefutures.bgw.sbe.v7.0.ipreportmessage", ftypes.STRING, nil, nil, nil, "IPReportMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ip_request_message = ProtoField.new("Ip Request Message", "ice.icefutures.bgw.sbe.v7.0.iprequestmessage", ftypes.STRING, nil, nil, nil, "IPRequestMessage")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.logon_report_message = ProtoField.new("Logon Report Message", "ice.icefutures.bgw.sbe.v7.0.logonreportmessage", ftypes.STRING, nil, nil, nil, "LogonReportMessage")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.logon_request_message = ProtoField.new("Logon Request Message", "ice.icefutures.bgw.sbe.v7.0.logonrequestmessage", ftypes.STRING, nil, nil, nil, "LogonRequestMessage")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.logout_report_message = ProtoField.new("Logout Report Message", "ice.icefutures.bgw.sbe.v7.0.logoutreportmessage", ftypes.STRING, nil, nil, nil, "LogoutReportMessage")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.logout_request_message = ProtoField.new("Logout Request Message", "ice.icefutures.bgw.sbe.v7.0.logoutrequestmessage", ftypes.STRING, nil, nil, nil, "LogoutRequestMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message = ProtoField.new("Mass Quote Report Message", "ice.icefutures.bgw.sbe.v7.0.massquotereportmessage", ftypes.STRING, nil, nil, nil, "MassQuoteReportMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message = ProtoField.new("Mass Quote Request Message", "ice.icefutures.bgw.sbe.v7.0.massquoterequestmessage", ftypes.STRING, nil, nil, nil, "MassQuoteRequestMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_report_message = ProtoField.new("New Order Cross Report Message", "ice.icefutures.bgw.sbe.v7.0.newordercrossreportmessage", ftypes.STRING, nil, nil, nil, "NewOrderCrossReportMessage")
@@ -414,8 +408,6 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.order_mass_cancel_request_message = Proto
 omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message = ProtoField.new("Quote Cancel Request Message", "ice.icefutures.bgw.sbe.v7.0.quotecancelrequestmessage", ftypes.STRING, nil, nil, nil, "QuoteCancelRequestMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_report_message = ProtoField.new("Quote Report Message", "ice.icefutures.bgw.sbe.v7.0.quotereportmessage", ftypes.STRING, nil, nil, nil, "QuoteReportMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_request_message = ProtoField.new("Quote Request Message", "ice.icefutures.bgw.sbe.v7.0.quoterequestmessage", ftypes.STRING, nil, nil, nil, "QuoteRequestMessage")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.resend_report_message = ProtoField.new("Resend Report Message", "ice.icefutures.bgw.sbe.v7.0.resendreportmessage", ftypes.STRING, nil, nil, nil, "ResendReportMessage")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.resend_request_message = ProtoField.new("Resend Request Message", "ice.icefutures.bgw.sbe.v7.0.resendrequestmessage", ftypes.STRING, nil, nil, nil, "ResendRequestMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_reject_message = ProtoField.new("Security Definition Reject Message", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrejectmessage", ftypes.STRING, nil, nil, nil, "SecurityDefinitionRejectMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message = ProtoField.new("Security Definition Report Message", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessage", ftypes.STRING, nil, nil, nil, "SecurityDefinitionReportMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_product_message = ProtoField.new("Security Definition Report Product Message", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportproductmessage", ftypes.STRING, nil, nil, nil, "SecurityDefinitionReport_ProductMessage")
@@ -423,8 +415,18 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_messa
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_flex_message = ProtoField.new("Security Definition Request Create Flex Message", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreateflexmessage", ftypes.STRING, nil, nil, nil, "SecurityDefinitionRequest_CreateFlexMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message = ProtoField.new("Security Definition Request Create Strategy Message", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessage", ftypes.STRING, nil, nil, nil, "SecurityDefinitionRequest_CreateStrategyMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_message = ProtoField.new("Security Definition Request Message", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestmessage", ftypes.STRING, nil, nil, nil, "SecurityDefinitionRequestMessage")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "ice.icefutures.bgw.sbe.v7.0.sequenceresetmessage", ftypes.STRING, nil, nil, nil, "SequenceResetMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_framing_header_message = ProtoField.new("Simple Open Framing Header Message", "ice.icefutures.bgw.sbe.v7.0.simpleopenframingheadermessage", ftypes.STRING, nil, nil, nil, "SimpleOpenFramingHeaderMessage")
+
+-- Ice IceFutures Bgw 7.0 Session Messages
+omi_ice_icefutures_bgw_sbe_v7_0.fields.error_message = ProtoField.new("Error Message", "ice.icefutures.bgw.sbe.v7.0.errormessage", ftypes.STRING, nil, nil, nil, "ErrorMessage")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.heart_beat_message = ProtoField.new("Heart Beat Message", "ice.icefutures.bgw.sbe.v7.0.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "HeartBeatMessage")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.logon_report_message = ProtoField.new("Logon Report Message", "ice.icefutures.bgw.sbe.v7.0.logonreportmessage", ftypes.STRING, nil, nil, nil, "LogonReportMessage")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.logon_request_message = ProtoField.new("Logon Request Message", "ice.icefutures.bgw.sbe.v7.0.logonrequestmessage", ftypes.STRING, nil, nil, nil, "LogonRequestMessage")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.logout_report_message = ProtoField.new("Logout Report Message", "ice.icefutures.bgw.sbe.v7.0.logoutreportmessage", ftypes.STRING, nil, nil, nil, "LogoutReportMessage")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.logout_request_message = ProtoField.new("Logout Request Message", "ice.icefutures.bgw.sbe.v7.0.logoutrequestmessage", ftypes.STRING, nil, nil, nil, "LogoutRequestMessage")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.resend_report_message = ProtoField.new("Resend Report Message", "ice.icefutures.bgw.sbe.v7.0.resendreportmessage", ftypes.STRING, nil, nil, nil, "ResendReportMessage")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.resend_request_message = ProtoField.new("Resend Request Message", "ice.icefutures.bgw.sbe.v7.0.resendrequestmessage", ftypes.STRING, nil, nil, nil, "ResendRequestMessage")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "ice.icefutures.bgw.sbe.v7.0.sequenceresetmessage", ftypes.STRING, nil, nil, nil, "SequenceResetMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logon_report_message = ProtoField.new("Trader Logon Report Message", "ice.icefutures.bgw.sbe.v7.0.traderlogonreportmessage", ftypes.STRING, nil, nil, nil, "TraderLogonReportMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logon_request_message = ProtoField.new("Trader Logon Request Message", "ice.icefutures.bgw.sbe.v7.0.traderlogonrequestmessage", ftypes.STRING, nil, nil, nil, "TraderLogonRequestMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logout_report_message = ProtoField.new("Trader Logout Report Message", "ice.icefutures.bgw.sbe.v7.0.traderlogoutreportmessage", ftypes.STRING, nil, nil, nil, "TraderLogoutReportMessage")
@@ -468,6 +470,7 @@ local show = {}
 -- Ice IceFutures Bgw Sbe 7.0 Element Dissection Options
 show.application_messages = true
 show.structs = true
+show.session_messages = true
 show.repeating_groups = true
 show.headers = true
 show.indexes = true
@@ -475,6 +478,7 @@ show.indexes = true
 -- Register Ice IceFutures Bgw Sbe 7.0 Show Options
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
@@ -493,6 +497,9 @@ function omi_ice_icefutures_bgw_sbe_v7_0.prefs_changed()
   end
   if show.repeating_groups ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups
+  end
+  if show.session_messages ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_session_messages then
+    show.session_messages = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_session_messages
   end
   if show.structs ~= omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_structs then
     show.structs = omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_structs
@@ -8979,7 +8986,7 @@ end
 
 -- Dissect: Sequence Reset Message
 ice_icefutures_bgw_sbe_v7_0.sequence_reset_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.sequence_reset_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.sequence_reset_message.fields(buffer, offset, packet, parent)
@@ -9035,7 +9042,7 @@ end
 
 -- Dissect: Resend Report Message
 ice_icefutures_bgw_sbe_v7_0.resend_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.resend_report_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.resend_report_message.fields(buffer, offset, packet, parent)
@@ -9079,7 +9086,7 @@ end
 
 -- Dissect: Resend Request Message
 ice_icefutures_bgw_sbe_v7_0.resend_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.resend_request_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.resend_request_message.fields(buffer, offset, packet, parent)
@@ -12327,7 +12334,7 @@ end
 
 -- Dissect: Trader Logout Report Message
 ice_icefutures_bgw_sbe_v7_0.trader_logout_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logout_report_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.trader_logout_report_message.fields(buffer, offset, packet, parent)
@@ -12367,7 +12374,7 @@ end
 
 -- Dissect: Trader Logout Request Message
 ice_icefutures_bgw_sbe_v7_0.trader_logout_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logout_request_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.trader_logout_request_message.fields(buffer, offset, packet, parent)
@@ -12419,7 +12426,7 @@ end
 
 -- Dissect: Trader Logon Report Message
 ice_icefutures_bgw_sbe_v7_0.trader_logon_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logon_report_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.trader_logon_report_message.fields(buffer, offset, packet, parent)
@@ -12495,7 +12502,7 @@ end
 
 -- Dissect: Trader Logon Request Message
 ice_icefutures_bgw_sbe_v7_0.trader_logon_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logon_request_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.trader_logon_request_message.fields(buffer, offset, packet, parent)
@@ -15717,7 +15724,7 @@ end
 
 -- Dissect: Error Message
 ice_icefutures_bgw_sbe_v7_0.error_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.error_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.error_message.fields(buffer, offset, packet, parent)
@@ -15782,7 +15789,7 @@ end
 
 -- Dissect: Logout Report Message
 ice_icefutures_bgw_sbe_v7_0.logout_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.logout_report_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.logout_report_message.fields(buffer, offset, packet, parent)
@@ -15822,7 +15829,7 @@ end
 
 -- Dissect: Logout Request Message
 ice_icefutures_bgw_sbe_v7_0.logout_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.logout_request_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.logout_request_message.fields(buffer, offset, packet, parent)
@@ -15878,7 +15885,7 @@ end
 
 -- Dissect: Logon Report Message
 ice_icefutures_bgw_sbe_v7_0.logon_report_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.logon_report_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.logon_report_message.fields(buffer, offset, packet, parent)
@@ -15946,7 +15953,7 @@ end
 
 -- Dissect: Logon Request Message
 ice_icefutures_bgw_sbe_v7_0.logon_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
+  if show.session_messages then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.logon_request_message, buffer(offset, 0))
     local index = ice_icefutures_bgw_sbe_v7_0.logon_request_message.fields(buffer, offset, packet, parent)

@@ -1,0 +1,2892 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Moex Spectra OrdersLogReplay Simba 1.0.4 Protocol
+local omi_moex_spectra_orderslogreplay_simba_v1_0_4 = Proto("Omi.Moex.Spectra.OrdersLogReplay.Simba.v1.0.4", "Moex Spectra OrdersLogReplay Simba 1.0.4")
+
+-- Protocol table
+local moex_spectra_orderslogreplay_simba_v1_0_4 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Moex Spectra OrdersLogReplay Simba 1.0.4 Fields
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.active_side = ProtoField.new("Active Side", "moex.spectra.orderslogreplay.simba.v1.0.4.activeside", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000020000000000, "ActiveSide")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.appl_beg_seq_num = ProtoField.new("Appl Beg Seq Num", "moex.spectra.orderslogreplay.simba.v1.0.4.applbegseqnum", ftypes.UINT32, nil, nil, nil, "ApplBegSeqNum")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.appl_end_seq_num = ProtoField.new("Appl End Seq Num", "moex.spectra.orderslogreplay.simba.v1.0.4.applendseqnum", ftypes.UINT32, nil, nil, nil, "ApplEndSeqNum")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.best_prices_message_no_m_d_entries_group = ProtoField.new("Best Prices Message No M D Entries Group", "moex.spectra.orderslogreplay.simba.v1.0.4.bestpricesmessagenomdentriesgroup", ftypes.STRING, nil, nil, nil, "NoMDEntries")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.best_prices_message_no_m_d_entries_groups = ProtoField.new("Best Prices Message No M D Entries Groups", "moex.spectra.orderslogreplay.simba.v1.0.4.bestpricesmessagenomdentriesgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.bid_empty_book = ProtoField.new("Bid Empty Book", "moex.spectra.orderslogreplay.simba.v1.0.4.bidemptybook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "BidEmptyBook")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.block_length = ProtoField.new("Block Length", "moex.spectra.orderslogreplay.simba.v1.0.4.blocklength", ftypes.UINT16, nil, nil, nil, "blockLength")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.bp_flags = ProtoField.new("Bp Flags", "moex.spectra.orderslogreplay.simba.v1.0.4.bpflags", ftypes.STRING, nil, nil, nil, "BPFlagsSet bit set")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.cancel = ProtoField.new("Cancel", "moex.spectra.orderslogreplay.simba.v1.0.4.cancel", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000200000)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.cod = ProtoField.new("Cod", "moex.spectra.orderslogreplay.simba.v1.0.4.cod", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000100000000)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.cross_trade = ProtoField.new("Cross Trade", "moex.spectra.orderslogreplay.simba.v1.0.4.crosstrade", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000020000000, "CrossTrade")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.day = ProtoField.new("Day", "moex.spectra.orderslogreplay.simba.v1.0.4.day", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000001)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.end_of_snapshot = ProtoField.new("End Of Snapshot", "moex.spectra.orderslogreplay.simba.v1.0.4.endofsnapshot", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "EndOfSnapshot")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.end_of_transaction = ProtoField.new("End Of Transaction", "moex.spectra.orderslogreplay.simba.v1.0.4.endoftransaction", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000001000, "EndOfTransaction")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.exchange_trading_session_i_d_uint_32_optional = ProtoField.new("Exchange Trading Session I D uint 32 optional", "moex.spectra.orderslogreplay.simba.v1.0.4.exchangetradingsessioniduint32optional", ftypes.UINT32, nil, nil, nil, "ExchangeTradingSessionID")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.fok = ProtoField.new("Fok", "moex.spectra.orderslogreplay.simba.v1.0.4.fok", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000080000)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.group_size = ProtoField.new("Group Size", "moex.spectra.orderslogreplay.simba.v1.0.4.groupsize", ftypes.STRING, nil, nil, nil, "groupSize")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.incremental_packet = ProtoField.new("Incremental Packet", "moex.spectra.orderslogreplay.simba.v1.0.4.incrementalpacket", ftypes.UINT16, {[0]="Snapshot Packet", [1]="Incremental Packet"}, base.DEC, 0x0008, "IncrementalPacket")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.incremental_packet_header = ProtoField.new("Incremental Packet Header", "moex.spectra.orderslogreplay.simba.v1.0.4.incrementalpacketheader", ftypes.STRING, nil, nil, nil, "MarketDataDummyMessage")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.ioc = ProtoField.new("Ioc", "moex.spectra.orderslogreplay.simba.v1.0.4.ioc", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000002)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.last_fragment = ProtoField.new("Last Fragment", "moex.spectra.orderslogreplay.simba.v1.0.4.lastfragment", ftypes.UINT16, {[0]="Fragment", [1]="Last Fragment"}, base.DEC, 0x0001, "LastFragment")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.last_msg_seq_num_processed_u_int_32_null_optional = ProtoField.new("Last Msg Seq Num Processed U Int 32 Null optional", "moex.spectra.orderslogreplay.simba.v1.0.4.lastmsgseqnumprocesseduint32nulloptional", ftypes.UINT32, nil, nil, nil, "LastMsgSeqNumProcessed")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.last_px = ProtoField.new("Last Px", "moex.spectra.orderslogreplay.simba.v1.0.4.lastpx", ftypes.DOUBLE, nil, nil, nil, "LastPx")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.last_qty = ProtoField.new("Last Qty", "moex.spectra.orderslogreplay.simba.v1.0.4.lastqty", ftypes.INT64, nil, nil, nil, "LastQty")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "moex.spectra.orderslogreplay.simba.v1.0.4.marketdatapacketheader", ftypes.STRING, nil, nil, nil, "MarketDataDummyMessage")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.mass_cancel = ProtoField.new("Mass Cancel", "moex.spectra.orderslogreplay.simba.v1.0.4.masscancel", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000400000, "MassCancel")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_id_int_64 = ProtoField.new("Md Entry Id Int 64", "moex.spectra.orderslogreplay.simba.v1.0.4.mdentryidint64", ftypes.INT64, nil, nil, nil, "MDEntryID")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_px_decimal_5 = ProtoField.new("Md Entry Px Decimal 5", "moex.spectra.orderslogreplay.simba.v1.0.4.mdentrypxdecimal5", ftypes.DOUBLE, nil, nil, nil, "MDEntryPx")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_px_decimal_5_null_optional = ProtoField.new("Md Entry Px Decimal 5 Null optional", "moex.spectra.orderslogreplay.simba.v1.0.4.mdentrypxdecimal5nulloptional", ftypes.DOUBLE, nil, nil, nil, "MDEntryPx")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_size_int_64 = ProtoField.new("Md Entry Size Int 64", "moex.spectra.orderslogreplay.simba.v1.0.4.mdentrysizeint64", ftypes.INT64, nil, nil, nil, "MDEntrySize")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_size_int_64_null_optional = ProtoField.new("Md Entry Size Int 64 Null optional", "moex.spectra.orderslogreplay.simba.v1.0.4.mdentrysizeint64nulloptional", ftypes.INT64, nil, nil, nil, "MDEntrySize")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_type = ProtoField.new("Md Entry Type", "moex.spectra.orderslogreplay.simba.v1.0.4.mdentrytype", ftypes.STRING, nil, nil, nil, "MDEntryType")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_flags = ProtoField.new("Md Flags", "moex.spectra.orderslogreplay.simba.v1.0.4.mdflags", ftypes.STRING, nil, nil, nil, "MDFlagsSet bit set")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_update_action = ProtoField.new("Md Update Action", "moex.spectra.orderslogreplay.simba.v1.0.4.mdupdateaction", ftypes.UINT8, nil, nil, nil, "MDUpdateAction")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.mkt_bid_px = ProtoField.new("Mkt Bid Px", "moex.spectra.orderslogreplay.simba.v1.0.4.mktbidpx", ftypes.DOUBLE, nil, nil, nil, "Best bid price")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.mkt_offer_px = ProtoField.new("Mkt Offer Px", "moex.spectra.orderslogreplay.simba.v1.0.4.mktofferpx", ftypes.DOUBLE, nil, nil, nil, "Best offer price")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.msg_flags = ProtoField.new("Msg Flags", "moex.spectra.orderslogreplay.simba.v1.0.4.msgflags", ftypes.STRING, nil, nil, nil, "Message flags, least significant bit first, as the schema's MsgFlagsSet declares them")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "moex.spectra.orderslogreplay.simba.v1.0.4.msgseqnum", ftypes.UINT32, nil, nil, nil, "MsgSeqNum")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.msg_size = ProtoField.new("Msg Size", "moex.spectra.orderslogreplay.simba.v1.0.4.msgsize", ftypes.UINT16, nil, nil, nil, "MsgSize")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.multi_leg = ProtoField.new("Multi Leg", "moex.spectra.orderslogreplay.simba.v1.0.4.multileg", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000008000000, "MultiLeg")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.negotiated = ProtoField.new("Negotiated", "moex.spectra.orderslogreplay.simba.v1.0.4.negotiated", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000004000000)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.non_quote = ProtoField.new("Non Quote", "moex.spectra.orderslogreplay.simba.v1.0.4.nonquote", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000004, "NonQuote")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.num_in_group = ProtoField.new("Num In Group", "moex.spectra.orderslogreplay.simba.v1.0.4.numingroup", ftypes.UINT8, nil, nil, nil, "numInGroup")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.offer_empty_book = ProtoField.new("Offer Empty Book", "moex.spectra.orderslogreplay.simba.v1.0.4.offeremptybook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "OfferEmptyBook")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.passive_side = ProtoField.new("Passive Side", "moex.spectra.orderslogreplay.simba.v1.0.4.passiveside", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000040000000000, "PassiveSide")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.poss_dup_flag = ProtoField.new("Poss Dup Flag", "moex.spectra.orderslogreplay.simba.v1.0.4.possdupflag", ftypes.UINT16, {[0]="Online Updates", [1]="Full Order Books"}, base.DEC, 0x0010, "PossDupFlag")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.replace = ProtoField.new("Replace", "moex.spectra.orderslogreplay.simba.v1.0.4.replace", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000100000)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.reserved_17 = ProtoField.new("Reserved 17", "moex.spectra.orderslogreplay.simba.v1.0.4.reserved17", ftypes.UINT64, nil, base.DEC, UInt64(0x00000000, 0xFFFF8000), "17 reserved bits")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.reserved_6 = ProtoField.new("Reserved 6", "moex.spectra.orderslogreplay.simba.v1.0.4.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.reserved_bits = ProtoField.new("Reserved Bits", "moex.spectra.orderslogreplay.simba.v1.0.4.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFFE0, "Bits the schema's MsgFlagsSet leaves unused")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.rfs = ProtoField.new("Rfs", "moex.spectra.orderslogreplay.simba.v1.0.4.rfs", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000400000000000)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.rpt_seq = ProtoField.new("Rpt Seq", "moex.spectra.orderslogreplay.simba.v1.0.4.rptseq", ftypes.UINT32, nil, nil, nil, "RptSeq")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.schema_id = ProtoField.new("Schema Id", "moex.spectra.orderslogreplay.simba.v1.0.4.schemaid", ftypes.UINT16, nil, nil, nil, "Message schema identifier")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.second_leg = ProtoField.new("Second Leg", "moex.spectra.orderslogreplay.simba.v1.0.4.secondleg", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000004000, "SecondLeg")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.security_id = ProtoField.new("Security Id", "moex.spectra.orderslogreplay.simba.v1.0.4.securityid", ftypes.INT32, nil, nil, nil, "SecurityID")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.sending_time = ProtoField.new("Sending Time", "moex.spectra.orderslogreplay.simba.v1.0.4.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.sending_time_utc = ProtoField.new("Sending Time", "moex.spectra.orderslogreplay.simba.v1.0.4.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "SendingTime")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.start_of_snapshot = ProtoField.new("Start Of Snapshot", "moex.spectra.orderslogreplay.simba.v1.0.4.startofsnapshot", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "StartOfSnapshot")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.synthetic = ProtoField.new("Synthetic", "moex.spectra.orderslogreplay.simba.v1.0.4.synthetic", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000200000000000)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.template_id = ProtoField.new("Template Id", "moex.spectra.orderslogreplay.simba.v1.0.4.templateid", ftypes.UINT16, nil, nil, nil, "Message template identifier")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.text = ProtoField.new("Text", "moex.spectra.orderslogreplay.simba.v1.0.4.text", ftypes.STRING)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.trade_id_int_64 = ProtoField.new("Trade Id Int 64", "moex.spectra.orderslogreplay.simba.v1.0.4.tradeidint64", ftypes.INT64, nil, nil, nil, "TradeID")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.transact_time = ProtoField.new("Transact Time", "moex.spectra.orderslogreplay.simba.v1.0.4.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.transact_time_utc = ProtoField.new("Transact Time", "moex.spectra.orderslogreplay.simba.v1.0.4.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TransactTime")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_10 = ProtoField.new("Unused Md Flags Set 10", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset10", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000400, "Unused MDFlagsSet 10")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_11 = ProtoField.new("Unused Md Flags Set 11", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset11", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000800, "Unused MDFlagsSet 11")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_13 = ProtoField.new("Unused Md Flags Set 13", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset13", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000002000, "Unused MDFlagsSet 13")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_15 = ProtoField.new("Unused Md Flags Set 15", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset15", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000008000, "Unused MDFlagsSet 15")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_16 = ProtoField.new("Unused Md Flags Set 16", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset16", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000010000, "Unused MDFlagsSet 16")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_17 = ProtoField.new("Unused Md Flags Set 17", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset17", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000020000, "Unused MDFlagsSet 17")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_18 = ProtoField.new("Unused Md Flags Set 18", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset18", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000040000, "Unused MDFlagsSet 18")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_23 = ProtoField.new("Unused Md Flags Set 23", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset23", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000800000, "Unused MDFlagsSet 23")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_24 = ProtoField.new("Unused Md Flags Set 24", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset24", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000001000000, "Unused MDFlagsSet 24")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_25 = ProtoField.new("Unused Md Flags Set 25", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset25", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000002000000, "Unused MDFlagsSet 25")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_28 = ProtoField.new("Unused Md Flags Set 28", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset28", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000010000000, "Unused MDFlagsSet 28")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_3 = ProtoField.new("Unused Md Flags Set 3", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset3", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000008, "Unused MDFlagsSet 3")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_30 = ProtoField.new("Unused Md Flags Set 30", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset30", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000040000000, "Unused MDFlagsSet 30")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_31 = ProtoField.new("Unused Md Flags Set 31", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset31", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000080000000, "Unused MDFlagsSet 31")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_33 = ProtoField.new("Unused Md Flags Set 33", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset33", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000200000000, "Unused MDFlagsSet 33")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_34 = ProtoField.new("Unused Md Flags Set 34", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset34", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000400000000, "Unused MDFlagsSet 34")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_35 = ProtoField.new("Unused Md Flags Set 35", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset35", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000800000000, "Unused MDFlagsSet 35")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_36 = ProtoField.new("Unused Md Flags Set 36", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset36", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000001000000000, "Unused MDFlagsSet 36")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_37 = ProtoField.new("Unused Md Flags Set 37", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset37", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000002000000000, "Unused MDFlagsSet 37")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_38 = ProtoField.new("Unused Md Flags Set 38", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset38", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000004000000000, "Unused MDFlagsSet 38")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_39 = ProtoField.new("Unused Md Flags Set 39", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset39", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000008000000000, "Unused MDFlagsSet 39")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_4 = ProtoField.new("Unused Md Flags Set 4", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset4", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000010, "Unused MDFlagsSet 4")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_40 = ProtoField.new("Unused Md Flags Set 40", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset40", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000010000000000, "Unused MDFlagsSet 40")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_43 = ProtoField.new("Unused Md Flags Set 43", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset43", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000080000000000, "Unused MDFlagsSet 43")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_44 = ProtoField.new("Unused Md Flags Set 44", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset44", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000100000000000, "Unused MDFlagsSet 44")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_5 = ProtoField.new("Unused Md Flags Set 5", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset5", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000020, "Unused MDFlagsSet 5")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_6 = ProtoField.new("Unused Md Flags Set 6", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset6", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000040, "Unused MDFlagsSet 6")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_7 = ProtoField.new("Unused Md Flags Set 7", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset7", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000080, "Unused MDFlagsSet 7")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_8 = ProtoField.new("Unused Md Flags Set 8", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset8", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000100, "Unused MDFlagsSet 8")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_9 = ProtoField.new("Unused Md Flags Set 9", "moex.spectra.orderslogreplay.simba.v1.0.4.unusedmdflagsset9", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000200, "Unused MDFlagsSet 9")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.version = ProtoField.new("Version", "moex.spectra.orderslogreplay.simba.v1.0.4.version", ftypes.UINT16, nil, nil, nil, "Message schema version")
+
+-- Moex Spectra OrdersLogReplay Simba 1.0.4 Framing
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.client_frame = ProtoField.new("Client Frame", "moex.spectra.orderslogreplay.simba.v1.0.4.clientframe", ftypes.STRING, nil, nil, nil, "One snapshot packet sent by the firm: the unit the Tcp stream repeats")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.client_message = ProtoField.new("Client Message", "moex.spectra.orderslogreplay.simba.v1.0.4.clientmessage", ftypes.STRING, nil, nil, nil, "Moex Simba Replay Request Message")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.client_packet = ProtoField.new("Client Packet", "moex.spectra.orderslogreplay.simba.v1.0.4.clientpacket", ftypes.STRING, nil, nil, nil, "Moex Simba Replay Packets Sent By The Firm")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.sbe_header = ProtoField.new("Sbe Header", "moex.spectra.orderslogreplay.simba.v1.0.4.sbeheader", ftypes.STRING, nil, nil, nil, "Root block length, message template id, message schema id and schema version")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.server_frame = ProtoField.new("Server Frame", "moex.spectra.orderslogreplay.simba.v1.0.4.serverframe", ftypes.STRING, nil, nil, nil, "One packet sent by the gateway, snapshot framed or incremental framed: the unit the Tcp stream repeats")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.server_packet = ProtoField.new("Server Packet", "moex.spectra.orderslogreplay.simba.v1.0.4.serverpacket", ftypes.STRING, nil, nil, nil, "Moex Simba Replay Packets Sent By The Gateway")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.server_replay = ProtoField.new("Server Replay", "moex.spectra.orderslogreplay.simba.v1.0.4.serverreplay", ftypes.STRING, nil, nil, nil, "Market data replayed as it was published on the Incremental Feed: the incremental packet header and the Sbe messages behind it")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.server_replay_message = ProtoField.new("Server Replay Message", "moex.spectra.orderslogreplay.simba.v1.0.4.serverreplaymessage", ftypes.STRING, nil, nil, nil, "Moex Simba Market Data Message, one of the one or more an incremental packet carries")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.server_session = ProtoField.new("Server Session", "moex.spectra.orderslogreplay.simba.v1.0.4.serversession", ftypes.STRING, nil, nil, nil, "Moex Simba Replay Response Message, one Sbe message in a snapshot packet")
+
+-- Moex Spectra OrdersLogReplay 1.0.4 Application Messages
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.best_prices_message = ProtoField.new("Best Prices Message", "moex.spectra.orderslogreplay.simba.v1.0.4.bestpricesmessage", ftypes.STRING, nil, nil, nil, "BestPricesMessage")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.empty_book_message = ProtoField.new("Empty Book Message", "moex.spectra.orderslogreplay.simba.v1.0.4.emptybookmessage", ftypes.STRING, nil, nil, nil, "EmptyBookMessage")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "moex.spectra.orderslogreplay.simba.v1.0.4.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "HeartbeatMessage")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.logon_message = ProtoField.new("Logon Message", "moex.spectra.orderslogreplay.simba.v1.0.4.logonmessage", ftypes.BYTES, nil, nil, nil, "LogonMessage")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.logout_message = ProtoField.new("Logout Message", "moex.spectra.orderslogreplay.simba.v1.0.4.logoutmessage", ftypes.STRING, nil, nil, nil, "LogoutMessage")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.market_data_request_message = ProtoField.new("Market Data Request Message", "moex.spectra.orderslogreplay.simba.v1.0.4.marketdatarequestmessage", ftypes.STRING, nil, nil, nil, "MarketDataRequestMessage")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.order_execution_message = ProtoField.new("Order Execution Message", "moex.spectra.orderslogreplay.simba.v1.0.4.orderexecutionmessage", ftypes.STRING, nil, nil, nil, "OrderExecutionMessage")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.order_update_message = ProtoField.new("Order Update Message", "moex.spectra.orderslogreplay.simba.v1.0.4.orderupdatemessage", ftypes.STRING, nil, nil, nil, "OrderUpdateMessage")
+
+-- Moex Spectra OrdersLogReplay Simba 1.0.4 Generated Fields
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.best_prices_message_no_m_d_entries_group_index = ProtoField.new("Best Prices Message No M D Entries Group Index", "moex.spectra.orderslogreplay.simba.v1.0.4.bestpricesmessagenomdentriesgroupindex", ftypes.UINT16)
+
+-----------------------------------------------------------------------
+-- Moex Spectra OrdersLogReplay Simba 1.0.4 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Full DateTime Local", 2 },
+  { 2, "Full DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+moex_spectra_orderslogreplay_simba_v1_0_4.timestamp_format = 2
+
+-- assumed connection role
+local role_enum = {
+  { 1, "Resolve from the conversation", 0 },
+  { 2, "Initiator", 1 },
+  { 3, "Acceptor", 2 }
+}
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Moex Spectra OrdersLogReplay Simba 1.0.4 Element Dissection Options
+show.application_messages = true
+show.repeating_groups = true
+show.headers = true
+show.structs = true
+show.indexes = true
+
+-- Register Moex Spectra OrdersLogReplay Simba 1.0.4 Show Options
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.acceptor_port = Pref.uint("Acceptor Port", 0, "Port the acceptor listens on; 0 resolves each frame's role from its conversation")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.assume_role = Pref.enum("Assume Role", 0, "Connection role assumed for every frame, for captures that start mid conversation", role_enum, false)
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.swap_sides = Pref.bool("Swap Sides", false, "The first frame seen of each conversation was the acceptor's, not the initiator's; for captures that start mid conversation")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+
+omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
+-- Handle changed preferences
+function omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_application_messages then
+    show.application_messages = omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_application_messages
+  end
+  if show.headers ~= omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_headers then
+    show.headers = omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_repeating_groups then
+    show.repeating_groups = omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_repeating_groups
+  end
+  if show.structs ~= omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_structs then
+    show.structs = omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_structs
+  end
+  if show.indexes ~= omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_indexes then
+    show.indexes = omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.show_indexes
+  end
+  if moex_spectra_orderslogreplay_simba_v1_0_4.timestamp_format ~= omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.timestamp_format then
+    moex_spectra_orderslogreplay_simba_v1_0_4.timestamp_format = omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.timestamp_format
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Moex Spectra OrdersLogReplay Simba 1.0.4 Fields
+-----------------------------------------------------------------------
+
+-- Appl Beg Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.appl_beg_seq_num = {}
+
+-- Size: Appl Beg Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.appl_beg_seq_num.size = 4
+
+-- Display: Appl Beg Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.appl_beg_seq_num.display = function(value)
+  return "Appl Beg Seq Num: "..value
+end
+
+-- Dissect: Appl Beg Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.appl_beg_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.appl_beg_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.appl_beg_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.appl_beg_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Appl End Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.appl_end_seq_num = {}
+
+-- Size: Appl End Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.appl_end_seq_num.size = 4
+
+-- Display: Appl End Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.appl_end_seq_num.display = function(value)
+  return "Appl End Seq Num: "..value
+end
+
+-- Dissect: Appl End Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.appl_end_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.appl_end_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.appl_end_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.appl_end_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Block Length
+moex_spectra_orderslogreplay_simba_v1_0_4.block_length = {}
+
+-- Size: Block Length
+moex_spectra_orderslogreplay_simba_v1_0_4.block_length.size = 2
+
+-- Display: Block Length
+moex_spectra_orderslogreplay_simba_v1_0_4.block_length.display = function(value)
+  return "Block Length: "..value
+end
+
+-- Dissect: Block Length
+moex_spectra_orderslogreplay_simba_v1_0_4.block_length.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.block_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.block_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exchange Trading Session I D uint 32 optional
+moex_spectra_orderslogreplay_simba_v1_0_4.exchange_trading_session_i_d_uint_32_optional = {}
+
+-- Size: Exchange Trading Session I D uint 32 optional
+moex_spectra_orderslogreplay_simba_v1_0_4.exchange_trading_session_i_d_uint_32_optional.size = 4
+
+-- Display: Exchange Trading Session I D uint 32 optional
+moex_spectra_orderslogreplay_simba_v1_0_4.exchange_trading_session_i_d_uint_32_optional.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Exchange Trading Session I D uint 32 optional: No Value"
+  end
+
+  return "Exchange Trading Session I D uint 32 optional: "..value
+end
+
+-- Dissect: Exchange Trading Session I D uint 32 optional
+moex_spectra_orderslogreplay_simba_v1_0_4.exchange_trading_session_i_d_uint_32_optional.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.exchange_trading_session_i_d_uint_32_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.exchange_trading_session_i_d_uint_32_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.exchange_trading_session_i_d_uint_32_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Msg Seq Num Processed U Int 32 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.last_msg_seq_num_processed_u_int_32_null_optional = {}
+
+-- Size: Last Msg Seq Num Processed U Int 32 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.last_msg_seq_num_processed_u_int_32_null_optional.size = 4
+
+-- Display: Last Msg Seq Num Processed U Int 32 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.last_msg_seq_num_processed_u_int_32_null_optional.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Last Msg Seq Num Processed U Int 32 Null optional: No Value"
+  end
+
+  return "Last Msg Seq Num Processed U Int 32 Null optional: "..value
+end
+
+-- Dissect: Last Msg Seq Num Processed U Int 32 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.last_msg_seq_num_processed_u_int_32_null_optional.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.last_msg_seq_num_processed_u_int_32_null_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.last_msg_seq_num_processed_u_int_32_null_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.last_msg_seq_num_processed_u_int_32_null_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Px
+moex_spectra_orderslogreplay_simba_v1_0_4.last_px = {}
+
+-- Size: Last Px
+moex_spectra_orderslogreplay_simba_v1_0_4.last_px.size = 8
+
+-- Display: Last Px
+moex_spectra_orderslogreplay_simba_v1_0_4.last_px.display = function(value)
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+moex_spectra_orderslogreplay_simba_v1_0_4.last_px.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
+-- Dissect: Last Px
+moex_spectra_orderslogreplay_simba_v1_0_4.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.last_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = moex_spectra_orderslogreplay_simba_v1_0_4.last_px.translate(raw)
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.last_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Qty
+moex_spectra_orderslogreplay_simba_v1_0_4.last_qty = {}
+
+-- Size: Last Qty
+moex_spectra_orderslogreplay_simba_v1_0_4.last_qty.size = 8
+
+-- Display: Last Qty
+moex_spectra_orderslogreplay_simba_v1_0_4.last_qty.display = function(value)
+  return "Last Qty: "..value
+end
+
+-- Dissect: Last Qty
+moex_spectra_orderslogreplay_simba_v1_0_4.last_qty.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.last_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.last_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.last_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Id Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_id_int_64 = {}
+
+-- Size: Md Entry Id Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_id_int_64.size = 8
+
+-- Display: Md Entry Id Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_id_int_64.display = function(value)
+  return "Md Entry Id Int 64: "..value
+end
+
+-- Dissect: Md Entry Id Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_id_int_64.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_id_int_64.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_id_int_64.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_id_int_64, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Px Decimal 5
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5 = {}
+
+-- Size: Md Entry Px Decimal 5
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5.size = 8
+
+-- Display: Md Entry Px Decimal 5
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5.display = function(value)
+  return "Md Entry Px Decimal 5: "..value
+end
+
+-- Translate: Md Entry Px Decimal 5
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5.translate = function(raw)
+  return raw:tonumber()/100000
+end
+
+-- Dissect: Md Entry Px Decimal 5
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5.translate(raw)
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_px_decimal_5, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Px Decimal 5 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5_null_optional = {}
+
+-- Size: Md Entry Px Decimal 5 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5_null_optional.size = 8
+
+-- Display: Md Entry Px Decimal 5 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5_null_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Md Entry Px Decimal 5 Null optional: No Value"
+  end
+
+  return "Md Entry Px Decimal 5 Null optional: "..value
+end
+
+-- Translate: Md Entry Px Decimal 5 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5_null_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000
+end
+
+-- Dissect: Md Entry Px Decimal 5 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5_null_optional.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5_null_optional.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5_null_optional.translate(raw)
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5_null_optional.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_px_decimal_5_null_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Size Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64 = {}
+
+-- Size: Md Entry Size Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64.size = 8
+
+-- Display: Md Entry Size Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64.display = function(value)
+  return "Md Entry Size Int 64: "..value
+end
+
+-- Dissect: Md Entry Size Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_size_int_64, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Size Int 64 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64_null_optional = {}
+
+-- Size: Md Entry Size Int 64 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64_null_optional.size = 8
+
+-- Display: Md Entry Size Int 64 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64_null_optional.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Md Entry Size Int 64 Null optional: No Value"
+  end
+
+  return "Md Entry Size Int 64 Null optional: "..value
+end
+
+-- Dissect: Md Entry Size Int 64 Null optional
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64_null_optional.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64_null_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64_null_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_size_int_64_null_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Type
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_type = {}
+
+-- Size: Md Entry Type
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_type.size = 1
+
+-- Display: Md Entry Type
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Md Entry Type: No Value"
+  end
+
+  if value == "0" then
+    return "Md Entry Type: Bid (0)"
+  end
+  if value == "1" then
+    return "Md Entry Type: Offer (1)"
+  end
+  if value == "J" then
+    return "Md Entry Type: Empty Book (J)"
+  end
+
+  return "Md Entry Type: Unknown("..value..")"
+end
+
+-- Dissect: Md Entry Type
+moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_type.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_entry_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Update Action
+moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action = {}
+
+-- Size: Md Update Action
+moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.size = 1
+
+-- Display: Md Update Action
+moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.labels = {
+  [0] = "Md Update Action: New (0)",
+  [1] = "Md Update Action: Change (1)",
+  [2] = "Md Update Action: Delete (2)",
+}
+
+moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.display = function(value)
+  return moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.labels[value] or "Md Update Action: Unknown("..value..")"
+end
+
+-- Dissect: Md Update Action
+moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_update_action, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mkt Bid Px
+moex_spectra_orderslogreplay_simba_v1_0_4.mkt_bid_px = {}
+
+-- Size: Mkt Bid Px
+moex_spectra_orderslogreplay_simba_v1_0_4.mkt_bid_px.size = 8
+
+-- Display: Mkt Bid Px
+moex_spectra_orderslogreplay_simba_v1_0_4.mkt_bid_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Mkt Bid Px: No Value"
+  end
+
+  return "Mkt Bid Px: "..value
+end
+
+-- Translate: Mkt Bid Px
+moex_spectra_orderslogreplay_simba_v1_0_4.mkt_bid_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000
+end
+
+-- Dissect: Mkt Bid Px
+moex_spectra_orderslogreplay_simba_v1_0_4.mkt_bid_px.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.mkt_bid_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = moex_spectra_orderslogreplay_simba_v1_0_4.mkt_bid_px.translate(raw)
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.mkt_bid_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.mkt_bid_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mkt Offer Px
+moex_spectra_orderslogreplay_simba_v1_0_4.mkt_offer_px = {}
+
+-- Size: Mkt Offer Px
+moex_spectra_orderslogreplay_simba_v1_0_4.mkt_offer_px.size = 8
+
+-- Display: Mkt Offer Px
+moex_spectra_orderslogreplay_simba_v1_0_4.mkt_offer_px.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Mkt Offer Px: No Value"
+  end
+
+  return "Mkt Offer Px: "..value
+end
+
+-- Translate: Mkt Offer Px
+moex_spectra_orderslogreplay_simba_v1_0_4.mkt_offer_px.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/100000
+end
+
+-- Dissect: Mkt Offer Px
+moex_spectra_orderslogreplay_simba_v1_0_4.mkt_offer_px.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.mkt_offer_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = moex_spectra_orderslogreplay_simba_v1_0_4.mkt_offer_px.translate(raw)
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.mkt_offer_px.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.mkt_offer_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_seq_num = {}
+
+-- Size: Msg Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_seq_num.size = 4
+
+-- Display: Msg Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_seq_num.display = function(value)
+  return "Msg Seq Num: "..value
+end
+
+-- Dissect: Msg Seq Num
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.msg_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.msg_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.msg_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Msg Size
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_size = {}
+
+-- Size: Msg Size
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_size.size = 2
+
+-- Display: Msg Size
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_size.display = function(value)
+  return "Msg Size: "..value
+end
+
+-- Dissect: Msg Size
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_size.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.msg_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.msg_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.msg_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num In Group
+moex_spectra_orderslogreplay_simba_v1_0_4.num_in_group = {}
+
+-- Size: Num In Group
+moex_spectra_orderslogreplay_simba_v1_0_4.num_in_group.size = 1
+
+-- Display: Num In Group
+moex_spectra_orderslogreplay_simba_v1_0_4.num_in_group.display = function(value)
+  return "Num In Group: "..value
+end
+
+-- Dissect: Num In Group
+moex_spectra_orderslogreplay_simba_v1_0_4.num_in_group.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.num_in_group.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.num_in_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.num_in_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rpt Seq
+moex_spectra_orderslogreplay_simba_v1_0_4.rpt_seq = {}
+
+-- Size: Rpt Seq
+moex_spectra_orderslogreplay_simba_v1_0_4.rpt_seq.size = 4
+
+-- Display: Rpt Seq
+moex_spectra_orderslogreplay_simba_v1_0_4.rpt_seq.display = function(value)
+  return "Rpt Seq: "..value
+end
+
+-- Dissect: Rpt Seq
+moex_spectra_orderslogreplay_simba_v1_0_4.rpt_seq.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.rpt_seq.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.rpt_seq.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.rpt_seq, range, value, display)
+
+  return offset + length, value
+end
+
+-- Schema Id
+moex_spectra_orderslogreplay_simba_v1_0_4.schema_id = {}
+
+-- Size: Schema Id
+moex_spectra_orderslogreplay_simba_v1_0_4.schema_id.size = 2
+
+-- Display: Schema Id
+moex_spectra_orderslogreplay_simba_v1_0_4.schema_id.display = function(value)
+  if value == 19780 then
+    return "Schema Id: 19780"
+  end
+
+  return "Schema Id: Unknown("..value..")"
+end
+
+-- Dissect: Schema Id
+moex_spectra_orderslogreplay_simba_v1_0_4.schema_id.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.schema_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.schema_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.schema_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Security Id
+moex_spectra_orderslogreplay_simba_v1_0_4.security_id = {}
+
+-- Size: Security Id
+moex_spectra_orderslogreplay_simba_v1_0_4.security_id.size = 4
+
+-- Display: Security Id
+moex_spectra_orderslogreplay_simba_v1_0_4.security_id.display = function(value)
+  return "Security Id: "..value
+end
+
+-- Dissect: Security Id
+moex_spectra_orderslogreplay_simba_v1_0_4.security_id.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.security_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sending Time
+moex_spectra_orderslogreplay_simba_v1_0_4.sending_time = {}
+
+-- Size: Sending Time
+moex_spectra_orderslogreplay_simba_v1_0_4.sending_time.size = 8
+
+-- Dissect: Sending Time
+moex_spectra_orderslogreplay_simba_v1_0_4.sending_time.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.sending_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.sending_time
+  if moex_spectra_orderslogreplay_simba_v1_0_4.timestamp_format == 3 then field = omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Template Id
+moex_spectra_orderslogreplay_simba_v1_0_4.template_id = {}
+
+-- Size: Template Id
+moex_spectra_orderslogreplay_simba_v1_0_4.template_id.size = 2
+
+-- Display: Template Id
+moex_spectra_orderslogreplay_simba_v1_0_4.template_id.labels = {
+  [1] = "Template Id: Heartbeat Message (1)",
+  [2] = "Template Id: Sequence Reset Message (2)",
+  [3] = "Template Id: Best Prices Message (3)",
+  [4] = "Template Id: Empty Book Message (4)",
+  [5] = "Template Id: Order Update Message (5)",
+  [6] = "Template Id: Order Execution Message (6)",
+  [7] = "Template Id: Order Book Snapshot Message (7)",
+  [8] = "Template Id: Security Definition Message (8)",
+  [9] = "Template Id: Security Status Message (9)",
+  [10] = "Template Id: Security Definition Update Report Message (10)",
+  [11] = "Template Id: Trading Session Status Message (11)",
+  [1000] = "Template Id: Logon Message (1000)",
+  [1001] = "Template Id: Logout Message (1001)",
+  [1002] = "Template Id: Market Data Request Message (1002)",
+  [1003] = "Template Id: Market Data Dummy Message (1003)",
+}
+
+moex_spectra_orderslogreplay_simba_v1_0_4.template_id.display = function(value)
+  return moex_spectra_orderslogreplay_simba_v1_0_4.template_id.labels[value] or "Template Id: Unknown("..value..")"
+end
+
+-- Dissect: Template Id
+moex_spectra_orderslogreplay_simba_v1_0_4.template_id.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.template_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.template_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Text
+moex_spectra_orderslogreplay_simba_v1_0_4.text = {}
+
+-- Size: Text
+moex_spectra_orderslogreplay_simba_v1_0_4.text.size = 256
+
+-- Display: Text
+moex_spectra_orderslogreplay_simba_v1_0_4.text.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text: No Value"
+  end
+
+  return "Text: "..value
+end
+
+-- Dissect: Text
+moex_spectra_orderslogreplay_simba_v1_0_4.text.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.text.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.text, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Id Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.trade_id_int_64 = {}
+
+-- Size: Trade Id Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.trade_id_int_64.size = 8
+
+-- Display: Trade Id Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.trade_id_int_64.display = function(value)
+  return "Trade Id Int 64: "..value
+end
+
+-- Dissect: Trade Id Int 64
+moex_spectra_orderslogreplay_simba_v1_0_4.trade_id_int_64.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.trade_id_int_64.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.trade_id_int_64.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.trade_id_int_64, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transact Time
+moex_spectra_orderslogreplay_simba_v1_0_4.transact_time = {}
+
+-- Size: Transact Time
+moex_spectra_orderslogreplay_simba_v1_0_4.transact_time.size = 8
+
+-- Dissect: Transact Time
+moex_spectra_orderslogreplay_simba_v1_0_4.transact_time.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.transact_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.transact_time
+  if moex_spectra_orderslogreplay_simba_v1_0_4.timestamp_format == 3 then field = omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Version
+moex_spectra_orderslogreplay_simba_v1_0_4.version = {}
+
+-- Size: Version
+moex_spectra_orderslogreplay_simba_v1_0_4.version.size = 2
+
+-- Display: Version
+moex_spectra_orderslogreplay_simba_v1_0_4.version.display = function(value)
+  if value == 0 then
+    return "Version: 0"
+  end
+
+  return "Version: Unknown("..value..")"
+end
+
+-- Dissect: Version
+moex_spectra_orderslogreplay_simba_v1_0_4.version.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v1_0_4.version.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.version, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Moex Spectra OrdersLogReplay Simba 1.0.4
+-----------------------------------------------------------------------
+
+-- Md Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.md_flags = {}
+
+-- Size: Md Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.size = 8
+
+-- Display: Md Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Day flag set?
+  if value:band(0x0000000000000001) ~= UInt64(0) then
+    flags[#flags + 1] = "Day"
+  end
+  -- Is Ioc flag set?
+  if value:band(0x0000000000000002) ~= UInt64(0) then
+    flags[#flags + 1] = "Ioc"
+  end
+  -- Is Non Quote flag set?
+  if value:band(0x0000000000000004) ~= UInt64(0) then
+    flags[#flags + 1] = "Non Quote"
+  end
+  -- Is End Of Transaction flag set?
+  if value:band(0x0000000000001000) ~= UInt64(0) then
+    flags[#flags + 1] = "End Of Transaction"
+  end
+  -- Is Second Leg flag set?
+  if value:band(0x0000000000004000) ~= UInt64(0) then
+    flags[#flags + 1] = "Second Leg"
+  end
+  -- Is Fok flag set?
+  if value:band(0x0000000000080000) ~= UInt64(0) then
+    flags[#flags + 1] = "Fok"
+  end
+  -- Is Replace flag set?
+  if value:band(0x0000000000100000) ~= UInt64(0) then
+    flags[#flags + 1] = "Replace"
+  end
+  -- Is Cancel flag set?
+  if value:band(0x0000000000200000) ~= UInt64(0) then
+    flags[#flags + 1] = "Cancel"
+  end
+  -- Is Mass Cancel flag set?
+  if value:band(0x0000000000400000) ~= UInt64(0) then
+    flags[#flags + 1] = "Mass Cancel"
+  end
+  -- Is Negotiated flag set?
+  if value:band(0x0000000004000000) ~= UInt64(0) then
+    flags[#flags + 1] = "Negotiated"
+  end
+  -- Is Multi Leg flag set?
+  if value:band(0x0000000008000000) ~= UInt64(0) then
+    flags[#flags + 1] = "Multi Leg"
+  end
+  -- Is Cross Trade flag set?
+  if value:band(0x0000000020000000) ~= UInt64(0) then
+    flags[#flags + 1] = "Cross Trade"
+  end
+  -- Is Cod flag set?
+  if value:band(0x0000000100000000) ~= UInt64(0) then
+    flags[#flags + 1] = "Cod"
+  end
+  -- Is Active Side flag set?
+  if value:band(0x0000020000000000) ~= UInt64(0) then
+    flags[#flags + 1] = "Active Side"
+  end
+  -- Is Passive Side flag set?
+  if value:band(0x0000040000000000) ~= UInt64(0) then
+    flags[#flags + 1] = "Passive Side"
+  end
+  -- Is Synthetic flag set?
+  if value:band(0x0000200000000000) ~= UInt64(0) then
+    flags[#flags + 1] = "Synthetic"
+  end
+  -- Is Rfs flag set?
+  if value:band(0x0000400000000000) ~= UInt64(0) then
+    flags[#flags + 1] = "Rfs"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Md Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.bits = function(range, value, packet, parent)
+
+  -- Day: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.day, range, value)
+
+  -- Ioc: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.ioc, range, value)
+
+  -- Non Quote: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.non_quote, range, value)
+
+  -- Unused Md Flags Set 3: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_3, range, value)
+
+  -- Unused Md Flags Set 4: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_4, range, value)
+
+  -- Unused Md Flags Set 5: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_5, range, value)
+
+  -- Unused Md Flags Set 6: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_6, range, value)
+
+  -- Unused Md Flags Set 7: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_7, range, value)
+
+  -- Unused Md Flags Set 8: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_8, range, value)
+
+  -- Unused Md Flags Set 9: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_9, range, value)
+
+  -- Unused Md Flags Set 10: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_10, range, value)
+
+  -- Unused Md Flags Set 11: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_11, range, value)
+
+  -- End Of Transaction: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.end_of_transaction, range, value)
+
+  -- Unused Md Flags Set 13: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_13, range, value)
+
+  -- Second Leg: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.second_leg, range, value)
+
+  -- Unused Md Flags Set 15: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_15, range, value)
+
+  -- Unused Md Flags Set 16: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_16, range, value)
+
+  -- Unused Md Flags Set 17: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_17, range, value)
+
+  -- Unused Md Flags Set 18: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_18, range, value)
+
+  -- Fok: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.fok, range, value)
+
+  -- Replace: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.replace, range, value)
+
+  -- Cancel: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.cancel, range, value)
+
+  -- Mass Cancel: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.mass_cancel, range, value)
+
+  -- Unused Md Flags Set 23: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_23, range, value)
+
+  -- Unused Md Flags Set 24: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_24, range, value)
+
+  -- Unused Md Flags Set 25: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_25, range, value)
+
+  -- Negotiated: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.negotiated, range, value)
+
+  -- Multi Leg: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.multi_leg, range, value)
+
+  -- Unused Md Flags Set 28: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_28, range, value)
+
+  -- Cross Trade: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.cross_trade, range, value)
+
+  -- Unused Md Flags Set 30: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_30, range, value)
+
+  -- Unused Md Flags Set 31: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_31, range, value)
+
+  -- Cod: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.cod, range, value)
+
+  -- Unused Md Flags Set 33: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_33, range, value)
+
+  -- Unused Md Flags Set 34: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_34, range, value)
+
+  -- Unused Md Flags Set 35: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_35, range, value)
+
+  -- Unused Md Flags Set 36: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_36, range, value)
+
+  -- Unused Md Flags Set 37: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_37, range, value)
+
+  -- Unused Md Flags Set 38: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_38, range, value)
+
+  -- Unused Md Flags Set 39: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_39, range, value)
+
+  -- Unused Md Flags Set 40: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_40, range, value)
+
+  -- Active Side: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.active_side, range, value)
+
+  -- Passive Side: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.passive_side, range, value)
+
+  -- Unused Md Flags Set 43: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_43, range, value)
+
+  -- Unused Md Flags Set 44: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.unused_md_flags_set_44, range, value)
+
+  -- Synthetic: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.synthetic, range, value)
+
+  -- Rfs: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.rfs, range, value)
+
+  -- Reserved 17: 17 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.reserved_17, range, value)
+end
+
+-- Dissect: Md Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.dissect = function(buffer, offset, packet, parent)
+  local size = moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint64()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.display(range, value, packet, parent)
+  local element = parent:add_le(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.md_flags, range, display)
+
+  if show.structs then
+    moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Order Execution Message
+moex_spectra_orderslogreplay_simba_v1_0_4.order_execution_message = {}
+
+-- Size: Order Execution Message
+moex_spectra_orderslogreplay_simba_v1_0_4.order_execution_message.size =
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_id_int_64.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5_null_optional.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64_null_optional.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.last_px.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.last_qty.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.trade_id_int_64.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.security_id.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.rpt_seq.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_type.size
+
+-- Display: Order Execution Message
+moex_spectra_orderslogreplay_simba_v1_0_4.order_execution_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Execution Message
+moex_spectra_orderslogreplay_simba_v1_0_4.order_execution_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Md Entry Id Int 64: Int64
+  index, md_entry_id_int_64 = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_id_int_64.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Px Decimal 5 Null optional: Decimal5NULL
+  index, md_entry_px_decimal_5_null_optional = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5_null_optional.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Size Int 64 Null optional: Int64NULL
+  index, md_entry_size_int_64_null_optional = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64_null_optional.dissect(buffer, index, packet, parent)
+
+  -- Last Px: Decimal5
+  index, last_px = moex_spectra_orderslogreplay_simba_v1_0_4.last_px.dissect(buffer, index, packet, parent)
+
+  -- Last Qty: Int64
+  index, last_qty = moex_spectra_orderslogreplay_simba_v1_0_4.last_qty.dissect(buffer, index, packet, parent)
+
+  -- Trade Id Int 64: Int64
+  index, trade_id_int_64 = moex_spectra_orderslogreplay_simba_v1_0_4.trade_id_int_64.dissect(buffer, index, packet, parent)
+
+  -- Md Flags: Struct of 48 fields
+  index, md_flags = moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Int32
+  index, security_id = moex_spectra_orderslogreplay_simba_v1_0_4.security_id.dissect(buffer, index, packet, parent)
+
+  -- Rpt Seq: uInt32
+  index, rpt_seq = moex_spectra_orderslogreplay_simba_v1_0_4.rpt_seq.dissect(buffer, index, packet, parent)
+
+  -- Md Update Action: MDUpdateAction
+  index, md_update_action = moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Type: MDEntryType
+  index, md_entry_type = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Execution Message
+moex_spectra_orderslogreplay_simba_v1_0_4.order_execution_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.order_execution_message, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.order_execution_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.order_execution_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.order_execution_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Update Message
+moex_spectra_orderslogreplay_simba_v1_0_4.order_update_message = {}
+
+-- Size: Order Update Message
+moex_spectra_orderslogreplay_simba_v1_0_4.order_update_message.size =
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_id_int_64.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.security_id.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.rpt_seq.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_type.size
+
+-- Display: Order Update Message
+moex_spectra_orderslogreplay_simba_v1_0_4.order_update_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Update Message
+moex_spectra_orderslogreplay_simba_v1_0_4.order_update_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Md Entry Id Int 64: Int64
+  index, md_entry_id_int_64 = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_id_int_64.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Px Decimal 5: Decimal5
+  index, md_entry_px_decimal_5 = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_px_decimal_5.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Size Int 64: Int64
+  index, md_entry_size_int_64 = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_size_int_64.dissect(buffer, index, packet, parent)
+
+  -- Md Flags: Struct of 48 fields
+  index, md_flags = moex_spectra_orderslogreplay_simba_v1_0_4.md_flags.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Int32
+  index, security_id = moex_spectra_orderslogreplay_simba_v1_0_4.security_id.dissect(buffer, index, packet, parent)
+
+  -- Rpt Seq: uInt32
+  index, rpt_seq = moex_spectra_orderslogreplay_simba_v1_0_4.rpt_seq.dissect(buffer, index, packet, parent)
+
+  -- Md Update Action: MDUpdateAction
+  index, md_update_action = moex_spectra_orderslogreplay_simba_v1_0_4.md_update_action.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Type: MDEntryType
+  index, md_entry_type = moex_spectra_orderslogreplay_simba_v1_0_4.md_entry_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Update Message
+moex_spectra_orderslogreplay_simba_v1_0_4.order_update_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.order_update_message, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.order_update_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.order_update_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.order_update_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Empty Book Message
+moex_spectra_orderslogreplay_simba_v1_0_4.empty_book_message = {}
+
+-- Size: Empty Book Message
+moex_spectra_orderslogreplay_simba_v1_0_4.empty_book_message.size =
+  moex_spectra_orderslogreplay_simba_v1_0_4.last_msg_seq_num_processed_u_int_32_null_optional.size
+
+-- Display: Empty Book Message
+moex_spectra_orderslogreplay_simba_v1_0_4.empty_book_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Empty Book Message
+moex_spectra_orderslogreplay_simba_v1_0_4.empty_book_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Last Msg Seq Num Processed U Int 32 Null optional: uInt32NULL
+  index, last_msg_seq_num_processed_u_int_32_null_optional = moex_spectra_orderslogreplay_simba_v1_0_4.last_msg_seq_num_processed_u_int_32_null_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Empty Book Message
+moex_spectra_orderslogreplay_simba_v1_0_4.empty_book_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.empty_book_message, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.empty_book_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.empty_book_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.empty_book_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Bp Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.bp_flags = {}
+
+-- Size: Bp Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.bp_flags.size = 1
+
+-- Display: Bp Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.bp_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Bid Empty Book flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Bid Empty Book"
+  end
+  -- Is Offer Empty Book flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Offer Empty Book"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Bp Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.bp_flags.bits = function(range, value, packet, parent)
+
+  -- Bid Empty Book: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.bid_empty_book, range, value)
+
+  -- Offer Empty Book: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.offer_empty_book, range, value)
+
+  -- Reserved 6: 6 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.reserved_6, range, value)
+end
+
+-- Dissect: Bp Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.bp_flags.dissect = function(buffer, offset, packet, parent)
+  local size = moex_spectra_orderslogreplay_simba_v1_0_4.bp_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.bp_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.bp_flags, range, display)
+
+  if show.structs then
+    moex_spectra_orderslogreplay_simba_v1_0_4.bp_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Best Prices Message No M D Entries Group
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_group = {}
+
+-- Size: Best Prices Message No M D Entries Group
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_group.size =
+  moex_spectra_orderslogreplay_simba_v1_0_4.mkt_bid_px.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.mkt_offer_px.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.bp_flags.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.security_id.size
+
+-- Display: Best Prices Message No M D Entries Group
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Best Prices Message No M D Entries Group
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, best_prices_message_no_m_d_entries_group_index)
+  local index = offset
+
+  -- Implicit Best Prices Message No M D Entries Group Index
+  if best_prices_message_no_m_d_entries_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.best_prices_message_no_m_d_entries_group_index, best_prices_message_no_m_d_entries_group_index)
+    iteration:set_generated()
+  end
+
+  -- Mkt Bid Px: Decimal5NULL
+  index, mkt_bid_px = moex_spectra_orderslogreplay_simba_v1_0_4.mkt_bid_px.dissect(buffer, index, packet, parent)
+
+  -- Mkt Offer Px: Decimal5NULL
+  index, mkt_offer_px = moex_spectra_orderslogreplay_simba_v1_0_4.mkt_offer_px.dissect(buffer, index, packet, parent)
+
+  -- Bp Flags: Struct of 3 fields
+  index, bp_flags = moex_spectra_orderslogreplay_simba_v1_0_4.bp_flags.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Int32
+  index, security_id = moex_spectra_orderslogreplay_simba_v1_0_4.security_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Best Prices Message No M D Entries Group
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, best_prices_message_no_m_d_entries_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.best_prices_message_no_m_d_entries_group, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_group.fields(buffer, offset, packet, parent, best_prices_message_no_m_d_entries_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_group.fields(buffer, offset, packet, parent, best_prices_message_no_m_d_entries_group_index)
+  end
+end
+
+-- Group Size
+moex_spectra_orderslogreplay_simba_v1_0_4.group_size = {}
+
+-- Size: Group Size
+moex_spectra_orderslogreplay_simba_v1_0_4.group_size.size =
+  moex_spectra_orderslogreplay_simba_v1_0_4.block_length.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.num_in_group.size
+
+-- Display: Group Size
+moex_spectra_orderslogreplay_simba_v1_0_4.group_size.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Group Size
+moex_spectra_orderslogreplay_simba_v1_0_4.group_size.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: uint16
+  index, block_length = moex_spectra_orderslogreplay_simba_v1_0_4.block_length.dissect(buffer, index, packet, parent)
+
+  -- Num In Group: uint8
+  index, num_in_group = moex_spectra_orderslogreplay_simba_v1_0_4.num_in_group.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Group Size
+moex_spectra_orderslogreplay_simba_v1_0_4.group_size.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.group_size, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.group_size.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.group_size.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.group_size.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Best Prices Message No M D Entries Groups
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_groups = {}
+
+-- Calculate size of: Best Prices Message No M D Entries Groups
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + moex_spectra_orderslogreplay_simba_v1_0_4.group_size.size
+
+  -- Calculate field size from count
+  local best_prices_message_no_m_d_entries_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + best_prices_message_no_m_d_entries_group_count * 21
+
+  return index
+end
+
+-- Display: Best Prices Message No M D Entries Groups
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Best Prices Message No M D Entries Groups
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = moex_spectra_orderslogreplay_simba_v1_0_4.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Best Prices Message No M D Entries Group
+  for best_prices_message_no_m_d_entries_group_index = 1, num_in_group do
+    index, best_prices_message_no_m_d_entries_group = moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_group.dissect(buffer, index, packet, parent, best_prices_message_no_m_d_entries_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Best Prices Message No M D Entries Groups
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.best_prices_message_no_m_d_entries_groups, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Best Prices Message
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message = {}
+
+-- Calculate size of: Best Prices Message
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Best Prices Message
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Best Prices Message
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Best Prices Message No M D Entries Groups: Struct of 2 fields
+  index, best_prices_message_no_m_d_entries_groups = moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Best Prices Message
+moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.best_prices_message, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Heartbeat Message
+moex_spectra_orderslogreplay_simba_v1_0_4.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+moex_spectra_orderslogreplay_simba_v1_0_4.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+moex_spectra_orderslogreplay_simba_v1_0_4.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Replay Payload
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_payload = {}
+
+-- Dispatch: Server Replay Payload
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_payload.dispatch = {
+  [1] = moex_spectra_orderslogreplay_simba_v1_0_4.heartbeat_message.dissect,
+  [3] = moex_spectra_orderslogreplay_simba_v1_0_4.best_prices_message.dissect,
+  [4] = moex_spectra_orderslogreplay_simba_v1_0_4.empty_book_message.dissect,
+  [5] = moex_spectra_orderslogreplay_simba_v1_0_4.order_update_message.dissect,
+  [6] = moex_spectra_orderslogreplay_simba_v1_0_4.order_execution_message.dissect,
+}
+
+-- Dissect: Server Replay Payload
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  local dissect = moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Sbe Header
+moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header = {}
+
+-- Size: Sbe Header
+moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.size =
+  moex_spectra_orderslogreplay_simba_v1_0_4.block_length.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.template_id.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.schema_id.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.version.size
+
+-- Display: Sbe Header
+moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Sbe Header
+moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: uint16
+  index, block_length = moex_spectra_orderslogreplay_simba_v1_0_4.block_length.dissect(buffer, index, packet, parent)
+
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 15 values
+  index, template_id = moex_spectra_orderslogreplay_simba_v1_0_4.template_id.dissect(buffer, index, packet, parent)
+
+  -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
+  index, schema_id = moex_spectra_orderslogreplay_simba_v1_0_4.schema_id.dissect(buffer, index, packet, parent)
+
+  -- Version: 2 Byte Unsigned Fixed Width Integer Static
+  index, version = moex_spectra_orderslogreplay_simba_v1_0_4.version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Sbe Header
+moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.sbe_header, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Replay Message
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_message = {}
+
+-- Calculate size of: Server Replay Message
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.size
+
+  -- Calculate runtime size of Server Replay Payload field
+  local server_replay_payload_offset = offset + index
+  local server_replay_payload_type = buffer(server_replay_payload_offset - 6, 2):le_uint()
+  index = index + moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_payload.size(buffer, server_replay_payload_offset, server_replay_payload_type)
+
+  return index
+end
+
+-- Display: Server Replay Message
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Replay Message
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sbe Header: Struct of 4 fields
+  index, sbe_header = moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 6, 2):le_uint()
+
+  -- Server Replay Payload: Runtime Type with 5 branches
+  index = moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Replay Message
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_message.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.server_replay_message, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Incremental Packet Header
+moex_spectra_orderslogreplay_simba_v1_0_4.incremental_packet_header = {}
+
+-- Size: Incremental Packet Header
+moex_spectra_orderslogreplay_simba_v1_0_4.incremental_packet_header.size =
+  moex_spectra_orderslogreplay_simba_v1_0_4.transact_time.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.exchange_trading_session_i_d_uint_32_optional.size
+
+-- Display: Incremental Packet Header
+moex_spectra_orderslogreplay_simba_v1_0_4.incremental_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Packet Header
+moex_spectra_orderslogreplay_simba_v1_0_4.incremental_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Transact Time: uint64
+  index, transact_time = moex_spectra_orderslogreplay_simba_v1_0_4.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Exchange Trading Session I D uint 32 optional: uint32
+  index, exchange_trading_session_i_d_uint_32_optional = moex_spectra_orderslogreplay_simba_v1_0_4.exchange_trading_session_i_d_uint_32_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Incremental Packet Header
+moex_spectra_orderslogreplay_simba_v1_0_4.incremental_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.incremental_packet_header, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.incremental_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.incremental_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.incremental_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Replay
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay = {}
+
+-- Read runtime size of: Server Replay
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Msg Size
+  local msg_size = buffer(offset - 12, 2):le_uint()
+
+  return msg_size - 16
+end
+
+-- Display: Server Replay
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Replay
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay.fields = function(buffer, offset, packet, parent, size_of_server_replay)
+  local index = offset
+
+  -- Incremental Packet Header: Struct of 2 fields
+  index, incremental_packet_header = moex_spectra_orderslogreplay_simba_v1_0_4.incremental_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Server Replay Message
+  local end_of_payload = offset + size_of_server_replay
+
+  -- Server Replay Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+    index, server_replay_message = moex_spectra_orderslogreplay_simba_v1_0_4.server_replay_message.dissect(buffer, index, packet, parent)
+  end
+
+  return index
+end
+
+-- Dissect: Server Replay
+moex_spectra_orderslogreplay_simba_v1_0_4.server_replay.dissect = function(buffer, offset, packet, parent, size_of_server_replay)
+  local size_of_server_replay = moex_spectra_orderslogreplay_simba_v1_0_4.server_replay.size(buffer, offset)
+  local index = offset + size_of_server_replay
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.server_replay, buffer(offset, 0))
+    local current = moex_spectra_orderslogreplay_simba_v1_0_4.server_replay.fields(buffer, offset, packet, parent, size_of_server_replay)
+    parent:set_len(size_of_server_replay)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.server_replay.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    moex_spectra_orderslogreplay_simba_v1_0_4.server_replay.fields(buffer, offset, packet, parent, size_of_server_replay)
+
+    return index
+  end
+end
+
+-- Logout Message
+moex_spectra_orderslogreplay_simba_v1_0_4.logout_message = {}
+
+-- Size: Logout Message
+moex_spectra_orderslogreplay_simba_v1_0_4.logout_message.size =
+  moex_spectra_orderslogreplay_simba_v1_0_4.text.size
+
+-- Display: Logout Message
+moex_spectra_orderslogreplay_simba_v1_0_4.logout_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logout Message
+moex_spectra_orderslogreplay_simba_v1_0_4.logout_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Text: String256
+  index, text = moex_spectra_orderslogreplay_simba_v1_0_4.text.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logout Message
+moex_spectra_orderslogreplay_simba_v1_0_4.logout_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.logout_message, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.logout_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.logout_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.logout_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Logon Message
+moex_spectra_orderslogreplay_simba_v1_0_4.logon_message = {}
+
+-- Display: Logon Message
+moex_spectra_orderslogreplay_simba_v1_0_4.logon_message.display = function(packet, parent, length)
+  return "Logon Message"
+end
+
+
+-- Dissect: Logon Message
+moex_spectra_orderslogreplay_simba_v1_0_4.logon_message.dissect = function(buffer, offset, packet, parent)
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.logon_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Server Session Payload
+moex_spectra_orderslogreplay_simba_v1_0_4.server_session_payload = {}
+
+-- Dispatch: Server Session Payload
+moex_spectra_orderslogreplay_simba_v1_0_4.server_session_payload.dispatch = {
+  [1] = moex_spectra_orderslogreplay_simba_v1_0_4.heartbeat_message.dissect,
+  [1000] = moex_spectra_orderslogreplay_simba_v1_0_4.logon_message.dissect,
+  [1001] = moex_spectra_orderslogreplay_simba_v1_0_4.logout_message.dissect,
+}
+
+-- Dissect: Server Session Payload
+moex_spectra_orderslogreplay_simba_v1_0_4.server_session_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  local dissect = moex_spectra_orderslogreplay_simba_v1_0_4.server_session_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Server Session
+moex_spectra_orderslogreplay_simba_v1_0_4.server_session = {}
+
+-- Calculate size of: Server Session
+moex_spectra_orderslogreplay_simba_v1_0_4.server_session.size = function(buffer, offset)
+  local index = 0
+
+  index = index + moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.size
+
+  -- Calculate runtime size of Server Session Payload field
+  local server_session_payload_offset = offset + index
+  local server_session_payload_type = buffer(server_session_payload_offset - 6, 2):le_uint()
+  index = index + moex_spectra_orderslogreplay_simba_v1_0_4.server_session_payload.size(buffer, server_session_payload_offset, server_session_payload_type)
+
+  return index
+end
+
+-- Display: Server Session
+moex_spectra_orderslogreplay_simba_v1_0_4.server_session.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Session
+moex_spectra_orderslogreplay_simba_v1_0_4.server_session.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sbe Header: Struct of 4 fields
+  index, sbe_header = moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 6, 2):le_uint()
+
+  -- Server Session Payload: Runtime Type with 3 branches
+  index = moex_spectra_orderslogreplay_simba_v1_0_4.server_session_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Server Session
+moex_spectra_orderslogreplay_simba_v1_0_4.server_session.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.server_session, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.server_session.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.server_session.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.server_session.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Body
+moex_spectra_orderslogreplay_simba_v1_0_4.server_body = {}
+
+-- Dispatch: Server Body
+moex_spectra_orderslogreplay_simba_v1_0_4.server_body.dispatch = {
+  [0] = moex_spectra_orderslogreplay_simba_v1_0_4.server_session.dissect,
+  [1] = moex_spectra_orderslogreplay_simba_v1_0_4.server_replay.dissect,
+}
+
+-- Dissect: Server Body
+moex_spectra_orderslogreplay_simba_v1_0_4.server_body.dissect = function(buffer, offset, packet, parent, incremental_packet)
+  local dissect = moex_spectra_orderslogreplay_simba_v1_0_4.server_body.dispatch[bit.rshift(bit.band(msg_flags, 0x0008), 3)]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Msg Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_flags = {}
+
+-- Size: Msg Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_flags.size = 2
+
+-- Display: Msg Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Last Fragment flag set?
+  if bit.band(value, 0x0001) ~= 0 then
+    flags[#flags + 1] = "Last Fragment"
+  end
+  -- Is Start Of Snapshot flag set?
+  if bit.band(value, 0x0002) ~= 0 then
+    flags[#flags + 1] = "Start Of Snapshot"
+  end
+  -- Is End Of Snapshot flag set?
+  if bit.band(value, 0x0004) ~= 0 then
+    flags[#flags + 1] = "End Of Snapshot"
+  end
+  -- Is Incremental Packet flag set?
+  if bit.band(value, 0x0008) ~= 0 then
+    flags[#flags + 1] = "Incremental Packet"
+  end
+  -- Is Poss Dup Flag flag set?
+  if bit.band(value, 0x0010) ~= 0 then
+    flags[#flags + 1] = "Poss Dup Flag"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Msg Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_flags.bits = function(range, value, packet, parent)
+
+  -- Last Fragment: 1 Bit Enum with 2 values
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.last_fragment, range, value)
+
+  -- Start Of Snapshot: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.start_of_snapshot, range, value)
+
+  -- End Of Snapshot: 1 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.end_of_snapshot, range, value)
+
+  -- Incremental Packet: 1 Bit Enum with 2 values
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.incremental_packet, range, value)
+
+  -- Poss Dup Flag: 1 Bit Enum with 2 values
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.poss_dup_flag, range, value)
+
+  -- Reserved Bits: 11 Bit
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.reserved_bits, range, value)
+end
+
+-- Dissect: Msg Flags
+moex_spectra_orderslogreplay_simba_v1_0_4.msg_flags.dissect = function(buffer, offset, packet, parent)
+  local size = moex_spectra_orderslogreplay_simba_v1_0_4.msg_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = moex_spectra_orderslogreplay_simba_v1_0_4.msg_flags.display(range, value, packet, parent)
+  local element = parent:add_le(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.msg_flags, range, display)
+
+  if show.structs then
+    moex_spectra_orderslogreplay_simba_v1_0_4.msg_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Market Data Packet Header
+moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header = {}
+
+-- Size: Market Data Packet Header
+moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.size =
+  moex_spectra_orderslogreplay_simba_v1_0_4.msg_seq_num.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.msg_size.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.msg_flags.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.sending_time.size
+
+-- Display: Market Data Packet Header
+moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Data Packet Header
+moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Msg Seq Num: uint32
+  index, msg_seq_num = moex_spectra_orderslogreplay_simba_v1_0_4.msg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Msg Size: uint16
+  index, msg_size = moex_spectra_orderslogreplay_simba_v1_0_4.msg_size.dissect(buffer, index, packet, parent)
+
+  -- Msg Flags: Struct of 6 fields
+  index, msg_flags = moex_spectra_orderslogreplay_simba_v1_0_4.msg_flags.dissect(buffer, index, packet, parent)
+
+  -- Sending Time: uint64
+  index, sending_time = moex_spectra_orderslogreplay_simba_v1_0_4.sending_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Data Packet Header
+moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.market_data_packet_header, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Frame
+moex_spectra_orderslogreplay_simba_v1_0_4.server_frame = {}
+
+-- Display: Server Frame
+moex_spectra_orderslogreplay_simba_v1_0_4.server_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Frame
+moex_spectra_orderslogreplay_simba_v1_0_4.server_frame.fields = function(buffer, offset, packet, parent, size_of_server_frame)
+  local index = offset
+
+  -- Market Data Packet Header: Struct of 4 fields
+  index, market_data_packet_header = moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Server Body: Runtime Type with 2 branches
+  index = moex_spectra_orderslogreplay_simba_v1_0_4.server_body.dissect(buffer, index, packet, parent, incremental_packet)
+
+  return index
+end
+
+-- Dissect: Server Frame
+moex_spectra_orderslogreplay_simba_v1_0_4.server_frame.dissect = function(buffer, offset, packet, parent, size_of_server_frame)
+  local index = offset + size_of_server_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.server_frame, buffer(offset, 0))
+    local current = moex_spectra_orderslogreplay_simba_v1_0_4.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    parent:set_len(size_of_server_frame)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.server_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    moex_spectra_orderslogreplay_simba_v1_0_4.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Server Frame
+local server_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index + 4, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Server Packet
+moex_spectra_orderslogreplay_simba_v1_0_4.server_packet = {}
+
+-- Verify required size of Tcp packet
+moex_spectra_orderslogreplay_simba_v1_0_4.server_packet.requiredsize = function(buffer)
+  return buffer:len() >= moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.size
+end
+
+-- Dissect Server Packet
+moex_spectra_orderslogreplay_simba_v1_0_4.server_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Server Frame
+  local end_of_payload = buffer:len()
+
+  -- Server Frame: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_server_frame = server_frame_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_server_frame):tvb()
+      index = moex_spectra_orderslogreplay_simba_v1_0_4.server_frame.dissect(frame, index, packet, parent, size_of_server_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+-- Market Data Request Message
+moex_spectra_orderslogreplay_simba_v1_0_4.market_data_request_message = {}
+
+-- Size: Market Data Request Message
+moex_spectra_orderslogreplay_simba_v1_0_4.market_data_request_message.size =
+  moex_spectra_orderslogreplay_simba_v1_0_4.appl_beg_seq_num.size + 
+  moex_spectra_orderslogreplay_simba_v1_0_4.appl_end_seq_num.size
+
+-- Display: Market Data Request Message
+moex_spectra_orderslogreplay_simba_v1_0_4.market_data_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Data Request Message
+moex_spectra_orderslogreplay_simba_v1_0_4.market_data_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Appl Beg Seq Num: uInt32
+  index, appl_beg_seq_num = moex_spectra_orderslogreplay_simba_v1_0_4.appl_beg_seq_num.dissect(buffer, index, packet, parent)
+
+  -- Appl End Seq Num: uInt32
+  index, appl_end_seq_num = moex_spectra_orderslogreplay_simba_v1_0_4.appl_end_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Data Request Message
+moex_spectra_orderslogreplay_simba_v1_0_4.market_data_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.market_data_request_message, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.market_data_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.market_data_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.market_data_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Payload
+moex_spectra_orderslogreplay_simba_v1_0_4.client_payload = {}
+
+-- Dispatch: Client Payload
+moex_spectra_orderslogreplay_simba_v1_0_4.client_payload.dispatch = {
+  [1000] = moex_spectra_orderslogreplay_simba_v1_0_4.logon_message.dissect,
+  [1001] = moex_spectra_orderslogreplay_simba_v1_0_4.logout_message.dissect,
+  [1002] = moex_spectra_orderslogreplay_simba_v1_0_4.market_data_request_message.dissect,
+}
+
+-- Dissect: Client Payload
+moex_spectra_orderslogreplay_simba_v1_0_4.client_payload.dissect = function(buffer, offset, packet, parent, template_id)
+  local dissect = moex_spectra_orderslogreplay_simba_v1_0_4.client_payload.dispatch[template_id]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Client Message
+moex_spectra_orderslogreplay_simba_v1_0_4.client_message = {}
+
+-- Calculate size of: Client Message
+moex_spectra_orderslogreplay_simba_v1_0_4.client_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.size
+
+  -- Calculate runtime size of Client Payload field
+  local client_payload_offset = offset + index
+  local client_payload_type = buffer(client_payload_offset - 6, 2):le_uint()
+  index = index + moex_spectra_orderslogreplay_simba_v1_0_4.client_payload.size(buffer, client_payload_offset, client_payload_type)
+
+  return index
+end
+
+-- Display: Client Message
+moex_spectra_orderslogreplay_simba_v1_0_4.client_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Message
+moex_spectra_orderslogreplay_simba_v1_0_4.client_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sbe Header: Struct of 4 fields
+  index, sbe_header = moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 6, 2):le_uint()
+
+  -- Client Payload: Runtime Type with 3 branches
+  index = moex_spectra_orderslogreplay_simba_v1_0_4.client_payload.dissect(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Client Message
+moex_spectra_orderslogreplay_simba_v1_0_4.client_message.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.client_message, buffer(offset, 0))
+    local index = moex_spectra_orderslogreplay_simba_v1_0_4.client_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.client_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return moex_spectra_orderslogreplay_simba_v1_0_4.client_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Frame
+moex_spectra_orderslogreplay_simba_v1_0_4.client_frame = {}
+
+-- Display: Client Frame
+moex_spectra_orderslogreplay_simba_v1_0_4.client_frame.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Frame
+moex_spectra_orderslogreplay_simba_v1_0_4.client_frame.fields = function(buffer, offset, packet, parent, size_of_client_frame)
+  local index = offset
+
+  -- Market Data Packet Header: Struct of 4 fields
+  index, market_data_packet_header = moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.dissect(buffer, index, packet, parent)
+
+  -- Client Message: Struct of 2 fields
+  index, client_message = moex_spectra_orderslogreplay_simba_v1_0_4.client_message.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Client Frame
+moex_spectra_orderslogreplay_simba_v1_0_4.client_frame.dissect = function(buffer, offset, packet, parent, size_of_client_frame)
+  local index = offset + size_of_client_frame
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4.fields.client_frame, buffer(offset, 0))
+    local current = moex_spectra_orderslogreplay_simba_v1_0_4.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    parent:set_len(size_of_client_frame)
+    local display = moex_spectra_orderslogreplay_simba_v1_0_4.client_frame.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    moex_spectra_orderslogreplay_simba_v1_0_4.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Client Frame
+local client_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index + 4, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Client Packet
+moex_spectra_orderslogreplay_simba_v1_0_4.client_packet = {}
+
+-- Verify required size of Tcp packet
+moex_spectra_orderslogreplay_simba_v1_0_4.client_packet.requiredsize = function(buffer)
+  return buffer:len() >= moex_spectra_orderslogreplay_simba_v1_0_4.market_data_packet_header.size + moex_spectra_orderslogreplay_simba_v1_0_4.sbe_header.size
+end
+
+-- Dissect Client Packet
+moex_spectra_orderslogreplay_simba_v1_0_4.client_packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Client Frame
+  local end_of_payload = buffer:len()
+
+  -- Client Frame: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_client_frame = client_frame_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_client_frame):tvb()
+      index = moex_spectra_orderslogreplay_simba_v1_0_4.client_frame.dissect(frame, index, packet, parent, size_of_client_frame)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_moex_spectra_orderslogreplay_simba_v1_0_4.init()
+end
+
+-- Connection roles for Moex Spectra OrdersLogReplay Simba 1.0.4: Client is the initiator, Server is the acceptor
+-- Initiator endpoint of each conversation, recorded from its first frame
+local initiators = {}
+
+-- Conversations whose first frame proved to be the acceptor's: the heuristic swaps the sides
+local swapped = {}
+
+-- Endpoint key of an address and port
+local function endpoint(address, port)
+  return tostring(address)..":"..tostring(port)
+end
+
+
+-- Conversation key, the same in both directions
+local function conversation(packet)
+  local source = endpoint(packet.src, packet.src_port)
+  local destination = endpoint(packet.dst, packet.dst_port)
+
+  if source < destination then
+    return source.." "..destination
+  end
+
+  return destination.." "..source
+end
+
+
+-- Connection role of the frame's sender
+moex_spectra_orderslogreplay_simba_v1_0_4.role = function(packet)
+  if omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.assume_role == 1 then
+    return "initiator"
+  end
+
+  if omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.assume_role == 2 then
+    return "acceptor"
+  end
+
+  local acceptor_port = omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.acceptor_port
+
+  if acceptor_port ~= 0 and packet.dst_port == acceptor_port then
+    return "initiator"
+  end
+
+  if acceptor_port ~= 0 and packet.src_port == acceptor_port then
+    return "acceptor"
+  end
+
+  local key = conversation(packet)
+  local sender = endpoint(packet.src, packet.src_port)
+
+  if initiators[key] == nil then
+    initiators[key] = sender
+  end
+
+  local sender_initiated = initiators[key] == sender
+
+  if omi_moex_spectra_orderslogreplay_simba_v1_0_4.prefs.swap_sides then
+    sender_initiated = not sender_initiated
+  end
+
+  if swapped[key] then
+    sender_initiated = not sender_initiated
+  end
+
+  if sender_initiated then
+    return "initiator"
+  end
+
+  return "acceptor"
+end
+
+
+-- Swap the resolved sides of the frame's conversation
+moex_spectra_orderslogreplay_simba_v1_0_4.swap = function(packet)
+  local key = conversation(packet)
+  swapped[key] = not swapped[key]
+end
+
+
+-- Dissector for Moex Spectra OrdersLogReplay Simba 1.0.4
+function omi_moex_spectra_orderslogreplay_simba_v1_0_4.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_moex_spectra_orderslogreplay_simba_v1_0_4.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_moex_spectra_orderslogreplay_simba_v1_0_4, buffer(), omi_moex_spectra_orderslogreplay_simba_v1_0_4.description, "("..buffer:len().." Bytes)")
+  local role = moex_spectra_orderslogreplay_simba_v1_0_4.role(packet)
+
+  if role == "initiator" then
+    return moex_spectra_orderslogreplay_simba_v1_0_4.client_packet.dissect(buffer, packet, protocol)
+  end
+
+  return moex_spectra_orderslogreplay_simba_v1_0_4.server_packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Client Packet: would its message dispatch accept this frame?
+moex_spectra_orderslogreplay_simba_v1_0_4.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 20 then
+    return false
+  end
+
+  local template_id = buffer(18, 2):le_uint()
+
+  -- Logon Message
+  if template_id == 1000 then
+    return true
+  end
+
+  -- Logout Message
+  if template_id == 1001 then
+    return true
+  end
+
+  -- Market Data Request Message
+  if template_id == 1002 then
+    return true
+  end
+
+  return false
+end
+
+-- Fingerprint of Server Packet: would its message dispatch accept this frame?
+moex_spectra_orderslogreplay_simba_v1_0_4.server_packet.fingerprint = function(buffer)
+  if buffer:len() < 8 then
+    return false
+  end
+
+  local msg_flags = buffer(6, 2):le_uint()
+
+  -- Server Session: carries the application messages, which tell this protocol from others sharing the session framing
+  if bit.rshift(bit.band(msg_flags, 0x0008), 3) == 0 then
+    if buffer:len() < 18 then
+      return false
+    end
+
+    local template_id = buffer(16, 2):le_uint()
+
+    -- Heartbeat Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Logon Message
+    if template_id == 1000 then
+      return true
+    end
+
+    -- Logout Message
+    if template_id == 1001 then
+      return true
+    end
+
+    return false
+  end
+
+  -- Server Replay: carries the application messages, which tell this protocol from others sharing the session framing
+  if bit.rshift(bit.band(msg_flags, 0x0008), 3) == 1 then
+    if buffer:len() < 30 then
+      return false
+    end
+
+    local template_id = buffer(28, 2):le_uint()
+
+    -- Heartbeat Message
+    if template_id == 1 then
+      return true
+    end
+
+    -- Best Prices Message
+    if template_id == 3 then
+      return true
+    end
+
+    -- Empty Book Message
+    if template_id == 4 then
+      return true
+    end
+
+    -- Order Update Message
+    if template_id == 5 then
+      return true
+    end
+
+    -- Order Execution Message
+    if template_id == 6 then
+      return true
+    end
+
+    return false
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Verify Schema Id Field
+moex_spectra_orderslogreplay_simba_v1_0_4.schema_id.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 20 + 2 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(20, 2):le_uint()
+
+  if value == 19780 then
+    return true
+  end
+
+  return false
+end
+
+-- Verify Version Field
+moex_spectra_orderslogreplay_simba_v1_0_4.version.client_packet_verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 22 + 2 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(22, 2):le_uint()
+
+  if value == 0 then
+    return true
+  end
+
+  return false
+end
+
+-- Dissector Heuristic for Moex Spectra OrdersLogReplay Simba 1.0.4 (Tcp)
+local function omi_moex_spectra_orderslogreplay_simba_v1_0_4_tcp_initiator_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not moex_spectra_orderslogreplay_simba_v1_0_4.client_packet.requiredsize(buffer) then return false end
+
+  -- Verify Schema Id
+  if not moex_spectra_orderslogreplay_simba_v1_0_4.schema_id.client_packet_verify(buffer) then return false end
+
+  -- Verify Version
+  if not moex_spectra_orderslogreplay_simba_v1_0_4.version.client_packet_verify(buffer) then return false end
+
+  -- Verify the frame matches this tcp client packet message dispatch
+  if not moex_spectra_orderslogreplay_simba_v1_0_4.client_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_moex_spectra_orderslogreplay_simba_v1_0_4
+  omi_moex_spectra_orderslogreplay_simba_v1_0_4.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Moex Spectra OrdersLogReplay Simba 1.0.4 (Tcp)
+local function omi_moex_spectra_orderslogreplay_simba_v1_0_4_tcp_acceptor_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not moex_spectra_orderslogreplay_simba_v1_0_4.server_packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this tcp server packet message dispatch
+  if not moex_spectra_orderslogreplay_simba_v1_0_4.server_packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_moex_spectra_orderslogreplay_simba_v1_0_4
+  omi_moex_spectra_orderslogreplay_simba_v1_0_4.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Dissector Heuristic for Moex Spectra OrdersLogReplay Simba 1.0.4 (Tcp): apply the heuristic of the sender's connection role
+local function omi_moex_spectra_orderslogreplay_simba_v1_0_4_tcp_heuristic(buffer, packet, parent)
+  local role = moex_spectra_orderslogreplay_simba_v1_0_4.role(packet)
+  local initiator = omi_moex_spectra_orderslogreplay_simba_v1_0_4_tcp_initiator_heuristic
+  local acceptor = omi_moex_spectra_orderslogreplay_simba_v1_0_4_tcp_acceptor_heuristic
+
+  local first, second = initiator, acceptor
+
+  if role == "acceptor" then
+    first, second = acceptor, initiator
+  end
+
+  if first(buffer, packet, parent) then
+    return true
+  end
+
+  -- The other side may have sent this conversation's first frame: swap, and swap back if it cannot claim either
+  moex_spectra_orderslogreplay_simba_v1_0_4.swap(packet)
+
+  if second(buffer, packet, parent) then
+    return true
+  end
+
+  moex_spectra_orderslogreplay_simba_v1_0_4.swap(packet)
+
+  return false
+end
+
+-- Register Heuristics for Moex Spectra OrdersLogReplay Simba 1.0.4
+omi_moex_spectra_orderslogreplay_simba_v1_0_4:register_heuristic("tcp", omi_moex_spectra_orderslogreplay_simba_v1_0_4_tcp_heuristic)
+
+-- Register Moex Spectra OrdersLogReplay Simba 1.0.4 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_moex_spectra_orderslogreplay_simba_v1_0_4)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Moscow Exchange
+--   Version: 1.0.4
+--   Since: 1.0.0
+--   Date: Wednesday, November 10, 2021
+--   Specification: spectra_simba_en.pdf
+--
+-- Script:
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------
