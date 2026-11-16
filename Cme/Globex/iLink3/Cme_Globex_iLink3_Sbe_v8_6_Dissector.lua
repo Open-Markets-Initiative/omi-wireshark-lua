@@ -5886,7 +5886,7 @@ cme_globex_ilink3_sbe_v8_6.schema_id.size = 2
 -- Display: Schema Id
 cme_globex_ilink3_sbe_v8_6.schema_id.display = function(value)
   if value == 8 then
-    return "Schema Id: 8"
+    return "Schema Id: iLink3"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -7549,7 +7549,7 @@ cme_globex_ilink3_sbe_v8_6.version.size = 2
 -- Display: Version
 cme_globex_ilink3_sbe_v8_6.version.display = function(value)
   if value == 6 then
-    return "Version: FIX5.0"
+    return "Version: 6"
   end
 
   return "Version: Unknown("..value..")"

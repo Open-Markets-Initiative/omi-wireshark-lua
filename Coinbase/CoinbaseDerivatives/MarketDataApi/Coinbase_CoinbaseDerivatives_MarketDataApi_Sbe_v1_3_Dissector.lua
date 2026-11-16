@@ -2782,7 +2782,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.version.size = 2
 -- Display: Version
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_3.version.display = function(value)
   if value == 3 then
-    return "Version: 1.3"
+    return "Version: 3"
   end
 
   return "Version: Unknown("..value..")"

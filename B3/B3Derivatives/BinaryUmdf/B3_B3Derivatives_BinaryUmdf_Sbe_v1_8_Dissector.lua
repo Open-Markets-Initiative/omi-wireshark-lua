@@ -185,8 +185,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.settl_currency = ProtoField.new(
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.settl_date = ProtoField.new("Settl Date", "b3.b3derivatives.binaryumdf.sbe.v1.8.settldate", ftypes.INT32, nil, nil, nil, "settlDate")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.settl_price_type = ProtoField.new("Settl Price Type", "b3.b3derivatives.binaryumdf.sbe.v1.8.settlpricetype", ftypes.UINT8, nil, nil, nil, "settlPriceType")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.settl_type = ProtoField.new("Settl Type", "b3.b3derivatives.binaryumdf.sbe.v1.8.settltype", ftypes.UINT16, nil, nil, nil, "settlType")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group", "b3.b3derivatives.binaryumdf.sbe.v1.8.snapshotfullrefreshordersmbo71messagenomdentriesgroup", ftypes.STRING, nil, nil, nil, "noMDEntries")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups", "b3.b3derivatives.binaryumdf.sbe.v1.8.snapshotfullrefreshordersmbo71messagenomdentriesgroups", ftypes.STRING, nil, nil, nil, "noMDEntries Block")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group", "b3.b3derivatives.binaryumdf.sbe.v1.8.snapshotfullrefreshordersmbo71messagenomdentriesgroup", ftypes.STRING, nil, nil, nil, "noMDEntries")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Groups", "b3.b3derivatives.binaryumdf.sbe.v1.8.snapshotfullrefreshordersmbo71messagenomdentriesgroups", ftypes.STRING, nil, nil, nil, "noMDEntries Block")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.start_date = ProtoField.new("Start Date", "b3.b3derivatives.binaryumdf.sbe.v1.8.startdate", ftypes.INT32, nil, nil, nil, "startDate")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.strike_currency = ProtoField.new("Strike Currency", "b3.b3derivatives.binaryumdf.sbe.v1.8.strikecurrency", ftypes.STRING, nil, nil, nil, "strikeCurrency")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.strike_price = ProtoField.new("Strike Price", "b3.b3derivatives.binaryumdf.sbe.v1.8.strikeprice", ftypes.DOUBLE, nil, nil, nil, "strikePrice")
@@ -291,7 +291,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.deprecated_legs_group_index = Pr
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.deprecated_underlyings_group_index = ProtoField.new("Deprecated Underlyings Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.8.deprecatedunderlyingsgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.instr_attribs_group_index = ProtoField.new("Instr Attribs Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.8.instrattribsgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.legs_group_index = ProtoField.new("Legs Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.8.legsgroupindex", ftypes.UINT16)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.8.snapshotfullrefreshordersmbo71messagenomdentriesgroupindex", ftypes.UINT16)
+omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.8.snapshotfullrefreshordersmbo71messagenomdentriesgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.underlyings_group_index = ProtoField.new("Underlyings Group Index", "b3.b3derivatives.binaryumdf.sbe.v1.8.underlyingsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -813,6 +813,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.day.size = 1
 
 -- Display: Day
 b3_b3derivatives_binaryumdf_sbe_v1_8.day.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Day: No Value"
+  end
+
   return "Day: "..value
 end
 
@@ -2511,6 +2516,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.month.size = 1
 
 -- Display: Month
 b3_b3derivatives_binaryumdf_sbe_v1_8.month.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Month: No Value"
+  end
+
   return "Month: "..value
 end
 
@@ -5211,7 +5221,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.version.size = 2
 -- Display: Version
 b3_b3derivatives_binaryumdf_sbe_v1_8.version.display = function(value)
   if value == 9 then
-    return "Version: 1.8.0"
+    return "Version: 9"
   end
 
   return "Version: Unknown("..value..")"
@@ -5276,6 +5286,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.week.size = 1
 
 -- Display: Week
 b3_b3derivatives_binaryumdf_sbe_v1_8.week.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Week: No Value"
+  end
+
   return "Week: "..value
 end
 
@@ -5299,6 +5314,11 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.year.size = 2
 
 -- Display: Year
 b3_b3derivatives_binaryumdf_sbe_v1_8.year.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Year: No Value"
+  end
+
   return "Year: "..value
 end
 
@@ -5319,10 +5339,10 @@ end
 -- Dissect B3 B3Derivatives BinaryUmdf Sbe 1.8
 -----------------------------------------------------------------------
 
--- Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+-- Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = {}
 
--- Size: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+-- Size: Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.size =
   b3_b3derivatives_binaryumdf_sbe_v1_8.md_corporate_offset_price_optional.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_8.md_entry_size_quantity.size + 
@@ -5332,16 +5352,16 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_messag
   b3_b3derivatives_binaryumdf_sbe_v1_8.secondary_order_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v1_8.md_entry_type.size
 
--- Display: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+-- Display: Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+-- Dissect Fields: Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.fields = function(buffer, offset, packet, parent, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
   local index = offset
 
-  -- Implicit Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group Index
+  -- Implicit Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group Index
   if snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_8.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
     iteration:set_generated()
@@ -5371,7 +5391,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_messag
   return index
 end
 
--- Dissect: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+-- Dissect: Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.dissect = function(buffer, offset, packet, parent, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -5433,10 +5453,10 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.group_size_encoding.dissect = function(buff
   end
 end
 
--- Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
+-- Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = {}
 
--- Calculate size of: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
+-- Calculate size of: Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.size = function(buffer, offset)
   local index = 0
 
@@ -5449,12 +5469,12 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_messag
   return index
 end
 
--- Display: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
+-- Display: Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
+-- Dissect Fields: Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -5464,7 +5484,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_messag
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Repeating: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Group
+  -- Repeating: Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group
   for snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = 1, num_in_group do
     index, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group = b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.dissect(buffer, index, packet, parent, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index)
   end
@@ -5472,7 +5492,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_messag
   return index
 end
 
--- Dissect: Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups
+-- Dissect: Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Groups
 b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -5516,7 +5536,7 @@ b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_messag
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v1_8.security_id.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Full Refresh Orders Mb O 71 Message no M D Entries Groups: Struct of 2 fields
+  -- Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Groups: Struct of 2 fields
   index, snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups = b3_b3derivatives_binaryumdf_sbe_v1_8.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_groups.dissect(buffer, index, packet, parent)
 
   return index

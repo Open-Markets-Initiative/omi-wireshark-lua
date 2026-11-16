@@ -37,6 +37,9 @@ jobs:
       - name: Run B3 B3Derivatives BinaryUmdf Sbe 1.8 Dissector Tests
         run: bash -x .github/tests/B3-B3Derivatives-BinaryUmdf-Sbe-v1-8-Test.sh
 
+      - name: Run Bist BorsaIstanbul GeniumInet Itch 21.12 Dissector Tests
+        run: bash -x .github/tests/Bist-BorsaIstanbul-GeniumInet-Itch-v21-12-Test.sh
+
       - name: Run BlueOceanAts BlueEquities MemoirDepthFeed Sbe 1.3 Dissector Tests
         run: bash -x .github/tests/BlueOceanAts-BlueEquities-MemoirDepthFeed-Sbe-v1-3-Test.sh
 
@@ -84,6 +87,9 @@ jobs:
 
       - name: Run Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.6 Dissector Tests
         run: bash -x .github/tests/Cboe-CfeFutures-MulticastDepthOfBook-Pitch-v1-1-6-Test.sh
+
+      - name: Run Cboe CfeFutures MulticastTop Pitch 1.2.22 Dissector Tests
+        run: bash -x .github/tests/Cboe-CfeFutures-MulticastTop-Pitch-v1-2-22-Test.sh
 
       - name: Run Cboe EdgaEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
         run: bash -x .github/tests/Cboe-EdgaEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh
@@ -154,6 +160,12 @@ jobs:
       - name: Run Eurex T7 Eti Fbe 6.1 Dissector Tests
         run: bash -x .github/tests/Eurex-T7-Eti-Fbe-v6-1-Test.sh
 
+      - name: Run Hkex HkexDerivatives FullTick Omd 1.49 Dissector Tests
+        run: bash -x .github/tests/Hkex-HkexDerivatives-FullTick-Omd-v1-49-Test.sh
+
+      - name: Run Hkex HkexSecurities FullTick Omd 1.46 Dissector Tests
+        run: bash -x .github/tests/Hkex-HkexSecurities-FullTick-Omd-v1-46-Test.sh
+
       - name: Run Ice IceFutures Mdf iMpact 1.1.24 Dissector Tests
         run: bash -x .github/tests/Ice-IceFutures-Mdf-iMpact-v1-1-24-Test.sh
 
@@ -214,11 +226,26 @@ jobs:
       - name: Run Miax PearlEquities ExpressOrders Meo 2.6 Dissector Tests
         run: bash -x .github/tests/Miax-PearlEquities-ExpressOrders-Meo-v2-6-Test.sh
 
+      - name: Run Moex Spectra FutInfoIncremental Simba 9.12.0 Dissector Tests
+        run: bash -x .github/tests/Moex-Spectra-FutInfoIncremental-Simba-v9-12-0-Test.sh
+
+      - name: Run Moex Spectra OptInfoIncremental Simba 9.12.0 Dissector Tests
+        run: bash -x .github/tests/Moex-Spectra-OptInfoIncremental-Simba-v9-12-0-Test.sh
+
+      - name: Run Moex Spectra OrdersLogIncremental Simba 9.12.0 Dissector Tests
+        run: bash -x .github/tests/Moex-Spectra-OrdersLogIncremental-Simba-v9-12-0-Test.sh
+
+      - name: Run Moex Spectra OrdersLogSnapshot Simba 9.12.0 Dissector Tests
+        run: bash -x .github/tests/Moex-Spectra-OrdersLogSnapshot-Simba-v9-12-0-Test.sh
+
       - name: Run Nasdaq IseOptions OrderComboFeed Itch 1.1 Dissector Tests
         run: bash -x .github/tests/Nasdaq-IseOptions-OrderComboFeed-Itch-v1-1-Test.sh
 
       - name: Run Nasdaq IseOptions TopComboQuoteFeed Itch 1.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-IseOptions-TopComboQuoteFeed-Itch-v1-0-Test.sh
+
+      - name: Run Nasdaq NordicDerivatives DepthOfBook Itch 2.22.4 Dissector Tests
+        run: bash -x .github/tests/Nasdaq-NordicDerivatives-DepthOfBook-Itch-v2-22-4-Test.sh
 
       - name: Run Nasdaq NsmEquities NlsPlus Itch 3.0 Dissector Tests
         run: bash -x .github/tests/Nasdaq-NsmEquities-NlsPlus-Itch-v3-0-Test.sh
@@ -265,11 +292,29 @@ jobs:
       - name: Run Nyse AmexEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
         run: bash -x .github/tests/Nyse-AmexEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
 
+      - name: Run Nyse AmexEquities OpenBook.Aggregated Xdp 2.1.d Dissector Tests
+        run: bash -x .github/tests/Nyse-AmexEquities-OpenBook.Aggregated-Xdp-v2-1-d-Test.sh
+
+      - name: Run Nyse AmexEquities OpenBook Ultra 2.1.b Dissector Tests
+        run: bash -x .github/tests/Nyse-AmexEquities-OpenBook-Ultra-v2-1-b-Test.sh
+
       - name: Run Nyse AmexOptions ComplexFeed Xdp 1.3.a Dissector Tests
         run: bash -x .github/tests/Nyse-AmexOptions-ComplexFeed-Xdp-v1-3-a-Test.sh
 
+      - name: Run Nyse AmexOptions DeepFeed Pillar 1.2.m Dissector Tests
+        run: bash -x .github/tests/Nyse-AmexOptions-DeepFeed-Pillar-v1-2-m-Test.sh
+
       - name: Run Nyse AmexOptions DeepFeed Xdp 1.3.a Dissector Tests
         run: bash -x .github/tests/Nyse-AmexOptions-DeepFeed-Xdp-v1-3-a-Test.sh
+
+      - name: Run Nyse AmexOptions TopFeed Pillar 1.2.k Dissector Tests
+        run: bash -x .github/tests/Nyse-AmexOptions-TopFeed-Pillar-v1-2-k-Test.sh
+
+      - name: Run Nyse AmexOptions TopFeed Xdp 1.3.a Dissector Tests
+        run: bash -x .github/tests/Nyse-AmexOptions-TopFeed-Xdp-v1-3-a-Test.sh
+
+      - name: Run Nyse ArcaEquities ArcaBook Xdp 1.9.a Dissector Tests
+        run: bash -x .github/tests/Nyse-ArcaEquities-ArcaBook-Xdp-v1-9-a-Test.sh
 
       - name: Run Nyse ArcaEquities Bbo Xdp 2.4.c Dissector Tests
         run: bash -x .github/tests/Nyse-ArcaEquities-Bbo-Xdp-v2-4-c-Test.sh
@@ -280,11 +325,26 @@ jobs:
       - name: Run Nyse ArcaEquities IntegratedFeedRefresh Pillar 2.5.g Dissector Tests
         run: bash -x .github/tests/Nyse-ArcaEquities-IntegratedFeedRefresh-Pillar-v2-5-g-Test.sh
 
+      - name: Run Nyse ArcaOptions ComplexFeed Pillar 1.0.h Dissector Tests
+        run: bash -x .github/tests/Nyse-ArcaOptions-ComplexFeed-Pillar-v1-0-h-Test.sh
+
+      - name: Run Nyse ArcaOptions DeepFeed Pillar 1.2.m Dissector Tests
+        run: bash -x .github/tests/Nyse-ArcaOptions-DeepFeed-Pillar-v1-2-m-Test.sh
+
+      - name: Run Nyse ArcaOptions DeepFeed Xdp 1.3.a Dissector Tests
+        run: bash -x .github/tests/Nyse-ArcaOptions-DeepFeed-Xdp-v1-3-a-Test.sh
+
       - name: Run Nyse ArcaOptions TopFeed Pillar 1.2.c Dissector Tests
         run: bash -x .github/tests/Nyse-ArcaOptions-TopFeed-Pillar-v1-2-c-Test.sh
 
       - name: Run Nyse NationalEquities Bbo Pillar 2.5.d Dissector Tests
         run: bash -x .github/tests/Nyse-NationalEquities-Bbo-Pillar-v2-5-d-Test.sh
+
+      - name: Run Nyse NationalEquities IntegratedFeed Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-NationalEquities-IntegratedFeed-Pillar-v2-5-g-Test.sh
+
+      - name: Run Nyse NationalEquities IntegratedFeedStockSummary Pillar 2.5.g Dissector Tests
+        run: bash -x .github/tests/Nyse-NationalEquities-IntegratedFeedStockSummary-Pillar-v2-5-g-Test.sh
 
       - name: Run Nyse NationalEquities Trades Pillar 2.6 Dissector Tests
         run: bash -x .github/tests/Nyse-NationalEquities-Trades-Pillar-v2-6-Test.sh
@@ -319,6 +379,12 @@ jobs:
       - name: Run Nyse NyseEquities BinaryGateway PillarStream 6.0 Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-BinaryGateway-PillarStream-v6-0-Test.sh
 
+      - name: Run Nyse NyseEquities Bqt Xdp 2.1.a Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-Bqt-Xdp-v2-1-a-Test.sh
+
+      - name: Run Nyse NyseEquities DepthFeed Pillar 1.1 Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-DepthFeed-Pillar-v1-1-Test.sh
+
       - name: Run Nyse NyseEquities ImbalancesFeed Xdp 2.1.f Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-ImbalancesFeed-Xdp-v2-1-f-Test.sh
 
@@ -339,6 +405,9 @@ jobs:
 
       - name: Run Nyse NyseEquities IntegratedFeedRetransmission Pillar 2.5.g Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-IntegratedFeedRetransmission-Pillar-v2-5-g-Test.sh
+
+      - name: Run Nyse NyseEquities OpenBook.Aggregated Xdp 2.1.d Dissector Tests
+        run: bash -x .github/tests/Nyse-NyseEquities-OpenBook.Aggregated-Xdp-v2-1-d-Test.sh
 
       - name: Run Nyse NyseEquities OpenBook Ultra 2.1.b Dissector Tests
         run: bash -x .github/tests/Nyse-NyseEquities-OpenBook-Ultra-v2-1-b-Test.sh

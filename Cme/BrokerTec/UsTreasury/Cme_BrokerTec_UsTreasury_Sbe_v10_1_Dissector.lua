@@ -911,7 +911,7 @@ cme_brokertec_ustreasury_sbe_v10_1.version.size = 2
 -- Display: Version
 cme_brokertec_ustreasury_sbe_v10_1.version.display = function(value)
   if value == 1 then
-    return "Version: FIX5SP2"
+    return "Version: 1"
   end
 
   return "Version: Unknown("..value..")"

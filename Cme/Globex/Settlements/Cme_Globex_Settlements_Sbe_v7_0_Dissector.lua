@@ -1323,7 +1323,7 @@ cme_globex_settlements_sbe_v7_0.version.size = 2
 -- Display: Version
 cme_globex_settlements_sbe_v7_0.version.display = function(value)
   if value == 0 then
-    return "Version: FIX5SP2"
+    return "Version: 0"
   end
 
   return "Version: Unknown("..value..")"

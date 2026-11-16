@@ -1060,7 +1060,7 @@ memx_memxequities_memoirdepthfeed_sbe_v1_1.version.size = 2
 -- Display: Version
 memx_memxequities_memoirdepthfeed_sbe_v1_1.version.display = function(value)
   if value == 1 then
-    return "Version: 1.0.0"
+    return "Version: 1"
   end
 
   return "Version: Unknown("..value..")"

@@ -1609,7 +1609,11 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.protocol_id.size = 1
 
 -- Display: Protocol Id
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.protocol_id.display = function(value)
-  return "Protocol Id: "..value
+  if value == 241 then
+    return "Protocol Id: Orders Api"
+  end
+
+  return "Protocol Id: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Id
@@ -2452,10 +2456,10 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_8.version.size = 2
 -- Display: Version
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.version.display = function(value)
   if value == 2 then
-    return "Version: 1.2"
+    return "Version: 2"
   end
   if value == 8 then
-    return "Version: 4.8"
+    return "Version: 8"
   end
 
   return "Version: Unknown("..value..")"
@@ -5304,6 +5308,23 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Protocol Id Field
+coinbase_coinbasederivatives_ordersapi_sbe_v1_8.protocol_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(0, 1):uint()
+
+  if value == 241 then
+    return true
+  end
+
+  return false
+end
+
 -- Verify Version Field
 coinbase_coinbasederivatives_ordersapi_sbe_v1_8.version.verify = function(buffer)
   -- Too short to carry the field: not this protocol
@@ -5329,6 +5350,9 @@ end
 local function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_8_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.packet.requiredsize(buffer) then return false end
+
+  -- Verify Protocol Id
+  if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.protocol_id.verify(buffer) then return false end
 
   -- Verify Version
   if not coinbase_coinbasederivatives_ordersapi_sbe_v1_8.version.verify(buffer) then return false end

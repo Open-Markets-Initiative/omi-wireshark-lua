@@ -5791,7 +5791,7 @@ cme_ebs_ilink3_sbe_v8_8.schema_id.size = 2
 -- Display: Schema Id
 cme_ebs_ilink3_sbe_v8_8.schema_id.display = function(value)
   if value == 8 then
-    return "Schema Id: 8"
+    return "Schema Id: iLink3"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -7359,7 +7359,7 @@ cme_ebs_ilink3_sbe_v8_8.version.size = 2
 -- Display: Version
 cme_ebs_ilink3_sbe_v8_8.version.display = function(value)
   if value == 8 then
-    return "Version: FIX5.0"
+    return "Version: 8"
   end
 
   return "Version: Unknown("..value..")"

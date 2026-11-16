@@ -2697,7 +2697,7 @@ memx_memxequities_memo_sbe_v1_8.version.size = 2
 -- Display: Version
 memx_memxequities_memo_sbe_v1_8.version.display = function(value)
   if value == 264 then
-    return "Version: 1.8"
+    return "Version: 264"
   end
 
   return "Version: Unknown("..value..")"

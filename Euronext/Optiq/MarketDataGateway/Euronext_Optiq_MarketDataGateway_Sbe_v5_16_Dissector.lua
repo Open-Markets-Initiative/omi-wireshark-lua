@@ -11895,7 +11895,7 @@ euronext_optiq_marketdatagateway_sbe_v5_16.version.size = 2
 -- Display: Version
 euronext_optiq_marketdatagateway_sbe_v5_16.version.display = function(value)
   if value == 316 then
-    return "Version: 5.16.0"
+    return "Version: 316"
   end
 
   return "Version: Unknown("..value..")"

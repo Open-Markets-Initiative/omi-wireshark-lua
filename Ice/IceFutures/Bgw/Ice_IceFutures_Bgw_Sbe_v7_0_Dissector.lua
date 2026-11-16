@@ -103,10 +103,10 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_id = ProtoField.new("Hub Id", "ice.ic
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_name = ProtoField.new("Hub Name", "ice.icefutures.bgw.sbe.v7.0.hubname", ftypes.STRING, nil, nil, nil, "hubName data struct")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_name_data = ProtoField.new("Hub Name Data", "ice.icefutures.bgw.sbe.v7.0.hubnamedata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.hub_name_length = ProtoField.new("Hub Name Length", "ice.icefutures.bgw.sbe.v7.0.hubnamelength", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_group = ProtoField.new("I P Report Message no Users Group", "ice.icefutures.bgw.sbe.v7.0.ipreportmessagenousersgroup", ftypes.STRING, nil, nil, nil, "noUsers")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_groups = ProtoField.new("I P Report Message no Users Groups", "ice.icefutures.bgw.sbe.v7.0.ipreportmessagenousersgroups", ftypes.STRING, nil, nil, nil, "noUsers Block")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_group = ProtoField.new("I P Request Message no Users Group", "ice.icefutures.bgw.sbe.v7.0.iprequestmessagenousersgroup", ftypes.STRING, nil, nil, nil, "noUsers")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_groups = ProtoField.new("I P Request Message no Users Groups", "ice.icefutures.bgw.sbe.v7.0.iprequestmessagenousersgroups", ftypes.STRING, nil, nil, nil, "noUsers Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_group = ProtoField.new("I P Report Message No Users Group", "ice.icefutures.bgw.sbe.v7.0.ipreportmessagenousersgroup", ftypes.STRING, nil, nil, nil, "noUsers")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_groups = ProtoField.new("I P Report Message No Users Groups", "ice.icefutures.bgw.sbe.v7.0.ipreportmessagenousersgroups", ftypes.STRING, nil, nil, nil, "noUsers Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_group = ProtoField.new("I P Request Message No Users Group", "ice.icefutures.bgw.sbe.v7.0.iprequestmessagenousersgroup", ftypes.STRING, nil, nil, nil, "noUsers")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_groups = ProtoField.new("I P Request Message No Users Groups", "ice.icefutures.bgw.sbe.v7.0.iprequestmessagenousersgroups", ftypes.STRING, nil, nil, nil, "noUsers Block")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.implied_type = ProtoField.new("Implied Type", "ice.icefutures.bgw.sbe.v7.0.impliedtype", ftypes.STRING, nil, nil, nil, "impliedType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.increment_price = ProtoField.new("Increment Price", "ice.icefutures.bgw.sbe.v7.0.incrementprice", ftypes.INT64, nil, nil, nil, "incrementPrice")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.increment_qty = ProtoField.new("Increment Qty", "ice.icefutures.bgw.sbe.v7.0.incrementqty", ftypes.INT64, nil, nil, nil, "incrementQty")
@@ -152,10 +152,10 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.market_type_id = ProtoField.new("Market T
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "ice.icefutures.bgw.sbe.v7.0.masscancelrejectreason", ftypes.UINT8, nil, nil, nil, "massCancelRejectReason")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_cancel_request_type = ProtoField.new("Mass Cancel Request Type", "ice.icefutures.bgw.sbe.v7.0.masscancelrequesttype", ftypes.UINT8, nil, nil, nil, "massCancelRequestType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_cancel_response = ProtoField.new("Mass Cancel Response", "ice.icefutures.bgw.sbe.v7.0.masscancelresponse", ftypes.UINT8, nil, nil, nil, "massCancelResponse")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_group = ProtoField.new("Mass Quote Report Message no Quote Sets Group", "ice.icefutures.bgw.sbe.v7.0.massquotereportmessagenoquotesetsgroup", ftypes.STRING, nil, nil, nil, "noQuoteSets")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_groups = ProtoField.new("Mass Quote Report Message no Quote Sets Groups", "ice.icefutures.bgw.sbe.v7.0.massquotereportmessagenoquotesetsgroups", ftypes.STRING, nil, nil, nil, "noQuoteSets Block")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_group = ProtoField.new("Mass Quote Request Message no Quote Sets Group", "ice.icefutures.bgw.sbe.v7.0.massquoterequestmessagenoquotesetsgroup", ftypes.STRING, nil, nil, nil, "noQuoteSets")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_groups = ProtoField.new("Mass Quote Request Message no Quote Sets Groups", "ice.icefutures.bgw.sbe.v7.0.massquoterequestmessagenoquotesetsgroups", ftypes.STRING, nil, nil, nil, "noQuoteSets Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_group = ProtoField.new("Mass Quote Report Message No Quote Sets Group", "ice.icefutures.bgw.sbe.v7.0.massquotereportmessagenoquotesetsgroup", ftypes.STRING, nil, nil, nil, "noQuoteSets")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_groups = ProtoField.new("Mass Quote Report Message No Quote Sets Groups", "ice.icefutures.bgw.sbe.v7.0.massquotereportmessagenoquotesetsgroups", ftypes.STRING, nil, nil, nil, "noQuoteSets Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_group = ProtoField.new("Mass Quote Request Message No Quote Sets Group", "ice.icefutures.bgw.sbe.v7.0.massquoterequestmessagenoquotesetsgroup", ftypes.STRING, nil, nil, nil, "noQuoteSets")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_groups = ProtoField.new("Mass Quote Request Message No Quote Sets Groups", "ice.icefutures.bgw.sbe.v7.0.massquoterequestmessagenoquotesetsgroups", ftypes.STRING, nil, nil, nil, "noQuoteSets Block")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quotes_allowed = ProtoField.new("Mass Quotes Allowed", "ice.icefutures.bgw.sbe.v7.0.massquotesallowed", ftypes.UINT8, nil, nil, nil, "massQuotesAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.maturity_date = ProtoField.new("Maturity Date", "ice.icefutures.bgw.sbe.v7.0.maturitydate", ftypes.UINT16, nil, nil, nil, "maturityDate")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.max_price = ProtoField.new("Max Price", "ice.icefutures.bgw.sbe.v7.0.maxprice", ftypes.INT64, nil, nil, nil, "maxPrice")
@@ -170,10 +170,10 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_id = ProtoField.new("Mifid Id", "ic
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_regulated_market = ProtoField.new("Mifid Regulated Market", "ice.icefutures.bgw.sbe.v7.0.mifidregulatedmarket", ftypes.UINT8, nil, nil, nil, "mifidRegulatedMarket")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_regulated_market_optional = ProtoField.new("Mifid Regulated Market optional", "ice.icefutures.bgw.sbe.v7.0.mifidregulatedmarketoptional", ftypes.UINT8, nil, nil, nil, "mifidRegulatedMarket")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.min_price = ProtoField.new("Min Price", "ice.icefutures.bgw.sbe.v7.0.minprice", ftypes.INT64, nil, nil, nil, "minPrice")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_group = ProtoField.new("New Order Cross Request Message no Legs Group", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenolegsgroup", ftypes.STRING, nil, nil, nil, "noLegs")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_groups = ProtoField.new("New Order Cross Request Message no Legs Groups", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenolegsgroups", ftypes.STRING, nil, nil, nil, "noLegs Block")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_group = ProtoField.new("New Order Cross Request Message no Sides Group", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenosidesgroup", ftypes.STRING, nil, nil, nil, "noSides")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_groups = ProtoField.new("New Order Cross Request Message no Sides Groups", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenosidesgroups", ftypes.STRING, nil, nil, nil, "noSides Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_group = ProtoField.new("New Order Cross Request Message No Legs Group", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenolegsgroup", ftypes.STRING, nil, nil, nil, "noLegs")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_groups = ProtoField.new("New Order Cross Request Message No Legs Groups", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenolegsgroups", ftypes.STRING, nil, nil, nil, "noLegs Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_group = ProtoField.new("New Order Cross Request Message No Sides Group", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenosidesgroup", ftypes.STRING, nil, nil, nil, "noSides")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_groups = ProtoField.new("New Order Cross Request Message No Sides Groups", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenosidesgroups", ftypes.STRING, nil, nil, nil, "noSides Block")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.new_seq_no = ProtoField.new("New Seq No", "ice.icefutures.bgw.sbe.v7.0.newseqno", ftypes.UINT32, nil, nil, nil, "newSeqNo")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.no_leg_executions = ProtoField.new("No Leg Executions", "ice.icefutures.bgw.sbe.v7.0.nolegexecutions", ftypes.INT16, nil, nil, nil, "noLegExecutions")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.no_rpts = ProtoField.new("No Rpts", "ice.icefutures.bgw.sbe.v7.0.norpts", ftypes.INT32, nil, nil, nil, "noRpts")
@@ -248,8 +248,8 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.product_name_length = ProtoField.new("Pro
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_type = ProtoField.new("Product Type", "ice.icefutures.bgw.sbe.v7.0.producttype", ftypes.STRING, nil, nil, nil, "productType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.put_or_call = ProtoField.new("Put Or Call", "ice.icefutures.bgw.sbe.v7.0.putorcall", ftypes.UINT8, nil, nil, nil, "putOrCall")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_ack_status = ProtoField.new("Quote Ack Status", "ice.icefutures.bgw.sbe.v7.0.quoteackstatus", ftypes.UINT16, nil, nil, nil, "quoteAckStatus")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_group = ProtoField.new("Quote Cancel Request Message no Quote Entries Group", "ice.icefutures.bgw.sbe.v7.0.quotecancelrequestmessagenoquoteentriesgroup", ftypes.STRING, nil, nil, nil, "noQuoteEntries")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_groups = ProtoField.new("Quote Cancel Request Message no Quote Entries Groups", "ice.icefutures.bgw.sbe.v7.0.quotecancelrequestmessagenoquoteentriesgroups", ftypes.STRING, nil, nil, nil, "noQuoteEntries Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_group = ProtoField.new("Quote Cancel Request Message No Quote Entries Group", "ice.icefutures.bgw.sbe.v7.0.quotecancelrequestmessagenoquoteentriesgroup", ftypes.STRING, nil, nil, nil, "noQuoteEntries")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_groups = ProtoField.new("Quote Cancel Request Message No Quote Entries Groups", "ice.icefutures.bgw.sbe.v7.0.quotecancelrequestmessagenoquoteentriesgroups", ftypes.STRING, nil, nil, nil, "noQuoteEntries Block")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_type = ProtoField.new("Quote Cancel Type", "ice.icefutures.bgw.sbe.v7.0.quotecanceltype", ftypes.UINT8, nil, nil, nil, "quoteCancelType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_entry_exchange_code = ProtoField.new("Quote Entry Exchange Code", "ice.icefutures.bgw.sbe.v7.0.quoteentryexchangecode", ftypes.INT32, nil, nil, nil, "quoteEntryExchangeCode")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_entry_id = ProtoField.new("Quote Entry Id", "ice.icefutures.bgw.sbe.v7.0.quoteentryid", ftypes.INT32, nil, nil, nil, "quoteEntryID")
@@ -276,18 +276,18 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.screen_tick_value = ProtoField.new("Scree
 omi_ice_icefutures_bgw_sbe_v7_0.fields.secondary_exec_id = ProtoField.new("Secondary Exec Id", "ice.icefutures.bgw.sbe.v7.0.secondaryexecid", ftypes.INT64, nil, nil, nil, "secondaryExecID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_alt_id = ProtoField.new("Security Alt Id", "ice.icefutures.bgw.sbe.v7.0.securityaltid", ftypes.STRING, nil, nil, nil, "ISIN of equity related market if securityAltIDSource is 4 or as required by MiFID if securityAltIDSource is U4")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "ice.icefutures.bgw.sbe.v7.0.securityaltidsource", ftypes.STRING, nil, nil, nil, "securityAltIDSource")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_group = ProtoField.new("Security Definition Report Message no Block Details Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenoblockdetailsgroup", ftypes.STRING, nil, nil, nil, "noBlockDetails")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_groups = ProtoField.new("Security Definition Report Message no Block Details Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenoblockdetailsgroups", ftypes.STRING, nil, nil, nil, "noBlockDetails Block")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_group = ProtoField.new("Security Definition Report Message no Security Alt I D Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenosecurityaltidgroup", ftypes.STRING, nil, nil, nil, "noSecurityAltID")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_groups = ProtoField.new("Security Definition Report Message no Security Alt I D Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenosecurityaltidgroups", ftypes.STRING, nil, nil, nil, "noSecurityAltID Block")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_group = ProtoField.new("Security Definition Report Strategy Message no Block Details Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenoblockdetailsgroup", ftypes.STRING, nil, nil, nil, "noBlockDetails")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_groups = ProtoField.new("Security Definition Report Strategy Message no Block Details Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenoblockdetailsgroups", ftypes.STRING, nil, nil, nil, "noBlockDetails Block")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_group = ProtoField.new("Security Definition Report Strategy Message no Legs Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenolegsgroup", ftypes.STRING, nil, nil, nil, "noLegs")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_groups = ProtoField.new("Security Definition Report Strategy Message no Legs Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenolegsgroups", ftypes.STRING, nil, nil, nil, "noLegs Block")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_group = ProtoField.new("Security Definition Report Strategy Message no Security Alt I D Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenosecurityaltidgroup", ftypes.STRING, nil, nil, nil, "noSecurityAltID")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_groups = ProtoField.new("Security Definition Report Strategy Message no Security Alt I D Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenosecurityaltidgroups", ftypes.STRING, nil, nil, nil, "noSecurityAltID Block")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_group = ProtoField.new("Security Definition Request Create Strategy Message no Legs Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessagenolegsgroup", ftypes.STRING, nil, nil, nil, "noLegs")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_groups = ProtoField.new("Security Definition Request Create Strategy Message no Legs Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessagenolegsgroups", ftypes.STRING, nil, nil, nil, "noLegs Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_group = ProtoField.new("Security Definition Report Message No Block Details Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenoblockdetailsgroup", ftypes.STRING, nil, nil, nil, "noBlockDetails")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_groups = ProtoField.new("Security Definition Report Message No Block Details Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenoblockdetailsgroups", ftypes.STRING, nil, nil, nil, "noBlockDetails Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_group = ProtoField.new("Security Definition Report Message No Security Alt I D Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenosecurityaltidgroup", ftypes.STRING, nil, nil, nil, "noSecurityAltID")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_groups = ProtoField.new("Security Definition Report Message No Security Alt I D Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenosecurityaltidgroups", ftypes.STRING, nil, nil, nil, "noSecurityAltID Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_group = ProtoField.new("Security Definition Report Strategy Message No Block Details Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenoblockdetailsgroup", ftypes.STRING, nil, nil, nil, "noBlockDetails")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_groups = ProtoField.new("Security Definition Report Strategy Message No Block Details Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenoblockdetailsgroups", ftypes.STRING, nil, nil, nil, "noBlockDetails Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_group = ProtoField.new("Security Definition Report Strategy Message No Legs Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenolegsgroup", ftypes.STRING, nil, nil, nil, "noLegs")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_groups = ProtoField.new("Security Definition Report Strategy Message No Legs Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenolegsgroups", ftypes.STRING, nil, nil, nil, "noLegs Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_group = ProtoField.new("Security Definition Report Strategy Message No Security Alt I D Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenosecurityaltidgroup", ftypes.STRING, nil, nil, nil, "noSecurityAltID")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_groups = ProtoField.new("Security Definition Report Strategy Message No Security Alt I D Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenosecurityaltidgroups", ftypes.STRING, nil, nil, nil, "noSecurityAltID Block")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_group = ProtoField.new("Security Definition Request Create Strategy Message No Legs Group", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessagenolegsgroup", ftypes.STRING, nil, nil, nil, "noLegs")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_groups = ProtoField.new("Security Definition Request Create Strategy Message No Legs Groups", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessagenolegsgroups", ftypes.STRING, nil, nil, nil, "noLegs Block")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_desc = ProtoField.new("Security Desc", "ice.icefutures.bgw.sbe.v7.0.securitydesc", ftypes.STRING, nil, nil, nil, "securityDesc data struct")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_desc_data = ProtoField.new("Security Desc Data", "ice.icefutures.bgw.sbe.v7.0.securitydescdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_desc_length = ProtoField.new("Security Desc Length", "ice.icefutures.bgw.sbe.v7.0.securitydesclength", ftypes.UINT16)
@@ -431,19 +431,19 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logout_report_message = ProtoField
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trader_logout_request_message = ProtoField.new("Trader Logout Request Message", "ice.icefutures.bgw.sbe.v7.0.traderlogoutrequestmessage", ftypes.STRING, nil, nil, nil, "TraderLogoutRequestMessage")
 
 -- Ice IceFutures Bgw Sbe 7.0 Generated Fields
-omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_group_index = ProtoField.new("I P Report Message no Users Group Index", "ice.icefutures.bgw.sbe.v7.0.ipreportmessagenousersgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_group_index = ProtoField.new("I P Request Message no Users Group Index", "ice.icefutures.bgw.sbe.v7.0.iprequestmessagenousersgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_group_index = ProtoField.new("Mass Quote Report Message no Quote Sets Group Index", "ice.icefutures.bgw.sbe.v7.0.massquotereportmessagenoquotesetsgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_group_index = ProtoField.new("Mass Quote Request Message no Quote Sets Group Index", "ice.icefutures.bgw.sbe.v7.0.massquoterequestmessagenoquotesetsgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_group_index = ProtoField.new("New Order Cross Request Message no Legs Group Index", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenolegsgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_group_index = ProtoField.new("New Order Cross Request Message no Sides Group Index", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenosidesgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_group_index = ProtoField.new("Quote Cancel Request Message no Quote Entries Group Index", "ice.icefutures.bgw.sbe.v7.0.quotecancelrequestmessagenoquoteentriesgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_group_index = ProtoField.new("Security Definition Report Message no Block Details Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenoblockdetailsgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_group_index = ProtoField.new("Security Definition Report Message no Security Alt I D Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenosecurityaltidgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_group_index = ProtoField.new("Security Definition Report Strategy Message no Block Details Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenoblockdetailsgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_group_index = ProtoField.new("Security Definition Report Strategy Message no Legs Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenolegsgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_group_index = ProtoField.new("Security Definition Report Strategy Message no Security Alt I D Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenosecurityaltidgroupindex", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_group_index = ProtoField.new("Security Definition Request Create Strategy Message no Legs Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessagenolegsgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_group_index = ProtoField.new("I P Report Message No Users Group Index", "ice.icefutures.bgw.sbe.v7.0.ipreportmessagenousersgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_group_index = ProtoField.new("I P Request Message No Users Group Index", "ice.icefutures.bgw.sbe.v7.0.iprequestmessagenousersgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_group_index = ProtoField.new("Mass Quote Report Message No Quote Sets Group Index", "ice.icefutures.bgw.sbe.v7.0.massquotereportmessagenoquotesetsgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_group_index = ProtoField.new("Mass Quote Request Message No Quote Sets Group Index", "ice.icefutures.bgw.sbe.v7.0.massquoterequestmessagenoquotesetsgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_group_index = ProtoField.new("New Order Cross Request Message No Legs Group Index", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenolegsgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_group_index = ProtoField.new("New Order Cross Request Message No Sides Group Index", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenosidesgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_group_index = ProtoField.new("Quote Cancel Request Message No Quote Entries Group Index", "ice.icefutures.bgw.sbe.v7.0.quotecancelrequestmessagenoquoteentriesgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_group_index = ProtoField.new("Security Definition Report Message No Block Details Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenoblockdetailsgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_group_index = ProtoField.new("Security Definition Report Message No Security Alt I D Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportmessagenosecurityaltidgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_group_index = ProtoField.new("Security Definition Report Strategy Message No Block Details Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenoblockdetailsgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_group_index = ProtoField.new("Security Definition Report Strategy Message No Legs Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenolegsgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_group_index = ProtoField.new("Security Definition Report Strategy Message No Security Alt I D Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenosecurityaltidgroupindex", ftypes.UINT16)
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_group_index = ProtoField.new("Security Definition Request Create Strategy Message No Legs Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessagenolegsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Ice IceFutures Bgw Sbe 7.0 Formatting
@@ -8892,7 +8892,7 @@ ice_icefutures_bgw_sbe_v7_0.version.size = 2
 -- Display: Version
 ice_icefutures_bgw_sbe_v7_0.version.display = function(value)
   if value == 0 then
-    return "Version: 4.2"
+    return "Version: 0"
   end
 
   return "Version: Unknown("..value..")"
@@ -9095,10 +9095,10 @@ ice_icefutures_bgw_sbe_v7_0.resend_request_message.dissect = function(buffer, of
   end
 end
 
--- Mass Quote Report Message no Quote Sets Group
+-- Mass Quote Report Message No Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group = {}
 
--- Size: Mass Quote Report Message no Quote Sets Group
+-- Size: Mass Quote Report Message No Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group.size =
   ice_icefutures_bgw_sbe_v7_0.quote_set_id.size + 
   ice_icefutures_bgw_sbe_v7_0.underlying_symbol.size + 
@@ -9108,16 +9108,16 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group.size =
   ice_icefutures_bgw_sbe_v7_0.quote_entry_exchange_code.size + 
   ice_icefutures_bgw_sbe_v7_0.quote_entry_reject_reason_text.size
 
--- Display: Mass Quote Report Message no Quote Sets Group
+-- Display: Mass Quote Report Message No Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Report Message no Quote Sets Group
+-- Dissect Fields: Mass Quote Report Message No Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group.fields = function(buffer, offset, packet, parent, mass_quote_report_message_no_quote_sets_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Report Message no Quote Sets Group Index
+  -- Implicit Mass Quote Report Message No Quote Sets Group Index
   if mass_quote_report_message_no_quote_sets_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_report_message_no_quote_sets_group_index, mass_quote_report_message_no_quote_sets_group_index)
     iteration:set_generated()
@@ -9147,7 +9147,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group.fields
   return index
 end
 
--- Dissect: Mass Quote Report Message no Quote Sets Group
+-- Dissect: Mass Quote Report Message No Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group.dissect = function(buffer, offset, packet, parent, mass_quote_report_message_no_quote_sets_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -9209,10 +9209,10 @@ ice_icefutures_bgw_sbe_v7_0.group_size_encoding.dissect = function(buffer, offse
   end
 end
 
--- Mass Quote Report Message no Quote Sets Groups
+-- Mass Quote Report Message No Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups = {}
 
--- Calculate size of: Mass Quote Report Message no Quote Sets Groups
+-- Calculate size of: Mass Quote Report Message No Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.size = function(buffer, offset)
   local index = 0
 
@@ -9225,12 +9225,12 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.size 
   return index
 end
 
--- Display: Mass Quote Report Message no Quote Sets Groups
+-- Display: Mass Quote Report Message No Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Report Message no Quote Sets Groups
+-- Dissect Fields: Mass Quote Report Message No Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -9240,7 +9240,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.field
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Mass Quote Report Message no Quote Sets Group
+  -- Repeating: Mass Quote Report Message No Quote Sets Group
   for mass_quote_report_message_no_quote_sets_group_index = 1, num_in_group do
     index, mass_quote_report_message_no_quote_sets_group = ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_group.dissect(buffer, index, packet, parent, mass_quote_report_message_no_quote_sets_group_index)
   end
@@ -9248,7 +9248,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.field
   return index
 end
 
--- Dissect: Mass Quote Report Message no Quote Sets Groups
+-- Dissect: Mass Quote Report Message No Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -9332,7 +9332,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message.fields = function(buffer, 
   -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Report Message no Quote Sets Groups: Struct of 2 fields
+  -- Mass Quote Report Message No Quote Sets Groups: Struct of 2 fields
   index, mass_quote_report_message_no_quote_sets_groups = ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message_no_quote_sets_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -10642,10 +10642,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_flex_message.diss
   end
 end
 
--- Security Definition Request Create Strategy Message no Legs Group
+-- Security Definition Request Create Strategy Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_group = {}
 
--- Size: Security Definition Request Create Strategy Message no Legs Group
+-- Size: Security Definition Request Create Strategy Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_group.size =
   ice_icefutures_bgw_sbe_v7_0.leg_symbol.size + 
   ice_icefutures_bgw_sbe_v7_0.leg_security_type.size + 
@@ -10655,16 +10655,16 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_
   ice_icefutures_bgw_sbe_v7_0.leg_price.size + 
   ice_icefutures_bgw_sbe_v7_0.leg_option_delta.size
 
--- Display: Security Definition Request Create Strategy Message no Legs Group
+-- Display: Security Definition Request Create Strategy Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Request Create Strategy Message no Legs Group
+-- Dissect Fields: Security Definition Request Create Strategy Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_group.fields = function(buffer, offset, packet, parent, security_definition_request_create_strategy_message_no_legs_group_index)
   local index = offset
 
-  -- Implicit Security Definition Request Create Strategy Message no Legs Group Index
+  -- Implicit Security Definition Request Create Strategy Message No Legs Group Index
   if security_definition_request_create_strategy_message_no_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_group_index, security_definition_request_create_strategy_message_no_legs_group_index)
     iteration:set_generated()
@@ -10694,7 +10694,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_
   return index
 end
 
--- Dissect: Security Definition Request Create Strategy Message no Legs Group
+-- Dissect: Security Definition Request Create Strategy Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_group.dissect = function(buffer, offset, packet, parent, security_definition_request_create_strategy_message_no_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -10712,10 +10712,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_
   end
 end
 
--- Security Definition Request Create Strategy Message no Legs Groups
+-- Security Definition Request Create Strategy Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_groups = {}
 
--- Calculate size of: Security Definition Request Create Strategy Message no Legs Groups
+-- Calculate size of: Security Definition Request Create Strategy Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_groups.size = function(buffer, offset)
   local index = 0
 
@@ -10728,12 +10728,12 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_
   return index
 end
 
--- Display: Security Definition Request Create Strategy Message no Legs Groups
+-- Display: Security Definition Request Create Strategy Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Request Create Strategy Message no Legs Groups
+-- Dissect Fields: Security Definition Request Create Strategy Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -10743,7 +10743,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Security Definition Request Create Strategy Message no Legs Group
+  -- Repeating: Security Definition Request Create Strategy Message No Legs Group
   for security_definition_request_create_strategy_message_no_legs_group_index = 1, num_in_group do
     index, security_definition_request_create_strategy_message_no_legs_group = ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_group.dissect(buffer, index, packet, parent, security_definition_request_create_strategy_message_no_legs_group_index)
   end
@@ -10751,7 +10751,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_
   return index
 end
 
--- Dissect: Security Definition Request Create Strategy Message no Legs Groups
+-- Dissect: Security Definition Request Create Strategy Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -10830,7 +10830,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message.
   -- Security Type: SecurityTypeEnum
   index, security_type = ice_icefutures_bgw_sbe_v7_0.security_type.dissect(buffer, index, packet, parent)
 
-  -- Security Definition Request Create Strategy Message no Legs Groups: Struct of 2 fields
+  -- Security Definition Request Create Strategy Message No Legs Groups: Struct of 2 fields
   index, security_definition_request_create_strategy_message_no_legs_groups = ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_no_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -10854,25 +10854,25 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message.
   end
 end
 
--- Quote Cancel Request Message no Quote Entries Group
+-- Quote Cancel Request Message No Quote Entries Group
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group = {}
 
--- Size: Quote Cancel Request Message no Quote Entries Group
+-- Size: Quote Cancel Request Message No Quote Entries Group
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.size =
   ice_icefutures_bgw_sbe_v7_0.underlying_symbol_optional.size + 
   ice_icefutures_bgw_sbe_v7_0.underlying_security_id.size + 
   ice_icefutures_bgw_sbe_v7_0.underlying_product.size
 
--- Display: Quote Cancel Request Message no Quote Entries Group
+-- Display: Quote Cancel Request Message No Quote Entries Group
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Request Message no Quote Entries Group
+-- Dissect Fields: Quote Cancel Request Message No Quote Entries Group
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.fields = function(buffer, offset, packet, parent, quote_cancel_request_message_no_quote_entries_group_index)
   local index = offset
 
-  -- Implicit Quote Cancel Request Message no Quote Entries Group Index
+  -- Implicit Quote Cancel Request Message No Quote Entries Group Index
   if quote_cancel_request_message_no_quote_entries_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.quote_cancel_request_message_no_quote_entries_group_index, quote_cancel_request_message_no_quote_entries_group_index)
     iteration:set_generated()
@@ -10890,7 +10890,7 @@ ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.
   return index
 end
 
--- Dissect: Quote Cancel Request Message no Quote Entries Group
+-- Dissect: Quote Cancel Request Message No Quote Entries Group
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.dissect = function(buffer, offset, packet, parent, quote_cancel_request_message_no_quote_entries_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -10908,10 +10908,10 @@ ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.
   end
 end
 
--- Quote Cancel Request Message no Quote Entries Groups
+-- Quote Cancel Request Message No Quote Entries Groups
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups = {}
 
--- Calculate size of: Quote Cancel Request Message no Quote Entries Groups
+-- Calculate size of: Quote Cancel Request Message No Quote Entries Groups
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups.size = function(buffer, offset)
   local index = 0
 
@@ -10924,12 +10924,12 @@ ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups
   return index
 end
 
--- Display: Quote Cancel Request Message no Quote Entries Groups
+-- Display: Quote Cancel Request Message No Quote Entries Groups
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancel Request Message no Quote Entries Groups
+-- Dissect Fields: Quote Cancel Request Message No Quote Entries Groups
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -10939,7 +10939,7 @@ ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Quote Cancel Request Message no Quote Entries Group
+  -- Repeating: Quote Cancel Request Message No Quote Entries Group
   for quote_cancel_request_message_no_quote_entries_group_index = 1, num_in_group do
     index, quote_cancel_request_message_no_quote_entries_group = ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.dissect(buffer, index, packet, parent, quote_cancel_request_message_no_quote_entries_group_index)
   end
@@ -10947,7 +10947,7 @@ ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups
   return index
 end
 
--- Dissect: Quote Cancel Request Message no Quote Entries Groups
+-- Dissect: Quote Cancel Request Message No Quote Entries Groups
 ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -11001,7 +11001,7 @@ ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message.fields = function(buffe
   -- Originator User Id: string20
   index, originator_user_id = ice_icefutures_bgw_sbe_v7_0.originator_user_id.dissect(buffer, index, packet, parent)
 
-  -- Quote Cancel Request Message no Quote Entries Groups: Struct of 2 fields
+  -- Quote Cancel Request Message No Quote Entries Groups: Struct of 2 fields
   index, quote_cancel_request_message_no_quote_entries_groups = ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -11025,10 +11025,10 @@ ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message.dissect = function(buff
   end
 end
 
--- Mass Quote Request Message no Quote Sets Group
+-- Mass Quote Request Message No Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group = {}
 
--- Size: Mass Quote Request Message no Quote Sets Group
+-- Size: Mass Quote Request Message No Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.size =
   ice_icefutures_bgw_sbe_v7_0.quote_set_id.size + 
   ice_icefutures_bgw_sbe_v7_0.underlying_symbol.size + 
@@ -11039,16 +11039,16 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.size 
   ice_icefutures_bgw_sbe_v7_0.bid_sz.size + 
   ice_icefutures_bgw_sbe_v7_0.offer_sz.size
 
--- Display: Mass Quote Request Message no Quote Sets Group
+-- Display: Mass Quote Request Message No Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Request Message no Quote Sets Group
+-- Dissect Fields: Mass Quote Request Message No Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.fields = function(buffer, offset, packet, parent, mass_quote_request_message_no_quote_sets_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Request Message no Quote Sets Group Index
+  -- Implicit Mass Quote Request Message No Quote Sets Group Index
   if mass_quote_request_message_no_quote_sets_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quote_request_message_no_quote_sets_group_index, mass_quote_request_message_no_quote_sets_group_index)
     iteration:set_generated()
@@ -11081,7 +11081,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.field
   return index
 end
 
--- Dissect: Mass Quote Request Message no Quote Sets Group
+-- Dissect: Mass Quote Request Message No Quote Sets Group
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.dissect = function(buffer, offset, packet, parent, mass_quote_request_message_no_quote_sets_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -11099,10 +11099,10 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.disse
   end
 end
 
--- Mass Quote Request Message no Quote Sets Groups
+-- Mass Quote Request Message No Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups = {}
 
--- Calculate size of: Mass Quote Request Message no Quote Sets Groups
+-- Calculate size of: Mass Quote Request Message No Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.size = function(buffer, offset)
   local index = 0
 
@@ -11115,12 +11115,12 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.size
   return index
 end
 
--- Display: Mass Quote Request Message no Quote Sets Groups
+-- Display: Mass Quote Request Message No Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Request Message no Quote Sets Groups
+-- Dissect Fields: Mass Quote Request Message No Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -11130,7 +11130,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.fiel
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Mass Quote Request Message no Quote Sets Group
+  -- Repeating: Mass Quote Request Message No Quote Sets Group
   for mass_quote_request_message_no_quote_sets_group_index = 1, num_in_group do
     index, mass_quote_request_message_no_quote_sets_group = ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_group.dissect(buffer, index, packet, parent, mass_quote_request_message_no_quote_sets_group_index)
   end
@@ -11138,7 +11138,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.fiel
   return index
 end
 
--- Dissect: Mass Quote Request Message no Quote Sets Groups
+-- Dissect: Mass Quote Request Message No Quote Sets Groups
 ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -11242,7 +11242,7 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message.fields = function(buffer,
   -- Mifid Id: int64NULL
   index, mifid_id = ice_icefutures_bgw_sbe_v7_0.mifid_id.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Request Message no Quote Sets Groups: Struct of 2 fields
+  -- Mass Quote Request Message No Quote Sets Groups: Struct of 2 fields
   index, mass_quote_request_message_no_quote_sets_groups = ice_icefutures_bgw_sbe_v7_0.mass_quote_request_message_no_quote_sets_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -11342,10 +11342,10 @@ ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_request_message.dissect = function
   end
 end
 
--- New Order Cross Request Message no Legs Group
+-- New Order Cross Request Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group = {}
 
--- Size: New Order Cross Request Message no Legs Group
+-- Size: New Order Cross Request Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.size =
   ice_icefutures_bgw_sbe_v7_0.leg_symbol_optional.size + 
   ice_icefutures_bgw_sbe_v7_0.leg_security_id_source.size + 
@@ -11356,16 +11356,16 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.size =
   ice_icefutures_bgw_sbe_v7_0.leg_memo_field.size + 
   ice_icefutures_bgw_sbe_v7_0.leg_security_id.size
 
--- Display: New Order Cross Request Message no Legs Group
+-- Display: New Order Cross Request Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Order Cross Request Message no Legs Group
+-- Dissect Fields: New Order Cross Request Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.fields = function(buffer, offset, packet, parent, new_order_cross_request_message_no_legs_group_index)
   local index = offset
 
-  -- Implicit New Order Cross Request Message no Legs Group Index
+  -- Implicit New Order Cross Request Message No Legs Group Index
   if new_order_cross_request_message_no_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_group_index, new_order_cross_request_message_no_legs_group_index)
     iteration:set_generated()
@@ -11398,7 +11398,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.fields
   return index
 end
 
--- Dissect: New Order Cross Request Message no Legs Group
+-- Dissect: New Order Cross Request Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.dissect = function(buffer, offset, packet, parent, new_order_cross_request_message_no_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -11416,10 +11416,10 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.dissec
   end
 end
 
--- New Order Cross Request Message no Legs Groups
+-- New Order Cross Request Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups = {}
 
--- Calculate size of: New Order Cross Request Message no Legs Groups
+-- Calculate size of: New Order Cross Request Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.size = function(buffer, offset)
   local index = 0
 
@@ -11432,12 +11432,12 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.size 
   return index
 end
 
--- Display: New Order Cross Request Message no Legs Groups
+-- Display: New Order Cross Request Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Order Cross Request Message no Legs Groups
+-- Dissect Fields: New Order Cross Request Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -11447,7 +11447,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.field
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: New Order Cross Request Message no Legs Group
+  -- Repeating: New Order Cross Request Message No Legs Group
   for new_order_cross_request_message_no_legs_group_index = 1, num_in_group do
     index, new_order_cross_request_message_no_legs_group = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.dissect(buffer, index, packet, parent, new_order_cross_request_message_no_legs_group_index)
   end
@@ -11455,7 +11455,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.field
   return index
 end
 
--- Dissect: New Order Cross Request Message no Legs Groups
+-- Dissect: New Order Cross Request Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -11473,10 +11473,10 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.disse
   end
 end
 
--- New Order Cross Request Message no Sides Group
+-- New Order Cross Request Message No Sides Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group = {}
 
--- Size: New Order Cross Request Message no Sides Group
+-- Size: New Order Cross Request Message No Sides Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.size =
   ice_icefutures_bgw_sbe_v7_0.side.size + 
   ice_icefutures_bgw_sbe_v7_0.cl_ord_id.size + 
@@ -11504,16 +11504,16 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.size 
   ice_icefutures_bgw_sbe_v7_0.on_behalf_of_sub_id.size + 
   ice_icefutures_bgw_sbe_v7_0.on_behalf_of_location_id.size
 
--- Display: New Order Cross Request Message no Sides Group
+-- Display: New Order Cross Request Message No Sides Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Order Cross Request Message no Sides Group
+-- Dissect Fields: New Order Cross Request Message No Sides Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.fields = function(buffer, offset, packet, parent, new_order_cross_request_message_no_sides_group_index)
   local index = offset
 
-  -- Implicit New Order Cross Request Message no Sides Group Index
+  -- Implicit New Order Cross Request Message No Sides Group Index
   if new_order_cross_request_message_no_sides_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_sides_group_index, new_order_cross_request_message_no_sides_group_index)
     iteration:set_generated()
@@ -11597,7 +11597,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.field
   return index
 end
 
--- Dissect: New Order Cross Request Message no Sides Group
+-- Dissect: New Order Cross Request Message No Sides Group
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.dissect = function(buffer, offset, packet, parent, new_order_cross_request_message_no_sides_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -11615,10 +11615,10 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.disse
   end
 end
 
--- New Order Cross Request Message no Sides Groups
+-- New Order Cross Request Message No Sides Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups = {}
 
--- Calculate size of: New Order Cross Request Message no Sides Groups
+-- Calculate size of: New Order Cross Request Message No Sides Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.size = function(buffer, offset)
   local index = 0
 
@@ -11631,12 +11631,12 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.size
   return index
 end
 
--- Display: New Order Cross Request Message no Sides Groups
+-- Display: New Order Cross Request Message No Sides Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Order Cross Request Message no Sides Groups
+-- Dissect Fields: New Order Cross Request Message No Sides Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -11646,7 +11646,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.fiel
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: New Order Cross Request Message no Sides Group
+  -- Repeating: New Order Cross Request Message No Sides Group
   for new_order_cross_request_message_no_sides_group_index = 1, num_in_group do
     index, new_order_cross_request_message_no_sides_group = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_group.dissect(buffer, index, packet, parent, new_order_cross_request_message_no_sides_group_index)
   end
@@ -11654,7 +11654,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.fiel
   return index
 end
 
--- Dissect: New Order Cross Request Message no Sides Groups
+-- Dissect: New Order Cross Request Message No Sides Groups
 ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -11780,10 +11780,10 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message.fields = function(bu
   -- Transact Time: UTCTimestamp
   index, transact_time = ice_icefutures_bgw_sbe_v7_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- New Order Cross Request Message no Sides Groups: Struct of 2 fields
+  -- New Order Cross Request Message No Sides Groups: Struct of 2 fields
   index, new_order_cross_request_message_no_sides_groups = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_sides_groups.dissect(buffer, index, packet, parent)
 
-  -- New Order Cross Request Message no Legs Groups: Struct of 2 fields
+  -- New Order Cross Request Message No Legs Groups: Struct of 2 fields
   index, new_order_cross_request_message_no_legs_groups = ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -12511,10 +12511,10 @@ ice_icefutures_bgw_sbe_v7_0.trader_logon_request_message.dissect = function(buff
   end
 end
 
--- I P Report Message no Users Group
+-- I P Report Message No Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group = {}
 
--- Size: I P Report Message no Users Group
+-- Size: I P Report Message No Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.size =
   ice_icefutures_bgw_sbe_v7_0.user_id.size + 
   ice_icefutures_bgw_sbe_v7_0.success.size + 
@@ -12522,16 +12522,16 @@ ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.size =
   ice_icefutures_bgw_sbe_v7_0.port.size + 
   ice_icefutures_bgw_sbe_v7_0.ip_session_token.size
 
--- Display: I P Report Message no Users Group
+-- Display: I P Report Message No Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: I P Report Message no Users Group
+-- Dissect Fields: I P Report Message No Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.fields = function(buffer, offset, packet, parent, i_p_report_message_no_users_group_index)
   local index = offset
 
-  -- Implicit I P Report Message no Users Group Index
+  -- Implicit I P Report Message No Users Group Index
   if i_p_report_message_no_users_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_report_message_no_users_group_index, i_p_report_message_no_users_group_index)
     iteration:set_generated()
@@ -12555,7 +12555,7 @@ ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.fields = function(
   return index
 end
 
--- Dissect: I P Report Message no Users Group
+-- Dissect: I P Report Message No Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.dissect = function(buffer, offset, packet, parent, i_p_report_message_no_users_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -12573,10 +12573,10 @@ ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.dissect = function
   end
 end
 
--- I P Report Message no Users Groups
+-- I P Report Message No Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups = {}
 
--- Calculate size of: I P Report Message no Users Groups
+-- Calculate size of: I P Report Message No Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.size = function(buffer, offset)
   local index = 0
 
@@ -12589,12 +12589,12 @@ ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.size = function(b
   return index
 end
 
--- Display: I P Report Message no Users Groups
+-- Display: I P Report Message No Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: I P Report Message no Users Groups
+-- Dissect Fields: I P Report Message No Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -12604,7 +12604,7 @@ ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.fields = function
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: I P Report Message no Users Group
+  -- Repeating: I P Report Message No Users Group
   for i_p_report_message_no_users_group_index = 1, num_in_group do
     index, i_p_report_message_no_users_group = ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_group.dissect(buffer, index, packet, parent, i_p_report_message_no_users_group_index)
   end
@@ -12612,7 +12612,7 @@ ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.fields = function
   return index
 end
 
--- Dissect: I P Report Message no Users Groups
+-- Dissect: I P Report Message No Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -12661,7 +12661,7 @@ ice_icefutures_bgw_sbe_v7_0.ip_report_message.fields = function(buffer, offset, 
   -- Text: string100NULL
   index, text = ice_icefutures_bgw_sbe_v7_0.text.dissect(buffer, index, packet, parent)
 
-  -- I P Report Message no Users Groups: Struct of 2 fields
+  -- I P Report Message No Users Groups: Struct of 2 fields
   index, i_p_report_message_no_users_groups = ice_icefutures_bgw_sbe_v7_0.i_p_report_message_no_users_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -12685,23 +12685,23 @@ ice_icefutures_bgw_sbe_v7_0.ip_report_message.dissect = function(buffer, offset,
   end
 end
 
--- I P Request Message no Users Group
+-- I P Request Message No Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group = {}
 
--- Size: I P Request Message no Users Group
+-- Size: I P Request Message No Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group.size =
   ice_icefutures_bgw_sbe_v7_0.user_id.size
 
--- Display: I P Request Message no Users Group
+-- Display: I P Request Message No Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: I P Request Message no Users Group
+-- Dissect Fields: I P Request Message No Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group.fields = function(buffer, offset, packet, parent, i_p_request_message_no_users_group_index)
   local index = offset
 
-  -- Implicit I P Request Message no Users Group Index
+  -- Implicit I P Request Message No Users Group Index
   if i_p_request_message_no_users_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.i_p_request_message_no_users_group_index, i_p_request_message_no_users_group_index)
     iteration:set_generated()
@@ -12713,7 +12713,7 @@ ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group.fields = function
   return index
 end
 
--- Dissect: I P Request Message no Users Group
+-- Dissect: I P Request Message No Users Group
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group.dissect = function(buffer, offset, packet, parent, i_p_request_message_no_users_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -12731,10 +12731,10 @@ ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group.dissect = functio
   end
 end
 
--- I P Request Message no Users Groups
+-- I P Request Message No Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups = {}
 
--- Calculate size of: I P Request Message no Users Groups
+-- Calculate size of: I P Request Message No Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.size = function(buffer, offset)
   local index = 0
 
@@ -12747,12 +12747,12 @@ ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.size = function(
   return index
 end
 
--- Display: I P Request Message no Users Groups
+-- Display: I P Request Message No Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: I P Request Message no Users Groups
+-- Dissect Fields: I P Request Message No Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -12762,7 +12762,7 @@ ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.fields = functio
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: I P Request Message no Users Group
+  -- Repeating: I P Request Message No Users Group
   for i_p_request_message_no_users_group_index = 1, num_in_group do
     index, i_p_request_message_no_users_group = ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_group.dissect(buffer, index, packet, parent, i_p_request_message_no_users_group_index)
   end
@@ -12770,7 +12770,7 @@ ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.fields = functio
   return index
 end
 
--- Dissect: I P Request Message no Users Groups
+-- Dissect: I P Request Message No Users Groups
 ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -12814,7 +12814,7 @@ ice_icefutures_bgw_sbe_v7_0.ip_request_message.fields = function(buffer, offset,
   -- Client Id: int32
   index, client_id = ice_icefutures_bgw_sbe_v7_0.client_id.dissect(buffer, index, packet, parent)
 
-  -- I P Request Message no Users Groups: Struct of 2 fields
+  -- I P Request Message No Users Groups: Struct of 2 fields
   index, i_p_request_message_no_users_groups = ice_icefutures_bgw_sbe_v7_0.i_p_request_message_no_users_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -14170,24 +14170,24 @@ ice_icefutures_bgw_sbe_v7_0.security_id.dissect = function(buffer, offset, packe
   end
 end
 
--- Security Definition Report Message no Security Alt I D Group
+-- Security Definition Report Message No Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_group = {}
 
--- Size: Security Definition Report Message no Security Alt I D Group
+-- Size: Security Definition Report Message No Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_group.size =
   ice_icefutures_bgw_sbe_v7_0.security_alt_id.size + 
   ice_icefutures_bgw_sbe_v7_0.security_alt_id_source.size
 
--- Display: Security Definition Report Message no Security Alt I D Group
+-- Display: Security Definition Report Message No Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Report Message no Security Alt I D Group
+-- Dissect Fields: Security Definition Report Message No Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_group.fields = function(buffer, offset, packet, parent, security_definition_report_message_no_security_alt_i_d_group_index)
   local index = offset
 
-  -- Implicit Security Definition Report Message no Security Alt I D Group Index
+  -- Implicit Security Definition Report Message No Security Alt I D Group Index
   if security_definition_report_message_no_security_alt_i_d_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_security_alt_i_d_group_index, security_definition_report_message_no_security_alt_i_d_group_index)
     iteration:set_generated()
@@ -14202,7 +14202,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i
   return index
 end
 
--- Dissect: Security Definition Report Message no Security Alt I D Group
+-- Dissect: Security Definition Report Message No Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_group.dissect = function(buffer, offset, packet, parent, security_definition_report_message_no_security_alt_i_d_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -14220,10 +14220,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i
   end
 end
 
--- Security Definition Report Message no Security Alt I D Groups
+-- Security Definition Report Message No Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_groups = {}
 
--- Calculate size of: Security Definition Report Message no Security Alt I D Groups
+-- Calculate size of: Security Definition Report Message No Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_groups.size = function(buffer, offset)
   local index = 0
 
@@ -14236,12 +14236,12 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i
   return index
 end
 
--- Display: Security Definition Report Message no Security Alt I D Groups
+-- Display: Security Definition Report Message No Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Report Message no Security Alt I D Groups
+-- Dissect Fields: Security Definition Report Message No Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -14251,7 +14251,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Security Definition Report Message no Security Alt I D Group
+  -- Repeating: Security Definition Report Message No Security Alt I D Group
   for security_definition_report_message_no_security_alt_i_d_group_index = 1, num_in_group do
     index, security_definition_report_message_no_security_alt_i_d_group = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_group.dissect(buffer, index, packet, parent, security_definition_report_message_no_security_alt_i_d_group_index)
   end
@@ -14259,7 +14259,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i
   return index
 end
 
--- Dissect: Security Definition Report Message no Security Alt I D Groups
+-- Dissect: Security Definition Report Message No Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -14277,25 +14277,25 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i
   end
 end
 
--- Security Definition Report Message no Block Details Group
+-- Security Definition Report Message No Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_group = {}
 
--- Size: Security Definition Report Message no Block Details Group
+-- Size: Security Definition Report Message No Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_group.size =
   ice_icefutures_bgw_sbe_v7_0.block_details_block_type.size + 
   ice_icefutures_bgw_sbe_v7_0.block_details_trade_type.size + 
   ice_icefutures_bgw_sbe_v7_0.block_details_min_qty.size
 
--- Display: Security Definition Report Message no Block Details Group
+-- Display: Security Definition Report Message No Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Report Message no Block Details Group
+-- Dissect Fields: Security Definition Report Message No Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_group.fields = function(buffer, offset, packet, parent, security_definition_report_message_no_block_details_group_index)
   local index = offset
 
-  -- Implicit Security Definition Report Message no Block Details Group Index
+  -- Implicit Security Definition Report Message No Block Details Group Index
   if security_definition_report_message_no_block_details_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_message_no_block_details_group_index, security_definition_report_message_no_block_details_group_index)
     iteration:set_generated()
@@ -14313,7 +14313,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_
   return index
 end
 
--- Dissect: Security Definition Report Message no Block Details Group
+-- Dissect: Security Definition Report Message No Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_group.dissect = function(buffer, offset, packet, parent, security_definition_report_message_no_block_details_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -14331,10 +14331,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_
   end
 end
 
--- Security Definition Report Message no Block Details Groups
+-- Security Definition Report Message No Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_groups = {}
 
--- Calculate size of: Security Definition Report Message no Block Details Groups
+-- Calculate size of: Security Definition Report Message No Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_groups.size = function(buffer, offset)
   local index = 0
 
@@ -14347,12 +14347,12 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_
   return index
 end
 
--- Display: Security Definition Report Message no Block Details Groups
+-- Display: Security Definition Report Message No Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Report Message no Block Details Groups
+-- Dissect Fields: Security Definition Report Message No Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -14362,7 +14362,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Security Definition Report Message no Block Details Group
+  -- Repeating: Security Definition Report Message No Block Details Group
   for security_definition_report_message_no_block_details_group_index = 1, num_in_group do
     index, security_definition_report_message_no_block_details_group = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_group.dissect(buffer, index, packet, parent, security_definition_report_message_no_block_details_group_index)
   end
@@ -14370,7 +14370,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_
   return index
 end
 
--- Dissect: Security Definition Report Message no Block Details Groups
+-- Dissect: Security Definition Report Message No Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -14750,10 +14750,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message.fields = function
   -- Non Commoditized Market: BooleanEnumNULL
   index, non_commoditized_market = ice_icefutures_bgw_sbe_v7_0.non_commoditized_market.dissect(buffer, index, packet, parent)
 
-  -- Security Definition Report Message no Block Details Groups: Struct of 2 fields
+  -- Security Definition Report Message No Block Details Groups: Struct of 2 fields
   index, security_definition_report_message_no_block_details_groups = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_block_details_groups.dissect(buffer, index, packet, parent)
 
-  -- Security Definition Report Message no Security Alt I D Groups: Struct of 2 fields
+  -- Security Definition Report Message No Security Alt I D Groups: Struct of 2 fields
   index, security_definition_report_message_no_security_alt_i_d_groups = ice_icefutures_bgw_sbe_v7_0.security_definition_report_message_no_security_alt_i_d_groups.dissect(buffer, index, packet, parent)
 
   -- Security Id: Struct of 2 fields
@@ -14884,10 +14884,10 @@ ice_icefutures_bgw_sbe_v7_0.strategy_security_id.dissect = function(buffer, offs
   end
 end
 
--- Security Definition Report Strategy Message no Legs Group
+-- Security Definition Report Strategy Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_group = {}
 
--- Size: Security Definition Report Strategy Message no Legs Group
+-- Size: Security Definition Report Strategy Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_group.size =
   ice_icefutures_bgw_sbe_v7_0.leg_symbol.size + 
   ice_icefutures_bgw_sbe_v7_0.leg_security_type.size + 
@@ -14900,16 +14900,16 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_
   ice_icefutures_bgw_sbe_v7_0.leg_ratio_price_denominator.size + 
   ice_icefutures_bgw_sbe_v7_0.leg_ratio_price_numerator.size
 
--- Display: Security Definition Report Strategy Message no Legs Group
+-- Display: Security Definition Report Strategy Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Report Strategy Message no Legs Group
+-- Dissect Fields: Security Definition Report Strategy Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_group.fields = function(buffer, offset, packet, parent, security_definition_report_strategy_message_no_legs_group_index)
   local index = offset
 
-  -- Implicit Security Definition Report Strategy Message no Legs Group Index
+  -- Implicit Security Definition Report Strategy Message No Legs Group Index
   if security_definition_report_strategy_message_no_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_legs_group_index, security_definition_report_strategy_message_no_legs_group_index)
     iteration:set_generated()
@@ -14948,7 +14948,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_
   return index
 end
 
--- Dissect: Security Definition Report Strategy Message no Legs Group
+-- Dissect: Security Definition Report Strategy Message No Legs Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_group.dissect = function(buffer, offset, packet, parent, security_definition_report_strategy_message_no_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -14966,10 +14966,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_
   end
 end
 
--- Security Definition Report Strategy Message no Legs Groups
+-- Security Definition Report Strategy Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_groups = {}
 
--- Calculate size of: Security Definition Report Strategy Message no Legs Groups
+-- Calculate size of: Security Definition Report Strategy Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_groups.size = function(buffer, offset)
   local index = 0
 
@@ -14982,12 +14982,12 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_
   return index
 end
 
--- Display: Security Definition Report Strategy Message no Legs Groups
+-- Display: Security Definition Report Strategy Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Report Strategy Message no Legs Groups
+-- Dissect Fields: Security Definition Report Strategy Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -14997,7 +14997,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Security Definition Report Strategy Message no Legs Group
+  -- Repeating: Security Definition Report Strategy Message No Legs Group
   for security_definition_report_strategy_message_no_legs_group_index = 1, num_in_group do
     index, security_definition_report_strategy_message_no_legs_group = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_group.dissect(buffer, index, packet, parent, security_definition_report_strategy_message_no_legs_group_index)
   end
@@ -15005,7 +15005,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_
   return index
 end
 
--- Dissect: Security Definition Report Strategy Message no Legs Groups
+-- Dissect: Security Definition Report Strategy Message No Legs Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -15023,24 +15023,24 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_
   end
 end
 
--- Security Definition Report Strategy Message no Security Alt I D Group
+-- Security Definition Report Strategy Message No Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_group = {}
 
--- Size: Security Definition Report Strategy Message no Security Alt I D Group
+-- Size: Security Definition Report Strategy Message No Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_group.size =
   ice_icefutures_bgw_sbe_v7_0.security_alt_id.size + 
   ice_icefutures_bgw_sbe_v7_0.security_alt_id_source.size
 
--- Display: Security Definition Report Strategy Message no Security Alt I D Group
+-- Display: Security Definition Report Strategy Message No Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Report Strategy Message no Security Alt I D Group
+-- Dissect Fields: Security Definition Report Strategy Message No Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_group.fields = function(buffer, offset, packet, parent, security_definition_report_strategy_message_no_security_alt_i_d_group_index)
   local index = offset
 
-  -- Implicit Security Definition Report Strategy Message no Security Alt I D Group Index
+  -- Implicit Security Definition Report Strategy Message No Security Alt I D Group Index
   if security_definition_report_strategy_message_no_security_alt_i_d_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_group_index, security_definition_report_strategy_message_no_security_alt_i_d_group_index)
     iteration:set_generated()
@@ -15055,7 +15055,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_secur
   return index
 end
 
--- Dissect: Security Definition Report Strategy Message no Security Alt I D Group
+-- Dissect: Security Definition Report Strategy Message No Security Alt I D Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_group.dissect = function(buffer, offset, packet, parent, security_definition_report_strategy_message_no_security_alt_i_d_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -15073,10 +15073,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_secur
   end
 end
 
--- Security Definition Report Strategy Message no Security Alt I D Groups
+-- Security Definition Report Strategy Message No Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_groups = {}
 
--- Calculate size of: Security Definition Report Strategy Message no Security Alt I D Groups
+-- Calculate size of: Security Definition Report Strategy Message No Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_groups.size = function(buffer, offset)
   local index = 0
 
@@ -15089,12 +15089,12 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_secur
   return index
 end
 
--- Display: Security Definition Report Strategy Message no Security Alt I D Groups
+-- Display: Security Definition Report Strategy Message No Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Report Strategy Message no Security Alt I D Groups
+-- Dissect Fields: Security Definition Report Strategy Message No Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -15104,7 +15104,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_secur
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Security Definition Report Strategy Message no Security Alt I D Group
+  -- Repeating: Security Definition Report Strategy Message No Security Alt I D Group
   for security_definition_report_strategy_message_no_security_alt_i_d_group_index = 1, num_in_group do
     index, security_definition_report_strategy_message_no_security_alt_i_d_group = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_group.dissect(buffer, index, packet, parent, security_definition_report_strategy_message_no_security_alt_i_d_group_index)
   end
@@ -15112,7 +15112,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_secur
   return index
 end
 
--- Dissect: Security Definition Report Strategy Message no Security Alt I D Groups
+-- Dissect: Security Definition Report Strategy Message No Security Alt I D Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -15130,25 +15130,25 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_secur
   end
 end
 
--- Security Definition Report Strategy Message no Block Details Group
+-- Security Definition Report Strategy Message No Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_group = {}
 
--- Size: Security Definition Report Strategy Message no Block Details Group
+-- Size: Security Definition Report Strategy Message No Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_group.size =
   ice_icefutures_bgw_sbe_v7_0.block_details_block_type.size + 
   ice_icefutures_bgw_sbe_v7_0.block_details_trade_type.size + 
   ice_icefutures_bgw_sbe_v7_0.block_details_min_qty.size
 
--- Display: Security Definition Report Strategy Message no Block Details Group
+-- Display: Security Definition Report Strategy Message No Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Report Strategy Message no Block Details Group
+-- Dissect Fields: Security Definition Report Strategy Message No Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_group.fields = function(buffer, offset, packet, parent, security_definition_report_strategy_message_no_block_details_group_index)
   local index = offset
 
-  -- Implicit Security Definition Report Strategy Message no Block Details Group Index
+  -- Implicit Security Definition Report Strategy Message No Block Details Group Index
   if security_definition_report_strategy_message_no_block_details_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_block_details_group_index, security_definition_report_strategy_message_no_block_details_group_index)
     iteration:set_generated()
@@ -15166,7 +15166,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block
   return index
 end
 
--- Dissect: Security Definition Report Strategy Message no Block Details Group
+-- Dissect: Security Definition Report Strategy Message No Block Details Group
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_group.dissect = function(buffer, offset, packet, parent, security_definition_report_strategy_message_no_block_details_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -15184,10 +15184,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block
   end
 end
 
--- Security Definition Report Strategy Message no Block Details Groups
+-- Security Definition Report Strategy Message No Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_groups = {}
 
--- Calculate size of: Security Definition Report Strategy Message no Block Details Groups
+-- Calculate size of: Security Definition Report Strategy Message No Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_groups.size = function(buffer, offset)
   local index = 0
 
@@ -15200,12 +15200,12 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block
   return index
 end
 
--- Display: Security Definition Report Strategy Message no Block Details Groups
+-- Display: Security Definition Report Strategy Message No Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Report Strategy Message no Block Details Groups
+-- Dissect Fields: Security Definition Report Strategy Message No Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -15215,7 +15215,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Security Definition Report Strategy Message no Block Details Group
+  -- Repeating: Security Definition Report Strategy Message No Block Details Group
   for security_definition_report_strategy_message_no_block_details_group_index = 1, num_in_group do
     index, security_definition_report_strategy_message_no_block_details_group = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_group.dissect(buffer, index, packet, parent, security_definition_report_strategy_message_no_block_details_group_index)
   end
@@ -15223,7 +15223,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block
   return index
 end
 
--- Dissect: Security Definition Report Strategy Message no Block Details Groups
+-- Dissect: Security Definition Report Strategy Message No Block Details Groups
 ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -15485,13 +15485,13 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message.fields =
   -- Block Tick Value: Decimal9
   index, block_tick_value = ice_icefutures_bgw_sbe_v7_0.block_tick_value.dissect(buffer, index, packet, parent)
 
-  -- Security Definition Report Strategy Message no Block Details Groups: Struct of 2 fields
+  -- Security Definition Report Strategy Message No Block Details Groups: Struct of 2 fields
   index, security_definition_report_strategy_message_no_block_details_groups = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_block_details_groups.dissect(buffer, index, packet, parent)
 
-  -- Security Definition Report Strategy Message no Security Alt I D Groups: Struct of 2 fields
+  -- Security Definition Report Strategy Message No Security Alt I D Groups: Struct of 2 fields
   index, security_definition_report_strategy_message_no_security_alt_i_d_groups = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_security_alt_i_d_groups.dissect(buffer, index, packet, parent)
 
-  -- Security Definition Report Strategy Message no Legs Groups: Struct of 2 fields
+  -- Security Definition Report Strategy Message No Legs Groups: Struct of 2 fields
   index, security_definition_report_strategy_message_no_legs_groups = ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message_no_legs_groups.dissect(buffer, index, packet, parent)
 
   -- Security Id: Struct of 2 fields

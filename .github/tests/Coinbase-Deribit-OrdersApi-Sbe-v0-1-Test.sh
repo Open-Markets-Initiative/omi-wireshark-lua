@@ -30,7 +30,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.instrumentid" Coinbase.Deribit.OrdersA
 grep "coinbase.deribit.ordersapi.sbe.v0.1.price" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.mantissa" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.exponent" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json
-grep "coinbase.deribit.ordersapi.sbe.v0.1.mantissa" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json
+grep "coinbase.deribit.ordersapi.sbe.v0.1.mantissaoptional" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.exponent" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.flagsreplaceorderflags" Coinbase.Deribit.OrdersApi.Sbe.v0.1.AmendOrderRequestMessage.json
 runuser -u tester -- tshark \
@@ -159,7 +159,7 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.instrumentid" Coinbase.Deribit.OrdersA
 grep "coinbase.deribit.ordersapi.sbe.v0.1.price" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.mantissa" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.exponent" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json
-grep "coinbase.deribit.ordersapi.sbe.v0.1.mantissa" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json
+grep "coinbase.deribit.ordersapi.sbe.v0.1.mantissaoptional" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.exponent" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.selfmatchpreventionid" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.side" Coinbase.Deribit.OrdersApi.Sbe.v0.1.NewOrderRequestMessage.json

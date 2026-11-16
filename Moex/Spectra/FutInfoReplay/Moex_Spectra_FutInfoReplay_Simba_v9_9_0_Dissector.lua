@@ -3315,7 +3315,7 @@ moex_spectra_futinforeplay_simba_v9_9_0.version.size = 2
 -- Display: Version
 moex_spectra_futinforeplay_simba_v9_9_0.version.display = function(value)
   if value == 9 then
-    return "Version: FIX5SP2"
+    return "Version: 9"
   end
 
   return "Version: Unknown("..value..")"

@@ -698,7 +698,7 @@ moex_spectra_orderslogsnapshot_simba_v9_12_0.version.size = 2
 -- Display: Version
 moex_spectra_orderslogsnapshot_simba_v9_12_0.version.display = function(value)
   if value == 10 then
-    return "Version: FIX5SP2"
+    return "Version: 10"
   end
 
   return "Version: Unknown("..value..")"
@@ -1290,7 +1290,7 @@ moex_spectra_orderslogsnapshot_simba_v9_12_0.order_book_snapshot_message.fields 
   -- Rpt Seq: uInt32
   index, rpt_seq = moex_spectra_orderslogsnapshot_simba_v9_12_0.rpt_seq.dissect(buffer, index, packet, parent)
 
-  -- Exchange Trading Session Id: uint32
+  -- Exchange Trading Session Id: uInt32
   index, exchange_trading_session_id = moex_spectra_orderslogsnapshot_simba_v9_12_0.exchange_trading_session_id.dissect(buffer, index, packet, parent)
 
   -- Order Book Snapshot Message No M D Entries Groups: Struct of 2 fields

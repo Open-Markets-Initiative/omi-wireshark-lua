@@ -448,6 +448,11 @@ coinbase_deribit_marketdataapi_sbe_v0_1.day_of_month.size = 2
 
 -- Display: Day Of Month
 coinbase_deribit_marketdataapi_sbe_v0_1.day_of_month.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Day Of Month: No Value"
+  end
+
   return "Day Of Month: "..value
 end
 
@@ -1231,6 +1236,11 @@ coinbase_deribit_marketdataapi_sbe_v0_1.month.size = 2
 
 -- Display: Month
 coinbase_deribit_marketdataapi_sbe_v0_1.month.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Month: No Value"
+  end
+
   return "Month: "..value
 end
 
@@ -1982,6 +1992,11 @@ coinbase_deribit_marketdataapi_sbe_v0_1.week_of_month.size = 2
 
 -- Display: Week Of Month
 coinbase_deribit_marketdataapi_sbe_v0_1.week_of_month.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Week Of Month: No Value"
+  end
+
   return "Week Of Month: "..value
 end
 
@@ -2005,6 +2020,11 @@ coinbase_deribit_marketdataapi_sbe_v0_1.year.size = 2
 
 -- Display: Year
 coinbase_deribit_marketdataapi_sbe_v0_1.year.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Year: No Value"
+  end
+
   return "Year: "..value
 end
 

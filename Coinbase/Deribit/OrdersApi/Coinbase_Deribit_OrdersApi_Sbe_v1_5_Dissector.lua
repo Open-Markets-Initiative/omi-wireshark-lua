@@ -15,10 +15,10 @@ local coinbase_deribit_ordersapi_sbe_v1_5 = {}
 -----------------------------------------------------------------------
 
 -- Coinbase Deribit OrdersApi Sbe 1.5 Fields
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_fills_group = ProtoField.new("Amend Order Response Message fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_fills_groups = ProtoField.new("Amend Order Response Message fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_legs_group = ProtoField.new("Amend Order Response Message legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_legs_groups = ProtoField.new("Amend Order Response Message legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_fills_group = ProtoField.new("Amend Order Response Message Fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_fills_groups = ProtoField.new("Amend Order Response Message Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_legs_group = ProtoField.new("Amend Order Response Message Legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_legs_groups = ProtoField.new("Amend Order Response Message Legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.ask_filled_qty = ProtoField.new("Ask Filled Qty", "coinbase.deribit.ordersapi.sbe.v1.5.askfilledqty", ftypes.STRING, nil, nil, nil, "quotes")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.ask_flags = ProtoField.new("Ask Flags", "coinbase.deribit.ordersapi.sbe.v1.5.askflags", ftypes.STRING, nil, nil, nil, "OrderFlags bit set")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.ask_order_id = ProtoField.new("Ask Order Id", "coinbase.deribit.ordersapi.sbe.v1.5.askorderid", ftypes.INT64, nil, nil, nil, "askOrderId")
@@ -69,51 +69,54 @@ omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.instrument_id = ProtoField.new("I
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.instrument_id_optional = ProtoField.new("Instrument Id Optional", "coinbase.deribit.ordersapi.sbe.v1.5.instrumentidoptional", ftypes.INT64, nil, nil, nil, "instrumentId")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.is_fully_filled = ProtoField.new("Is Fully Filled", "coinbase.deribit.ordersapi.sbe.v1.5.isfullyfilled", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "isFullyFilled")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.is_last_message = ProtoField.new("Is Last Message", "coinbase.deribit.ordersapi.sbe.v1.5.islastmessage", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "isLastMessage")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.is_liquidation = ProtoField.new("Is Liquidation", "coinbase.deribit.ordersapi.sbe.v1.5.isliquidation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "isLiquidation")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.is_quote = ProtoField.new("Is Quote", "coinbase.deribit.ordersapi.sbe.v1.5.isquote", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "isQuote")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.is_resend = ProtoField.new("Is Resend", "coinbase.deribit.ordersapi.sbe.v1.5.isresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Possibly resent message indicator")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.deribit.ordersapi.sbe.v1.5.lastprocessedseqno", ftypes.INT64, nil, nil, nil, "Highest sequence number the sender has processed from the counterparty")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.leg_side = ProtoField.new("Leg Side", "coinbase.deribit.ordersapi.sbe.v1.5.legside", ftypes.INT8, nil, nil, nil, "legSide")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.liquidation_notifications = ProtoField.new("Liquidation Notifications", "coinbase.deribit.ordersapi.sbe.v1.5.liquidationnotifications", ftypes.INT8, nil, nil, nil, "liquidationNotifications")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mantissa = ProtoField.new("Mantissa", "coinbase.deribit.ordersapi.sbe.v1.5.mantissa", ftypes.INT64)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mantissa_optional = ProtoField.new("Mantissa Optional", "coinbase.deribit.ordersapi.sbe.v1.5.mantissaoptional", ftypes.INT64, nil, nil, nil, "mantissa")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.market_limit = ProtoField.new("Market Limit", "coinbase.deribit.ordersapi.sbe.v1.5.marketlimit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "marketLimit")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_fills_group = ProtoField.new("Mass Quote Orders Placed Message fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_fills_groups = ProtoField.new("Mass Quote Orders Placed Message fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_legs_group = ProtoField.new("Mass Quote Orders Placed Message legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_legs_groups = ProtoField.new("Mass Quote Orders Placed Message legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_orders_group = ProtoField.new("Mass Quote Orders Placed Message orders Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_orders_groups = ProtoField.new("Mass Quote Orders Placed Message orders Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_request_message_quotes_group = ProtoField.new("Mass Quote Request Message quotes Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoterequestmessagequotesgroup", ftypes.STRING, nil, nil, nil, "quotes")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_request_message_quotes_groups = ProtoField.new("Mass Quote Request Message quotes Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoterequestmessagequotesgroups", ftypes.STRING, nil, nil, nil, "quotes Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_ask_fills_group = ProtoField.new("Mass Quote Response Message ask Fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessageaskfillsgroup", ftypes.STRING, nil, nil, nil, "askFills")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_ask_fills_groups = ProtoField.new("Mass Quote Response Message ask Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessageaskfillsgroups", ftypes.STRING, nil, nil, nil, "askFills Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_bid_fills_group = ProtoField.new("Mass Quote Response Message bid Fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagebidfillsgroup", ftypes.STRING, nil, nil, nil, "bidFills")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_bid_fills_groups = ProtoField.new("Mass Quote Response Message bid Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagebidfillsgroups", ftypes.STRING, nil, nil, nil, "bidFills Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_legs_group = ProtoField.new("Mass Quote Response Message legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_legs_groups = ProtoField.new("Mass Quote Response Message legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_quotes_group = ProtoField.new("Mass Quote Response Message quotes Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagequotesgroup", ftypes.STRING, nil, nil, nil, "quotes")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_quotes_groups = ProtoField.new("Mass Quote Response Message quotes Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagequotesgroups", ftypes.STRING, nil, nil, nil, "quotes Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_fills_group = ProtoField.new("Mass Quote Orders Placed Message Fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_fills_groups = ProtoField.new("Mass Quote Orders Placed Message Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_legs_group = ProtoField.new("Mass Quote Orders Placed Message Legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_legs_groups = ProtoField.new("Mass Quote Orders Placed Message Legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_orders_group = ProtoField.new("Mass Quote Orders Placed Message Orders Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_orders_groups = ProtoField.new("Mass Quote Orders Placed Message Orders Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_request_message_quotes_group = ProtoField.new("Mass Quote Request Message Quotes Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoterequestmessagequotesgroup", ftypes.STRING, nil, nil, nil, "quotes")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_request_message_quotes_groups = ProtoField.new("Mass Quote Request Message Quotes Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoterequestmessagequotesgroups", ftypes.STRING, nil, nil, nil, "quotes Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_ask_fills_group = ProtoField.new("Mass Quote Response Message Ask Fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessageaskfillsgroup", ftypes.STRING, nil, nil, nil, "askFills")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_ask_fills_groups = ProtoField.new("Mass Quote Response Message Ask Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessageaskfillsgroups", ftypes.STRING, nil, nil, nil, "askFills Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_bid_fills_group = ProtoField.new("Mass Quote Response Message Bid Fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagebidfillsgroup", ftypes.STRING, nil, nil, nil, "bidFills")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_bid_fills_groups = ProtoField.new("Mass Quote Response Message Bid Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagebidfillsgroups", ftypes.STRING, nil, nil, nil, "bidFills Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_legs_group = ProtoField.new("Mass Quote Response Message Legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_legs_groups = ProtoField.new("Mass Quote Response Message Legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_quotes_group = ProtoField.new("Mass Quote Response Message Quotes Group", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagequotesgroup", ftypes.STRING, nil, nil, nil, "quotes")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_quotes_groups = ProtoField.new("Mass Quote Response Message Quotes Groups", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagequotesgroups", ftypes.STRING, nil, nil, nil, "quotes Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.match_id = ProtoField.new("Match Id", "coinbase.deribit.ordersapi.sbe.v1.5.matchid", ftypes.INT64, nil, nil, nil, "matchId")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.message_length = ProtoField.new("Message Length", "coinbase.deribit.ordersapi.sbe.v1.5.messagelength", ftypes.UINT16, nil, nil, nil, "Total message length in bytes including this header")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mmp = ProtoField.new("Mmp", "coinbase.deribit.ordersapi.sbe.v1.5.mmp", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mmp_group_id = ProtoField.new("Mmp Group Id", "coinbase.deribit.ordersapi.sbe.v1.5.mmpgroupid", ftypes.INT64, nil, nil, nil, "mmpGroupId")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_fills_group = ProtoField.new("New Order Response Message fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_fills_groups = ProtoField.new("New Order Response Message fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_legs_group = ProtoField.new("New Order Response Message legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_legs_groups = ProtoField.new("New Order Response Message legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_fills_group = ProtoField.new("New Order Response Message Fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_fills_groups = ProtoField.new("New Order Response Message Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_legs_group = ProtoField.new("New Order Response Message Legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_legs_groups = ProtoField.new("New Order Response Message Legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_sequence_number = ProtoField.new("New Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.5.newsequencenumber", ftypes.INT64, nil, nil, nil, "newSequenceNumber")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.num_in_group = ProtoField.new("Num In Group", "coinbase.deribit.ordersapi.sbe.v1.5.numingroup", ftypes.UINT16, nil, nil, nil, "numInGroup")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_fills_group = ProtoField.new("Order Filled Message fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_fills_groups = ProtoField.new("Order Filled Message fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_legs_group = ProtoField.new("Order Filled Message legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_legs_groups = ProtoField.new("Order Filled Message legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_fills_group = ProtoField.new("Order Filled Message Fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_fills_groups = ProtoField.new("Order Filled Message Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_legs_group = ProtoField.new("Order Filled Message Legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_legs_groups = ProtoField.new("Order Filled Message Legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_id = ProtoField.new("Order Id", "coinbase.deribit.ordersapi.sbe.v1.5.orderid", ftypes.INT64, nil, nil, nil, "orderId")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_id_fill_id = ProtoField.new("Order Id Fill Id", "coinbase.deribit.ordersapi.sbe.v1.5.orderidfillid", ftypes.INT64, nil, nil, nil, "orderId")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_id_optional = ProtoField.new("Order Id Optional", "coinbase.deribit.ordersapi.sbe.v1.5.orderidoptional", ftypes.INT64, nil, nil, nil, "orderId")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_fills_group = ProtoField.new("Order Placed Message fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_fills_groups = ProtoField.new("Order Placed Message fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_legs_group = ProtoField.new("Order Placed Message legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_legs_groups = ProtoField.new("Order Placed Message legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.orders_canceled_message_orders_group = ProtoField.new("Orders Canceled Message orders Group", "coinbase.deribit.ordersapi.sbe.v1.5.orderscanceledmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.orders_canceled_message_orders_groups = ProtoField.new("Orders Canceled Message orders Groups", "coinbase.deribit.ordersapi.sbe.v1.5.orderscanceledmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_fills_group = ProtoField.new("Order Placed Message Fills Group", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_fills_groups = ProtoField.new("Order Placed Message Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_legs_group = ProtoField.new("Order Placed Message Legs Group", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_legs_groups = ProtoField.new("Order Placed Message Legs Groups", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.orders_canceled_message_orders_group = ProtoField.new("Orders Canceled Message Orders Group", "coinbase.deribit.ordersapi.sbe.v1.5.orderscanceledmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.orders_canceled_message_orders_groups = ProtoField.new("Orders Canceled Message Orders Groups", "coinbase.deribit.ordersapi.sbe.v1.5.orderscanceledmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.padding = ProtoField.new("Padding", "coinbase.deribit.ordersapi.sbe.v1.5.padding", ftypes.BYTES, nil, nil, nil, "Tcp sbe alignment padding")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.padding_3 = ProtoField.new("Padding 3", "coinbase.deribit.ordersapi.sbe.v1.5.padding3", ftypes.BYTES, nil, nil, nil, "padding3")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.post_only = ProtoField.new("Post Only", "coinbase.deribit.ordersapi.sbe.v1.5.postonly", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "postOnly")
@@ -132,17 +135,19 @@ omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reason_mass_cancel_reject_reason 
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reason_mass_quote_reject_reason = ProtoField.new("Reason Mass Quote Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.5.reasonmassquoterejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reason_mmp_status_reject_reason = ProtoField.new("Reason Mmp Status Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.5.reasonmmpstatusrejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reason_order_reject_reason = ProtoField.new("Reason Order Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.5.reasonorderrejectreason", ftypes.INT8, nil, nil, nil, "reason")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reason_position_move_reason = ProtoField.new("Reason Position Move Reason", "coinbase.deribit.ordersapi.sbe.v1.5.reasonpositionmovereason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reason_reject_reason = ProtoField.new("Reason Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.5.reasonrejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.receive_time = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.5.receivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "receiveTime")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.receive_time_utc = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.5.receivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "receiveTime")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.ref_sequence_number = ProtoField.new("Ref Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.5.refsequencenumber", ftypes.INT64, nil, nil, nil, "refSequenceNumber")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reserved_10 = ProtoField.new("Reserved 10", "coinbase.deribit.ordersapi.sbe.v1.5.reserved10", ftypes.UINT16, nil, base.DEC, 0xFFC0, "10 reserved bits")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reserved_13 = ProtoField.new("Reserved 13", "coinbase.deribit.ordersapi.sbe.v1.5.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reserved_6 = ProtoField.new("Reserved 6", "coinbase.deribit.ordersapi.sbe.v1.5.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reserved_5 = ProtoField.new("Reserved 5", "coinbase.deribit.ordersapi.sbe.v1.5.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8, "5 reserved bits")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reserved_7 = ProtoField.new("Reserved 7", "coinbase.deribit.ordersapi.sbe.v1.5.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.deribit.ordersapi.sbe.v1.5.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFE, "Bits reserved for future use")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reset_mmp = ProtoField.new("Reset Mmp", "coinbase.deribit.ordersapi.sbe.v1.5.resetmmp", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020, "resetMmp")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.deribit.ordersapi.sbe.v1.5.resetseqnum", ftypes.INT8, nil, nil, nil, "resetSeqNum")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.role = ProtoField.new("Role", "coinbase.deribit.ordersapi.sbe.v1.5.role", ftypes.INT8)
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.schema_version = ProtoField.new("Schema Version", "coinbase.deribit.ordersapi.sbe.v1.5.schemaversion", ftypes.UINT16, nil, nil, nil, "schemaVersion")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.secret = ProtoField.new("Secret", "coinbase.deribit.ordersapi.sbe.v1.5.secret", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.self_match_prevention_id = ProtoField.new("Self Match Prevention Id", "coinbase.deribit.ordersapi.sbe.v1.5.selfmatchpreventionid", ftypes.INT64, nil, nil, nil, "selfMatchPreventionId")
@@ -210,28 +215,29 @@ omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message = ProtoField
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.orders_canceled_message = ProtoField.new("Orders Canceled Message", "coinbase.deribit.ordersapi.sbe.v1.5.orderscanceledmessage", ftypes.STRING, nil, nil, nil, "OrdersCanceledMessage")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.orders_mmp_triggered_message = ProtoField.new("Orders Mmp Triggered Message", "coinbase.deribit.ordersapi.sbe.v1.5.ordersmmptriggeredmessage", ftypes.STRING, nil, nil, nil, "OrdersMmpTriggeredMessage")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.orders_mmp_unfrozen_message = ProtoField.new("Orders Mmp Unfrozen Message", "coinbase.deribit.ordersapi.sbe.v1.5.ordersmmpunfrozenmessage", ftypes.STRING, nil, nil, nil, "OrdersMmpUnfrozenMessage")
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.position_moved_message = ProtoField.new("Position Moved Message", "coinbase.deribit.ordersapi.sbe.v1.5.positionmovedmessage", ftypes.STRING, nil, nil, nil, "PositionMovedMessage")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reject_message = ProtoField.new("Reject Message", "coinbase.deribit.ordersapi.sbe.v1.5.rejectmessage", ftypes.STRING, nil, nil, nil, "RejectMessage")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.resend_request_message = ProtoField.new("Resend Request Message", "coinbase.deribit.ordersapi.sbe.v1.5.resendrequestmessage", ftypes.STRING, nil, nil, nil, "ResendRequestMessage")
 omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.test_request_message = ProtoField.new("Test Request Message", "coinbase.deribit.ordersapi.sbe.v1.5.testrequestmessage", ftypes.STRING, nil, nil, nil, "TestRequestMessage")
 
 -- Coinbase Deribit OrdersApi Sbe 1.5 Generated Fields
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_fills_group_index = ProtoField.new("Amend Order Response Message fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagefillsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_legs_group_index = ProtoField.new("Amend Order Response Message legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagelegsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_fills_group_index = ProtoField.new("Mass Quote Orders Placed Message fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagefillsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_legs_group_index = ProtoField.new("Mass Quote Orders Placed Message legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagelegsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_orders_group_index = ProtoField.new("Mass Quote Orders Placed Message orders Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessageordersgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_request_message_quotes_group_index = ProtoField.new("Mass Quote Request Message quotes Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoterequestmessagequotesgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_ask_fills_group_index = ProtoField.new("Mass Quote Response Message ask Fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessageaskfillsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_bid_fills_group_index = ProtoField.new("Mass Quote Response Message bid Fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagebidfillsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_legs_group_index = ProtoField.new("Mass Quote Response Message legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagelegsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_quotes_group_index = ProtoField.new("Mass Quote Response Message quotes Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagequotesgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_fills_group_index = ProtoField.new("New Order Response Message fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagefillsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_legs_group_index = ProtoField.new("New Order Response Message legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagelegsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_fills_group_index = ProtoField.new("Order Filled Message fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagefillsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_legs_group_index = ProtoField.new("Order Filled Message legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagelegsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_fills_group_index = ProtoField.new("Order Placed Message fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagefillsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_legs_group_index = ProtoField.new("Order Placed Message legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagelegsgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.orders_canceled_message_orders_group_index = ProtoField.new("Orders Canceled Message orders Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.orderscanceledmessageordersgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_fills_group_index = ProtoField.new("Amend Order Response Message Fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagefillsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_legs_group_index = ProtoField.new("Amend Order Response Message Legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.amendorderresponsemessagelegsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_fills_group_index = ProtoField.new("Mass Quote Orders Placed Message Fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagefillsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_legs_group_index = ProtoField.new("Mass Quote Orders Placed Message Legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessagelegsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_orders_group_index = ProtoField.new("Mass Quote Orders Placed Message Orders Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteordersplacedmessageordersgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_request_message_quotes_group_index = ProtoField.new("Mass Quote Request Message Quotes Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoterequestmessagequotesgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_ask_fills_group_index = ProtoField.new("Mass Quote Response Message Ask Fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessageaskfillsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_bid_fills_group_index = ProtoField.new("Mass Quote Response Message Bid Fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagebidfillsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_legs_group_index = ProtoField.new("Mass Quote Response Message Legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagelegsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_quotes_group_index = ProtoField.new("Mass Quote Response Message Quotes Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.massquoteresponsemessagequotesgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_fills_group_index = ProtoField.new("New Order Response Message Fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagefillsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_legs_group_index = ProtoField.new("New Order Response Message Legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.neworderresponsemessagelegsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_fills_group_index = ProtoField.new("Order Filled Message Fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagefillsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_legs_group_index = ProtoField.new("Order Filled Message Legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.orderfilledmessagelegsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_fills_group_index = ProtoField.new("Order Placed Message Fills Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagefillsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_legs_group_index = ProtoField.new("Order Placed Message Legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.orderplacedmessagelegsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.orders_canceled_message_orders_group_index = ProtoField.new("Orders Canceled Message Orders Group Index", "coinbase.deribit.ordersapi.sbe.v1.5.orderscanceledmessageordersgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Coinbase Deribit OrdersApi Sbe 1.5 Formatting
@@ -434,6 +440,8 @@ coinbase_deribit_ordersapi_sbe_v1_5.ask_reject_reason.labels = {
   [29] = "Ask Reject Reason: Member Speed Bump Limit Exceeded (29)",
   [30] = "Ask Reject Reason: Mmp Min Freeze Time Not Elapsed (30)",
   [31] = "Ask Reject Reason: Cancel Only (31)",
+  [32] = "Ask Reject Reason: Portfolio Instrument Not Allowed (32)",
+  [33] = "Ask Reject Reason: Mmp Required (33)",
 }
 
 coinbase_deribit_ordersapi_sbe_v1_5.ask_reject_reason.display = function(value)
@@ -618,6 +626,8 @@ coinbase_deribit_ordersapi_sbe_v1_5.bid_reject_reason.labels = {
   [29] = "Bid Reject Reason: Member Speed Bump Limit Exceeded (29)",
   [30] = "Bid Reject Reason: Mmp Min Freeze Time Not Elapsed (30)",
   [31] = "Bid Reject Reason: Cancel Only (31)",
+  [32] = "Bid Reject Reason: Portfolio Instrument Not Allowed (32)",
+  [33] = "Bid Reject Reason: Mmp Required (33)",
 }
 
 coinbase_deribit_ordersapi_sbe_v1_5.bid_reject_reason.display = function(value)
@@ -1283,6 +1293,34 @@ coinbase_deribit_ordersapi_sbe_v1_5.leg_side.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
+-- Liquidation Notifications
+coinbase_deribit_ordersapi_sbe_v1_5.liquidation_notifications = {}
+
+-- Size: Liquidation Notifications
+coinbase_deribit_ordersapi_sbe_v1_5.liquidation_notifications.size = 1
+
+-- Display: Liquidation Notifications
+coinbase_deribit_ordersapi_sbe_v1_5.liquidation_notifications.labels = {
+  [0] = "Liquidation Notifications: False (0)",
+  [1] = "Liquidation Notifications: True (1)",
+}
+
+coinbase_deribit_ordersapi_sbe_v1_5.liquidation_notifications.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.liquidation_notifications.labels[value] or "Liquidation Notifications: Unknown("..value..")"
+end
+
+-- Dissect: Liquidation Notifications
+coinbase_deribit_ordersapi_sbe_v1_5.liquidation_notifications.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_ordersapi_sbe_v1_5.liquidation_notifications.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = coinbase_deribit_ordersapi_sbe_v1_5.liquidation_notifications.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.liquidation_notifications, range, value, display)
+
+  return offset + length, value
+end
+
 -- Mantissa
 coinbase_deribit_ordersapi_sbe_v1_5.mantissa = {}
 
@@ -1302,6 +1340,34 @@ coinbase_deribit_ordersapi_sbe_v1_5.mantissa.dissect = function(buffer, offset, 
   local display = coinbase_deribit_ordersapi_sbe_v1_5.mantissa.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mantissa, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mantissa Optional
+coinbase_deribit_ordersapi_sbe_v1_5.mantissa_optional = {}
+
+-- Size: Mantissa Optional
+coinbase_deribit_ordersapi_sbe_v1_5.mantissa_optional.size = 8
+
+-- Display: Mantissa Optional
+coinbase_deribit_ordersapi_sbe_v1_5.mantissa_optional.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Mantissa Optional: No Value"
+  end
+
+  return "Mantissa Optional: "..value
+end
+
+-- Dissect: Mantissa Optional
+coinbase_deribit_ordersapi_sbe_v1_5.mantissa_optional.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_ordersapi_sbe_v1_5.mantissa_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = coinbase_deribit_ordersapi_sbe_v1_5.mantissa_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mantissa_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1606,7 +1672,11 @@ coinbase_deribit_ordersapi_sbe_v1_5.protocol_id.size = 1
 
 -- Display: Protocol Id
 coinbase_deribit_ordersapi_sbe_v1_5.protocol_id.display = function(value)
-  return "Protocol Id: "..value
+  if value == 219 then
+    return "Protocol Id: Deribit Starbase"
+  end
+
+  return "Protocol Id: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Id
@@ -1792,6 +1862,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_quote_reject_reason.labels = {
   [7] = "Reason Mass Quote Reject Reason: Portfolio Locked (7)",
   [8] = "Reason Mass Quote Reject Reason: Duplicate Instrument (8)",
   [9] = "Reason Mass Quote Reject Reason: Mmp Min Freeze Time Not Elapsed (9)",
+  [10] = "Reason Mass Quote Reject Reason: Portfolio Instrument Not Allowed (10)",
 }
 
 coinbase_deribit_ordersapi_sbe_v1_5.reason_mass_quote_reject_reason.display = function(value)
@@ -1878,6 +1949,8 @@ coinbase_deribit_ordersapi_sbe_v1_5.reason_order_reject_reason.labels = {
   [29] = "Reason Order Reject Reason: Member Speed Bump Limit Exceeded (29)",
   [30] = "Reason Order Reject Reason: Mmp Min Freeze Time Not Elapsed (30)",
   [31] = "Reason Order Reject Reason: Cancel Only (31)",
+  [32] = "Reason Order Reject Reason: Portfolio Instrument Not Allowed (32)",
+  [33] = "Reason Order Reject Reason: Mmp Required (33)",
 }
 
 coinbase_deribit_ordersapi_sbe_v1_5.reason_order_reject_reason.display = function(value)
@@ -1896,6 +1969,34 @@ coinbase_deribit_ordersapi_sbe_v1_5.reason_order_reject_reason.dissect = functio
   return offset + length, value
 end
 
+-- Reason Position Move Reason
+coinbase_deribit_ordersapi_sbe_v1_5.reason_position_move_reason = {}
+
+-- Size: Reason Position Move Reason
+coinbase_deribit_ordersapi_sbe_v1_5.reason_position_move_reason.size = 1
+
+-- Display: Reason Position Move Reason
+coinbase_deribit_ordersapi_sbe_v1_5.reason_position_move_reason.labels = {
+  [1] = "Reason Position Move Reason: Lsp (1)",
+  [2] = "Reason Position Move Reason: Adl (2)",
+}
+
+coinbase_deribit_ordersapi_sbe_v1_5.reason_position_move_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.reason_position_move_reason.labels[value] or "Reason Position Move Reason: Unknown("..value..")"
+end
+
+-- Dissect: Reason Position Move Reason
+coinbase_deribit_ordersapi_sbe_v1_5.reason_position_move_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_ordersapi_sbe_v1_5.reason_position_move_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = coinbase_deribit_ordersapi_sbe_v1_5.reason_position_move_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reason_position_move_reason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Reason Reject Reason
 coinbase_deribit_ordersapi_sbe_v1_5.reason_reject_reason = {}
 
@@ -1910,6 +2011,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.reason_reject_reason.labels = {
   [4] = "Reason Reject Reason: Invalid Field Value (4)",
   [5] = "Reason Reject Reason: Message Disabled (5)",
   [6] = "Reason Reject Reason: Gateway Not Active (6)",
+  [7] = "Reason Reject Reason: Message Not Permitted (7)",
 }
 
 coinbase_deribit_ordersapi_sbe_v1_5.reason_reject_reason.display = function(value)
@@ -1999,6 +2101,34 @@ coinbase_deribit_ordersapi_sbe_v1_5.reset_seq_num.dissect = function(buffer, off
   local display = coinbase_deribit_ordersapi_sbe_v1_5.reset_seq_num.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reset_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Role
+coinbase_deribit_ordersapi_sbe_v1_5.role = {}
+
+-- Size: Role
+coinbase_deribit_ordersapi_sbe_v1_5.role.size = 1
+
+-- Display: Role
+coinbase_deribit_ordersapi_sbe_v1_5.role.labels = {
+  [1] = "Role: Taker (1)",
+  [2] = "Role: Maker (2)",
+}
+
+coinbase_deribit_ordersapi_sbe_v1_5.role.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_5.role.labels[value] or "Role: Unknown("..value..")"
+end
+
+-- Dissect: Role
+coinbase_deribit_ordersapi_sbe_v1_5.role.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_ordersapi_sbe_v1_5.role.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = coinbase_deribit_ordersapi_sbe_v1_5.role.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.role, range, value, display)
 
   return offset + length, value
 end
@@ -2303,6 +2433,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.template_id.labels = {
   [322] = "Template Id: Orders Mmp Triggered Message (322)",
   [324] = "Template Id: Mass Quote Mmp Unfrozen Message (324)",
   [326] = "Template Id: Orders Mmp Unfrozen Message (326)",
+  [330] = "Template Id: Position Moved Message (330)",
 }
 
 coinbase_deribit_ordersapi_sbe_v1_5.template_id.display = function(value)
@@ -2470,6 +2601,129 @@ end
 -----------------------------------------------------------------------
 -- Dissect Coinbase Deribit OrdersApi Sbe 1.5
 -----------------------------------------------------------------------
+
+-- Quantity
+coinbase_deribit_ordersapi_sbe_v1_5.quantity = {}
+
+-- Size: Quantity
+coinbase_deribit_ordersapi_sbe_v1_5.quantity.size =
+  coinbase_deribit_ordersapi_sbe_v1_5.mantissa.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.exponent.size
+
+-- Display: Quantity
+coinbase_deribit_ordersapi_sbe_v1_5.quantity.display = function(packet, parent, value, length)
+  if value == nil then
+    return "No Value"
+  end
+
+  return tostring(value)
+end
+
+-- Dissect Fields: Quantity
+coinbase_deribit_ordersapi_sbe_v1_5.quantity.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Mantissa: int64
+  index, mantissa = coinbase_deribit_ordersapi_sbe_v1_5.mantissa.dissect(buffer, index, packet, parent)
+
+  -- Exponent: int8
+  index, exponent = coinbase_deribit_ordersapi_sbe_v1_5.exponent.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local quantity = mantissa:tonumber() * 10 ^ exponent
+
+  return index, quantity
+end
+
+-- Dissect: Quantity
+coinbase_deribit_ordersapi_sbe_v1_5.quantity.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.quantity, buffer(offset, 0))
+    local index, value = coinbase_deribit_ordersapi_sbe_v1_5.quantity.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_deribit_ordersapi_sbe_v1_5.quantity.display(packet, parent, value, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return coinbase_deribit_ordersapi_sbe_v1_5.quantity.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Position Moved Message
+coinbase_deribit_ordersapi_sbe_v1_5.position_moved_message = {}
+
+-- Size: Position Moved Message
+coinbase_deribit_ordersapi_sbe_v1_5.position_moved_message.size =
+  coinbase_deribit_ordersapi_sbe_v1_5.timestamp.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.exec_id.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.instrument_id.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.price.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.quantity.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.side.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.role.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.reason_position_move_reason.size
+
+-- Display: Position Moved Message
+coinbase_deribit_ordersapi_sbe_v1_5.position_moved_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Position Moved Message
+coinbase_deribit_ordersapi_sbe_v1_5.position_moved_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: TimestampNanos
+  index, timestamp = coinbase_deribit_ordersapi_sbe_v1_5.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Exec Id: EventId
+  index, exec_id = coinbase_deribit_ordersapi_sbe_v1_5.exec_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: InstrumentId
+  index, instrument_id = coinbase_deribit_ordersapi_sbe_v1_5.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Match Id: FillId
+  index, match_id = coinbase_deribit_ordersapi_sbe_v1_5.match_id.dissect(buffer, index, packet, parent)
+
+  -- Price: Price9
+  index, price = coinbase_deribit_ordersapi_sbe_v1_5.price.dissect(buffer, index, packet, parent)
+
+  -- Quantity: Struct of 2 fields
+  index, quantity = coinbase_deribit_ordersapi_sbe_v1_5.quantity.dissect(buffer, index, packet, parent)
+
+  -- Side: Side
+  index, side = coinbase_deribit_ordersapi_sbe_v1_5.side.dissect(buffer, index, packet, parent)
+
+  -- Role: PositionMoveRole
+  index, role = coinbase_deribit_ordersapi_sbe_v1_5.role.dissect(buffer, index, packet, parent)
+
+  -- Reason Position Move Reason: PositionMoveReason
+  index, reason_position_move_reason = coinbase_deribit_ordersapi_sbe_v1_5.reason_position_move_reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Position Moved Message
+coinbase_deribit_ordersapi_sbe_v1_5.position_moved_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.position_moved_message, buffer(offset, 0))
+    local index = coinbase_deribit_ordersapi_sbe_v1_5.position_moved_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_deribit_ordersapi_sbe_v1_5.position_moved_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return coinbase_deribit_ordersapi_sbe_v1_5.position_moved_message.fields(buffer, offset, packet, parent)
+  end
+end
 
 -- Orders Mmp Unfrozen Message
 coinbase_deribit_ordersapi_sbe_v1_5.orders_mmp_unfrozen_message = {}
@@ -2762,10 +3016,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.dissect = function(buffer, offset, 
   end
 end
 
--- Mass Quote Orders Placed Message legs Group
+-- Mass Quote Orders Placed Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_group = {}
 
--- Size: Mass Quote Orders Placed Message legs Group
+-- Size: Mass Quote Orders Placed Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_id.size + 
@@ -2773,16 +3027,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_group.
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.leg_side.size
 
--- Display: Mass Quote Orders Placed Message legs Group
+-- Display: Mass Quote Orders Placed Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Orders Placed Message legs Group
+-- Dissect Fields: Mass Quote Orders Placed Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_group.fields = function(buffer, offset, packet, parent, mass_quote_orders_placed_message_legs_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Orders Placed Message legs Group Index
+  -- Implicit Mass Quote Orders Placed Message Legs Group Index
   if mass_quote_orders_placed_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_legs_group_index, mass_quote_orders_placed_message_legs_group_index)
     iteration:set_generated()
@@ -2806,7 +3060,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_group.
   return index
 end
 
--- Dissect: Mass Quote Orders Placed Message legs Group
+-- Dissect: Mass Quote Orders Placed Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_group.dissect = function(buffer, offset, packet, parent, mass_quote_orders_placed_message_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -2868,10 +3122,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.group_size_encoding.dissect = function(buffe
   end
 end
 
--- Mass Quote Orders Placed Message legs Groups
+-- Mass Quote Orders Placed Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_groups = {}
 
--- Calculate size of: Mass Quote Orders Placed Message legs Groups
+-- Calculate size of: Mass Quote Orders Placed Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_groups.size = function(buffer, offset)
   local index = 0
 
@@ -2884,12 +3138,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_groups
   return index
 end
 
--- Display: Mass Quote Orders Placed Message legs Groups
+-- Display: Mass Quote Orders Placed Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Orders Placed Message legs Groups
+-- Dissect Fields: Mass Quote Orders Placed Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2899,7 +3153,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_groups
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Mass Quote Orders Placed Message legs Group
+  -- Repeating: Mass Quote Orders Placed Message Legs Group
   for mass_quote_orders_placed_message_legs_group_index = 1, num_in_group do
     index, mass_quote_orders_placed_message_legs_group = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_group.dissect(buffer, index, packet, parent, mass_quote_orders_placed_message_legs_group_index)
   end
@@ -2907,7 +3161,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_groups
   return index
 end
 
--- Dissect: Mass Quote Orders Placed Message legs Groups
+-- Dissect: Mass Quote Orders Placed Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -2925,26 +3179,26 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_groups
   end
 end
 
--- Mass Quote Orders Placed Message fills Group
+-- Mass Quote Orders Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group = {}
 
--- Size: Mass Quote Orders Placed Message fills Group
+-- Size: Mass Quote Orders Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.order_id_fill_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_price.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size
 
--- Display: Mass Quote Orders Placed Message fills Group
+-- Display: Mass Quote Orders Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Orders Placed Message fills Group
+-- Dissect Fields: Mass Quote Orders Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group.fields = function(buffer, offset, packet, parent, mass_quote_orders_placed_message_fills_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Orders Placed Message fills Group Index
+  -- Implicit Mass Quote Orders Placed Message Fills Group Index
   if mass_quote_orders_placed_message_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_fills_group_index, mass_quote_orders_placed_message_fills_group_index)
     iteration:set_generated()
@@ -2965,7 +3219,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group
   return index
 end
 
--- Dissect: Mass Quote Orders Placed Message fills Group
+-- Dissect: Mass Quote Orders Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group.dissect = function(buffer, offset, packet, parent, mass_quote_orders_placed_message_fills_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -2983,10 +3237,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group
   end
 end
 
--- Mass Quote Orders Placed Message fills Groups
+-- Mass Quote Orders Placed Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_groups = {}
 
--- Calculate size of: Mass Quote Orders Placed Message fills Groups
+-- Calculate size of: Mass Quote Orders Placed Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_groups.size = function(buffer, offset)
   local index = 0
 
@@ -2999,12 +3253,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group
   return index
 end
 
--- Display: Mass Quote Orders Placed Message fills Groups
+-- Display: Mass Quote Orders Placed Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Orders Placed Message fills Groups
+-- Dissect Fields: Mass Quote Orders Placed Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3014,7 +3268,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Mass Quote Orders Placed Message fills Group
+  -- Repeating: Mass Quote Orders Placed Message Fills Group
   for mass_quote_orders_placed_message_fills_group_index = 1, num_in_group do
     index, mass_quote_orders_placed_message_fills_group = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group.dissect(buffer, index, packet, parent, mass_quote_orders_placed_message_fills_group_index)
   end
@@ -3022,7 +3276,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_group
   return index
 end
 
--- Dissect: Mass Quote Orders Placed Message fills Groups
+-- Dissect: Mass Quote Orders Placed Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -3142,61 +3396,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.total_filled.dissect = function(buffer, offs
   end
 end
 
--- Quantity
-coinbase_deribit_ordersapi_sbe_v1_5.quantity = {}
-
--- Size: Quantity
-coinbase_deribit_ordersapi_sbe_v1_5.quantity.size =
-  coinbase_deribit_ordersapi_sbe_v1_5.mantissa.size + 
-  coinbase_deribit_ordersapi_sbe_v1_5.exponent.size
-
--- Display: Quantity
-coinbase_deribit_ordersapi_sbe_v1_5.quantity.display = function(packet, parent, value, length)
-  if value == nil then
-    return "No Value"
-  end
-
-  return tostring(value)
-end
-
--- Dissect Fields: Quantity
-coinbase_deribit_ordersapi_sbe_v1_5.quantity.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa: int64
-  index, mantissa = coinbase_deribit_ordersapi_sbe_v1_5.mantissa.dissect(buffer, index, packet, parent)
-
-  -- Exponent: int8
-  index, exponent = coinbase_deribit_ordersapi_sbe_v1_5.exponent.dissect(buffer, index, packet, parent)
-
-  -- Composite value
-  local quantity = mantissa:tonumber() * 10 ^ exponent
-
-  return index, quantity
-end
-
--- Dissect: Quantity
-coinbase_deribit_ordersapi_sbe_v1_5.quantity.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.quantity, buffer(offset, 0))
-    local index, value = coinbase_deribit_ordersapi_sbe_v1_5.quantity.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = coinbase_deribit_ordersapi_sbe_v1_5.quantity.display(packet, parent, value, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return coinbase_deribit_ordersapi_sbe_v1_5.quantity.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Mass Quote Orders Placed Message orders Group
+-- Mass Quote Orders Placed Message Orders Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_group = {}
 
--- Size: Mass Quote Orders Placed Message orders Group
+-- Size: Mass Quote Orders Placed Message Orders Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.client_order_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.order_id.size + 
@@ -3209,16 +3412,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_grou
   coinbase_deribit_ordersapi_sbe_v1_5.status.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason.size
 
--- Display: Mass Quote Orders Placed Message orders Group
+-- Display: Mass Quote Orders Placed Message Orders Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Orders Placed Message orders Group
+-- Dissect Fields: Mass Quote Orders Placed Message Orders Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_group.fields = function(buffer, offset, packet, parent, mass_quote_orders_placed_message_orders_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Orders Placed Message orders Group Index
+  -- Implicit Mass Quote Orders Placed Message Orders Group Index
   if mass_quote_orders_placed_message_orders_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_orders_placed_message_orders_group_index, mass_quote_orders_placed_message_orders_group_index)
     iteration:set_generated()
@@ -3257,7 +3460,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_grou
   return index
 end
 
--- Dissect: Mass Quote Orders Placed Message orders Group
+-- Dissect: Mass Quote Orders Placed Message Orders Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_group.dissect = function(buffer, offset, packet, parent, mass_quote_orders_placed_message_orders_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -3275,10 +3478,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_grou
   end
 end
 
--- Mass Quote Orders Placed Message orders Groups
+-- Mass Quote Orders Placed Message Orders Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_groups = {}
 
--- Calculate size of: Mass Quote Orders Placed Message orders Groups
+-- Calculate size of: Mass Quote Orders Placed Message Orders Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_groups.size = function(buffer, offset)
   local index = 0
 
@@ -3291,12 +3494,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_grou
   return index
 end
 
--- Display: Mass Quote Orders Placed Message orders Groups
+-- Display: Mass Quote Orders Placed Message Orders Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Orders Placed Message orders Groups
+-- Dissect Fields: Mass Quote Orders Placed Message Orders Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3306,7 +3509,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_grou
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Mass Quote Orders Placed Message orders Group
+  -- Repeating: Mass Quote Orders Placed Message Orders Group
   for mass_quote_orders_placed_message_orders_group_index = 1, num_in_group do
     index, mass_quote_orders_placed_message_orders_group = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_group.dissect(buffer, index, packet, parent, mass_quote_orders_placed_message_orders_group_index)
   end
@@ -3314,7 +3517,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_grou
   return index
 end
 
--- Dissect: Mass Quote Orders Placed Message orders Groups
+-- Dissect: Mass Quote Orders Placed Message Orders Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -3372,13 +3575,13 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message.fields = fu
   -- Mmp Group Id: int64
   index, mmp_group_id = coinbase_deribit_ordersapi_sbe_v1_5.mmp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Orders Placed Message orders Groups: Struct of 2 fields
+  -- Mass Quote Orders Placed Message Orders Groups: Struct of 2 fields
   index, mass_quote_orders_placed_message_orders_groups = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_orders_groups.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Orders Placed Message fills Groups: Struct of 2 fields
+  -- Mass Quote Orders Placed Message Fills Groups: Struct of 2 fields
   index, mass_quote_orders_placed_message_fills_groups = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Orders Placed Message legs Groups: Struct of 2 fields
+  -- Mass Quote Orders Placed Message Legs Groups: Struct of 2 fields
   index, mass_quote_orders_placed_message_legs_groups = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -3402,10 +3605,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_orders_placed_message.dissect = f
   end
 end
 
--- Order Placed Message legs Group
+-- Order Placed Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_group = {}
 
--- Size: Order Placed Message legs Group
+-- Size: Order Placed Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_id.size + 
@@ -3413,16 +3616,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.leg_side.size
 
--- Display: Order Placed Message legs Group
+-- Display: Order Placed Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Placed Message legs Group
+-- Dissect Fields: Order Placed Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_group.fields = function(buffer, offset, packet, parent, order_placed_message_legs_group_index)
   local index = offset
 
-  -- Implicit Order Placed Message legs Group Index
+  -- Implicit Order Placed Message Legs Group Index
   if order_placed_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_legs_group_index, order_placed_message_legs_group_index)
     iteration:set_generated()
@@ -3446,7 +3649,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_group.fields = fun
   return index
 end
 
--- Dissect: Order Placed Message legs Group
+-- Dissect: Order Placed Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_group.dissect = function(buffer, offset, packet, parent, order_placed_message_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -3464,10 +3667,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_group.dissect = fu
   end
 end
 
--- Order Placed Message legs Groups
+-- Order Placed Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_groups = {}
 
--- Calculate size of: Order Placed Message legs Groups
+-- Calculate size of: Order Placed Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_groups.size = function(buffer, offset)
   local index = 0
 
@@ -3480,12 +3683,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_groups.size = func
   return index
 end
 
--- Display: Order Placed Message legs Groups
+-- Display: Order Placed Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Placed Message legs Groups
+-- Dissect Fields: Order Placed Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3495,7 +3698,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_groups.fields = fu
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Order Placed Message legs Group
+  -- Repeating: Order Placed Message Legs Group
   for order_placed_message_legs_group_index = 1, num_in_group do
     index, order_placed_message_legs_group = coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_group.dissect(buffer, index, packet, parent, order_placed_message_legs_group_index)
   end
@@ -3503,7 +3706,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_groups.fields = fu
   return index
 end
 
--- Dissect: Order Placed Message legs Groups
+-- Dissect: Order Placed Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -3521,25 +3724,25 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_groups.dissect = f
   end
 end
 
--- Order Placed Message fills Group
+-- Order Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_group = {}
 
--- Size: Order Placed Message fills Group
+-- Size: Order Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_price.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size
 
--- Display: Order Placed Message fills Group
+-- Display: Order Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Placed Message fills Group
+-- Dissect Fields: Order Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_group.fields = function(buffer, offset, packet, parent, order_placed_message_fills_group_index)
   local index = offset
 
-  -- Implicit Order Placed Message fills Group Index
+  -- Implicit Order Placed Message Fills Group Index
   if order_placed_message_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_placed_message_fills_group_index, order_placed_message_fills_group_index)
     iteration:set_generated()
@@ -3557,7 +3760,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_group.fields = fu
   return index
 end
 
--- Dissect: Order Placed Message fills Group
+-- Dissect: Order Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_group.dissect = function(buffer, offset, packet, parent, order_placed_message_fills_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -3575,10 +3778,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_group.dissect = f
   end
 end
 
--- Order Placed Message fills Groups
+-- Order Placed Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_groups = {}
 
--- Calculate size of: Order Placed Message fills Groups
+-- Calculate size of: Order Placed Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_groups.size = function(buffer, offset)
   local index = 0
 
@@ -3591,12 +3794,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_groups.size = fun
   return index
 end
 
--- Display: Order Placed Message fills Groups
+-- Display: Order Placed Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Placed Message fills Groups
+-- Dissect Fields: Order Placed Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3606,7 +3809,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_groups.fields = f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Order Placed Message fills Group
+  -- Repeating: Order Placed Message Fills Group
   for order_placed_message_fills_group_index = 1, num_in_group do
     index, order_placed_message_fills_group = coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_group.dissect(buffer, index, packet, parent, order_placed_message_fills_group_index)
   end
@@ -3614,7 +3817,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_groups.fields = f
   return index
 end
 
--- Dissect: Order Placed Message fills Groups
+-- Dissect: Order Placed Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -3724,10 +3927,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message.fields = function(buffe
   -- Correlation Id: int64
   index, correlation_id = coinbase_deribit_ordersapi_sbe_v1_5.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Order Placed Message fills Groups: Struct of 2 fields
+  -- Order Placed Message Fills Groups: Struct of 2 fields
   index, order_placed_message_fills_groups = coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Order Placed Message legs Groups: Struct of 2 fields
+  -- Order Placed Message Legs Groups: Struct of 2 fields
   index, order_placed_message_legs_groups = coinbase_deribit_ordersapi_sbe_v1_5.order_placed_message_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -3794,10 +3997,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.flags_cancel_flags.dissect = function(buffer
   return offset + size, value
 end
 
--- Orders Canceled Message orders Group
+-- Orders Canceled Message Orders Group
 coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_group = {}
 
--- Size: Orders Canceled Message orders Group
+-- Size: Orders Canceled Message Orders Group
 coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.client_order_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.order_id.size + 
@@ -3806,16 +4009,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.flags_cancel_flags.size
 
--- Display: Orders Canceled Message orders Group
+-- Display: Orders Canceled Message Orders Group
 coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Orders Canceled Message orders Group
+-- Dissect Fields: Orders Canceled Message Orders Group
 coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_group.fields = function(buffer, offset, packet, parent, orders_canceled_message_orders_group_index)
   local index = offset
 
-  -- Implicit Orders Canceled Message orders Group Index
+  -- Implicit Orders Canceled Message Orders Group Index
   if orders_canceled_message_orders_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.orders_canceled_message_orders_group_index, orders_canceled_message_orders_group_index)
     iteration:set_generated()
@@ -3842,7 +4045,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_group.fields 
   return index
 end
 
--- Dissect: Orders Canceled Message orders Group
+-- Dissect: Orders Canceled Message Orders Group
 coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_group.dissect = function(buffer, offset, packet, parent, orders_canceled_message_orders_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -3860,10 +4063,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_group.dissect
   end
 end
 
--- Orders Canceled Message orders Groups
+-- Orders Canceled Message Orders Groups
 coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_groups = {}
 
--- Calculate size of: Orders Canceled Message orders Groups
+-- Calculate size of: Orders Canceled Message Orders Groups
 coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_groups.size = function(buffer, offset)
   local index = 0
 
@@ -3876,12 +4079,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_groups.size =
   return index
 end
 
--- Display: Orders Canceled Message orders Groups
+-- Display: Orders Canceled Message Orders Groups
 coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Orders Canceled Message orders Groups
+-- Dissect Fields: Orders Canceled Message Orders Groups
 coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3891,7 +4094,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_groups.fields
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Orders Canceled Message orders Group
+  -- Repeating: Orders Canceled Message Orders Group
   for orders_canceled_message_orders_group_index = 1, num_in_group do
     index, orders_canceled_message_orders_group = coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_group.dissect(buffer, index, packet, parent, orders_canceled_message_orders_group_index)
   end
@@ -3899,7 +4102,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_groups.fields
   return index
 end
 
--- Dissect: Orders Canceled Message orders Groups
+-- Dissect: Orders Canceled Message Orders Groups
 coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -3996,7 +4199,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message.fields = function(bu
   -- Flags Multi Part Event Flags: Struct of 2 fields
   index, flags_multi_part_event_flags = coinbase_deribit_ordersapi_sbe_v1_5.flags_multi_part_event_flags.dissect(buffer, index, packet, parent)
 
-  -- Orders Canceled Message orders Groups: Struct of 2 fields
+  -- Orders Canceled Message Orders Groups: Struct of 2 fields
   index, orders_canceled_message_orders_groups = coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message_orders_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -4020,10 +4223,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.orders_canceled_message.dissect = function(b
   end
 end
 
--- Order Filled Message legs Group
+-- Order Filled Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_group = {}
 
--- Size: Order Filled Message legs Group
+-- Size: Order Filled Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_id.size + 
@@ -4031,16 +4234,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.leg_side.size
 
--- Display: Order Filled Message legs Group
+-- Display: Order Filled Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Filled Message legs Group
+-- Dissect Fields: Order Filled Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_group.fields = function(buffer, offset, packet, parent, order_filled_message_legs_group_index)
   local index = offset
 
-  -- Implicit Order Filled Message legs Group Index
+  -- Implicit Order Filled Message Legs Group Index
   if order_filled_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_legs_group_index, order_filled_message_legs_group_index)
     iteration:set_generated()
@@ -4064,7 +4267,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_group.fields = fun
   return index
 end
 
--- Dissect: Order Filled Message legs Group
+-- Dissect: Order Filled Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_group.dissect = function(buffer, offset, packet, parent, order_filled_message_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -4082,10 +4285,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_group.dissect = fu
   end
 end
 
--- Order Filled Message legs Groups
+-- Order Filled Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_groups = {}
 
--- Calculate size of: Order Filled Message legs Groups
+-- Calculate size of: Order Filled Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_groups.size = function(buffer, offset)
   local index = 0
 
@@ -4098,12 +4301,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_groups.size = func
   return index
 end
 
--- Display: Order Filled Message legs Groups
+-- Display: Order Filled Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Filled Message legs Groups
+-- Dissect Fields: Order Filled Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4113,7 +4316,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_groups.fields = fu
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Order Filled Message legs Group
+  -- Repeating: Order Filled Message Legs Group
   for order_filled_message_legs_group_index = 1, num_in_group do
     index, order_filled_message_legs_group = coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_group.dissect(buffer, index, packet, parent, order_filled_message_legs_group_index)
   end
@@ -4121,7 +4324,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_groups.fields = fu
   return index
 end
 
--- Dissect: Order Filled Message legs Groups
+-- Dissect: Order Filled Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -4157,6 +4360,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.flags_fill_flags.display = function(range, v
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Is Fully Filled"
   end
+  -- Is Is Liquidation flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Is Liquidation"
+  end
 
   return table.concat(flags, "|")
 end
@@ -4170,8 +4377,11 @@ coinbase_deribit_ordersapi_sbe_v1_5.flags_fill_flags.bits = function(range, valu
   -- Is Fully Filled: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.is_fully_filled, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reserved_6, range, value)
+  -- Is Liquidation: 1 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.is_liquidation, range, value)
+
+  -- Reserved 5: 5 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.reserved_5, range, value)
 end
 
 -- Dissect: Flags Fill Flags
@@ -4189,10 +4399,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.flags_fill_flags.dissect = function(buffer, 
   return offset + size, value
 end
 
--- Order Filled Message fills Group
+-- Order Filled Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_group = {}
 
--- Size: Order Filled Message fills Group
+-- Size: Order Filled Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.client_order_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.order_id.size + 
@@ -4204,16 +4414,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.side.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.flags_fill_flags.size
 
--- Display: Order Filled Message fills Group
+-- Display: Order Filled Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Filled Message fills Group
+-- Dissect Fields: Order Filled Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_group.fields = function(buffer, offset, packet, parent, order_filled_message_fills_group_index)
   local index = offset
 
-  -- Implicit Order Filled Message fills Group Index
+  -- Implicit Order Filled Message Fills Group Index
   if order_filled_message_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.order_filled_message_fills_group_index, order_filled_message_fills_group_index)
     iteration:set_generated()
@@ -4243,13 +4453,13 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_group.fields = fu
   -- Side: Side
   index, side = coinbase_deribit_ordersapi_sbe_v1_5.side.dissect(buffer, index, packet, parent)
 
-  -- Flags Fill Flags: Struct of 3 fields
+  -- Flags Fill Flags: Struct of 4 fields
   index, flags_fill_flags = coinbase_deribit_ordersapi_sbe_v1_5.flags_fill_flags.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Order Filled Message fills Group
+-- Dissect: Order Filled Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_group.dissect = function(buffer, offset, packet, parent, order_filled_message_fills_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -4267,10 +4477,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_group.dissect = f
   end
 end
 
--- Order Filled Message fills Groups
+-- Order Filled Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_groups = {}
 
--- Calculate size of: Order Filled Message fills Groups
+-- Calculate size of: Order Filled Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_groups.size = function(buffer, offset)
   local index = 0
 
@@ -4283,12 +4493,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_groups.size = fun
   return index
 end
 
--- Display: Order Filled Message fills Groups
+-- Display: Order Filled Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Filled Message fills Groups
+-- Dissect Fields: Order Filled Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4298,7 +4508,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_groups.fields = f
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Order Filled Message fills Group
+  -- Repeating: Order Filled Message Fills Group
   for order_filled_message_fills_group_index = 1, num_in_group do
     index, order_filled_message_fills_group = coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_group.dissect(buffer, index, packet, parent, order_filled_message_fills_group_index)
   end
@@ -4306,7 +4516,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_groups.fields = f
   return index
 end
 
--- Dissect: Order Filled Message fills Groups
+-- Dissect: Order Filled Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -4357,10 +4567,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message.fields = function(buffe
   -- Exec Id: EventId
   index, exec_id = coinbase_deribit_ordersapi_sbe_v1_5.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Order Filled Message fills Groups: Struct of 2 fields
+  -- Order Filled Message Fills Groups: Struct of 2 fields
   index, order_filled_message_fills_groups = coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Order Filled Message legs Groups: Struct of 2 fields
+  -- Order Filled Message Legs Groups: Struct of 2 fields
   index, order_filled_message_legs_groups = coinbase_deribit_ordersapi_sbe_v1_5.order_filled_message_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -4851,10 +5061,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_reject_message.dissect = function
   end
 end
 
--- Mass Quote Response Message legs Group
+-- Mass Quote Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_group = {}
 
--- Size: Mass Quote Response Message legs Group
+-- Size: Mass Quote Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_id.size + 
@@ -4862,16 +5072,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_group.size 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.leg_side.size
 
--- Display: Mass Quote Response Message legs Group
+-- Display: Mass Quote Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Response Message legs Group
+-- Dissect Fields: Mass Quote Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_group.fields = function(buffer, offset, packet, parent, mass_quote_response_message_legs_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Response Message legs Group Index
+  -- Implicit Mass Quote Response Message Legs Group Index
   if mass_quote_response_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_legs_group_index, mass_quote_response_message_legs_group_index)
     iteration:set_generated()
@@ -4895,7 +5105,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_group.field
   return index
 end
 
--- Dissect: Mass Quote Response Message legs Group
+-- Dissect: Mass Quote Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_group.dissect = function(buffer, offset, packet, parent, mass_quote_response_message_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -4913,10 +5123,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_group.disse
   end
 end
 
--- Mass Quote Response Message legs Groups
+-- Mass Quote Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_groups = {}
 
--- Calculate size of: Mass Quote Response Message legs Groups
+-- Calculate size of: Mass Quote Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_groups.size = function(buffer, offset)
   local index = 0
 
@@ -4929,12 +5139,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_groups.size
   return index
 end
 
--- Display: Mass Quote Response Message legs Groups
+-- Display: Mass Quote Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Response Message legs Groups
+-- Dissect Fields: Mass Quote Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -4944,7 +5154,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_groups.fiel
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Mass Quote Response Message legs Group
+  -- Repeating: Mass Quote Response Message Legs Group
   for mass_quote_response_message_legs_group_index = 1, num_in_group do
     index, mass_quote_response_message_legs_group = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_group.dissect(buffer, index, packet, parent, mass_quote_response_message_legs_group_index)
   end
@@ -4952,7 +5162,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_groups.fiel
   return index
 end
 
--- Dissect: Mass Quote Response Message legs Groups
+-- Dissect: Mass Quote Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -4970,26 +5180,26 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_groups.diss
   end
 end
 
--- Mass Quote Response Message ask Fills Group
+-- Mass Quote Response Message Ask Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_group = {}
 
--- Size: Mass Quote Response Message ask Fills Group
+-- Size: Mass Quote Response Message Ask Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.instrument_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_price.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size
 
--- Display: Mass Quote Response Message ask Fills Group
+-- Display: Mass Quote Response Message Ask Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Response Message ask Fills Group
+-- Dissect Fields: Mass Quote Response Message Ask Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_group.fields = function(buffer, offset, packet, parent, mass_quote_response_message_ask_fills_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Response Message ask Fills Group Index
+  -- Implicit Mass Quote Response Message Ask Fills Group Index
   if mass_quote_response_message_ask_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_ask_fills_group_index, mass_quote_response_message_ask_fills_group_index)
     iteration:set_generated()
@@ -5010,7 +5220,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_group.
   return index
 end
 
--- Dissect: Mass Quote Response Message ask Fills Group
+-- Dissect: Mass Quote Response Message Ask Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_group.dissect = function(buffer, offset, packet, parent, mass_quote_response_message_ask_fills_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -5028,10 +5238,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_group.
   end
 end
 
--- Mass Quote Response Message ask Fills Groups
+-- Mass Quote Response Message Ask Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_groups = {}
 
--- Calculate size of: Mass Quote Response Message ask Fills Groups
+-- Calculate size of: Mass Quote Response Message Ask Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_groups.size = function(buffer, offset)
   local index = 0
 
@@ -5044,12 +5254,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_groups
   return index
 end
 
--- Display: Mass Quote Response Message ask Fills Groups
+-- Display: Mass Quote Response Message Ask Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Response Message ask Fills Groups
+-- Dissect Fields: Mass Quote Response Message Ask Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -5059,7 +5269,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_groups
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Mass Quote Response Message ask Fills Group
+  -- Repeating: Mass Quote Response Message Ask Fills Group
   for mass_quote_response_message_ask_fills_group_index = 1, num_in_group do
     index, mass_quote_response_message_ask_fills_group = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_group.dissect(buffer, index, packet, parent, mass_quote_response_message_ask_fills_group_index)
   end
@@ -5067,7 +5277,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_groups
   return index
 end
 
--- Dissect: Mass Quote Response Message ask Fills Groups
+-- Dissect: Mass Quote Response Message Ask Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -5085,26 +5295,26 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_groups
   end
 end
 
--- Mass Quote Response Message bid Fills Group
+-- Mass Quote Response Message Bid Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_group = {}
 
--- Size: Mass Quote Response Message bid Fills Group
+-- Size: Mass Quote Response Message Bid Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.instrument_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_price.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size
 
--- Display: Mass Quote Response Message bid Fills Group
+-- Display: Mass Quote Response Message Bid Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Response Message bid Fills Group
+-- Dissect Fields: Mass Quote Response Message Bid Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_group.fields = function(buffer, offset, packet, parent, mass_quote_response_message_bid_fills_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Response Message bid Fills Group Index
+  -- Implicit Mass Quote Response Message Bid Fills Group Index
   if mass_quote_response_message_bid_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_bid_fills_group_index, mass_quote_response_message_bid_fills_group_index)
     iteration:set_generated()
@@ -5125,7 +5335,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_group.
   return index
 end
 
--- Dissect: Mass Quote Response Message bid Fills Group
+-- Dissect: Mass Quote Response Message Bid Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_group.dissect = function(buffer, offset, packet, parent, mass_quote_response_message_bid_fills_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -5143,10 +5353,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_group.
   end
 end
 
--- Mass Quote Response Message bid Fills Groups
+-- Mass Quote Response Message Bid Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_groups = {}
 
--- Calculate size of: Mass Quote Response Message bid Fills Groups
+-- Calculate size of: Mass Quote Response Message Bid Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_groups.size = function(buffer, offset)
   local index = 0
 
@@ -5159,12 +5369,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_groups
   return index
 end
 
--- Display: Mass Quote Response Message bid Fills Groups
+-- Display: Mass Quote Response Message Bid Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Response Message bid Fills Groups
+-- Dissect Fields: Mass Quote Response Message Bid Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -5174,7 +5384,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_groups
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Mass Quote Response Message bid Fills Group
+  -- Repeating: Mass Quote Response Message Bid Fills Group
   for mass_quote_response_message_bid_fills_group_index = 1, num_in_group do
     index, mass_quote_response_message_bid_fills_group = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_group.dissect(buffer, index, packet, parent, mass_quote_response_message_bid_fills_group_index)
   end
@@ -5182,7 +5392,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_groups
   return index
 end
 
--- Dissect: Mass Quote Response Message bid Fills Groups
+-- Dissect: Mass Quote Response Message Bid Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -5404,10 +5614,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.bid_qty.dissect = function(buffer, offset, p
   end
 end
 
--- Mass Quote Response Message quotes Group
+-- Mass Quote Response Message Quotes Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_group = {}
 
--- Size: Mass Quote Response Message quotes Group
+-- Size: Mass Quote Response Message Quotes Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.instrument_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.bid_order_id.size + 
@@ -5423,16 +5633,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_group.siz
   coinbase_deribit_ordersapi_sbe_v1_5.bid_reject_reason.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.ask_reject_reason.size
 
--- Display: Mass Quote Response Message quotes Group
+-- Display: Mass Quote Response Message Quotes Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Response Message quotes Group
+-- Dissect Fields: Mass Quote Response Message Quotes Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_group.fields = function(buffer, offset, packet, parent, mass_quote_response_message_quotes_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Response Message quotes Group Index
+  -- Implicit Mass Quote Response Message Quotes Group Index
   if mass_quote_response_message_quotes_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_response_message_quotes_group_index, mass_quote_response_message_quotes_group_index)
     iteration:set_generated()
@@ -5480,7 +5690,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_group.fie
   return index
 end
 
--- Dissect: Mass Quote Response Message quotes Group
+-- Dissect: Mass Quote Response Message Quotes Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_group.dissect = function(buffer, offset, packet, parent, mass_quote_response_message_quotes_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -5498,10 +5708,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_group.dis
   end
 end
 
--- Mass Quote Response Message quotes Groups
+-- Mass Quote Response Message Quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_groups = {}
 
--- Calculate size of: Mass Quote Response Message quotes Groups
+-- Calculate size of: Mass Quote Response Message Quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_groups.size = function(buffer, offset)
   local index = 0
 
@@ -5514,12 +5724,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_groups.si
   return index
 end
 
--- Display: Mass Quote Response Message quotes Groups
+-- Display: Mass Quote Response Message Quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Response Message quotes Groups
+-- Dissect Fields: Mass Quote Response Message Quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -5529,7 +5739,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_groups.fi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Mass Quote Response Message quotes Group
+  -- Repeating: Mass Quote Response Message Quotes Group
   for mass_quote_response_message_quotes_group_index = 1, num_in_group do
     index, mass_quote_response_message_quotes_group = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_group.dissect(buffer, index, packet, parent, mass_quote_response_message_quotes_group_index)
   end
@@ -5537,7 +5747,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_groups.fi
   return index
 end
 
--- Dissect: Mass Quote Response Message quotes Groups
+-- Dissect: Mass Quote Response Message Quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -5612,16 +5822,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message.fields = functio
   -- Receive Time: TimestampNanos
   index, receive_time = coinbase_deribit_ordersapi_sbe_v1_5.receive_time.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Response Message quotes Groups: Struct of 2 fields
+  -- Mass Quote Response Message Quotes Groups: Struct of 2 fields
   index, mass_quote_response_message_quotes_groups = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_quotes_groups.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Response Message bid Fills Groups: Struct of 2 fields
+  -- Mass Quote Response Message Bid Fills Groups: Struct of 2 fields
   index, mass_quote_response_message_bid_fills_groups = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_bid_fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Response Message ask Fills Groups: Struct of 2 fields
+  -- Mass Quote Response Message Ask Fills Groups: Struct of 2 fields
   index, mass_quote_response_message_ask_fills_groups = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_ask_fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Response Message legs Groups: Struct of 2 fields
+  -- Mass Quote Response Message Legs Groups: Struct of 2 fields
   index, mass_quote_response_message_legs_groups = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_response_message_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -5770,11 +5980,23 @@ coinbase_deribit_ordersapi_sbe_v1_5.cancel_order_response_message.fields = funct
   -- Receive Time: TimestampNanos
   index, receive_time = coinbase_deribit_ordersapi_sbe_v1_5.receive_time.dissect(buffer, index, packet, parent)
 
-  -- Quantity: Struct of 2 fields
-  index, quantity = coinbase_deribit_ordersapi_sbe_v1_5.quantity.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Quantity
+  local quantity = nil
 
-  -- Total Filled: Struct of 2 fields
-  index, total_filled = coinbase_deribit_ordersapi_sbe_v1_5.total_filled.dissect(buffer, index, packet, parent)
+  local quantity_exists = index < buffer:len()
+
+  if quantity_exists then
+    index, quantity = coinbase_deribit_ordersapi_sbe_v1_5.quantity.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Total Filled
+  local total_filled = nil
+
+  local total_filled_exists = index < buffer:len()
+
+  if total_filled_exists then
+    index, total_filled = coinbase_deribit_ordersapi_sbe_v1_5.total_filled.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -5877,10 +6099,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_reject_message.dissect = functio
   end
 end
 
--- Amend Order Response Message legs Group
+-- Amend Order Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_group = {}
 
--- Size: Amend Order Response Message legs Group
+-- Size: Amend Order Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_id.size + 
@@ -5888,16 +6110,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_group.size
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.leg_side.size
 
--- Display: Amend Order Response Message legs Group
+-- Display: Amend Order Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Amend Order Response Message legs Group
+-- Dissect Fields: Amend Order Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_group.fields = function(buffer, offset, packet, parent, amend_order_response_message_legs_group_index)
   local index = offset
 
-  -- Implicit Amend Order Response Message legs Group Index
+  -- Implicit Amend Order Response Message Legs Group Index
   if amend_order_response_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_legs_group_index, amend_order_response_message_legs_group_index)
     iteration:set_generated()
@@ -5921,7 +6143,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_group.fiel
   return index
 end
 
--- Dissect: Amend Order Response Message legs Group
+-- Dissect: Amend Order Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_group.dissect = function(buffer, offset, packet, parent, amend_order_response_message_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -5939,10 +6161,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_group.diss
   end
 end
 
--- Amend Order Response Message legs Groups
+-- Amend Order Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_groups = {}
 
--- Calculate size of: Amend Order Response Message legs Groups
+-- Calculate size of: Amend Order Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_groups.size = function(buffer, offset)
   local index = 0
 
@@ -5955,12 +6177,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_groups.siz
   return index
 end
 
--- Display: Amend Order Response Message legs Groups
+-- Display: Amend Order Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Amend Order Response Message legs Groups
+-- Dissect Fields: Amend Order Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -5970,7 +6192,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_groups.fie
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Amend Order Response Message legs Group
+  -- Repeating: Amend Order Response Message Legs Group
   for amend_order_response_message_legs_group_index = 1, num_in_group do
     index, amend_order_response_message_legs_group = coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_group.dissect(buffer, index, packet, parent, amend_order_response_message_legs_group_index)
   end
@@ -5978,7 +6200,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_groups.fie
   return index
 end
 
--- Dissect: Amend Order Response Message legs Groups
+-- Dissect: Amend Order Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -5996,25 +6218,25 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_groups.dis
   end
 end
 
--- Amend Order Response Message fills Group
+-- Amend Order Response Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_group = {}
 
--- Size: Amend Order Response Message fills Group
+-- Size: Amend Order Response Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_price.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size
 
--- Display: Amend Order Response Message fills Group
+-- Display: Amend Order Response Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Amend Order Response Message fills Group
+-- Dissect Fields: Amend Order Response Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_group.fields = function(buffer, offset, packet, parent, amend_order_response_message_fills_group_index)
   local index = offset
 
-  -- Implicit Amend Order Response Message fills Group Index
+  -- Implicit Amend Order Response Message Fills Group Index
   if amend_order_response_message_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.amend_order_response_message_fills_group_index, amend_order_response_message_fills_group_index)
     iteration:set_generated()
@@ -6032,7 +6254,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_group.fie
   return index
 end
 
--- Dissect: Amend Order Response Message fills Group
+-- Dissect: Amend Order Response Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_group.dissect = function(buffer, offset, packet, parent, amend_order_response_message_fills_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -6050,10 +6272,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_group.dis
   end
 end
 
--- Amend Order Response Message fills Groups
+-- Amend Order Response Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_groups = {}
 
--- Calculate size of: Amend Order Response Message fills Groups
+-- Calculate size of: Amend Order Response Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_groups.size = function(buffer, offset)
   local index = 0
 
@@ -6066,12 +6288,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_groups.si
   return index
 end
 
--- Display: Amend Order Response Message fills Groups
+-- Display: Amend Order Response Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Amend Order Response Message fills Groups
+-- Dissect Fields: Amend Order Response Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -6081,7 +6303,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_groups.fi
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Amend Order Response Message fills Group
+  -- Repeating: Amend Order Response Message Fills Group
   for amend_order_response_message_fills_group_index = 1, num_in_group do
     index, amend_order_response_message_fills_group = coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_group.dissect(buffer, index, packet, parent, amend_order_response_message_fills_group_index)
   end
@@ -6089,7 +6311,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_groups.fi
   return index
 end
 
--- Dissect: Amend Order Response Message fills Groups
+-- Dissect: Amend Order Response Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -6195,10 +6417,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message.fields = functi
   -- Cancel Reason: CancelReason
   index, cancel_reason = coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason.dissect(buffer, index, packet, parent)
 
-  -- Amend Order Response Message fills Groups: Struct of 2 fields
+  -- Amend Order Response Message Fills Groups: Struct of 2 fields
   index, amend_order_response_message_fills_groups = coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_fills_groups.dissect(buffer, index, packet, parent)
 
-  -- Amend Order Response Message legs Groups: Struct of 2 fields
+  -- Amend Order Response Message Legs Groups: Struct of 2 fields
   index, amend_order_response_message_legs_groups = coinbase_deribit_ordersapi_sbe_v1_5.amend_order_response_message_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -6302,10 +6524,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_reject_message.dissect = function(
   end
 end
 
--- New Order Response Message legs Group
+-- New Order Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_group = {}
 
--- Size: New Order Response Message legs Group
+-- Size: New Order Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_id.size + 
@@ -6313,16 +6535,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.leg_side.size
 
--- Display: New Order Response Message legs Group
+-- Display: New Order Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Order Response Message legs Group
+-- Dissect Fields: New Order Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_group.fields = function(buffer, offset, packet, parent, new_order_response_message_legs_group_index)
   local index = offset
 
-  -- Implicit New Order Response Message legs Group Index
+  -- Implicit New Order Response Message Legs Group Index
   if new_order_response_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_legs_group_index, new_order_response_message_legs_group_index)
     iteration:set_generated()
@@ -6346,7 +6568,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_group.fields
   return index
 end
 
--- Dissect: New Order Response Message legs Group
+-- Dissect: New Order Response Message Legs Group
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_group.dissect = function(buffer, offset, packet, parent, new_order_response_message_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -6364,10 +6586,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_group.dissec
   end
 end
 
--- New Order Response Message legs Groups
+-- New Order Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_groups = {}
 
--- Calculate size of: New Order Response Message legs Groups
+-- Calculate size of: New Order Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_groups.size = function(buffer, offset)
   local index = 0
 
@@ -6380,12 +6602,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_groups.size 
   return index
 end
 
--- Display: New Order Response Message legs Groups
+-- Display: New Order Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Order Response Message legs Groups
+-- Dissect Fields: New Order Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -6395,7 +6617,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_groups.field
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: New Order Response Message legs Group
+  -- Repeating: New Order Response Message Legs Group
   for new_order_response_message_legs_group_index = 1, num_in_group do
     index, new_order_response_message_legs_group = coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_group.dissect(buffer, index, packet, parent, new_order_response_message_legs_group_index)
   end
@@ -6403,7 +6625,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_groups.field
   return index
 end
 
--- Dissect: New Order Response Message legs Groups
+-- Dissect: New Order Response Message Legs Groups
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -6421,25 +6643,25 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_groups.disse
   end
 end
 
--- New Order Response Message fills Group
+-- New Order Response Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_group = {}
 
--- Size: New Order Response Message fills Group
+-- Size: New Order Response Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.match_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_price.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.fill_qty.size
 
--- Display: New Order Response Message fills Group
+-- Display: New Order Response Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Order Response Message fills Group
+-- Dissect Fields: New Order Response Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_group.fields = function(buffer, offset, packet, parent, new_order_response_message_fills_group_index)
   local index = offset
 
-  -- Implicit New Order Response Message fills Group Index
+  -- Implicit New Order Response Message Fills Group Index
   if new_order_response_message_fills_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.new_order_response_message_fills_group_index, new_order_response_message_fills_group_index)
     iteration:set_generated()
@@ -6457,7 +6679,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_group.field
   return index
 end
 
--- Dissect: New Order Response Message fills Group
+-- Dissect: New Order Response Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_group.dissect = function(buffer, offset, packet, parent, new_order_response_message_fills_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -6475,10 +6697,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_group.disse
   end
 end
 
--- New Order Response Message fills Groups
+-- New Order Response Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_groups = {}
 
--- Calculate size of: New Order Response Message fills Groups
+-- Calculate size of: New Order Response Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_groups.size = function(buffer, offset)
   local index = 0
 
@@ -6491,12 +6713,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_groups.size
   return index
 end
 
--- Display: New Order Response Message fills Groups
+-- Display: New Order Response Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Order Response Message fills Groups
+-- Dissect Fields: New Order Response Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -6506,7 +6728,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_groups.fiel
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: New Order Response Message fills Group
+  -- Repeating: New Order Response Message Fills Group
   for new_order_response_message_fills_group_index = 1, num_in_group do
     index, new_order_response_message_fills_group = coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_group.dissect(buffer, index, packet, parent, new_order_response_message_fills_group_index)
   end
@@ -6514,7 +6736,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_groups.fiel
   return index
 end
 
--- Dissect: New Order Response Message fills Groups
+-- Dissect: New Order Response Message Fills Groups
 coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -6645,7 +6867,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message.size = function(b
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason.size
 
-  index = index + coinbase_deribit_ordersapi_sbe_v1_5.flags_order_flags.size
+  local schema_version = buffer(offset - 26, 2):le_uint()
+
+  if schema_version > 18 then
+    index = index + coinbase_deribit_ordersapi_sbe_v1_5.flags_order_flags.size
+
+  end
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_groups.size(buffer, offset + index)
 
@@ -6705,13 +6932,24 @@ coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message.fields = function
   -- Cancel Reason: CancelReason
   index, cancel_reason = coinbase_deribit_ordersapi_sbe_v1_5.cancel_reason.dissect(buffer, index, packet, parent)
 
-  -- Flags Order Flags: Struct of 7 fields
-  index, flags_order_flags = coinbase_deribit_ordersapi_sbe_v1_5.flags_order_flags.dissect(buffer, index, packet, parent)
+  -- Dependency element: Schema Version
+  local schema_version = buffer(offset - 26, 2):le_uint()
 
-  -- New Order Response Message fills Groups: Struct of 2 fields
+  -- Runtime optional field: Flags Order Flags
+  local flags_order_flags = nil
+
+  local flags_order_flags_exists = schema_version > 18
+
+  if flags_order_flags_exists then
+
+    -- Flags Order Flags: Struct of 7 fields
+    index, flags_order_flags = coinbase_deribit_ordersapi_sbe_v1_5.flags_order_flags.dissect(buffer, index, packet, parent)
+  end
+
+  -- New Order Response Message Fills Groups: Struct of 2 fields
   index, new_order_response_message_fills_groups = coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_fills_groups.dissect(buffer, index, packet, parent)
 
-  -- New Order Response Message legs Groups: Struct of 2 fields
+  -- New Order Response Message Legs Groups: Struct of 2 fields
   index, new_order_response_message_legs_groups = coinbase_deribit_ordersapi_sbe_v1_5.new_order_response_message_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -7083,10 +7321,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.bid_flags.dissect = function(buffer, offset,
   return offset + size, value
 end
 
--- Mass Quote Request Message quotes Group
+-- Mass Quote Request Message Quotes Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_group = {}
 
--- Size: Mass Quote Request Message quotes Group
+-- Size: Mass Quote Request Message Quotes Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_group.size =
   coinbase_deribit_ordersapi_sbe_v1_5.instrument_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.bid_price_optional.size + 
@@ -7096,16 +7334,16 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_group.size
   coinbase_deribit_ordersapi_sbe_v1_5.bid_flags.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.ask_flags.size
 
--- Display: Mass Quote Request Message quotes Group
+-- Display: Mass Quote Request Message Quotes Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Request Message quotes Group
+-- Dissect Fields: Mass Quote Request Message Quotes Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_group.fields = function(buffer, offset, packet, parent, mass_quote_request_message_quotes_group_index)
   local index = offset
 
-  -- Implicit Mass Quote Request Message quotes Group Index
+  -- Implicit Mass Quote Request Message Quotes Group Index
   if mass_quote_request_message_quotes_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_5.fields.mass_quote_request_message_quotes_group_index, mass_quote_request_message_quotes_group_index)
     iteration:set_generated()
@@ -7135,7 +7373,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_group.fiel
   return index
 end
 
--- Dissect: Mass Quote Request Message quotes Group
+-- Dissect: Mass Quote Request Message Quotes Group
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_group.dissect = function(buffer, offset, packet, parent, mass_quote_request_message_quotes_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -7153,10 +7391,10 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_group.diss
   end
 end
 
--- Mass Quote Request Message quotes Groups
+-- Mass Quote Request Message Quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_groups = {}
 
--- Calculate size of: Mass Quote Request Message quotes Groups
+-- Calculate size of: Mass Quote Request Message Quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_groups.size = function(buffer, offset)
   local index = 0
 
@@ -7169,12 +7407,12 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_groups.siz
   return index
 end
 
--- Display: Mass Quote Request Message quotes Groups
+-- Display: Mass Quote Request Message Quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Quote Request Message quotes Groups
+-- Dissect Fields: Mass Quote Request Message Quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -7184,7 +7422,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_groups.fie
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Mass Quote Request Message quotes Group
+  -- Repeating: Mass Quote Request Message Quotes Group
   for mass_quote_request_message_quotes_group_index = 1, num_in_group do
     index, mass_quote_request_message_quotes_group = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_group.dissect(buffer, index, packet, parent, mass_quote_request_message_quotes_group_index)
   end
@@ -7192,7 +7430,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_groups.fie
   return index
 end
 
--- Dissect: Mass Quote Request Message quotes Groups
+-- Dissect: Mass Quote Request Message Quotes Groups
 coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -7299,7 +7537,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message.fields = function
   -- Flags Mass Quote Flags: Struct of 2 fields
   index, flags_mass_quote_flags = coinbase_deribit_ordersapi_sbe_v1_5.flags_mass_quote_flags.dissect(buffer, index, packet, parent)
 
-  -- Mass Quote Request Message quotes Groups: Struct of 2 fields
+  -- Mass Quote Request Message Quotes Groups: Struct of 2 fields
   index, mass_quote_request_message_quotes_groups = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_request_message_quotes_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -7477,7 +7715,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.show_qty = {}
 
 -- Size: Show Qty
 coinbase_deribit_ordersapi_sbe_v1_5.show_qty.size =
-  coinbase_deribit_ordersapi_sbe_v1_5.mantissa.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.mantissa_optional.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.exponent.size
 
 -- Display: Show Qty
@@ -7493,14 +7731,17 @@ end
 coinbase_deribit_ordersapi_sbe_v1_5.show_qty.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa: int64
-  index, mantissa = coinbase_deribit_ordersapi_sbe_v1_5.mantissa.dissect(buffer, index, packet, parent)
+  -- Mantissa Optional: int64
+  index, mantissa_optional = coinbase_deribit_ordersapi_sbe_v1_5.mantissa_optional.dissect(buffer, index, packet, parent)
 
   -- Exponent: int8
   index, exponent = coinbase_deribit_ordersapi_sbe_v1_5.exponent.dissect(buffer, index, packet, parent)
 
   -- Composite value
-  local show_qty = mantissa:tonumber() * 10 ^ exponent
+  local show_qty = mantissa_optional:tonumber() * 10 ^ exponent
+
+  -- Null check (composite is null when child is null sentinel)
+  if mantissa_optional == Int64(0x00000000, 0x80000000) then show_qty = nil end
 
   return index, show_qty
 end
@@ -8100,7 +8341,8 @@ coinbase_deribit_ordersapi_sbe_v1_5.logon_message.size =
   coinbase_deribit_ordersapi_sbe_v1_5.secret.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.reset_seq_num.size + 
   coinbase_deribit_ordersapi_sbe_v1_5.schema_version.size + 
-  coinbase_deribit_ordersapi_sbe_v1_5.session_cancel_on_disconnect.size
+  coinbase_deribit_ordersapi_sbe_v1_5.session_cancel_on_disconnect.size + 
+  coinbase_deribit_ordersapi_sbe_v1_5.liquidation_notifications.size
 
 -- Display: Logon Message
 coinbase_deribit_ordersapi_sbe_v1_5.logon_message.display = function(packet, parent, length)
@@ -8123,8 +8365,23 @@ coinbase_deribit_ordersapi_sbe_v1_5.logon_message.fields = function(buffer, offs
   -- Schema Version: uint16
   index, schema_version = coinbase_deribit_ordersapi_sbe_v1_5.schema_version.dissect(buffer, index, packet, parent)
 
-  -- Session Cancel On Disconnect: Bool
-  index, session_cancel_on_disconnect = coinbase_deribit_ordersapi_sbe_v1_5.session_cancel_on_disconnect.dissect(buffer, index, packet, parent)
+  -- Runtime optional field: Session Cancel On Disconnect
+  local session_cancel_on_disconnect = nil
+
+  local session_cancel_on_disconnect_exists = index < buffer:len()
+
+  if session_cancel_on_disconnect_exists then
+    index, session_cancel_on_disconnect = coinbase_deribit_ordersapi_sbe_v1_5.session_cancel_on_disconnect.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Liquidation Notifications
+  local liquidation_notifications = nil
+
+  local liquidation_notifications_exists = index < buffer:len()
+
+  if liquidation_notifications_exists then
+    index, liquidation_notifications = coinbase_deribit_ordersapi_sbe_v1_5.liquidation_notifications.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -8192,6 +8449,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.payload.dispatch = {
   [322] = coinbase_deribit_ordersapi_sbe_v1_5.orders_mmp_triggered_message.dissect,
   [324] = coinbase_deribit_ordersapi_sbe_v1_5.mass_quote_mmp_unfrozen_message.dissect,
   [326] = coinbase_deribit_ordersapi_sbe_v1_5.orders_mmp_unfrozen_message.dissect,
+  [330] = coinbase_deribit_ordersapi_sbe_v1_5.position_moved_message.dissect,
 }
 
 -- Dissect: Payload
@@ -8333,7 +8591,7 @@ coinbase_deribit_ordersapi_sbe_v1_5.sbe_message.fields = function(buffer, offset
   -- Dependency element: Template Id
   local template_id = buffer(index - 28, 2):le_uint()
 
-  -- Payload: Runtime Type with 40 branches
+  -- Payload: Runtime Type with 41 branches
   index = coinbase_deribit_ordersapi_sbe_v1_5.payload.dissect(buffer, index, packet, parent, template_id)
 
   -- Dependency element: Message Length
@@ -8668,6 +8926,11 @@ coinbase_deribit_ordersapi_sbe_v1_5.packet.fingerprint = function(buffer)
     return true
   end
 
+  -- Position Moved Message
+  if template_id == 330 then
+    return true
+  end
+
   return false
 end
 
@@ -8676,10 +8939,30 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Protocol Id Field
+coinbase_deribit_ordersapi_sbe_v1_5.protocol_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(0, 1):uint()
+
+  if value == 219 then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Coinbase Deribit OrdersApi Sbe 1.5 (Tcp)
 local function omi_coinbase_deribit_ordersapi_sbe_v1_5_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not coinbase_deribit_ordersapi_sbe_v1_5.packet.requiredsize(buffer) then return false end
+
+  -- Verify Protocol Id
+  if not coinbase_deribit_ordersapi_sbe_v1_5.protocol_id.verify(buffer) then return false end
 
   -- Verify the frame matches this tcp packet message dispatch
   if not coinbase_deribit_ordersapi_sbe_v1_5.packet.fingerprint(buffer) then return false end

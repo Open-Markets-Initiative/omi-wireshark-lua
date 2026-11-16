@@ -64,8 +64,8 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.request_id = ProtoField.new("Requ
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sbe_message = ProtoField.new("Sbe Message", "iex.iexoptions.marketdata.sbe.v1.03.sbemessage", ftypes.STRING, nil, nil, nil, "Iex Options length-framed Sbe Message")
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.marketdata.sbe.v1.03.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message (10000 market data, 20000 session, 20001 order entry business)")
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequence_number = ProtoField.new("Sequence Number", "iex.iexoptions.marketdata.sbe.v1.03.sequencenumber", ftypes.UINT64, nil, nil, nil, "sequenceNumber")
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message_messages_group = ProtoField.new("Sequenced Packet Message messages Group", "iex.iexoptions.marketdata.sbe.v1.03.sequencedpacketmessagemessagesgroup", ftypes.STRING, nil, nil, nil, "messages")
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message_messages_groups = ProtoField.new("Sequenced Packet Message messages Groups", "iex.iexoptions.marketdata.sbe.v1.03.sequencedpacketmessagemessagesgroups", ftypes.STRING, nil, nil, nil, "messages Block")
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message_messages_group = ProtoField.new("Sequenced Packet Message Messages Group", "iex.iexoptions.marketdata.sbe.v1.03.sequencedpacketmessagemessagesgroup", ftypes.STRING, nil, nil, nil, "messages")
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message_messages_groups = ProtoField.new("Sequenced Packet Message Messages Groups", "iex.iexoptions.marketdata.sbe.v1.03.sequencedpacketmessagemessagesgroups", ftypes.STRING, nil, nil, nil, "messages Block")
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.side = ProtoField.new("Side", "iex.iexoptions.marketdata.sbe.v1.03.side", ftypes.INT8)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.snapshot_id = ProtoField.new("Snapshot Id", "iex.iexoptions.marketdata.sbe.v1.03.snapshotid", ftypes.UINT32, nil, nil, nil, "snapshotId")
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.status_retransmission_status_type = ProtoField.new("Status Retransmission Status Type", "iex.iexoptions.marketdata.sbe.v1.03.statusretransmissionstatustype", ftypes.UINT8, nil, nil, nil, "status")
@@ -118,7 +118,7 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.trading_status_message = ProtoFie
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.underlying_ref_data_message = ProtoField.new("Underlying Ref Data Message", "iex.iexoptions.marketdata.sbe.v1.03.underlyingrefdatamessage", ftypes.STRING, nil, nil, nil, "UnderlyingRefDataMessage")
 
 -- Iex IexOptions MarketData Sbe 1.03 Generated Fields
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message_messages_group_index = ProtoField.new("Sequenced Packet Message messages Group Index", "iex.iexoptions.marketdata.sbe.v1.03.sequencedpacketmessagemessagesgroupindex", ftypes.UINT16)
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message_messages_group_index = ProtoField.new("Sequenced Packet Message Messages Group Index", "iex.iexoptions.marketdata.sbe.v1.03.sequencedpacketmessagemessagesgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Iex IexOptions MarketData Sbe 1.03 Formatting
@@ -1831,7 +1831,7 @@ iex_iexoptions_marketdata_sbe_v1_03.version.size = 2
 -- Display: Version
 iex_iexoptions_marketdata_sbe_v1_03.version.display = function(value)
   if value == 0 then
-    return "Version: 1.0"
+    return "Version: 0"
   end
 
   return "Version: Unknown("..value..")"
@@ -2164,10 +2164,10 @@ iex_iexoptions_marketdata_sbe_v1_03.message.dissect = function(buffer, offset, p
   end
 end
 
--- Sequenced Packet Message messages Group
+-- Sequenced Packet Message Messages Group
 iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_group = {}
 
--- Calculate size of: Sequenced Packet Message messages Group
+-- Calculate size of: Sequenced Packet Message Messages Group
 iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_group.size = function(buffer, offset)
   local index = 0
 
@@ -2176,16 +2176,16 @@ iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_group.size
   return index
 end
 
--- Display: Sequenced Packet Message messages Group
+-- Display: Sequenced Packet Message Messages Group
 iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sequenced Packet Message messages Group
+-- Dissect Fields: Sequenced Packet Message Messages Group
 iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_group.fields = function(buffer, offset, packet, parent, sequenced_packet_message_messages_group_index)
   local index = offset
 
-  -- Implicit Sequenced Packet Message messages Group Index
+  -- Implicit Sequenced Packet Message Messages Group Index
   if sequenced_packet_message_messages_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexoptions_marketdata_sbe_v1_03.fields.sequenced_packet_message_messages_group_index, sequenced_packet_message_messages_group_index)
     iteration:set_generated()
@@ -2197,7 +2197,7 @@ iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_group.fiel
   return index
 end
 
--- Dissect: Sequenced Packet Message messages Group
+-- Dissect: Sequenced Packet Message Messages Group
 iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_group.dissect = function(buffer, offset, packet, parent, sequenced_packet_message_messages_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -2259,10 +2259,10 @@ iex_iexoptions_marketdata_sbe_v1_03.message_list_group_encoding.dissect = functi
   end
 end
 
--- Sequenced Packet Message messages Groups
+-- Sequenced Packet Message Messages Groups
 iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups = {}
 
--- Calculate size of: Sequenced Packet Message messages Groups
+-- Calculate size of: Sequenced Packet Message Messages Groups
 iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups.size = function(buffer, offset)
   local index = 0
 
@@ -2276,12 +2276,12 @@ iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups.siz
   return index
 end
 
--- Display: Sequenced Packet Message messages Groups
+-- Display: Sequenced Packet Message Messages Groups
 iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Sequenced Packet Message messages Groups
+-- Dissect Fields: Sequenced Packet Message Messages Groups
 iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -2291,7 +2291,7 @@ iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups.fie
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Repeating: Sequenced Packet Message messages Group
+  -- Repeating: Sequenced Packet Message Messages Group
   for sequenced_packet_message_messages_group_index = 1, num_in_group do
     index, sequenced_packet_message_messages_group = iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_group.dissect(buffer, index, packet, parent, sequenced_packet_message_messages_group_index)
   end
@@ -2299,7 +2299,7 @@ iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups.fie
   return index
 end
 
--- Dissect: Sequenced Packet Message messages Groups
+-- Dissect: Sequenced Packet Message Messages Groups
 iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -2348,7 +2348,7 @@ iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message.fields = function(b
   -- Sequence Number: SequenceNumber
   index, sequence_number = iex_iexoptions_marketdata_sbe_v1_03.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Sequenced Packet Message messages Groups: Struct of 2 fields
+  -- Sequenced Packet Message Messages Groups: Struct of 2 fields
   index, sequenced_packet_message_messages_groups = iex_iexoptions_marketdata_sbe_v1_03.sequenced_packet_message_messages_groups.dissect(buffer, index, packet, parent)
 
   return index

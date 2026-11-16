@@ -3838,7 +3838,7 @@ memx_memxoptions_memo_sbe_v1_9.version.size = 2
 -- Display: Version
 memx_memxoptions_memo_sbe_v1_9.version.display = function(value)
   if value == 265 then
-    return "Version: 1.9"
+    return "Version: 265"
   end
 
   return "Version: Unknown("..value..")"

@@ -21,14 +21,14 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_price = ProtoField.new("B
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_qty = ProtoField.new("Bid Qty", "binance.binancespot.marketdata.sbe.v1.0.bidqty", ftypes.INT64, nil, nil, nil, "bidQty")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.block_length = ProtoField.new("Block Length", "binance.binancespot.marketdata.sbe.v1.0.blocklength", ftypes.UINT16, nil, nil, nil, "blockLength")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.book_update_id = ProtoField.new("Book Update Id", "binance.binancespot.marketdata.sbe.v1.0.bookupdateid", ftypes.INT64, nil, nil, nil, "bookUpdateId")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_asks_group = ProtoField.new("Depth Diff Stream Event Message asks Group", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessageasksgroup", ftypes.STRING, nil, nil, nil, "asks")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_asks_groups = ProtoField.new("Depth Diff Stream Event Message asks Groups", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_bids_group = ProtoField.new("Depth Diff Stream Event Message bids Group", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_bids_groups = ProtoField.new("Depth Diff Stream Event Message bids Groups", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_asks_group = ProtoField.new("Depth Snapshot Stream Event Message asks Group", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessageasksgroup", ftypes.STRING, nil, nil, nil, "asks")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_asks_groups = ProtoField.new("Depth Snapshot Stream Event Message asks Groups", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_group = ProtoField.new("Depth Snapshot Stream Event Message bids Group", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_groups = ProtoField.new("Depth Snapshot Stream Event Message bids Groups", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_asks_group = ProtoField.new("Depth Diff Stream Event Message Asks Group", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessageasksgroup", ftypes.STRING, nil, nil, nil, "asks")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_asks_groups = ProtoField.new("Depth Diff Stream Event Message Asks Groups", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_bids_group = ProtoField.new("Depth Diff Stream Event Message Bids Group", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_bids_groups = ProtoField.new("Depth Diff Stream Event Message Bids Groups", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_asks_group = ProtoField.new("Depth Snapshot Stream Event Message Asks Group", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessageasksgroup", ftypes.STRING, nil, nil, nil, "asks")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_asks_groups = ProtoField.new("Depth Snapshot Stream Event Message Asks Groups", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_group = ProtoField.new("Depth Snapshot Stream Event Message Bids Group", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_groups = ProtoField.new("Depth Snapshot Stream Event Message Bids Groups", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time = ProtoField.new("Event Time", "binance.binancespot.marketdata.sbe.v1.0.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "eventTime")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time_utc = ProtoField.new("Event Time", "binance.binancespot.marketdata.sbe.v1.0.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "eventTime")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.first_book_update_id = ProtoField.new("First Book Update Id", "binance.binancespot.marketdata.sbe.v1.0.firstbookupdateid", ftypes.INT64, nil, nil, nil, "firstBookUpdateId")
@@ -48,8 +48,8 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.symbol = ProtoField.new("Symb
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.symbol_data = ProtoField.new("Symbol Data", "binance.binancespot.marketdata.sbe.v1.0.symboldata", ftypes.STRING)
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.symbol_length = ProtoField.new("Symbol Length", "binance.binancespot.marketdata.sbe.v1.0.symbollength", ftypes.UINT8)
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.template_id = ProtoField.new("Template Id", "binance.binancespot.marketdata.sbe.v1.0.templateid", ftypes.UINT16, nil, nil, nil, "Template id of the message")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_group = ProtoField.new("Trades Stream Event Message trades Group", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroup", ftypes.STRING, nil, nil, nil, "trades")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_groups = ProtoField.new("Trades Stream Event Message trades Groups", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroups", ftypes.STRING, nil, nil, nil, "trades Block")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_group = ProtoField.new("Trades Stream Event Message Trades Group", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroup", ftypes.STRING, nil, nil, nil, "trades")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_groups = ProtoField.new("Trades Stream Event Message Trades Groups", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroups", ftypes.STRING, nil, nil, nil, "trades Block")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time = ProtoField.new("Transact Time", "binance.binancespot.marketdata.sbe.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time_utc = ProtoField.new("Transact Time", "binance.binancespot.marketdata.sbe.v1.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.version = ProtoField.new("Version", "binance.binancespot.marketdata.sbe.v1.0.version", ftypes.UINT16, nil, nil, nil, "Schema version")
@@ -66,11 +66,11 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_m
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message = ProtoField.new("Trades Stream Event Message", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessage", ftypes.STRING, nil, nil, nil, "TradesStreamEventMessage")
 
 -- Binance BinanceSpot MarketData Sbe 1.0 Generated Fields
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_asks_group_index = ProtoField.new("Depth Diff Stream Event Message asks Group Index", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessageasksgroupindex", ftypes.UINT16)
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_bids_group_index = ProtoField.new("Depth Diff Stream Event Message bids Group Index", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessagebidsgroupindex", ftypes.UINT16)
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_asks_group_index = ProtoField.new("Depth Snapshot Stream Event Message asks Group Index", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessageasksgroupindex", ftypes.UINT16)
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_group_index = ProtoField.new("Depth Snapshot Stream Event Message bids Group Index", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroupindex", ftypes.UINT16)
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_group_index = ProtoField.new("Trades Stream Event Message trades Group Index", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroupindex", ftypes.UINT16)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_asks_group_index = ProtoField.new("Depth Diff Stream Event Message Asks Group Index", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessageasksgroupindex", ftypes.UINT16)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_bids_group_index = ProtoField.new("Depth Diff Stream Event Message Bids Group Index", "binance.binancespot.marketdata.sbe.v1.0.depthdiffstreameventmessagebidsgroupindex", ftypes.UINT16)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_asks_group_index = ProtoField.new("Depth Snapshot Stream Event Message Asks Group Index", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessageasksgroupindex", ftypes.UINT16)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_group_index = ProtoField.new("Depth Snapshot Stream Event Message Bids Group Index", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroupindex", ftypes.UINT16)
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_group_index = ProtoField.new("Trades Stream Event Message Trades Group Index", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroupindex", ftypes.UINT16)
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_price_calculate = ProtoField.new("Ask Price Calculate", "binance.binancespot.marketdata.sbe.v1.0.askpricecalculate", ftypes.DOUBLE)
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.ask_qty_calculate = ProtoField.new("Ask Qty Calculate", "binance.binancespot.marketdata.sbe.v1.0.askqtycalculate", ftypes.DOUBLE)
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.bid_price_calculate = ProtoField.new("Bid Price Calculate", "binance.binancespot.marketdata.sbe.v1.0.bidpricecalculate", ftypes.DOUBLE)
@@ -729,7 +729,7 @@ binance_binancespot_marketdata_sbe_v1_0.version.size = 2
 -- Display: Version
 binance_binancespot_marketdata_sbe_v1_0.version.display = function(value)
   if value == 0 then
-    return "Version: 5.2"
+    return "Version: 0"
   end
 
   return "Version: Unknown("..value..")"
@@ -1057,24 +1057,24 @@ binance_binancespot_marketdata_sbe_v1_0.symbol.dissect = function(buffer, offset
   end
 end
 
--- Depth Diff Stream Event Message asks Group
+-- Depth Diff Stream Event Message Asks Group
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_group = {}
 
--- Size: Depth Diff Stream Event Message asks Group
+-- Size: Depth Diff Stream Event Message Asks Group
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_group.size =
   binance_binancespot_marketdata_sbe_v1_0.price.size + 
   binance_binancespot_marketdata_sbe_v1_0.qty.size
 
--- Display: Depth Diff Stream Event Message asks Group
+-- Display: Depth Diff Stream Event Message Asks Group
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Depth Diff Stream Event Message asks Group
+-- Dissect Fields: Depth Diff Stream Event Message Asks Group
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_group.fields = function(buffer, offset, packet, parent, depth_diff_stream_event_message_asks_group_index)
   local index = offset
 
-  -- Implicit Depth Diff Stream Event Message asks Group Index
+  -- Implicit Depth Diff Stream Event Message Asks Group Index
   if depth_diff_stream_event_message_asks_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_asks_group_index, depth_diff_stream_event_message_asks_group_index)
     iteration:set_generated()
@@ -1089,7 +1089,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_gro
   return index
 end
 
--- Dissect: Depth Diff Stream Event Message asks Group
+-- Dissect: Depth Diff Stream Event Message Asks Group
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_group.dissect = function(buffer, offset, packet, parent, depth_diff_stream_event_message_asks_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1151,10 +1151,10 @@ binance_binancespot_marketdata_sbe_v1_0.group_size_16_encoding.dissect = functio
   end
 end
 
--- Depth Diff Stream Event Message asks Groups
+-- Depth Diff Stream Event Message Asks Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_groups = {}
 
--- Calculate size of: Depth Diff Stream Event Message asks Groups
+-- Calculate size of: Depth Diff Stream Event Message Asks Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1167,12 +1167,12 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_gro
   return index
 end
 
--- Display: Depth Diff Stream Event Message asks Groups
+-- Display: Depth Diff Stream Event Message Asks Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Depth Diff Stream Event Message asks Groups
+-- Dissect Fields: Depth Diff Stream Event Message Asks Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1182,7 +1182,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_gro
   -- Dependency element: Num In Group uint 16
   local num_in_group_uint_16 = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Depth Diff Stream Event Message asks Group
+  -- Repeating: Depth Diff Stream Event Message Asks Group
   for depth_diff_stream_event_message_asks_group_index = 1, num_in_group_uint_16 do
     index, depth_diff_stream_event_message_asks_group = binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_group.dissect(buffer, index, packet, parent, depth_diff_stream_event_message_asks_group_index)
   end
@@ -1190,7 +1190,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_gro
   return index
 end
 
--- Dissect: Depth Diff Stream Event Message asks Groups
+-- Dissect: Depth Diff Stream Event Message Asks Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1208,24 +1208,24 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_gro
   end
 end
 
--- Depth Diff Stream Event Message bids Group
+-- Depth Diff Stream Event Message Bids Group
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_group = {}
 
--- Size: Depth Diff Stream Event Message bids Group
+-- Size: Depth Diff Stream Event Message Bids Group
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_group.size =
   binance_binancespot_marketdata_sbe_v1_0.price.size + 
   binance_binancespot_marketdata_sbe_v1_0.qty.size
 
--- Display: Depth Diff Stream Event Message bids Group
+-- Display: Depth Diff Stream Event Message Bids Group
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Depth Diff Stream Event Message bids Group
+-- Dissect Fields: Depth Diff Stream Event Message Bids Group
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_group.fields = function(buffer, offset, packet, parent, depth_diff_stream_event_message_bids_group_index)
   local index = offset
 
-  -- Implicit Depth Diff Stream Event Message bids Group Index
+  -- Implicit Depth Diff Stream Event Message Bids Group Index
   if depth_diff_stream_event_message_bids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_diff_stream_event_message_bids_group_index, depth_diff_stream_event_message_bids_group_index)
     iteration:set_generated()
@@ -1240,7 +1240,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_gro
   return index
 end
 
--- Dissect: Depth Diff Stream Event Message bids Group
+-- Dissect: Depth Diff Stream Event Message Bids Group
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_group.dissect = function(buffer, offset, packet, parent, depth_diff_stream_event_message_bids_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1258,10 +1258,10 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_gro
   end
 end
 
--- Depth Diff Stream Event Message bids Groups
+-- Depth Diff Stream Event Message Bids Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_groups = {}
 
--- Calculate size of: Depth Diff Stream Event Message bids Groups
+-- Calculate size of: Depth Diff Stream Event Message Bids Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1274,12 +1274,12 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_gro
   return index
 end
 
--- Display: Depth Diff Stream Event Message bids Groups
+-- Display: Depth Diff Stream Event Message Bids Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Depth Diff Stream Event Message bids Groups
+-- Dissect Fields: Depth Diff Stream Event Message Bids Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1289,7 +1289,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_gro
   -- Dependency element: Num In Group uint 16
   local num_in_group_uint_16 = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Depth Diff Stream Event Message bids Group
+  -- Repeating: Depth Diff Stream Event Message Bids Group
   for depth_diff_stream_event_message_bids_group_index = 1, num_in_group_uint_16 do
     index, depth_diff_stream_event_message_bids_group = binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_group.dissect(buffer, index, packet, parent, depth_diff_stream_event_message_bids_group_index)
   end
@@ -1297,7 +1297,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_gro
   return index
 end
 
--- Dissect: Depth Diff Stream Event Message bids Groups
+-- Dissect: Depth Diff Stream Event Message Bids Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1379,10 +1379,10 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message.fields =
     binance_binancespot_marketdata_sbe_v1_0.conversation.current.qty_exponent.last = qty_exponent
   end
 
-  -- Depth Diff Stream Event Message bids Groups: Struct of 2 fields
+  -- Depth Diff Stream Event Message Bids Groups: Struct of 2 fields
   index, depth_diff_stream_event_message_bids_groups = binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_bids_groups.dissect(buffer, index, packet, parent)
 
-  -- Depth Diff Stream Event Message asks Groups: Struct of 2 fields
+  -- Depth Diff Stream Event Message Asks Groups: Struct of 2 fields
   index, depth_diff_stream_event_message_asks_groups = binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message_asks_groups.dissect(buffer, index, packet, parent)
 
   -- Symbol: Struct of 2 fields
@@ -1409,24 +1409,24 @@ binance_binancespot_marketdata_sbe_v1_0.depth_diff_stream_event_message.dissect 
   end
 end
 
--- Depth Snapshot Stream Event Message asks Group
+-- Depth Snapshot Stream Event Message Asks Group
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_group = {}
 
--- Size: Depth Snapshot Stream Event Message asks Group
+-- Size: Depth Snapshot Stream Event Message Asks Group
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_group.size =
   binance_binancespot_marketdata_sbe_v1_0.price.size + 
   binance_binancespot_marketdata_sbe_v1_0.qty.size
 
--- Display: Depth Snapshot Stream Event Message asks Group
+-- Display: Depth Snapshot Stream Event Message Asks Group
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Depth Snapshot Stream Event Message asks Group
+-- Dissect Fields: Depth Snapshot Stream Event Message Asks Group
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_group.fields = function(buffer, offset, packet, parent, depth_snapshot_stream_event_message_asks_group_index)
   local index = offset
 
-  -- Implicit Depth Snapshot Stream Event Message asks Group Index
+  -- Implicit Depth Snapshot Stream Event Message Asks Group Index
   if depth_snapshot_stream_event_message_asks_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_asks_group_index, depth_snapshot_stream_event_message_asks_group_index)
     iteration:set_generated()
@@ -1441,7 +1441,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks
   return index
 end
 
--- Dissect: Depth Snapshot Stream Event Message asks Group
+-- Dissect: Depth Snapshot Stream Event Message Asks Group
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_group.dissect = function(buffer, offset, packet, parent, depth_snapshot_stream_event_message_asks_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1459,10 +1459,10 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks
   end
 end
 
--- Depth Snapshot Stream Event Message asks Groups
+-- Depth Snapshot Stream Event Message Asks Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_groups = {}
 
--- Calculate size of: Depth Snapshot Stream Event Message asks Groups
+-- Calculate size of: Depth Snapshot Stream Event Message Asks Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1475,12 +1475,12 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks
   return index
 end
 
--- Display: Depth Snapshot Stream Event Message asks Groups
+-- Display: Depth Snapshot Stream Event Message Asks Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Depth Snapshot Stream Event Message asks Groups
+-- Dissect Fields: Depth Snapshot Stream Event Message Asks Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1490,7 +1490,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks
   -- Dependency element: Num In Group uint 16
   local num_in_group_uint_16 = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Depth Snapshot Stream Event Message asks Group
+  -- Repeating: Depth Snapshot Stream Event Message Asks Group
   for depth_snapshot_stream_event_message_asks_group_index = 1, num_in_group_uint_16 do
     index, depth_snapshot_stream_event_message_asks_group = binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_group.dissect(buffer, index, packet, parent, depth_snapshot_stream_event_message_asks_group_index)
   end
@@ -1498,7 +1498,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks
   return index
 end
 
--- Dissect: Depth Snapshot Stream Event Message asks Groups
+-- Dissect: Depth Snapshot Stream Event Message Asks Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1516,24 +1516,24 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks
   end
 end
 
--- Depth Snapshot Stream Event Message bids Group
+-- Depth Snapshot Stream Event Message Bids Group
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_group = {}
 
--- Size: Depth Snapshot Stream Event Message bids Group
+-- Size: Depth Snapshot Stream Event Message Bids Group
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_group.size =
   binance_binancespot_marketdata_sbe_v1_0.price.size + 
   binance_binancespot_marketdata_sbe_v1_0.qty.size
 
--- Display: Depth Snapshot Stream Event Message bids Group
+-- Display: Depth Snapshot Stream Event Message Bids Group
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Depth Snapshot Stream Event Message bids Group
+-- Dissect Fields: Depth Snapshot Stream Event Message Bids Group
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_group.fields = function(buffer, offset, packet, parent, depth_snapshot_stream_event_message_bids_group_index)
   local index = offset
 
-  -- Implicit Depth Snapshot Stream Event Message bids Group Index
+  -- Implicit Depth Snapshot Stream Event Message Bids Group Index
   if depth_snapshot_stream_event_message_bids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_group_index, depth_snapshot_stream_event_message_bids_group_index)
     iteration:set_generated()
@@ -1548,7 +1548,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids
   return index
 end
 
--- Dissect: Depth Snapshot Stream Event Message bids Group
+-- Dissect: Depth Snapshot Stream Event Message Bids Group
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_group.dissect = function(buffer, offset, packet, parent, depth_snapshot_stream_event_message_bids_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1566,10 +1566,10 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids
   end
 end
 
--- Depth Snapshot Stream Event Message bids Groups
+-- Depth Snapshot Stream Event Message Bids Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_groups = {}
 
--- Calculate size of: Depth Snapshot Stream Event Message bids Groups
+-- Calculate size of: Depth Snapshot Stream Event Message Bids Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1582,12 +1582,12 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids
   return index
 end
 
--- Display: Depth Snapshot Stream Event Message bids Groups
+-- Display: Depth Snapshot Stream Event Message Bids Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Depth Snapshot Stream Event Message bids Groups
+-- Dissect Fields: Depth Snapshot Stream Event Message Bids Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1597,7 +1597,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids
   -- Dependency element: Num In Group uint 16
   local num_in_group_uint_16 = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Depth Snapshot Stream Event Message bids Group
+  -- Repeating: Depth Snapshot Stream Event Message Bids Group
   for depth_snapshot_stream_event_message_bids_group_index = 1, num_in_group_uint_16 do
     index, depth_snapshot_stream_event_message_bids_group = binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_group.dissect(buffer, index, packet, parent, depth_snapshot_stream_event_message_bids_group_index)
   end
@@ -1605,7 +1605,7 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids
   return index
 end
 
--- Dissect: Depth Snapshot Stream Event Message bids Groups
+-- Dissect: Depth Snapshot Stream Event Message Bids Groups
 binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -1682,10 +1682,10 @@ binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message.fiel
     binance_binancespot_marketdata_sbe_v1_0.conversation.current.qty_exponent.last = qty_exponent
   end
 
-  -- Depth Snapshot Stream Event Message bids Groups: Struct of 2 fields
+  -- Depth Snapshot Stream Event Message Bids Groups: Struct of 2 fields
   index, depth_snapshot_stream_event_message_bids_groups = binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_bids_groups.dissect(buffer, index, packet, parent)
 
-  -- Depth Snapshot Stream Event Message asks Groups: Struct of 2 fields
+  -- Depth Snapshot Stream Event Message Asks Groups: Struct of 2 fields
   index, depth_snapshot_stream_event_message_asks_groups = binance_binancespot_marketdata_sbe_v1_0.depth_snapshot_stream_event_message_asks_groups.dissect(buffer, index, packet, parent)
 
   -- Symbol: Struct of 2 fields
@@ -1811,26 +1811,26 @@ binance_binancespot_marketdata_sbe_v1_0.best_bid_ask_stream_event_message.dissec
   end
 end
 
--- Trades Stream Event Message trades Group
+-- Trades Stream Event Message Trades Group
 binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_group = {}
 
--- Size: Trades Stream Event Message trades Group
+-- Size: Trades Stream Event Message Trades Group
 binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_group.size =
   binance_binancespot_marketdata_sbe_v1_0.id.size + 
   binance_binancespot_marketdata_sbe_v1_0.price.size + 
   binance_binancespot_marketdata_sbe_v1_0.qty.size + 
   binance_binancespot_marketdata_sbe_v1_0.is_buyer_maker.size
 
--- Display: Trades Stream Event Message trades Group
+-- Display: Trades Stream Event Message Trades Group
 binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trades Stream Event Message trades Group
+-- Dissect Fields: Trades Stream Event Message Trades Group
 binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_group.fields = function(buffer, offset, packet, parent, trades_stream_event_message_trades_group_index)
   local index = offset
 
-  -- Implicit Trades Stream Event Message trades Group Index
+  -- Implicit Trades Stream Event Message Trades Group Index
   if trades_stream_event_message_trades_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_group_index, trades_stream_event_message_trades_group_index)
     iteration:set_generated()
@@ -1851,7 +1851,7 @@ binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_group
   return index
 end
 
--- Dissect: Trades Stream Event Message trades Group
+-- Dissect: Trades Stream Event Message Trades Group
 binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_group.dissect = function(buffer, offset, packet, parent, trades_stream_event_message_trades_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -1913,10 +1913,10 @@ binance_binancespot_marketdata_sbe_v1_0.group_size_encoding.dissect = function(b
   end
 end
 
--- Trades Stream Event Message trades Groups
+-- Trades Stream Event Message Trades Groups
 binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_groups = {}
 
--- Calculate size of: Trades Stream Event Message trades Groups
+-- Calculate size of: Trades Stream Event Message Trades Groups
 binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_groups.size = function(buffer, offset)
   local index = 0
 
@@ -1929,12 +1929,12 @@ binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_group
   return index
 end
 
--- Display: Trades Stream Event Message trades Groups
+-- Display: Trades Stream Event Message Trades Groups
 binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trades Stream Event Message trades Groups
+-- Dissect Fields: Trades Stream Event Message Trades Groups
 binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -1944,7 +1944,7 @@ binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_group
   -- Dependency element: Num In Group uint 32
   local num_in_group_uint_32 = buffer(index - 4, 4):le_uint()
 
-  -- Repeating: Trades Stream Event Message trades Group
+  -- Repeating: Trades Stream Event Message Trades Group
   for trades_stream_event_message_trades_group_index = 1, num_in_group_uint_32 do
     index, trades_stream_event_message_trades_group = binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_group.dissect(buffer, index, packet, parent, trades_stream_event_message_trades_group_index)
   end
@@ -1952,7 +1952,7 @@ binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_group
   return index
 end
 
--- Dissect: Trades Stream Event Message trades Groups
+-- Dissect: Trades Stream Event Message Trades Groups
 binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -2027,7 +2027,7 @@ binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message.fields = fun
     binance_binancespot_marketdata_sbe_v1_0.conversation.current.qty_exponent.last = qty_exponent
   end
 
-  -- Trades Stream Event Message trades Groups: Struct of 2 fields
+  -- Trades Stream Event Message Trades Groups: Struct of 2 fields
   index, trades_stream_event_message_trades_groups = binance_binancespot_marketdata_sbe_v1_0.trades_stream_event_message_trades_groups.dissect(buffer, index, packet, parent)
 
   -- Symbol: Struct of 2 fields

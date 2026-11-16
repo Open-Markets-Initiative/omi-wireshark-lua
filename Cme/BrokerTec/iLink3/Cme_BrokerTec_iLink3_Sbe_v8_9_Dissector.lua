@@ -6526,7 +6526,7 @@ cme_brokertec_ilink3_sbe_v8_9.schema_id.size = 2
 -- Display: Schema Id
 cme_brokertec_ilink3_sbe_v8_9.schema_id.display = function(value)
   if value == 8 then
-    return "Schema Id: 8"
+    return "Schema Id: iLink3"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -8274,7 +8274,7 @@ cme_brokertec_ilink3_sbe_v8_9.version.size = 2
 -- Display: Version
 cme_brokertec_ilink3_sbe_v8_9.version.display = function(value)
   if value == 9 then
-    return "Version: FIX5.0"
+    return "Version: 9"
   end
 
   return "Version: Unknown("..value..")"

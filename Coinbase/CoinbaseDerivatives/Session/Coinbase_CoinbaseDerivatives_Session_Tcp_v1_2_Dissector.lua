@@ -17,7 +17,7 @@ local coinbase_coinbasederivatives_session_tcp_v1_2 = {}
 -- Coinbase CoinbaseDerivatives Session Tcp 1.2 Fields
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.block_length = ProtoField.new("Block Length", "coinbase.coinbasederivatives.session.tcp.v1.2.blocklength", ftypes.UINT16, nil, nil, nil, "Length of the root of the message contained before repeating groups or variable-length fields")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.correlation_id = ProtoField.new("Correlation Id", "coinbase.coinbasederivatives.session.tcp.v1.2.correlationid", ftypes.INT64, nil, nil, nil, "correlationId")
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.details = ProtoField.new("Details", "coinbase.coinbasederivatives.session.tcp.v1.2.details", ftypes.STRING)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.details = ProtoField.new("Details", "coinbase.coinbasederivatives.session.tcp.v1.2.details", ftypes.STRING, nil, nil, nil, "Logout details")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.fromsequencenumber", ftypes.UINT32, nil, nil, nil, "fromSequenceNumber")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.gap_fill_padding = ProtoField.new("Gap Fill Padding", "coinbase.coinbasederivatives.session.tcp.v1.2.gapfillpadding", ftypes.UINT32, nil, nil, nil, "padding")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.coinbasederivatives.session.tcp.v1.2.heartbeatintervalseconds", ftypes.INT32, nil, nil, nil, "heartbeatIntervalSeconds")
@@ -26,11 +26,11 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.last_processed_seq_no =
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.message_length = ProtoField.new("Message Length", "coinbase.coinbasederivatives.session.tcp.v1.2.messagelength", ftypes.UINT16, nil, nil, nil, "Total message length in bytes including this header")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.new_sequence_number = ProtoField.new("New Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.newsequencenumber", ftypes.UINT32, nil, nil, nil, "newSequenceNumber")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.session.tcp.v1.2.padding", ftypes.BYTES, nil, nil, nil, "Tcp sbe alignment padding")
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.password = ProtoField.new("Password", "coinbase.coinbasederivatives.session.tcp.v1.2.password", ftypes.STRING)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.password = ProtoField.new("Password", "coinbase.coinbasederivatives.session.tcp.v1.2.password", ftypes.STRING, nil, nil, nil, "Logon password")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.coinbasederivatives.session.tcp.v1.2.protocolid", ftypes.UINT8, nil, nil, nil, "Coinbase protocol identifier")
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reason_reject_reason = ProtoField.new("Reason Reject Reason", "coinbase.coinbasederivatives.session.tcp.v1.2.reasonrejectreason", ftypes.INT32, nil, nil, nil, "reason")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reason_string_64 = ProtoField.new("Reason String 64", "coinbase.coinbasederivatives.session.tcp.v1.2.reasonstring64", ftypes.STRING, nil, nil, nil, "reason")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.ref_sequence_number = ProtoField.new("Ref Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.refsequencenumber", ftypes.UINT32, nil, nil, nil, "refSequenceNumber")
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reject_reason = ProtoField.new("Reject Reason", "coinbase.coinbasederivatives.session.tcp.v1.2.rejectreason", ftypes.INT32, nil, nil, nil, "reason")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved = ProtoField.new("Reserved", "coinbase.coinbasederivatives.session.tcp.v1.2.reserved", ftypes.UINT32, nil, nil, nil, "Reserved for future use")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.session.tcp.v1.2.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFE, "Bits reserved for future use")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.coinbasederivatives.session.tcp.v1.2.resetseqnum", ftypes.INT8, nil, nil, nil, "resetSeqNum")
@@ -41,7 +41,7 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.sequence_number = Proto
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.session_flags = ProtoField.new("Session Flags", "coinbase.coinbasederivatives.session.tcp.v1.2.sessionflags", ftypes.STRING, nil, nil, nil, "Uint8 bit set carrying the isResend indicator")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.template_id = ProtoField.new("Template Id", "coinbase.coinbasederivatives.session.tcp.v1.2.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.to_sequence_number = ProtoField.new("To Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.tosequencenumber", ftypes.UINT32, nil, nil, nil, "toSequenceNumber")
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.username = ProtoField.new("Username", "coinbase.coinbasederivatives.session.tcp.v1.2.username", ftypes.STRING)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.username = ProtoField.new("Username", "coinbase.coinbasederivatives.session.tcp.v1.2.username", ftypes.STRING, nil, nil, nil, "Logon username")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.version = ProtoField.new("Version", "coinbase.coinbasederivatives.session.tcp.v1.2.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 
 -- Coinbase CoinbaseDerivatives Session Tcp 1.2 Framing
@@ -404,7 +404,11 @@ coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.size = 1
 
 -- Display: Protocol Id
 coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.display = function(value)
-  return "Protocol Id: "..value
+  if value == 241 then
+    return "Protocol Id: Orders Api"
+  end
+
+  return "Protocol Id: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Id
@@ -415,36 +419,6 @@ coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.dissect = function(buf
   local display = coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.protocol_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Reject Reason
-coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason = {}
-
--- Size: Reason Reject Reason
-coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.size = 4
-
--- Display: Reason Reject Reason
-coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.labels = {
-  [1] = "Reason Reject Reason: Invalid Schema Id (1)",
-  [2] = "Reason Reject Reason: Invalid Template Id (2)",
-  [3] = "Reason Reject Reason: Invalid Block Length (3)",
-  [4] = "Reason Reject Reason: Invalid Field Value (4)",
-}
-
-coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.display = function(value)
-  return coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.labels[value] or "Reason Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Reject Reason
-coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reason_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -507,6 +481,36 @@ coinbase_coinbasederivatives_session_tcp_v1_2.ref_sequence_number.dissect = func
   local display = coinbase_coinbasederivatives_session_tcp_v1_2.ref_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.ref_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason
+coinbase_coinbasederivatives_session_tcp_v1_2.reject_reason = {}
+
+-- Size: Reject Reason
+coinbase_coinbasederivatives_session_tcp_v1_2.reject_reason.size = 4
+
+-- Display: Reject Reason
+coinbase_coinbasederivatives_session_tcp_v1_2.reject_reason.labels = {
+  [1] = "Reject Reason: Invalid Schema Id (1)",
+  [2] = "Reject Reason: Invalid Template Id (2)",
+  [3] = "Reject Reason: Invalid Block Length (3)",
+  [4] = "Reject Reason: Invalid Field Value (4)",
+}
+
+coinbase_coinbasederivatives_session_tcp_v1_2.reject_reason.display = function(value)
+  return coinbase_coinbasederivatives_session_tcp_v1_2.reject_reason.labels[value] or "Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Reject Reason
+coinbase_coinbasederivatives_session_tcp_v1_2.reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_coinbasederivatives_session_tcp_v1_2.reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = coinbase_coinbasederivatives_session_tcp_v1_2.reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -644,14 +648,14 @@ coinbase_coinbasederivatives_session_tcp_v1_2.template_id.size = 2
 
 -- Display: Template Id
 coinbase_coinbasederivatives_session_tcp_v1_2.template_id.labels = {
-  [100] = "Template Id: Logon Message (100)",
-  [200] = "Template Id: Logon Conf Message (200)",
-  [101] = "Template Id: Logout Message (101)",
-  [201] = "Template Id: Logged Out Message (201)",
-  [10] = "Template Id: Heartbeat Message (10)",
-  [11] = "Template Id: Test Request Message (11)",
-  [102] = "Template Id: Resend Request Message (102)",
-  [202] = "Template Id: Gap Fill Message (202)",
+  [100] = "Template Id: Session Logon Message (100)",
+  [200] = "Template Id: Session Logon Conf Message (200)",
+  [101] = "Template Id: Session Logout Message (101)",
+  [201] = "Template Id: Session Logged Out Message (201)",
+  [10] = "Template Id: Session Heartbeat Message (10)",
+  [11] = "Template Id: Session Test Request Message (11)",
+  [102] = "Template Id: Session Resend Request Message (102)",
+  [202] = "Template Id: Session Gap Fill Message (202)",
   [210] = "Template Id: Reject Message (210)",
 }
 
@@ -742,7 +746,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.version.size = 2
 -- Display: Version
 coinbase_coinbasederivatives_session_tcp_v1_2.version.display = function(value)
   if value == 2 then
-    return "Version: 1.2"
+    return "Version: 2"
   end
 
   return "Version: Unknown("..value..")"
@@ -771,7 +775,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.reject_message = {}
 -- Size: Reject Message
 coinbase_coinbasederivatives_session_tcp_v1_2.reject_message.size =
   coinbase_coinbasederivatives_session_tcp_v1_2.ref_sequence_number.size + 
-  coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.size + 
+  coinbase_coinbasederivatives_session_tcp_v1_2.reject_reason.size + 
   coinbase_coinbasederivatives_session_tcp_v1_2.details.size
 
 -- Display: Reject Message
@@ -786,8 +790,8 @@ coinbase_coinbasederivatives_session_tcp_v1_2.reject_message.fields = function(b
   -- Ref Sequence Number: uint32
   index, ref_sequence_number = coinbase_coinbasederivatives_session_tcp_v1_2.ref_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Reason Reject Reason: RejectReason
-  index, reason_reject_reason = coinbase_coinbasederivatives_session_tcp_v1_2.reason_reject_reason.dissect(buffer, index, packet, parent)
+  -- Reject Reason: RejectReason
+  index, reject_reason = coinbase_coinbasederivatives_session_tcp_v1_2.reject_reason.dissect(buffer, index, packet, parent)
 
   -- Details: String64
   index, details = coinbase_coinbasederivatives_session_tcp_v1_2.details.dissect(buffer, index, packet, parent)
@@ -1504,6 +1508,23 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Protocol Id Field
+coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 0 + 1 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(0, 1):uint()
+
+  if value == 241 then
+    return true
+  end
+
+  return false
+end
+
 -- Verify Schema Id Field
 coinbase_coinbasederivatives_session_tcp_v1_2.schema_id.verify = function(buffer)
   -- Too short to carry the field: not this protocol
@@ -1542,6 +1563,9 @@ end
 local function omi_coinbase_coinbasederivatives_session_tcp_v1_2_tcp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not coinbase_coinbasederivatives_session_tcp_v1_2.packet.requiredsize(buffer) then return false end
+
+  -- Verify Protocol Id
+  if not coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.verify(buffer) then return false end
 
   -- Verify Schema Id
   if not coinbase_coinbasederivatives_session_tcp_v1_2.schema_id.verify(buffer) then return false end

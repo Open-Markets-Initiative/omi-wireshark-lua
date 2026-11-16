@@ -2538,7 +2538,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.version.size = 2
 -- Display: Version
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.version.display = function(value)
   if value == 2 then
-    return "Version: 1.2"
+    return "Version: 2"
   end
 
   return "Version: Unknown("..value..")"

@@ -3005,7 +3005,7 @@ ltse_ltseequities_memo_sbe_v1_12.version.size = 2
 -- Display: Version
 ltse_ltseequities_memo_sbe_v1_12.version.display = function(value)
   if value == 268 then
-    return "Version: 1.12"
+    return "Version: 268"
   end
 
   return "Version: Unknown("..value..")"

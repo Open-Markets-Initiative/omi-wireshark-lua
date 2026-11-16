@@ -8277,7 +8277,7 @@ euronext_optiq_orderentrygateway_sbe_v6_64.version.size = 2
 -- Display: Version
 euronext_optiq_orderentrygateway_sbe_v6_64.version.display = function(value)
   if value == 364 then
-    return "Version: 6.364.0"
+    return "Version: 364"
   end
 
   return "Version: Unknown("..value..")"

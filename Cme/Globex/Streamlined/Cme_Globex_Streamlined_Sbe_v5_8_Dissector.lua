@@ -4944,7 +4944,7 @@ cme_globex_streamlined_sbe_v5_8.version.size = 2
 -- Display: Version
 cme_globex_streamlined_sbe_v5_8.version.display = function(value)
   if value == 8 then
-    return "Version: FIX5SP2"
+    return "Version: 8"
   end
 
   return "Version: Unknown("..value..")"

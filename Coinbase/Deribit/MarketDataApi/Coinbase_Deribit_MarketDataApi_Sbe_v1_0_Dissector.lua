@@ -27,6 +27,8 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.delivery_price = ProtoField.n
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.details = ProtoField.new("Details", "coinbase.deribit.marketdataapi.sbe.v1.0.details", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.end_of_transaction = ProtoField.new("End Of Transaction", "coinbase.deribit.marketdataapi.sbe.v1.0.endoftransaction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "End of transaction indicator")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.estimated_delivery_price = ProtoField.new("Estimated Delivery Price", "coinbase.deribit.marketdataapi.sbe.v1.0.estimateddeliveryprice", ftypes.DOUBLE, nil, nil, nil, "estimatedDeliveryPrice")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.execution_timestamp = ProtoField.new("Execution Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.executiontimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "executionTimestamp")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.execution_timestamp_utc = ProtoField.new("Execution Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.executiontimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "executionTimestamp")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.expiry_time = ProtoField.new("Expiry Time", "coinbase.deribit.marketdataapi.sbe.v1.0.expirytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "expiryTime")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.expiry_time_utc = ProtoField.new("Expiry Time", "coinbase.deribit.marketdataapi.sbe.v1.0.expirytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "expiryTime")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.fill_price = ProtoField.new("Fill Price", "coinbase.deribit.marketdataapi.sbe.v1.0.fillprice", ftypes.DOUBLE, nil, nil, nil, "fillPrice")
@@ -42,10 +44,10 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.incremental_timestamp_utc = P
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.incremental_update = ProtoField.new("Incremental Update", "coinbase.deribit.marketdataapi.sbe.v1.0.incrementalupdate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Incremental update packet indicator (Bit 0)")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.index_id = ProtoField.new("Index Id", "coinbase.deribit.marketdataapi.sbe.v1.0.indexid", ftypes.INT64, nil, nil, nil, "indexId")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.index_price = ProtoField.new("Index Price", "coinbase.deribit.marketdataapi.sbe.v1.0.indexprice", ftypes.DOUBLE, nil, nil, nil, "indexPrice")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_group = ProtoField.new("Instrument Definition Message large Tick Sizes Group", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelargeticksizesgroup", ftypes.STRING, nil, nil, nil, "largeTickSizes")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_groups = ProtoField.new("Instrument Definition Message large Tick Sizes Groups", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelargeticksizesgroups", ftypes.STRING, nil, nil, nil, "largeTickSizes Block")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_group = ProtoField.new("Instrument Definition Message legs Group", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_groups = ProtoField.new("Instrument Definition Message legs Groups", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_group = ProtoField.new("Instrument Definition Message Large Tick Sizes Group", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelargeticksizesgroup", ftypes.STRING, nil, nil, nil, "largeTickSizes")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_groups = ProtoField.new("Instrument Definition Message Large Tick Sizes Groups", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelargeticksizesgroups", ftypes.STRING, nil, nil, nil, "largeTickSizes Block")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_group = ProtoField.new("Instrument Definition Message Legs Group", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_groups = ProtoField.new("Instrument Definition Message Legs Groups", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentid", ftypes.INT64, nil, nil, nil, "instrumentId")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.is_liquidation = ProtoField.new("Is Liquidation", "coinbase.deribit.marketdataapi.sbe.v1.0.isliquidation", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000002, "isLiquidation")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.is_perpetual = ProtoField.new("Is Perpetual", "coinbase.deribit.marketdataapi.sbe.v1.0.isperpetual", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "isPerpetual")
@@ -68,10 +70,12 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.min_sell_price = ProtoField.n
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.name = ProtoField.new("Name", "coinbase.deribit.marketdataapi.sbe.v1.0.name", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.num_in_group = ProtoField.new("Num In Group", "coinbase.deribit.marketdataapi.sbe.v1.0.numingroup", ftypes.UINT16, nil, nil, nil, "numInGroup")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.number_of_legs = ProtoField.new("Number Of Legs", "coinbase.deribit.marketdataapi.sbe.v1.0.numberoflegs", ftypes.UINT16, nil, nil, nil, "numberOfLegs")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.open_interest = ProtoField.new("Open Interest", "coinbase.deribit.marketdataapi.sbe.v1.0.openinterest", ftypes.DOUBLE, nil, nil, nil, "openInterest")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.order_id = ProtoField.new("Order Id", "coinbase.deribit.marketdataapi.sbe.v1.0.orderid", ftypes.INT64, nil, nil, nil, "orderId")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.packet_reserved_bits = ProtoField.new("Packet Reserved Bits", "coinbase.deribit.marketdataapi.sbe.v1.0.packetreservedbits", ftypes.UINT16, nil, base.DEC, 0xFFF8, "Bits reserved for future use")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.packet_type = ProtoField.new("Packet Type", "coinbase.deribit.marketdataapi.sbe.v1.0.packettype", ftypes.STRING, nil, nil, nil, "Uint16 bit set carrying the packet type (INCREMENTAL_UPDATE / SNAPSHOT / RETRANSMIT)")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.padding = ProtoField.new("Padding", "coinbase.deribit.marketdataapi.sbe.v1.0.padding", ftypes.BYTES, nil, nil, nil, "Alignment padding out to the message length")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.padding_2 = ProtoField.new("Padding 2", "coinbase.deribit.marketdataapi.sbe.v1.0.padding2", ftypes.BYTES, nil, nil, nil, "padding2")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.price = ProtoField.new("Price", "coinbase.deribit.marketdataapi.sbe.v1.0.price", ftypes.DOUBLE)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.price_asset = ProtoField.new("Price Asset", "coinbase.deribit.marketdataapi.sbe.v1.0.priceasset", ftypes.STRING, nil, nil, nil, "priceAsset")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.quantity_asset = ProtoField.new("Quantity Asset", "coinbase.deribit.marketdataapi.sbe.v1.0.quantityasset", ftypes.STRING, nil, nil, nil, "quantityAsset")
@@ -79,7 +83,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.quantity_exponent = ProtoFiel
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.quantity_mantissa = ProtoField.new("Quantity Mantissa", "coinbase.deribit.marketdataapi.sbe.v1.0.quantitymantissa", ftypes.INT64, nil, nil, nil, "quantityMantissa")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.ratio = ProtoField.new("Ratio", "coinbase.deribit.marketdataapi.sbe.v1.0.ratio", ftypes.INT8)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reason = ProtoField.new("Reason", "coinbase.deribit.marketdataapi.sbe.v1.0.reason", ftypes.INT8)
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reserved_30 = ProtoField.new("Reserved 30", "coinbase.deribit.marketdataapi.sbe.v1.0.reserved30", ftypes.UINT32, nil, base.DEC, 0xFFFFFFFC, "30 reserved bits")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reserved_29 = ProtoField.new("Reserved 29", "coinbase.deribit.marketdataapi.sbe.v1.0.reserved29", ftypes.UINT32, nil, base.DEC, 0xFFFFFFF8, "29 reserved bits")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reserved_5 = ProtoField.new("Reserved 5", "coinbase.deribit.marketdataapi.sbe.v1.0.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8, "5 reserved bits")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.deribit.marketdataapi.sbe.v1.0.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFFFC, "Bits reserved for future use")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.retransmit = ProtoField.new("Retransmit", "coinbase.deribit.marketdataapi.sbe.v1.0.retransmit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "Retransmit packet indicator (Bit 2)")
@@ -108,6 +112,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.transact_time = ProtoField.ne
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.transact_time_utc = ProtoField.new("Transact Time", "coinbase.deribit.marketdataapi.sbe.v1.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp of when the transaction occurred, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.type = ProtoField.new("Type", "coinbase.deribit.marketdataapi.sbe.v1.0.type", ftypes.INT8)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.underlying = ProtoField.new("Underlying", "coinbase.deribit.marketdataapi.sbe.v1.0.underlying", ftypes.STRING)
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.was_delayed = ProtoField.new("Was Delayed", "coinbase.deribit.marketdataapi.sbe.v1.0.wasdelayed", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000004, "wasDelayed")
 
 -- Coinbase Deribit MarketDataApi Sbe 1.0 Framing
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.md_message = ProtoField.new("Md Message", "coinbase.deribit.marketdataapi.sbe.v1.0.mdmessage", ftypes.STRING, nil, nil, nil, "Coinbase Deribit Market Data per-message wrapper — Md Message Header plus payload")
@@ -125,6 +130,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.bid_qty_reduced_message = Pro
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.block_trade_message = ProtoField.new("Block Trade Message", "coinbase.deribit.marketdataapi.sbe.v1.0.blocktrademessage", ftypes.STRING, nil, nil, nil, "BlockTradeMessage")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.end_of_cycle_message = ProtoField.new("End Of Cycle Message", "coinbase.deribit.marketdataapi.sbe.v1.0.endofcyclemessage", ftypes.STRING, nil, nil, nil, "EndOfCycleMessage")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.index_definition_message = ProtoField.new("Index Definition Message", "coinbase.deribit.marketdataapi.sbe.v1.0.indexdefinitionmessage", ftypes.STRING, nil, nil, nil, "IndexDefinitionMessage")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.index_info_message = ProtoField.new("Index Info Message", "coinbase.deribit.marketdataapi.sbe.v1.0.indexinfomessage", ftypes.STRING, nil, nil, nil, "IndexInfoMessage")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message = ProtoField.new("Instrument Definition Message", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessage", ftypes.STRING, nil, nil, nil, "InstrumentDefinitionMessage")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_info_message = ProtoField.new("Instrument Info Message", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentinfomessage", ftypes.STRING, nil, nil, nil, "InstrumentInfoMessage")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_ref_message = ProtoField.new("Instrument Ref Message", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentrefmessage", ftypes.STRING, nil, nil, nil, "InstrumentRefMessage")
@@ -140,8 +146,8 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.trade_summary_message = Proto
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.empty_packet = ProtoField.new("Empty Packet", "coinbase.deribit.marketdataapi.sbe.v1.0.emptypacket", ftypes.BYTES, nil, nil, nil, "A packet header with no messages behind it, message count zero")
 
 -- Coinbase Deribit MarketDataApi Sbe 1.0 Generated Fields
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_group_index = ProtoField.new("Instrument Definition Message large Tick Sizes Group Index", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelargeticksizesgroupindex", ftypes.UINT16)
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_group_index = ProtoField.new("Instrument Definition Message legs Group Index", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelegsgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_group_index = ProtoField.new("Instrument Definition Message Large Tick Sizes Group Index", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelargeticksizesgroupindex", ftypes.UINT16)
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_group_index = ProtoField.new("Instrument Definition Message Legs Group Index", "coinbase.deribit.marketdataapi.sbe.v1.0.instrumentdefinitionmessagelegsgroupindex", ftypes.UINT16)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.md_message_index = ProtoField.new("Md Message Index", "coinbase.deribit.marketdataapi.sbe.v1.0.mdmessageindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -169,6 +175,7 @@ show.application_messages = true
 show.structs = true
 show.repeating_groups = true
 show.headers = true
+show.padding = false
 show.indexes = true
 
 -- Register Coinbase Deribit MarketDataApi Sbe 1.0 Show Options
@@ -176,6 +183,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_application_messages = Pr
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
@@ -189,6 +197,9 @@ function omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs_changed()
   end
   if show.headers ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_headers then
     show.headers = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_headers
+  end
+  if show.padding ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_padding then
+    show.padding = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_padding
   end
   if show.repeating_groups ~= omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_repeating_groups then
     show.repeating_groups = omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_repeating_groups
@@ -517,6 +528,37 @@ coinbase_deribit_marketdataapi_sbe_v1_0.estimated_delivery_price.dissect = funct
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.estimated_delivery_price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.estimated_delivery_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Timestamp
+coinbase_deribit_marketdataapi_sbe_v1_0.execution_timestamp = {}
+
+-- Size: Execution Timestamp
+coinbase_deribit_marketdataapi_sbe_v1_0.execution_timestamp.size = 8
+
+-- Dissect: Execution Timestamp
+coinbase_deribit_marketdataapi_sbe_v1_0.execution_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_marketdataapi_sbe_v1_0.execution_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.execution_timestamp
+  if coinbase_deribit_marketdataapi_sbe_v1_0.timestamp_format == 3 then field = omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.execution_timestamp_utc end
+
+  if value == Int64(0x00000000, 0x80000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Execution Timestamp: No Value")
+    return offset + length, value
+  end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1162,6 +1204,29 @@ coinbase_deribit_marketdataapi_sbe_v1_0.number_of_legs.dissect = function(buffer
   return offset + length, value
 end
 
+-- Open Interest
+coinbase_deribit_marketdataapi_sbe_v1_0.open_interest = {}
+
+-- Size: Open Interest
+coinbase_deribit_marketdataapi_sbe_v1_0.open_interest.size = 8
+
+-- Display: Open Interest
+coinbase_deribit_marketdataapi_sbe_v1_0.open_interest.display = function(value)
+  return "Open Interest: "..value
+end
+
+-- Dissect: Open Interest
+coinbase_deribit_marketdataapi_sbe_v1_0.open_interest.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_marketdataapi_sbe_v1_0.open_interest.size
+  local range = buffer(offset, length)
+  local value = range:le_float()
+  local display = coinbase_deribit_marketdataapi_sbe_v1_0.open_interest.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.open_interest, range, value, display)
+
+  return offset + length, value
+end
+
 -- Order Id
 coinbase_deribit_marketdataapi_sbe_v1_0.order_id = {}
 
@@ -1202,6 +1267,29 @@ coinbase_deribit_marketdataapi_sbe_v1_0.padding.dissect = function(buffer, offse
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.padding, range, value, display)
 
   return offset + size, value
+end
+
+-- Padding 2
+coinbase_deribit_marketdataapi_sbe_v1_0.padding_2 = {}
+
+-- Size: Padding 2
+coinbase_deribit_marketdataapi_sbe_v1_0.padding_2.size = 2
+
+-- Display: Padding 2
+coinbase_deribit_marketdataapi_sbe_v1_0.padding_2.display = function(value)
+  return "Padding 2: "..value
+end
+
+-- Dissect: Padding 2
+coinbase_deribit_marketdataapi_sbe_v1_0.padding_2.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_marketdataapi_sbe_v1_0.padding_2.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = coinbase_deribit_marketdataapi_sbe_v1_0.padding_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.padding_2, range, value, display)
+
+  return offset + length, value
 end
 
 -- Price
@@ -1669,6 +1757,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.template_id.size = 2
 coinbase_deribit_marketdataapi_sbe_v1_0.template_id.labels = {
   [10] = "Template Id: Instrument Definition Message (10)",
   [11] = "Template Id: Index Definition Message (11)",
+  [12] = "Template Id: Index Info Message (12)",
   [14] = "Template Id: Instrument Info Message (14)",
   [15] = "Template Id: Instrument Ref Message (15)",
   [16] = "Template Id: Instrument Status Update Message (16)",
@@ -2217,6 +2306,10 @@ coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.display = function(range, va
   if bit.band(value, 0x00000002) ~= 0 then
     flags[#flags + 1] = "Is Liquidation"
   end
+  -- Is Was Delayed flag set?
+  if bit.band(value, 0x00000004) ~= 0 then
+    flags[#flags + 1] = "Was Delayed"
+  end
 
   return table.concat(flags, "|")
 end
@@ -2230,8 +2323,11 @@ coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.bits = function(range, value
   -- Is Liquidation: 1 Bit
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.is_liquidation, range, value)
 
-  -- Reserved 30: 30 Bit
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reserved_30, range, value)
+  -- Was Delayed: 1 Bit
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.was_delayed, range, value)
+
+  -- Reserved 29: 29 Bit
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reserved_29, range, value)
 end
 
 -- Dissect: Taker Flags
@@ -2264,7 +2360,9 @@ coinbase_deribit_marketdataapi_sbe_v1_0.block_trade_message.size =
   coinbase_deribit_marketdataapi_sbe_v1_0.index_price.size + 
   coinbase_deribit_marketdataapi_sbe_v1_0.implied_volatility.size + 
   coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.size + 
-  coinbase_deribit_marketdataapi_sbe_v1_0.number_of_legs.size
+  coinbase_deribit_marketdataapi_sbe_v1_0.number_of_legs.size + 
+  coinbase_deribit_marketdataapi_sbe_v1_0.padding_2.size + 
+  coinbase_deribit_marketdataapi_sbe_v1_0.execution_timestamp.size
 
 -- Display: Block Trade Message
 coinbase_deribit_marketdataapi_sbe_v1_0.block_trade_message.display = function(packet, parent, length)
@@ -2302,11 +2400,29 @@ coinbase_deribit_marketdataapi_sbe_v1_0.block_trade_message.fields = function(bu
   -- Implied Volatility: double
   index, implied_volatility = coinbase_deribit_marketdataapi_sbe_v1_0.implied_volatility.dissect(buffer, index, packet, parent)
 
-  -- Taker Flags: Struct of 3 fields
+  -- Taker Flags: Struct of 4 fields
   index, taker_flags = coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.dissect(buffer, index, packet, parent)
 
   -- Number Of Legs: uint16
   index, number_of_legs = coinbase_deribit_marketdataapi_sbe_v1_0.number_of_legs.dissect(buffer, index, packet, parent)
+
+  -- Runtime optional field: Padding 2
+  local padding_2 = nil
+
+  local padding_2_exists = index < buffer:len()
+
+  if padding_2_exists then
+    index, padding_2 = coinbase_deribit_marketdataapi_sbe_v1_0.padding_2.dissect(buffer, index, packet, parent)
+  end
+
+  -- Runtime optional field: Execution Timestamp
+  local execution_timestamp = nil
+
+  local execution_timestamp_exists = index < buffer:len()
+
+  if execution_timestamp_exists then
+    index, execution_timestamp = coinbase_deribit_marketdataapi_sbe_v1_0.execution_timestamp.dissect(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -2347,6 +2463,10 @@ coinbase_deribit_marketdataapi_sbe_v1_0.maker_flags.display = function(range, va
   if bit.band(value, 0x00000002) ~= 0 then
     flags[#flags + 1] = "Is Liquidation"
   end
+  -- Is Was Delayed flag set?
+  if bit.band(value, 0x00000004) ~= 0 then
+    flags[#flags + 1] = "Was Delayed"
+  end
 
   return table.concat(flags, "|")
 end
@@ -2360,8 +2480,11 @@ coinbase_deribit_marketdataapi_sbe_v1_0.maker_flags.bits = function(range, value
   -- Is Liquidation: 1 Bit
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.is_liquidation, range, value)
 
-  -- Reserved 30: 30 Bit
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reserved_30, range, value)
+  -- Was Delayed: 1 Bit
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.was_delayed, range, value)
+
+  -- Reserved 29: 29 Bit
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reserved_29, range, value)
 end
 
 -- Dissect: Maker Flags
@@ -2415,7 +2538,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.trade_message.fields = function(buffer, 
   -- Fill Price: Price9
   index, fill_price = coinbase_deribit_marketdataapi_sbe_v1_0.fill_price.dissect(buffer, index, packet, parent)
 
-  -- Maker Flags: Struct of 3 fields
+  -- Maker Flags: Struct of 4 fields
   index, maker_flags = coinbase_deribit_marketdataapi_sbe_v1_0.maker_flags.dissect(buffer, index, packet, parent)
 
   return index
@@ -2483,7 +2606,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.trade_summary_message.fields = function(
   -- Trade Count: int32
   index, trade_count = coinbase_deribit_marketdataapi_sbe_v1_0.trade_count.dissect(buffer, index, packet, parent)
 
-  -- Taker Flags: Struct of 3 fields
+  -- Taker Flags: Struct of 4 fields
   index, taker_flags = coinbase_deribit_marketdataapi_sbe_v1_0.taker_flags.dissect(buffer, index, packet, parent)
 
   return index
@@ -2857,7 +2980,8 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_ref_message.size =
   coinbase_deribit_marketdataapi_sbe_v1_0.funding_8h.size + 
   coinbase_deribit_marketdataapi_sbe_v1_0.estimated_delivery_price.size + 
   coinbase_deribit_marketdataapi_sbe_v1_0.delivery_price.size + 
-  coinbase_deribit_marketdataapi_sbe_v1_0.settlement_price.size
+  coinbase_deribit_marketdataapi_sbe_v1_0.settlement_price.size + 
+  coinbase_deribit_marketdataapi_sbe_v1_0.open_interest.size
 
 -- Display: Instrument Ref Message
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_ref_message.display = function(packet, parent, length)
@@ -2885,6 +3009,9 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_ref_message.fields = function
 
   -- Settlement Price: Price9
   index, settlement_price = coinbase_deribit_marketdataapi_sbe_v1_0.settlement_price.dissect(buffer, index, packet, parent)
+
+  -- Open Interest: double
+  index, open_interest = coinbase_deribit_marketdataapi_sbe_v1_0.open_interest.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2915,7 +3042,6 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_info_message.size =
   coinbase_deribit_marketdataapi_sbe_v1_0.instrument_id.size + 
   coinbase_deribit_marketdataapi_sbe_v1_0.min_sell_price.size + 
   coinbase_deribit_marketdataapi_sbe_v1_0.max_buy_price.size + 
-  coinbase_deribit_marketdataapi_sbe_v1_0.index_price.size + 
   coinbase_deribit_marketdataapi_sbe_v1_0.mark_price.size
 
 -- Display: Instrument Info Message
@@ -2935,9 +3061,6 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_info_message.fields = functio
 
   -- Max Buy Price: Price9
   index, max_buy_price = coinbase_deribit_marketdataapi_sbe_v1_0.max_buy_price.dissect(buffer, index, packet, parent)
-
-  -- Index Price: Price9
-  index, index_price = coinbase_deribit_marketdataapi_sbe_v1_0.index_price.dissect(buffer, index, packet, parent)
 
   -- Mark Price: Price9
   index, mark_price = coinbase_deribit_marketdataapi_sbe_v1_0.mark_price.dissect(buffer, index, packet, parent)
@@ -2960,6 +3083,50 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_info_message.dissect = functi
   else
     -- Skip element, add fields directly
     return coinbase_deribit_marketdataapi_sbe_v1_0.instrument_info_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Index Info Message
+coinbase_deribit_marketdataapi_sbe_v1_0.index_info_message = {}
+
+-- Size: Index Info Message
+coinbase_deribit_marketdataapi_sbe_v1_0.index_info_message.size =
+  coinbase_deribit_marketdataapi_sbe_v1_0.index_id.size + 
+  coinbase_deribit_marketdataapi_sbe_v1_0.index_price.size
+
+-- Display: Index Info Message
+coinbase_deribit_marketdataapi_sbe_v1_0.index_info_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Index Info Message
+coinbase_deribit_marketdataapi_sbe_v1_0.index_info_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Index Id: int64
+  index, index_id = coinbase_deribit_marketdataapi_sbe_v1_0.index_id.dissect(buffer, index, packet, parent)
+
+  -- Index Price: Price9
+  index, index_price = coinbase_deribit_marketdataapi_sbe_v1_0.index_price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Index Info Message
+coinbase_deribit_marketdataapi_sbe_v1_0.index_info_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.index_info_message, buffer(offset, 0))
+    local index = coinbase_deribit_marketdataapi_sbe_v1_0.index_info_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = coinbase_deribit_marketdataapi_sbe_v1_0.index_info_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return coinbase_deribit_marketdataapi_sbe_v1_0.index_info_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3007,24 +3174,24 @@ coinbase_deribit_marketdataapi_sbe_v1_0.index_definition_message.dissect = funct
   end
 end
 
--- Instrument Definition Message legs Group
+-- Instrument Definition Message Legs Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group = {}
 
--- Size: Instrument Definition Message legs Group
+-- Size: Instrument Definition Message Legs Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group.size =
   coinbase_deribit_marketdataapi_sbe_v1_0.leg_instrument_id.size + 
   coinbase_deribit_marketdataapi_sbe_v1_0.ratio.size
 
--- Display: Instrument Definition Message legs Group
+-- Display: Instrument Definition Message Legs Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Instrument Definition Message legs Group
+-- Dissect Fields: Instrument Definition Message Legs Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group.fields = function(buffer, offset, packet, parent, instrument_definition_message_legs_group_index)
   local index = offset
 
-  -- Implicit Instrument Definition Message legs Group Index
+  -- Implicit Instrument Definition Message Legs Group Index
   if instrument_definition_message_legs_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_legs_group_index, instrument_definition_message_legs_group_index)
     iteration:set_generated()
@@ -3039,7 +3206,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group
   return index
 end
 
--- Dissect: Instrument Definition Message legs Group
+-- Dissect: Instrument Definition Message Legs Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group.dissect = function(buffer, offset, packet, parent, instrument_definition_message_legs_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -3101,10 +3268,10 @@ coinbase_deribit_marketdataapi_sbe_v1_0.group_size_encoding.dissect = function(b
   end
 end
 
--- Instrument Definition Message legs Groups
+-- Instrument Definition Message Legs Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_groups = {}
 
--- Calculate size of: Instrument Definition Message legs Groups
+-- Calculate size of: Instrument Definition Message Legs Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_groups.size = function(buffer, offset)
   local index = 0
 
@@ -3117,12 +3284,12 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group
   return index
 end
 
--- Display: Instrument Definition Message legs Groups
+-- Display: Instrument Definition Message Legs Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Instrument Definition Message legs Groups
+-- Dissect Fields: Instrument Definition Message Legs Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3132,7 +3299,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Instrument Definition Message legs Group
+  -- Repeating: Instrument Definition Message Legs Group
   for instrument_definition_message_legs_group_index = 1, num_in_group do
     index, instrument_definition_message_legs_group = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group.dissect(buffer, index, packet, parent, instrument_definition_message_legs_group_index)
   end
@@ -3140,7 +3307,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group
   return index
 end
 
--- Dissect: Instrument Definition Message legs Groups
+-- Dissect: Instrument Definition Message Legs Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -3158,24 +3325,24 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_group
   end
 end
 
--- Instrument Definition Message large Tick Sizes Group
+-- Instrument Definition Message Large Tick Sizes Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_group = {}
 
--- Size: Instrument Definition Message large Tick Sizes Group
+-- Size: Instrument Definition Message Large Tick Sizes Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_group.size =
   coinbase_deribit_marketdataapi_sbe_v1_0.large_tick_size.size + 
   coinbase_deribit_marketdataapi_sbe_v1_0.threshold_price.size
 
--- Display: Instrument Definition Message large Tick Sizes Group
+-- Display: Instrument Definition Message Large Tick Sizes Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Instrument Definition Message large Tick Sizes Group
+-- Dissect Fields: Instrument Definition Message Large Tick Sizes Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_group.fields = function(buffer, offset, packet, parent, instrument_definition_message_large_tick_sizes_group_index)
   local index = offset
 
-  -- Implicit Instrument Definition Message large Tick Sizes Group Index
+  -- Implicit Instrument Definition Message Large Tick Sizes Group Index
   if instrument_definition_message_large_tick_sizes_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.instrument_definition_message_large_tick_sizes_group_index, instrument_definition_message_large_tick_sizes_group_index)
     iteration:set_generated()
@@ -3190,7 +3357,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick
   return index
 end
 
--- Dissect: Instrument Definition Message large Tick Sizes Group
+-- Dissect: Instrument Definition Message Large Tick Sizes Group
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_group.dissect = function(buffer, offset, packet, parent, instrument_definition_message_large_tick_sizes_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -3208,10 +3375,10 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick
   end
 end
 
--- Instrument Definition Message large Tick Sizes Groups
+-- Instrument Definition Message Large Tick Sizes Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_groups = {}
 
--- Calculate size of: Instrument Definition Message large Tick Sizes Groups
+-- Calculate size of: Instrument Definition Message Large Tick Sizes Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_groups.size = function(buffer, offset)
   local index = 0
 
@@ -3224,12 +3391,12 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick
   return index
 end
 
--- Display: Instrument Definition Message large Tick Sizes Groups
+-- Display: Instrument Definition Message Large Tick Sizes Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Instrument Definition Message large Tick Sizes Groups
+-- Dissect Fields: Instrument Definition Message Large Tick Sizes Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -3239,7 +3406,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 2, 2):le_uint()
 
-  -- Repeating: Instrument Definition Message large Tick Sizes Group
+  -- Repeating: Instrument Definition Message Large Tick Sizes Group
   for instrument_definition_message_large_tick_sizes_group_index = 1, num_in_group do
     index, instrument_definition_message_large_tick_sizes_group = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_group.dissect(buffer, index, packet, parent, instrument_definition_message_large_tick_sizes_group_index)
   end
@@ -3247,7 +3414,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick
   return index
 end
 
--- Dissect: Instrument Definition Message large Tick Sizes Groups
+-- Dissect: Instrument Definition Message Large Tick Sizes Groups
 coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -3415,10 +3582,10 @@ coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message.fields = f
   -- Status: InstrumentStatus
   index, status = coinbase_deribit_marketdataapi_sbe_v1_0.status.dissect(buffer, index, packet, parent)
 
-  -- Instrument Definition Message large Tick Sizes Groups: Struct of 2 fields
+  -- Instrument Definition Message Large Tick Sizes Groups: Struct of 2 fields
   index, instrument_definition_message_large_tick_sizes_groups = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_large_tick_sizes_groups.dissect(buffer, index, packet, parent)
 
-  -- Instrument Definition Message legs Groups: Struct of 2 fields
+  -- Instrument Definition Message Legs Groups: Struct of 2 fields
   index, instrument_definition_message_legs_groups = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message_legs_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -3449,6 +3616,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.payload = {}
 coinbase_deribit_marketdataapi_sbe_v1_0.payload.dispatch = {
   [10] = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_definition_message.dissect,
   [11] = coinbase_deribit_marketdataapi_sbe_v1_0.index_definition_message.dissect,
+  [12] = coinbase_deribit_marketdataapi_sbe_v1_0.index_info_message.dissect,
   [14] = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_info_message.dissect,
   [15] = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_ref_message.dissect,
   [16] = coinbase_deribit_marketdataapi_sbe_v1_0.instrument_status_update_message.dissect,
@@ -3618,7 +3786,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.md_message.fields = function(buffer, off
   -- Dependency element: Template Id
   local template_id = buffer(index - 14, 2):le_uint()
 
-  -- Payload: Runtime Type with 19 branches
+  -- Payload: Runtime Type with 20 branches
   index = coinbase_deribit_marketdataapi_sbe_v1_0.payload.dissect(buffer, index, packet, parent, template_id)
 
   -- Runtime optional field: Padding

@@ -11699,7 +11699,7 @@ euronext_optiq_marketdatagateway_sbe_v4_10.version.size = 2
 -- Display: Version
 euronext_optiq_marketdatagateway_sbe_v4_10.version.display = function(value)
   if value == 310 then
-    return "Version: 4.10.0"
+    return "Version: 310"
   end
 
   return "Version: Unknown("..value..")"

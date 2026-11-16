@@ -779,6 +779,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.day_of_month.size = 2
 
 -- Display: Day Of Month
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.day_of_month.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Day Of Month: No Value"
+  end
+
   return "Day Of Month: "..value
 end
 
@@ -1914,6 +1919,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.month.size = 2
 
 -- Display: Month
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.month.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Month: No Value"
+  end
+
   return "Month: "..value
 end
 
@@ -3425,7 +3435,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.version.size = 2
 -- Display: Version
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.version.display = function(value)
   if value == 10 then
-    return "Version: 1.10"
+    return "Version: 10"
   end
 
   return "Version: Unknown("..value..")"
@@ -3519,6 +3529,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.week_of_month.size = 2
 
 -- Display: Week Of Month
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.week_of_month.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Week Of Month: No Value"
+  end
+
   return "Week Of Month: "..value
 end
 
@@ -3542,6 +3557,11 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.year.size = 2
 
 -- Display: Year
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.year.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Year: No Value"
+  end
+
   return "Year: "..value
 end
 

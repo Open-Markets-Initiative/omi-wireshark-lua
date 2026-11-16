@@ -1518,6 +1518,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.custodian.size = 4
 
 -- Display: Custodian
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.custodian.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Custodian: No Value"
+  end
+
   return "Custodian: "..value
 end
 
@@ -1541,6 +1546,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.custody_account.size = 4
 
 -- Display: Custody Account
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.custody_account.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Custody Account: No Value"
+  end
+
   return "Custody Account: "..value
 end
 
@@ -1564,6 +1574,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.custody_allocation_type.size = 4
 
 -- Display: Custody Allocation Type
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.custody_allocation_type.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Custody Allocation Type: No Value"
+  end
+
   return "Custody Allocation Type: "..value
 end
 
@@ -1709,6 +1724,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.document.size = 4
 
 -- Display: Document
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.document.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Document: No Value"
+  end
+
   return "Document: "..value
 end
 
@@ -2674,6 +2694,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.market_segment_id_optional.size = 1
 
 -- Display: Market Segment Id Optional
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.market_segment_id_optional.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Market Segment Id Optional: No Value"
+  end
+
   return "Market Segment Id Optional: "..value
 end
 
@@ -5113,6 +5138,11 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.prefix.size = 2
 
 -- Display: Prefix
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.prefix.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Prefix: No Value"
+  end
+
   return "Prefix: "..value
 end
 
@@ -7352,7 +7382,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.version.size = 2
 -- Display: Version
 b3_b3derivatives_binaryentrypoint_sbe_v8_1.version.display = function(value)
   if value == 3 then
-    return "Version: 8.1.1"
+    return "Version: 3"
   end
 
   return "Version: Unknown("..value..")"
@@ -8813,7 +8843,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_1.bidirectional_business_header.fields 
   -- Poss Resend: 1 Byte Unsigned Fixed Width Integer
   index, poss_resend = b3_b3derivatives_binaryentrypoint_sbe_v8_1.poss_resend.dissect(buffer, index, packet, parent)
 
-  -- Market Segment Id Optional: 1 Byte Unsigned Fixed Width Integer
+  -- Market Segment Id Optional: 1 Byte Unsigned Fixed Width Integer Nullable
   index, market_segment_id_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_1.market_segment_id_optional.dissect(buffer, index, packet, parent)
 
   -- Padding char 2: char

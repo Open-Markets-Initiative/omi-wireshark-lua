@@ -3106,7 +3106,7 @@ blueoceanats_blueequities_memo_sbe_v1_14.version.size = 2
 -- Display: Version
 blueoceanats_blueequities_memo_sbe_v1_14.version.display = function(value)
   if value == 270 then
-    return "Version: 1.14"
+    return "Version: 270"
   end
 
   return "Version: Unknown("..value..")"

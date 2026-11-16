@@ -3149,7 +3149,7 @@ n24x_24xequities_memo_sbe_v1_13.version.size = 2
 -- Display: Version
 n24x_24xequities_memo_sbe_v1_13.version.display = function(value)
   if value == 269 then
-    return "Version: 1.13"
+    return "Version: 269"
   end
 
   return "Version: Unknown("..value..")"

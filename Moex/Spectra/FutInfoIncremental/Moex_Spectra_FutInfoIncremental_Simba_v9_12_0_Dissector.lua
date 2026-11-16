@@ -25,7 +25,7 @@ omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.discrete_auction_messag
 omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.end_of_snapshot = ProtoField.new("End Of Snapshot", "moex.spectra.futinfoincremental.simba.v9.12.0.endofsnapshot", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "EndOfSnapshot")
 omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.event_id_close = ProtoField.new("Event Id Close", "moex.spectra.futinfoincremental.simba.v9.12.0.eventidclose", ftypes.INT32, nil, nil, nil, "EventIDClose")
 omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.event_id_open = ProtoField.new("Event Id Open", "moex.spectra.futinfoincremental.simba.v9.12.0.eventidopen", ftypes.INT32, nil, nil, nil, "EventIDOpen")
-omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.exchange_trading_session_id = ProtoField.new("Exchange Trading Session Id", "moex.spectra.futinfoincremental.simba.v9.12.0.exchangetradingsessionid", ftypes.UINT32, nil, nil, nil, "ExchangeTradingSessionID")
+omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.exchange_trading_session_i_d_uint_32_optional = ProtoField.new("Exchange Trading Session I D uint 32 optional", "moex.spectra.futinfoincremental.simba.v9.12.0.exchangetradingsessioniduint32optional", ftypes.UINT32, nil, nil, nil, "ExchangeTradingSessionID")
 omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.exchange_trading_session_id_int_32 = ProtoField.new("Exchange Trading Session Id Int 32", "moex.spectra.futinfoincremental.simba.v9.12.0.exchangetradingsessionidint32", ftypes.INT32, nil, nil, nil, "ExchangeTradingSessionID")
 omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.exchange_trading_session_id_int_32_null_optional = ProtoField.new("Exchange Trading Session Id Int 32 Null optional", "moex.spectra.futinfoincremental.simba.v9.12.0.exchangetradingsessionidint32nulloptional", ftypes.INT32, nil, nil, nil, "ExchangeTradingSessionID")
 omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.group_mask_int_64_null_optional = ProtoField.new("Group Mask Int 64 Null optional", "moex.spectra.futinfoincremental.simba.v9.12.0.groupmaskint64nulloptional", ftypes.INT64, nil, nil, nil, "GroupMask")
@@ -338,25 +338,30 @@ moex_spectra_futinfoincremental_simba_v9_12_0.event_id_open.dissect = function(b
   return offset + length, value
 end
 
--- Exchange Trading Session Id
-moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_id = {}
+-- Exchange Trading Session I D uint 32 optional
+moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_i_d_uint_32_optional = {}
 
--- Size: Exchange Trading Session Id
-moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_id.size = 4
+-- Size: Exchange Trading Session I D uint 32 optional
+moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_i_d_uint_32_optional.size = 4
 
--- Display: Exchange Trading Session Id
-moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_id.display = function(value)
-  return "Exchange Trading Session Id: "..value
+-- Display: Exchange Trading Session I D uint 32 optional
+moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_i_d_uint_32_optional.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Exchange Trading Session I D uint 32 optional: No Value"
+  end
+
+  return "Exchange Trading Session I D uint 32 optional: "..value
 end
 
--- Dissect: Exchange Trading Session Id
-moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_id.dissect = function(buffer, offset, packet, parent)
-  local length = moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_id.size
+-- Dissect: Exchange Trading Session I D uint 32 optional
+moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_i_d_uint_32_optional.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_i_d_uint_32_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_id.display(value, buffer, offset, packet, parent)
+  local display = moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_i_d_uint_32_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.exchange_trading_session_id, range, value, display)
+  parent:add(omi_moex_spectra_futinfoincremental_simba_v9_12_0.fields.exchange_trading_session_i_d_uint_32_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1650,7 +1655,7 @@ moex_spectra_futinfoincremental_simba_v9_12_0.version.size = 2
 -- Display: Version
 moex_spectra_futinfoincremental_simba_v9_12_0.version.display = function(value)
   if value == 10 then
-    return "Version: FIX5SP2"
+    return "Version: 10"
   end
 
   return "Version: Unknown("..value..")"
@@ -2593,7 +2598,7 @@ moex_spectra_futinfoincremental_simba_v9_12_0.incremental_packet_header = {}
 -- Size: Incremental Packet Header
 moex_spectra_futinfoincremental_simba_v9_12_0.incremental_packet_header.size =
   moex_spectra_futinfoincremental_simba_v9_12_0.transact_time.size + 
-  moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_id.size
+  moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_i_d_uint_32_optional.size
 
 -- Display: Incremental Packet Header
 moex_spectra_futinfoincremental_simba_v9_12_0.incremental_packet_header.display = function(packet, parent, length)
@@ -2607,8 +2612,8 @@ moex_spectra_futinfoincremental_simba_v9_12_0.incremental_packet_header.fields =
   -- Transact Time: uint64
   index, transact_time = moex_spectra_futinfoincremental_simba_v9_12_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Exchange Trading Session Id: uint32
-  index, exchange_trading_session_id = moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_id.dissect(buffer, index, packet, parent)
+  -- Exchange Trading Session I D uint 32 optional: uint32
+  index, exchange_trading_session_i_d_uint_32_optional = moex_spectra_futinfoincremental_simba_v9_12_0.exchange_trading_session_i_d_uint_32_optional.dissect(buffer, index, packet, parent)
 
   return index
 end

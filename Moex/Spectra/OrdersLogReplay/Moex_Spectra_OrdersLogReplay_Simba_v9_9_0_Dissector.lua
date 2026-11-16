@@ -30,7 +30,7 @@ omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.due_to_cross_cancel = Proto
 omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.during_discrete_auction = ProtoField.new("During Discrete Auction", "moex.spectra.orderslogreplay.simba.v9.9.0.duringdiscreteauction", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x4000000000000000, "DuringDiscreteAuction")
 omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.end_of_snapshot = ProtoField.new("End Of Snapshot", "moex.spectra.orderslogreplay.simba.v9.9.0.endofsnapshot", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "EndOfSnapshot")
 omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.end_of_transaction = ProtoField.new("End Of Transaction", "moex.spectra.orderslogreplay.simba.v9.9.0.endoftransaction", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000001000, "EndOfTransaction")
-omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.exchange_trading_session_id = ProtoField.new("Exchange Trading Session Id", "moex.spectra.orderslogreplay.simba.v9.9.0.exchangetradingsessionid", ftypes.UINT32, nil, nil, nil, "ExchangeTradingSessionID")
+omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.exchange_trading_session_i_d_uint_32_optional = ProtoField.new("Exchange Trading Session I D uint 32 optional", "moex.spectra.orderslogreplay.simba.v9.9.0.exchangetradingsessioniduint32optional", ftypes.UINT32, nil, nil, nil, "ExchangeTradingSessionID")
 omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.fok = ProtoField.new("Fok", "moex.spectra.orderslogreplay.simba.v9.9.0.fok", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000080000)
 omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.group_size = ProtoField.new("Group Size", "moex.spectra.orderslogreplay.simba.v9.9.0.groupsize", ftypes.STRING, nil, nil, nil, "groupSize")
 omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.incremental_packet = ProtoField.new("Incremental Packet", "moex.spectra.orderslogreplay.simba.v9.9.0.incrementalpacket", ftypes.UINT16, {[0]="Snapshot Packet", [1]="Incremental Packet"}, base.DEC, 0x0008, "IncrementalPacket")
@@ -296,25 +296,30 @@ moex_spectra_orderslogreplay_simba_v9_9_0.block_length.dissect = function(buffer
   return offset + length, value
 end
 
--- Exchange Trading Session Id
-moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_id = {}
+-- Exchange Trading Session I D uint 32 optional
+moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_i_d_uint_32_optional = {}
 
--- Size: Exchange Trading Session Id
-moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_id.size = 4
+-- Size: Exchange Trading Session I D uint 32 optional
+moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_i_d_uint_32_optional.size = 4
 
--- Display: Exchange Trading Session Id
-moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_id.display = function(value)
-  return "Exchange Trading Session Id: "..value
+-- Display: Exchange Trading Session I D uint 32 optional
+moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_i_d_uint_32_optional.display = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Exchange Trading Session I D uint 32 optional: No Value"
+  end
+
+  return "Exchange Trading Session I D uint 32 optional: "..value
 end
 
--- Dissect: Exchange Trading Session Id
-moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_id.dissect = function(buffer, offset, packet, parent)
-  local length = moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_id.size
+-- Dissect: Exchange Trading Session I D uint 32 optional
+moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_i_d_uint_32_optional.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_i_d_uint_32_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_id.display(value, buffer, offset, packet, parent)
+  local display = moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_i_d_uint_32_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.exchange_trading_session_id, range, value, display)
+  parent:add(omi_moex_spectra_orderslogreplay_simba_v9_9_0.fields.exchange_trading_session_i_d_uint_32_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1055,7 +1060,7 @@ moex_spectra_orderslogreplay_simba_v9_9_0.version.size = 2
 -- Display: Version
 moex_spectra_orderslogreplay_simba_v9_9_0.version.display = function(value)
   if value == 9 then
-    return "Version: FIX5SP2"
+    return "Version: 9"
   end
 
   return "Version: Unknown("..value..")"
@@ -1991,7 +1996,7 @@ moex_spectra_orderslogreplay_simba_v9_9_0.incremental_packet_header = {}
 -- Size: Incremental Packet Header
 moex_spectra_orderslogreplay_simba_v9_9_0.incremental_packet_header.size =
   moex_spectra_orderslogreplay_simba_v9_9_0.transact_time.size + 
-  moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_id.size
+  moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_i_d_uint_32_optional.size
 
 -- Display: Incremental Packet Header
 moex_spectra_orderslogreplay_simba_v9_9_0.incremental_packet_header.display = function(packet, parent, length)
@@ -2005,8 +2010,8 @@ moex_spectra_orderslogreplay_simba_v9_9_0.incremental_packet_header.fields = fun
   -- Transact Time: uint64
   index, transact_time = moex_spectra_orderslogreplay_simba_v9_9_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Exchange Trading Session Id: uint32
-  index, exchange_trading_session_id = moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_id.dissect(buffer, index, packet, parent)
+  -- Exchange Trading Session I D uint 32 optional: uint32
+  index, exchange_trading_session_i_d_uint_32_optional = moex_spectra_orderslogreplay_simba_v9_9_0.exchange_trading_session_i_d_uint_32_optional.dissect(buffer, index, packet, parent)
 
   return index
 end

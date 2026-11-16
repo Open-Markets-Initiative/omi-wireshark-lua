@@ -33,8 +33,8 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.block_length = ProtoField.n
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.block_length_short = ProtoField.new("Block Length Short", "iex.iexoptions.binaryorderentry.sbe.v1.02.blocklengthshort", ftypes.UINT8, nil, nil, nil, "blockLength")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.blocked_by_breach_indicator = ProtoField.new("Blocked By Breach Indicator", "iex.iexoptions.binaryorderentry.sbe.v1.02.blockedbybreachindicator", ftypes.INT8, nil, nil, nil, "blockedByBreachIndicator")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_action = ProtoField.new("Bulk Action", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkaction", ftypes.UINT8, nil, nil, nil, "bulkAction")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_group = ProtoField.new("Bulk Quote Ack Message quote Acks Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroup", ftypes.STRING, nil, nil, nil, "quoteAcks")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_groups = ProtoField.new("Bulk Quote Ack Message quote Acks Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroups", ftypes.STRING, nil, nil, nil, "quoteAcks Block")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_group = ProtoField.new("Bulk Quote Ack Message Quote Acks Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroup", ftypes.STRING, nil, nil, nil, "quoteAcks")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_groups = ProtoField.new("Bulk Quote Ack Message Quote Acks Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroups", ftypes.STRING, nil, nil, nil, "quoteAcks Block")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bust_or_correction = ProtoField.new("Bust Or Correction", "iex.iexoptions.binaryorderentry.sbe.v1.02.bustorcorrection", ftypes.INT8, nil, nil, nil, "bustOrCorrection")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_count = ProtoField.new("Cancel Count", "iex.iexoptions.binaryorderentry.sbe.v1.02.cancelcount", ftypes.UINT32, nil, nil, nil, "cancelCount")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.cancel_instead_of_slide = ProtoField.new("Cancel Instead Of Slide", "iex.iexoptions.binaryorderentry.sbe.v1.02.cancelinsteadofslide", ftypes.INT8, nil, nil, nil, "cancelInsteadOfSlide")
@@ -93,8 +93,8 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mic = ProtoField.new("Mic",
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mpid_filter = ProtoField.new("Mpid Filter", "iex.iexoptions.binaryorderentry.sbe.v1.02.mpidfilter", ftypes.UINT8, nil, nil, nil, "mpidFilter")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mpid_status = ProtoField.new("Mpid Status", "iex.iexoptions.binaryorderentry.sbe.v1.02.mpidstatus", ftypes.INT8, nil, nil, nil, "mpidStatus")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mpv_group = ProtoField.new("Mpv Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.mpvgroup", ftypes.INT8, nil, nil, nil, "mpvGroup")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.new_bulk_quote_message_quote_updates_group = ProtoField.new("New Bulk Quote Message quote Updates Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.newbulkquotemessagequoteupdatesgroup", ftypes.STRING, nil, nil, nil, "quoteUpdates")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.new_bulk_quote_message_quote_updates_groups = ProtoField.new("New Bulk Quote Message quote Updates Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.newbulkquotemessagequoteupdatesgroups", ftypes.STRING, nil, nil, nil, "quoteUpdates Block")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.new_bulk_quote_message_quote_updates_group = ProtoField.new("New Bulk Quote Message Quote Updates Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.newbulkquotemessagequoteupdatesgroup", ftypes.STRING, nil, nil, nil, "quoteUpdates")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.new_bulk_quote_message_quote_updates_groups = ProtoField.new("New Bulk Quote Message Quote Updates Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.newbulkquotemessagequoteupdatesgroups", ftypes.STRING, nil, nil, nil, "quoteUpdates Block")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.next_seq_no = ProtoField.new("Next Seq No", "iex.iexoptions.binaryorderentry.sbe.v1.02.nextseqno", ftypes.UINT32, nil, nil, nil, "nextSeqNo")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.notification_reason = ProtoField.new("Notification Reason", "iex.iexoptions.binaryorderentry.sbe.v1.02.notificationreason", ftypes.INT8, nil, nil, nil, "notificationReason")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.num_in_group = ProtoField.new("Num In Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.numingroup", ftypes.UINT8, nil, nil, nil, "numInGroup")
@@ -115,10 +115,10 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.percentage_limit = ProtoFie
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.price_price_4 = ProtoField.new("Price Price 4", "iex.iexoptions.binaryorderentry.sbe.v1.02.priceprice4", ftypes.DOUBLE, nil, nil, nil, "price")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.price_price_4_optional = ProtoField.new("Price Price 4 optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.priceprice4optional", ftypes.DOUBLE, nil, nil, nil, "Order price")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.price_price_8 = ProtoField.new("Price Price 8", "iex.iexoptions.binaryorderentry.sbe.v1.02.priceprice8", ftypes.DOUBLE, nil, nil, nil, "price")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_group_ids_group = ProtoField.new("Purge Ack Message custom Group Ids Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgeackmessagecustomgroupidsgroup", ftypes.STRING, nil, nil, nil, "customGroupIds")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_group_ids_groups = ProtoField.new("Purge Ack Message custom Group Ids Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgeackmessagecustomgroupidsgroups", ftypes.STRING, nil, nil, nil, "customGroupIds Block")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_request_message_custom_group_ids_group = ProtoField.new("Purge Request Message custom Group Ids Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgerequestmessagecustomgroupidsgroup", ftypes.STRING, nil, nil, nil, "customGroupIds")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_request_message_custom_group_ids_groups = ProtoField.new("Purge Request Message custom Group Ids Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgerequestmessagecustomgroupidsgroups", ftypes.STRING, nil, nil, nil, "customGroupIds Block")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_group_ids_group = ProtoField.new("Purge Ack Message Custom Group Ids Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgeackmessagecustomgroupidsgroup", ftypes.STRING, nil, nil, nil, "customGroupIds")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_group_ids_groups = ProtoField.new("Purge Ack Message Custom Group Ids Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgeackmessagecustomgroupidsgroups", ftypes.STRING, nil, nil, nil, "customGroupIds Block")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_request_message_custom_group_ids_group = ProtoField.new("Purge Request Message Custom Group Ids Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgerequestmessagecustomgroupidsgroup", ftypes.STRING, nil, nil, nil, "customGroupIds")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_request_message_custom_group_ids_groups = ProtoField.new("Purge Request Message Custom Group Ids Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgerequestmessagecustomgroupidsgroups", ftypes.STRING, nil, nil, nil, "customGroupIds Block")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.quote_acks_group_encoding = ProtoField.new("Quote Acks Group Encoding", "iex.iexoptions.binaryorderentry.sbe.v1.02.quoteacksgroupencoding", ftypes.STRING, nil, nil, nil, "quoteAcksGroupEncoding")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.quote_relief_mult = ProtoField.new("Quote Relief Mult", "iex.iexoptions.binaryorderentry.sbe.v1.02.quotereliefmult", ftypes.UINT32, nil, nil, nil, "quoteReliefMult")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.quote_type = ProtoField.new("Quote Type", "iex.iexoptions.binaryorderentry.sbe.v1.02.quotetype", ftypes.INT8, nil, nil, nil, "Type of quote")
@@ -222,10 +222,10 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_business_message = P
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_session_message = ProtoField.new("Server Session Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.serversessionmessage", ftypes.STRING, nil, nil, nil, "Message of sbe schema iex.options.boe.session (schema id 20000)")
 
 -- Iex IexOptions BinaryOrderEntry Sbe 1.02 Generated Fields
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_group_index = ProtoField.new("Bulk Quote Ack Message quote Acks Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroupindex", ftypes.UINT16)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.new_bulk_quote_message_quote_updates_group_index = ProtoField.new("New Bulk Quote Message quote Updates Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.newbulkquotemessagequoteupdatesgroupindex", ftypes.UINT16)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_group_ids_group_index = ProtoField.new("Purge Ack Message custom Group Ids Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgeackmessagecustomgroupidsgroupindex", ftypes.UINT16)
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_request_message_custom_group_ids_group_index = ProtoField.new("Purge Request Message custom Group Ids Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgerequestmessagecustomgroupidsgroupindex", ftypes.UINT16)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_group_index = ProtoField.new("Bulk Quote Ack Message Quote Acks Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroupindex", ftypes.UINT16)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.new_bulk_quote_message_quote_updates_group_index = ProtoField.new("New Bulk Quote Message Quote Updates Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.newbulkquotemessagequoteupdatesgroupindex", ftypes.UINT16)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_group_ids_group_index = ProtoField.new("Purge Ack Message Custom Group Ids Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgeackmessagecustomgroupidsgroupindex", ftypes.UINT16)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_request_message_custom_group_ids_group_index = ProtoField.new("Purge Request Message Custom Group Ids Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgerequestmessagecustomgroupidsgroupindex", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_group_index = ProtoField.new("Sub Sessions Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.subsessionsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -4549,7 +4549,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.version.size = 2
 -- Display: Version
 iex_iexoptions_binaryorderentry_sbe_v1_02.version.display = function(value)
   if value == 0 then
-    return "Version: 1.0"
+    return "Version: 0"
   end
 
   return "Version: Unknown("..value..")"
@@ -5440,23 +5440,23 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.execution_report_message.dissect = fun
   end
 end
 
--- Purge Ack Message custom Group Ids Group
+-- Purge Ack Message Custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_group = {}
 
--- Size: Purge Ack Message custom Group Ids Group
+-- Size: Purge Ack Message Custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_group.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.size
 
--- Display: Purge Ack Message custom Group Ids Group
+-- Display: Purge Ack Message Custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Purge Ack Message custom Group Ids Group
+-- Dissect Fields: Purge Ack Message Custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_group.fields = function(buffer, offset, packet, parent, purge_ack_message_custom_group_ids_group_index)
   local index = offset
 
-  -- Implicit Purge Ack Message custom Group Ids Group Index
+  -- Implicit Purge Ack Message Custom Group Ids Group Index
   if purge_ack_message_custom_group_ids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_group_ids_group_index, purge_ack_message_custom_group_ids_group_index)
     iteration:set_generated()
@@ -5468,7 +5468,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_gro
   return index
 end
 
--- Dissect: Purge Ack Message custom Group Ids Group
+-- Dissect: Purge Ack Message Custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_group.dissect = function(buffer, offset, packet, parent, purge_ack_message_custom_group_ids_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -5530,10 +5530,10 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_ids_group_encoding.dissec
   end
 end
 
--- Purge Ack Message custom Group Ids Groups
+-- Purge Ack Message Custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_groups = {}
 
--- Calculate size of: Purge Ack Message custom Group Ids Groups
+-- Calculate size of: Purge Ack Message Custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_groups.size = function(buffer, offset)
   local index = 0
 
@@ -5546,12 +5546,12 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_gro
   return index
 end
 
--- Display: Purge Ack Message custom Group Ids Groups
+-- Display: Purge Ack Message Custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Purge Ack Message custom Group Ids Groups
+-- Dissect Fields: Purge Ack Message Custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -5561,7 +5561,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_gro
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Repeating: Purge Ack Message custom Group Ids Group
+  -- Repeating: Purge Ack Message Custom Group Ids Group
   for purge_ack_message_custom_group_ids_group_index = 1, num_in_group do
     index, purge_ack_message_custom_group_ids_group = iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_group.dissect(buffer, index, packet, parent, purge_ack_message_custom_group_ids_group_index)
   end
@@ -5569,7 +5569,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_gro
   return index
 end
 
--- Dissect: Purge Ack Message custom Group Ids Groups
+-- Dissect: Purge Ack Message Custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -5648,7 +5648,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message.fields = function(bu
   -- Throttle Indicator: ThrottleIndicator
   index, throttle_indicator = iex_iexoptions_binaryorderentry_sbe_v1_02.throttle_indicator.dissect(buffer, index, packet, parent)
 
-  -- Purge Ack Message custom Group Ids Groups: Struct of 2 fields
+  -- Purge Ack Message Custom Group Ids Groups: Struct of 2 fields
   index, purge_ack_message_custom_group_ids_groups = iex_iexoptions_binaryorderentry_sbe_v1_02.purge_ack_message_custom_group_ids_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -5908,10 +5908,10 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_ioc_quote_ack_message.dissect = fu
   end
 end
 
--- Bulk Quote Ack Message quote Acks Group
+-- Bulk Quote Ack Message Quote Acks Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_group = {}
 
--- Size: Bulk Quote Ack Message quote Acks Group
+-- Size: Bulk Quote Ack Message Quote Acks Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_group.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.side.size + 
@@ -5921,16 +5921,16 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.reason_code.size
 
--- Display: Bulk Quote Ack Message quote Acks Group
+-- Display: Bulk Quote Ack Message Quote Acks Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Bulk Quote Ack Message quote Acks Group
+-- Dissect Fields: Bulk Quote Ack Message Quote Acks Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_group.fields = function(buffer, offset, packet, parent, bulk_quote_ack_message_quote_acks_group_index)
   local index = offset
 
-  -- Implicit Bulk Quote Ack Message quote Acks Group Index
+  -- Implicit Bulk Quote Ack Message Quote Acks Group Index
   if bulk_quote_ack_message_quote_acks_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_group_index, bulk_quote_ack_message_quote_acks_group_index)
     iteration:set_generated()
@@ -5960,7 +5960,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
   return index
 end
 
--- Dissect: Bulk Quote Ack Message quote Acks Group
+-- Dissect: Bulk Quote Ack Message Quote Acks Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_group.dissect = function(buffer, offset, packet, parent, bulk_quote_ack_message_quote_acks_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -6022,10 +6022,10 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.quote_acks_group_encoding.dissect = fu
   end
 end
 
--- Bulk Quote Ack Message quote Acks Groups
+-- Bulk Quote Ack Message Quote Acks Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_groups = {}
 
--- Calculate size of: Bulk Quote Ack Message quote Acks Groups
+-- Calculate size of: Bulk Quote Ack Message Quote Acks Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_groups.size = function(buffer, offset)
   local index = 0
 
@@ -6038,12 +6038,12 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
   return index
 end
 
--- Display: Bulk Quote Ack Message quote Acks Groups
+-- Display: Bulk Quote Ack Message Quote Acks Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Bulk Quote Ack Message quote Acks Groups
+-- Dissect Fields: Bulk Quote Ack Message Quote Acks Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -6053,7 +6053,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Repeating: Bulk Quote Ack Message quote Acks Group
+  -- Repeating: Bulk Quote Ack Message Quote Acks Group
   for bulk_quote_ack_message_quote_acks_group_index = 1, num_in_group do
     index, bulk_quote_ack_message_quote_acks_group = iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_group.dissect(buffer, index, packet, parent, bulk_quote_ack_message_quote_acks_group_index)
   end
@@ -6061,7 +6061,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
   return index
 end
 
--- Dissect: Bulk Quote Ack Message quote Acks Groups
+-- Dissect: Bulk Quote Ack Message Quote Acks Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -6135,7 +6135,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message.fields = functi
   -- Throttle Indicator: ThrottleIndicator
   index, throttle_indicator = iex_iexoptions_binaryorderentry_sbe_v1_02.throttle_indicator.dissect(buffer, index, packet, parent)
 
-  -- Bulk Quote Ack Message quote Acks Groups: Struct of 2 fields
+  -- Bulk Quote Ack Message Quote Acks Groups: Struct of 2 fields
   index, bulk_quote_ack_message_quote_acks_groups = iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -7467,23 +7467,23 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.risk_limit_update_request_message.diss
   end
 end
 
--- Purge Request Message custom Group Ids Group
+-- Purge Request Message Custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_group = {}
 
--- Size: Purge Request Message custom Group Ids Group
+-- Size: Purge Request Message Custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_group.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.custom_group_id.size
 
--- Display: Purge Request Message custom Group Ids Group
+-- Display: Purge Request Message Custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Purge Request Message custom Group Ids Group
+-- Dissect Fields: Purge Request Message Custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_group.fields = function(buffer, offset, packet, parent, purge_request_message_custom_group_ids_group_index)
   local index = offset
 
-  -- Implicit Purge Request Message custom Group Ids Group Index
+  -- Implicit Purge Request Message Custom Group Ids Group Index
   if purge_request_message_custom_group_ids_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_request_message_custom_group_ids_group_index, purge_request_message_custom_group_ids_group_index)
     iteration:set_generated()
@@ -7495,7 +7495,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids
   return index
 end
 
--- Dissect: Purge Request Message custom Group Ids Group
+-- Dissect: Purge Request Message Custom Group Ids Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_group.dissect = function(buffer, offset, packet, parent, purge_request_message_custom_group_ids_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -7513,10 +7513,10 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids
   end
 end
 
--- Purge Request Message custom Group Ids Groups
+-- Purge Request Message Custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_groups = {}
 
--- Calculate size of: Purge Request Message custom Group Ids Groups
+-- Calculate size of: Purge Request Message Custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_groups.size = function(buffer, offset)
   local index = 0
 
@@ -7529,12 +7529,12 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids
   return index
 end
 
--- Display: Purge Request Message custom Group Ids Groups
+-- Display: Purge Request Message Custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Purge Request Message custom Group Ids Groups
+-- Dissect Fields: Purge Request Message Custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -7544,7 +7544,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Repeating: Purge Request Message custom Group Ids Group
+  -- Repeating: Purge Request Message Custom Group Ids Group
   for purge_request_message_custom_group_ids_group_index = 1, num_in_group do
     index, purge_request_message_custom_group_ids_group = iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_group.dissect(buffer, index, packet, parent, purge_request_message_custom_group_ids_group_index)
   end
@@ -7552,7 +7552,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids
   return index
 end
 
--- Dissect: Purge Request Message custom Group Ids Groups
+-- Dissect: Purge Request Message Custom Group Ids Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -7621,7 +7621,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message.fields = functio
   -- Bulk Action: BulkAction
   index, bulk_action = iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_action.dissect(buffer, index, packet, parent)
 
-  -- Purge Request Message custom Group Ids Groups: Struct of 2 fields
+  -- Purge Request Message Custom Group Ids Groups: Struct of 2 fields
   index, purge_request_message_custom_group_ids_groups = iex_iexoptions_binaryorderentry_sbe_v1_02.purge_request_message_custom_group_ids_groups.dissect(buffer, index, packet, parent)
 
   return index
@@ -7709,10 +7709,10 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.mass_cancel_request_message.dissect = 
   end
 end
 
--- New Bulk Quote Message quote Updates Group
+-- New Bulk Quote Message Quote Updates Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_group = {}
 
--- Size: New Bulk Quote Message quote Updates Group
+-- Size: New Bulk Quote Message Quote Updates Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_group.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.side.size + 
@@ -7721,16 +7721,16 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
   iex_iexoptions_binaryorderentry_sbe_v1_02.quote_type.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.reserved.size
 
--- Display: New Bulk Quote Message quote Updates Group
+-- Display: New Bulk Quote Message Quote Updates Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Bulk Quote Message quote Updates Group
+-- Dissect Fields: New Bulk Quote Message Quote Updates Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_group.fields = function(buffer, offset, packet, parent, new_bulk_quote_message_quote_updates_group_index)
   local index = offset
 
-  -- Implicit New Bulk Quote Message quote Updates Group Index
+  -- Implicit New Bulk Quote Message Quote Updates Group Index
   if new_bulk_quote_message_quote_updates_group_index ~= nil and show.indexes then
     local iteration = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.new_bulk_quote_message_quote_updates_group_index, new_bulk_quote_message_quote_updates_group_index)
     iteration:set_generated()
@@ -7757,7 +7757,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
   return index
 end
 
--- Dissect: New Bulk Quote Message quote Updates Group
+-- Dissect: New Bulk Quote Message Quote Updates Group
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_group.dissect = function(buffer, offset, packet, parent, new_bulk_quote_message_quote_updates_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
@@ -7819,10 +7819,10 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.quote_updates_group_encoding.dissect =
   end
 end
 
--- New Bulk Quote Message quote Updates Groups
+-- New Bulk Quote Message Quote Updates Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_groups = {}
 
--- Calculate size of: New Bulk Quote Message quote Updates Groups
+-- Calculate size of: New Bulk Quote Message Quote Updates Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_groups.size = function(buffer, offset)
   local index = 0
 
@@ -7835,12 +7835,12 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
   return index
 end
 
--- Display: New Bulk Quote Message quote Updates Groups
+-- Display: New Bulk Quote Message Quote Updates Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Bulk Quote Message quote Updates Groups
+-- Dissect Fields: New Bulk Quote Message Quote Updates Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
@@ -7850,7 +7850,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Repeating: New Bulk Quote Message quote Updates Group
+  -- Repeating: New Bulk Quote Message Quote Updates Group
   for new_bulk_quote_message_quote_updates_group_index = 1, num_in_group do
     index, new_bulk_quote_message_quote_updates_group = iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_group.dissect(buffer, index, packet, parent, new_bulk_quote_message_quote_updates_group_index)
   end
@@ -7858,7 +7858,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
   return index
 end
 
--- Dissect: New Bulk Quote Message quote Updates Groups
+-- Dissect: New Bulk Quote Message Quote Updates Groups
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
@@ -7937,7 +7937,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message.fields = functi
   -- Time In Force: TimeInForce
   index, time_in_force = iex_iexoptions_binaryorderentry_sbe_v1_02.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- New Bulk Quote Message quote Updates Groups: Struct of 2 fields
+  -- New Bulk Quote Message Quote Updates Groups: Struct of 2 fields
   index, new_bulk_quote_message_quote_updates_groups = iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_groups.dissect(buffer, index, packet, parent)
 
   return index

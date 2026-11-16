@@ -1049,7 +1049,7 @@ n24x_24xequities_memoirdepthfeed_sbe_v1_3.version.size = 2
 -- Display: Version
 n24x_24xequities_memoirdepthfeed_sbe_v1_3.version.display = function(value)
   if value == 259 then
-    return "Version: 1.3"
+    return "Version: 259"
   end
 
   return "Version: Unknown("..value..")"
