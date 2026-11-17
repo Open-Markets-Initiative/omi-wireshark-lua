@@ -34,6 +34,11 @@ omi_asianext_asianextderivatives_replay_amd_v1_3.fields.login_message = ProtoFie
 omi_asianext_asianextderivatives_replay_amd_v1_3.fields.replay_request_message = ProtoField.new("Replay Request Message", "asianext.asianextderivatives.replay.amd.v1.3.replayrequestmessage", ftypes.STRING, nil, nil, nil, "The recipient sends a Replay Request message to request a particular message or range of messages from the replay server.")
 omi_asianext_asianextderivatives_replay_amd_v1_3.fields.replay_response_message = ProtoField.new("Replay Response Message", "asianext.asianextderivatives.replay.amd.v1.3.replayresponsemessage", ftypes.STRING, nil, nil, nil, "AsiaNext will send a Replay Response message to the recipient to acknowledge a successful Login or to report problems with a Resend Request.")
 
+-- AsiaNext AsiaNextDerivatives Replay Amd 1.3 Expert Info
+asianext_asianextderivatives_replay_amd_v1_3.experts = {}
+asianext_asianextderivatives_replay_amd_v1_3.experts.undecoded = ProtoExpert.new("asianext.asianextderivatives.replay.amd.v1.3.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_asianext_asianextderivatives_replay_amd_v1_3.experts = { asianext_asianextderivatives_replay_amd_v1_3.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -66,6 +71,19 @@ function omi_asianext_asianextderivatives_replay_amd_v1_3.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- AsiaNext AsiaNextDerivatives Replay Amd 1.3 Fields
 -----------------------------------------------------------------------
@@ -528,10 +546,16 @@ end
 asianext_asianextderivatives_replay_amd_v1_3.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_asianext_asianextderivatives_replay_amd_v1_3.fields.message, buffer(offset, 0))
-    local current = asianext_asianextderivatives_replay_amd_v1_3.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(asianext_asianextderivatives_replay_amd_v1_3.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, asianext_asianextderivatives_replay_amd_v1_3.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = asianext_asianextderivatives_replay_amd_v1_3.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -539,7 +563,10 @@ asianext_asianextderivatives_replay_amd_v1_3.message.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    asianext_asianextderivatives_replay_amd_v1_3.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(asianext_asianextderivatives_replay_amd_v1_3.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, asianext_asianextderivatives_replay_amd_v1_3.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

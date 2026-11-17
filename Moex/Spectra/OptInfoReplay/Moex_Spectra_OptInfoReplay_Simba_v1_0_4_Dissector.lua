@@ -28,7 +28,7 @@ omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.event_date = ProtoField.new("
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.event_time = ProtoField.new("Event Time", "moex.spectra.optinforeplay.simba.v1.0.4.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of event")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.event_time_utc = ProtoField.new("Event Time", "moex.spectra.optinforeplay.simba.v1.0.4.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of event")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.event_type = ProtoField.new("Event Type", "moex.spectra.optinforeplay.simba.v1.0.4.eventtype", ftypes.INT32, nil, nil, nil, "Code to represent the type of event")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.exchange_trading_session_id_int_32_null_optional = ProtoField.new("Exchange Trading Session Id Int 32 Null optional", "moex.spectra.optinforeplay.simba.v1.0.4.exchangetradingsessionidint32nulloptional", ftypes.INT32, nil, nil, nil, "ExchangeTradingSessionID")
+omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.exchange_trading_session_id_int_32_null_optional = ProtoField.new("Exchange Trading Session Id Int 32 Null Optional", "moex.spectra.optinforeplay.simba.v1.0.4.exchangetradingsessionidint32nulloptional", ftypes.INT32, nil, nil, nil, "ExchangeTradingSessionID")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.flags = ProtoField.new("Flags", "moex.spectra.optinforeplay.simba.v1.0.4.flags", ftypes.STRING, nil, nil, nil, "FlagsSet bit set")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.group_size = ProtoField.new("Group Size", "moex.spectra.optinforeplay.simba.v1.0.4.groupsize", ftypes.STRING, nil, nil, nil, "groupSize")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.high_limit_px = ProtoField.new("High Limit Px", "moex.spectra.optinforeplay.simba.v1.0.4.highlimitpx", ftypes.DOUBLE, nil, nil, nil, "HighLimitPx")
@@ -76,8 +76,8 @@ omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_n
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_instr_attrib_groups = ProtoField.new("Security Definition Message No Instr Attrib Groups", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenoinstrattribgroups", ftypes.STRING, nil, nil, nil, "NoInstrAttrib Block")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_legs_group = ProtoField.new("Security Definition Message No Legs Group", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenolegsgroup", ftypes.STRING, nil, nil, nil, "NoLegs")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_legs_groups = ProtoField.new("Security Definition Message No Legs Groups", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenolegsgroups", ftypes.STRING, nil, nil, nil, "NoLegs Block")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_m_d_feed_types_group = ProtoField.new("Security Definition Message No M D Feed Types Group", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenomdfeedtypesgroup", ftypes.STRING, nil, nil, nil, "NoMDFeedTypes")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_m_d_feed_types_groups = ProtoField.new("Security Definition Message No M D Feed Types Groups", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenomdfeedtypesgroups", ftypes.STRING, nil, nil, nil, "NoMDFeedTypes Block")
+omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_md_feed_types_group = ProtoField.new("Security Definition Message No Md Feed Types Group", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenomdfeedtypesgroup", ftypes.STRING, nil, nil, nil, "NoMDFeedTypes")
+omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_md_feed_types_groups = ProtoField.new("Security Definition Message No Md Feed Types Groups", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenomdfeedtypesgroups", ftypes.STRING, nil, nil, nil, "NoMDFeedTypes Block")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_underlyings_group = ProtoField.new("Security Definition Message No Underlyings Group", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenounderlyingsgroup", ftypes.STRING, nil, nil, nil, "NoUnderlyings")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_underlyings_groups = ProtoField.new("Security Definition Message No Underlyings Groups", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenounderlyingsgroups", ftypes.STRING, nil, nil, nil, "NoUnderlyings Block")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_desc = ProtoField.new("Security Desc", "moex.spectra.optinforeplay.simba.v1.0.4.securitydesc", ftypes.STRING, nil, nil, nil, "SecurityDesc data struct")
@@ -110,19 +110,9 @@ omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.underlying_future_id = ProtoF
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.underlying_qty = ProtoField.new("Underlying Qty", "moex.spectra.optinforeplay.simba.v1.0.4.underlyingqty", ftypes.DOUBLE, nil, nil, nil, "UnderlyingQty")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "moex.spectra.optinforeplay.simba.v1.0.4.underlyingsecurityid", ftypes.INT32, nil, nil, nil, "Futures instrument ID")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "moex.spectra.optinforeplay.simba.v1.0.4.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying asset code")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_1 = ProtoField.new("Unused Flags Set 1", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset1", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000002, "Unused FlagsSet 1")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_10 = ProtoField.new("Unused Flags Set 10", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset10", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000400, "Unused FlagsSet 10")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_11 = ProtoField.new("Unused Flags Set 11", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset11", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000800, "Unused FlagsSet 11")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_12 = ProtoField.new("Unused Flags Set 12", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset12", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000001000, "Unused FlagsSet 12")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_13 = ProtoField.new("Unused Flags Set 13", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset13", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000002000, "Unused FlagsSet 13")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_14 = ProtoField.new("Unused Flags Set 14", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset14", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000004000, "Unused FlagsSet 14")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_15 = ProtoField.new("Unused Flags Set 15", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset15", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000008000, "Unused FlagsSet 15")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_16 = ProtoField.new("Unused Flags Set 16", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset16", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000010000, "Unused FlagsSet 16")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_17 = ProtoField.new("Unused Flags Set 17", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset17", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000020000, "Unused FlagsSet 17")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_2 = ProtoField.new("Unused Flags Set 2", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset2", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000004, "Unused FlagsSet 2")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_3 = ProtoField.new("Unused Flags Set 3", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset3", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000008, "Unused FlagsSet 3")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_7 = ProtoField.new("Unused Flags Set 7", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset7", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000080, "Unused FlagsSet 7")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_9 = ProtoField.new("Unused Flags Set 9", "moex.spectra.optinforeplay.simba.v1.0.4.unusedflagsset9", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000200, "Unused FlagsSet 9")
+omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_1 = ProtoField.new("Unused 1", "moex.spectra.optinforeplay.simba.v1.0.4.unused1", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000080, "1 unused bit")
+omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_3 = ProtoField.new("Unused 3", "moex.spectra.optinforeplay.simba.v1.0.4.unused3", ftypes.UINT64, nil, base.DEC, 0x000000000000000E, "3 unused bits")
+omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_9 = ProtoField.new("Unused 9", "moex.spectra.optinforeplay.simba.v1.0.4.unused9", ftypes.UINT64, nil, base.DEC, 0x000000000003FE00, "9 unused bits")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.version = ProtoField.new("Version", "moex.spectra.optinforeplay.simba.v1.0.4.version", ftypes.UINT16, nil, nil, nil, "Message schema version")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.volatility = ProtoField.new("Volatility", "moex.spectra.optinforeplay.simba.v1.0.4.volatility", ftypes.DOUBLE)
 
@@ -131,8 +121,10 @@ omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.message = ProtoField.new("Mes
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.sbe_header = ProtoField.new("Sbe Header", "moex.spectra.optinforeplay.simba.v1.0.4.sbeheader", ftypes.STRING, nil, nil, nil, "Root block length, message template id, message schema id and schema version")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.udp_packet = ProtoField.new("Udp Packet", "moex.spectra.optinforeplay.simba.v1.0.4.udppacket", ftypes.STRING, nil, nil, nil, "Moex Simba Snapshot Packet")
 
--- Moex Spectra OptInfoReplay 1.0.4 Application Messages
+-- Moex Spectra OptInfoReplay 1.0.4 Session Messages
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "moex.spectra.optinforeplay.simba.v1.0.4.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "HeartbeatMessage")
+
+-- Moex Spectra OptInfoReplay 1.0.4 Application Messages
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message = ProtoField.new("Security Definition Message", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessage", ftypes.STRING, nil, nil, nil, "SecurityDefinitionMessage")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "moex.spectra.optinforeplay.simba.v1.0.4.sequenceresetmessage", ftypes.STRING, nil, nil, nil, "SequenceResetMessage")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "moex.spectra.optinforeplay.simba.v1.0.4.tradingsessionstatusmessage", ftypes.STRING, nil, nil, nil, "TradingSessionStatusMessage")
@@ -141,7 +133,7 @@ omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.trading_session_status_messag
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_events_group_index = ProtoField.new("Security Definition Message No Events Group Index", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenoeventsgroupindex", ftypes.UINT16)
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_instr_attrib_group_index = ProtoField.new("Security Definition Message No Instr Attrib Group Index", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenoinstrattribgroupindex", ftypes.UINT16)
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_legs_group_index = ProtoField.new("Security Definition Message No Legs Group Index", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenolegsgroupindex", ftypes.UINT16)
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_m_d_feed_types_group_index = ProtoField.new("Security Definition Message No M D Feed Types Group Index", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenomdfeedtypesgroupindex", ftypes.UINT16)
+omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_md_feed_types_group_index = ProtoField.new("Security Definition Message No Md Feed Types Group Index", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenomdfeedtypesgroupindex", ftypes.UINT16)
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_underlyings_group_index = ProtoField.new("Security Definition Message No Underlyings Group Index", "moex.spectra.optinforeplay.simba.v1.0.4.securitydefinitionmessagenounderlyingsgroupindex", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -150,11 +142,11 @@ omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_n
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 moex_spectra_optinforeplay_simba_v1_0_4.timestamp_format = 2
 
 
@@ -434,23 +426,23 @@ moex_spectra_optinforeplay_simba_v1_0_4.event_type.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Exchange Trading Session Id Int 32 Null optional
+-- Exchange Trading Session Id Int 32 Null Optional
 moex_spectra_optinforeplay_simba_v1_0_4.exchange_trading_session_id_int_32_null_optional = {}
 
--- Size: Exchange Trading Session Id Int 32 Null optional
+-- Size: Exchange Trading Session Id Int 32 Null Optional
 moex_spectra_optinforeplay_simba_v1_0_4.exchange_trading_session_id_int_32_null_optional.size = 4
 
--- Display: Exchange Trading Session Id Int 32 Null optional
+-- Display: Exchange Trading Session Id Int 32 Null Optional
 moex_spectra_optinforeplay_simba_v1_0_4.exchange_trading_session_id_int_32_null_optional.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Exchange Trading Session Id Int 32 Null optional: No Value"
+    return "Exchange Trading Session Id Int 32 Null Optional: No Value"
   end
 
-  return "Exchange Trading Session Id Int 32 Null optional: "..value
+  return "Exchange Trading Session Id Int 32 Null Optional: "..value
 end
 
--- Dissect: Exchange Trading Session Id Int 32 Null optional
+-- Dissect: Exchange Trading Session Id Int 32 Null Optional
 moex_spectra_optinforeplay_simba_v1_0_4.exchange_trading_session_id_int_32_null_optional.dissect = function(buffer, offset, packet, parent)
   local length = moex_spectra_optinforeplay_simba_v1_0_4.exchange_trading_session_id_int_32_null_optional.size
   local range = buffer(offset, length)
@@ -1255,7 +1247,7 @@ moex_spectra_optinforeplay_simba_v1_0_4.schema_id.size = 2
 -- Display: Schema Id
 moex_spectra_optinforeplay_simba_v1_0_4.schema_id.display = function(value)
   if value == 19780 then
-    return "Schema Id: 19780"
+    return "Schema Id: Moex Spectra Simba (19780)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -2294,7 +2286,7 @@ moex_spectra_optinforeplay_simba_v1_0_4.trading_session_status_message.fields = 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = moex_spectra_optinforeplay_simba_v1_0_4.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Trading Session Id Int 32 Null optional: Int32NULL
+  -- Exchange Trading Session Id Int 32 Null Optional: Int32NULL
   index, exchange_trading_session_id_int_32_null_optional = moex_spectra_optinforeplay_simba_v1_0_4.exchange_trading_session_id_int_32_null_optional.dissect(buffer, index, packet, parent)
 
   -- Trad Ses Status: TradSesStatus
@@ -2953,27 +2945,27 @@ moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_underlyin
   end
 end
 
--- Security Definition Message No M D Feed Types Group
-moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_group = {}
+-- Security Definition Message No Md Feed Types Group
+moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_group = {}
 
--- Size: Security Definition Message No M D Feed Types Group
-moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_group.size =
+-- Size: Security Definition Message No Md Feed Types Group
+moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_group.size =
   moex_spectra_optinforeplay_simba_v1_0_4.md_feed_type.size + 
   moex_spectra_optinforeplay_simba_v1_0_4.market_depth.size + 
   moex_spectra_optinforeplay_simba_v1_0_4.md_book_type.size
 
--- Display: Security Definition Message No M D Feed Types Group
-moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_group.display = function(packet, parent, length)
+-- Display: Security Definition Message No Md Feed Types Group
+moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Message No M D Feed Types Group
-moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_group.fields = function(buffer, offset, packet, parent, security_definition_message_no_m_d_feed_types_group_index)
+-- Dissect Fields: Security Definition Message No Md Feed Types Group
+moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_group.fields = function(buffer, offset, packet, parent, security_definition_message_no_md_feed_types_group_index)
   local index = offset
 
-  -- Implicit Security Definition Message No M D Feed Types Group Index
-  if security_definition_message_no_m_d_feed_types_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_m_d_feed_types_group_index, security_definition_message_no_m_d_feed_types_group_index)
+  -- Implicit Security Definition Message No Md Feed Types Group Index
+  if security_definition_message_no_md_feed_types_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_md_feed_types_group_index, security_definition_message_no_md_feed_types_group_index)
     iteration:set_generated()
   end
 
@@ -2989,47 +2981,47 @@ moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_
   return index
 end
 
--- Dissect: Security Definition Message No M D Feed Types Group
-moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_group.dissect = function(buffer, offset, packet, parent, security_definition_message_no_m_d_feed_types_group_index)
+-- Dissect: Security Definition Message No Md Feed Types Group
+moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_group.dissect = function(buffer, offset, packet, parent, security_definition_message_no_md_feed_types_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_m_d_feed_types_group, buffer(offset, 0))
-    local index = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_group.fields(buffer, offset, packet, parent, security_definition_message_no_m_d_feed_types_group_index)
+    parent = parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_md_feed_types_group, buffer(offset, 0))
+    local index = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_group.fields(buffer, offset, packet, parent, security_definition_message_no_md_feed_types_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_group.display(packet, parent, length)
+    local display = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_group.fields(buffer, offset, packet, parent, security_definition_message_no_m_d_feed_types_group_index)
+    return moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_group.fields(buffer, offset, packet, parent, security_definition_message_no_md_feed_types_group_index)
   end
 end
 
--- Security Definition Message No M D Feed Types Groups
-moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_groups = {}
+-- Security Definition Message No Md Feed Types Groups
+moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_groups = {}
 
--- Calculate size of: Security Definition Message No M D Feed Types Groups
-moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_groups.size = function(buffer, offset)
+-- Calculate size of: Security Definition Message No Md Feed Types Groups
+moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + moex_spectra_optinforeplay_simba_v1_0_4.group_size.size
 
   -- Calculate field size from count
-  local security_definition_message_no_m_d_feed_types_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + security_definition_message_no_m_d_feed_types_group_count * 33
+  local security_definition_message_no_md_feed_types_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + security_definition_message_no_md_feed_types_group_count * 33
 
   return index
 end
 
--- Display: Security Definition Message No M D Feed Types Groups
-moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_groups.display = function(packet, parent, length)
+-- Display: Security Definition Message No Md Feed Types Groups
+moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Security Definition Message No M D Feed Types Groups
-moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Security Definition Message No Md Feed Types Groups
+moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -3038,29 +3030,29 @@ moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):uint()
 
-  -- Repeating: Security Definition Message No M D Feed Types Group
-  for security_definition_message_no_m_d_feed_types_group_index = 1, num_in_group do
-    index, security_definition_message_no_m_d_feed_types_group = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_group.dissect(buffer, index, packet, parent, security_definition_message_no_m_d_feed_types_group_index)
+  -- Repeating: Security Definition Message No Md Feed Types Group
+  for security_definition_message_no_md_feed_types_group_index = 1, num_in_group do
+    index, security_definition_message_no_md_feed_types_group = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_group.dissect(buffer, index, packet, parent, security_definition_message_no_md_feed_types_group_index)
   end
 
   return index
 end
 
--- Dissect: Security Definition Message No M D Feed Types Groups
-moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Security Definition Message No Md Feed Types Groups
+moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_m_d_feed_types_groups, buffer(offset, 0))
-    local index = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.security_definition_message_no_md_feed_types_groups, buffer(offset, 0))
+    local index = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_groups.display(packet, parent, length)
+    local display = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_groups.fields(buffer, offset, packet, parent)
+    return moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -3112,14 +3104,8 @@ moex_spectra_optinforeplay_simba_v1_0_4.flags.bits = function(range, value, pack
   -- Evening Or Morning Session: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.evening_or_morning_session, range, value)
 
-  -- Unused Flags Set 1: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_1, range, value)
-
-  -- Unused Flags Set 2: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_2, range, value)
-
-  -- Unused Flags Set 3: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_3, range, value)
+  -- Unused 3: 3 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_3, range, value)
 
   -- Anonymous Trading: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.anonymous_trading, range, value)
@@ -3130,38 +3116,14 @@ moex_spectra_optinforeplay_simba_v1_0_4.flags.bits = function(range, value, pack
   -- Day Session: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.day_session, range, value)
 
-  -- Unused Flags Set 7: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_7, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_1, range, value)
 
   -- Multi Leg: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.multi_leg, range, value)
 
-  -- Unused Flags Set 9: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_9, range, value)
-
-  -- Unused Flags Set 10: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_10, range, value)
-
-  -- Unused Flags Set 11: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_11, range, value)
-
-  -- Unused Flags Set 12: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_12, range, value)
-
-  -- Unused Flags Set 13: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_13, range, value)
-
-  -- Unused Flags Set 14: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_14, range, value)
-
-  -- Unused Flags Set 15: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_15, range, value)
-
-  -- Unused Flags Set 16: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_16, range, value)
-
-  -- Unused Flags Set 17: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_flags_set_17, range, value)
+  -- Unused 9: 9 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_9, range, value)
 
   -- Collateral: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.collateral, range, value)
@@ -3257,7 +3219,7 @@ moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message.size = funct
 
   index = index + moex_spectra_optinforeplay_simba_v1_0_4.settl_price_open.size
 
-  index = index + moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_groups.size(buffer, offset + index)
+  index = index + moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_groups.size(buffer, offset + index)
 
   index = index + moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_underlyings_groups.size(buffer, offset + index)
 
@@ -3322,7 +3284,7 @@ moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message.fields = fun
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = moex_spectra_optinforeplay_simba_v1_0_4.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Trading Session Id Int 32 Null optional: Int32NULL
+  -- Exchange Trading Session Id Int 32 Null Optional: Int32NULL
   index, exchange_trading_session_id_int_32_null_optional = moex_spectra_optinforeplay_simba_v1_0_4.exchange_trading_session_id_int_32_null_optional.dissect(buffer, index, packet, parent)
 
   -- Volatility: Decimal5NULL
@@ -3367,7 +3329,7 @@ moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message.fields = fun
   -- Maturity Time: uInt32NULL
   index, maturity_time = moex_spectra_optinforeplay_simba_v1_0_4.maturity_time.dissect(buffer, index, packet, parent)
 
-  -- Flags: Struct of 21 fields
+  -- Flags: Struct of 11 fields
   index, flags = moex_spectra_optinforeplay_simba_v1_0_4.flags.dissect(buffer, index, packet, parent)
 
   -- Min Price Increment Amount Curr: Decimal5NULL
@@ -3376,8 +3338,8 @@ moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message.fields = fun
   -- Settl Price Open: Decimal5NULL
   index, settl_price_open = moex_spectra_optinforeplay_simba_v1_0_4.settl_price_open.dissect(buffer, index, packet, parent)
 
-  -- Security Definition Message No M D Feed Types Groups: Struct of 2 fields
-  index, security_definition_message_no_m_d_feed_types_groups = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_m_d_feed_types_groups.dissect(buffer, index, packet, parent)
+  -- Security Definition Message No Md Feed Types Groups: Struct of 2 fields
+  index, security_definition_message_no_md_feed_types_groups = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_md_feed_types_groups.dissect(buffer, index, packet, parent)
 
   -- Security Definition Message No Underlyings Groups: Struct of 2 fields
   index, security_definition_message_no_underlyings_groups = moex_spectra_optinforeplay_simba_v1_0_4.security_definition_message_no_underlyings_groups.dissect(buffer, index, packet, parent)

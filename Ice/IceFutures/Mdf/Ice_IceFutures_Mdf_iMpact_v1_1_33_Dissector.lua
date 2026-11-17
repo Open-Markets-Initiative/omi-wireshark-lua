@@ -304,11 +304,11 @@ omi_ice_icefutures_mdf_impact_v1_1_33.fields.strategy_leg_definition_index = Pro
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 ice_icefutures_mdf_impact_v1_1_33.timestamp_format = 2
 
 
@@ -1490,7 +1490,7 @@ ice_icefutures_mdf_impact_v1_1_33.extra_data.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = ice_icefutures_mdf_impact_v1_1_33.extra_data.display(value, packet, parent, size)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_33.fields.extra_data, range, value, display)
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_33.fields.extra_data, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -5348,7 +5348,7 @@ ice_icefutures_mdf_impact_v1_1_33.reserved_2.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = ice_icefutures_mdf_impact_v1_1_33.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_33.fields.reserved_2, range, value, display)
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_33.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5371,7 +5371,7 @@ ice_icefutures_mdf_impact_v1_1_33.reserved_4.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = ice_icefutures_mdf_impact_v1_1_33.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_33.fields.reserved_4, range, value, display)
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_33.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end

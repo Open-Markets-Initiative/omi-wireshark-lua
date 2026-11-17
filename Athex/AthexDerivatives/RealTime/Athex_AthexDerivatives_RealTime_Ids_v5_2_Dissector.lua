@@ -143,11 +143,11 @@ omi_athex_athexderivatives_realtime_ids_v5_2.experts = { athex_athexderivatives_
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 athex_athexderivatives_realtime_ids_v5_2.timestamp_format = 2
 
 
@@ -961,7 +961,7 @@ athex_athexderivatives_realtime_ids_v5_2.etx.size = 1
 -- Display: Etx
 athex_athexderivatives_realtime_ids_v5_2.etx.display = function(value)
   if value == 3 then
-    return "Etx: End Of Text"
+    return "Etx: End Of Text (3)"
   end
 
   return "Etx: Unknown("..value..")"
@@ -2323,7 +2323,7 @@ athex_athexderivatives_realtime_ids_v5_2.soh.size = 1
 -- Display: Soh
 athex_athexderivatives_realtime_ids_v5_2.soh.display = function(value)
   if value == 1 then
-    return "Soh: Start Of Header"
+    return "Soh: Start Of Header (1)"
   end
 
   return "Soh: Unknown("..value..")"

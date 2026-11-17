@@ -611,7 +611,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.accumulated_ask_trading_value.dissec
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.accumulated_ask_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.accumulated_ask_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.accumulated_ask_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -657,7 +657,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.accumulated_bid_trading_value.dissec
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.accumulated_bid_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.accumulated_bid_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.accumulated_bid_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -703,7 +703,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.accumulated_trading_value.dissect = 
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -749,7 +749,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_val
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.after_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.after_market_accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.after_market_accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1462,7 +1462,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_value_1.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_value_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_value_1, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_value_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1485,7 +1485,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_value_2.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_value_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_value_2, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_value_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1508,7 +1508,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_value_3.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_value_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_value_3, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_value_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1531,7 +1531,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_value_4.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_value_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_value_4, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_value_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1554,7 +1554,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_value_5.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.ask_trading_value_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_value_5, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.ask_trading_value_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2290,7 +2290,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_value_1.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_value_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_value_1, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_value_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2313,7 +2313,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_value_2.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_value_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_value_2, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_value_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2336,7 +2336,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_value_3.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_value_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_value_3, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_value_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2359,7 +2359,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_value_4.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_value_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_value_4, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_value_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2382,7 +2382,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_value_5.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.bid_trading_value_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_value_5, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.bid_trading_value_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2675,7 +2675,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.calculation_time.display = function(
     return "Calculation Time: "..value
   end
 
-  return "Calculation Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+  return "Calculation Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).." Asia/Seoul"
 end
 
 -- Dissect: Calculation Time
@@ -2708,7 +2708,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.capital.dissect = function(buffer, o
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.capital.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.capital, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.capital, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3030,7 +3030,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.covered_short_selling_trading_value.
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.covered_short_selling_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.covered_short_selling_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.covered_short_selling_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3651,7 +3651,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.extended_market_bid_ask_spread_value
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.extended_market_bid_ask_spread_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.extended_market_bid_ask_spread_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.extended_market_bid_ask_spread_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5054,7 +5054,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_valu
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.main_market_accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.main_market_accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5100,7 +5100,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_bid_ask_spread_value.dis
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.main_market_bid_ask_spread_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.main_market_bid_ask_spread_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.main_market_bid_ask_spread_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5307,7 +5307,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.maximum_bid_price.dissect = function
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.maximum_bid_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.maximum_bid_price, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.maximum_bid_price, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5330,7 +5330,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.maximum_order_price.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.maximum_order_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.maximum_order_price, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.maximum_order_price, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5721,7 +5721,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.minimum_ask_price.dissect = function
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.minimum_ask_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.minimum_ask_price, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.minimum_ask_price, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5744,7 +5744,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.minimum_order_price.dissect = functi
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.minimum_order_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.minimum_order_price, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.minimum_order_price, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6020,7 +6020,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.pre_market_accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.pre_market_accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6129,7 +6129,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.processing_time_of_trading_system.di
     return "Processing Time Of Trading System: "..value
   end
 
-  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12)
+  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12).." Asia/Seoul"
 end
 
 -- Dissect: Processing Time Of Trading System
@@ -7296,7 +7296,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.upper_limit_quantity.dissect = funct
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.upper_limit_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.upper_limit_quantity, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.upper_limit_quantity, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7319,7 +7319,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.uptick_rule_applied_covered_short_se
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.uptick_rule_applied_covered_short_selling_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.uptick_rule_applied_covered_short_selling_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.uptick_rule_applied_covered_short_selling_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7365,7 +7365,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.uptick_rule_unapplied_covered_short_
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.uptick_rule_unapplied_covered_short_selling_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.uptick_rule_unapplied_covered_short_selling_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.uptick_rule_unapplied_covered_short_selling_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7503,7 +7503,7 @@ nextrade_nextrade_etpcommon_nxtbinary_v2_12.yesterdays_accumulated_trading_value
   local value = range:le_float()
   local display = nextrade_nextrade_etpcommon_nxtbinary_v2_12.yesterdays_accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.yesterdays_accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtbinary_v2_12.fields.yesterdays_accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end

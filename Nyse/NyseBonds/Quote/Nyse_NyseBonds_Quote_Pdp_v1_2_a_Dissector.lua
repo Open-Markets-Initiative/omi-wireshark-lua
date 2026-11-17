@@ -57,6 +57,11 @@ omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.refresh_quote_message = ProtoField.ne
 omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.nysebonds.quote.pdp.v1.2.a.sequencenumberresetmessage", ftypes.STRING, nil, nil, nil, "Sent to reset the sequence number at start of day and in response to failures. The message carries its own valid sequence number in the header.")
 omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.symbol_index_mapping_message = ProtoField.new("Symbol Index Mapping Message", "nyse.nysebonds.quote.pdp.v1.2.a.symbolindexmappingmessage", ftypes.STRING, nil, nil, nil, "Maps a symbol index to its bond symbol and Cusip.")
 
+-- Nyse NyseBonds Quote Pdp 1.2.a Expert Info
+nyse_nysebonds_quote_pdp_v1_2_a.experts = {}
+nyse_nysebonds_quote_pdp_v1_2_a.experts.undecoded = ProtoExpert.new("nyse.nysebonds.quote.pdp.v1.2.a.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nyse_nysebonds_quote_pdp_v1_2_a.experts = { nyse_nysebonds_quote_pdp_v1_2_a.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nyse NyseBonds Quote Pdp 1.2.a Formatting
 -----------------------------------------------------------------------
@@ -65,11 +70,12 @@ omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.symbol_index_mapping_message = ProtoF
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format = 2
 
 
@@ -110,6 +116,19 @@ function omi_nyse_nysebonds_quote_pdp_v1_2_a.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nyse NyseBonds Quote Pdp 1.2.a Fields
 -----------------------------------------------------------------------
@@ -827,10 +846,15 @@ nyse_nysebonds_quote_pdp_v1_2_a.send_time.display = function(value, buffer, offs
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Send Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." America/New York"
+      end
 
       local format = nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Send Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Send Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -876,10 +900,8 @@ nyse_nysebonds_quote_pdp_v1_2_a.source_time.display = function(value, buffer, of
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = nyse_nysebonds_quote_pdp_v1_2_a.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Source Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Source Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -1467,10 +1489,16 @@ end
 nyse_nysebonds_quote_pdp_v1_2_a.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nyse_nysebonds_quote_pdp_v1_2_a.fields.message, buffer(offset, 0))
-    local current = nyse_nysebonds_quote_pdp_v1_2_a.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(nyse_nysebonds_quote_pdp_v1_2_a.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, nyse_nysebonds_quote_pdp_v1_2_a.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = nyse_nysebonds_quote_pdp_v1_2_a.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1478,7 +1506,10 @@ nyse_nysebonds_quote_pdp_v1_2_a.message.dissect = function(buffer, offset, packe
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_nysebonds_quote_pdp_v1_2_a.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(nyse_nysebonds_quote_pdp_v1_2_a.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, nyse_nysebonds_quote_pdp_v1_2_a.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -1503,6 +1534,12 @@ nyse_nysebonds_quote_pdp_v1_2_a.packet.dissect = function(buffer, packet, parent
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(nyse_nysebonds_quote_pdp_v1_2_a.experts.undecoded, "Msg Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Msg Size
     local msg_size = buffer(index, 2):uint()

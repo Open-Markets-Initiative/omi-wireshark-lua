@@ -110,11 +110,11 @@ omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.timestamp = ProtoField.new(
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cboe_edgxoptions_complextop_pitch_v1_1_54.timestamp_format = 2
 
 
@@ -866,7 +866,7 @@ cboe_edgxoptions_complextop_pitch_v1_1_54.gth_trading_status.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_complextop_pitch_v1_1_54.gth_trading_status.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.gth_trading_status, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.gth_trading_status, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1326,7 +1326,7 @@ cboe_edgxoptions_complextop_pitch_v1_1_54.reserved_1.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_complextop_pitch_v1_1_54.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.reserved_1, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1349,7 +1349,7 @@ cboe_edgxoptions_complextop_pitch_v1_1_54.reserved_2.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_complextop_pitch_v1_1_54.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.reserved_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1372,7 +1372,7 @@ cboe_edgxoptions_complextop_pitch_v1_1_54.second_reserved_1.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_complextop_pitch_v1_1_54.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.second_reserved_1, range, value, display)
+  parent:add(omi_cboe_edgxoptions_complextop_pitch_v1_1_54.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1701,10 +1701,8 @@ cboe_edgxoptions_complextop_pitch_v1_1_54.timestamp.display = function(time_offs
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = cboe_edgxoptions_complextop_pitch_v1_1_54.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", fraction)
     end
   end
 

@@ -369,8 +369,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.transparency_indicator = Pro
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.uncrossing_trade = ProtoField.new("Uncrossing Trade", "euronext.optiq.dropcopygateway.sbe.v6.67.uncrossingtrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "UncrossingTrade")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.undisclosed_iceberg_type = ProtoField.new("Undisclosed Iceberg Type", "euronext.optiq.dropcopygateway.sbe.v6.67.undisclosedicebergtype", ftypes.UINT8, nil, nil, nil, "undisclosedIcebergType")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.undisclosed_price = ProtoField.new("Undisclosed Price", "euronext.optiq.dropcopygateway.sbe.v6.67.undisclosedprice", ftypes.INT64, nil, nil, nil, "undisclosedPrice")
-omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_dark_execution_instructionset_7 = ProtoField.new("Unused Dark Execution Instructionset 7", "euronext.optiq.dropcopygateway.sbe.v6.67.unuseddarkexecutioninstructionset7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Unused DarkExecutionInstruction_set 7")
-omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_trading_session_validityset_0 = ProtoField.new("Unused Trading Session Validityset 0", "euronext.optiq.dropcopygateway.sbe.v6.67.unusedtradingsessionvalidityset0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Unused TradingSessionValidity_set 0")
+omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_1 = ProtoField.new("Unused 1", "euronext.optiq.dropcopygateway.sbe.v6.67.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "1 unused bit")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.update_type = ProtoField.new("Update Type", "euronext.optiq.dropcopygateway.sbe.v6.67.updatetype", ftypes.UINT8, nil, nil, nil, "updateType")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.use_of_cross_partition = ProtoField.new("Use Of Cross Partition", "euronext.optiq.dropcopygateway.sbe.v6.67.useofcrosspartition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "UseOfCrossPartition")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.version = ProtoField.new("Version", "euronext.optiq.dropcopygateway.sbe.v6.67.version", ftypes.UINT16, nil, nil, nil, "Schema version")
@@ -437,17 +436,22 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.long_order_strategy_fields_g
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.trade_bust_notification_short_codes_details_modifiable_group_index = ProtoField.new("Trade Bust Notification Short Codes Details Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.67.tradebustnotificationshortcodesdetailsmodifiablegroupindex", ftypes.UINT16)
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.trade_bust_notification_short_codes_details_non_modifiable_group_index = ProtoField.new("Trade Bust Notification Short Codes Details Non Modifiable Group Index", "euronext.optiq.dropcopygateway.sbe.v6.67.tradebustnotificationshortcodesdetailsnonmodifiablegroupindex", ftypes.UINT16)
 
+-- Euronext Optiq DropCopyGateway Sbe 6.67 Expert Info
+euronext_optiq_dropcopygateway_sbe_v6_67.experts = {}
+euronext_optiq_dropcopygateway_sbe_v6_67.experts.undecoded = ProtoExpert.new("euronext.optiq.dropcopygateway.sbe.v6.67.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_euronext_optiq_dropcopygateway_sbe_v6_67.experts = { euronext_optiq_dropcopygateway_sbe_v6_67.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Euronext Optiq DropCopyGateway Sbe 6.67 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 euronext_optiq_dropcopygateway_sbe_v6_67.timestamp_format = 2
 
 
@@ -498,6 +502,19 @@ function omi_euronext_optiq_dropcopygateway_sbe_v6_67.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Euronext Optiq DropCopyGateway Sbe 6.67 Fields
 -----------------------------------------------------------------------
@@ -6327,7 +6344,7 @@ euronext_optiq_dropcopygateway_sbe_v6_67.schema_id.size = 2
 -- Display: Schema Id
 euronext_optiq_dropcopygateway_sbe_v6_67.schema_id.display = function(value)
   if value == 0 then
-    return "Schema Id: 0"
+    return "Schema Id: Com Euronext Optiq Dd (0)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -8487,8 +8504,8 @@ euronext_optiq_dropcopygateway_sbe_v6_67.dark_execution_instruction.bits = funct
   -- Dark Passive Order Indicator: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.dark_passive_order_indicator, range, value)
 
-  -- Unused Dark Execution Instructionset 7: 1 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_dark_execution_instructionset_7, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_1, range, value)
 end
 
 -- Dissect: Dark Execution Instruction
@@ -14250,8 +14267,8 @@ end
 -- Dissect Bit Fields: Trading Session
 euronext_optiq_dropcopygateway_sbe_v6_67.trading_session.bits = function(range, value, packet, parent)
 
-  -- Unused Trading Session Validityset 0: 1 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_trading_session_validityset_0, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_1, range, value)
 
   -- Session 1: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.session_1, range, value)
@@ -15605,10 +15622,16 @@ end
 euronext_optiq_dropcopygateway_sbe_v6_67.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.message, buffer(offset, 0))
-    local current = euronext_optiq_dropcopygateway_sbe_v6_67.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(euronext_optiq_dropcopygateway_sbe_v6_67.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, euronext_optiq_dropcopygateway_sbe_v6_67.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = euronext_optiq_dropcopygateway_sbe_v6_67.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -15616,7 +15639,10 @@ euronext_optiq_dropcopygateway_sbe_v6_67.message.dissect = function(buffer, offs
     return index, parent
   else
     -- Skip element, add fields directly
-    euronext_optiq_dropcopygateway_sbe_v6_67.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(euronext_optiq_dropcopygateway_sbe_v6_67.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, euronext_optiq_dropcopygateway_sbe_v6_67.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

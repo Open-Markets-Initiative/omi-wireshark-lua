@@ -19,12 +19,12 @@ runuser -u tester -- tshark \
   > Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json 2> Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderExecutionMessage) ---"; cat Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json.stderr; exit 1; }
 
-grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentryidint64" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
-grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentrypxdecimal5nulloptional" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
-grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentrysizeint64nulloptional" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
+grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentryid" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
+grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentrypxoptional" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
+grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentrysizeoptional" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
 grep "moex.spectra.orderslogincremental.simba.v8.0.0.lastpx" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
 grep "moex.spectra.orderslogincremental.simba.v8.0.0.lastqty" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
-grep "moex.spectra.orderslogincremental.simba.v8.0.0.tradeidint64" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
+grep "moex.spectra.orderslogincremental.simba.v8.0.0.tradeid" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
 grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdflags" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
 grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdflags2" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
 grep "moex.spectra.orderslogincremental.simba.v8.0.0.securityid" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderExecutionMessage.json
@@ -38,9 +38,9 @@ runuser -u tester -- tshark \
   > Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json 2> Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json.stderr \
   || { echo "--- tshark FAILED (OrderUpdateMessage) ---"; cat Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json.stderr; exit 1; }
 
-grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentryidint64" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json
-grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentrypxdecimal5" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json
-grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentrysizeint64" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json
+grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentryid" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json
+grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentrypx" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json
+grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdentrysize" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json
 grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdflags" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json
 grep "moex.spectra.orderslogincremental.simba.v8.0.0.mdflags2" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json
 grep "moex.spectra.orderslogincremental.simba.v8.0.0.securityid" Moex.Spectra.OrdersLogIncremental.Simba.v8.0.0.OrderUpdateMessage.json

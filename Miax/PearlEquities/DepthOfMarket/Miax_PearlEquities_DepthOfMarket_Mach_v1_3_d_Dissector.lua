@@ -126,6 +126,11 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.login_matching_engine_in
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.requested_matching_engine_index = ProtoField.new("Requested Matching Engine Index", "miax.pearlequities.depthofmarket.mach.v1.3.d.requestedmatchingengineindex", ftypes.UINT16)
 omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.timestamp = ProtoField.new("Timestamp", "miax.pearlequities.depthofmarket.mach.v1.3.d.timestamp", ftypes.UINT64)
 
+-- Miax PearlEquities DepthOfMarket Mach 1.3.d Expert Info
+miax_pearlequities_depthofmarket_mach_v1_3_d.experts = {}
+miax_pearlequities_depthofmarket_mach_v1_3_d.experts.undecoded = ProtoExpert.new("miax.pearlequities.depthofmarket.mach.v1.3.d.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_pearlequities_depthofmarket_mach_v1_3_d.experts = { miax_pearlequities_depthofmarket_mach_v1_3_d.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Miax PearlEquities DepthOfMarket Mach 1.3.d Formatting
 -----------------------------------------------------------------------
@@ -133,11 +138,11 @@ omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.timestamp = ProtoField.n
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 miax_pearlequities_depthofmarket_mach_v1_3_d.timestamp_format = 2
 
 
@@ -239,6 +244,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax PearlEquities DepthOfMarket Mach 1.3.d Fields
 -----------------------------------------------------------------------
@@ -1101,7 +1114,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.reserved_1.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_depthofmarket_mach_v1_3_d.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.reserved_1, range, value, display)
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1124,7 +1137,7 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_depthofmarket_mach_v1_3_d.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.second_reserved_1, range, value, display)
+  parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1645,7 +1658,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.test_packet.size = function(buffer,
   local index = 0
 
   -- Parse runtime size of: Test Text
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + esesm_packet_length - 1
 
   return index
 end
@@ -1777,7 +1791,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_packet.size = function(buff
   index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + esesm_packet_length - 2
 
   return index
 end
@@ -1834,7 +1849,8 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.logout_request.size = function(buff
   index = index + miax_pearlequities_depthofmarket_mach_v1_3_d.logout_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + esesm_packet_length - 2
 
   return index
 end
@@ -2550,10 +2566,16 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
   local index = offset + size_of_esesm_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.esesm_tcp_packet, buffer(offset, 0))
-    local current = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    local decoded, failure = pcall(miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_esesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_pearlequities_depthofmarket_mach_v1_3_d.experts.undecoded, "Esesm Tcp Packet does not decode within its "..size_of_esesm_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_esesm_tcp_packet)
     local display = miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2561,7 +2583,10 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.dissect = function
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    local decoded, failure = pcall(miax_pearlequities_depthofmarket_mach_v1_3_d.esesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_esesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_pearlequities_depthofmarket_mach_v1_3_d.experts.undecoded, "Esesm Tcp Packet does not decode within its "..size_of_esesm_tcp_packet.." bytes")
+    end
 
     return index
   end
@@ -3645,10 +3670,16 @@ end
 miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.dissect = function(buffer, offset, packet, parent, size_of_mach_message)
   local index = offset + size_of_mach_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_pearlequities_depthofmarket_mach_v1_3_d.fields.mach_message, buffer(offset, 0))
-    local current = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+    local decoded, failure = pcall(miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.fields, bounded, offset, packet, parent, size_of_mach_message)
+    if not decoded then
+      undecoded(failure, parent, miax_pearlequities_depthofmarket_mach_v1_3_d.experts.undecoded, "Mach Message does not decode within its "..size_of_mach_message.." bytes")
+    end
     parent:set_len(size_of_mach_message)
     local display = miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3656,7 +3687,10 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.dissect = function(buf
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+    local decoded, failure = pcall(miax_pearlequities_depthofmarket_mach_v1_3_d.mach_message.fields, bounded, offset, packet, parent, size_of_mach_message)
+    if not decoded then
+      undecoded(failure, parent, miax_pearlequities_depthofmarket_mach_v1_3_d.experts.undecoded, "Mach Message does not decode within its "..size_of_mach_message.." bytes")
+    end
 
     return index
   end
@@ -3689,6 +3723,12 @@ miax_pearlequities_depthofmarket_mach_v1_3_d.udp_packet.dissect = function(buffe
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 8 + 2 > end_of_payload then
+      parent:add_proto_expert_info(miax_pearlequities_depthofmarket_mach_v1_3_d.experts.undecoded, "Mach Packet Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Mach Packet Length
     local mach_packet_length = buffer(index + 8, 2):le_uint()

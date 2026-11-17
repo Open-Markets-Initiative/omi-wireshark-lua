@@ -187,11 +187,11 @@ omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.working_price_calculate = Prot
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_amexoptions_topfeed_pillar_v1_2_k.timestamp_format = 2
 
 -- Ask Price Calculate format (true = decimal-scaled, false = raw mantissa)
@@ -2156,7 +2156,7 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.reserved_1.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_topfeed_pillar_v1_2_k.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2179,7 +2179,7 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.reserved_2.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_topfeed_pillar_v1_2_k.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2202,7 +2202,7 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.reserved_4.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_topfeed_pillar_v1_2_k.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2338,7 +2338,7 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.second_reserved_1.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_topfeed_pillar_v1_2_k.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.second_reserved_1, range, value, display)
+  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2361,7 +2361,7 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.second_reserved_2.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_topfeed_pillar_v1_2_k.second_reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.second_reserved_2, range, value, display)
+  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.second_reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2384,7 +2384,7 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.second_reserved_4.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_topfeed_pillar_v1_2_k.second_reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.second_reserved_4, range, value, display)
+  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.second_reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3356,7 +3356,7 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.third_reserved_1.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_topfeed_pillar_v1_2_k.third_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.third_reserved_1, range, value, display)
+  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.third_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3379,7 +3379,7 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.third_reserved_2.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_topfeed_pillar_v1_2_k.third_reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.third_reserved_2, range, value, display)
+  parent:add(omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.third_reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end

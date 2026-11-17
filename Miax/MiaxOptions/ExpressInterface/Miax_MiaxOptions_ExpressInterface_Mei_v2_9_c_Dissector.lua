@@ -19,9 +19,9 @@ omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.action = ProtoField.new(
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.active_on_miax = ProtoField.new("Active On Miax", "miax.miaxoptions.expressinterface.mei.v2.9.c.activeonmiax", ftypes.STRING, nil, nil, nil, "Indicates if this symbol is tradable on MIAX in the current session")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.allowable_engagement_percentage = ProtoField.new("Allowable Engagement Percentage", "miax.miaxoptions.expressinterface.mei.v2.9.c.allowableengagementpercentage", ftypes.UINT32, nil, nil, nil, "Percentage of quote size at which the Market Maker wants MIAX to trigger ARM protection for this underlying. Please refer to the rules for details of ARM. Maximum value is 65,535 (65,535%). See note below on minimum value.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.application_protocol = ProtoField.new("Application Protocol", "miax.miaxoptions.expressinterface.mei.v2.9.c.applicationprotocol", ftypes.STRING, nil, nil, nil, "Eg: MEI1.0 (right padded with spaces)")
+omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.arm_2_counting_period = ProtoField.new("Arm 2 Counting Period", "miax.miaxoptions.expressinterface.mei.v2.9.c.arm2countingperiod", ftypes.UINT32, nil, nil, nil, "Counting Period in milliseconds in which the number of unique ARM triggers cannot exceed the configured ARM Threshold Count specified for ARM2 protection.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.arm_settings_update_status = ProtoField.new("Arm Settings Update Status", "miax.miaxoptions.expressinterface.mei.v2.9.c.armsettingsupdatestatus", ftypes.STRING)
-omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.arm_threshold_count_binary_4u_4 = ProtoField.new("Arm Threshold Count Binary 4u 4", "miax.miaxoptions.expressinterface.mei.v2.9.c.armthresholdcountbinary4u4", ftypes.UINT32, nil, nil, nil, "Number of unique ARM triggers for the Counting Period that will trigger ARM2 Firm Level protection.")
-omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.arm_threshold_count_binary_u_4 = ProtoField.new("Arm Threshold Count Binary U 4", "miax.miaxoptions.expressinterface.mei.v2.9.c.armthresholdcountbinaryu4", ftypes.UINT32, nil, nil, nil, "Number of ARM triggers for the Counting Period for the specified underlying that will trigger ARM2 Underlying level protection. Minimum: 3 Maximum: 99")
+omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.arm_threshold_count = ProtoField.new("Arm Threshold Count", "miax.miaxoptions.expressinterface.mei.v2.9.c.armthresholdcount", ftypes.UINT32, nil, nil, nil, "Number of unique ARM triggers for the Counting Period that will trigger ARM2 Firm Level protection.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.bulk_quote_index = ProtoField.new("Bulk Quote Index", "miax.miaxoptions.expressinterface.mei.v2.9.c.bulkquoteindex", ftypes.UINT8, nil, nil, nil, "Simple Bulk Quote Index assigned by MIAX to each simple quote in bulk quote (quote position in the simple bulk quote); 0 if status is not for a bulk quote")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.bulk_quote_status = ProtoField.new("Bulk Quote Status", "miax.miaxoptions.expressinterface.mei.v2.9.c.bulkquotestatus", ftypes.STRING)
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.call_or_put = ProtoField.new("Call Or Put", "miax.miaxoptions.expressinterface.mei.v2.9.c.callorput", ftypes.STRING, nil, nil, nil, "Option Type")
@@ -36,9 +36,7 @@ omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.complex_liquidity_reset 
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.complex_mass_cancel = ProtoField.new("Complex Mass Cancel", "miax.miaxoptions.expressinterface.mei.v2.9.c.complexmasscancel", ftypes.STRING, nil, nil, nil, "Request to mass cancel all complex liquidities.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.complex_mass_liquidity_cancel_status = ProtoField.new("Complex Mass Liquidity Cancel Status", "miax.miaxoptions.expressinterface.mei.v2.9.c.complexmassliquiditycancelstatus", ftypes.STRING)
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.computer_id = ProtoField.new("Computer Id", "miax.miaxoptions.expressinterface.mei.v2.9.c.computerid", ftypes.STRING, nil, nil, nil, "ID issued by MIAX during initial setup")
-omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.counting_period_binary_4u_4 = ProtoField.new("Counting Period Binary 4u 4", "miax.miaxoptions.expressinterface.mei.v2.9.c.countingperiodbinary4u4", ftypes.UINT32, nil, nil, nil, "Counting Period in milliseconds in which the number of unique ARM triggers cannot exceed the configured ARM Threshold Count specified for ARM2 protection.")
-omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.counting_period_binary_u_2 = ProtoField.new("Counting Period Binary U 2", "miax.miaxoptions.expressinterface.mei.v2.9.c.countingperiodbinaryu2", ftypes.UINT16, nil, nil, nil, "Duration (in number of milliseconds) in which Engagement percentage is calculated in order to determine if the MPID should be put on ARM protection for this underlying. Allowable Range: 100 to 15,000 milliseconds Must be a multiple of 100 milliseconds.")
-omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.counting_period_binary_u_4 = ProtoField.new("Counting Period Binary U 4", "miax.miaxoptions.expressinterface.mei.v2.9.c.countingperiodbinaryu4", ftypes.UINT32, nil, nil, nil, "Duration (in number of milliseconds) for which ARM triggers are counted in order to determine if they don’t exceed the specified ARM2 Threshold. Allowable Range: 1000 to 24,300,000 milliseconds Must be a multiple of 1,000 milliseconds.")
+omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.counting_period = ProtoField.new("Counting Period", "miax.miaxoptions.expressinterface.mei.v2.9.c.countingperiod", ftypes.UINT16, nil, nil, nil, "Duration (in number of milliseconds) in which Engagement percentage is calculated in order to determine if the MPID should be put on ARM protection for this underlying. Allowable Range: 100 to 15,000 milliseconds Must be a multiple of 100 milliseconds.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.e_quote_action = ProtoField.new("E Quote Action", "miax.miaxoptions.expressinterface.mei.v2.9.c.equoteaction", ftypes.STRING, nil, nil, nil, "eQuote Action")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.e_quote_id = ProtoField.new("E Quote Id", "miax.miaxoptions.expressinterface.mei.v2.9.c.equoteid", ftypes.UINT64, nil, nil, nil, "MIAX assigned ID for eQuote if accepted; Zero if eQuote was rejected. Replaced eQuote will have the same eQuote ID as original.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.e_quote_request_status = ProtoField.new("E Quote Request Status", "miax.miaxoptions.expressinterface.mei.v2.9.c.equoterequeststatus", ftypes.STRING, nil, nil, nil, "eQuote Request Status")
@@ -70,13 +68,13 @@ omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.mei_version = ProtoField
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.miax_bbo_posting_increment_indicator = ProtoField.new("Miax Bbo Posting Increment Indicator", "miax.miaxoptions.expressinterface.mei.v2.9.c.miaxbbopostingincrementindicator", ftypes.STRING, nil, nil, nil, "This is the Minimum Price Variation as agreed to by the Options industry (penny pilot program) and as published by MIAX")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.mpid = ProtoField.new("Mpid", "miax.miaxoptions.expressinterface.mei.v2.9.c.mpid", ftypes.STRING, nil, nil, nil, "MIAX assigned ID of the Market Maker")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.mpv_class = ProtoField.new("Mpv Class", "miax.miaxoptions.expressinterface.mei.v2.9.c.mpvclass", ftypes.STRING, nil, nil, nil, "This valid width record is applicable for Options in this MPV class")
+omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.net_price = ProtoField.new("Net Price", "miax.miaxoptions.expressinterface.mei.v2.9.c.netprice", ftypes.DOUBLE, nil, nil, nil, "The net limit price for the strategy If Side is “B”: • Positive number represents net debit • Negative number represents net credit If Side is “A”: • Positive number represents net credit • Negative number represents net debit Price of zero is net neutral transaction for either side.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.notification_time = ProtoField.new("Notification Time", "miax.miaxoptions.expressinterface.mei.v2.9.c.notificationtime", ftypes.UINT64, nil, nil, nil, "Time at which this was generated by MIAX system.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.notification_type = ProtoField.new("Notification Type", "miax.miaxoptions.expressinterface.mei.v2.9.c.notificationtype", ftypes.STRING)
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.miaxoptions.expressinterface.mei.v2.9.c.numberoflegs", ftypes.UINT8, nil, nil, nil, "Number of Legs. Variable from 2 to 8")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.opening_time = ProtoField.new("Opening Time", "miax.miaxoptions.expressinterface.mei.v2.9.c.openingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 09:30:00")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.opening_underlying_market_code = ProtoField.new("Opening Underlying Market Code", "miax.miaxoptions.expressinterface.mei.v2.9.c.openingunderlyingmarketcode", ftypes.STRING, nil, nil, nil, "Options opening will be triggered on receipt of Opening quote/trade from this Underlying market")
-omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.price_binary_prc_4s_8 = ProtoField.new("Price Binary Prc 4s 8", "miax.miaxoptions.expressinterface.mei.v2.9.c.pricebinaryprc4s8", ftypes.DOUBLE, nil, nil, nil, "The net limit price for the strategy If Side is “B”: • Positive number represents net debit • Negative number represents net credit If Side is “A”: • Positive number represents net credit • Negative number represents net debit Price of zero is net neutral transaction for either side.")
-omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.price_binary_prc_4u_4 = ProtoField.new("Price Binary Prc 4u 4", "miax.miaxoptions.expressinterface.mei.v2.9.c.pricebinaryprc4u4", ftypes.DOUBLE, nil, nil, nil, "Price up to which the Market Maker is willing to match. Max Price: Defined in Technical Circular This can be changed in a replacement eQuote. This is ignored for eQuote cancels.")
+omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.price = ProtoField.new("Price", "miax.miaxoptions.expressinterface.mei.v2.9.c.price", ftypes.DOUBLE, nil, nil, nil, "Price up to which the Market Maker is willing to match. Max Price: Defined in Technical Circular This can be changed in a replacement eQuote. This is ignored for eQuote cancels.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.priority_quote_width = ProtoField.new("Priority Quote Width", "miax.miaxoptions.expressinterface.mei.v2.9.c.priorityquotewidth", ftypes.DOUBLE, nil, nil, nil, "Maximum allowable width for a quote for this Option during regular trading in order to be considered as Priority Quote. 0 when Priority Quote Width is not applicable.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.miaxoptions.expressinterface.mei.v2.9.c.productaddupdatetime", ftypes.UINT64, nil, nil, nil, "Time at which this product is added/updated on MIAX system today.")
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.product_id = ProtoField.new("Product Id", "miax.miaxoptions.expressinterface.mei.v2.9.c.productid", ftypes.UINT32, nil, nil, nil, "MIAX Product ID mapped to a given option. It is assigned per trading session and is valid for that session.")
@@ -200,6 +198,11 @@ omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.leg_index = ProtoField.n
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.single_side_quote_index = ProtoField.new("Single Side Quote Index", "miax.miaxoptions.expressinterface.mei.v2.9.c.singlesidequoteindex", ftypes.UINT16)
 omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.single_side_quote_response_index = ProtoField.new("Single Side Quote Response Index", "miax.miaxoptions.expressinterface.mei.v2.9.c.singlesidequoteresponseindex", ftypes.UINT16)
 
+-- Miax MiaxOptions ExpressInterface Mei 2.9.c Expert Info
+miax_miaxoptions_expressinterface_mei_v2_9_c.experts = {}
+miax_miaxoptions_expressinterface_mei_v2_9_c.experts.undecoded = ProtoExpert.new("miax.miaxoptions.expressinterface.mei.v2.9.c.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_miaxoptions_expressinterface_mei_v2_9_c.experts = { miax_miaxoptions_expressinterface_mei_v2_9_c.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Miax MiaxOptions ExpressInterface Mei 2.9.c Formatting
 -----------------------------------------------------------------------
@@ -208,11 +211,12 @@ omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.single_side_quote_respon
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 miax_miaxoptions_expressinterface_mei_v2_9_c.timestamp_format = 2
 
 
@@ -289,6 +293,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax MiaxOptions ExpressInterface Mei 2.9.c Fields
 -----------------------------------------------------------------------
@@ -395,6 +407,29 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.application_protocol.dissect = func
   return offset + length, value
 end
 
+-- Arm 2 Counting Period
+miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period = {}
+
+-- Size: Arm 2 Counting Period
+miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.size = 4
+
+-- Display: Arm 2 Counting Period
+miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.display = function(value)
+  return "Arm 2 Counting Period: "..value
+end
+
+-- Dissect: Arm 2 Counting Period
+miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.arm_2_counting_period, range, value, display)
+
+  return offset + length, value
+end
+
 -- Arm Settings Update Status
 miax_miaxoptions_expressinterface_mei_v2_9_c.arm_settings_update_status = {}
 
@@ -449,48 +484,25 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.arm_settings_update_status.dissect 
   return offset + length, value
 end
 
--- Arm Threshold Count Binary 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_4u_4 = {}
+-- Arm Threshold Count
+miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count = {}
 
--- Size: Arm Threshold Count Binary 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_4u_4.size = 4
+-- Size: Arm Threshold Count
+miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.size = 4
 
--- Display: Arm Threshold Count Binary 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_4u_4.display = function(value)
-  return "Arm Threshold Count Binary 4u 4: "..value
+-- Display: Arm Threshold Count
+miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.display = function(value)
+  return "Arm Threshold Count: "..value
 end
 
--- Dissect: Arm Threshold Count Binary 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_4u_4.size
+-- Dissect: Arm Threshold Count
+miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_4u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.arm_threshold_count_binary_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Arm Threshold Count Binary U 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4 = {}
-
--- Size: Arm Threshold Count Binary U 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.size = 4
-
--- Display: Arm Threshold Count Binary U 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.display = function(value)
-  return "Arm Threshold Count Binary U 4: "..value
-end
-
--- Dissect: Arm Threshold Count Binary U 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.arm_threshold_count_binary_u_4, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.arm_threshold_count, range, value, display)
 
   return offset + length, value
 end
@@ -921,71 +933,25 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.computer_id.dissect = function(buff
   return offset + length, value
 end
 
--- Counting Period Binary 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_4u_4 = {}
+-- Counting Period
+miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period = {}
 
--- Size: Counting Period Binary 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_4u_4.size = 4
+-- Size: Counting Period
+miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period.size = 2
 
--- Display: Counting Period Binary 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_4u_4.display = function(value)
-  return "Counting Period Binary 4u 4: "..value
+-- Display: Counting Period
+miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period.display = function(value)
+  return "Counting Period: "..value
 end
 
--- Dissect: Counting Period Binary 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_4u_4.size
+-- Dissect: Counting Period
+miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_4u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.counting_period_binary_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Counting Period Binary U 2
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_2 = {}
-
--- Size: Counting Period Binary U 2
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_2.size = 2
-
--- Display: Counting Period Binary U 2
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_2.display = function(value)
-  return "Counting Period Binary U 2: "..value
-end
-
--- Dissect: Counting Period Binary U 2
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.counting_period_binary_u_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Counting Period Binary U 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4 = {}
-
--- Size: Counting Period Binary U 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.size = 4
-
--- Display: Counting Period Binary U 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.display = function(value)
-  return "Counting Period Binary U 4: "..value
-end
-
--- Dissect: Counting Period Binary U 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.counting_period_binary_u_4, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.counting_period, range, value, display)
 
   return offset + length, value
 end
@@ -1321,10 +1287,15 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.expected_event_time.display = funct
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_miaxoptions_expressinterface_mei_v2_9_c.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Expected Event Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_miaxoptions_expressinterface_mei_v2_9_c.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Expected Event Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Expected Event Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -1898,6 +1869,35 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.mpv_class.dissect = function(buffer
   return offset + length, value
 end
 
+-- Net Price
+miax_miaxoptions_expressinterface_mei_v2_9_c.net_price = {}
+
+-- Size: Net Price
+miax_miaxoptions_expressinterface_mei_v2_9_c.net_price.size = 8
+
+-- Display: Net Price
+miax_miaxoptions_expressinterface_mei_v2_9_c.net_price.display = function(value)
+  return "Net Price: "..value
+end
+
+-- Translate: Net Price
+miax_miaxoptions_expressinterface_mei_v2_9_c.net_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Net Price
+miax_miaxoptions_expressinterface_mei_v2_9_c.net_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.net_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = miax_miaxoptions_expressinterface_mei_v2_9_c.net_price.translate(raw)
+  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.net_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.net_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Notification Time
 miax_miaxoptions_expressinterface_mei_v2_9_c.notification_time = {}
 
@@ -1924,10 +1924,15 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.notification_time.display = functio
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_miaxoptions_expressinterface_mei_v2_9_c.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Notification Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_miaxoptions_expressinterface_mei_v2_9_c.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Notification Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Notification Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2069,60 +2074,31 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.opening_underlying_market_code.diss
   return offset + length, value
 end
 
--- Price Binary Prc 4s 8
-miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4s_8 = {}
+-- Price
+miax_miaxoptions_expressinterface_mei_v2_9_c.price = {}
 
--- Size: Price Binary Prc 4s 8
-miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4s_8.size = 8
+-- Size: Price
+miax_miaxoptions_expressinterface_mei_v2_9_c.price.size = 4
 
--- Display: Price Binary Prc 4s 8
-miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4s_8.display = function(value)
-  return "Price Binary Prc 4s 8: "..value
+-- Display: Price
+miax_miaxoptions_expressinterface_mei_v2_9_c.price.display = function(value)
+  return "Price: "..value
 end
 
--- Translate: Price Binary Prc 4s 8
-miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4s_8.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price Binary Prc 4s 8
-miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4s_8.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4s_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4s_8.translate(raw)
-  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4s_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.price_binary_prc_4s_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Binary Prc 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4 = {}
-
--- Size: Price Binary Prc 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.size = 4
-
--- Display: Price Binary Prc 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.display = function(value)
-  return "Price Binary Prc 4u 4: "..value
-end
-
--- Translate: Price Binary Prc 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.translate = function(raw)
+-- Translate: Price
+miax_miaxoptions_expressinterface_mei_v2_9_c.price.translate = function(raw)
   return raw/10000
 end
 
--- Dissect: Price Binary Prc 4u 4
-miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.size
+-- Dissect: Price
+miax_miaxoptions_expressinterface_mei_v2_9_c.price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_expressinterface_mei_v2_9_c.price.size
   local range = buffer(offset, length)
   local raw = range:le_uint()
-  local value = miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.translate(raw)
-  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.display(value, buffer, offset, packet, parent)
+  local value = miax_miaxoptions_expressinterface_mei_v2_9_c.price.translate(raw)
+  local display = miax_miaxoptions_expressinterface_mei_v2_9_c.price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.price_binary_prc_4u_4, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -2182,10 +2158,15 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.product_add_update_time.display = f
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_miaxoptions_expressinterface_mei_v2_9_c.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Product Add Update Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_miaxoptions_expressinterface_mei_v2_9_c.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Product Add Update Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Product Add Update Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2306,10 +2287,15 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.quote_ack_time.display = function(v
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_miaxoptions_expressinterface_mei_v2_9_c.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Quote Ack Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_miaxoptions_expressinterface_mei_v2_9_c.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Quote Ack Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Quote Ack Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2599,7 +2585,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_1.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_1, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2622,7 +2608,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_10.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_10.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_10, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_10, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2645,7 +2631,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_15.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_15.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_15, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_15, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2668,7 +2654,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_16.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_16, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2691,7 +2677,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_2.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_2, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2714,7 +2700,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_32.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_32.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_32, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_32, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2737,7 +2723,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_4.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_4, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2760,7 +2746,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_8.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_8, range, value, display)
+  parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3890,7 +3876,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.test_packet.size = function(buffer,
   local index = 0
 
   -- Parse runtime size of: Test Text
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + sesm_packet_length - 1
 
   return index
 end
@@ -3995,7 +3982,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.goodbye_packet.size = function(buff
   index = index + miax_miaxoptions_expressinterface_mei_v2_9_c.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + sesm_packet_length - 2
 
   return index
 end
@@ -4052,7 +4040,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.logout_request.size = function(buff
   index = index + miax_miaxoptions_expressinterface_mei_v2_9_c.logout_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + sesm_packet_length - 2
 
   return index
 end
@@ -5021,7 +5010,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.complex_enhanced_quote_e_quote_mess
   miax_miaxoptions_expressinterface_mei_v2_9_c.e_quote_type.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.complex_event_id.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.target_message_id.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4s_8.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.net_price.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.size.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.side.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.stock_sell_short_indicator.size + 
@@ -5060,8 +5049,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.complex_enhanced_quote_e_quote_mess
   -- Target Message Id: BinaryU
   index, target_message_id = miax_miaxoptions_expressinterface_mei_v2_9_c.target_message_id.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Prc 4s 8: BinaryPrc4S
-  index, price_binary_prc_4s_8 = miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4s_8.dissect(buffer, index, packet, parent)
+  -- Net Price: BinaryPrc4S
+  index, net_price = miax_miaxoptions_expressinterface_mei_v2_9_c.net_price.dissect(buffer, index, packet, parent)
 
   -- Size: BinaryU
   index, size = miax_miaxoptions_expressinterface_mei_v2_9_c.size.dissect(buffer, index, packet, parent)
@@ -5113,7 +5102,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.simple_enhanced_quote_e_quote_messa
   miax_miaxoptions_expressinterface_mei_v2_9_c.e_quote_type.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.event_id.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.target_message_id.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.price.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.size.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.side.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_4.size
@@ -5151,8 +5140,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.simple_enhanced_quote_e_quote_messa
   -- Target Message Id: BinaryU
   index, target_message_id = miax_miaxoptions_expressinterface_mei_v2_9_c.target_message_id.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Prc 4u 4: BinaryPrc4U
-  index, price_binary_prc_4u_4 = miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- Price: BinaryPrc4U
+  index, price = miax_miaxoptions_expressinterface_mei_v2_9_c.price.dissect(buffer, index, packet, parent)
 
   -- Size: BinaryU
   index, size = miax_miaxoptions_expressinterface_mei_v2_9_c.size.dissect(buffer, index, packet, parent)
@@ -5323,7 +5312,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.single_side_quote = {}
 -- Size: Single Side Quote
 miax_miaxoptions_expressinterface_mei_v2_9_c.single_side_quote.size =
   miax_miaxoptions_expressinterface_mei_v2_9_c.product_id.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.price.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.size.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.side.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_2.size
@@ -5346,8 +5335,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.single_side_quote.fields = function
   -- Product Id: BinaryU
   index, product_id = miax_miaxoptions_expressinterface_mei_v2_9_c.product_id.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Prc 4u 4: BinaryPrc4U
-  index, price_binary_prc_4u_4 = miax_miaxoptions_expressinterface_mei_v2_9_c.price_binary_prc_4u_4.dissect(buffer, index, packet, parent)
+  -- Price: BinaryPrc4U
+  index, price = miax_miaxoptions_expressinterface_mei_v2_9_c.price.dissect(buffer, index, packet, parent)
 
   -- Size: BinaryU
   index, size = miax_miaxoptions_expressinterface_mei_v2_9_c.size.dissect(buffer, index, packet, parent)
@@ -5522,8 +5511,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_underlying_level_protection_s
   miax_miaxoptions_expressinterface_mei_v2_9_c.mpid.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.action.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.underlying_symbol.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.size
+  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.size
 
 -- Display: Arm 2 Underlying Level Protection Settings Update Request
 miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_underlying_level_protection_settings_update_request.display = function(packet, parent, length)
@@ -5546,11 +5535,11 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_underlying_level_protection_s
   -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = miax_miaxoptions_expressinterface_mei_v2_9_c.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Arm Threshold Count Binary U 4: BinaryU
-  index, arm_threshold_count_binary_u_4 = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm Threshold Count: Binary4U
+  index, arm_threshold_count = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary U 4: BinaryU
-  index, counting_period_binary_u_4 = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm 2 Counting Period: Binary4U
+  index, arm_2_counting_period = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5635,7 +5624,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.simple_arm_settings_update_request.
   miax_miaxoptions_expressinterface_mei_v2_9_c.action.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.underlying_symbol.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.allowable_engagement_percentage.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_2.size
+  miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period.size
 
 -- Display: Simple Arm Settings Update Request
 miax_miaxoptions_expressinterface_mei_v2_9_c.simple_arm_settings_update_request.display = function(packet, parent, length)
@@ -5661,8 +5650,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.simple_arm_settings_update_request.
   -- Allowable Engagement Percentage: BinaryU
   index, allowable_engagement_percentage = miax_miaxoptions_expressinterface_mei_v2_9_c.allowable_engagement_percentage.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary U 2: BinaryU
-  index, counting_period_binary_u_2 = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Counting Period: BinaryU
+  index, counting_period = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6133,8 +6122,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_firm_level_protection_notific
 -- Size: Arm 2 Firm Level Protection Notification
 miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_firm_level_protection_notification.size =
   miax_miaxoptions_expressinterface_mei_v2_9_c.notification_time.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_4u_4.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_4u_4.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.notification_type.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_16.size
 
@@ -6150,11 +6139,11 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_firm_level_protection_notific
   -- Notification Time: NanoTime
   index, notification_time = miax_miaxoptions_expressinterface_mei_v2_9_c.notification_time.dissect(buffer, index, packet, parent)
 
-  -- Arm Threshold Count Binary 4u 4: Binary4U
-  index, arm_threshold_count_binary_4u_4 = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_4u_4.dissect(buffer, index, packet, parent)
+  -- Arm Threshold Count: Binary4U
+  index, arm_threshold_count = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary 4u 4: Binary4U
-  index, counting_period_binary_4u_4 = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_4u_4.dissect(buffer, index, packet, parent)
+  -- Arm 2 Counting Period: Binary4U
+  index, arm_2_counting_period = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.dissect(buffer, index, packet, parent)
 
   -- Notification Type: Alphanumeric
   index, notification_type = miax_miaxoptions_expressinterface_mei_v2_9_c.notification_type.dissect(buffer, index, packet, parent)
@@ -6196,8 +6185,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_underlying_level_protection_n
   miax_miaxoptions_expressinterface_mei_v2_9_c.mpid.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.underlying_symbol.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.notification_type.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_16.size
 
 -- Display: Arm 2 Underlying Level Protection Notification
@@ -6221,11 +6210,11 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_underlying_level_protection_n
   -- Notification Type: Alphanumeric
   index, notification_type = miax_miaxoptions_expressinterface_mei_v2_9_c.notification_type.dissect(buffer, index, packet, parent)
 
-  -- Arm Threshold Count Binary U 4: BinaryU
-  index, arm_threshold_count_binary_u_4 = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm Threshold Count: Binary4U
+  index, arm_threshold_count = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary U 4: BinaryU
-  index, counting_period_binary_u_4 = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm 2 Counting Period: Binary4U
+  index, arm_2_counting_period = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alphanumeric
   if show.padding then
@@ -6336,8 +6325,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_underlying_level_protection_s
   miax_miaxoptions_expressinterface_mei_v2_9_c.mpid.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.action.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.underlying_symbol.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.reserved_16.size
 
 -- Display: Arm 2 Underlying Level Protection Settings Notification
@@ -6361,11 +6350,11 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_underlying_level_protection_s
   -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = miax_miaxoptions_expressinterface_mei_v2_9_c.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Arm Threshold Count Binary U 4: BinaryU
-  index, arm_threshold_count_binary_u_4 = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm Threshold Count: Binary4U
+  index, arm_threshold_count = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_threshold_count.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary U 4: BinaryU
-  index, counting_period_binary_u_4 = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm 2 Counting Period: Binary4U
+  index, arm_2_counting_period = miax_miaxoptions_expressinterface_mei_v2_9_c.arm_2_counting_period.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alphanumeric
   if show.padding then
@@ -6404,7 +6393,7 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.simple_arm_protection_settings_noti
   miax_miaxoptions_expressinterface_mei_v2_9_c.mpid.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.underlying_symbol.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.allowable_engagement_percentage.size + 
-  miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_2.size + 
+  miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.action.size + 
   miax_miaxoptions_expressinterface_mei_v2_9_c.source.size
 
@@ -6429,8 +6418,8 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.simple_arm_protection_settings_noti
   -- Allowable Engagement Percentage: BinaryU
   index, allowable_engagement_percentage = miax_miaxoptions_expressinterface_mei_v2_9_c.allowable_engagement_percentage.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary U 2: BinaryU
-  index, counting_period_binary_u_2 = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Counting Period: BinaryU
+  index, counting_period = miax_miaxoptions_expressinterface_mei_v2_9_c.counting_period.dissect(buffer, index, packet, parent)
 
   -- Action: Alphanumeric
   index, action = miax_miaxoptions_expressinterface_mei_v2_9_c.action.dissect(buffer, index, packet, parent)
@@ -7126,10 +7115,16 @@ end
 miax_miaxoptions_expressinterface_mei_v2_9_c.sesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
   local index = offset + size_of_sesm_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_miaxoptions_expressinterface_mei_v2_9_c.fields.sesm_tcp_packet, buffer(offset, 0))
-    local current = miax_miaxoptions_expressinterface_mei_v2_9_c.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    local decoded, failure = pcall(miax_miaxoptions_expressinterface_mei_v2_9_c.sesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_sesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_miaxoptions_expressinterface_mei_v2_9_c.experts.undecoded, "Sesm Tcp Packet does not decode within its "..size_of_sesm_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_sesm_tcp_packet)
     local display = miax_miaxoptions_expressinterface_mei_v2_9_c.sesm_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -7137,7 +7132,10 @@ miax_miaxoptions_expressinterface_mei_v2_9_c.sesm_tcp_packet.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_miaxoptions_expressinterface_mei_v2_9_c.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    local decoded, failure = pcall(miax_miaxoptions_expressinterface_mei_v2_9_c.sesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_sesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_miaxoptions_expressinterface_mei_v2_9_c.experts.undecoded, "Sesm Tcp Packet does not decode within its "..size_of_sesm_tcp_packet.." bytes")
+    end
 
     return index
   end

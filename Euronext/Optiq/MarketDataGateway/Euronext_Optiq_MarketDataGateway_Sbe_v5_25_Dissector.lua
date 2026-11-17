@@ -452,7 +452,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.underlying_mic = ProtoFiel
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.underlying_subtype = ProtoField.new("Underlying Subtype", "euronext.optiq.marketdatagateway.sbe.v5.25.underlyingsubtype", ftypes.UINT8, nil, nil, nil, "underlyingSubtype")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.underlying_symbol_index = ProtoField.new("Underlying Symbol Index", "euronext.optiq.marketdatagateway.sbe.v5.25.underlyingsymbolindex", ftypes.UINT32, nil, nil, nil, "underlyingSymbolIndex")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.underlying_type = ProtoField.new("Underlying Type", "euronext.optiq.marketdatagateway.sbe.v5.25.underlyingtype", ftypes.STRING, nil, nil, nil, "underlyingType")
-omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.unused_phase_qualifierset_8 = ProtoField.new("Unused Phase Qualifierset 8", "euronext.optiq.marketdatagateway.sbe.v5.25.unusedphasequalifierset8", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "Unused PhaseQualifier_set 8")
+omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.unused_1 = ProtoField.new("Unused 1", "euronext.optiq.marketdatagateway.sbe.v5.25.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "1 unused bit")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.update_type = ProtoField.new("Update Type", "euronext.optiq.marketdatagateway.sbe.v5.25.updatetype", ftypes.UINT8, nil, nil, nil, "updateType")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.venue = ProtoField.new("Venue", "euronext.optiq.marketdatagateway.sbe.v5.25.venue", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.version = ProtoField.new("Version", "euronext.optiq.marketdatagateway.sbe.v5.25.version", ftypes.UINT16, nil, nil, nil, "Schema version")
@@ -512,17 +512,22 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.price_updates_group_index 
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.strategy_standing_data_group_index = ProtoField.new("Strategy Standing Data Group Index", "euronext.optiq.marketdatagateway.sbe.v5.25.strategystandingdatagroupindex", ftypes.UINT16)
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.timetables_group_index = ProtoField.new("Timetables Group Index", "euronext.optiq.marketdatagateway.sbe.v5.25.timetablesgroupindex", ftypes.UINT16)
 
+-- Euronext Optiq MarketDataGateway Sbe 5.25 Expert Info
+euronext_optiq_marketdatagateway_sbe_v5_25.experts = {}
+euronext_optiq_marketdatagateway_sbe_v5_25.experts.undecoded = ProtoExpert.new("euronext.optiq.marketdatagateway.sbe.v5.25.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_euronext_optiq_marketdatagateway_sbe_v5_25.experts = { euronext_optiq_marketdatagateway_sbe_v5_25.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Euronext Optiq MarketDataGateway Sbe 5.25 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 euronext_optiq_marketdatagateway_sbe_v5_25.timestamp_format = 2
 
 
@@ -645,6 +650,14 @@ local function lz4_decompress(input, decompressed_size)
 
   output:set_size(decompressed_position)
   return output
+end
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
 end
 -----------------------------------------------------------------------
 -- Euronext Optiq MarketDataGateway Sbe 5.25 Fields
@@ -9538,7 +9551,7 @@ euronext_optiq_marketdatagateway_sbe_v5_25.schema_id.size = 2
 -- Display: Schema Id
 euronext_optiq_marketdatagateway_sbe_v5_25.schema_id.display = function(value)
   if value == 0 then
-    return "Schema Id: 0"
+    return "Schema Id: Com Euronext Optiq Dd (0)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -15914,8 +15927,8 @@ euronext_optiq_marketdatagateway_sbe_v5_25.phase_qualifier.bits = function(range
   -- Exceptional Market Conditions: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.exceptional_market_conditions, range, value)
 
-  -- Unused Phase Qualifierset 8: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.unused_phase_qualifierset_8, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.unused_1, range, value)
 
   -- Quoting Period: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.quoting_period, range, value)
@@ -17719,10 +17732,16 @@ end
 euronext_optiq_marketdatagateway_sbe_v5_25.optiq_message.dissect = function(buffer, offset, packet, parent, size_of_optiq_message)
   local index = offset + size_of_optiq_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.optiq_message, buffer(offset, 0))
-    local current = euronext_optiq_marketdatagateway_sbe_v5_25.optiq_message.fields(buffer, offset, packet, parent, size_of_optiq_message)
+    local decoded, failure = pcall(euronext_optiq_marketdatagateway_sbe_v5_25.optiq_message.fields, bounded, offset, packet, parent, size_of_optiq_message)
+    if not decoded then
+      undecoded(failure, parent, euronext_optiq_marketdatagateway_sbe_v5_25.experts.undecoded, "Optiq Message does not decode within its "..size_of_optiq_message.." bytes")
+    end
     parent:set_len(size_of_optiq_message)
     local display = euronext_optiq_marketdatagateway_sbe_v5_25.optiq_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -17730,7 +17749,10 @@ euronext_optiq_marketdatagateway_sbe_v5_25.optiq_message.dissect = function(buff
     return index, parent
   else
     -- Skip element, add fields directly
-    euronext_optiq_marketdatagateway_sbe_v5_25.optiq_message.fields(buffer, offset, packet, parent, size_of_optiq_message)
+    local decoded, failure = pcall(euronext_optiq_marketdatagateway_sbe_v5_25.optiq_message.fields, bounded, offset, packet, parent, size_of_optiq_message)
+    if not decoded then
+      undecoded(failure, parent, euronext_optiq_marketdatagateway_sbe_v5_25.experts.undecoded, "Optiq Message does not decode within its "..size_of_optiq_message.." bytes")
+    end
 
     return index
   end
@@ -17891,6 +17913,12 @@ euronext_optiq_marketdatagateway_sbe_v5_25.packet.dissect = function(buffer, pac
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(euronext_optiq_marketdatagateway_sbe_v5_25.experts.undecoded, "Frame runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Frame
     local frame = buffer(index, 2):le_uint()

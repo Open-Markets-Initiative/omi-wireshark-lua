@@ -91,7 +91,8 @@ omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.body_index = ProtoField.new("
 -- Tmx TsxAlpha QuantumFeedLevel1 Xmt 2.1 Expert Info
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts = {}
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts.not_a_number = ProtoExpert.new("tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts = { tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts.not_a_number }
+tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts.undecoded = ProtoExpert.new("tmx.tsxalpha.quantumfeedlevel1.xmt.v2.1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts = { tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts.not_a_number, tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Tmx TsxAlpha QuantumFeedLevel1 Xmt 2.1 Formatting
@@ -99,11 +100,11 @@ omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts = { tmx_tsxalpha_quantumfeed
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.timestamp_format = 2
 
 
@@ -170,6 +171,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Tmx TsxAlpha QuantumFeedLevel1 Xmt 2.1 Fields
 -----------------------------------------------------------------------
@@ -1036,7 +1045,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.resume_trade_time.display = function(val
   local second = math.floor(value / 100) % 100
   local hundredth = value % 100
 
-  return string.format("Resume Trade Time: %02d:%02d:%02d.%02d", hour, minute, second, hundredth)
+  return string.format("Resume Trade Time: %02d:%02d:%02d.%02d", hour, minute, second, hundredth).." America/Toronto"
 end
 
 -- Dissect: Resume Trade Time
@@ -1088,7 +1097,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.sequence_0.size = 1
 -- Display: Sequence 0
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.sequence_0.display = function(value)
   if value == 0 then
-    return "Sequence 0: Reserved"
+    return "Sequence 0: Reserved (0)"
   end
 
   return "Sequence 0: Unknown("..value..")"
@@ -1233,7 +1242,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.start_of_frame.size = 1
 -- Display: Start Of Frame
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.start_of_frame.display = function(value)
   if value == 2 then
-    return "Start Of Frame: New Frame"
+    return "Start Of Frame: New Frame (2)"
   end
 
   return "Start Of Frame: Unknown("..value..")"
@@ -1428,7 +1437,7 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.trade_time_stamp.display = function(valu
   local minute = math.floor(value / 100) % 100
   local second = value % 100
 
-  return string.format("Trade Time Stamp: %02d:%02d:%02d", hour, minute, second)
+  return string.format("Trade Time Stamp: %02d:%02d:%02d", hour, minute, second).." America/Toronto"
 end
 
 -- Dissect: Trade Time Stamp
@@ -1965,10 +1974,16 @@ end
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body_message.dissect = function(buffer, offset, packet, parent, size_of_body_message)
   local index = offset + size_of_body_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.body_message, buffer(offset, 0))
-    local current = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body_message.fields(buffer, offset, packet, parent, size_of_body_message)
+    local decoded, failure = pcall(tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body_message.fields, bounded, offset, packet, parent, size_of_body_message)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts.undecoded, "Body Message does not decode within its "..size_of_body_message.." bytes")
+    end
     parent:set_len(size_of_body_message)
     local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1976,7 +1991,10 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body_message.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body_message.fields(buffer, offset, packet, parent, size_of_body_message)
+    local decoded, failure = pcall(tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body_message.fields, bounded, offset, packet, parent, size_of_body_message)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts.undecoded, "Body Message does not decode within its "..size_of_body_message.." bytes")
+    end
 
     return index
   end
@@ -2063,10 +2081,16 @@ end
 tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body.dissect = function(buffer, offset, packet, parent, size_of_body, body_index)
   local index = offset + size_of_body
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.fields.body, buffer(offset, 0))
-    local current = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body.fields(buffer, offset, packet, parent, size_of_body, body_index)
+    local decoded, failure = pcall(tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body.fields, bounded, offset, packet, parent, size_of_body, body_index)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts.undecoded, "Body does not decode within its "..size_of_body.." bytes")
+    end
     parent:set_len(size_of_body)
     local display = tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2074,7 +2098,10 @@ tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body.dissect = function(buffer, offset, 
     return index, parent
   else
     -- Skip element, add fields directly
-    tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body.fields(buffer, offset, packet, parent, size_of_body, body_index)
+    local decoded, failure = pcall(tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.body.fields, bounded, offset, packet, parent, size_of_body, body_index)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsxalpha_quantumfeedlevel1_xmt_v2_1.experts.undecoded, "Body does not decode within its "..size_of_body.." bytes")
+    end
 
     return index
   end

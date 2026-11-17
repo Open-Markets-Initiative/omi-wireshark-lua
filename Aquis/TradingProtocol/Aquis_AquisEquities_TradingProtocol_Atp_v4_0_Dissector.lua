@@ -134,17 +134,22 @@ omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_capture_message = 
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_capture_response_message = ProtoField.new("Trade Capture Response Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.tradecaptureresponsemessage", ftypes.STRING, nil, nil, nil, "Aquis sends a Trade Capture Response Message to accept or reject a Trade Capture Message.")
 omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.trade_message = ProtoField.new("Trade Message", "aquis.aquisequities.tradingprotocol.atp.v4.0.trademessage", ftypes.STRING, nil, nil, nil, "The Trade message is published by Aquis when an order executes. The Trade message is also used to communicate indicative trade reports at lock time for Market at Close orders, and matched firm VWAP orders beginning their crossing duration.")
 
+-- Aquis AquisEquities TradingProtocol Atp 4.0 Expert Info
+aquis_aquisequities_tradingprotocol_atp_v4_0.experts = {}
+aquis_aquisequities_tradingprotocol_atp_v4_0.experts.undecoded = ProtoExpert.new("aquis.aquisequities.tradingprotocol.atp.v4.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_aquis_aquisequities_tradingprotocol_atp_v4_0.experts = { aquis_aquisequities_tradingprotocol_atp_v4_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Aquis AquisEquities TradingProtocol Atp 4.0 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 aquis_aquisequities_tradingprotocol_atp_v4_0.timestamp_format = 2
 
 
@@ -190,6 +195,19 @@ function omi_aquis_aquisequities_tradingprotocol_atp_v4_0.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Aquis AquisEquities TradingProtocol Atp 4.0 Fields
 -----------------------------------------------------------------------
@@ -1137,7 +1155,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_2.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_2, range, value, display)
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1160,7 +1178,7 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_8.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = aquis_aquisequities_tradingprotocol_atp_v4_0.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_8, range, value, display)
+  parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3818,10 +3836,16 @@ end
 aquis_aquisequities_tradingprotocol_atp_v4_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_aquis_aquisequities_tradingprotocol_atp_v4_0.fields.message, buffer(offset, 0))
-    local current = aquis_aquisequities_tradingprotocol_atp_v4_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(aquis_aquisequities_tradingprotocol_atp_v4_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, aquis_aquisequities_tradingprotocol_atp_v4_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = aquis_aquisequities_tradingprotocol_atp_v4_0.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3829,7 +3853,10 @@ aquis_aquisequities_tradingprotocol_atp_v4_0.message.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    aquis_aquisequities_tradingprotocol_atp_v4_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(aquis_aquisequities_tradingprotocol_atp_v4_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, aquis_aquisequities_tradingprotocol_atp_v4_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

@@ -127,12 +127,16 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.timestamp = ProtoField.new(
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 },
+  { 4, "DateTime America/Chicago", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cboe_cfefutures_multicasttop_spin_v1_2_22.timestamp_format = 2
+
+-- Offset of the source's zone from utc in seconds, as the reader states it
+cboe_cfefutures_multicasttop_spin_v1_2_22.zone_offset = 0
 
 
 -----------------------------------------------------------------------
@@ -156,6 +160,7 @@ omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.show_headers = Pref.bool("Sh
 omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.zone_offset = Pref.string("America/Chicago Utc Offset", "", "Offset of America/Chicago from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs_changed()
@@ -178,6 +183,17 @@ function omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs_changed()
   end
   if cboe_cfefutures_multicasttop_spin_v1_2_22.timestamp_format ~= omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.timestamp_format then
     cboe_cfefutures_multicasttop_spin_v1_2_22.timestamp_format = omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.timestamp_format
+  end
+  local sign, hours, minutes = string.match(omi_cboe_cfefutures_multicasttop_spin_v1_2_22.prefs.zone_offset, "^%s*([+-]?)(%d%d?):?(%d?%d?)%s*$")
+
+  cboe_cfefutures_multicasttop_spin_v1_2_22.zone_offset = 0
+
+  if hours then
+    cboe_cfefutures_multicasttop_spin_v1_2_22.zone_offset = tonumber(hours) * 3600 + (tonumber(minutes) or 0) * 60
+  end
+
+  if sign == "-" then
+    cboe_cfefutures_multicasttop_spin_v1_2_22.zone_offset = -cboe_cfefutures_multicasttop_spin_v1_2_22.zone_offset
   end
 end
 
@@ -1282,8 +1298,16 @@ cboe_cfefutures_multicasttop_spin_v1_2_22.midnight_reference.dissect = function(
   if cboe_cfefutures_multicasttop_spin_v1_2_22.timestamp_format == 3 then field = omi_cboe_cfefutures_multicasttop_spin_v1_2_22.fields.midnight_reference_utc end
 
   local seconds = value
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Read on America/Chicago's clock: the instant moved by the offset the reader states for it
+  if cboe_cfefutures_multicasttop_spin_v1_2_22.timestamp_format == 4 and cboe_cfefutures_multicasttop_spin_v1_2_22.zone_offset ~= 0 then
+    local clock = seconds + cboe_cfefutures_multicasttop_spin_v1_2_22.zone_offset
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Midnight Reference: "..os.date("!%Y-%m-%d %H:%M:%S", clock).." America/Chicago")
+    return offset + length, value
+  end
+
+  parent:add(field, range, NSTime.new(seconds, 0))
 
   return offset + length, value
 end

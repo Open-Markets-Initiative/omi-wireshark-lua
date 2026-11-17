@@ -112,6 +112,11 @@ omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.top_of_book_message = Pr
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.trade_message = ProtoField.new("Trade Message", "otcmarkets.linknqb.retransmission.link.v1.18.trademessage", ftypes.STRING, nil, nil, nil, "Appears in the TCP spin response payload during DOB replay. Published when non-displayed quantity of a previously published reserve order executes or when an order executes that is less than Min Quote Size and does not currently have an active Order Add message.")
 omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.trading_session_message = ProtoField.new("Trading Session Message", "otcmarkets.linknqb.retransmission.link.v1.18.tradingsessionmessage", ftypes.STRING, nil, nil, nil, "Appears in the TCP spin response payload (and on all UDP channels). Sent at the start of each NQB IDQS trading session: Order Acceptance at 6 AM, Pre-Market Open at 8 AM, Market Open at 9:30 AM, After Hours at 4 PM, Market Close at 5 PM.")
 
+-- OtcMarkets LinkNqb Retransmission Link 1.18 Expert Info
+otcmarkets_linknqb_retransmission_link_v1_18.experts = {}
+otcmarkets_linknqb_retransmission_link_v1_18.experts.undecoded = ProtoExpert.new("otcmarkets.linknqb.retransmission.link.v1.18.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_otcmarkets_linknqb_retransmission_link_v1_18.experts = { otcmarkets_linknqb_retransmission_link_v1_18.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- OtcMarkets LinkNqb Retransmission Link 1.18 Formatting
 -----------------------------------------------------------------------
@@ -120,11 +125,12 @@ omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.trading_session_message 
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 otcmarkets_linknqb_retransmission_link_v1_18.timestamp_format = 2
 
 
@@ -165,6 +171,19 @@ function omi_otcmarkets_linknqb_retransmission_link_v1_18.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- OtcMarkets LinkNqb Retransmission Link 1.18 Fields
 -----------------------------------------------------------------------
@@ -1532,10 +1551,15 @@ otcmarkets_linknqb_retransmission_link_v1_18.time.display = function(value, buff
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if otcmarkets_linknqb_retransmission_link_v1_18.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." America/New York"
+      end
 
       local format = otcmarkets_linknqb_retransmission_link_v1_18.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -2976,10 +3000,16 @@ end
 otcmarkets_linknqb_retransmission_link_v1_18.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_otcmarkets_linknqb_retransmission_link_v1_18.fields.message, buffer(offset, 0))
-    local current = otcmarkets_linknqb_retransmission_link_v1_18.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(otcmarkets_linknqb_retransmission_link_v1_18.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, otcmarkets_linknqb_retransmission_link_v1_18.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = otcmarkets_linknqb_retransmission_link_v1_18.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2987,7 +3017,10 @@ otcmarkets_linknqb_retransmission_link_v1_18.message.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    otcmarkets_linknqb_retransmission_link_v1_18.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(otcmarkets_linknqb_retransmission_link_v1_18.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, otcmarkets_linknqb_retransmission_link_v1_18.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -3012,6 +3045,12 @@ otcmarkets_linknqb_retransmission_link_v1_18.packet.dissect = function(buffer, p
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(otcmarkets_linknqb_retransmission_link_v1_18.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):uint()

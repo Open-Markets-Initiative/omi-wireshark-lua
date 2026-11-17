@@ -101,11 +101,11 @@ omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_h.fields.timestamp 
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_h.timestamp_format = 2
 
 -- High Price Calculate format (true = decimal-scaled, false = raw mantissa)
@@ -1060,7 +1060,7 @@ nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_h.reserved_1.dissect = 
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_h.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_h.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_h.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1083,7 +1083,7 @@ nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_h.reserved_4.dissect = 
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_h.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_h.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_nyseequities_integratedfeedstocksummary_pillar_v2_5_h.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end

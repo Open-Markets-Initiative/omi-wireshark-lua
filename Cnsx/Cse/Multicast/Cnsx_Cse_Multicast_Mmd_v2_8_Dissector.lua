@@ -118,7 +118,8 @@ omi_cnsx_cse_multicast_mmd_v2_8.fields.timestamp = ProtoField.new("Timestamp", "
 -- Cnsx Cse Multicast Mmd 2.8 Expert Info
 cnsx_cse_multicast_mmd_v2_8.experts = {}
 cnsx_cse_multicast_mmd_v2_8.experts.not_a_number = ProtoExpert.new("cnsx.cse.multicast.mmd.v2.8.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_cnsx_cse_multicast_mmd_v2_8.experts = { cnsx_cse_multicast_mmd_v2_8.experts.not_a_number }
+cnsx_cse_multicast_mmd_v2_8.experts.undecoded = ProtoExpert.new("cnsx.cse.multicast.mmd.v2.8.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cnsx_cse_multicast_mmd_v2_8.experts = { cnsx_cse_multicast_mmd_v2_8.experts.not_a_number, cnsx_cse_multicast_mmd_v2_8.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Cnsx Cse Multicast Mmd 2.8 Formatting
@@ -128,11 +129,11 @@ omi_cnsx_cse_multicast_mmd_v2_8.experts = { cnsx_cse_multicast_mmd_v2_8.experts.
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cnsx_cse_multicast_mmd_v2_8.timestamp_format = 2
 
 
@@ -292,6 +293,14 @@ format_implied_decimal_text = function(str, places)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cnsx Cse Multicast Mmd 2.8 Fields
 -----------------------------------------------------------------------
@@ -2114,10 +2123,8 @@ cnsx_cse_multicast_mmd_v2_8.timestamp.display = function(time_offset, stored_sec
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = cnsx_cse_multicast_mmd_v2_8.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", fraction)
     end
   end
 
@@ -3410,10 +3417,16 @@ end
 cnsx_cse_multicast_mmd_v2_8.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cnsx_cse_multicast_mmd_v2_8.fields.message, buffer(offset, 0))
-    local current = cnsx_cse_multicast_mmd_v2_8.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(cnsx_cse_multicast_mmd_v2_8.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, cnsx_cse_multicast_mmd_v2_8.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = cnsx_cse_multicast_mmd_v2_8.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3421,7 +3434,10 @@ cnsx_cse_multicast_mmd_v2_8.message.dissect = function(buffer, offset, packet, p
     return index, parent
   else
     -- Skip element, add fields directly
-    cnsx_cse_multicast_mmd_v2_8.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(cnsx_cse_multicast_mmd_v2_8.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, cnsx_cse_multicast_mmd_v2_8.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

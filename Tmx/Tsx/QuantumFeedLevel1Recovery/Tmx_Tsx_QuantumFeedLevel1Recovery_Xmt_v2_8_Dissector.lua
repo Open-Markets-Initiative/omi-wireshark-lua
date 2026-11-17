@@ -147,7 +147,8 @@ omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.fields.sequence_jump_record_index
 -- Tmx Tsx QuantumFeedLevel1Recovery Xmt 2.8 Expert Info
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts = {}
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.not_a_number = ProtoExpert.new("tmx.tsx.quantumfeedlevel1recovery.xmt.v2.8.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts = { tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.not_a_number }
+tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.undecoded = ProtoExpert.new("tmx.tsx.quantumfeedlevel1recovery.xmt.v2.8.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts = { tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.not_a_number, tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Tmx Tsx QuantumFeedLevel1Recovery Xmt 2.8 Formatting
@@ -155,11 +156,11 @@ omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts = { tmx_tsx_quantumfeedle
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.timestamp_format = 2
 
 -- assumed connection role
@@ -236,6 +237,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Tmx Tsx QuantumFeedLevel1Recovery Xmt 2.8 Fields
 -----------------------------------------------------------------------
@@ -636,7 +645,7 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.credits.size = 2
 -- Display: Credits
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.credits.display = function(value)
   if value == 0 then
-    return "Credits: Reserved"
+    return "Credits: Reserved (0)"
   end
 
   return "Credits: Unknown("..value..")"
@@ -1862,7 +1871,7 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.resume_trade_time.display = function(
   local second = math.floor(value / 100) % 100
   local hundredth = value % 100
 
-  return string.format("Resume Trade Time: %02d:%02d:%02d.%02d", hour, minute, second, hundredth)
+  return string.format("Resume Trade Time: %02d:%02d:%02d.%02d", hour, minute, second, hundredth).." America/Toronto"
 end
 
 -- Dissect: Resume Trade Time
@@ -1970,7 +1979,7 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.sequence_0.size = 1
 -- Display: Sequence 0
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.sequence_0.display = function(value)
   if value == 0 then
-    return "Sequence 0: Reserved"
+    return "Sequence 0: Reserved (0)"
   end
 
   return "Sequence 0: Unknown("..value..")"
@@ -2207,7 +2216,7 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.start_of_frame.size = 1
 -- Display: Start Of Frame
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.start_of_frame.display = function(value)
   if value == 2 then
-    return "Start Of Frame: New Frame"
+    return "Start Of Frame: New Frame (2)"
   end
 
   return "Start Of Frame: Unknown("..value..")"
@@ -2437,7 +2446,7 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.trade_time_stamp.display = function(v
   local minute = math.floor(value / 100) % 100
   local second = value % 100
 
-  return string.format("Trade Time Stamp: %02d:%02d:%02d", hour, minute, second)
+  return string.format("Trade Time Stamp: %02d:%02d:%02d", hour, minute, second).." America/Toronto"
 end
 
 -- Dissect: Trade Time Stamp
@@ -3480,10 +3489,16 @@ end
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body_message.dissect = function(buffer, offset, packet, parent, size_of_body_message)
   local index = offset + size_of_body_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.fields.body_message, buffer(offset, 0))
-    local current = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body_message.fields(buffer, offset, packet, parent, size_of_body_message)
+    local decoded, failure = pcall(tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body_message.fields, bounded, offset, packet, parent, size_of_body_message)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.undecoded, "Body Message does not decode within its "..size_of_body_message.." bytes")
+    end
     parent:set_len(size_of_body_message)
     local display = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3491,7 +3506,10 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body_message.dissect = function(buffe
     return index, parent
   else
     -- Skip element, add fields directly
-    tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body_message.fields(buffer, offset, packet, parent, size_of_body_message)
+    local decoded, failure = pcall(tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body_message.fields, bounded, offset, packet, parent, size_of_body_message)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.undecoded, "Body Message does not decode within its "..size_of_body_message.." bytes")
+    end
 
     return index
   end
@@ -3534,10 +3552,16 @@ end
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body.dissect = function(buffer, offset, packet, parent, size_of_body, body_index)
   local index = offset + size_of_body
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.fields.body, buffer(offset, 0))
-    local current = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body.fields(buffer, offset, packet, parent, size_of_body, body_index)
+    local decoded, failure = pcall(tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body.fields, bounded, offset, packet, parent, size_of_body, body_index)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.undecoded, "Body does not decode within its "..size_of_body.." bytes")
+    end
     parent:set_len(size_of_body)
     local display = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3545,7 +3569,10 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body.dissect = function(buffer, offse
     return index, parent
   else
     -- Skip element, add fields directly
-    tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body.fields(buffer, offset, packet, parent, size_of_body, body_index)
+    local decoded, failure = pcall(tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.body.fields, bounded, offset, packet, parent, size_of_body, body_index)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.undecoded, "Body does not decode within its "..size_of_body.." bytes")
+    end
 
     return index
   end
@@ -3937,10 +3964,16 @@ end
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.server_frame.dissect = function(buffer, offset, packet, parent, size_of_server_frame)
   local index = offset + size_of_server_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.fields.server_frame, buffer(offset, 0))
-    local current = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    local decoded, failure = pcall(tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.server_frame.fields, bounded, offset, packet, parent, size_of_server_frame)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.undecoded, "Server Frame does not decode within its "..size_of_server_frame.." bytes")
+    end
     parent:set_len(size_of_server_frame)
     local display = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.server_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3948,7 +3981,10 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.server_frame.dissect = function(buffe
     return index, parent
   else
     -- Skip element, add fields directly
-    tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    local decoded, failure = pcall(tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.server_frame.fields, bounded, offset, packet, parent, size_of_server_frame)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.undecoded, "Server Frame does not decode within its "..size_of_server_frame.." bytes")
+    end
 
     return index
   end
@@ -4319,10 +4355,16 @@ end
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.client_frame.dissect = function(buffer, offset, packet, parent, size_of_client_frame)
   local index = offset + size_of_client_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.fields.client_frame, buffer(offset, 0))
-    local current = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    local decoded, failure = pcall(tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.client_frame.fields, bounded, offset, packet, parent, size_of_client_frame)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.undecoded, "Client Frame does not decode within its "..size_of_client_frame.." bytes")
+    end
     parent:set_len(size_of_client_frame)
     local display = tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.client_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4330,7 +4372,10 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.client_frame.dissect = function(buffe
     return index, parent
   else
     -- Skip element, add fields directly
-    tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    local decoded, failure = pcall(tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.client_frame.fields, bounded, offset, packet, parent, size_of_client_frame)
+    if not decoded then
+      undecoded(failure, parent, tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.experts.undecoded, "Client Frame does not decode within its "..size_of_client_frame.." bytes")
+    end
 
     return index
   end

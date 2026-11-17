@@ -132,17 +132,22 @@ omi_eurex_t7_eobi_fbe_v4_0.fields.instrmt_leg_grp_comp_index = ProtoField.new("I
 omi_eurex_t7_eobi_fbe_v4_0.fields.md_instrument_entry_grp_comp_index = ProtoField.new("Md Instrument Entry Grp Comp Index", "eurex.t7.eobi.fbe.v4.0.mdinstrumententrygrpcompindex", ftypes.UINT16)
 omi_eurex_t7_eobi_fbe_v4_0.fields.md_trade_entry_grp_comp_index = ProtoField.new("Md Trade Entry Grp Comp Index", "eurex.t7.eobi.fbe.v4.0.mdtradeentrygrpcompindex", ftypes.UINT16)
 
+-- Eurex T7 Eobi Fbe 4.0 Expert Info
+eurex_t7_eobi_fbe_v4_0.experts = {}
+eurex_t7_eobi_fbe_v4_0.experts.undecoded = ProtoExpert.new("eurex.t7.eobi.fbe.v4.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_eurex_t7_eobi_fbe_v4_0.experts = { eurex_t7_eobi_fbe_v4_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Eurex T7 Eobi Fbe 4.0 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 eurex_t7_eobi_fbe_v4_0.timestamp_format = 2
 
 
@@ -198,6 +203,19 @@ function omi_eurex_t7_eobi_fbe_v4_0.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Eurex T7 Eobi Fbe 4.0 Fields
 -----------------------------------------------------------------------
@@ -1286,7 +1304,7 @@ eurex_t7_eobi_fbe_v4_0.pad1.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eobi_fbe_v4_0.pad1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad1, range, value, display)
+  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1309,7 +1327,7 @@ eurex_t7_eobi_fbe_v4_0.pad2.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eobi_fbe_v4_0.pad2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad2, range, value, display)
+  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1332,7 +1350,7 @@ eurex_t7_eobi_fbe_v4_0.pad3.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eobi_fbe_v4_0.pad3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad3, range, value, display)
+  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1355,7 +1373,7 @@ eurex_t7_eobi_fbe_v4_0.pad4.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eobi_fbe_v4_0.pad4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad4, range, value, display)
+  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1378,7 +1396,7 @@ eurex_t7_eobi_fbe_v4_0.pad5.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eobi_fbe_v4_0.pad5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad5, range, value, display)
+  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1401,7 +1419,7 @@ eurex_t7_eobi_fbe_v4_0.pad6.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eobi_fbe_v4_0.pad6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad6, range, value, display)
+  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1424,7 +1442,7 @@ eurex_t7_eobi_fbe_v4_0.pad7.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eobi_fbe_v4_0.pad7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad7, range, value, display)
+  parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.pad7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4237,10 +4255,16 @@ end
 eurex_t7_eobi_fbe_v4_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_eurex_t7_eobi_fbe_v4_0.fields.message, buffer(offset, 0))
-    local current = eurex_t7_eobi_fbe_v4_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(eurex_t7_eobi_fbe_v4_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_eobi_fbe_v4_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = eurex_t7_eobi_fbe_v4_0.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4248,7 +4272,10 @@ eurex_t7_eobi_fbe_v4_0.message.dissect = function(buffer, offset, packet, parent
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_t7_eobi_fbe_v4_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(eurex_t7_eobi_fbe_v4_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_eobi_fbe_v4_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -4396,6 +4423,12 @@ eurex_t7_eobi_fbe_v4_0.packet.dissect = function(buffer, packet, parent)
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(eurex_t7_eobi_fbe_v4_0.experts.undecoded, "Body Len runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Body Len
     local body_len = buffer(index, 2):le_uint()

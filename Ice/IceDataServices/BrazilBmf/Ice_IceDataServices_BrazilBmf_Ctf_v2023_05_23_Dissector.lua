@@ -2564,7 +2564,7 @@ ice_icedataservices_brazilbmf_ctf_v2023_05_23.frame_end.size = 1
 -- Display: Frame End
 ice_icedataservices_brazilbmf_ctf_v2023_05_23.frame_end.display = function(value)
   if value == 3 then
-    return "Frame End: Frame End"
+    return "Frame End: Frame End (3)"
   end
 
   return "Frame End: Unknown("..value..")"
@@ -2591,7 +2591,7 @@ ice_icedataservices_brazilbmf_ctf_v2023_05_23.frame_start.size = 1
 -- Display: Frame Start
 ice_icedataservices_brazilbmf_ctf_v2023_05_23.frame_start.display = function(value)
   if value == 4 then
-    return "Frame Start: Frame Start"
+    return "Frame Start: Frame Start (4)"
   end
 
   return "Frame Start: Unknown("..value..")"
@@ -2716,7 +2716,7 @@ ice_icedataservices_brazilbmf_ctf_v2023_05_23.protocol_signature.size = 1
 -- Display: Protocol Signature
 ice_icedataservices_brazilbmf_ctf_v2023_05_23.protocol_signature.display = function(value)
   if value == 32 then
-    return "Protocol Signature: Token Value Payload"
+    return "Protocol Signature: Token Value Payload (32)"
   end
 
   return "Protocol Signature: Unknown("..value..")"

@@ -47,12 +47,16 @@ omi_nse_nsefo_snapshot_tbt_v6_8.fields.message_index = ProtoField.new("Message I
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 },
+  { 3, "DateTime Asia/Kolkata", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nse_nsefo_snapshot_tbt_v6_8.timestamp_format = 2
+
+-- Offset of the source's zone from utc in seconds, as the reader states it
+nse_nsefo_snapshot_tbt_v6_8.zone_offset = 0
 
 
 -----------------------------------------------------------------------
@@ -74,6 +78,7 @@ omi_nse_nsefo_snapshot_tbt_v6_8.prefs.show_headers = Pref.bool("Show Headers", s
 omi_nse_nsefo_snapshot_tbt_v6_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nse_nsefo_snapshot_tbt_v6_8.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsefo_snapshot_tbt_v6_8.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences
 function omi_nse_nsefo_snapshot_tbt_v6_8.prefs_changed()
@@ -93,6 +98,17 @@ function omi_nse_nsefo_snapshot_tbt_v6_8.prefs_changed()
   end
   if nse_nsefo_snapshot_tbt_v6_8.timestamp_format ~= omi_nse_nsefo_snapshot_tbt_v6_8.prefs.timestamp_format then
     nse_nsefo_snapshot_tbt_v6_8.timestamp_format = omi_nse_nsefo_snapshot_tbt_v6_8.prefs.timestamp_format
+  end
+  local sign, hours, minutes = string.match(omi_nse_nsefo_snapshot_tbt_v6_8.prefs.zone_offset, "^%s*([+-]?)(%d%d?):?(%d?%d?)%s*$")
+
+  nse_nsefo_snapshot_tbt_v6_8.zone_offset = 0
+
+  if hours then
+    nse_nsefo_snapshot_tbt_v6_8.zone_offset = tonumber(hours) * 3600 + (tonumber(minutes) or 0) * 60
+  end
+
+  if sign == "-" then
+    nse_nsefo_snapshot_tbt_v6_8.zone_offset = -nse_nsefo_snapshot_tbt_v6_8.zone_offset
   end
 end
 
@@ -341,9 +357,19 @@ nse_nsefo_snapshot_tbt_v6_8.timestamp.dissect = function(buffer, offset, packet,
   local field = omi_nse_nsefo_snapshot_tbt_v6_8.fields.timestamp
   if nse_nsefo_snapshot_tbt_v6_8.timestamp_format == 3 then field = omi_nse_nsefo_snapshot_tbt_v6_8.fields.timestamp_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
   local nanos = (value % UInt64(1000000000)):tonumber()
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_snapshot_tbt_v6_8.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, nanos))
+    item:set_text("Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanos).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_snapshot_tbt_v6_8.zone_offset, nanos))
 
   return offset + length, value
 end

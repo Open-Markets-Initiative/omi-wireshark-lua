@@ -42,9 +42,7 @@ omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.sequenced_data_packet = Pro
 omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.ntxequities.totalview.glimpse.v3.2.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.shares = ProtoField.new("Shares", "nasdaq.ntxequities.totalview.glimpse.v3.2.shares", ftypes.UINT24, nil, nil, nil, "The total number of shares associated with the order being added to the book.")
 omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.ntxequities.totalview.glimpse.v3.2.souplf", ftypes.INT8, nil, nil, nil, "Terminating line feed character")
-omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.stock_alpha_8 = ProtoField.new("Stock Alpha 8", "nasdaq.ntxequities.totalview.glimpse.v3.2.stockalpha8", ftypes.STRING, nil, nil, nil, "The security symbol for which the order is being added.")
-omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.stock_alphabetic_8 = ProtoField.new("Stock Alphabetic 8", "nasdaq.ntxequities.totalview.glimpse.v3.2.stockalphabetic8", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in the feed.")
-omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.stock_alphanumeric_8 = ProtoField.new("Stock Alphanumeric 8", "nasdaq.ntxequities.totalview.glimpse.v3.2.stockalphanumeric8", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
+omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.stock = ProtoField.new("Stock", "nasdaq.ntxequities.totalview.glimpse.v3.2.stock", ftypes.STRING, nil, nil, nil, "The security symbol for which the order is being added.")
 omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.text = ProtoField.new("Text", "nasdaq.ntxequities.totalview.glimpse.v3.2.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.trading_state = ProtoField.new("Trading State", "nasdaq.ntxequities.totalview.glimpse.v3.2.tradingstate", ftypes.STRING, nil, nil, nil, "Indicates the trading state for the issue at the time of the GLIMPSE transmission.")
 omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.ntxequities.totalview.glimpse.v3.2.unsequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw unsequenced message bytes")
@@ -80,7 +78,8 @@ omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.unsequenced_data_packet = P
 -- Nasdaq NtxEquities TotalView Glimpse 3.2 Expert Info
 nasdaq_ntxequities_totalview_glimpse_v3_2.experts = {}
 nasdaq_ntxequities_totalview_glimpse_v3_2.experts.not_a_number = ProtoExpert.new("nasdaq.ntxequities.totalview.glimpse.v3.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_nasdaq_ntxequities_totalview_glimpse_v3_2.experts = { nasdaq_ntxequities_totalview_glimpse_v3_2.experts.not_a_number }
+nasdaq_ntxequities_totalview_glimpse_v3_2.experts.undecoded = ProtoExpert.new("nasdaq.ntxequities.totalview.glimpse.v3.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_ntxequities_totalview_glimpse_v3_2.experts = { nasdaq_ntxequities_totalview_glimpse_v3_2.experts.not_a_number, nasdaq_ntxequities_totalview_glimpse_v3_2.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Nasdaq NtxEquities TotalView Glimpse 3.2 Formatting
@@ -232,6 +231,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nasdaq NtxEquities TotalView Glimpse 3.2 Fields
 -----------------------------------------------------------------------
@@ -1008,7 +1015,7 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.soup_lf.size = 1
 -- Display: Soup Lf
 nasdaq_ntxequities_totalview_glimpse_v3_2.soup_lf.display = function(value)
   if value == 10 then
-    return "Soup Lf: Line Feed"
+    return "Soup Lf: Line Feed (10)"
   end
 
   return "Soup Lf: Unknown("..value..")"
@@ -1026,71 +1033,25 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.soup_lf.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Stock Alpha 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8 = {}
+-- Stock
+nasdaq_ntxequities_totalview_glimpse_v3_2.stock = {}
 
--- Size: Stock Alpha 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.size = 8
+-- Size: Stock
+nasdaq_ntxequities_totalview_glimpse_v3_2.stock.size = 8
 
--- Display: Stock Alpha 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.display = function(value)
-  return "Stock Alpha 8: "..value
+-- Display: Stock
+nasdaq_ntxequities_totalview_glimpse_v3_2.stock.display = function(value)
+  return "Stock: "..value
 end
 
--- Dissect: Stock Alpha 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.size
+-- Dissect: Stock
+nasdaq_ntxequities_totalview_glimpse_v3_2.stock.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_ntxequities_totalview_glimpse_v3_2.stock.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_ntxequities_totalview_glimpse_v3_2.stock.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.stock_alpha_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Stock Alphabetic 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphabetic_8 = {}
-
--- Size: Stock Alphabetic 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphabetic_8.size = 8
-
--- Display: Stock Alphabetic 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphabetic_8.display = function(value)
-  return "Stock Alphabetic 8: "..value
-end
-
--- Dissect: Stock Alphabetic 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphabetic_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphabetic_8.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphabetic_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.stock_alphabetic_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Stock Alphanumeric 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphanumeric_8 = {}
-
--- Size: Stock Alphanumeric 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphanumeric_8.size = 8
-
--- Display: Stock Alphanumeric 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphanumeric_8.display = function(value)
-  return "Stock Alphanumeric 8: "..value
-end
-
--- Dissect: Stock Alphanumeric 8
-nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphanumeric_8.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphanumeric_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.stock_alphanumeric_8, range, value, display)
+  parent:add(omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.stock, range, value, display)
 
   return offset + length, value
 end
@@ -1157,7 +1118,7 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.unsequenced_message.dissect = function
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_ntxequities_totalview_glimpse_v3_2.unsequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.unsequenced_message, range, value, display)
+  parent:add(omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.unsequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1235,7 +1196,7 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.reg_sho_restriction_message = {}
 
 -- Size: Reg Sho Restriction Message
 nasdaq_ntxequities_totalview_glimpse_v3_2.reg_sho_restriction_message.size =
-  nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.size + 
+  nasdaq_ntxequities_totalview_glimpse_v3_2.stock.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.reg_sho_action.size
 
 -- Display: Reg Sho Restriction Message
@@ -1247,8 +1208,8 @@ end
 nasdaq_ntxequities_totalview_glimpse_v3_2.reg_sho_restriction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Alpha 8: Alpha
-  index, stock_alpha_8 = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
 
   -- Reg Sho Action: Alpha
   index, reg_sho_action = nasdaq_ntxequities_totalview_glimpse_v3_2.reg_sho_action.dissect(buffer, index, packet, parent)
@@ -1279,7 +1240,7 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.stock_trading_action_message = {}
 
 -- Size: Stock Trading Action Message
 nasdaq_ntxequities_totalview_glimpse_v3_2.stock_trading_action_message.size =
-  nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphanumeric_8.size + 
+  nasdaq_ntxequities_totalview_glimpse_v3_2.stock.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.trading_state.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.reserved_1.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.reason.size
@@ -1293,8 +1254,8 @@ end
 nasdaq_ntxequities_totalview_glimpse_v3_2.stock_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Alphanumeric 8: Alphanumeric
-  index, stock_alphanumeric_8 = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
 
   -- Trading State: Alphabetic
   index, trading_state = nasdaq_ntxequities_totalview_glimpse_v3_2.trading_state.dissect(buffer, index, packet, parent)
@@ -1331,7 +1292,7 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.stock_directory_message = {}
 
 -- Size: Stock Directory Message
 nasdaq_ntxequities_totalview_glimpse_v3_2.stock_directory_message.size =
-  nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphabetic_8.size + 
+  nasdaq_ntxequities_totalview_glimpse_v3_2.stock.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.market_category.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.financial_status_indicator.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.round_lot_size.size + 
@@ -1346,8 +1307,8 @@ end
 nasdaq_ntxequities_totalview_glimpse_v3_2.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Alphabetic 8: Alphabetic
-  index, stock_alphabetic_8 = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alphabetic_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
 
   -- Market Category: Alphanumeric
   index, market_category = nasdaq_ntxequities_totalview_glimpse_v3_2.market_category.dissect(buffer, index, packet, parent)
@@ -1390,7 +1351,7 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.siz
   nasdaq_ntxequities_totalview_glimpse_v3_2.order_reference_number.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.buy_sell_indicator.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.shares.size + 
-  nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.size + 
+  nasdaq_ntxequities_totalview_glimpse_v3_2.stock.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.price.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.attribution.size
 
@@ -1412,8 +1373,8 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.add_order_mpid_attribution_message.fie
   -- Shares: Numeric
   index, shares = nasdaq_ntxequities_totalview_glimpse_v3_2.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock Alpha 8: Alpha
-  index, stock_alpha_8 = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
 
   -- Price: Numeric
   index, price = nasdaq_ntxequities_totalview_glimpse_v3_2.price.dissect(buffer, index, packet, parent)
@@ -1450,7 +1411,7 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.add_order_message.size =
   nasdaq_ntxequities_totalview_glimpse_v3_2.order_reference_number.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.buy_sell_indicator.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.shares.size + 
-  nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.size + 
+  nasdaq_ntxequities_totalview_glimpse_v3_2.stock.size + 
   nasdaq_ntxequities_totalview_glimpse_v3_2.price.size
 
 -- Display: Add Order Message
@@ -1471,8 +1432,8 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.add_order_message.fields = function(bu
   -- Shares: Numeric
   index, shares = nasdaq_ntxequities_totalview_glimpse_v3_2.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock Alpha 8: Alpha
-  index, stock_alpha_8 = nasdaq_ntxequities_totalview_glimpse_v3_2.stock_alpha_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_ntxequities_totalview_glimpse_v3_2.stock.dissect(buffer, index, packet, parent)
 
   -- Price: Numeric
   index, price = nasdaq_ntxequities_totalview_glimpse_v3_2.price.dissect(buffer, index, packet, parent)
@@ -1965,10 +1926,16 @@ end
 nasdaq_ntxequities_totalview_glimpse_v3_2.server_frame.dissect = function(buffer, offset, packet, parent, size_of_server_frame)
   local index = offset + size_of_server_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.server_frame, buffer(offset, 0))
-    local current = nasdaq_ntxequities_totalview_glimpse_v3_2.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    local decoded, failure = pcall(nasdaq_ntxequities_totalview_glimpse_v3_2.server_frame.fields, bounded, offset, packet, parent, size_of_server_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_ntxequities_totalview_glimpse_v3_2.experts.undecoded, "Server Frame does not decode within its "..size_of_server_frame.." bytes")
+    end
     parent:set_len(size_of_server_frame)
     local display = nasdaq_ntxequities_totalview_glimpse_v3_2.server_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1976,7 +1943,10 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.server_frame.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_ntxequities_totalview_glimpse_v3_2.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    local decoded, failure = pcall(nasdaq_ntxequities_totalview_glimpse_v3_2.server_frame.fields, bounded, offset, packet, parent, size_of_server_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_ntxequities_totalview_glimpse_v3_2.experts.undecoded, "Server Frame does not decode within its "..size_of_server_frame.." bytes")
+    end
 
     return index
   end
@@ -2235,10 +2205,16 @@ end
 nasdaq_ntxequities_totalview_glimpse_v3_2.client_frame.dissect = function(buffer, offset, packet, parent, size_of_client_frame)
   local index = offset + size_of_client_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_ntxequities_totalview_glimpse_v3_2.fields.client_frame, buffer(offset, 0))
-    local current = nasdaq_ntxequities_totalview_glimpse_v3_2.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    local decoded, failure = pcall(nasdaq_ntxequities_totalview_glimpse_v3_2.client_frame.fields, bounded, offset, packet, parent, size_of_client_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_ntxequities_totalview_glimpse_v3_2.experts.undecoded, "Client Frame does not decode within its "..size_of_client_frame.." bytes")
+    end
     parent:set_len(size_of_client_frame)
     local display = nasdaq_ntxequities_totalview_glimpse_v3_2.client_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2246,7 +2222,10 @@ nasdaq_ntxequities_totalview_glimpse_v3_2.client_frame.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_ntxequities_totalview_glimpse_v3_2.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    local decoded, failure = pcall(nasdaq_ntxequities_totalview_glimpse_v3_2.client_frame.fields, bounded, offset, packet, parent, size_of_client_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_ntxequities_totalview_glimpse_v3_2.experts.undecoded, "Client Frame does not decode within its "..size_of_client_frame.." bytes")
+    end
 
     return index
   end

@@ -212,11 +212,11 @@ omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.messages_seq
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format = 2
 
 
@@ -2155,7 +2155,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.padding.dissect = funct
   local value = range:bytes():tohex(false, " ")
   local display = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.padding.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.padding, range, value, display)
+  parent:add(omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.padding, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2307,7 +2307,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.raw_data.dissect = func
   local value = range:bytes():tohex(false, " ")
   local display = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.raw_data.display(value, packet, parent, size)
 
-  parent:add(omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.raw_data, range, value, display)
+  parent:add(omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.raw_data, range, range:raw(), display)
 
   return offset + size, value
 end

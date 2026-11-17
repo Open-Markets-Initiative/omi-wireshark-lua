@@ -718,17 +718,22 @@ omi_eurex_t7_eti_fbe_v9_1.fields.target_parties_comp_index = ProtoField.new("Tar
 omi_eurex_t7_eti_fbe_v9_1.fields.trd_instrmnt_leg_grp_comp_index = ProtoField.new("Trd Instrmnt Leg Grp Comp Index", "eurex.t7.eti.fbe.v9.1.trdinstrmntleggrpcompindex", ftypes.UINT16)
 omi_eurex_t7_eti_fbe_v9_1.fields.underlying_stip_grp_comp_index = ProtoField.new("Underlying Stip Grp Comp Index", "eurex.t7.eti.fbe.v9.1.underlyingstipgrpcompindex", ftypes.UINT16)
 
+-- Eurex T7 Eti Fbe 9.1 Expert Info
+eurex_t7_eti_fbe_v9_1.experts = {}
+eurex_t7_eti_fbe_v9_1.experts.undecoded = ProtoExpert.new("eurex.t7.eti.fbe.v9.1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_eurex_t7_eti_fbe_v9_1.experts = { eurex_t7_eti_fbe_v9_1.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Eurex T7 Eti Fbe 9.1 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 eurex_t7_eti_fbe_v9_1.timestamp_format = 2
 
 -- assumed connection role
@@ -810,6 +815,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Eurex T7 Eti Fbe 9.1 Fields
 -----------------------------------------------------------------------
@@ -888,7 +901,7 @@ eurex_t7_eti_fbe_v9_1.alignment_padding.dissect = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.alignment_padding.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.alignment_padding, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.alignment_padding, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -978,7 +991,7 @@ eurex_t7_eti_fbe_v9_1.appl_beg_msg_id.dissect = function(buffer, offset, packet,
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.appl_beg_msg_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.appl_beg_msg_id, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.appl_beg_msg_id, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1029,7 +1042,7 @@ eurex_t7_eti_fbe_v9_1.appl_end_msg_id.dissect = function(buffer, offset, packet,
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.appl_end_msg_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.appl_end_msg_id, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.appl_end_msg_id, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1167,7 +1180,7 @@ eurex_t7_eti_fbe_v9_1.appl_msg_id.dissect = function(buffer, offset, packet, par
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.appl_msg_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.appl_msg_id, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.appl_msg_id, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4351,7 +4364,7 @@ eurex_t7_eti_fbe_v9_1.last_entity_processed.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.last_entity_processed.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.last_entity_processed, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.last_entity_processed, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7742,7 +7755,7 @@ eurex_t7_eti_fbe_v9_1.pad1.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.pad1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad1, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7765,7 +7778,7 @@ eurex_t7_eti_fbe_v9_1.pad1v1.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.pad1v1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad1v1, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad1v1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7788,7 +7801,7 @@ eurex_t7_eti_fbe_v9_1.pad2.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.pad2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad2, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7811,7 +7824,7 @@ eurex_t7_eti_fbe_v9_1.pad2v2.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.pad2v2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad2v2, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad2v2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7834,7 +7847,7 @@ eurex_t7_eti_fbe_v9_1.pad3.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.pad3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad3, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7857,7 +7870,7 @@ eurex_t7_eti_fbe_v9_1.pad3v1.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.pad3v1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad3v1, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad3v1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7880,7 +7893,7 @@ eurex_t7_eti_fbe_v9_1.pad4.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.pad4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad4, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7903,7 +7916,7 @@ eurex_t7_eti_fbe_v9_1.pad5.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.pad5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad5, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7926,7 +7939,7 @@ eurex_t7_eti_fbe_v9_1.pad6.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.pad6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad6, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7949,7 +7962,7 @@ eurex_t7_eti_fbe_v9_1.pad7.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.pad7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad7, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.pad7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -10135,7 +10148,7 @@ eurex_t7_eti_fbe_v9_1.ref_appl_last_msg_id.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_eti_fbe_v9_1.ref_appl_last_msg_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.ref_appl_last_msg_id, range, value, display)
+  parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.ref_appl_last_msg_id, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -27534,10 +27547,16 @@ end
 eurex_t7_eti_fbe_v9_1.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
   local index = offset + size_of_server_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.server_message, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v9_1.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(eurex_t7_eti_fbe_v9_1.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_eti_fbe_v9_1.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
     parent:set_len(size_of_server_message)
     local display = eurex_t7_eti_fbe_v9_1.server_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -27545,7 +27564,10 @@ eurex_t7_eti_fbe_v9_1.server_message.dissect = function(buffer, offset, packet, 
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v9_1.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(eurex_t7_eti_fbe_v9_1.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_eti_fbe_v9_1.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
 
     return index
   end
@@ -34322,10 +34344,16 @@ end
 eurex_t7_eti_fbe_v9_1.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message)
   local index = offset + size_of_client_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_eurex_t7_eti_fbe_v9_1.fields.client_message, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v9_1.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    local decoded, failure = pcall(eurex_t7_eti_fbe_v9_1.client_message.fields, bounded, offset, packet, parent, size_of_client_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_eti_fbe_v9_1.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
     parent:set_len(size_of_client_message)
     local display = eurex_t7_eti_fbe_v9_1.client_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -34333,7 +34361,10 @@ eurex_t7_eti_fbe_v9_1.client_message.dissect = function(buffer, offset, packet, 
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v9_1.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    local decoded, failure = pcall(eurex_t7_eti_fbe_v9_1.client_message.fields, bounded, offset, packet, parent, size_of_client_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_eti_fbe_v9_1.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
 
     return index
   end

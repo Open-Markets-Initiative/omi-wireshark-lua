@@ -106,6 +106,11 @@ omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.trading_session_change_message = Pro
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.bbo.xdp.v2.4.g.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.bbo.xdp.v2.4.g.timestamp", ftypes.UINT64)
 
+-- Nyse NyseEquities Bbo Xdp 2.4.g Expert Info
+nyse_nyseequities_bbo_xdp_v2_4_g.experts = {}
+nyse_nyseequities_bbo_xdp_v2_4_g.experts.undecoded = ProtoExpert.new("nyse.nyseequities.bbo.xdp.v2.4.g.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nyse_nyseequities_bbo_xdp_v2_4_g.experts = { nyse_nyseequities_bbo_xdp_v2_4_g.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nyse NyseEquities Bbo Xdp 2.4.g Formatting
 -----------------------------------------------------------------------
@@ -113,11 +118,11 @@ omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.timestamp = ProtoField.new("Timestam
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_nyseequities_bbo_xdp_v2_4_g.timestamp_format = 2
 
 
@@ -198,6 +203,19 @@ end
 nyse_nyseequities_bbo_xdp_v2_4_g.conversation.current = nil
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nyse NyseEquities Bbo Xdp 2.4.g Fields
 -----------------------------------------------------------------------
@@ -1151,7 +1169,7 @@ nyse_nyseequities_bbo_xdp_v2_4_g.reserved_1.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_bbo_xdp_v2_4_g.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1174,7 +1192,7 @@ nyse_nyseequities_bbo_xdp_v2_4_g.reserved_2.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_bbo_xdp_v2_4_g.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1197,7 +1215,7 @@ nyse_nyseequities_bbo_xdp_v2_4_g.reserved_4.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_bbo_xdp_v2_4_g.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3188,10 +3206,16 @@ end
 nyse_nyseequities_bbo_xdp_v2_4_g.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nyse_nyseequities_bbo_xdp_v2_4_g.fields.message, buffer(offset, 0))
-    local current = nyse_nyseequities_bbo_xdp_v2_4_g.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(nyse_nyseequities_bbo_xdp_v2_4_g.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_nyseequities_bbo_xdp_v2_4_g.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = nyse_nyseequities_bbo_xdp_v2_4_g.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3199,7 +3223,10 @@ nyse_nyseequities_bbo_xdp_v2_4_g.message.dissect = function(buffer, offset, pack
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_nyseequities_bbo_xdp_v2_4_g.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(nyse_nyseequities_bbo_xdp_v2_4_g.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_nyseequities_bbo_xdp_v2_4_g.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -3361,6 +3388,12 @@ nyse_nyseequities_bbo_xdp_v2_4_g.packet.dissect = function(buffer, packet, paren
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(nyse_nyseequities_bbo_xdp_v2_4_g.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()

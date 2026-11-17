@@ -25,6 +25,11 @@ omi_a2x_a2xequities_tcpheader_atp_v1.fields.message = ProtoField.new("Message", 
 omi_a2x_a2xequities_tcpheader_atp_v1.fields.message_header = ProtoField.new("Message Header", "a2x.a2xequities.tcpheader.atp.v1.messageheader", ftypes.STRING, nil, nil, nil, "A2X Atp message header")
 omi_a2x_a2xequities_tcpheader_atp_v1.fields.packet = ProtoField.new("Packet", "a2x.a2xequities.tcpheader.atp.v1.packet", ftypes.STRING, nil, nil, nil, "A2X Atp Tcp Message Block")
 
+-- A2X A2XEquities TcpHeader Atp 1 Expert Info
+a2x_a2xequities_tcpheader_atp_v1.experts = {}
+a2x_a2xequities_tcpheader_atp_v1.experts.undecoded = ProtoExpert.new("a2x.a2xequities.tcpheader.atp.v1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_a2x_a2xequities_tcpheader_atp_v1.experts = { a2x_a2xequities_tcpheader_atp_v1.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -52,6 +57,19 @@ function omi_a2x_a2xequities_tcpheader_atp_v1.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- A2X A2XEquities TcpHeader Atp 1 Fields
 -----------------------------------------------------------------------
@@ -139,7 +157,7 @@ a2x_a2xequities_tcpheader_atp_v1.payload.dissect = function(buffer, offset, pack
   local value = range:bytes():tohex(false, " ")
   local display = a2x_a2xequities_tcpheader_atp_v1.payload.display(value, packet, parent, size)
 
-  parent:add(omi_a2x_a2xequities_tcpheader_atp_v1.fields.payload, range, value, display)
+  parent:add(omi_a2x_a2xequities_tcpheader_atp_v1.fields.payload, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -228,10 +246,16 @@ end
 a2x_a2xequities_tcpheader_atp_v1.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_a2x_a2xequities_tcpheader_atp_v1.fields.message, buffer(offset, 0))
-    local current = a2x_a2xequities_tcpheader_atp_v1.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(a2x_a2xequities_tcpheader_atp_v1.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, a2x_a2xequities_tcpheader_atp_v1.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = a2x_a2xequities_tcpheader_atp_v1.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -239,7 +263,10 @@ a2x_a2xequities_tcpheader_atp_v1.message.dissect = function(buffer, offset, pack
     return index, parent
   else
     -- Skip element, add fields directly
-    a2x_a2xequities_tcpheader_atp_v1.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(a2x_a2xequities_tcpheader_atp_v1.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, a2x_a2xequities_tcpheader_atp_v1.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

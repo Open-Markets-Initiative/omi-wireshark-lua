@@ -87,11 +87,12 @@ omi_nasdaq_nsmequities_noiview_itch_v3_0_2015.fields.message_sequence_number = P
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nasdaq_nsmequities_noiview_itch_v3_0_2015.timestamp_format = 2
 
 
@@ -1319,10 +1320,15 @@ nasdaq_nsmequities_noiview_itch_v3_0_2015.timestamp.display = function(value, bu
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if nasdaq_nsmequities_noiview_itch_v3_0_2015.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = nasdaq_nsmequities_noiview_itch_v3_0_2015.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 

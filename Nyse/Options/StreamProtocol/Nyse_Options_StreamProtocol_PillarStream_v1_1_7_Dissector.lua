@@ -64,11 +64,11 @@ omi_nyse_options_streamprotocol_pillarstream_v1_1_7.fields.stream_avail = ProtoF
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_options_streamprotocol_pillarstream_v1_1_7.timestamp_format = 2
 
 -- assumed connection role
@@ -181,7 +181,7 @@ nyse_options_streamprotocol_pillarstream_v1_1_7.client_sequenced_message.dissect
   local value = range:bytes():tohex(false, " ")
   local display = nyse_options_streamprotocol_pillarstream_v1_1_7.client_sequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_1_7.fields.client_sequenced_message, range, value, display)
+  parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_1_7.fields.client_sequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -409,7 +409,7 @@ nyse_options_streamprotocol_pillarstream_v1_1_7.reserved_4.dissect = function(bu
   local value = range:bytes():tohex(false, " ")
   local display = nyse_options_streamprotocol_pillarstream_v1_1_7.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_1_7.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_1_7.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -497,7 +497,7 @@ nyse_options_streamprotocol_pillarstream_v1_1_7.server_sequenced_message.dissect
   local value = range:bytes():tohex(false, " ")
   local display = nyse_options_streamprotocol_pillarstream_v1_1_7.server_sequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_1_7.fields.server_sequenced_message, range, value, display)
+  parent:add(omi_nyse_options_streamprotocol_pillarstream_v1_1_7.fields.server_sequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end

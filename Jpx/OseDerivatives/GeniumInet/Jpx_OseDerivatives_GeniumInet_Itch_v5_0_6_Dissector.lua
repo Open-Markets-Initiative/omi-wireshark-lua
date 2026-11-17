@@ -119,11 +119,11 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.timestamp = ProtoField.new(
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 jpx_osederivatives_geniuminet_itch_v5_0_6.timestamp_format = 2
 
 
@@ -1304,7 +1304,7 @@ jpx_osederivatives_geniuminet_itch_v5_0_6.reserved_24.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = jpx_osederivatives_geniuminet_itch_v5_0_6.reserved_24.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.reserved_24, range, value, display)
+  parent:add(omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.reserved_24, range, range:raw(), display)
 
   return offset + length, value
 end

@@ -262,9 +262,7 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_currency_3 = ProtoFie
 omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_qty_decimal = ProtoField.new("Unit Of Measure Qty Decimal", "cme.globex.streamlined.sbe.v5.9.unitofmeasureqtydecimal", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_qty_decimal_optional = ProtoField.new("Unit Of Measure Qty Decimal Optional", "cme.globex.streamlined.sbe.v5.9.unitofmeasureqtydecimaloptional", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_qty_optional = ProtoField.new("Unit Of Measure Qty Optional", "cme.globex.streamlined.sbe.v5.9.unitofmeasureqtyoptional", ftypes.DOUBLE, nil, nil, nil, "This field contains the notional value for each instrument. The notional value is equivalent to the corresponding premium-quoted contract")
-omi_cme_globex_streamlined_sbe_v5_9.fields.unused_settl_price_type_4 = ProtoField.new("Unused Settl Price Type 4", "cme.globex.streamlined.sbe.v5.9.unusedsettlpricetype4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Unused SettlPriceType 4")
-omi_cme_globex_streamlined_sbe_v5_9.fields.unused_settl_price_type_5 = ProtoField.new("Unused Settl Price Type 5", "cme.globex.streamlined.sbe.v5.9.unusedsettlpricetype5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "Unused SettlPriceType 5")
-omi_cme_globex_streamlined_sbe_v5_9.fields.unused_settl_price_type_6 = ProtoField.new("Unused Settl Price Type 6", "cme.globex.streamlined.sbe.v5.9.unusedsettlpricetype6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Unused SettlPriceType 6")
+omi_cme_globex_streamlined_sbe_v5_9.fields.unused_3 = ProtoField.new("Unused 3", "cme.globex.streamlined.sbe.v5.9.unused3", ftypes.UINT8, nil, base.DEC, 0x70, "3 unused bits")
 omi_cme_globex_streamlined_sbe_v5_9.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.globex.streamlined.sbe.v5.9.userdefinedinstrument", ftypes.STRING, nil, nil, nil, "Identifies user-defined instruments. If the tag is not present, the instrument is not user-defined.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.version = ProtoField.new("Version", "cme.globex.streamlined.sbe.v5.9.version", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.vol_type = ProtoField.new("Vol Type", "cme.globex.streamlined.sbe.v5.9.voltype", ftypes.UINT16, nil, nil, nil, "Volume types for end of day volume")
@@ -283,8 +281,10 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.tcp_packet = ProtoField.new("Tcp Pack
 omi_cme_globex_streamlined_sbe_v5_9.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.streamlined.sbe.v5.9.technicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header")
 omi_cme_globex_streamlined_sbe_v5_9.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.streamlined.sbe.v5.9.udppacket", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet")
 
--- Cme Globex Streamlined 5.9 Application Messages
+-- Cme Globex Streamlined 5.9 Session Messages
 omi_cme_globex_streamlined_sbe_v5_9.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.streamlined.sbe.v5.9.adminheartbeat", ftypes.BYTES, nil, nil, nil, "AdminHeartbeat")
+
+-- Cme Globex Streamlined 5.9 Application Messages
 omi_cme_globex_streamlined_sbe_v5_9.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.streamlined.sbe.v5.9.adminlogin", ftypes.STRING, nil, nil, nil, "AdminLogin")
 omi_cme_globex_streamlined_sbe_v5_9.fields.admin_logout = ProtoField.new("Admin Logout", "cme.globex.streamlined.sbe.v5.9.adminlogout", ftypes.STRING, nil, nil, nil, "AdminLogout")
 omi_cme_globex_streamlined_sbe_v5_9.fields.md_incremental_refresh_eris_351 = ProtoField.new("Md Incremental Refresh Eris 351", "cme.globex.streamlined.sbe.v5.9.mdincrementalrefresheris351", ftypes.STRING, nil, nil, nil, "MDIncrementalRefreshEris")
@@ -327,17 +327,22 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.trade_blocks_original_legs_group_inde
 omi_cme_globex_streamlined_sbe_v5_9.fields.trade_blocks_party_ids_group_index = ProtoField.new("Trade Blocks Party Ids Group Index", "cme.globex.streamlined.sbe.v5.9.tradeblockspartyidsgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.trade_blocks_underlyings_group_index = ProtoField.new("Trade Blocks Underlyings Group Index", "cme.globex.streamlined.sbe.v5.9.tradeblocksunderlyingsgroupindex", ftypes.UINT16)
 
+-- Cme Globex Streamlined Sbe 5.9 Expert Info
+cme_globex_streamlined_sbe_v5_9.experts = {}
+cme_globex_streamlined_sbe_v5_9.experts.undecoded = ProtoExpert.new("cme.globex.streamlined.sbe.v5.9.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cme_globex_streamlined_sbe_v5_9.experts = { cme_globex_streamlined_sbe_v5_9.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Cme Globex Streamlined Sbe 5.9 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cme_globex_streamlined_sbe_v5_9.timestamp_format = 2
 
 
@@ -388,6 +393,19 @@ function omi_cme_globex_streamlined_sbe_v5_9.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cme Globex Streamlined Sbe 5.9 Fields
 -----------------------------------------------------------------------
@@ -673,7 +691,7 @@ cme_globex_streamlined_sbe_v5_9.encoding_type.size = 2
 -- Display: Encoding Type
 cme_globex_streamlined_sbe_v5_9.encoding_type.display = function(value)
   if value == 51966 then
-    return "Encoding Type: Cme Sbe Message"
+    return "Encoding Type: Cme Sbe Message (51966)"
   end
 
   return "Encoding Type: Unknown("..value..")"
@@ -3499,7 +3517,7 @@ cme_globex_streamlined_sbe_v5_9.schema_id.size = 2
 -- Display: Schema Id
 cme_globex_streamlined_sbe_v5_9.schema_id.display = function(value)
   if value == 5 then
-    return "Schema Id: 5"
+    return "Schema Id: Streamlinemktdata (5)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -12158,14 +12176,8 @@ cme_globex_streamlined_sbe_v5_9.settl_price_type.bits = function(range, value, p
   -- Reserved Bits: 1 Bit
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.reserved_bits, range, value)
 
-  -- Unused Settl Price Type 4: 1 Bit
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.unused_settl_price_type_4, range, value)
-
-  -- Unused Settl Price Type 5: 1 Bit
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.unused_settl_price_type_5, range, value)
-
-  -- Unused Settl Price Type 6: 1 Bit
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.unused_settl_price_type_6, range, value)
+  -- Unused 3: 3 Bit
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.unused_3, range, value)
 
   -- Null Value: 1 Bit
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.null_value, range, value)
@@ -12376,7 +12388,7 @@ cme_globex_streamlined_sbe_v5_9.eris_reference_data_group.fields = function(buff
   -- Open Close Settl Flag: Int8NULL
   index, open_close_settl_flag = cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 8 fields
+  -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = cme_globex_streamlined_sbe_v5_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Cal Fut Px Optional: Struct of 2 fields
@@ -12999,10 +13011,16 @@ end
 cme_globex_streamlined_sbe_v5_9.tcp_frame.dissect = function(buffer, offset, packet, parent, size_of_tcp_frame)
   local index = offset + size_of_tcp_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.tcp_frame, buffer(offset, 0))
-    local current = cme_globex_streamlined_sbe_v5_9.tcp_frame.fields(buffer, offset, packet, parent, size_of_tcp_frame)
+    local decoded, failure = pcall(cme_globex_streamlined_sbe_v5_9.tcp_frame.fields, bounded, offset, packet, parent, size_of_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_streamlined_sbe_v5_9.experts.undecoded, "Tcp Frame does not decode within its "..size_of_tcp_frame.." bytes")
+    end
     parent:set_len(size_of_tcp_frame)
     local display = cme_globex_streamlined_sbe_v5_9.tcp_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -13010,7 +13028,10 @@ cme_globex_streamlined_sbe_v5_9.tcp_frame.dissect = function(buffer, offset, pac
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_streamlined_sbe_v5_9.tcp_frame.fields(buffer, offset, packet, parent, size_of_tcp_frame)
+    local decoded, failure = pcall(cme_globex_streamlined_sbe_v5_9.tcp_frame.fields, bounded, offset, packet, parent, size_of_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_streamlined_sbe_v5_9.experts.undecoded, "Tcp Frame does not decode within its "..size_of_tcp_frame.." bytes")
+    end
 
     return index
   end
@@ -13103,10 +13124,16 @@ end
 cme_globex_streamlined_sbe_v5_9.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.message, buffer(offset, 0))
-    local current = cme_globex_streamlined_sbe_v5_9.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_streamlined_sbe_v5_9.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_streamlined_sbe_v5_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = cme_globex_streamlined_sbe_v5_9.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -13114,7 +13141,10 @@ cme_globex_streamlined_sbe_v5_9.message.dissect = function(buffer, offset, packe
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_streamlined_sbe_v5_9.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_streamlined_sbe_v5_9.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_streamlined_sbe_v5_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -13186,6 +13216,12 @@ cme_globex_streamlined_sbe_v5_9.udp_packet.dissect = function(buffer, packet, pa
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(cme_globex_streamlined_sbe_v5_9.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()

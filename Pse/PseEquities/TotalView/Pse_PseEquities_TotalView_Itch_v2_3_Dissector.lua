@@ -52,12 +52,14 @@ omi_pse_pseequities_totalview_itch_v2_3.fields.passive_broker_id = ProtoField.ne
 omi_pse_pseequities_totalview_itch_v2_3.fields.price = ProtoField.new("Price", "pse.pseequities.totalview.itch.v2.3.price", ftypes.UINT32, nil, nil, nil, "The price of the new order, or reference price update.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.price_decimals = ProtoField.new("Price Decimals", "pse.pseequities.totalview.itch.v2.3.pricedecimals", ftypes.UINT32, nil, nil, nil, "Decimals for price fields across all messages for this orderbook.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.price_start = ProtoField.new("Price Start", "pse.pseequities.totalview.itch.v2.3.pricestart", ftypes.UINT32, nil, nil, nil, "Start of Price for this Tick Size.")
+omi_pse_pseequities_totalview_itch_v2_3.fields.price_tick_size = ProtoField.new("Price Tick Size", "pse.pseequities.totalview.itch.v2.3.priceticksize", ftypes.UINT32, nil, nil, nil, "Price Tick Size.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "pse.pseequities.totalview.itch.v2.3.priceticksizetableid", ftypes.UINT32, nil, nil, nil, "Price Tick Size Table Id.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.price_type = ProtoField.new("Price Type", "pse.pseequities.totalview.itch.v2.3.pricetype", ftypes.STRING, nil, nil, nil, "Indicates 'per unit' price type or price as percentage.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.printable = ProtoField.new("Printable", "pse.pseequities.totalview.itch.v2.3.printable", ftypes.STRING, nil, nil, nil, "Indicates if the execution should be reflected in volume calculations.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.product_code = ProtoField.new("Product Code", "pse.pseequities.totalview.itch.v2.3.productcode", ftypes.STRING, nil, nil, nil, "The product code for the orderbook.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.quantity = ProtoField.new("Quantity", "pse.pseequities.totalview.itch.v2.3.quantity", ftypes.UINT64, nil, nil, nil, "The total quantity of the order being added to the book.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.quantity_start = ProtoField.new("Quantity Start", "pse.pseequities.totalview.itch.v2.3.quantitystart", ftypes.UINT64, nil, nil, nil, "Start of Quantity for this Tick Size.")
+omi_pse_pseequities_totalview_itch_v2_3.fields.quantity_tick_size = ProtoField.new("Quantity Tick Size", "pse.pseequities.totalview.itch.v2.3.quantityticksize", ftypes.UINT64, nil, nil, nil, "Quantity Tick Size.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.quantity_tick_size_table_id = ProtoField.new("Quantity Tick Size Table Id", "pse.pseequities.totalview.itch.v2.3.quantityticksizetableid", ftypes.UINT32, nil, nil, nil, "Quantity Tick Size Table.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.reason = ProtoField.new("Reason", "pse.pseequities.totalview.itch.v2.3.reason", ftypes.STRING, nil, nil, nil, "Refer to reason in table below.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.replace_price = ProtoField.new("Replace Price", "pse.pseequities.totalview.itch.v2.3.replaceprice", ftypes.UINT32, nil, nil, nil, "The price of the new order, or reference price update.")
@@ -72,8 +74,6 @@ omi_pse_pseequities_totalview_itch_v2_3.fields.short_sell_eligible = ProtoField.
 omi_pse_pseequities_totalview_itch_v2_3.fields.sign = ProtoField.new("Sign", "pse.pseequities.totalview.itch.v2.3.sign", ftypes.STRING, nil, nil, nil, "Whether the foreign shares available value is positive or negative.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.theoretical_auction_price = ProtoField.new("Theoretical Auction Price", "pse.pseequities.totalview.itch.v2.3.theoreticalauctionprice", ftypes.UINT32, nil, nil, nil, "The indicative auction price for this orderbook.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.theoretical_auction_quantity = ProtoField.new("Theoretical Auction Quantity", "pse.pseequities.totalview.itch.v2.3.theoreticalauctionquantity", ftypes.UINT64, nil, nil, nil, "The total quantity eligible to be matched at the current Theoretical Auction Price.")
-omi_pse_pseequities_totalview_itch_v2_3.fields.tick_size_integer_4 = ProtoField.new("Tick Size Integer 4", "pse.pseequities.totalview.itch.v2.3.ticksizeinteger4", ftypes.UINT32, nil, nil, nil, "Price Tick Size.")
-omi_pse_pseequities_totalview_itch_v2_3.fields.tick_size_integer_8 = ProtoField.new("Tick Size Integer 8", "pse.pseequities.totalview.itch.v2.3.ticksizeinteger8", ftypes.UINT64, nil, nil, nil, "Quantity Tick Size.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.tick_size_table_id = ProtoField.new("Tick Size Table Id", "pse.pseequities.totalview.itch.v2.3.ticksizetableid", ftypes.UINT32, nil, nil, nil, "Indicates the Tick Size Table id.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.timestamp = ProtoField.new("Timestamp", "pse.pseequities.totalview.itch.v2.3.timestamp", ftypes.UINT32, nil, nil, nil, "Nanoseconds since last Time Stamp seconds message.")
 omi_pse_pseequities_totalview_itch_v2_3.fields.trade_indicator = ProtoField.new("Trade Indicator", "pse.pseequities.totalview.itch.v2.3.tradeindicator", ftypes.STRING, nil, nil, nil, "Indicates the type of trade.")
@@ -133,11 +133,11 @@ omi_pse_pseequities_totalview_itch_v2_3.fields.event_time = ProtoField.new("Even
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 pse_pseequities_totalview_itch_v2_3.timestamp_format = 2
 
 -- Scaled High Collar format (true = decimal-scaled, false = raw mantissa)
@@ -1268,6 +1268,29 @@ pse_pseequities_totalview_itch_v2_3.price_start.dissect = function(buffer, offse
   return offset + length, value
 end
 
+-- Price Tick Size
+pse_pseequities_totalview_itch_v2_3.price_tick_size = {}
+
+-- Size: Price Tick Size
+pse_pseequities_totalview_itch_v2_3.price_tick_size.size = 4
+
+-- Display: Price Tick Size
+pse_pseequities_totalview_itch_v2_3.price_tick_size.display = function(value)
+  return "Price Tick Size: "..value
+end
+
+-- Dissect: Price Tick Size
+pse_pseequities_totalview_itch_v2_3.price_tick_size.dissect = function(buffer, offset, packet, parent)
+  local length = pse_pseequities_totalview_itch_v2_3.price_tick_size.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = pse_pseequities_totalview_itch_v2_3.price_tick_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_pse_pseequities_totalview_itch_v2_3.fields.price_tick_size, range, value, display)
+
+  return offset + length, value
+end
+
 -- Price Tick Size Table Id
 pse_pseequities_totalview_itch_v2_3.price_tick_size_table_id = {}
 
@@ -1412,6 +1435,29 @@ pse_pseequities_totalview_itch_v2_3.quantity_start.dissect = function(buffer, of
   local display = pse_pseequities_totalview_itch_v2_3.quantity_start.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_pse_pseequities_totalview_itch_v2_3.fields.quantity_start, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Tick Size
+pse_pseequities_totalview_itch_v2_3.quantity_tick_size = {}
+
+-- Size: Quantity Tick Size
+pse_pseequities_totalview_itch_v2_3.quantity_tick_size.size = 8
+
+-- Display: Quantity Tick Size
+pse_pseequities_totalview_itch_v2_3.quantity_tick_size.display = function(value)
+  return "Quantity Tick Size: "..value
+end
+
+-- Dissect: Quantity Tick Size
+pse_pseequities_totalview_itch_v2_3.quantity_tick_size.dissect = function(buffer, offset, packet, parent)
+  local length = pse_pseequities_totalview_itch_v2_3.quantity_tick_size.size
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = pse_pseequities_totalview_itch_v2_3.quantity_tick_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_pse_pseequities_totalview_itch_v2_3.fields.quantity_tick_size, range, value, display)
 
   return offset + length, value
 end
@@ -1782,52 +1828,6 @@ pse_pseequities_totalview_itch_v2_3.theoretical_auction_quantity.dissect = funct
   local display = pse_pseequities_totalview_itch_v2_3.theoretical_auction_quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_pse_pseequities_totalview_itch_v2_3.fields.theoretical_auction_quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Size Integer 4
-pse_pseequities_totalview_itch_v2_3.tick_size_integer_4 = {}
-
--- Size: Tick Size Integer 4
-pse_pseequities_totalview_itch_v2_3.tick_size_integer_4.size = 4
-
--- Display: Tick Size Integer 4
-pse_pseequities_totalview_itch_v2_3.tick_size_integer_4.display = function(value)
-  return "Tick Size Integer 4: "..value
-end
-
--- Dissect: Tick Size Integer 4
-pse_pseequities_totalview_itch_v2_3.tick_size_integer_4.dissect = function(buffer, offset, packet, parent)
-  local length = pse_pseequities_totalview_itch_v2_3.tick_size_integer_4.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = pse_pseequities_totalview_itch_v2_3.tick_size_integer_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_pse_pseequities_totalview_itch_v2_3.fields.tick_size_integer_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Tick Size Integer 8
-pse_pseequities_totalview_itch_v2_3.tick_size_integer_8 = {}
-
--- Size: Tick Size Integer 8
-pse_pseequities_totalview_itch_v2_3.tick_size_integer_8.size = 8
-
--- Display: Tick Size Integer 8
-pse_pseequities_totalview_itch_v2_3.tick_size_integer_8.display = function(value)
-  return "Tick Size Integer 8: "..value
-end
-
--- Dissect: Tick Size Integer 8
-pse_pseequities_totalview_itch_v2_3.tick_size_integer_8.dissect = function(buffer, offset, packet, parent)
-  local length = pse_pseequities_totalview_itch_v2_3.tick_size_integer_8.size
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = pse_pseequities_totalview_itch_v2_3.tick_size_integer_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_pse_pseequities_totalview_itch_v2_3.fields.tick_size_integer_8, range, value, display)
 
   return offset + length, value
 end
@@ -2409,10 +2409,8 @@ pse_pseequities_totalview_itch_v2_3.event_time.display = function(timestamp, sto
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = pse_pseequities_totalview_itch_v2_3.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Event Time: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+      return "Event Time: "..os.date(format, settled + seconds)..string.format("%09d", fraction)
     end
   end
 
@@ -3396,7 +3394,7 @@ pse_pseequities_totalview_itch_v2_3.quantity_tick_size_message = {}
 pse_pseequities_totalview_itch_v2_3.quantity_tick_size_message.size =
   pse_pseequities_totalview_itch_v2_3.timestamp.size + 
   pse_pseequities_totalview_itch_v2_3.tick_size_table_id.size + 
-  pse_pseequities_totalview_itch_v2_3.tick_size_integer_8.size + 
+  pse_pseequities_totalview_itch_v2_3.quantity_tick_size.size + 
   pse_pseequities_totalview_itch_v2_3.quantity_start.size
 
 -- Display: Quantity Tick Size Message
@@ -3414,8 +3412,8 @@ pse_pseequities_totalview_itch_v2_3.quantity_tick_size_message.fields = function
   -- Tick Size Table Id: Integer
   index, tick_size_table_id = pse_pseequities_totalview_itch_v2_3.tick_size_table_id.dissect(buffer, index, packet, parent)
 
-  -- Tick Size Integer 8: Integer
-  index, tick_size_integer_8 = pse_pseequities_totalview_itch_v2_3.tick_size_integer_8.dissect(buffer, index, packet, parent)
+  -- Quantity Tick Size: Integer
+  index, quantity_tick_size = pse_pseequities_totalview_itch_v2_3.quantity_tick_size.dissect(buffer, index, packet, parent)
 
   -- Quantity Start: Integer
   index, quantity_start = pse_pseequities_totalview_itch_v2_3.quantity_start.dissect(buffer, index, packet, parent)
@@ -3448,7 +3446,7 @@ pse_pseequities_totalview_itch_v2_3.price_tick_size_message = {}
 pse_pseequities_totalview_itch_v2_3.price_tick_size_message.size =
   pse_pseequities_totalview_itch_v2_3.timestamp.size + 
   pse_pseequities_totalview_itch_v2_3.tick_size_table_id.size + 
-  pse_pseequities_totalview_itch_v2_3.tick_size_integer_4.size + 
+  pse_pseequities_totalview_itch_v2_3.price_tick_size.size + 
   pse_pseequities_totalview_itch_v2_3.price_start.size
 
 -- Display: Price Tick Size Message
@@ -3466,8 +3464,8 @@ pse_pseequities_totalview_itch_v2_3.price_tick_size_message.fields = function(bu
   -- Tick Size Table Id: Integer
   index, tick_size_table_id = pse_pseequities_totalview_itch_v2_3.tick_size_table_id.dissect(buffer, index, packet, parent)
 
-  -- Tick Size Integer 4: Integer
-  index, tick_size_integer_4 = pse_pseequities_totalview_itch_v2_3.tick_size_integer_4.dissect(buffer, index, packet, parent)
+  -- Price Tick Size: Integer
+  index, price_tick_size = pse_pseequities_totalview_itch_v2_3.price_tick_size.dissect(buffer, index, packet, parent)
 
   -- Price Start: Integer
   index, price_start = pse_pseequities_totalview_itch_v2_3.price_start.dissect(buffer, index, packet, parent)

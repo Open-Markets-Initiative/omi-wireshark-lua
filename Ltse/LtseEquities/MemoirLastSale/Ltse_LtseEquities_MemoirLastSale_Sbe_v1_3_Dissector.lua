@@ -83,17 +83,22 @@ omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.trading_session_status_mess
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "ltse.ltseequities.memoirlastsale.sbe.v1.3.messageindex", ftypes.UINT16)
 omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "ltse.ltseequities.memoirlastsale.sbe.v1.3.messagesequencenumber", ftypes.UINT64)
 
+-- Ltse LtseEquities MemoirLastSale Sbe 1.3 Expert Info
+ltse_ltseequities_memoirlastsale_sbe_v1_3.experts = {}
+ltse_ltseequities_memoirlastsale_sbe_v1_3.experts.undecoded = ProtoExpert.new("ltse.ltseequities.memoirlastsale.sbe.v1.3.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.experts = { ltse_ltseequities_memoirlastsale_sbe_v1_3.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Ltse LtseEquities MemoirLastSale Sbe 1.3 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 ltse_ltseequities_memoirlastsale_sbe_v1_3.timestamp_format = 2
 
 
@@ -144,6 +149,19 @@ function omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Ltse LtseEquities MemoirLastSale Sbe 1.3 Fields
 -----------------------------------------------------------------------
@@ -1016,7 +1034,7 @@ ltse_ltseequities_memoirlastsale_sbe_v1_3.schema_id.size = 1
 -- Display: Schema Id
 ltse_ltseequities_memoirlastsale_sbe_v1_3.schema_id.display = function(value)
   if value == 4 then
-    return "Schema Id: 4"
+    return "Schema Id: Com Memx Us Equities Memoir Lastsale Sbe V1 (4)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -2069,10 +2087,16 @@ end
 ltse_ltseequities_memoirlastsale_sbe_v1_3.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset + size_of_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.sbe_message, buffer(offset, 0))
-    local current = ltse_ltseequities_memoirlastsale_sbe_v1_3.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(ltse_ltseequities_memoirlastsale_sbe_v1_3.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, ltse_ltseequities_memoirlastsale_sbe_v1_3.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
     parent:set_len(size_of_sbe_message)
     local display = ltse_ltseequities_memoirlastsale_sbe_v1_3.sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2080,7 +2104,10 @@ ltse_ltseequities_memoirlastsale_sbe_v1_3.sbe_message.dissect = function(buffer,
     return index, parent
   else
     -- Skip element, add fields directly
-    ltse_ltseequities_memoirlastsale_sbe_v1_3.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(ltse_ltseequities_memoirlastsale_sbe_v1_3.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, ltse_ltseequities_memoirlastsale_sbe_v1_3.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
 
     return index
   end
@@ -2129,10 +2156,16 @@ end
 ltse_ltseequities_memoirlastsale_sbe_v1_3.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_ltse_ltseequities_memoirlastsale_sbe_v1_3.fields.message, buffer(offset, 0))
-    local current = ltse_ltseequities_memoirlastsale_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(ltse_ltseequities_memoirlastsale_sbe_v1_3.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, ltse_ltseequities_memoirlastsale_sbe_v1_3.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = ltse_ltseequities_memoirlastsale_sbe_v1_3.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2140,7 +2173,10 @@ ltse_ltseequities_memoirlastsale_sbe_v1_3.message.dissect = function(buffer, off
     return index, parent
   else
     -- Skip element, add fields directly
-    ltse_ltseequities_memoirlastsale_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(ltse_ltseequities_memoirlastsale_sbe_v1_3.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, ltse_ltseequities_memoirlastsale_sbe_v1_3.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -2156,7 +2192,8 @@ ltse_ltseequities_memoirlastsale_sbe_v1_3.sequenced_message.size = function(buff
   index = index + ltse_ltseequities_memoirlastsale_sbe_v1_3.message_count.size
 
   -- Parse runtime size of: Message
-  index = index + buffer(offset + index - 0, 2):uint()
+  local message_length = buffer(offset + index - 0, 2):uint()
+  index = index + message_length + 2
 
   return index
 end

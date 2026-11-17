@@ -138,11 +138,11 @@ omi_siac_opra_output_obi_v6_3_a.fields.scaled_underlying_price = ProtoField.new(
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 siac_opra_output_obi_v6_3_a.timestamp_format = 2
 
 -- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
@@ -1760,7 +1760,7 @@ siac_opra_output_obi_v6_3_a.reserved_1.dissect = function(buffer, offset, packet
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_output_obi_v6_3_a.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_output_obi_v6_3_a.fields.reserved_1, range, value, display)
+  parent:add(omi_siac_opra_output_obi_v6_3_a.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1783,7 +1783,7 @@ siac_opra_output_obi_v6_3_a.reserved_128.dissect = function(buffer, offset, pack
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_output_obi_v6_3_a.reserved_128.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_output_obi_v6_3_a.fields.reserved_128, range, value, display)
+  parent:add(omi_siac_opra_output_obi_v6_3_a.fields.reserved_128, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1806,7 +1806,7 @@ siac_opra_output_obi_v6_3_a.reserved_4.dissect = function(buffer, offset, packet
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_output_obi_v6_3_a.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_output_obi_v6_3_a.fields.reserved_4, range, value, display)
+  parent:add(omi_siac_opra_output_obi_v6_3_a.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end

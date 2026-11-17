@@ -943,7 +943,7 @@ tmx_tsxalpha_level1_qrtmd_v2_1.opening_time.display = function(value)
     return "Opening Time: "..value
   end
 
-  return "Opening Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+  return "Opening Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).." America/Toronto"
 end
 
 -- Dissect: Opening Time
@@ -1079,7 +1079,7 @@ tmx_tsxalpha_level1_qrtmd_v2_1.qrtmd_stx.size = 1
 -- Display: Qrtmd Stx
 tmx_tsxalpha_level1_qrtmd_v2_1.qrtmd_stx.display = function(value)
   if value == 2 then
-    return "Qrtmd Stx: Stx"
+    return "Qrtmd Stx: Stx (2)"
   end
 
   return "Qrtmd Stx: Unknown("..value..")"
@@ -1541,7 +1541,7 @@ tmx_tsxalpha_level1_qrtmd_v2_1.trade_time_stamp.display = function(value)
     return "Trade Time Stamp: "..value
   end
 
-  return "Trade Time Stamp: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+  return "Trade Time Stamp: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).." America/Toronto"
 end
 
 -- Dissect: Trade Time Stamp
@@ -1568,7 +1568,7 @@ tmx_tsxalpha_level1_qrtmd_v2_1.trading_system_time_stamp.display = function(valu
     return "Trading System Time Stamp: "..value
   end
 
-  return "Trading System Time Stamp: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8).." "..value:sub(9, 10)..":"..value:sub(11, 12)..":"..value:sub(13, 14).."."..value:sub(15, 23)
+  return "Trading System Time Stamp: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8).." "..value:sub(9, 10)..":"..value:sub(11, 12)..":"..value:sub(13, 14).."."..value:sub(15, 23).." America/Toronto"
 end
 
 -- Dissect: Trading System Time Stamp

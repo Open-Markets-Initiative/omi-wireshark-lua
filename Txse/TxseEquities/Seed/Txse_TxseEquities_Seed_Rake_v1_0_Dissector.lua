@@ -384,17 +384,22 @@ omi_txse_txseequities_seed_rake_v1_0.fields.self_match_prevented_message = Proto
 omi_txse_txseequities_seed_rake_v1_0.fields.symbol_status_message = ProtoField.new("Symbol Status Message", "txse.txseequities.seed.rake.v1.0.symbolstatusmessage", ftypes.STRING, nil, nil, nil, "Symbol-specific trading status representing the current state and restrictions for an individual security. A SymbolStatus is sent for every symbol, including those that open in the TRADING state. Clients must treat a symbol as operationally HALTED while awaiting the first SymbolStatus. Subsequent SymbolStatus messages are sent whenever the trading state or short-sale restriction changes.")
 omi_txse_txseequities_seed_rake_v1_0.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "txse.txseequities.seed.rake.v1.0.tradingsessionstatusmessage", ftypes.STRING, nil, nil, nil, "Market-wide status representing the overall state of the trading session.")
 
+-- Txse TxseEquities Seed Rake 1.0 Expert Info
+txse_txseequities_seed_rake_v1_0.experts = {}
+txse_txseequities_seed_rake_v1_0.experts.undecoded = ProtoExpert.new("txse.txseequities.seed.rake.v1.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_txse_txseequities_seed_rake_v1_0.experts = { txse_txseequities_seed_rake_v1_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Txse TxseEquities Seed Rake 1.0 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 txse_txseequities_seed_rake_v1_0.timestamp_format = 2
 
 -- assumed connection role
@@ -461,6 +466,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Txse TxseEquities Seed Rake 1.0 Fields
 -----------------------------------------------------------------------
@@ -9174,7 +9187,8 @@ txse_txseequities_seed_rake_v1_0.debug_message.size = function(buffer, offset)
   local index = 0
 
   -- Parse runtime size of: Text
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local message_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + message_length - 1
 
   return index
 end
@@ -9311,10 +9325,16 @@ end
 txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.dissect = function(buffer, offset, packet, parent, size_of_server_rake_tcp_message)
   local index = offset + size_of_server_rake_tcp_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.server_rake_tcp_message, buffer(offset, 0))
-    local current = txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_server_rake_tcp_message)
+    local decoded, failure = pcall(txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.fields, bounded, offset, packet, parent, size_of_server_rake_tcp_message)
+    if not decoded then
+      undecoded(failure, parent, txse_txseequities_seed_rake_v1_0.experts.undecoded, "Server Rake Tcp Message does not decode within its "..size_of_server_rake_tcp_message.." bytes")
+    end
     parent:set_len(size_of_server_rake_tcp_message)
     local display = txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -9322,7 +9342,10 @@ txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.dissect = function(buff
     return index, parent
   else
     -- Skip element, add fields directly
-    txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_server_rake_tcp_message)
+    local decoded, failure = pcall(txse_txseequities_seed_rake_v1_0.server_rake_tcp_message.fields, bounded, offset, packet, parent, size_of_server_rake_tcp_message)
+    if not decoded then
+      undecoded(failure, parent, txse_txseequities_seed_rake_v1_0.experts.undecoded, "Server Rake Tcp Message does not decode within its "..size_of_server_rake_tcp_message.." bytes")
+    end
 
     return index
   end
@@ -11164,10 +11187,16 @@ end
 txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.dissect = function(buffer, offset, packet, parent, size_of_client_rake_tcp_message)
   local index = offset + size_of_client_rake_tcp_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_txse_txseequities_seed_rake_v1_0.fields.client_rake_tcp_message, buffer(offset, 0))
-    local current = txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_client_rake_tcp_message)
+    local decoded, failure = pcall(txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.fields, bounded, offset, packet, parent, size_of_client_rake_tcp_message)
+    if not decoded then
+      undecoded(failure, parent, txse_txseequities_seed_rake_v1_0.experts.undecoded, "Client Rake Tcp Message does not decode within its "..size_of_client_rake_tcp_message.." bytes")
+    end
     parent:set_len(size_of_client_rake_tcp_message)
     local display = txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -11175,7 +11204,10 @@ txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.dissect = function(buff
     return index, parent
   else
     -- Skip element, add fields directly
-    txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_client_rake_tcp_message)
+    local decoded, failure = pcall(txse_txseequities_seed_rake_v1_0.client_rake_tcp_message.fields, bounded, offset, packet, parent, size_of_client_rake_tcp_message)
+    if not decoded then
+      undecoded(failure, parent, txse_txseequities_seed_rake_v1_0.experts.undecoded, "Client Rake Tcp Message does not decode within its "..size_of_client_rake_tcp_message.." bytes")
+    end
 
     return index
   end

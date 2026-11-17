@@ -52,11 +52,11 @@ omi_tmx_tsx_globalfx_gfx_v1_0.fields.size_tier_index = ProtoField.new("Size Tier
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 tmx_tsx_globalfx_gfx_v1_0.timestamp_format = 2
 
 
@@ -527,7 +527,7 @@ tmx_tsx_globalfx_gfx_v1_0.unused_1.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = tmx_tsx_globalfx_gfx_v1_0.unused_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.unused_1, range, value, display)
+  parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.unused_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -550,7 +550,7 @@ tmx_tsx_globalfx_gfx_v1_0.unused_2.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = tmx_tsx_globalfx_gfx_v1_0.unused_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.unused_2, range, value, display)
+  parent:add(omi_tmx_tsx_globalfx_gfx_v1_0.fields.unused_2, range, range:raw(), display)
 
   return offset + length, value
 end

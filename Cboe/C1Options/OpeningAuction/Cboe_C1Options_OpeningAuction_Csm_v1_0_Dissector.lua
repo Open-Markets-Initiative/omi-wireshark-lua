@@ -112,6 +112,11 @@ omi_cboe_c1options_openingauction_csm_v1_0.fields.md_entry_index = ProtoField.ne
 omi_cboe_c1options_openingauction_csm_v1_0.fields.message_index = ProtoField.new("Message Index", "cboe.c1options.openingauction.csm.v1.0.messageindex", ftypes.UINT16)
 omi_cboe_c1options_openingauction_csm_v1_0.fields.security_definition_leg_index = ProtoField.new("Security Definition Leg Index", "cboe.c1options.openingauction.csm.v1.0.securitydefinitionlegindex", ftypes.UINT16)
 
+-- Cboe C1Options OpeningAuction Csm 1.0 Expert Info
+cboe_c1options_openingauction_csm_v1_0.experts = {}
+cboe_c1options_openingauction_csm_v1_0.experts.undecoded = ProtoExpert.new("cboe.c1options.openingauction.csm.v1.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cboe_c1options_openingauction_csm_v1_0.experts = { cboe_c1options_openingauction_csm_v1_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -154,6 +159,19 @@ function omi_cboe_c1options_openingauction_csm_v1_0.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cboe C1Options OpeningAuction Csm 1.0 Fields
 -----------------------------------------------------------------------
@@ -2938,10 +2956,16 @@ end
 cboe_c1options_openingauction_csm_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cboe_c1options_openingauction_csm_v1_0.fields.message, buffer(offset, 0))
-    local current = cboe_c1options_openingauction_csm_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(cboe_c1options_openingauction_csm_v1_0.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, cboe_c1options_openingauction_csm_v1_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = cboe_c1options_openingauction_csm_v1_0.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2949,7 +2973,10 @@ cboe_c1options_openingauction_csm_v1_0.message.dissect = function(buffer, offset
     return index, parent
   else
     -- Skip element, add fields directly
-    cboe_c1options_openingauction_csm_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(cboe_c1options_openingauction_csm_v1_0.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, cboe_c1options_openingauction_csm_v1_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

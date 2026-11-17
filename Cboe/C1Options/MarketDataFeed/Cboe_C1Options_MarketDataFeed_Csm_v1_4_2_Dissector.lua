@@ -140,6 +140,11 @@ omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.settlement_value_md_entry_in
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.summary_md_entry_index = ProtoField.new("Summary Md Entry Index", "cboe.c1options.marketdatafeed.csm.v1.4.2.summarymdentryindex", ftypes.UINT16)
 omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.ticker_md_entry_index = ProtoField.new("Ticker Md Entry Index", "cboe.c1options.marketdatafeed.csm.v1.4.2.tickermdentryindex", ftypes.UINT16)
 
+-- Cboe C1Options MarketDataFeed Csm 1.4.2 Expert Info
+cboe_c1options_marketdatafeed_csm_v1_4_2.experts = {}
+cboe_c1options_marketdatafeed_csm_v1_4_2.experts.undecoded = ProtoExpert.new("cboe.c1options.marketdatafeed.csm.v1.4.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cboe_c1options_marketdatafeed_csm_v1_4_2.experts = { cboe_c1options_marketdatafeed_csm_v1_4_2.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -182,6 +187,19 @@ function omi_cboe_c1options_marketdatafeed_csm_v1_4_2.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cboe C1Options MarketDataFeed Csm 1.4.2 Fields
 -----------------------------------------------------------------------
@@ -4061,10 +4079,16 @@ end
 cboe_c1options_marketdatafeed_csm_v1_4_2.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cboe_c1options_marketdatafeed_csm_v1_4_2.fields.message, buffer(offset, 0))
-    local current = cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, cboe_c1options_marketdatafeed_csm_v1_4_2.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = cboe_c1options_marketdatafeed_csm_v1_4_2.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4072,7 +4096,10 @@ cboe_c1options_marketdatafeed_csm_v1_4_2.message.dissect = function(buffer, offs
     return index, parent
   else
     -- Skip element, add fields directly
-    cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(cboe_c1options_marketdatafeed_csm_v1_4_2.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, cboe_c1options_marketdatafeed_csm_v1_4_2.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

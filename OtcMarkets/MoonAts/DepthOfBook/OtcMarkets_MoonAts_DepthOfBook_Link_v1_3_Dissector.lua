@@ -113,11 +113,12 @@ omi_otcmarkets_moonats_depthofbook_link_v1_3.fields.message_sequence_number = Pr
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format = 2
 
 
@@ -687,10 +688,15 @@ otcmarkets_moonats_depthofbook_link_v1_3.packet_milli.display = function(value, 
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Packet Milli: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." America/New York"
+      end
 
       local format = otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Packet Milli: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Packet Milli: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -1278,10 +1284,15 @@ otcmarkets_moonats_depthofbook_link_v1_3.time.display = function(value, buffer, 
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." America/New York"
+      end
 
       local format = otcmarkets_moonats_depthofbook_link_v1_3.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 

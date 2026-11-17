@@ -174,7 +174,7 @@ cboe_pitch_sequencedunitheader_udp_v1_0.payload.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = cboe_pitch_sequencedunitheader_udp_v1_0.payload.display(value, packet, parent, size)
 
-  parent:add(omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.payload, range, value, display)
+  parent:add(omi_cboe_pitch_sequencedunitheader_udp_v1_0.fields.payload, range, range:raw(), display)
 
   return offset + size, value
 end

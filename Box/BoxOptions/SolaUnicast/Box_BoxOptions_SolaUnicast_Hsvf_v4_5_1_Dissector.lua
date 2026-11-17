@@ -224,7 +224,8 @@ omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.scaled_trade_price = ProtoFiel
 -- Box BoxOptions SolaUnicast Hsvf 4.5.1 Expert Info
 box_boxoptions_solaunicast_hsvf_v4_5_1.experts = {}
 box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number = ProtoExpert.new("box.boxoptions.solaunicast.hsvf.v4.5.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_box_boxoptions_solaunicast_hsvf_v4_5_1.experts = { box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number }
+box_boxoptions_solaunicast_hsvf_v4_5_1.experts.undecoded = ProtoExpert.new("box.boxoptions.solaunicast.hsvf.v4.5.1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_box_boxoptions_solaunicast_hsvf_v4_5_1.experts = { box_boxoptions_solaunicast_hsvf_v4_5_1.experts.not_a_number, box_boxoptions_solaunicast_hsvf_v4_5_1.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Box BoxOptions SolaUnicast Hsvf 4.5.1 Formatting
@@ -388,6 +389,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Box BoxOptions SolaUnicast Hsvf 4.5.1 Fields
 -----------------------------------------------------------------------
@@ -1185,7 +1194,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.filler_1, range, value, display)
+  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1208,7 +1217,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.filler_2.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.filler_2, range, value, display)
+  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1231,7 +1240,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.filler_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.filler_6, range, value, display)
+  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.filler_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3775,7 +3784,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.reserved.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = box_boxoptions_solaunicast_hsvf_v4_5_1.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reserved, range, value, display)
+  parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3932,7 +3941,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_end.size = 1
 -- Display: Sola Message End
 box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_end.display = function(value)
   if value == 3 then
-    return "Sola Message End: Etx"
+    return "Sola Message End: Etx (3)"
   end
 
   return "Sola Message End: Unknown("..value..")"
@@ -3959,7 +3968,7 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.size = 1
 -- Display: Sola Message Start
 box_boxoptions_solaunicast_hsvf_v4_5_1.sola_message_start.display = function(value)
   if value == 2 then
-    return "Sola Message Start: Stx"
+    return "Sola Message Start: Stx (2)"
   end
 
   return "Sola Message Start: Unknown("..value..")"
@@ -9256,10 +9265,16 @@ end
 box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.dissect = function(buffer, offset, packet, parent, size_of_sola_frame)
   local index = offset + size_of_sola_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_box_boxoptions_solaunicast_hsvf_v4_5_1.fields.sola_frame, buffer(offset, 0))
-    local current = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.fields(buffer, offset, packet, parent, size_of_sola_frame)
+    local decoded, failure = pcall(box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.fields, bounded, offset, packet, parent, size_of_sola_frame)
+    if not decoded then
+      undecoded(failure, parent, box_boxoptions_solaunicast_hsvf_v4_5_1.experts.undecoded, "Sola Frame does not decode within its "..size_of_sola_frame.." bytes")
+    end
     parent:set_len(size_of_sola_frame)
     local display = box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -9267,7 +9282,10 @@ box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.dissect = function(buffer, off
     return index, parent
   else
     -- Skip element, add fields directly
-    box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.fields(buffer, offset, packet, parent, size_of_sola_frame)
+    local decoded, failure = pcall(box_boxoptions_solaunicast_hsvf_v4_5_1.sola_frame.fields, bounded, offset, packet, parent, size_of_sola_frame)
+    if not decoded then
+      undecoded(failure, parent, box_boxoptions_solaunicast_hsvf_v4_5_1.experts.undecoded, "Sola Frame does not decode within its "..size_of_sola_frame.." bytes")
+    end
 
     return index
   end

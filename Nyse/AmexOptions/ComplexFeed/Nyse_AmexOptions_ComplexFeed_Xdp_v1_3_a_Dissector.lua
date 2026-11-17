@@ -85,6 +85,11 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.leg_definition_index = ProtoF
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message_index = ProtoField.new("Message Index", "nyse.amexoptions.complexfeed.xdp.v1.3.a.messageindex", ftypes.UINT16)
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.amexoptions.complexfeed.xdp.v1.3.a.timestamp", ftypes.UINT64)
 
+-- Nyse AmexOptions ComplexFeed Xdp 1.3.a Expert Info
+nyse_amexoptions_complexfeed_xdp_v1_3_a.experts = {}
+nyse_amexoptions_complexfeed_xdp_v1_3_a.experts.undecoded = ProtoExpert.new("nyse.amexoptions.complexfeed.xdp.v1.3.a.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.experts = { nyse_amexoptions_complexfeed_xdp_v1_3_a.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nyse AmexOptions ComplexFeed Xdp 1.3.a Formatting
 -----------------------------------------------------------------------
@@ -92,11 +97,11 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.timestamp = ProtoField.new("T
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_amexoptions_complexfeed_xdp_v1_3_a.timestamp_format = 2
 
 
@@ -182,6 +187,19 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.conversation.current = nil
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nyse AmexOptions ComplexFeed Xdp 1.3.a Fields
 -----------------------------------------------------------------------
@@ -845,7 +863,7 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -868,7 +886,7 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nyse_amexoptions_complexfeed_xdp_v1_3_a.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2391,10 +2409,16 @@ end
 nyse_amexoptions_complexfeed_xdp_v1_3_a.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.message, buffer(offset, 0))
-    local current = nyse_amexoptions_complexfeed_xdp_v1_3_a.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(nyse_amexoptions_complexfeed_xdp_v1_3_a.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_amexoptions_complexfeed_xdp_v1_3_a.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = nyse_amexoptions_complexfeed_xdp_v1_3_a.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2402,7 +2426,10 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.message.dissect = function(buffer, offse
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_amexoptions_complexfeed_xdp_v1_3_a.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(nyse_amexoptions_complexfeed_xdp_v1_3_a.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_amexoptions_complexfeed_xdp_v1_3_a.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -2570,6 +2597,12 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.packet.dissect = function(buffer, packet
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(nyse_amexoptions_complexfeed_xdp_v1_3_a.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()

@@ -120,11 +120,11 @@ omi_siac_opra_input_obi_v5_0_i.fields.message_index = ProtoField.new("Message In
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 siac_opra_input_obi_v5_0_i.timestamp_format = 2
 
 
@@ -1345,7 +1345,7 @@ siac_opra_input_obi_v5_0_i.reserved_1.dissect = function(buffer, offset, packet,
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_input_obi_v5_0_i.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.reserved_1, range, value, display)
+  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1368,7 +1368,7 @@ siac_opra_input_obi_v5_0_i.reserved_4.dissect = function(buffer, offset, packet,
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_input_obi_v5_0_i.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.reserved_4, range, value, display)
+  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1391,7 +1391,7 @@ siac_opra_input_obi_v5_0_i.reserved_8.dissect = function(buffer, offset, packet,
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_input_obi_v5_0_i.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.reserved_8, range, value, display)
+  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1437,7 +1437,7 @@ siac_opra_input_obi_v5_0_i.second_reserved_4.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_input_obi_v5_0_i.second_reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.second_reserved_4, range, value, display)
+  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.second_reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1838,7 +1838,7 @@ siac_opra_input_obi_v5_0_i.version.size = 1
 -- Display: Version
 siac_opra_input_obi_v5_0_i.version.display = function(value)
   if value == 4 then
-    return "Version: Opra 4"
+    return "Version: Opra 4 (4)"
   end
 
   return "Version: Unknown("..value..")"

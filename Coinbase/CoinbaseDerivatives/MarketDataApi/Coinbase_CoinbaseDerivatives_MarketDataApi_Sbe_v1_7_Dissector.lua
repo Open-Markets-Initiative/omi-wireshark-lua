@@ -164,17 +164,22 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.trading_status_up
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7 Generated Fields
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.sbe_message_index = ProtoField.new("Sbe Message Index", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.sbemessageindex", ftypes.UINT16)
 
+-- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7 Expert Info
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.experts = {}
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.experts.undecoded = ProtoExpert.new("coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.experts = { coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.timestamp_format = 2
 
 
@@ -220,6 +225,19 @@ function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.7 Fields
 -----------------------------------------------------------------------
@@ -2064,7 +2082,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.padding.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.padding.display(value, packet, parent, size)
 
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.padding, range, value, display)
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.padding, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -2369,7 +2387,7 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.schema_id.size = 2
 -- Display: Schema Id
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.schema_id.display = function(value)
   if value == 1201 then
-    return "Schema Id: 1201"
+    return "Schema Id: Fairx Gateway Sbe Codec Marketdata (1201)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -5085,10 +5103,16 @@ end
 coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message, sbe_message_index)
   local index = offset + size_of_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.sbe_message, buffer(offset, 0))
-    local current = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message, sbe_message_index)
+    local decoded, failure = pcall(coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message, sbe_message_index)
+    if not decoded then
+      undecoded(failure, parent, coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
     parent:set_len(size_of_sbe_message)
     local display = coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5096,7 +5120,10 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.dissect = functi
     return index, parent
   else
     -- Skip element, add fields directly
-    coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message, sbe_message_index)
+    local decoded, failure = pcall(coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message, sbe_message_index)
+    if not decoded then
+      undecoded(failure, parent, coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
 
     return index
   end

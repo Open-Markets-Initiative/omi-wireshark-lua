@@ -114,17 +114,22 @@ omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.session_shutdown = ProtoFie
 -- 24X 24XEquities MemoirDepthFeed Sbe 2.0 Generated Fields
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.message_index = ProtoField.new("Message Index", "24x.24xequities.memoirdepthfeed.sbe.v2.0.messageindex", ftypes.UINT16)
 
+-- 24X 24XEquities MemoirDepthFeed Sbe 2.0 Expert Info
+n24x_24xequities_memoirdepthfeed_sbe_v2_0.experts = {}
+n24x_24xequities_memoirdepthfeed_sbe_v2_0.experts.undecoded = ProtoExpert.new("24x.24xequities.memoirdepthfeed.sbe.v2.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.experts = { n24x_24xequities_memoirdepthfeed_sbe_v2_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- 24X 24XEquities MemoirDepthFeed Sbe 2.0 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.timestamp_format = 2
 
 
@@ -170,6 +175,19 @@ function omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- 24X 24XEquities MemoirDepthFeed Sbe 2.0 Fields
 -----------------------------------------------------------------------
@@ -1563,7 +1581,7 @@ n24x_24xequities_memoirdepthfeed_sbe_v2_0.schema_id.size = 1
 -- Display: Schema Id
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.schema_id.display = function(value)
   if value == 2 then
-    return "Schema Id: 2"
+    return "Schema Id: Com Memx Us Equities Memoir Depth Sbe V2 0 (2)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -3307,10 +3325,16 @@ end
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset + size_of_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.sbe_message, buffer(offset, 0))
-    local current = n24x_24xequities_memoirdepthfeed_sbe_v2_0.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(n24x_24xequities_memoirdepthfeed_sbe_v2_0.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, n24x_24xequities_memoirdepthfeed_sbe_v2_0.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
     parent:set_len(size_of_sbe_message)
     local display = n24x_24xequities_memoirdepthfeed_sbe_v2_0.sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3318,7 +3342,10 @@ n24x_24xequities_memoirdepthfeed_sbe_v2_0.sbe_message.dissect = function(buffer,
     return index, parent
   else
     -- Skip element, add fields directly
-    n24x_24xequities_memoirdepthfeed_sbe_v2_0.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(n24x_24xequities_memoirdepthfeed_sbe_v2_0.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, n24x_24xequities_memoirdepthfeed_sbe_v2_0.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
 
     return index
   end
@@ -3361,10 +3388,16 @@ end
 n24x_24xequities_memoirdepthfeed_sbe_v2_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.message, buffer(offset, 0))
-    local current = n24x_24xequities_memoirdepthfeed_sbe_v2_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(n24x_24xequities_memoirdepthfeed_sbe_v2_0.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, n24x_24xequities_memoirdepthfeed_sbe_v2_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = n24x_24xequities_memoirdepthfeed_sbe_v2_0.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3372,7 +3405,10 @@ n24x_24xequities_memoirdepthfeed_sbe_v2_0.message.dissect = function(buffer, off
     return index, parent
   else
     -- Skip element, add fields directly
-    n24x_24xequities_memoirdepthfeed_sbe_v2_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(n24x_24xequities_memoirdepthfeed_sbe_v2_0.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, n24x_24xequities_memoirdepthfeed_sbe_v2_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -3388,7 +3424,8 @@ n24x_24xequities_memoirdepthfeed_sbe_v2_0.sequenced_message.size = function(buff
   index = index + n24x_24xequities_memoirdepthfeed_sbe_v2_0.message_count.size
 
   -- Parse runtime size of: Message
-  index = index + buffer(offset + index - 0, 2):uint()
+  local message_length = buffer(offset + index - 0, 2):uint()
+  index = index + message_length + 2
 
   return index
 end

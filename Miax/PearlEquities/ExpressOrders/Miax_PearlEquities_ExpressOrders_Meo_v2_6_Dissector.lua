@@ -180,17 +180,22 @@ omi_miax_pearlequities_expressorders_meo_v2_6.fields.login_matching_engine_index
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.matching_engine_index = ProtoField.new("Matching Engine Index", "miax.pearlequities.expressorders.meo.v2.6.matchingengineindex", ftypes.UINT16)
 omi_miax_pearlequities_expressorders_meo_v2_6.fields.requested_matching_engine_index = ProtoField.new("Requested Matching Engine Index", "miax.pearlequities.expressorders.meo.v2.6.requestedmatchingengineindex", ftypes.UINT16)
 
+-- Miax PearlEquities ExpressOrders Meo 2.6 Expert Info
+miax_pearlequities_expressorders_meo_v2_6.experts = {}
+miax_pearlequities_expressorders_meo_v2_6.experts.undecoded = ProtoExpert.new("miax.pearlequities.expressorders.meo.v2.6.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_pearlequities_expressorders_meo_v2_6.experts = { miax_pearlequities_expressorders_meo_v2_6.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Miax PearlEquities ExpressOrders Meo 2.6 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 miax_pearlequities_expressorders_meo_v2_6.timestamp_format = 2
 
 
@@ -267,6 +272,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax PearlEquities ExpressOrders Meo 2.6 Fields
 -----------------------------------------------------------------------
@@ -2451,7 +2464,7 @@ miax_pearlequities_expressorders_meo_v2_6.reserved_1.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_6.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_1, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2474,7 +2487,7 @@ miax_pearlequities_expressorders_meo_v2_6.reserved_10.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_6.reserved_10.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_10, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_10, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2497,7 +2510,7 @@ miax_pearlequities_expressorders_meo_v2_6.reserved_12.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_6.reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_12, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2520,7 +2533,7 @@ miax_pearlequities_expressorders_meo_v2_6.reserved_18.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_6.reserved_18.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_18, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_18, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2543,7 +2556,7 @@ miax_pearlequities_expressorders_meo_v2_6.reserved_19.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_6.reserved_19.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_19, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_19, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2566,7 +2579,7 @@ miax_pearlequities_expressorders_meo_v2_6.reserved_26.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_6.reserved_26.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_26, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_26, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2589,7 +2602,7 @@ miax_pearlequities_expressorders_meo_v2_6.reserved_28.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_6.reserved_28.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_28, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_28, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2612,7 +2625,7 @@ miax_pearlequities_expressorders_meo_v2_6.reserved_8.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_6.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_8, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2635,7 +2648,7 @@ miax_pearlequities_expressorders_meo_v2_6.reserved_9.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_6.reserved_9.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_9, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.reserved_9, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2685,7 +2698,7 @@ miax_pearlequities_expressorders_meo_v2_6.second_reserved_1.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v2_6.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.second_reserved_1, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3224,7 +3237,8 @@ miax_pearlequities_expressorders_meo_v2_6.test_packet.size = function(buffer, of
   local index = 0
 
   -- Parse runtime size of: Test Text
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + esesm_packet_length - 1
 
   return index
 end
@@ -3356,7 +3370,8 @@ miax_pearlequities_expressorders_meo_v2_6.goodbye_packet.size = function(buffer,
   index = index + miax_pearlequities_expressorders_meo_v2_6.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + esesm_packet_length - 2
 
   return index
 end
@@ -3413,7 +3428,8 @@ miax_pearlequities_expressorders_meo_v2_6.logout_request.size = function(buffer,
   index = index + miax_pearlequities_expressorders_meo_v2_6.logout_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + esesm_packet_length - 2
 
   return index
 end
@@ -5968,10 +5984,16 @@ end
 miax_pearlequities_expressorders_meo_v2_6.esesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
   local index = offset + size_of_esesm_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v2_6.fields.esesm_tcp_packet, buffer(offset, 0))
-    local current = miax_pearlequities_expressorders_meo_v2_6.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    local decoded, failure = pcall(miax_pearlequities_expressorders_meo_v2_6.esesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_esesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_pearlequities_expressorders_meo_v2_6.experts.undecoded, "Esesm Tcp Packet does not decode within its "..size_of_esesm_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_esesm_tcp_packet)
     local display = miax_pearlequities_expressorders_meo_v2_6.esesm_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5979,7 +6001,10 @@ miax_pearlequities_expressorders_meo_v2_6.esesm_tcp_packet.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_pearlequities_expressorders_meo_v2_6.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    local decoded, failure = pcall(miax_pearlequities_expressorders_meo_v2_6.esesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_esesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_pearlequities_expressorders_meo_v2_6.experts.undecoded, "Esesm Tcp Packet does not decode within its "..size_of_esesm_tcp_packet.." bytes")
+    end
 
     return index
   end

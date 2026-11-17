@@ -274,11 +274,11 @@ omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.unit_sequence_index = 
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.timestamp_format = 2
 
 -- assumed connection role
@@ -4957,7 +4957,7 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.reserved, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4980,7 +4980,7 @@ cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.dissect = function
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.reserved_field.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.reserved_field, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe3_v1_0_10.fields.reserved_field, range, range:raw(), display)
 
   return offset + length, value
 end

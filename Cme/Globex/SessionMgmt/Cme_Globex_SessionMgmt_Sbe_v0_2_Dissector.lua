@@ -84,8 +84,10 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_ack = ProtoField.new("Request
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_reject = ProtoField.new("Request Reject", "cme.globex.sessionmgmt.sbe.v0.2.requestreject", ftypes.STRING, nil, nil, nil, "RequestReject")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_list_request = ProtoField.new("Security List Request", "cme.globex.sessionmgmt.sbe.v0.2.securitylistrequest", ftypes.STRING, nil, nil, nil, "SecurityListRequest")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request = ProtoField.new("Security Status Request", "cme.globex.sessionmgmt.sbe.v0.2.securitystatusrequest", ftypes.STRING, nil, nil, nil, "SecurityStatusRequest")
-omi_cme_globex_sessionmgmt_sbe_v0_2.fields.subscriber_heartbeat = ProtoField.new("Subscriber Heartbeat", "cme.globex.sessionmgmt.sbe.v0.2.subscriberheartbeat", ftypes.BYTES, nil, nil, nil, "SubscriberHeartbeat")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.terminate = ProtoField.new("Terminate", "cme.globex.sessionmgmt.sbe.v0.2.terminate", ftypes.STRING)
+
+-- Cme Globex SessionMgmt 0.2 Session Messages
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.subscriber_heartbeat = ProtoField.new("Subscriber Heartbeat", "cme.globex.sessionmgmt.sbe.v0.2.subscriberheartbeat", ftypes.BYTES, nil, nil, nil, "SubscriberHeartbeat")
 
 -- Cme Globex SessionMgmt Sbe 0.2 Generated Fields
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.market_data_request_related_symbol_group_index = ProtoField.new("Market Data Request Related Symbol Group Index", "cme.globex.sessionmgmt.sbe.v0.2.marketdatarequestrelatedsymbolgroupindex", ftypes.UINT16)
@@ -97,17 +99,22 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_list_request_security_group_
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_related_symbol_group_index = ProtoField.new("Security Status Request Related Symbol Group Index", "cme.globex.sessionmgmt.sbe.v0.2.securitystatusrequestrelatedsymbolgroupindex", ftypes.UINT16)
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_security_group_index = ProtoField.new("Security Status Request Security Group Index", "cme.globex.sessionmgmt.sbe.v0.2.securitystatusrequestsecuritygroupindex", ftypes.UINT16)
 
+-- Cme Globex SessionMgmt Sbe 0.2 Expert Info
+cme_globex_sessionmgmt_sbe_v0_2.experts = {}
+cme_globex_sessionmgmt_sbe_v0_2.experts.undecoded = ProtoExpert.new("cme.globex.sessionmgmt.sbe.v0.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cme_globex_sessionmgmt_sbe_v0_2.experts = { cme_globex_sessionmgmt_sbe_v0_2.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Cme Globex SessionMgmt Sbe 0.2 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cme_globex_sessionmgmt_sbe_v0_2.timestamp_format = 2
 
 -- assumed connection role
@@ -173,6 +180,19 @@ function omi_cme_globex_sessionmgmt_sbe_v0_2.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cme Globex SessionMgmt Sbe 0.2 Fields
 -----------------------------------------------------------------------
@@ -566,7 +586,7 @@ cme_globex_sessionmgmt_sbe_v0_2.padding_4.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = cme_globex_sessionmgmt_sbe_v0_2.padding_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.padding_4, range, value, display)
+  parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.padding_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -589,7 +609,7 @@ cme_globex_sessionmgmt_sbe_v0_2.padding_5.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = cme_globex_sessionmgmt_sbe_v0_2.padding_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.padding_5, range, value, display)
+  parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.padding_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -666,7 +686,7 @@ cme_globex_sessionmgmt_sbe_v0_2.schema_id.size = 2
 -- Display: Schema Id
 cme_globex_sessionmgmt_sbe_v0_2.schema_id.display = function(value)
   if value == 2 then
-    return "Schema Id: 2"
+    return "Schema Id: Mdpsessionmgmt (2)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -1782,10 +1802,16 @@ end
 cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.dissect = function(buffer, offset, packet, parent, size_of_server_tcp_frame)
   local index = offset + size_of_server_tcp_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.server_tcp_frame, buffer(offset, 0))
-    local current = cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.fields(buffer, offset, packet, parent, size_of_server_tcp_frame)
+    local decoded, failure = pcall(cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.fields, bounded, offset, packet, parent, size_of_server_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_sessionmgmt_sbe_v0_2.experts.undecoded, "Server Tcp Frame does not decode within its "..size_of_server_tcp_frame.." bytes")
+    end
     parent:set_len(size_of_server_tcp_frame)
     local display = cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1793,7 +1819,10 @@ cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.dissect = function(buffer, offs
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.fields(buffer, offset, packet, parent, size_of_server_tcp_frame)
+    local decoded, failure = pcall(cme_globex_sessionmgmt_sbe_v0_2.server_tcp_frame.fields, bounded, offset, packet, parent, size_of_server_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_sessionmgmt_sbe_v0_2.experts.undecoded, "Server Tcp Frame does not decode within its "..size_of_server_tcp_frame.." bytes")
+    end
 
     return index
   end
@@ -2885,10 +2914,16 @@ end
 cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.dissect = function(buffer, offset, packet, parent, size_of_client_tcp_frame)
   local index = offset + size_of_client_tcp_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_sessionmgmt_sbe_v0_2.fields.client_tcp_frame, buffer(offset, 0))
-    local current = cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.fields(buffer, offset, packet, parent, size_of_client_tcp_frame)
+    local decoded, failure = pcall(cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.fields, bounded, offset, packet, parent, size_of_client_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_sessionmgmt_sbe_v0_2.experts.undecoded, "Client Tcp Frame does not decode within its "..size_of_client_tcp_frame.." bytes")
+    end
     parent:set_len(size_of_client_tcp_frame)
     local display = cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2896,7 +2931,10 @@ cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.dissect = function(buffer, offs
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.fields(buffer, offset, packet, parent, size_of_client_tcp_frame)
+    local decoded, failure = pcall(cme_globex_sessionmgmt_sbe_v0_2.client_tcp_frame.fields, bounded, offset, packet, parent, size_of_client_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_sessionmgmt_sbe_v0_2.experts.undecoded, "Client Tcp Frame does not decode within its "..size_of_client_tcp_frame.." bytes")
+    end
 
     return index
   end

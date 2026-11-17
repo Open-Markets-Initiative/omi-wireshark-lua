@@ -337,17 +337,22 @@ omi_ice_icefutures_mdf_impact_v1_1_51.fields.message_index = ProtoField.new("Mes
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.special_field_index = ProtoField.new("Special Field Index", "ice.icefutures.mdf.impact.v1.1.51.specialfieldindex", ftypes.UINT16)
 omi_ice_icefutures_mdf_impact_v1_1_51.fields.strategy_leg_definition_index = ProtoField.new("Strategy Leg Definition Index", "ice.icefutures.mdf.impact.v1.1.51.strategylegdefinitionindex", ftypes.UINT16)
 
+-- Ice IceFutures Mdf iMpact 1.1.51 Expert Info
+ice_icefutures_mdf_impact_v1_1_51.experts = {}
+ice_icefutures_mdf_impact_v1_1_51.experts.undecoded = ProtoExpert.new("ice.icefutures.mdf.impact.v1.1.51.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_ice_icefutures_mdf_impact_v1_1_51.experts = { ice_icefutures_mdf_impact_v1_1_51.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Ice IceFutures Mdf iMpact 1.1.51 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 ice_icefutures_mdf_impact_v1_1_51.timestamp_format = 2
 
 
@@ -403,6 +408,19 @@ function omi_ice_icefutures_mdf_impact_v1_1_51.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Ice IceFutures Mdf iMpact 1.1.51 Fields
 -----------------------------------------------------------------------
@@ -1640,7 +1658,7 @@ ice_icefutures_mdf_impact_v1_1_51.extra_data.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = ice_icefutures_mdf_impact_v1_1_51.extra_data.display(value, packet, parent, size)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.extra_data, range, value, display)
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.extra_data, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1775,7 +1793,7 @@ ice_icefutures_mdf_impact_v1_1_51.fragment_bytes.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = ice_icefutures_mdf_impact_v1_1_51.fragment_bytes.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.fragment_bytes, range, value, display)
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.fragment_bytes, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5876,7 +5894,7 @@ ice_icefutures_mdf_impact_v1_1_51.reserved_2.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = ice_icefutures_mdf_impact_v1_1_51.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.reserved_2, range, value, display)
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5899,7 +5917,7 @@ ice_icefutures_mdf_impact_v1_1_51.reserved_4.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = ice_icefutures_mdf_impact_v1_1_51.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.reserved_4, range, value, display)
+  parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -11507,10 +11525,16 @@ end
 ice_icefutures_mdf_impact_v1_1_51.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_ice_icefutures_mdf_impact_v1_1_51.fields.message, buffer(offset, 0))
-    local current = ice_icefutures_mdf_impact_v1_1_51.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(ice_icefutures_mdf_impact_v1_1_51.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, ice_icefutures_mdf_impact_v1_1_51.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = ice_icefutures_mdf_impact_v1_1_51.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -11518,7 +11542,10 @@ ice_icefutures_mdf_impact_v1_1_51.message.dissect = function(buffer, offset, pac
     return index, parent
   else
     -- Skip element, add fields directly
-    ice_icefutures_mdf_impact_v1_1_51.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(ice_icefutures_mdf_impact_v1_1_51.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, ice_icefutures_mdf_impact_v1_1_51.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

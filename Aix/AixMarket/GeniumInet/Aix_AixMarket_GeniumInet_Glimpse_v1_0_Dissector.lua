@@ -109,7 +109,8 @@ omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.scaled_tick_size = ProtoField.n
 -- Aix AixMarket GeniumInet Glimpse 1.0 Expert Info
 aix_aixmarket_geniuminet_glimpse_v1_0.experts = {}
 aix_aixmarket_geniuminet_glimpse_v1_0.experts.not_a_number = ProtoExpert.new("aix.aixmarket.geniuminet.glimpse.v1.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_aix_aixmarket_geniuminet_glimpse_v1_0.experts = { aix_aixmarket_geniuminet_glimpse_v1_0.experts.not_a_number }
+aix_aixmarket_geniuminet_glimpse_v1_0.experts.undecoded = ProtoExpert.new("aix.aixmarket.geniuminet.glimpse.v1.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_aix_aixmarket_geniuminet_glimpse_v1_0.experts = { aix_aixmarket_geniuminet_glimpse_v1_0.experts.not_a_number, aix_aixmarket_geniuminet_glimpse_v1_0.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Aix AixMarket GeniumInet Glimpse 1.0 Formatting
@@ -118,11 +119,11 @@ omi_aix_aixmarket_geniuminet_glimpse_v1_0.experts = { aix_aixmarket_geniuminet_g
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 aix_aixmarket_geniuminet_glimpse_v1_0.timestamp_format = 2
 
 -- Scaled Nominal Value format (true = decimal-scaled, false = raw mantissa)
@@ -281,6 +282,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Aix AixMarket GeniumInet Glimpse 1.0 Fields
 -----------------------------------------------------------------------
@@ -1183,7 +1192,7 @@ aix_aixmarket_geniuminet_glimpse_v1_0.reserved_1.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = aix_aixmarket_geniuminet_glimpse_v1_0.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.reserved_1, range, value, display)
+  parent:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1550,7 +1559,7 @@ aix_aixmarket_geniuminet_glimpse_v1_0.unsequenced_message.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = aix_aixmarket_geniuminet_glimpse_v1_0.unsequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.unsequenced_message, range, value, display)
+  parent:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.unsequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -2745,7 +2754,8 @@ aix_aixmarket_geniuminet_glimpse_v1_0.debug_packet.size = function(buffer, offse
   local index = 0
 
   -- Parse runtime size of: Debug Text
-  index = index + buffer(offset + index - 3, 2):uint()
+  local packet_length = buffer(offset + index - 3, 2):uint()
+  index = index + packet_length - 1
 
   return index
 end
@@ -2884,10 +2894,16 @@ end
 aix_aixmarket_geniuminet_glimpse_v1_0.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset + size_of_server_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = aix_aixmarket_geniuminet_glimpse_v1_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(aix_aixmarket_geniuminet_glimpse_v1_0.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, aix_aixmarket_geniuminet_glimpse_v1_0.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_server_soup_bin_tcp_packet)
     local display = aix_aixmarket_geniuminet_glimpse_v1_0.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2895,7 +2911,10 @@ aix_aixmarket_geniuminet_glimpse_v1_0.server_soup_bin_tcp_packet.dissect = funct
     return index, parent
   else
     -- Skip element, add fields directly
-    aix_aixmarket_geniuminet_glimpse_v1_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(aix_aixmarket_geniuminet_glimpse_v1_0.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, aix_aixmarket_geniuminet_glimpse_v1_0.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end
@@ -3209,10 +3228,16 @@ end
 aix_aixmarket_geniuminet_glimpse_v1_0.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
   local index = offset + size_of_client_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_aix_aixmarket_geniuminet_glimpse_v1_0.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = aix_aixmarket_geniuminet_glimpse_v1_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(aix_aixmarket_geniuminet_glimpse_v1_0.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, aix_aixmarket_geniuminet_glimpse_v1_0.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_client_soup_bin_tcp_packet)
     local display = aix_aixmarket_geniuminet_glimpse_v1_0.client_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3220,7 +3245,10 @@ aix_aixmarket_geniuminet_glimpse_v1_0.client_soup_bin_tcp_packet.dissect = funct
     return index, parent
   else
     -- Skip element, add fields directly
-    aix_aixmarket_geniuminet_glimpse_v1_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(aix_aixmarket_geniuminet_glimpse_v1_0.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, aix_aixmarket_geniuminet_glimpse_v1_0.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end

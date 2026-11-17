@@ -159,11 +159,11 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.unsequenced_message = ProtoFiel
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 memx_memxoptions_riskcontrol_sbe_v1_6.timestamp_format = 2
 
 -- assumed connection role
@@ -1291,7 +1291,7 @@ memx_memxoptions_riskcontrol_sbe_v1_6.schema_id.size = 1
 -- Display: Schema Id
 memx_memxoptions_riskcontrol_sbe_v1_6.schema_id.display = function(value)
   if value == 12 then
-    return "Schema Id: 12"
+    return "Schema Id: Com Memx Us Options Risk Sbe V1 6 (12)"
   end
 
   return "Schema Id: Unknown("..value..")"

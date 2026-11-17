@@ -92,7 +92,6 @@ omi_iex_iexoptions_marketdata_sbe_v1_04.fields.packet = ProtoField.new("Packet",
 -- Iex IexOptions MarketData 1.04 Application Messages
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.add_order_customer_message = ProtoField.new("Add Order Customer Message", "iex.iexoptions.marketdata.sbe.v1.04.addordercustomermessage", ftypes.STRING, nil, nil, nil, "AddOrderCustomerMessage")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.add_order_non_customer_message = ProtoField.new("Add Order Non Customer Message", "iex.iexoptions.marketdata.sbe.v1.04.addordernoncustomermessage", ftypes.STRING, nil, nil, nil, "AddOrderNonCustomerMessage")
-omi_iex_iexoptions_marketdata_sbe_v1_04.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.04.clientheartbeatmessage", ftypes.BYTES, nil, nil, nil, "ClientHeartbeatMessage")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.deep_trade_break_message = ProtoField.new("Deep Trade Break Message", "iex.iexoptions.marketdata.sbe.v1.04.deeptradebreakmessage", ftypes.STRING, nil, nil, nil, "DEEPTradeBreakMessage")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.delete_order_message = ProtoField.new("Delete Order Message", "iex.iexoptions.marketdata.sbe.v1.04.deleteordermessage", ftypes.STRING, nil, nil, nil, "DeleteOrderMessage")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.04.heartbeatmessage", ftypes.STRING, nil, nil, nil, "HeartbeatMessage")
@@ -110,7 +109,6 @@ omi_iex_iexoptions_marketdata_sbe_v1_04.fields.retransmission_request_message = 
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.retransmission_response_message = ProtoField.new("Retransmission Response Message", "iex.iexoptions.marketdata.sbe.v1.04.retransmissionresponsemessage", ftypes.STRING, nil, nil, nil, "RetransmissionResponseMessage")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "iex.iexoptions.marketdata.sbe.v1.04.sequencenumberresetmessage", ftypes.STRING, nil, nil, nil, "SequenceNumberResetMessage")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequenced_packet_message = ProtoField.new("Sequenced Packet Message", "iex.iexoptions.marketdata.sbe.v1.04.sequencedpacketmessage", ftypes.STRING, nil, nil, nil, "SequencedPacketMessage")
-omi_iex_iexoptions_marketdata_sbe_v1_04.fields.server_heartbeat_message = ProtoField.new("Server Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.04.serverheartbeatmessage", ftypes.BYTES, nil, nil, nil, "ServerHeartbeatMessage")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.session_shutdown_message = ProtoField.new("Session Shutdown Message", "iex.iexoptions.marketdata.sbe.v1.04.sessionshutdownmessage", ftypes.STRING, nil, nil, nil, "SessionShutdownMessage")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.snapshot_header_message = ProtoField.new("Snapshot Header Message", "iex.iexoptions.marketdata.sbe.v1.04.snapshotheadermessage", ftypes.STRING, nil, nil, nil, "SnapshotHeaderMessage")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "iex.iexoptions.marketdata.sbe.v1.04.symbolmappingmessage", ftypes.STRING, nil, nil, nil, "SymbolMappingMessage")
@@ -120,8 +118,17 @@ omi_iex_iexoptions_marketdata_sbe_v1_04.fields.trade_message = ProtoField.new("T
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.trading_status_message = ProtoField.new("Trading Status Message", "iex.iexoptions.marketdata.sbe.v1.04.tradingstatusmessage", ftypes.STRING, nil, nil, nil, "TradingStatusMessage")
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.underlying_ref_data_message = ProtoField.new("Underlying Ref Data Message", "iex.iexoptions.marketdata.sbe.v1.04.underlyingrefdatamessage", ftypes.STRING, nil, nil, nil, "UnderlyingRefDataMessage")
 
+-- Iex IexOptions MarketData 1.04 Session Messages
+omi_iex_iexoptions_marketdata_sbe_v1_04.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.04.clientheartbeatmessage", ftypes.BYTES, nil, nil, nil, "ClientHeartbeatMessage")
+omi_iex_iexoptions_marketdata_sbe_v1_04.fields.server_heartbeat_message = ProtoField.new("Server Heartbeat Message", "iex.iexoptions.marketdata.sbe.v1.04.serverheartbeatmessage", ftypes.BYTES, nil, nil, nil, "ServerHeartbeatMessage")
+
 -- Iex IexOptions MarketData Sbe 1.04 Generated Fields
 omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequenced_packet_message_messages_group_index = ProtoField.new("Sequenced Packet Message Messages Group Index", "iex.iexoptions.marketdata.sbe.v1.04.sequencedpacketmessagemessagesgroupindex", ftypes.UINT16)
+
+-- Iex IexOptions MarketData Sbe 1.04 Expert Info
+iex_iexoptions_marketdata_sbe_v1_04.experts = {}
+iex_iexoptions_marketdata_sbe_v1_04.experts.undecoded = ProtoExpert.new("iex.iexoptions.marketdata.sbe.v1.04.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_iex_iexoptions_marketdata_sbe_v1_04.experts = { iex_iexoptions_marketdata_sbe_v1_04.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Iex IexOptions MarketData Sbe 1.04 Formatting
@@ -129,11 +136,11 @@ omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sequenced_packet_message_messages
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 iex_iexoptions_marketdata_sbe_v1_04.timestamp_format = 2
 
 
@@ -184,6 +191,19 @@ function omi_iex_iexoptions_marketdata_sbe_v1_04.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Iex IexOptions MarketData Sbe 1.04 Fields
 -----------------------------------------------------------------------
@@ -941,7 +961,7 @@ iex_iexoptions_marketdata_sbe_v1_04.message_data.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = iex_iexoptions_marketdata_sbe_v1_04.message_data.display(value, packet, parent, size)
 
-  parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.message_data, range, value, display)
+  parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.message_data, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1359,7 +1379,7 @@ iex_iexoptions_marketdata_sbe_v1_04.schema_id.size = 2
 -- Display: Schema Id
 iex_iexoptions_marketdata_sbe_v1_04.schema_id.display = function(value)
   if value == 10000 then
-    return "Schema Id: 10000"
+    return "Schema Id: Iex Options Codec Sbe Marketdata (10000)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -3802,10 +3822,16 @@ end
 iex_iexoptions_marketdata_sbe_v1_04.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset + size_of_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_iex_iexoptions_marketdata_sbe_v1_04.fields.sbe_message, buffer(offset, 0))
-    local current = iex_iexoptions_marketdata_sbe_v1_04.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(iex_iexoptions_marketdata_sbe_v1_04.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexoptions_marketdata_sbe_v1_04.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
     parent:set_len(size_of_sbe_message)
     local display = iex_iexoptions_marketdata_sbe_v1_04.sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3813,7 +3839,10 @@ iex_iexoptions_marketdata_sbe_v1_04.sbe_message.dissect = function(buffer, offse
     return index, parent
   else
     -- Skip element, add fields directly
-    iex_iexoptions_marketdata_sbe_v1_04.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(iex_iexoptions_marketdata_sbe_v1_04.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexoptions_marketdata_sbe_v1_04.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
 
     return index
   end
@@ -3838,6 +3867,12 @@ iex_iexoptions_marketdata_sbe_v1_04.packet.dissect = function(buffer, packet, pa
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(iex_iexoptions_marketdata_sbe_v1_04.experts.undecoded, "Packet Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Packet Length
     local packet_length = buffer(index, 2):le_uint()

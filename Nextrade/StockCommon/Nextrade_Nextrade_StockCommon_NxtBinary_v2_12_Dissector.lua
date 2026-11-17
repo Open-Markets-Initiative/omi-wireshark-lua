@@ -617,7 +617,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.accumulated_ask_trading_value.diss
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.accumulated_ask_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.accumulated_ask_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.accumulated_ask_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -663,7 +663,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.accumulated_bid_trading_value.diss
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.accumulated_bid_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.accumulated_bid_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.accumulated_bid_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -709,7 +709,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.accumulated_trading_value.dissect 
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -755,7 +755,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.after_market_accumulated_trading_v
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.after_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.after_market_accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.after_market_accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -985,7 +985,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.arbitrage_ask_principal_trading_va
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.arbitrage_ask_principal_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.arbitrage_ask_principal_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.arbitrage_ask_principal_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1031,7 +1031,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.arbitrage_ask_trust_trading_value.
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.arbitrage_ask_trust_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.arbitrage_ask_trust_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.arbitrage_ask_trust_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1077,7 +1077,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.arbitrage_bid_principal_trading_va
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.arbitrage_bid_principal_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.arbitrage_bid_principal_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.arbitrage_bid_principal_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1123,7 +1123,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.arbitrage_bid_trust_trading_value.
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.arbitrage_bid_trust_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.arbitrage_bid_trust_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.arbitrage_bid_trust_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1629,7 +1629,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.ask_trading_value_1.dissect = func
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.ask_trading_value_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.ask_trading_value_1, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.ask_trading_value_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1652,7 +1652,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.ask_trading_value_2.dissect = func
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.ask_trading_value_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.ask_trading_value_2, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.ask_trading_value_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1675,7 +1675,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.ask_trading_value_3.dissect = func
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.ask_trading_value_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.ask_trading_value_3, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.ask_trading_value_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1698,7 +1698,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.ask_trading_value_4.dissect = func
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.ask_trading_value_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.ask_trading_value_4, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.ask_trading_value_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1721,7 +1721,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.ask_trading_value_5.dissect = func
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.ask_trading_value_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.ask_trading_value_5, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.ask_trading_value_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2434,7 +2434,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.bid_trading_value_1.dissect = func
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.bid_trading_value_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.bid_trading_value_1, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.bid_trading_value_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2457,7 +2457,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.bid_trading_value_2.dissect = func
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.bid_trading_value_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.bid_trading_value_2, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.bid_trading_value_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2480,7 +2480,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.bid_trading_value_3.dissect = func
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.bid_trading_value_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.bid_trading_value_3, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.bid_trading_value_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2503,7 +2503,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.bid_trading_value_4.dissect = func
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.bid_trading_value_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.bid_trading_value_4, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.bid_trading_value_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2526,7 +2526,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.bid_trading_value_5.dissect = func
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.bid_trading_value_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.bid_trading_value_5, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.bid_trading_value_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2825,7 +2825,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.buy_side_arbitrage_value.dissect =
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.buy_side_arbitrage_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.buy_side_arbitrage_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.buy_side_arbitrage_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2917,7 +2917,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.buy_side_non_arbitrage_value.disse
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.buy_side_non_arbitrage_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.buy_side_non_arbitrage_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.buy_side_non_arbitrage_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3003,7 +3003,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.calculation_time.display = functio
     return "Calculation Time: "..value
   end
 
-  return "Calculation Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+  return "Calculation Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).." Asia/Seoul"
 end
 
 -- Dissect: Calculation Time
@@ -3036,7 +3036,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.capital.dissect = function(buffer,
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.capital.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.capital, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.capital, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3358,7 +3358,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.covered_short_selling_trading_valu
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.covered_short_selling_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.covered_short_selling_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.covered_short_selling_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4761,7 +4761,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.main_market_accumulated_trading_va
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.main_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.main_market_accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.main_market_accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5405,7 +5405,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.non_arbitrage_ask_principal_tradin
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.non_arbitrage_ask_principal_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.non_arbitrage_ask_principal_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.non_arbitrage_ask_principal_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5451,7 +5451,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.non_arbitrage_ask_trust_trading_va
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.non_arbitrage_ask_trust_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.non_arbitrage_ask_trust_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.non_arbitrage_ask_trust_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5497,7 +5497,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.non_arbitrage_bid_principal_tradin
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.non_arbitrage_bid_principal_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.non_arbitrage_bid_principal_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.non_arbitrage_bid_principal_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5543,7 +5543,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.non_arbitrage_bid_trust_trading_va
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.non_arbitrage_bid_trust_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.non_arbitrage_bid_trust_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.non_arbitrage_bid_trust_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5934,7 +5934,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.pre_market_accumulated_trading_val
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.pre_market_accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.pre_market_accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.pre_market_accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6043,7 +6043,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.processing_time_of_trading_system.
     return "Processing Time Of Trading System: "..value
   end
 
-  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12)
+  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12).." Asia/Seoul"
 end
 
 -- Dissect: Processing Time Of Trading System
@@ -6352,7 +6352,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.sell_side_arbitrage_value.dissect 
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.sell_side_arbitrage_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.sell_side_arbitrage_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.sell_side_arbitrage_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6444,7 +6444,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.sell_side_non_arbitrage_value.diss
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.sell_side_non_arbitrage_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.sell_side_non_arbitrage_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.sell_side_non_arbitrage_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7417,7 +7417,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.upper_limit_quantity.dissect = fun
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.upper_limit_quantity.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.upper_limit_quantity, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.upper_limit_quantity, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7440,7 +7440,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.uptick_rule_applied_covered_short_
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.uptick_rule_applied_covered_short_selling_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.uptick_rule_applied_covered_short_selling_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.uptick_rule_applied_covered_short_selling_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7486,7 +7486,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.uptick_rule_unapplied_covered_shor
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.uptick_rule_unapplied_covered_short_selling_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.uptick_rule_unapplied_covered_short_selling_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.uptick_rule_unapplied_covered_short_selling_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7624,7 +7624,7 @@ nextrade_nextrade_stockcommon_nxtbinary_v2_12.yesterdays_accumulated_trading_val
   local value = range:le_float()
   local display = nextrade_nextrade_stockcommon_nxtbinary_v2_12.yesterdays_accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.yesterdays_accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stockcommon_nxtbinary_v2_12.fields.yesterdays_accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end

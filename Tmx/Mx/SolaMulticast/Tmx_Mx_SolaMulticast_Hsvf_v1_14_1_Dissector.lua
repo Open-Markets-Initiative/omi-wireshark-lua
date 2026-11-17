@@ -782,11 +782,11 @@ omi_tmx_mx_solamulticast_hsvf_v1_14_1.experts = { tmx_mx_solamulticast_hsvf_v1_1
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 tmx_mx_solamulticast_hsvf_v1_14_1.timestamp_format = 2
 
 -- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
@@ -7607,7 +7607,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.reserved.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solamulticast_hsvf_v1_14_1.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.reserved, range, value, display)
+  parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7932,7 +7932,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.sola_message_end.size = 1
 -- Display: Sola Message End
 tmx_mx_solamulticast_hsvf_v1_14_1.sola_message_end.display = function(value)
   if value == 3 then
-    return "Sola Message End: Etx"
+    return "Sola Message End: Etx (3)"
   end
 
   return "Sola Message End: Unknown("..value..")"
@@ -7959,7 +7959,7 @@ tmx_mx_solamulticast_hsvf_v1_14_1.sola_message_start.size = 1
 -- Display: Sola Message Start
 tmx_mx_solamulticast_hsvf_v1_14_1.sola_message_start.display = function(value)
   if value == 2 then
-    return "Sola Message Start: Stx"
+    return "Sola Message Start: Stx (2)"
   end
 
   return "Sola Message Start: Unknown("..value..")"

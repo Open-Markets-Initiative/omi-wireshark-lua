@@ -166,17 +166,22 @@ omi_siac_cts_output_cta_v2_9.fields.trading_status_message = ProtoField.new("Tra
 omi_siac_cts_output_cta_v2_9.fields.message_index = ProtoField.new("Message Index", "siac.cts.output.cta.v2.9.messageindex", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_9.fields.participants_index = ProtoField.new("Participants Index", "siac.cts.output.cta.v2.9.participantsindex", ftypes.UINT16)
 
+-- Siac Cts Output Cta 2.9 Expert Info
+siac_cts_output_cta_v2_9.experts = {}
+siac_cts_output_cta_v2_9.experts.undecoded = ProtoExpert.new("siac.cts.output.cta.v2.9.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_siac_cts_output_cta_v2_9.experts = { siac_cts_output_cta_v2_9.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Siac Cts Output Cta 2.9 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 siac_cts_output_cta_v2_9.timestamp_format = 2
 
 
@@ -248,6 +253,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Siac Cts Output Cta 2.9 Fields
 -----------------------------------------------------------------------
@@ -2004,7 +2017,7 @@ siac_cts_output_cta_v2_9.reserved.dissect = function(buffer, offset, packet, par
   local value = range:bytes():tohex(false, " ")
   local display = siac_cts_output_cta_v2_9.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_9.fields.reserved, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_9.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6413,10 +6426,16 @@ end
 siac_cts_output_cta_v2_9.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.headers then
     parent = parent:add(omi_siac_cts_output_cta_v2_9.fields.message, buffer(offset, 0))
-    local current = siac_cts_output_cta_v2_9.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(siac_cts_output_cta_v2_9.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, siac_cts_output_cta_v2_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = siac_cts_output_cta_v2_9.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6424,7 +6443,10 @@ siac_cts_output_cta_v2_9.message.dissect = function(buffer, offset, packet, pare
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cts_output_cta_v2_9.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(siac_cts_output_cta_v2_9.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, siac_cts_output_cta_v2_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

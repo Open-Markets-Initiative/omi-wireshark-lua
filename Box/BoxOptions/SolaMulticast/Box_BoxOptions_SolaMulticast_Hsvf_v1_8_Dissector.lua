@@ -1129,7 +1129,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.filler_1.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = box_boxoptions_solamulticast_hsvf_v1_8.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.filler_1, range, value, display)
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1152,7 +1152,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.filler_2.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = box_boxoptions_solamulticast_hsvf_v1_8.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.filler_2, range, value, display)
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1175,7 +1175,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.filler_6.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = box_boxoptions_solamulticast_hsvf_v1_8.filler_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.filler_6, range, value, display)
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.filler_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3536,7 +3536,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.reserved.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = box_boxoptions_solamulticast_hsvf_v1_8.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reserved, range, value, display)
+  parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_8.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3631,7 +3631,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.sola_message_end.size = 1
 -- Display: Sola Message End
 box_boxoptions_solamulticast_hsvf_v1_8.sola_message_end.display = function(value)
   if value == 3 then
-    return "Sola Message End: Etx"
+    return "Sola Message End: Etx (3)"
   end
 
   return "Sola Message End: Unknown("..value..")"
@@ -3658,7 +3658,7 @@ box_boxoptions_solamulticast_hsvf_v1_8.sola_message_start.size = 1
 -- Display: Sola Message Start
 box_boxoptions_solamulticast_hsvf_v1_8.sola_message_start.display = function(value)
   if value == 2 then
-    return "Sola Message Start: Stx"
+    return "Sola Message Start: Stx (2)"
   end
 
   return "Sola Message Start: Unknown("..value..")"

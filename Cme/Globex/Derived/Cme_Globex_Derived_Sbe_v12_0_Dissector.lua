@@ -55,12 +55,7 @@ omi_cme_globex_derived_sbe_v12_0.fields.template_id = ProtoField.new("Template I
 omi_cme_globex_derived_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.globex.derived.sbe.v12.0.tradingsessionid", ftypes.UINT8, nil, nil, nil, "The associated region market hours considered for the calculation of the element. The element is calculated from market events occurring during the region's open-close hours")
 omi_cme_globex_derived_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.derived.sbe.v12.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
 omi_cme_globex_derived_sbe_v12_0.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.globex.derived.sbe.v12.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
-omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_0 = ProtoField.new("Unused Event Indicator 0", "cme.globex.derived.sbe.v12.0.unusedeventindicator0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Unused EventIndicator 0")
-omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_1 = ProtoField.new("Unused Event Indicator 1", "cme.globex.derived.sbe.v12.0.unusedeventindicator1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Unused EventIndicator 1")
-omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_2 = ProtoField.new("Unused Event Indicator 2", "cme.globex.derived.sbe.v12.0.unusedeventindicator2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Unused EventIndicator 2")
-omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_3 = ProtoField.new("Unused Event Indicator 3", "cme.globex.derived.sbe.v12.0.unusedeventindicator3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Unused EventIndicator 3")
-omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_4 = ProtoField.new("Unused Event Indicator 4", "cme.globex.derived.sbe.v12.0.unusedeventindicator4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Unused EventIndicator 4")
-omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_5 = ProtoField.new("Unused Event Indicator 5", "cme.globex.derived.sbe.v12.0.unusedeventindicator5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "Unused EventIndicator 5")
+omi_cme_globex_derived_sbe_v12_0.fields.unused_6 = ProtoField.new("Unused 6", "cme.globex.derived.sbe.v12.0.unused6", ftypes.UINT8, nil, base.DEC, 0x3F, "6 unused bits")
 omi_cme_globex_derived_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.globex.derived.sbe.v12.0.version", ftypes.UINT16)
 
 -- Cme Globex Derived Sbe 12.0 Framing
@@ -73,8 +68,10 @@ omi_cme_globex_derived_sbe_v12_0.fields.tcp_packet = ProtoField.new("Tcp Packet"
 omi_cme_globex_derived_sbe_v12_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.derived.sbe.v12.0.technicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header")
 omi_cme_globex_derived_sbe_v12_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.derived.sbe.v12.0.udppacket", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet")
 
--- Cme Globex Derived 12.0 Application Messages
+-- Cme Globex Derived 12.0 Session Messages
 omi_cme_globex_derived_sbe_v12_0.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.derived.sbe.v12.0.adminheartbeat", ftypes.BYTES, nil, nil, nil, "AdminHeartbeat")
+
+-- Cme Globex Derived 12.0 Application Messages
 omi_cme_globex_derived_sbe_v12_0.fields.global_day_roll = ProtoField.new("Global Day Roll", "cme.globex.derived.sbe.v12.0.globaldayroll", ftypes.STRING, nil, nil, nil, "GlobalDayRoll")
 omi_cme_globex_derived_sbe_v12_0.fields.md_incremental_refresh_spectrum = ProtoField.new("Md Incremental Refresh Spectrum", "cme.globex.derived.sbe.v12.0.mdincrementalrefreshspectrum", ftypes.STRING, nil, nil, nil, "MDIncrementalRefreshSpectrum")
 omi_cme_globex_derived_sbe_v12_0.fields.md_incremental_refresh_ticker = ProtoField.new("Md Incremental Refresh Ticker", "cme.globex.derived.sbe.v12.0.mdincrementalrefreshticker", ftypes.STRING, nil, nil, nil, "MDIncrementalRefreshTicker")
@@ -87,17 +84,22 @@ omi_cme_globex_derived_sbe_v12_0.fields.incremental_refresh_ticker_group_index =
 omi_cme_globex_derived_sbe_v12_0.fields.snapshot_refresh_spectrum_group_index = ProtoField.new("Snapshot Refresh Spectrum Group Index", "cme.globex.derived.sbe.v12.0.snapshotrefreshspectrumgroupindex", ftypes.UINT16)
 omi_cme_globex_derived_sbe_v12_0.fields.snapshot_refresh_ticker_group_index = ProtoField.new("Snapshot Refresh Ticker Group Index", "cme.globex.derived.sbe.v12.0.snapshotrefreshtickergroupindex", ftypes.UINT16)
 
+-- Cme Globex Derived Sbe 12.0 Expert Info
+cme_globex_derived_sbe_v12_0.experts = {}
+cme_globex_derived_sbe_v12_0.experts.undecoded = ProtoExpert.new("cme.globex.derived.sbe.v12.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cme_globex_derived_sbe_v12_0.experts = { cme_globex_derived_sbe_v12_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Cme Globex Derived Sbe 12.0 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cme_globex_derived_sbe_v12_0.timestamp_format = 2
 
 
@@ -148,6 +150,19 @@ function omi_cme_globex_derived_sbe_v12_0.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cme Globex Derived Sbe 12.0 Fields
 -----------------------------------------------------------------------
@@ -217,7 +232,7 @@ cme_globex_derived_sbe_v12_0.encoding_type.size = 2
 -- Display: Encoding Type
 cme_globex_derived_sbe_v12_0.encoding_type.display = function(value)
   if value == 51966 then
-    return "Encoding Type: Cme Sbe Message"
+    return "Encoding Type: Cme Sbe Message (51966)"
   end
 
   return "Encoding Type: Unknown("..value..")"
@@ -623,7 +638,7 @@ cme_globex_derived_sbe_v12_0.schema_id.size = 2
 -- Display: Schema Id
 cme_globex_derived_sbe_v12_0.schema_id.display = function(value)
   if value == 12 then
-    return "Schema Id: 12"
+    return "Schema Id: Derivedmktdata (12)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -1150,23 +1165,8 @@ end
 -- Dissect Bit Fields: Match Event Indicator
 cme_globex_derived_sbe_v12_0.match_event_indicator.bits = function(range, value, packet, parent)
 
-  -- Unused Event Indicator 0: 1 Bit
-  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_0, range, value)
-
-  -- Unused Event Indicator 1: 1 Bit
-  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_1, range, value)
-
-  -- Unused Event Indicator 2: 1 Bit
-  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_2, range, value)
-
-  -- Unused Event Indicator 3: 1 Bit
-  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_3, range, value)
-
-  -- Unused Event Indicator 4: 1 Bit
-  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_4, range, value)
-
-  -- Unused Event Indicator 5: 1 Bit
-  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.unused_event_indicator_5, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.unused_6, range, value)
 
   -- Recovery Message: 1 Bit
   parent:add(omi_cme_globex_derived_sbe_v12_0.fields.recovery_message, range, value)
@@ -1226,7 +1226,7 @@ cme_globex_derived_sbe_v12_0.md_snapshot_refresh_ticker.fields = function(buffer
   -- Transact Time: uInt64
   index, transact_time = cme_globex_derived_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 3 fields
   index, match_event_indicator = cme_globex_derived_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Financial Instrument Full Name: LongName
@@ -1416,7 +1416,7 @@ cme_globex_derived_sbe_v12_0.md_snapshot_refresh_spectrum.fields = function(buff
   -- Transact Time: uInt64
   index, transact_time = cme_globex_derived_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 3 fields
   index, match_event_indicator = cme_globex_derived_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Financial Instrument Full Name: LongName
@@ -1626,7 +1626,7 @@ cme_globex_derived_sbe_v12_0.md_incremental_refresh_ticker.fields = function(buf
   -- Transact Time: uInt64
   index, transact_time = cme_globex_derived_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 3 fields
   index, match_event_indicator = cme_globex_derived_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Ticker Groups: Struct of 2 fields
@@ -1812,7 +1812,7 @@ cme_globex_derived_sbe_v12_0.md_incremental_refresh_spectrum.fields = function(b
   -- Transact Time: uInt64
   index, transact_time = cme_globex_derived_sbe_v12_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 3 fields
   index, match_event_indicator = cme_globex_derived_sbe_v12_0.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Spectrum Groups: Struct of 2 fields
@@ -2104,10 +2104,16 @@ end
 cme_globex_derived_sbe_v12_0.tcp_frame.dissect = function(buffer, offset, packet, parent, size_of_tcp_frame)
   local index = offset + size_of_tcp_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_derived_sbe_v12_0.fields.tcp_frame, buffer(offset, 0))
-    local current = cme_globex_derived_sbe_v12_0.tcp_frame.fields(buffer, offset, packet, parent, size_of_tcp_frame)
+    local decoded, failure = pcall(cme_globex_derived_sbe_v12_0.tcp_frame.fields, bounded, offset, packet, parent, size_of_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_derived_sbe_v12_0.experts.undecoded, "Tcp Frame does not decode within its "..size_of_tcp_frame.." bytes")
+    end
     parent:set_len(size_of_tcp_frame)
     local display = cme_globex_derived_sbe_v12_0.tcp_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2115,7 +2121,10 @@ cme_globex_derived_sbe_v12_0.tcp_frame.dissect = function(buffer, offset, packet
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_derived_sbe_v12_0.tcp_frame.fields(buffer, offset, packet, parent, size_of_tcp_frame)
+    local decoded, failure = pcall(cme_globex_derived_sbe_v12_0.tcp_frame.fields, bounded, offset, packet, parent, size_of_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_derived_sbe_v12_0.experts.undecoded, "Tcp Frame does not decode within its "..size_of_tcp_frame.." bytes")
+    end
 
     return index
   end
@@ -2208,10 +2217,16 @@ end
 cme_globex_derived_sbe_v12_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_derived_sbe_v12_0.fields.message, buffer(offset, 0))
-    local current = cme_globex_derived_sbe_v12_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_derived_sbe_v12_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_derived_sbe_v12_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = cme_globex_derived_sbe_v12_0.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2219,7 +2234,10 @@ cme_globex_derived_sbe_v12_0.message.dissect = function(buffer, offset, packet, 
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_derived_sbe_v12_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_derived_sbe_v12_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_derived_sbe_v12_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -2291,6 +2309,12 @@ cme_globex_derived_sbe_v12_0.udp_packet.dissect = function(buffer, packet, paren
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(cme_globex_derived_sbe_v12_0.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()

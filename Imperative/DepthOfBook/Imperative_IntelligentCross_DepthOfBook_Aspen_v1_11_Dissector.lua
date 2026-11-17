@@ -65,7 +65,8 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message_index = P
 -- Imperative IntelligentCross DepthOfBook Aspen 1.11 Expert Info
 imperative_intelligentcross_depthofbook_aspen_v1_11.experts = {}
 imperative_intelligentcross_depthofbook_aspen_v1_11.experts.not_a_number = ProtoExpert.new("imperative.intelligentcross.depthofbook.aspen.v1.11.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.experts = { imperative_intelligentcross_depthofbook_aspen_v1_11.experts.not_a_number }
+imperative_intelligentcross_depthofbook_aspen_v1_11.experts.undecoded = ProtoExpert.new("imperative.intelligentcross.depthofbook.aspen.v1.11.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.experts = { imperative_intelligentcross_depthofbook_aspen_v1_11.experts.not_a_number, imperative_intelligentcross_depthofbook_aspen_v1_11.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Imperative IntelligentCross DepthOfBook Aspen 1.11 Formatting
@@ -73,11 +74,11 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.experts = { imperative_i
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp_format = 2
 
 
@@ -139,6 +140,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Imperative IntelligentCross DepthOfBook Aspen 1.11 Fields
 -----------------------------------------------------------------------
@@ -1435,10 +1444,16 @@ end
 imperative_intelligentcross_depthofbook_aspen_v1_11.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message, buffer(offset, 0))
-    local current = imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, imperative_intelligentcross_depthofbook_aspen_v1_11.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = imperative_intelligentcross_depthofbook_aspen_v1_11.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1446,7 +1461,10 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.message.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(imperative_intelligentcross_depthofbook_aspen_v1_11.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, imperative_intelligentcross_depthofbook_aspen_v1_11.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -1526,6 +1544,12 @@ imperative_intelligentcross_depthofbook_aspen_v1_11.packet.dissect = function(bu
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(imperative_intelligentcross_depthofbook_aspen_v1_11.experts.undecoded, "Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Length
     local length = buffer(index, 2):le_uint()

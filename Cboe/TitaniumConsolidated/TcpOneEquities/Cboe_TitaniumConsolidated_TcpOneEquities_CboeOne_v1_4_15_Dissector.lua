@@ -115,11 +115,11 @@ omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.message_inde
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format = 2
 
 

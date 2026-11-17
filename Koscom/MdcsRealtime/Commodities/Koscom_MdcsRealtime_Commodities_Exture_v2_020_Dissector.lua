@@ -4277,7 +4277,7 @@ koscom_mdcsrealtime_commodities_exture_v2_020.filler_11.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_commodities_exture_v2_020.filler_11.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.filler_11, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.filler_11, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4300,7 +4300,7 @@ koscom_mdcsrealtime_commodities_exture_v2_020.filler_4.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_commodities_exture_v2_020.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.filler_4, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6350,7 +6350,7 @@ koscom_mdcsrealtime_commodities_exture_v2_020.second_filler_11.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_commodities_exture_v2_020.second_filler_11.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.second_filler_11, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_commodities_exture_v2_020.fields.second_filler_11, range, range:raw(), display)
 
   return offset + length, value
 end

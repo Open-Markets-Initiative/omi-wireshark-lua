@@ -92,7 +92,8 @@ omi_biva_bivaequities_orderentry_ouch_v1_05.fields.sequenced_data_packet_sequenc
 -- Biva BivaEquities OrderEntry Ouch 1.05 Expert Info
 biva_bivaequities_orderentry_ouch_v1_05.experts = {}
 biva_bivaequities_orderentry_ouch_v1_05.experts.not_a_number = ProtoExpert.new("biva.bivaequities.orderentry.ouch.v1.05.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_biva_bivaequities_orderentry_ouch_v1_05.experts = { biva_bivaequities_orderentry_ouch_v1_05.experts.not_a_number }
+biva_bivaequities_orderentry_ouch_v1_05.experts.undecoded = ProtoExpert.new("biva.bivaequities.orderentry.ouch.v1.05.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_biva_bivaequities_orderentry_ouch_v1_05.experts = { biva_bivaequities_orderentry_ouch_v1_05.experts.not_a_number, biva_bivaequities_orderentry_ouch_v1_05.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Biva BivaEquities OrderEntry Ouch 1.05 Formatting
@@ -102,11 +103,12 @@ omi_biva_bivaequities_orderentry_ouch_v1_05.experts = { biva_bivaequities_ordere
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/Mexico City", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 biva_bivaequities_orderentry_ouch_v1_05.timestamp_format = 2
 
 -- assumed connection role
@@ -248,6 +250,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Biva BivaEquities OrderEntry Ouch 1.05 Fields
 -----------------------------------------------------------------------
@@ -1196,10 +1206,15 @@ biva_bivaequities_orderentry_ouch_v1_05.timestamp.display = function(value, buff
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if biva_bivaequities_orderentry_ouch_v1_05.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/Mexico City"
+      end
 
       local format = biva_bivaequities_orderentry_ouch_v1_05.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -1943,7 +1958,8 @@ biva_bivaequities_orderentry_ouch_v1_05.debug_packet.size = function(buffer, off
   local index = 0
 
   -- Parse runtime size of: Debug Text
-  index = index + buffer(offset + index - 3, 2):uint()
+  local packet_length = buffer(offset + index - 3, 2):uint()
+  index = index + packet_length - 1
 
   return index
 end
@@ -2082,10 +2098,16 @@ end
 biva_bivaequities_orderentry_ouch_v1_05.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset + size_of_server_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = biva_bivaequities_orderentry_ouch_v1_05.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(biva_bivaequities_orderentry_ouch_v1_05.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, biva_bivaequities_orderentry_ouch_v1_05.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_server_soup_bin_tcp_packet)
     local display = biva_bivaequities_orderentry_ouch_v1_05.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2093,7 +2115,10 @@ biva_bivaequities_orderentry_ouch_v1_05.server_soup_bin_tcp_packet.dissect = fun
     return index, parent
   else
     -- Skip element, add fields directly
-    biva_bivaequities_orderentry_ouch_v1_05.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(biva_bivaequities_orderentry_ouch_v1_05.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, biva_bivaequities_orderentry_ouch_v1_05.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end
@@ -2587,10 +2612,16 @@ end
 biva_bivaequities_orderentry_ouch_v1_05.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
   local index = offset + size_of_client_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_biva_bivaequities_orderentry_ouch_v1_05.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = biva_bivaequities_orderentry_ouch_v1_05.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(biva_bivaequities_orderentry_ouch_v1_05.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, biva_bivaequities_orderentry_ouch_v1_05.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_client_soup_bin_tcp_packet)
     local display = biva_bivaequities_orderentry_ouch_v1_05.client_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2598,7 +2629,10 @@ biva_bivaequities_orderentry_ouch_v1_05.client_soup_bin_tcp_packet.dissect = fun
     return index, parent
   else
     -- Skip element, add fields directly
-    biva_bivaequities_orderentry_ouch_v1_05.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(biva_bivaequities_orderentry_ouch_v1_05.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, biva_bivaequities_orderentry_ouch_v1_05.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end

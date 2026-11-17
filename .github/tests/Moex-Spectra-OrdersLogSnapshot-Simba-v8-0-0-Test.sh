@@ -11,7 +11,7 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (OrderBookSnapshotMessage) ---"; cat Moex.Spectra.OrdersLogSnapshot.Simba.v8.0.0.OrderBookSnapshotMessage.json.stderr; exit 1; }
 
 grep "moex.spectra.orderslogsnapshot.simba.v8.0.0.securityid" Moex.Spectra.OrdersLogSnapshot.Simba.v8.0.0.OrderBookSnapshotMessage.json
-grep "moex.spectra.orderslogsnapshot.simba.v8.0.0.lastmsgseqnumprocesseduint32" Moex.Spectra.OrdersLogSnapshot.Simba.v8.0.0.OrderBookSnapshotMessage.json
+grep "moex.spectra.orderslogsnapshot.simba.v8.0.0.lastmsgseqnumprocessed" Moex.Spectra.OrdersLogSnapshot.Simba.v8.0.0.OrderBookSnapshotMessage.json
 grep "moex.spectra.orderslogsnapshot.simba.v8.0.0.rptseq" Moex.Spectra.OrdersLogSnapshot.Simba.v8.0.0.OrderBookSnapshotMessage.json
 grep "moex.spectra.orderslogsnapshot.simba.v8.0.0.exchangetradingsessionid" Moex.Spectra.OrdersLogSnapshot.Simba.v8.0.0.OrderBookSnapshotMessage.json
 grep "moex.spectra.orderslogsnapshot.simba.v8.0.0.blocklength" Moex.Spectra.OrdersLogSnapshot.Simba.v8.0.0.OrderBookSnapshotMessage.json

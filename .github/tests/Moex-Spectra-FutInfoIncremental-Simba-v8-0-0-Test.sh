@@ -20,9 +20,9 @@ runuser -u tester -- tshark \
 grep "moex.spectra.futinfoincremental.simba.v8.0.0.securitygroupid" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
 grep "moex.spectra.futinfoincremental.simba.v8.0.0.halttype" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
 grep "moex.spectra.futinfoincremental.simba.v8.0.0.trademodemask" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
-grep "moex.spectra.futinfoincremental.simba.v8.0.0.groupmaskint64nulloptional" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
-grep "moex.spectra.futinfoincremental.simba.v8.0.0.sectionidint32nulloptional" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
-grep "moex.spectra.futinfoincremental.simba.v8.0.0.basecontractidint32nulloptional" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
+grep "moex.spectra.futinfoincremental.simba.v8.0.0.groupmaskoptional" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
+grep "moex.spectra.futinfoincremental.simba.v8.0.0.sectionidoptional" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
+grep "moex.spectra.futinfoincremental.simba.v8.0.0.basecontractidoptional" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
 grep "moex.spectra.futinfoincremental.simba.v8.0.0.securitytradingstatus" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
 grep "moex.spectra.futinfoincremental.simba.v8.0.0.statuschangetime" Moex.Spectra.FutInfoIncremental.Simba.v8.0.0.SecurityGroupStatusMessage.json
 runuser -u tester -- tshark \

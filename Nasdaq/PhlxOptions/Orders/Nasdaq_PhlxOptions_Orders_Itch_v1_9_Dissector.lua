@@ -111,11 +111,12 @@ omi_nasdaq_phlxoptions_orders_itch_v1_9.experts = { nasdaq_phlxoptions_orders_it
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nasdaq_phlxoptions_orders_itch_v1_9.timestamp_format = 2
 
 
@@ -2559,7 +2560,8 @@ nasdaq_phlxoptions_orders_itch_v1_9.message_data.size = function(buffer, offset)
   index = index + nasdaq_phlxoptions_orders_itch_v1_9.message_header.size
 
   -- Parse runtime size of: Payload
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local message_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + message_length - 1
 
   return index
 end

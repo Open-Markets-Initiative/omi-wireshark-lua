@@ -84,6 +84,11 @@ omi_currenex_currenexforex_orderservice_cbp_v26.fields.resend_request = ProtoFie
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.trade = ProtoField.new("Trade", "currenex.currenexforex.orderservice.cbp.v26.trade", ftypes.STRING, nil, nil, nil, "Trade execution notification")
 omi_currenex_currenexforex_orderservice_cbp_v26.fields.trade_pending = ProtoField.new("Trade Pending", "currenex.currenexforex.orderservice.cbp.v26.tradepending", ftypes.STRING, nil, nil, nil, "Trade notification linked to pending fill")
 
+-- Currenex CurrenexForex OrderService Cbp 26 Expert Info
+currenex_currenexforex_orderservice_cbp_v26.experts = {}
+currenex_currenexforex_orderservice_cbp_v26.experts.undecoded = ProtoExpert.new("currenex.currenexforex.orderservice.cbp.v26.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_currenex_currenexforex_orderservice_cbp_v26.experts = { currenex_currenexforex_orderservice_cbp_v26.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -132,6 +137,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Currenex CurrenexForex OrderService Cbp 26 Fields
 -----------------------------------------------------------------------
@@ -1170,7 +1183,7 @@ currenex_currenexforex_orderservice_cbp_v26.soh.size = 1
 -- Display: Soh
 currenex_currenexforex_orderservice_cbp_v26.soh.display = function(value)
   if value == 1 then
-    return "Soh: Soh"
+    return "Soh: Soh (1)"
   end
 
   return "Soh: Unknown("..value..")"
@@ -2463,10 +2476,16 @@ end
 currenex_currenexforex_orderservice_cbp_v26.frame.dissect = function(buffer, offset, packet, parent, size_of_frame)
   local index = offset + size_of_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_currenex_currenexforex_orderservice_cbp_v26.fields.frame, buffer(offset, 0))
-    local current = currenex_currenexforex_orderservice_cbp_v26.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    local decoded, failure = pcall(currenex_currenexforex_orderservice_cbp_v26.frame.fields, bounded, offset, packet, parent, size_of_frame)
+    if not decoded then
+      undecoded(failure, parent, currenex_currenexforex_orderservice_cbp_v26.experts.undecoded, "Frame does not decode within its "..size_of_frame.." bytes")
+    end
     parent:set_len(size_of_frame)
     local display = currenex_currenexforex_orderservice_cbp_v26.frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2474,7 +2493,10 @@ currenex_currenexforex_orderservice_cbp_v26.frame.dissect = function(buffer, off
     return index, parent
   else
     -- Skip element, add fields directly
-    currenex_currenexforex_orderservice_cbp_v26.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    local decoded, failure = pcall(currenex_currenexforex_orderservice_cbp_v26.frame.fields, bounded, offset, packet, parent, size_of_frame)
+    if not decoded then
+      undecoded(failure, parent, currenex_currenexforex_orderservice_cbp_v26.experts.undecoded, "Frame does not decode within its "..size_of_frame.." bytes")
+    end
 
     return index
   end

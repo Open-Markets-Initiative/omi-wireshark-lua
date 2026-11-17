@@ -728,7 +728,7 @@ tmx_tsx_indexfeed_qrtmd_v1_19.qrtmd_stx.size = 1
 -- Display: Qrtmd Stx
 tmx_tsx_indexfeed_qrtmd_v1_19.qrtmd_stx.display = function(value)
   if value == 2 then
-    return "Qrtmd Stx: Stx"
+    return "Qrtmd Stx: Stx (2)"
   end
 
   return "Qrtmd Stx: Unknown("..value..")"
@@ -927,7 +927,7 @@ tmx_tsx_indexfeed_qrtmd_v1_19.time.display = function(value)
     return "Time: "..value
   end
 
-  return "Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+  return "Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).." America/Toronto"
 end
 
 -- Dissect: Time

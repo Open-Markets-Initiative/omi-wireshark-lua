@@ -87,8 +87,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_buyer = ProtoField.new(
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_interest_rate = ProtoField.new("Md Entry Interest Rate", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentryinterestrate", ftypes.DOUBLE, nil, nil, nil, "mDEntryInterestRate")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_prev_size = ProtoField.new("Md Entry Prev Size", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentryprevsize", ftypes.INT64, nil, nil, nil, "mDEntryPrevSize")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_seller = ProtoField.new("Md Entry Seller", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentryseller", ftypes.UINT32, nil, nil, nil, "mDEntrySeller")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_size_quantity = ProtoField.new("Md Entry Size Quantity", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrysizequantity", ftypes.INT64, nil, nil, nil, "mDEntrySize")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_size_quantity_optional = ProtoField.new("Md Entry Size Quantity Optional", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrysizequantityoptional", ftypes.INT64, nil, nil, nil, "mDEntrySize")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_size = ProtoField.new("Md Entry Size", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrysize", ftypes.INT64, nil, nil, nil, "mDEntrySize")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_size_optional = ProtoField.new("Md Entry Size Optional", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrysizeoptional", ftypes.INT64, nil, nil, nil, "mDEntrySize")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_timestamp = ProtoField.new("Md Entry Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "mDEntryTimestamp")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_timestamp_utc = ProtoField.new("Md Entry Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrytimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "mDEntryTimestamp")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_type = ProtoField.new("Md Entry Type", "b3.b3derivatives.binaryumdf.sbe.v2.2.mdentrytype", ftypes.STRING, nil, nil, nil, "mDEntryType")
@@ -212,28 +212,11 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.underlying_security_id = ProtoFi
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "b3.b3derivatives.binaryumdf.sbe.v2.2.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying instrument's ticker symbol.")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.underlyings_group = ProtoField.new("Underlyings Group", "b3.b3derivatives.binaryumdf.sbe.v2.2.underlyingsgroup", ftypes.STRING, nil, nil, nil, "noUnderlyings")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.underlyings_groups = ProtoField.new("Underlyings Groups", "b3.b3derivatives.binaryumdf.sbe.v2.2.underlyingsgroups", ftypes.STRING, nil, nil, nil, "noUnderlyings Block")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_0 = ProtoField.new("Unused Imbalance Condition 0", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedimbalancecondition0", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Unused ImbalanceCondition 0")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_1 = ProtoField.new("Unused Imbalance Condition 1", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedimbalancecondition1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Unused ImbalanceCondition 1")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_2 = ProtoField.new("Unused Imbalance Condition 2", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedimbalancecondition2", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "Unused ImbalanceCondition 2")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_3 = ProtoField.new("Unused Imbalance Condition 3", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedimbalancecondition3", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "Unused ImbalanceCondition 3")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_4 = ProtoField.new("Unused Imbalance Condition 4", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedimbalancecondition4", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "Unused ImbalanceCondition 4")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_5 = ProtoField.new("Unused Imbalance Condition 5", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedimbalancecondition5", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020, "Unused ImbalanceCondition 5")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_6 = ProtoField.new("Unused Imbalance Condition 6", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedimbalancecondition6", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "Unused ImbalanceCondition 6")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_7 = ProtoField.new("Unused Imbalance Condition 7", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedimbalancecondition7", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080, "Unused ImbalanceCondition 7")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_0 = ProtoField.new("Unused Match Event Indicator 0", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedmatcheventindicator0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Unused MatchEventIndicator 0")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_1 = ProtoField.new("Unused Match Event Indicator 1", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedmatcheventindicator1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Unused MatchEventIndicator 1")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_2 = ProtoField.new("Unused Match Event Indicator 2", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedmatcheventindicator2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Unused MatchEventIndicator 2")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_3 = ProtoField.new("Unused Match Event Indicator 3", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedmatcheventindicator3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Unused MatchEventIndicator 3")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_6 = ProtoField.new("Unused Match Event Indicator 6", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedmatcheventindicator6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Unused MatchEventIndicator 6")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_10 = ProtoField.new("Unused Trade Condition 10", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedtradecondition10", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Unused TradeCondition 10")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_11 = ProtoField.new("Unused Trade Condition 11", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedtradecondition11", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0800, "Unused TradeCondition 11")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_12 = ProtoField.new("Unused Trade Condition 12", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedtradecondition12", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000, "Unused TradeCondition 12")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_15 = ProtoField.new("Unused Trade Condition 15", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedtradecondition15", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000, "Unused TradeCondition 15")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_4 = ProtoField.new("Unused Trade Condition 4", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedtradecondition4", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "Unused TradeCondition 4")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_5 = ProtoField.new("Unused Trade Condition 5", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedtradecondition5", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020, "Unused TradeCondition 5")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_7 = ProtoField.new("Unused Trade Condition 7", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedtradecondition7", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080, "Unused TradeCondition 7")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_8 = ProtoField.new("Unused Trade Condition 8", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedtradecondition8", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "Unused TradeCondition 8")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_9 = ProtoField.new("Unused Trade Condition 9", "b3.b3derivatives.binaryumdf.sbe.v2.2.unusedtradecondition9", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200, "Unused TradeCondition 9")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_1 = ProtoField.new("Unused 1", "b3.b3derivatives.binaryumdf.sbe.v2.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "1 unused bit")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_2 = ProtoField.new("Unused 2", "b3.b3derivatives.binaryumdf.sbe.v2.2.unused2", ftypes.UINT16, nil, base.DEC, 0x0030, "2 unused bits")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_4 = ProtoField.new("Unused 4", "b3.b3derivatives.binaryumdf.sbe.v2.2.unused4", ftypes.UINT8, nil, base.DEC, 0x0F, "4 unused bits")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_6 = ProtoField.new("Unused 6", "b3.b3derivatives.binaryumdf.sbe.v2.2.unused6", ftypes.UINT16, nil, base.DEC, 0x1F80, "6 unused bits")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_8 = ProtoField.new("Unused 8", "b3.b3derivatives.binaryumdf.sbe.v2.2.unused8", ftypes.UINT16, nil, base.DEC, 0x00FF, "8 unused bits")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.url_link = ProtoField.new("Url Link", "b3.b3derivatives.binaryumdf.sbe.v2.2.urllink", ftypes.STRING, nil, nil, nil, "uRLLink data struct")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.url_link_data = ProtoField.new("Url Link Data", "b3.b3derivatives.binaryumdf.sbe.v2.2.urllinkdata", ftypes.STRING, nil, nil, nil, "Bytes of the string, encoded in UTF-8.")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.url_link_length = ProtoField.new("Url Link Length", "b3.b3derivatives.binaryumdf.sbe.v2.2.urllinklength", ftypes.UINT16, nil, nil, nil, "Length of a string, in bytes. For instance, the string 'Ação', converted to UTF-8, has 6 bytes, so length = 6.")
@@ -285,17 +268,22 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.legs_group_index = ProtoField.ne
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group_index = ProtoField.new("Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group Index", "b3.b3derivatives.binaryumdf.sbe.v2.2.snapshotfullrefreshordersmbo71messagenomdentriesgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.underlyings_group_index = ProtoField.new("Underlyings Group Index", "b3.b3derivatives.binaryumdf.sbe.v2.2.underlyingsgroupindex", ftypes.UINT16)
 
+-- B3 B3Derivatives BinaryUmdf Sbe 2.2 Expert Info
+b3_b3derivatives_binaryumdf_sbe_v2_2.experts = {}
+b3_b3derivatives_binaryumdf_sbe_v2_2.experts.undecoded = ProtoExpert.new("b3.b3derivatives.binaryumdf.sbe.v2.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_b3_b3derivatives_binaryumdf_sbe_v2_2.experts = { b3_b3derivatives_binaryumdf_sbe_v2_2.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- B3 B3Derivatives BinaryUmdf Sbe 2.2 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 b3_b3derivatives_binaryumdf_sbe_v2_2.timestamp_format = 2
 
 
@@ -351,6 +339,19 @@ function omi_b3_b3derivatives_binaryumdf_sbe_v2_2.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- B3 B3Derivatives BinaryUmdf Sbe 2.2 Fields
 -----------------------------------------------------------------------
@@ -2000,53 +2001,53 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_seller.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Md Entry Size Quantity
-b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity = {}
+-- Md Entry Size
+b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size = {}
 
--- Size: Md Entry Size Quantity
-b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.size = 8
+-- Size: Md Entry Size
+b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.size = 8
 
--- Display: Md Entry Size Quantity
-b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.display = function(value)
-  return "Md Entry Size Quantity: "..value
+-- Display: Md Entry Size
+b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.display = function(value)
+  return "Md Entry Size: "..value
 end
 
--- Dissect: Md Entry Size Quantity
-b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.size
+-- Dissect: Md Entry Size
+b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_size_quantity, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_size, range, value, display)
 
   return offset + length, value
 end
 
--- Md Entry Size Quantity Optional
-b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity_optional = {}
+-- Md Entry Size Optional
+b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_optional = {}
 
--- Size: Md Entry Size Quantity Optional
-b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity_optional.size = 8
+-- Size: Md Entry Size Optional
+b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_optional.size = 8
 
--- Display: Md Entry Size Quantity Optional
-b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity_optional.display = function(value)
+-- Display: Md Entry Size Optional
+b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_optional.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Md Entry Size Quantity Optional: No Value"
+    return "Md Entry Size Optional: No Value"
   end
 
-  return "Md Entry Size Quantity Optional: "..value
+  return "Md Entry Size Optional: "..value
 end
 
--- Dissect: Md Entry Size Quantity Optional
-b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity_optional.size
+-- Dissect: Md Entry Size Optional
+b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_optional.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity_optional.display(value, buffer, offset, packet, parent)
+  local display = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_size_quantity_optional, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.md_entry_size_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2777,7 +2778,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_1_padding_3.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_1_padding_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_1_padding_3, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_1_padding_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2800,7 +2801,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_10_padding_2.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_10_padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_10_padding_2, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_10_padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2823,7 +2824,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_11_padding_1.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_11_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_11_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_11_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2846,7 +2847,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_11_padding_5.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_11_padding_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_11_padding_5, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_11_padding_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2869,7 +2870,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_14_padding_2.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_14_padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_14_padding_2, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_14_padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2892,7 +2893,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_16_padding_4.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_16_padding_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_16_padding_4, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_16_padding_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2915,7 +2916,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_26_padding_2.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_26_padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_26_padding_2, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_26_padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2938,7 +2939,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_28_padding_4.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_28_padding_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_28_padding_4, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_28_padding_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2961,7 +2962,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_3_padding_5.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_3_padding_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_3_padding_5, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_3_padding_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2984,7 +2985,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_34_padding_2.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_34_padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_34_padding_2, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_34_padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3007,7 +3008,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_43_padding_1.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_43_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_43_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_43_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3030,7 +3031,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_8_padding_2.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_8_padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_8_padding_2, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_8_padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3053,7 +3054,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_9_padding_1.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_9_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_9_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_9_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3076,7 +3077,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.offset_9_padding_3.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.offset_9_padding_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_9_padding_3, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.offset_9_padding_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3220,7 +3221,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.padding_1.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3243,7 +3244,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.padding_2.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.padding_2, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3266,7 +3267,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.padding_3.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_2.padding_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.padding_3, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.padding_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3636,7 +3637,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.schema_id.size = 2
 -- Display: Schema Id
 b3_b3derivatives_binaryumdf_sbe_v2_2.schema_id.display = function(value)
   if value == 2 then
-    return "Schema Id: 2"
+    return "Schema Id: B3 Umdf Mbo Sbe (2)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -5372,17 +5373,8 @@ end
 -- Dissect Bit Fields: Match Event Indicator
 b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.bits = function(range, value, packet, parent)
 
-  -- Unused Match Event Indicator 0: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_0, range, value)
-
-  -- Unused Match Event Indicator 1: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_1, range, value)
-
-  -- Unused Match Event Indicator 2: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_2, range, value)
-
-  -- Unused Match Event Indicator 3: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_3, range, value)
+  -- Unused 4: 4 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_4, range, value)
 
   -- Implied: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.implied, range, value)
@@ -5390,8 +5382,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.bits = function(range
   -- Recovery Msg: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.recovery_msg, range, value)
 
-  -- Unused Match Event Indicator 6: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_match_event_indicator_6, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_1, range, value)
 
   -- End Of Event: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.end_of_event, range, value)
@@ -5418,7 +5410,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_messag
 -- Size: Snapshot Full Refresh Orders Mb O 71 Message No M D Entries Group
 b3_b3derivatives_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_message_no_m_d_entries_group.size =
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_corporate_offset_price_optional.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.offset_16_padding_4.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.entering_firm.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_insert_timestamp.size + 
@@ -5444,8 +5436,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_messag
   -- Md Corporate Offset Price Optional: PriceOptional
   index, md_corporate_offset_price_optional = b3_b3derivatives_binaryumdf_sbe_v2_2.md_corporate_offset_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: Quantity
-  index, md_entry_size_quantity = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.dissect(buffer, index, packet, parent)
+  -- Md Entry Size: Quantity
+  index, md_entry_size = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Offset 16 Padding 4: 4 Byte
   if show.padding then
@@ -5466,7 +5458,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.snapshot_full_refresh_orders_mb_o_71_messag
   -- Md Entry Type: MDEntryType
   index, md_entry_type = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_type.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   return index
@@ -5651,7 +5643,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.trade_bust_57_message.size =
   b3_b3derivatives_binaryumdf_sbe_v2_2.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.offset_10_padding_2.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_future_price.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.trade_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.trade_date.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.offset_34_padding_2.size + 
@@ -5670,7 +5662,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.trade_bust_57_message.fields = function(buf
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
@@ -5686,8 +5678,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.trade_bust_57_message.fields = function(buf
   -- Md Future Price: Price
   index, md_future_price = b3_b3derivatives_binaryumdf_sbe_v2_2.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: Quantity
-  index, md_entry_size_quantity = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.dissect(buffer, index, packet, parent)
+  -- Md Entry Size: Quantity
+  index, md_entry_size = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Trade Id: TradeID
   index, trade_id = b3_b3derivatives_binaryumdf_sbe_v2_2.trade_id.dissect(buffer, index, packet, parent)
@@ -5757,7 +5749,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.execution_statistics_56_message.fields = fu
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
@@ -5950,32 +5942,14 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.trade_condition.bits = function(range, valu
   -- Out Of Sequence: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.out_of_sequence, range, value)
 
-  -- Unused Trade Condition 4: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_4, range, value)
-
-  -- Unused Trade Condition 5: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_5, range, value)
+  -- Unused 2: 2 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_2, range, value)
 
   -- Trade On Behalf: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.trade_on_behalf, range, value)
 
-  -- Unused Trade Condition 7: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_7, range, value)
-
-  -- Unused Trade Condition 8: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_8, range, value)
-
-  -- Unused Trade Condition 9: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_9, range, value)
-
-  -- Unused Trade Condition 10: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_10, range, value)
-
-  -- Unused Trade Condition 11: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_11, range, value)
-
-  -- Unused Trade Condition 12: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_12, range, value)
+  -- Unused 6: 6 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_6, range, value)
 
   -- Regular Trade: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.regular_trade, range, value)
@@ -5983,8 +5957,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.trade_condition.bits = function(range, valu
   -- Block Trade: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.block_trade, range, value)
 
-  -- Unused Trade Condition 15: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_trade_condition_15, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_1, range, value)
 end
 
 -- Dissect: Trade Condition
@@ -6012,7 +5986,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.forward_trade_54_message.size =
   b3_b3derivatives_binaryumdf_sbe_v2_2.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.trade_condition.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_future_price.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.trade_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_buyer.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_seller.size + 
@@ -6036,20 +6010,20 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.forward_trade_54_message.fields = function(
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v2_2.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: Struct of 16 fields
+  -- Trade Condition: Struct of 10 fields
   index, trade_condition = b3_b3derivatives_binaryumdf_sbe_v2_2.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Md Future Price: Price
   index, md_future_price = b3_b3derivatives_binaryumdf_sbe_v2_2.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: Quantity
-  index, md_entry_size_quantity = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.dissect(buffer, index, packet, parent)
+  -- Md Entry Size: Quantity
+  index, md_entry_size = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Trade Id: TradeID
   index, trade_id = b3_b3derivatives_binaryumdf_sbe_v2_2.trade_id.dissect(buffer, index, packet, parent)
@@ -6116,7 +6090,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.trade_53_message.size =
   b3_b3derivatives_binaryumdf_sbe_v2_2.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.trade_condition.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_future_price.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.trade_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_buyer.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_seller.size + 
@@ -6138,20 +6112,20 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.trade_53_message.fields = function(buffer, 
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v2_2.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: Struct of 16 fields
+  -- Trade Condition: Struct of 10 fields
   index, trade_condition = b3_b3derivatives_binaryumdf_sbe_v2_2.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Md Future Price: Price
   index, md_future_price = b3_b3derivatives_binaryumdf_sbe_v2_2.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: Quantity
-  index, md_entry_size_quantity = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.dissect(buffer, index, packet, parent)
+  -- Md Entry Size: Quantity
+  index, md_entry_size = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Trade Id: TradeID
   index, trade_id = b3_b3derivatives_binaryumdf_sbe_v2_2.trade_id.dissect(buffer, index, packet, parent)
@@ -6227,7 +6201,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.mass_delete_orders_mb_o_52_message.fields =
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
@@ -6280,7 +6254,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.delete_order_mb_o_51_message.size =
   b3_b3derivatives_binaryumdf_sbe_v2_2.offset_9_padding_1.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.offset_11_padding_5.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.secondary_order_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.transact_time.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.rpt_seq.size + 
@@ -6298,7 +6272,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.delete_order_mb_o_51_message.fields = funct
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
@@ -6318,8 +6292,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.delete_order_mb_o_51_message.fields = funct
     index = index + b3_b3derivatives_binaryumdf_sbe_v2_2.offset_11_padding_5.size
   end
 
-  -- Md Entry Size Quantity: Quantity
-  index, md_entry_size_quantity = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.dissect(buffer, index, packet, parent)
+  -- Md Entry Size: Quantity
+  index, md_entry_size = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Secondary Order Id: OrderID
   index, secondary_order_id = b3_b3derivatives_binaryumdf_sbe_v2_2.secondary_order_id.dissect(buffer, index, packet, parent)
@@ -6365,7 +6339,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.order_mb_o_50_message.size =
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_type.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.offset_11_padding_1.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_corporate_offset_price_optional.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.offset_28_padding_4.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.entering_firm.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_insert_timestamp.size + 
@@ -6386,7 +6360,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.order_mb_o_50_message.fields = function(buf
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
@@ -6405,8 +6379,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.order_mb_o_50_message.fields = function(buf
   -- Md Corporate Offset Price Optional: PriceOptional
   index, md_corporate_offset_price_optional = b3_b3derivatives_binaryumdf_sbe_v2_2.md_corporate_offset_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: Quantity
-  index, md_entry_size_quantity = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.dissect(buffer, index, packet, parent)
+  -- Md Entry Size: Quantity
+  index, md_entry_size = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Offset 28 Padding 4: 4 Byte
   if show.padding then
@@ -6539,7 +6513,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.open_interest_29_message.size =
   b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.offset_9_padding_1.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.trade_date.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.rpt_seq.size
 
@@ -6555,7 +6529,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.open_interest_29_message.fields = function(
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
@@ -6568,8 +6542,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.open_interest_29_message.fields = function(
   -- Trade Date: LocalMktDate
   index, trade_date = b3_b3derivatives_binaryumdf_sbe_v2_2.trade_date.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: Quantity
-  index, md_entry_size_quantity = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.dissect(buffer, index, packet, parent)
+  -- Md Entry Size: Quantity
+  index, md_entry_size = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.dissect(buffer, index, packet, parent)
@@ -6627,7 +6601,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.settlement_price_28_message.fields = functi
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 1: 1 Byte
@@ -6696,7 +6670,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.last_trade_price_27_message.size =
   b3_b3derivatives_binaryumdf_sbe_v2_2.trading_session_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.trade_condition.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_future_price.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.trade_id.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_buyer.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_seller.size + 
@@ -6720,20 +6694,20 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.last_trade_price_27_message.fields = functi
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = b3_b3derivatives_binaryumdf_sbe_v2_2.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Trade Condition: Struct of 16 fields
+  -- Trade Condition: Struct of 10 fields
   index, trade_condition = b3_b3derivatives_binaryumdf_sbe_v2_2.trade_condition.dissect(buffer, index, packet, parent)
 
   -- Md Future Price: Price
   index, md_future_price = b3_b3derivatives_binaryumdf_sbe_v2_2.md_future_price.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity: Quantity
-  index, md_entry_size_quantity = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity.dissect(buffer, index, packet, parent)
+  -- Md Entry Size: Quantity
+  index, md_entry_size = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size.dissect(buffer, index, packet, parent)
 
   -- Trade Id: TradeID
   index, trade_id = b3_b3derivatives_binaryumdf_sbe_v2_2.trade_id.dissect(buffer, index, packet, parent)
@@ -6815,7 +6789,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.low_price_25_message.fields = function(buff
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
@@ -6879,7 +6853,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.high_price_24_message.fields = function(buf
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
@@ -6946,7 +6920,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.price_band_22_message.fields = function(buf
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Price Band Type: PriceBandType
@@ -7019,7 +6993,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.quantity_band_21_message.fields = function(
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 3: 3 Byte
@@ -7087,29 +7061,8 @@ end
 -- Dissect Bit Fields: Imbalance Condition
 b3_b3derivatives_binaryumdf_sbe_v2_2.imbalance_condition.bits = function(range, value, packet, parent)
 
-  -- Unused Imbalance Condition 0: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_0, range, value)
-
-  -- Unused Imbalance Condition 1: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_1, range, value)
-
-  -- Unused Imbalance Condition 2: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_2, range, value)
-
-  -- Unused Imbalance Condition 3: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_3, range, value)
-
-  -- Unused Imbalance Condition 4: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_4, range, value)
-
-  -- Unused Imbalance Condition 5: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_5, range, value)
-
-  -- Unused Imbalance Condition 6: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_6, range, value)
-
-  -- Unused Imbalance Condition 7: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_imbalance_condition_7, range, value)
+  -- Unused 8: 8 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.unused_8, range, value)
 
   -- Imbalance More Buyers: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.imbalance_more_buyers, range, value)
@@ -7145,7 +7098,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.auction_imbalance_19_message.size =
   b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_update_action.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.imbalance_condition.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity_optional.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_optional.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.rpt_seq.size
 
@@ -7161,17 +7114,17 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.auction_imbalance_19_message.fields = funct
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
   index, md_update_action = b3_b3derivatives_binaryumdf_sbe_v2_2.md_update_action.dissect(buffer, index, packet, parent)
 
-  -- Imbalance Condition: Struct of 11 fields
+  -- Imbalance Condition: Struct of 4 fields
   index, imbalance_condition = b3_b3derivatives_binaryumdf_sbe_v2_2.imbalance_condition.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity Optional: QuantityOptional
-  index, md_entry_size_quantity_optional = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Size Optional: QuantityOptional
+  index, md_entry_size_optional = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
   -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.dissect(buffer, index, packet, parent)
@@ -7227,7 +7180,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.closing_price_17_message.fields = function(
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Open Close Settl Flag: OpenCloseSettlFlag
@@ -7286,7 +7239,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.theoretical_opening_price_16_message.size =
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_update_action.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.trade_date.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_corporate_offset_price_optional.size + 
-  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity_optional.size + 
+  b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_optional.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.size + 
   b3_b3derivatives_binaryumdf_sbe_v2_2.rpt_seq.size
 
@@ -7302,7 +7255,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.theoretical_opening_price_16_message.fields
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
@@ -7314,8 +7267,8 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.theoretical_opening_price_16_message.fields
   -- Md Corporate Offset Price Optional: PriceOptional
   index, md_corporate_offset_price_optional = b3_b3derivatives_binaryumdf_sbe_v2_2.md_corporate_offset_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Md Entry Size Quantity Optional: QuantityOptional
-  index, md_entry_size_quantity_optional = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_quantity_optional.dissect(buffer, index, packet, parent)
+  -- Md Entry Size Optional: QuantityOptional
+  index, md_entry_size_optional = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_size_optional.dissect(buffer, index, packet, parent)
 
   -- Md Entry Timestamp: UTCTimestampNanos
   index, md_entry_timestamp = b3_b3derivatives_binaryumdf_sbe_v2_2.md_entry_timestamp.dissect(buffer, index, packet, parent)
@@ -7373,7 +7326,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.opening_price_15_message.fields = function(
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
@@ -7691,7 +7644,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.news_5_message.fields = function(buffer, of
   -- Security Id Optional: SecurityIDOptional
   index, security_id_optional = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- News Source: NewsSource
@@ -8613,7 +8566,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.security_group_phase_10_message.fields = fu
     index = index + b3_b3derivatives_binaryumdf_sbe_v2_2.offset_3_padding_5.size
   end
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
@@ -8690,7 +8643,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.security_status_3_message.fields = function
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Trading Session Id: TradingSessionID
@@ -8760,7 +8713,7 @@ end
 b3_b3derivatives_binaryumdf_sbe_v2_2.channel_reset_11_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 1 Padding 3: 3 Byte
@@ -8816,7 +8769,7 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.empty_book_message.fields = function(buffer
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryumdf_sbe_v2_2.security_id.dissect(buffer, index, packet, parent)
 
-  -- Match Event Indicator: Struct of 8 fields
+  -- Match Event Indicator: Struct of 5 fields
   index, match_event_indicator = b3_b3derivatives_binaryumdf_sbe_v2_2.match_event_indicator.dissect(buffer, index, packet, parent)
 
   -- Offset 9 Padding 3: 3 Byte
@@ -9080,10 +9033,16 @@ end
 b3_b3derivatives_binaryumdf_sbe_v2_2.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_2.fields.message, buffer(offset, 0))
-    local current = b3_b3derivatives_binaryumdf_sbe_v2_2.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(b3_b3derivatives_binaryumdf_sbe_v2_2.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, b3_b3derivatives_binaryumdf_sbe_v2_2.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = b3_b3derivatives_binaryumdf_sbe_v2_2.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -9091,7 +9050,10 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.message.dissect = function(buffer, offset, 
     return index, parent
   else
     -- Skip element, add fields directly
-    b3_b3derivatives_binaryumdf_sbe_v2_2.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(b3_b3derivatives_binaryumdf_sbe_v2_2.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, b3_b3derivatives_binaryumdf_sbe_v2_2.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -9175,6 +9137,12 @@ b3_b3derivatives_binaryumdf_sbe_v2_2.packet.dissect = function(buffer, packet, p
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(b3_b3derivatives_binaryumdf_sbe_v2_2.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):le_uint()

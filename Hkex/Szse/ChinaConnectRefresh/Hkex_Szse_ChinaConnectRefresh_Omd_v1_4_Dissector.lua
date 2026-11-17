@@ -75,17 +75,22 @@ omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.top_of_book_message = ProtoFie
 -- Hkex Szse ChinaConnectRefresh Omd 1.4 Generated Fields
 omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.message_index = ProtoField.new("Message Index", "hkex.szse.chinaconnectrefresh.omd.v1.4.messageindex", ftypes.UINT16)
 
+-- Hkex Szse ChinaConnectRefresh Omd 1.4 Expert Info
+hkex_szse_chinaconnectrefresh_omd_v1_4.experts = {}
+hkex_szse_chinaconnectrefresh_omd_v1_4.experts.undecoded = ProtoExpert.new("hkex.szse.chinaconnectrefresh.omd.v1.4.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_hkex_szse_chinaconnectrefresh_omd_v1_4.experts = { hkex_szse_chinaconnectrefresh_omd_v1_4.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Hkex Szse ChinaConnectRefresh Omd 1.4 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 hkex_szse_chinaconnectrefresh_omd_v1_4.timestamp_format = 2
 
 
@@ -152,6 +157,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Hkex Szse ChinaConnectRefresh Omd 1.4 Fields
 -----------------------------------------------------------------------
@@ -301,7 +314,7 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.filler.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_szse_chinaconnectrefresh_omd_v1_4.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler, range, value, display)
+  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -324,7 +337,7 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.filler_1.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = hkex_szse_chinaconnectrefresh_omd_v1_4.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_1, range, value, display)
+  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -347,7 +360,7 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.filler_12.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = hkex_szse_chinaconnectrefresh_omd_v1_4.filler_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_12, range, value, display)
+  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -370,7 +383,7 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.filler_2.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = hkex_szse_chinaconnectrefresh_omd_v1_4.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_2, range, value, display)
+  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -393,7 +406,7 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.filler_3.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = hkex_szse_chinaconnectrefresh_omd_v1_4.filler_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_3, range, value, display)
+  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -416,7 +429,7 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.filler_6.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = hkex_szse_chinaconnectrefresh_omd_v1_4.filler_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_6, range, value, display)
+  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -439,7 +452,7 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.filler_60.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = hkex_szse_chinaconnectrefresh_omd_v1_4.filler_60.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_60, range, value, display)
+  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_60, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -462,7 +475,7 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.filler_7.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = hkex_szse_chinaconnectrefresh_omd_v1_4.filler_7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_7, range, value, display)
+  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -485,7 +498,7 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.filler_8.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = hkex_szse_chinaconnectrefresh_omd_v1_4.filler_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_8, range, value, display)
+  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.filler_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -971,7 +984,7 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.security_name_gb.dissect = function(buffe
   local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_szse_chinaconnectrefresh_omd_v1_4.security_name_gb.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.security_name_gb, range, value, display)
+  parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.security_name_gb, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1687,10 +1700,16 @@ end
 hkex_szse_chinaconnectrefresh_omd_v1_4.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_hkex_szse_chinaconnectrefresh_omd_v1_4.fields.message, buffer(offset, 0))
-    local current = hkex_szse_chinaconnectrefresh_omd_v1_4.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(hkex_szse_chinaconnectrefresh_omd_v1_4.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, hkex_szse_chinaconnectrefresh_omd_v1_4.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = hkex_szse_chinaconnectrefresh_omd_v1_4.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1698,7 +1717,10 @@ hkex_szse_chinaconnectrefresh_omd_v1_4.message.dissect = function(buffer, offset
     return index, parent
   else
     -- Skip element, add fields directly
-    hkex_szse_chinaconnectrefresh_omd_v1_4.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(hkex_szse_chinaconnectrefresh_omd_v1_4.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, hkex_szse_chinaconnectrefresh_omd_v1_4.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

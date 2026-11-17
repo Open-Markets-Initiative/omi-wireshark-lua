@@ -7,7 +7,7 @@
 
 | Division | [Protocol][Omi.Sse.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Sse.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [SseSecurities][SseSecurities.Exchange] | [Mdgw][Sse.SseSecurities.Mdgw] | [Is120][Omi.Encoding.Is120] | [0.63][Sse.SseSecurities.Mdgw.Is120.v0.63.Dissector] | 9/18/2026 | 3308 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Sse.SseSecurities.Mdgw.Is120.v0.63.Url] - [pdf][Sse.SseSecurities.Mdgw.Is120.v0.63.Pdf] |
+| [SseSecurities][SseSecurities.Exchange] | [Mdgw][Sse.SseSecurities.Mdgw] | [Is120][Omi.Encoding.Is120] | [0.63][Sse.SseSecurities.Mdgw.Is120.v0.63.Dissector] | 9/18/2026 | 3330 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Sse.SseSecurities.Mdgw.Is120.v0.63.Url] - [pdf][Sse.SseSecurities.Mdgw.Is120.v0.63.Pdf] |
 
 
 <p align="center"><a href="https://www.sse.com.cn" title="Shanghai Stock Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Shanghai_Stock_Exchange" title="Shanghai Stock Exchange on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>

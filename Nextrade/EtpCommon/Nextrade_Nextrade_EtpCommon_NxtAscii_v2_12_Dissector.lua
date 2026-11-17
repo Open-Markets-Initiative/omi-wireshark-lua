@@ -3585,7 +3585,7 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.calculation_time.display = function(v
     return "Calculation Time: "..value
   end
 
-  return "Calculation Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+  return "Calculation Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).." Asia/Seoul"
 end
 
 -- Dissect: Calculation Time
@@ -4826,7 +4826,7 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.filler_4.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = nextrade_nextrade_etpcommon_nxtascii_v2_12.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.filler_4, range, value, display)
+  parent:add(omi_nextrade_nextrade_etpcommon_nxtascii_v2_12.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7777,7 +7777,7 @@ nextrade_nextrade_etpcommon_nxtascii_v2_12.processing_time_of_trading_system.dis
     return "Processing Time Of Trading System: "..value
   end
 
-  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12)
+  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12).." Asia/Seoul"
 end
 
 -- Dissect: Processing Time Of Trading System

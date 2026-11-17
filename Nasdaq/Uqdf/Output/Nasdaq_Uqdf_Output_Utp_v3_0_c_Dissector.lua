@@ -195,11 +195,11 @@ omi_nasdaq_uqdf_output_utp_v3_0_c.fields.message_sequence_number = ProtoField.ne
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nasdaq_uqdf_output_utp_v3_0_c.timestamp_format = 2
 
 
@@ -6884,7 +6884,8 @@ nasdaq_uqdf_output_utp_v3_0_c.message.size = function(buffer, offset)
   index = index + nasdaq_uqdf_output_utp_v3_0_c.message_header.size
 
   -- Parse runtime size of: Category Payload
-  index = index + buffer(offset + index - 4, 2):uint()
+  local message_length = buffer(offset + index - 4, 2):uint()
+  index = index + message_length - 2
 
   return index
 end

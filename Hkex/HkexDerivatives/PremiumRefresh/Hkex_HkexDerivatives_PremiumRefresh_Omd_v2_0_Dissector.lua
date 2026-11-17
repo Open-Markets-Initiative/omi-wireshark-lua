@@ -158,17 +158,22 @@ omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.book_entry_index = Proto
 omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.content_index = ProtoField.new("Content Index", "hkex.hkexderivatives.premiumrefresh.omd.v2.0.contentindex", ftypes.UINT16)
 omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.message_index = ProtoField.new("Message Index", "hkex.hkexderivatives.premiumrefresh.omd.v2.0.messageindex", ftypes.UINT16)
 
+-- Hkex HkexDerivatives PremiumRefresh Omd 2.0 Expert Info
+hkex_hkexderivatives_premiumrefresh_omd_v2_0.experts = {}
+hkex_hkexderivatives_premiumrefresh_omd_v2_0.experts.undecoded = ProtoExpert.new("hkex.hkexderivatives.premiumrefresh.omd.v2.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.experts = { hkex_hkexderivatives_premiumrefresh_omd_v2_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Hkex HkexDerivatives PremiumRefresh Omd 2.0 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 hkex_hkexderivatives_premiumrefresh_omd_v2_0.timestamp_format = 2
 
 
@@ -249,6 +254,14 @@ local function zlib_decompress(range)
   end
 
   return range:uncompress("Decompressed")
+end
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
 end
 -----------------------------------------------------------------------
 -- Hkex HkexDerivatives PremiumRefresh Omd 2.0 Fields
@@ -536,7 +549,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.content.dissect = function(buffer, 
   local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.content.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.content, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.content, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -832,7 +845,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_1.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_1, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -855,7 +868,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_10.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_10.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_10, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_10, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -878,7 +891,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_2.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_2, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -901,7 +914,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_3.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_3, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -924,7 +937,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_4.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_4, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -947,7 +960,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_5.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_5, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -970,7 +983,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_6.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.filler_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_6, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.filler_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1076,7 +1089,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.header.dissect = function(buffer, o
   local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.header.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.header, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.header, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2240,7 +2253,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.second_filler_3.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.second_filler_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.second_filler_3, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.second_filler_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4365,10 +4378,16 @@ end
 hkex_hkexderivatives_premiumrefresh_omd_v2_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_0.fields.message, buffer(offset, 0))
-    local current = hkex_hkexderivatives_premiumrefresh_omd_v2_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(hkex_hkexderivatives_premiumrefresh_omd_v2_0.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, hkex_hkexderivatives_premiumrefresh_omd_v2_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = hkex_hkexderivatives_premiumrefresh_omd_v2_0.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4376,7 +4395,10 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_0.message.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    hkex_hkexderivatives_premiumrefresh_omd_v2_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(hkex_hkexderivatives_premiumrefresh_omd_v2_0.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, hkex_hkexderivatives_premiumrefresh_omd_v2_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

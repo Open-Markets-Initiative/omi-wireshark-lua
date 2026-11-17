@@ -269,6 +269,11 @@ omi_qse_qsecash_marketdata_xdp_v2_6.fields.vwap_closing_price_message = ProtoFie
 -- Qse QseCash MarketData Xdp 2.6 Generated Fields
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.message_index = ProtoField.new("Message Index", "qse.qsecash.marketdata.xdp.v2.6.messageindex", ftypes.UINT16)
 
+-- Qse QseCash MarketData Xdp 2.6 Expert Info
+qse_qsecash_marketdata_xdp_v2_6.experts = {}
+qse_qsecash_marketdata_xdp_v2_6.experts.undecoded = ProtoExpert.new("qse.qsecash.marketdata.xdp.v2.6.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_qse_qsecash_marketdata_xdp_v2_6.experts = { qse_qsecash_marketdata_xdp_v2_6.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Qse QseCash MarketData Xdp 2.6 Formatting
 -----------------------------------------------------------------------
@@ -277,11 +282,11 @@ omi_qse_qsecash_marketdata_xdp_v2_6.fields.message_index = ProtoField.new("Messa
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 qse_qsecash_marketdata_xdp_v2_6.timestamp_format = 2
 
 
@@ -346,6 +351,14 @@ local function zlib_decompress(range)
   end
 
   return range:uncompress("Decompressed")
+end
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
 end
 -----------------------------------------------------------------------
 -- Qse QseCash MarketData Xdp 2.6 Fields
@@ -840,10 +853,8 @@ qse_qsecash_marketdata_xdp_v2_6.clearing_time.display = function(value, buffer, 
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Clearing Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Clearing Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -958,10 +969,8 @@ qse_qsecash_marketdata_xdp_v2_6.closing_reference_time.display = function(value,
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Closing Reference Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Closing Reference Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -1312,7 +1321,7 @@ qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_1.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_ascii_str_1, range, value, display)
+  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_ascii_str_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1335,7 +1344,7 @@ qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_ascii_str_2, range, value, display)
+  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_ascii_str_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1358,7 +1367,7 @@ qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = qse_qsecash_marketdata_xdp_v2_6.filler_ascii_str_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_ascii_str_3, range, value, display)
+  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_ascii_str_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1381,7 +1390,7 @@ qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_binary_int_1, range, value, display)
+  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_binary_int_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1404,7 +1413,7 @@ qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_12.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_binary_int_12, range, value, display)
+  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_binary_int_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1427,7 +1436,7 @@ qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = qse_qsecash_marketdata_xdp_v2_6.filler_binary_int_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_binary_int_2, range, value, display)
+  parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.filler_binary_int_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1581,10 +1590,8 @@ qse_qsecash_marketdata_xdp_v2_6.first_time.display = function(value, buffer, off
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "First Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "First Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -1821,10 +1828,8 @@ qse_qsecash_marketdata_xdp_v2_6.high_time.display = function(value, buffer, offs
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "High Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "High Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -2792,10 +2797,8 @@ qse_qsecash_marketdata_xdp_v2_6.liquidation_time.display = function(value, buffe
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Liquidation Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Liquidation Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -2995,10 +2998,8 @@ qse_qsecash_marketdata_xdp_v2_6.low_time.display = function(value, buffer, offse
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Low Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Low Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -3679,10 +3680,8 @@ qse_qsecash_marketdata_xdp_v2_6.opening_reference_time.display = function(value,
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Opening Reference Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Opening Reference Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -4211,10 +4210,8 @@ qse_qsecash_marketdata_xdp_v2_6.preliminary_opening_time.display = function(valu
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Preliminary Opening Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Preliminary Opening Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -5022,10 +5019,8 @@ qse_qsecash_marketdata_xdp_v2_6.source_time.display = function(value, buffer, of
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = qse_qsecash_marketdata_xdp_v2_6.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Source Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Source Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -9186,10 +9181,16 @@ end
 qse_qsecash_marketdata_xdp_v2_6.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.message, buffer(offset, 0))
-    local current = qse_qsecash_marketdata_xdp_v2_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(qse_qsecash_marketdata_xdp_v2_6.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, qse_qsecash_marketdata_xdp_v2_6.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = qse_qsecash_marketdata_xdp_v2_6.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -9197,7 +9198,10 @@ qse_qsecash_marketdata_xdp_v2_6.message.dissect = function(buffer, offset, packe
     return index, parent
   else
     -- Skip element, add fields directly
-    qse_qsecash_marketdata_xdp_v2_6.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(qse_qsecash_marketdata_xdp_v2_6.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, qse_qsecash_marketdata_xdp_v2_6.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -9227,6 +9231,12 @@ qse_qsecash_marketdata_xdp_v2_6.message_buffer.fields = function(buffer, offset,
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(qse_qsecash_marketdata_xdp_v2_6.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):uint()

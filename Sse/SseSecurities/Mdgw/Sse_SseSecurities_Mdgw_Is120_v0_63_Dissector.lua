@@ -118,6 +118,11 @@ omi_sse_ssesecurities_mdgw_is120_v0_63.fields.tickbytick_market_data_message = P
 omi_sse_ssesecurities_mdgw_is120_v0_63.fields.index_market_data_snapshot_entries_index = ProtoField.new("Index Market Data Snapshot Entries Index", "sse.ssesecurities.mdgw.is120.v0.63.indexmarketdatasnapshotentriesindex", ftypes.UINT16)
 omi_sse_ssesecurities_mdgw_is120_v0_63.fields.market_data_snapshot_entries_index = ProtoField.new("Market Data Snapshot Entries Index", "sse.ssesecurities.mdgw.is120.v0.63.marketdatasnapshotentriesindex", ftypes.UINT16)
 
+-- Sse SseSecurities Mdgw Is120 0.63 Expert Info
+sse_ssesecurities_mdgw_is120_v0_63.experts = {}
+sse_ssesecurities_mdgw_is120_v0_63.experts.undecoded = ProtoExpert.new("sse.ssesecurities.mdgw.is120.v0.63.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_sse_ssesecurities_mdgw_is120_v0_63.experts = { sse_ssesecurities_mdgw_is120_v0_63.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Sse SseSecurities Mdgw Is120 0.63 Formatting
 -----------------------------------------------------------------------
@@ -127,11 +132,11 @@ sse_ssesecurities_mdgw_is120_v0_63.text_encoding = ENC_ASCII
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 sse_ssesecurities_mdgw_is120_v0_63.timestamp_format = 2
 
 
@@ -203,6 +208,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Sse SseSecurities Mdgw Is120 0.63 Fields
 -----------------------------------------------------------------------
@@ -3157,10 +3170,16 @@ end
 sse_ssesecurities_mdgw_is120_v0_63.binary_message.dissect = function(buffer, offset, packet, parent, size_of_binary_message)
   local index = offset + size_of_binary_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_sse_ssesecurities_mdgw_is120_v0_63.fields.binary_message, buffer(offset, 0))
-    local current = sse_ssesecurities_mdgw_is120_v0_63.binary_message.fields(buffer, offset, packet, parent, size_of_binary_message)
+    local decoded, failure = pcall(sse_ssesecurities_mdgw_is120_v0_63.binary_message.fields, bounded, offset, packet, parent, size_of_binary_message)
+    if not decoded then
+      undecoded(failure, parent, sse_ssesecurities_mdgw_is120_v0_63.experts.undecoded, "Binary Message does not decode within its "..size_of_binary_message.." bytes")
+    end
     parent:set_len(size_of_binary_message)
     local display = sse_ssesecurities_mdgw_is120_v0_63.binary_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3168,7 +3187,10 @@ sse_ssesecurities_mdgw_is120_v0_63.binary_message.dissect = function(buffer, off
     return index, parent
   else
     -- Skip element, add fields directly
-    sse_ssesecurities_mdgw_is120_v0_63.binary_message.fields(buffer, offset, packet, parent, size_of_binary_message)
+    local decoded, failure = pcall(sse_ssesecurities_mdgw_is120_v0_63.binary_message.fields, bounded, offset, packet, parent, size_of_binary_message)
+    if not decoded then
+      undecoded(failure, parent, sse_ssesecurities_mdgw_is120_v0_63.experts.undecoded, "Binary Message does not decode within its "..size_of_binary_message.." bytes")
+    end
 
     return index
   end

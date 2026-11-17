@@ -3947,7 +3947,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.filler_1.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_1, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3970,7 +3970,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.filler_3.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.filler_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_3, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3993,7 +3993,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.filler_4.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_4, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4016,7 +4016,7 @@ koscom_mdcsrealtime_equityderivatives_exture_v2_020.filler_8.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_equityderivatives_exture_v2_020.filler_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_8, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_equityderivatives_exture_v2_020.fields.filler_8, range, range:raw(), display)
 
   return offset + length, value
 end

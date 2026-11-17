@@ -270,8 +270,7 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.underlying_symbol = ProtoField.new("Underlyi
 omi_cme_globex_mdp3_sbe_v1_9.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.globex.mdp3.sbe.v1.9.unitofmeasure", ftypes.STRING, nil, nil, nil, "Unit of measure for the products' original contract size. This will be populated for all products listed on CME Globex")
 omi_cme_globex_mdp3_sbe_v1_9.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.globex.mdp3.sbe.v1.9.unitofmeasureqty", ftypes.DOUBLE, nil, nil, nil, "This field contains the contract size for each instrument. Used in combination with tag 996-UnitofMeasure")
 omi_cme_globex_mdp3_sbe_v1_9.fields.unit_of_measure_qty_ex = ProtoField.new("Unit Of Measure Qty Ex", "cme.globex.mdp3.sbe.v1.9.unitofmeasureqtyex", ftypes.DOUBLE, nil, nil, nil, "This field contains the contract size for each instrument. Used in combination with tag 996-UnitofMeasure")
-omi_cme_globex_mdp3_sbe_v1_9.fields.unused_settl_price_type_5 = ProtoField.new("Unused Settl Price Type 5", "cme.globex.mdp3.sbe.v1.9.unusedsettlpricetype5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "Unused SettlPriceType 5")
-omi_cme_globex_mdp3_sbe_v1_9.fields.unused_settl_price_type_6 = ProtoField.new("Unused Settl Price Type 6", "cme.globex.mdp3.sbe.v1.9.unusedsettlpricetype6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Unused SettlPriceType 6")
+omi_cme_globex_mdp3_sbe_v1_9.fields.unused_2 = ProtoField.new("Unused 2", "cme.globex.mdp3.sbe.v1.9.unused2", ftypes.UINT8, nil, base.DEC, 0x60, "2 unused bits")
 omi_cme_globex_mdp3_sbe_v1_9.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.globex.mdp3.sbe.v1.9.userdefinedinstrument", ftypes.STRING, nil, nil, nil, "User-defined instruments flag")
 omi_cme_globex_mdp3_sbe_v1_9.fields.uuid = ProtoField.new("Uuid", "cme.globex.mdp3.sbe.v1.9.uuid", ftypes.UINT64, nil, nil, nil, "Session Identifier defined as type long uInt64, recommended to use timestamp as number of microseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.variable_cab_eligible = ProtoField.new("Variable Cab Eligible", "cme.globex.mdp3.sbe.v1.9.variablecabeligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00200000, "VariableCabEligible")
@@ -296,8 +295,11 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.server_tcp_packet = ProtoField.new("Server T
 omi_cme_globex_mdp3_sbe_v1_9.fields.server_technical_header = ProtoField.new("Server Technical Header", "cme.globex.mdp3.sbe.v1.9.servertechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by Cme to the firm")
 omi_cme_globex_mdp3_sbe_v1_9.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.mdp3.sbe.v1.9.udppacket", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet")
 
--- Cme Globex Mdp3 1.9 Application Messages
+-- Cme Globex Mdp3 1.9 Session Messages
 omi_cme_globex_mdp3_sbe_v1_9.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.mdp3.sbe.v1.9.adminheartbeat", ftypes.BYTES, nil, nil, nil, "AdminHeartbeat")
+omi_cme_globex_mdp3_sbe_v1_9.fields.subscriber_heartbeat = ProtoField.new("Subscriber Heartbeat", "cme.globex.mdp3.sbe.v1.9.subscriberheartbeat", ftypes.BYTES, nil, nil, nil, "SubscriberHeartbeat")
+
+-- Cme Globex Mdp3 1.9 Application Messages
 omi_cme_globex_mdp3_sbe_v1_9.fields.admin_login = ProtoField.new("Admin Login", "cme.globex.mdp3.sbe.v1.9.adminlogin", ftypes.STRING, nil, nil, nil, "AdminLogin")
 omi_cme_globex_mdp3_sbe_v1_9.fields.admin_logout = ProtoField.new("Admin Logout", "cme.globex.mdp3.sbe.v1.9.adminlogout", ftypes.STRING, nil, nil, nil, "AdminLogout")
 omi_cme_globex_mdp3_sbe_v1_9.fields.channel_reset = ProtoField.new("Channel Reset", "cme.globex.mdp3.sbe.v1.9.channelreset", ftypes.STRING, nil, nil, nil, "ChannelReset")
@@ -334,7 +336,6 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh = ProtoField.new("Snap
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_legacy = ProtoField.new("Snapshot Full Refresh Legacy", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshlegacy", ftypes.STRING, nil, nil, nil, "SnapshotFullRefresh")
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book = ProtoField.new("Snapshot Full Refresh Order Book", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbook", ftypes.STRING, nil, nil, nil, "SnapshotFullRefreshOrderBook")
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_legacy = ProtoField.new("Snapshot Full Refresh Order Book Legacy", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbooklegacy", ftypes.STRING, nil, nil, nil, "SnapshotFullRefreshOrderBook")
-omi_cme_globex_mdp3_sbe_v1_9.fields.subscriber_heartbeat = ProtoField.new("Subscriber Heartbeat", "cme.globex.mdp3.sbe.v1.9.subscriberheartbeat", ftypes.BYTES, nil, nil, nil, "SubscriberHeartbeat")
 omi_cme_globex_mdp3_sbe_v1_9.fields.terminate = ProtoField.new("Terminate", "cme.globex.mdp3.sbe.v1.9.terminate", ftypes.STRING)
 
 -- Cme Globex Mdp3 1.9 Schema Messages
@@ -372,17 +373,22 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.security_status_request_security_group_index
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_group_index = ProtoField.new("Snapshot Full Refresh Group Index", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_group_index = ProtoField.new("Snapshot Full Refresh Order Book Group Index", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbookgroupindex", ftypes.UINT16)
 
+-- Cme Globex Mdp3 Sbe 1.9 Expert Info
+cme_globex_mdp3_sbe_v1_9.experts = {}
+cme_globex_mdp3_sbe_v1_9.experts.undecoded = ProtoExpert.new("cme.globex.mdp3.sbe.v1.9.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cme_globex_mdp3_sbe_v1_9.experts = { cme_globex_mdp3_sbe_v1_9.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Cme Globex Mdp3 Sbe 1.9 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cme_globex_mdp3_sbe_v1_9.timestamp_format = 2
 
 -- assumed connection role
@@ -453,6 +459,19 @@ function omi_cme_globex_mdp3_sbe_v1_9.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cme Globex Mdp3 Sbe 1.9 Fields
 -----------------------------------------------------------------------
@@ -953,7 +972,7 @@ cme_globex_mdp3_sbe_v1_9.encoding_type.size = 2
 -- Display: Encoding Type
 cme_globex_mdp3_sbe_v1_9.encoding_type.display = function(value)
   if value == 51966 then
-    return "Encoding Type: Cme Sbe Message"
+    return "Encoding Type: Cme Sbe Message (51966)"
   end
 
   return "Encoding Type: Unknown("..value..")"
@@ -3387,7 +3406,7 @@ cme_globex_mdp3_sbe_v1_9.padding_1.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = cme_globex_mdp3_sbe_v1_9.padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_1, range, value, display)
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3410,7 +3429,7 @@ cme_globex_mdp3_sbe_v1_9.padding_2.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = cme_globex_mdp3_sbe_v1_9.padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_2, range, value, display)
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3433,7 +3452,7 @@ cme_globex_mdp3_sbe_v1_9.padding_3.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = cme_globex_mdp3_sbe_v1_9.padding_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_3, range, value, display)
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3456,7 +3475,7 @@ cme_globex_mdp3_sbe_v1_9.padding_4.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = cme_globex_mdp3_sbe_v1_9.padding_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_4, range, value, display)
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3479,7 +3498,7 @@ cme_globex_mdp3_sbe_v1_9.padding_5.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = cme_globex_mdp3_sbe_v1_9.padding_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_5, range, value, display)
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3502,7 +3521,7 @@ cme_globex_mdp3_sbe_v1_9.padding_6.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = cme_globex_mdp3_sbe_v1_9.padding_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_6, range, value, display)
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3525,7 +3544,7 @@ cme_globex_mdp3_sbe_v1_9.padding_7.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = cme_globex_mdp3_sbe_v1_9.padding_7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_7, range, value, display)
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.padding_7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6753,11 +6772,8 @@ cme_globex_mdp3_sbe_v1_9.settl_price_type.bits = function(range, value, packet, 
   -- Reserved Bits: 1 Bit
   parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.reserved_bits, range, value)
 
-  -- Unused Settl Price Type 5: 1 Bit
-  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.unused_settl_price_type_5, range, value)
-
-  -- Unused Settl Price Type 6: 1 Bit
-  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.unused_settl_price_type_6, range, value)
+  -- Unused 2: 2 Bit
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.unused_2, range, value)
 
   -- Null Value: 1 Bit
   parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.null_value, range, value)
@@ -7107,7 +7123,7 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread.fields = function(buffe
   -- Trading Reference Price Ex: PRICENULL9
   index, trading_reference_price_ex = cme_globex_mdp3_sbe_v1_9.trading_reference_price_ex.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 8 fields
+  -- Settl Price Type: Struct of 7 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Open Interest Qty: Int32NULL
@@ -7604,7 +7620,7 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option.fields = function(buffe
   -- Trading Reference Price Ex: PRICENULL9
   index, trading_reference_price_ex = cme_globex_mdp3_sbe_v1_9.trading_reference_price_ex.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 8 fields
+  -- Settl Price Type: Struct of 7 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Cleared Volume: Int32NULL
@@ -7866,7 +7882,7 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future.fields = function(buffe
   -- Trading Reference Price Ex: PRICENULL9
   index, trading_reference_price_ex = cme_globex_mdp3_sbe_v1_9.trading_reference_price_ex.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 8 fields
+  -- Settl Price Type: Struct of 7 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Open Interest Qty: Int32NULL
@@ -8185,7 +8201,7 @@ cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_group.fields = function(buffer, o
   -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = cme_globex_mdp3_sbe_v1_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 8 fields
+  -- Settl Price Type: Struct of 7 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Type: MDEntryType
@@ -8796,7 +8812,7 @@ cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_group.fields = fun
   -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_globex_mdp3_sbe_v1_9.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 8 fields
+  -- Settl Price Type: Struct of 7 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
@@ -10291,7 +10307,7 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_option_legacy.fields = functio
   -- Trading Reference Price: PRICENULL
   index, trading_reference_price = cme_globex_mdp3_sbe_v1_9.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 8 fields
+  -- Settl Price Type: Struct of 7 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Cleared Volume: Int32NULL
@@ -11478,7 +11494,7 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_spread_legacy.fields = functio
   -- Trading Reference Price: PRICENULL
   index, trading_reference_price = cme_globex_mdp3_sbe_v1_9.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 8 fields
+  -- Settl Price Type: Struct of 7 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Open Interest Qty: Int32NULL
@@ -11743,7 +11759,7 @@ cme_globex_mdp3_sbe_v1_9.md_instrument_definition_future_legacy.fields = functio
   -- Trading Reference Price: PRICENULL
   index, trading_reference_price = cme_globex_mdp3_sbe_v1_9.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 8 fields
+  -- Settl Price Type: Struct of 7 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Open Interest Qty: Int32NULL
@@ -12352,10 +12368,16 @@ end
 cme_globex_mdp3_sbe_v1_9.server_tcp_frame.dissect = function(buffer, offset, packet, parent, size_of_server_tcp_frame)
   local index = offset + size_of_server_tcp_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.server_tcp_frame, buffer(offset, 0))
-    local current = cme_globex_mdp3_sbe_v1_9.server_tcp_frame.fields(buffer, offset, packet, parent, size_of_server_tcp_frame)
+    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_9.server_tcp_frame.fields, bounded, offset, packet, parent, size_of_server_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Server Tcp Frame does not decode within its "..size_of_server_tcp_frame.." bytes")
+    end
     parent:set_len(size_of_server_tcp_frame)
     local display = cme_globex_mdp3_sbe_v1_9.server_tcp_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -12363,7 +12385,10 @@ cme_globex_mdp3_sbe_v1_9.server_tcp_frame.dissect = function(buffer, offset, pac
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_mdp3_sbe_v1_9.server_tcp_frame.fields(buffer, offset, packet, parent, size_of_server_tcp_frame)
+    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_9.server_tcp_frame.fields, bounded, offset, packet, parent, size_of_server_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Server Tcp Frame does not decode within its "..size_of_server_tcp_frame.." bytes")
+    end
 
     return index
   end
@@ -13455,10 +13480,16 @@ end
 cme_globex_mdp3_sbe_v1_9.client_tcp_frame.dissect = function(buffer, offset, packet, parent, size_of_client_tcp_frame)
   local index = offset + size_of_client_tcp_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.client_tcp_frame, buffer(offset, 0))
-    local current = cme_globex_mdp3_sbe_v1_9.client_tcp_frame.fields(buffer, offset, packet, parent, size_of_client_tcp_frame)
+    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_9.client_tcp_frame.fields, bounded, offset, packet, parent, size_of_client_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Client Tcp Frame does not decode within its "..size_of_client_tcp_frame.." bytes")
+    end
     parent:set_len(size_of_client_tcp_frame)
     local display = cme_globex_mdp3_sbe_v1_9.client_tcp_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -13466,7 +13497,10 @@ cme_globex_mdp3_sbe_v1_9.client_tcp_frame.dissect = function(buffer, offset, pac
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_mdp3_sbe_v1_9.client_tcp_frame.fields(buffer, offset, packet, parent, size_of_client_tcp_frame)
+    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_9.client_tcp_frame.fields, bounded, offset, packet, parent, size_of_client_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Client Tcp Frame does not decode within its "..size_of_client_tcp_frame.." bytes")
+    end
 
     return index
   end
@@ -13753,10 +13787,16 @@ end
 cme_globex_mdp3_sbe_v1_9.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.message, buffer(offset, 0))
-    local current = cme_globex_mdp3_sbe_v1_9.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_9.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = cme_globex_mdp3_sbe_v1_9.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -13764,7 +13804,10 @@ cme_globex_mdp3_sbe_v1_9.message.dissect = function(buffer, offset, packet, pare
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_mdp3_sbe_v1_9.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_9.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -13836,6 +13879,12 @@ cme_globex_mdp3_sbe_v1_9.udp_packet.dissect = function(buffer, packet, parent)
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()

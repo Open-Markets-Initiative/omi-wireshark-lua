@@ -128,11 +128,11 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.timestamp = ProtoField
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.timestamp_format = 2
 
 
@@ -1426,7 +1426,7 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_1.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1449,7 +1449,7 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_2.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1472,7 +1472,7 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_4.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end

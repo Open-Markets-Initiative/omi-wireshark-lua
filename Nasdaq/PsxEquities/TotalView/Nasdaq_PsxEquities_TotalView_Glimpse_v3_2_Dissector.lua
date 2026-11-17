@@ -78,7 +78,8 @@ omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.unsequenced_data_packet = P
 -- Nasdaq PsxEquities TotalView Glimpse 3.2 Expert Info
 nasdaq_psxequities_totalview_glimpse_v3_2.experts = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number = ProtoExpert.new("nasdaq.psxequities.totalview.glimpse.v3.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_nasdaq_psxequities_totalview_glimpse_v3_2.experts = { nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number }
+nasdaq_psxequities_totalview_glimpse_v3_2.experts.undecoded = ProtoExpert.new("nasdaq.psxequities.totalview.glimpse.v3.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.experts = { nasdaq_psxequities_totalview_glimpse_v3_2.experts.not_a_number, nasdaq_psxequities_totalview_glimpse_v3_2.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Nasdaq PsxEquities TotalView Glimpse 3.2 Formatting
@@ -230,6 +231,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nasdaq PsxEquities TotalView Glimpse 3.2 Fields
 -----------------------------------------------------------------------
@@ -1006,7 +1015,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.soup_lf.size = 1
 -- Display: Soup Lf
 nasdaq_psxequities_totalview_glimpse_v3_2.soup_lf.display = function(value)
   if value == 10 then
-    return "Soup Lf: Line Feed"
+    return "Soup Lf: Line Feed (10)"
   end
 
   return "Soup Lf: Unknown("..value..")"
@@ -1109,7 +1118,7 @@ nasdaq_psxequities_totalview_glimpse_v3_2.unsequenced_message.dissect = function
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_psxequities_totalview_glimpse_v3_2.unsequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.unsequenced_message, range, value, display)
+  parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.unsequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1917,10 +1926,16 @@ end
 nasdaq_psxequities_totalview_glimpse_v3_2.server_frame.dissect = function(buffer, offset, packet, parent, size_of_server_frame)
   local index = offset + size_of_server_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.server_frame, buffer(offset, 0))
-    local current = nasdaq_psxequities_totalview_glimpse_v3_2.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    local decoded, failure = pcall(nasdaq_psxequities_totalview_glimpse_v3_2.server_frame.fields, bounded, offset, packet, parent, size_of_server_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_psxequities_totalview_glimpse_v3_2.experts.undecoded, "Server Frame does not decode within its "..size_of_server_frame.." bytes")
+    end
     parent:set_len(size_of_server_frame)
     local display = nasdaq_psxequities_totalview_glimpse_v3_2.server_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1928,7 +1943,10 @@ nasdaq_psxequities_totalview_glimpse_v3_2.server_frame.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_psxequities_totalview_glimpse_v3_2.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    local decoded, failure = pcall(nasdaq_psxequities_totalview_glimpse_v3_2.server_frame.fields, bounded, offset, packet, parent, size_of_server_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_psxequities_totalview_glimpse_v3_2.experts.undecoded, "Server Frame does not decode within its "..size_of_server_frame.." bytes")
+    end
 
     return index
   end
@@ -2187,10 +2205,16 @@ end
 nasdaq_psxequities_totalview_glimpse_v3_2.client_frame.dissect = function(buffer, offset, packet, parent, size_of_client_frame)
   local index = offset + size_of_client_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_psxequities_totalview_glimpse_v3_2.fields.client_frame, buffer(offset, 0))
-    local current = nasdaq_psxequities_totalview_glimpse_v3_2.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    local decoded, failure = pcall(nasdaq_psxequities_totalview_glimpse_v3_2.client_frame.fields, bounded, offset, packet, parent, size_of_client_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_psxequities_totalview_glimpse_v3_2.experts.undecoded, "Client Frame does not decode within its "..size_of_client_frame.." bytes")
+    end
     parent:set_len(size_of_client_frame)
     local display = nasdaq_psxequities_totalview_glimpse_v3_2.client_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2198,7 +2222,10 @@ nasdaq_psxequities_totalview_glimpse_v3_2.client_frame.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_psxequities_totalview_glimpse_v3_2.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    local decoded, failure = pcall(nasdaq_psxequities_totalview_glimpse_v3_2.client_frame.fields, bounded, offset, packet, parent, size_of_client_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_psxequities_totalview_glimpse_v3_2.experts.undecoded, "Client Frame does not decode within its "..size_of_client_frame.." bytes")
+    end
 
     return index
   end

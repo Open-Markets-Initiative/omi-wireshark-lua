@@ -102,17 +102,22 @@ omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.trade_capture_message = Pr
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.trade_capture_response_message = ProtoField.new("Trade Capture Response Message", "a2x.a2xequities.tradingprotocol.atp.v2.9.2.tradecaptureresponsemessage", ftypes.STRING, nil, nil, nil, "A2X sends a Trade Capture Response Message to accept or reject a Trade Capture Message.")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.trade_message = ProtoField.new("Trade Message", "a2x.a2xequities.tradingprotocol.atp.v2.9.2.trademessage", ftypes.STRING, nil, nil, nil, "The Trade message is published when an order executes. The Trade message is also used to communicate indicative trade reports at lock time for Market at Close orders. Note that the price and tradeRef values will be zero for indicative trade reports published when MaC orders are matched at lock time.")
 
+-- A2X A2XEquities TradingProtocol Atp 2.9.2 Expert Info
+a2x_a2xequities_tradingprotocol_atp_v2_9_2.experts = {}
+a2x_a2xequities_tradingprotocol_atp_v2_9_2.experts.undecoded = ProtoExpert.new("a2x.a2xequities.tradingprotocol.atp.v2.9.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.experts = { a2x_a2xequities_tradingprotocol_atp_v2_9_2.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- A2X A2XEquities TradingProtocol Atp 2.9.2 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 a2x_a2xequities_tradingprotocol_atp_v2_9_2.timestamp_format = 2
 
 
@@ -158,6 +163,19 @@ function omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- A2X A2XEquities TradingProtocol Atp 2.9.2 Fields
 -----------------------------------------------------------------------
@@ -975,7 +993,7 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_2.reserved_1.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_2.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.reserved_1, range, value, display)
+  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -998,7 +1016,7 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_2.reserved_16.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_2.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.reserved_16, range, value, display)
+  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1021,7 +1039,7 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_2.reserved_8.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_2.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.reserved_8, range, value, display)
+  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1044,7 +1062,7 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_2.reserved_long_2.dissect = function(bu
   local value = range:bytes():tohex(false, " ")
   local display = a2x_a2xequities_tradingprotocol_atp_v2_9_2.reserved_long_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.reserved_long_2, range, value, display)
+  parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.reserved_long_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2823,10 +2841,16 @@ end
 a2x_a2xequities_tradingprotocol_atp_v2_9_2.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_a2x_a2xequities_tradingprotocol_atp_v2_9_2.fields.message, buffer(offset, 0))
-    local current = a2x_a2xequities_tradingprotocol_atp_v2_9_2.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(a2x_a2xequities_tradingprotocol_atp_v2_9_2.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, a2x_a2xequities_tradingprotocol_atp_v2_9_2.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = a2x_a2xequities_tradingprotocol_atp_v2_9_2.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2834,7 +2858,10 @@ a2x_a2xequities_tradingprotocol_atp_v2_9_2.message.dissect = function(buffer, of
     return index, parent
   else
     -- Skip element, add fields directly
-    a2x_a2xequities_tradingprotocol_atp_v2_9_2.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(a2x_a2xequities_tradingprotocol_atp_v2_9_2.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, a2x_a2xequities_tradingprotocol_atp_v2_9_2.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

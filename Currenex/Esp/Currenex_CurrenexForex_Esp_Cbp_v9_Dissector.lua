@@ -283,7 +283,7 @@ currenex_currenexforex_esp_cbp_v9.itch_message_start.size = 1
 -- Display: Itch Message Start
 currenex_currenexforex_esp_cbp_v9.itch_message_start.display = function(value)
   if value == 1 then
-    return "Itch Message Start: Soh"
+    return "Itch Message Start: Soh (1)"
   end
 
   return "Itch Message Start: Unknown("..value..")"

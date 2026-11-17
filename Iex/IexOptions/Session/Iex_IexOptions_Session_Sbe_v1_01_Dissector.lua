@@ -46,12 +46,18 @@ omi_iex_iexoptions_session_sbe_v1_01.fields.client_packet = ProtoField.new("Clie
 omi_iex_iexoptions_session_sbe_v1_01.fields.message_header = ProtoField.new("Message Header", "iex.iexoptions.session.sbe.v1.01.messageheader", ftypes.STRING, nil, nil, nil, "Iex Options Sbe message header — message identifiers and length of message root")
 omi_iex_iexoptions_session_sbe_v1_01.fields.server_packet = ProtoField.new("Server Packet", "iex.iexoptions.session.sbe.v1.01.serverpacket", ftypes.STRING, nil, nil, nil, "Iex Options Binary Session Tcp Packet sent by Iex Options to the User")
 
--- Iex IexOptions Session 1.01 Application Messages
+-- Iex IexOptions Session 1.01 Session Messages
 omi_iex_iexoptions_session_sbe_v1_01.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.session.sbe.v1.01.clientheartbeatmessage", ftypes.BYTES, nil, nil, nil, "ClientHeartbeatMessage")
+omi_iex_iexoptions_session_sbe_v1_01.fields.logout_request_message = ProtoField.new("Logout Request Message", "iex.iexoptions.session.sbe.v1.01.logoutrequestmessage", ftypes.BYTES, nil, nil, nil, "LogoutRequestMessage")
+
+-- Iex IexOptions Session 1.01 Schema Messages
+omi_iex_iexoptions_session_sbe_v1_01.fields.client_session_message = ProtoField.new("Client Session Message", "iex.iexoptions.session.sbe.v1.01.clientsessionmessage", ftypes.STRING, nil, nil, nil, "Message of sbe schema iex.options.boe.session (schema id 20000)")
+omi_iex_iexoptions_session_sbe_v1_01.fields.server_session_message = ProtoField.new("Server Session Message", "iex.iexoptions.session.sbe.v1.01.serversessionmessage", ftypes.STRING, nil, nil, nil, "Message of sbe schema iex.options.boe.session (schema id 20000)")
+
+-- Iex IexOptions Session 1.01 Application Messages
 omi_iex_iexoptions_session_sbe_v1_01.fields.gateway_heartbeat_message = ProtoField.new("Gateway Heartbeat Message", "iex.iexoptions.session.sbe.v1.01.gatewayheartbeatmessage", ftypes.STRING, nil, nil, nil, "GatewayHeartbeatMessage")
 omi_iex_iexoptions_session_sbe_v1_01.fields.login_request_message = ProtoField.new("Login Request Message", "iex.iexoptions.session.sbe.v1.01.loginrequestmessage", ftypes.STRING, nil, nil, nil, "LoginRequestMessage")
 omi_iex_iexoptions_session_sbe_v1_01.fields.login_response_message = ProtoField.new("Login Response Message", "iex.iexoptions.session.sbe.v1.01.loginresponsemessage", ftypes.STRING, nil, nil, nil, "LoginResponseMessage")
-omi_iex_iexoptions_session_sbe_v1_01.fields.logout_request_message = ProtoField.new("Logout Request Message", "iex.iexoptions.session.sbe.v1.01.logoutrequestmessage", ftypes.BYTES, nil, nil, nil, "LogoutRequestMessage")
 omi_iex_iexoptions_session_sbe_v1_01.fields.sequenced_message_header_message = ProtoField.new("Sequenced Message Header Message", "iex.iexoptions.session.sbe.v1.01.sequencedmessageheadermessage", ftypes.STRING, nil, nil, nil, "SequencedMessageHeaderMessage")
 omi_iex_iexoptions_session_sbe_v1_01.fields.subsession_join_message = ProtoField.new("Subsession Join Message", "iex.iexoptions.session.sbe.v1.01.subsessionjoinmessage", ftypes.STRING, nil, nil, nil, "SubsessionJoinMessage")
 omi_iex_iexoptions_session_sbe_v1_01.fields.subsession_join_response_message = ProtoField.new("Subsession Join Response Message", "iex.iexoptions.session.sbe.v1.01.subsessionjoinresponsemessage", ftypes.STRING, nil, nil, nil, "SubsessionJoinResponseMessage")
@@ -59,12 +65,13 @@ omi_iex_iexoptions_session_sbe_v1_01.fields.subsession_leave_message = ProtoFiel
 omi_iex_iexoptions_session_sbe_v1_01.fields.subsession_leave_response_message = ProtoField.new("Subsession Leave Response Message", "iex.iexoptions.session.sbe.v1.01.subsessionleaveresponsemessage", ftypes.STRING, nil, nil, nil, "SubsessionLeaveResponseMessage")
 omi_iex_iexoptions_session_sbe_v1_01.fields.terminate_message = ProtoField.new("Terminate Message", "iex.iexoptions.session.sbe.v1.01.terminatemessage", ftypes.STRING, nil, nil, nil, "TerminateMessage")
 
--- Iex IexOptions Session 1.01 Schema Messages
-omi_iex_iexoptions_session_sbe_v1_01.fields.client_session_message = ProtoField.new("Client Session Message", "iex.iexoptions.session.sbe.v1.01.clientsessionmessage", ftypes.STRING, nil, nil, nil, "Message of sbe schema iex.options.boe.session (schema id 20000)")
-omi_iex_iexoptions_session_sbe_v1_01.fields.server_session_message = ProtoField.new("Server Session Message", "iex.iexoptions.session.sbe.v1.01.serversessionmessage", ftypes.STRING, nil, nil, nil, "Message of sbe schema iex.options.boe.session (schema id 20000)")
-
 -- Iex IexOptions Session Sbe 1.01 Generated Fields
 omi_iex_iexoptions_session_sbe_v1_01.fields.sub_sessions_group_index = ProtoField.new("Sub Sessions Group Index", "iex.iexoptions.session.sbe.v1.01.subsessionsgroupindex", ftypes.UINT16)
+
+-- Iex IexOptions Session Sbe 1.01 Expert Info
+iex_iexoptions_session_sbe_v1_01.experts = {}
+iex_iexoptions_session_sbe_v1_01.experts.undecoded = ProtoExpert.new("iex.iexoptions.session.sbe.v1.01.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_iex_iexoptions_session_sbe_v1_01.experts = { iex_iexoptions_session_sbe_v1_01.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Iex IexOptions Session Sbe 1.01 Formatting
@@ -128,6 +135,19 @@ function omi_iex_iexoptions_session_sbe_v1_01.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Iex IexOptions Session Sbe 1.01 Fields
 -----------------------------------------------------------------------
@@ -1313,10 +1333,16 @@ end
 iex_iexoptions_session_sbe_v1_01.server_sbe_message.dissect = function(buffer, offset, packet, parent, size_of_server_sbe_message)
   local index = offset + size_of_server_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.server_sbe_message, buffer(offset, 0))
-    local current = iex_iexoptions_session_sbe_v1_01.server_sbe_message.fields(buffer, offset, packet, parent, size_of_server_sbe_message)
+    local decoded, failure = pcall(iex_iexoptions_session_sbe_v1_01.server_sbe_message.fields, bounded, offset, packet, parent, size_of_server_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexoptions_session_sbe_v1_01.experts.undecoded, "Server Sbe Message does not decode within its "..size_of_server_sbe_message.." bytes")
+    end
     parent:set_len(size_of_server_sbe_message)
     local display = iex_iexoptions_session_sbe_v1_01.server_sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1324,7 +1350,10 @@ iex_iexoptions_session_sbe_v1_01.server_sbe_message.dissect = function(buffer, o
     return index, parent
   else
     -- Skip element, add fields directly
-    iex_iexoptions_session_sbe_v1_01.server_sbe_message.fields(buffer, offset, packet, parent, size_of_server_sbe_message)
+    local decoded, failure = pcall(iex_iexoptions_session_sbe_v1_01.server_sbe_message.fields, bounded, offset, packet, parent, size_of_server_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexoptions_session_sbe_v1_01.experts.undecoded, "Server Sbe Message does not decode within its "..size_of_server_sbe_message.." bytes")
+    end
 
     return index
   end
@@ -1678,10 +1707,16 @@ end
 iex_iexoptions_session_sbe_v1_01.client_sbe_message.dissect = function(buffer, offset, packet, parent, size_of_client_sbe_message)
   local index = offset + size_of_client_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_iex_iexoptions_session_sbe_v1_01.fields.client_sbe_message, buffer(offset, 0))
-    local current = iex_iexoptions_session_sbe_v1_01.client_sbe_message.fields(buffer, offset, packet, parent, size_of_client_sbe_message)
+    local decoded, failure = pcall(iex_iexoptions_session_sbe_v1_01.client_sbe_message.fields, bounded, offset, packet, parent, size_of_client_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexoptions_session_sbe_v1_01.experts.undecoded, "Client Sbe Message does not decode within its "..size_of_client_sbe_message.." bytes")
+    end
     parent:set_len(size_of_client_sbe_message)
     local display = iex_iexoptions_session_sbe_v1_01.client_sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1689,7 +1724,10 @@ iex_iexoptions_session_sbe_v1_01.client_sbe_message.dissect = function(buffer, o
     return index, parent
   else
     -- Skip element, add fields directly
-    iex_iexoptions_session_sbe_v1_01.client_sbe_message.fields(buffer, offset, packet, parent, size_of_client_sbe_message)
+    local decoded, failure = pcall(iex_iexoptions_session_sbe_v1_01.client_sbe_message.fields, bounded, offset, packet, parent, size_of_client_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexoptions_session_sbe_v1_01.experts.undecoded, "Client Sbe Message does not decode within its "..size_of_client_sbe_message.." bytes")
+    end
 
     return index
   end

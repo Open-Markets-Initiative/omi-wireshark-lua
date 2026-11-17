@@ -87,11 +87,11 @@ omi_biva_bivaequities_news_itch_v1_12.fields.timestamp = ProtoField.new("Timesta
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 biva_bivaequities_news_itch_v1_12.timestamp_format = 2
 
 
@@ -1260,10 +1260,8 @@ biva_bivaequities_news_itch_v1_12.timestamp.display = function(nanoseconds, stor
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = biva_bivaequities_news_itch_v1_12.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", fraction)
     end
   end
 

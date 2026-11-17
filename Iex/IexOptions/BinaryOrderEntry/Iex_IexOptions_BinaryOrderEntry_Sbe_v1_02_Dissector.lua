@@ -104,8 +104,8 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.option_type = ProtoField.ne
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.optional_data = ProtoField.new("Optional Data", "iex.iexoptions.binaryorderentry.sbe.v1.02.optionaldata", ftypes.STRING, nil, nil, nil, "optionalData")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.ord_type = ProtoField.new("Ord Type", "iex.iexoptions.binaryorderentry.sbe.v1.02.ordtype", ftypes.INT8, nil, nil, nil, "ordType")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_id = ProtoField.new("Order Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.orderid", ftypes.UINT64, nil, nil, nil, "orderId")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_qty_quantity_non_zero = ProtoField.new("Order Qty Quantity Non Zero", "iex.iexoptions.binaryorderentry.sbe.v1.02.orderqtyquantitynonzero", ftypes.UINT32, nil, nil, nil, "orderQty")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_qty_quantity_zero_optional = ProtoField.new("Order Qty Quantity Zero optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.orderqtyquantityzerooptional", ftypes.UINT32, nil, nil, nil, "Order quantity")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_qty = ProtoField.new("Order Qty", "iex.iexoptions.binaryorderentry.sbe.v1.02.orderqty", ftypes.UINT32, nil, nil, nil, "orderQty")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_qty_optional = ProtoField.new("Order Qty Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.orderqtyoptional", ftypes.UINT32, nil, nil, nil, "Order quantity")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_unsolicited_ack_subscription = ProtoField.new("Order Unsolicited Ack Subscription", "iex.iexoptions.binaryorderentry.sbe.v1.02.orderunsolicitedacksubscription", ftypes.UINT8, nil, nil, nil, "orderUnsolicitedAckSubscription")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.origclordid", ftypes.UINT64, nil, nil, nil, "origClOrdId")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.orp_enabled = ProtoField.new("Orp Enabled", "iex.iexoptions.binaryorderentry.sbe.v1.02.orpenabled", ftypes.UINT8, nil, nil, nil, "ORPEnabled")
@@ -113,7 +113,7 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.osi_symbol = ProtoField.new
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.packet_length = ProtoField.new("Packet Length", "iex.iexoptions.binaryorderentry.sbe.v1.02.packetlength", ftypes.UINT16, nil, nil, nil, "Number of bytes after this field until the next packet")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.percentage_limit = ProtoField.new("Percentage Limit", "iex.iexoptions.binaryorderentry.sbe.v1.02.percentagelimit", ftypes.UINT32, nil, nil, nil, "percentageLimit")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.price_price_4 = ProtoField.new("Price Price 4", "iex.iexoptions.binaryorderentry.sbe.v1.02.priceprice4", ftypes.DOUBLE, nil, nil, nil, "price")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.price_price_4_optional = ProtoField.new("Price Price 4 optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.priceprice4optional", ftypes.DOUBLE, nil, nil, nil, "Order price")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.price_price_4_optional = ProtoField.new("Price Price 4 Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.priceprice4optional", ftypes.DOUBLE, nil, nil, nil, "Order price")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.price_price_8 = ProtoField.new("Price Price 8", "iex.iexoptions.binaryorderentry.sbe.v1.02.priceprice8", ftypes.DOUBLE, nil, nil, nil, "price")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_group_ids_group = ProtoField.new("Purge Ack Message Custom Group Ids Group", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgeackmessagecustomgroupidsgroup", ftypes.STRING, nil, nil, nil, "customGroupIds")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_group_ids_groups = ProtoField.new("Purge Ack Message Custom Group Ids Groups", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgeackmessagecustomgroupidsgroups", ftypes.STRING, nil, nil, nil, "customGroupIds Block")
@@ -178,13 +178,11 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_packet = ProtoField.
 -- Iex IexOptions BinaryOrderEntry 1.02 Application Messages
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.application_layer_reject_message = ProtoField.new("Application Layer Reject Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.applicationlayerrejectmessage", ftypes.STRING, nil, nil, nil, "ApplicationLayerRejectMessage")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message = ProtoField.new("Bulk Quote Ack Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessage", ftypes.STRING, nil, nil, nil, "BulkQuoteAckMessage")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.clientheartbeatmessage", ftypes.BYTES, nil, nil, nil, "ClientHeartbeatMessage")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.execution_report_message = ProtoField.new("Execution Report Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.executionreportmessage", ftypes.STRING, nil, nil, nil, "ExecutionReportMessage")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.gateway_heartbeat_message = ProtoField.new("Gateway Heartbeat Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.gatewayheartbeatmessage", ftypes.STRING, nil, nil, nil, "GatewayHeartbeatMessage")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.instrument_ref_data_message = ProtoField.new("Instrument Ref Data Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.instrumentrefdatamessage", ftypes.STRING, nil, nil, nil, "InstrumentRefDataMessage")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.login_request_message = ProtoField.new("Login Request Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.loginrequestmessage", ftypes.STRING, nil, nil, nil, "LoginRequestMessage")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.login_response_message = ProtoField.new("Login Response Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.loginresponsemessage", ftypes.STRING, nil, nil, nil, "LoginResponseMessage")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.logout_request_message = ProtoField.new("Logout Request Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.logoutrequestmessage", ftypes.BYTES, nil, nil, nil, "LogoutRequestMessage")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.market_maker_symbol_appointment_message = ProtoField.new("Market Maker Symbol Appointment Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.marketmakersymbolappointmentmessage", ftypes.STRING, nil, nil, nil, "MarketMakerSymbolAppointmentMessage")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mass_cancel_ack_message = ProtoField.new("Mass Cancel Ack Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.masscancelackmessage", ftypes.STRING, nil, nil, nil, "MassCancelAckMessage")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.mass_cancel_request_message = ProtoField.new("Mass Cancel Request Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.masscancelrequestmessage", ftypes.STRING, nil, nil, nil, "MassCancelRequestMessage")
@@ -221,6 +219,10 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_session_message = Pr
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_business_message = ProtoField.new("Server Business Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.serverbusinessmessage", ftypes.STRING, nil, nil, nil, "Message of sbe schema iex.options.boe.business (schema id 20001)")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_session_message = ProtoField.new("Server Session Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.serversessionmessage", ftypes.STRING, nil, nil, nil, "Message of sbe schema iex.options.boe.session (schema id 20000)")
 
+-- Iex IexOptions BinaryOrderEntry 1.02 Session Messages
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_heartbeat_message = ProtoField.new("Client Heartbeat Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.clientheartbeatmessage", ftypes.BYTES, nil, nil, nil, "ClientHeartbeatMessage")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.logout_request_message = ProtoField.new("Logout Request Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.logoutrequestmessage", ftypes.BYTES, nil, nil, nil, "LogoutRequestMessage")
+
 -- Iex IexOptions BinaryOrderEntry Sbe 1.02 Generated Fields
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.bulk_quote_ack_message_quote_acks_group_index = ProtoField.new("Bulk Quote Ack Message Quote Acks Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.bulkquoteackmessagequoteacksgroupindex", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.new_bulk_quote_message_quote_updates_group_index = ProtoField.new("New Bulk Quote Message Quote Updates Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.newbulkquotemessagequoteupdatesgroupindex", ftypes.UINT16)
@@ -228,17 +230,22 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_ack_message_custom_gr
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.purge_request_message_custom_group_ids_group_index = ProtoField.new("Purge Request Message Custom Group Ids Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.purgerequestmessagecustomgroupidsgroupindex", ftypes.UINT16)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sub_sessions_group_index = ProtoField.new("Sub Sessions Group Index", "iex.iexoptions.binaryorderentry.sbe.v1.02.subsessionsgroupindex", ftypes.UINT16)
 
+-- Iex IexOptions BinaryOrderEntry Sbe 1.02 Expert Info
+iex_iexoptions_binaryorderentry_sbe_v1_02.experts = {}
+iex_iexoptions_binaryorderentry_sbe_v1_02.experts.undecoded = ProtoExpert.new("iex.iexoptions.binaryorderentry.sbe.v1.02.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.experts = { iex_iexoptions_binaryorderentry_sbe_v1_02.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Iex IexOptions BinaryOrderEntry Sbe 1.02 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 iex_iexoptions_binaryorderentry_sbe_v1_02.timestamp_format = 2
 
 -- assumed connection role
@@ -304,6 +311,19 @@ function omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Iex IexOptions BinaryOrderEntry Sbe 1.02 Fields
 -----------------------------------------------------------------------
@@ -2863,53 +2883,53 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_id.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Order Qty Quantity Non Zero
-iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero = {}
+-- Order Qty
+iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty = {}
 
--- Size: Order Qty Quantity Non Zero
-iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.size = 4
+-- Size: Order Qty
+iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.size = 4
 
--- Display: Order Qty Quantity Non Zero
-iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.display = function(value)
-  return "Order Qty Quantity Non Zero: "..value
+-- Display: Order Qty
+iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.display = function(value)
+  return "Order Qty: "..value
 end
 
--- Dissect: Order Qty Quantity Non Zero
-iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.size
+-- Dissect: Order Qty
+iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_qty_quantity_non_zero, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_qty, range, value, display)
 
   return offset + length, value
 end
 
--- Order Qty Quantity Zero optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional = {}
+-- Order Qty Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_optional = {}
 
--- Size: Order Qty Quantity Zero optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.size = 4
+-- Size: Order Qty Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_optional.size = 4
 
--- Display: Order Qty Quantity Zero optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.display = function(value)
+-- Display: Order Qty Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_optional.display = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Order Qty Quantity Zero optional: No Value"
+    return "Order Qty Optional: No Value"
   end
 
-  return "Order Qty Quantity Zero optional: "..value
+  return "Order Qty Optional: "..value
 end
 
--- Dissect: Order Qty Quantity Zero optional
-iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.dissect = function(buffer, offset, packet, parent)
-  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.size
+-- Dissect: Order Qty Optional
+iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_optional.dissect = function(buffer, offset, packet, parent)
+  local length = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_optional.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.display(value, buffer, offset, packet, parent)
+  local display = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_qty_quantity_zero_optional, range, value, display)
+  parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.order_qty_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3112,23 +3132,23 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4.dissect = function(buffe
   return offset + length, value
 end
 
--- Price Price 4 optional
+-- Price Price 4 Optional
 iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional = {}
 
--- Size: Price Price 4 optional
+-- Size: Price Price 4 Optional
 iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.size = 4
 
--- Display: Price Price 4 optional
+-- Display: Price Price 4 Optional
 iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.display = function(raw, value)
   -- Check null sentinel value
   if raw == -2147483648 then
-    return "Price Price 4 optional: No Value"
+    return "Price Price 4 Optional: No Value"
   end
 
-  return "Price Price 4 optional: "..value
+  return "Price Price 4 Optional: "..value
 end
 
--- Translate: Price Price 4 optional
+-- Translate: Price Price 4 Optional
 iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == -2147483648 then
@@ -3138,7 +3158,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.translate = fun
   return raw/10000
 end
 
--- Dissect: Price Price 4 optional
+-- Dissect: Price Price 4 Optional
 iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.dissect = function(buffer, offset, packet, parent)
   local length = iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.size
   local range = buffer(offset, length)
@@ -5835,7 +5855,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_ioc_quote_ack_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.ack_type.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.reason_code.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.throttle_indicator.size
 
@@ -5878,8 +5898,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_ioc_quote_ack_message.fields = fun
   -- Price Price 4: Price4
   index, price_price_4 = iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Quantity Non Zero: QuantityNonZero
-  index, order_qty_quantity_non_zero = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.dissect(buffer, index, packet, parent)
+  -- Order Qty: QuantityNonZero
+  index, order_qty = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.dissect(buffer, index, packet, parent)
 
   -- Reason Code: ReasonCode
   index, reason_code = iex_iexoptions_binaryorderentry_sbe_v1_02.reason_code.dissect(buffer, index, packet, parent)
@@ -5918,7 +5938,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.ack_type.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.reason_code.size
 
 -- Display: Bulk Quote Ack Message Quote Acks Group
@@ -5948,11 +5968,11 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.bulk_quote_ack_message_quote_acks_grou
   -- Ack Type: AckType
   index, ack_type = iex_iexoptions_binaryorderentry_sbe_v1_02.ack_type.dissect(buffer, index, packet, parent)
 
-  -- Price Price 4 optional: Price4
+  -- Price Price 4 Optional: Price4
   index, price_price_4_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Quantity Zero optional: QuantityZero
-  index, order_qty_quantity_zero_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.dissect(buffer, index, packet, parent)
+  -- Order Qty Optional: QuantityZero
+  index, order_qty_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_optional.dissect(buffer, index, packet, parent)
 
   -- Reason Code: ReasonCode
   index, reason_code = iex_iexoptions_binaryorderentry_sbe_v1_02.reason_code.dissect(buffer, index, packet, parent)
@@ -6326,7 +6346,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.unsolicited_modify_ack_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.orig_cl_ord_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.order_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_8.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.leaves_qty.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.effective_limit_price.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.display_price.size + 
@@ -6361,8 +6381,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.unsolicited_modify_ack_message.fields 
   -- Price Price 8: Price8
   index, price_price_8 = iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_8.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Quantity Non Zero: QuantityNonZero
-  index, order_qty_quantity_non_zero = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.dissect(buffer, index, packet, parent)
+  -- Order Qty: QuantityNonZero
+  index, order_qty = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: QuantityZero
   index, leaves_qty = iex_iexoptions_binaryorderentry_sbe_v1_02.leaves_qty.dissect(buffer, index, packet, parent)
@@ -6432,7 +6452,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_ack_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.aiq.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.side.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_8.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.leaves_qty.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.effective_limit_price.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.display_price.size + 
@@ -6521,8 +6541,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_ack_message.fields = function(bu
   -- Price Price 8: Price8
   index, price_price_8 = iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_8.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Quantity Non Zero: QuantityNonZero
-  index, order_qty_quantity_non_zero = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.dissect(buffer, index, packet, parent)
+  -- Order Qty: QuantityNonZero
+  index, order_qty = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: QuantityZero
   index, leaves_qty = iex_iexoptions_binaryorderentry_sbe_v1_02.leaves_qty.dissect(buffer, index, packet, parent)
@@ -7255,10 +7275,16 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.dissect = function(buffer, offset, packet, parent, size_of_server_sbe_message)
   local index = offset + size_of_server_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_sbe_message, buffer(offset, 0))
-    local current = iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.fields(buffer, offset, packet, parent, size_of_server_sbe_message)
+    local decoded, failure = pcall(iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.fields, bounded, offset, packet, parent, size_of_server_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexoptions_binaryorderentry_sbe_v1_02.experts.undecoded, "Server Sbe Message does not decode within its "..size_of_server_sbe_message.." bytes")
+    end
     parent:set_len(size_of_server_sbe_message)
     local display = iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -7266,7 +7292,10 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.fields(buffer, offset, packet, parent, size_of_server_sbe_message)
+    local decoded, failure = pcall(iex_iexoptions_binaryorderentry_sbe_v1_02.server_sbe_message.fields, bounded, offset, packet, parent, size_of_server_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexoptions_binaryorderentry_sbe_v1_02.experts.undecoded, "Server Sbe Message does not decode within its "..size_of_server_sbe_message.." bytes")
+    end
 
     return index
   end
@@ -7717,7 +7746,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
   iex_iexoptions_binaryorderentry_sbe_v1_02.instrument_id.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.side.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.size + 
+  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_optional.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.quote_type.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.reserved.size
 
@@ -7742,11 +7771,11 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_bulk_quote_message_quote_updates_g
   -- Side: Side
   index, side = iex_iexoptions_binaryorderentry_sbe_v1_02.side.dissect(buffer, index, packet, parent)
 
-  -- Price Price 4 optional: Price4
+  -- Price Price 4 Optional: Price4
   index, price_price_4_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_4_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Quantity Zero optional: QuantityZero
-  index, order_qty_quantity_zero_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_zero_optional.dissect(buffer, index, packet, parent)
+  -- Order Qty Optional: QuantityZero
+  index, order_qty_optional = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_optional.dissect(buffer, index, packet, parent)
 
   -- Quote Type: QuoteType
   index, quote_type = iex_iexoptions_binaryorderentry_sbe_v1_02.quote_type.dissect(buffer, index, packet, parent)
@@ -8040,7 +8069,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_replace_request_message.s
   iex_iexoptions_binaryorderentry_sbe_v1_02.aiq.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.side.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_8.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.size
+  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.size
 
 -- Display: Order Cancel Replace Request Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_replace_request_message.display = function(packet, parent, length)
@@ -8117,8 +8146,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.order_cancel_replace_request_message.f
   -- Price Price 8: Price8
   index, price_price_8 = iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_8.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Quantity Non Zero: QuantityNonZero
-  index, order_qty_quantity_non_zero = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.dissect(buffer, index, packet, parent)
+  -- Order Qty: QuantityNonZero
+  index, order_qty = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8167,7 +8196,7 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_order_single_message.size =
   iex_iexoptions_binaryorderentry_sbe_v1_02.aiq.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.side.size + 
   iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_8.size + 
-  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.size
+  iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.size
 
 -- Display: New Order Single Message
 iex_iexoptions_binaryorderentry_sbe_v1_02.new_order_single_message.display = function(packet, parent, length)
@@ -8241,8 +8270,8 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.new_order_single_message.fields = func
   -- Price Price 8: Price8
   index, price_price_8 = iex_iexoptions_binaryorderentry_sbe_v1_02.price_price_8.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Quantity Non Zero: QuantityNonZero
-  index, order_qty_quantity_non_zero = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty_quantity_non_zero.dissect(buffer, index, packet, parent)
+  -- Order Qty: QuantityNonZero
+  index, order_qty = iex_iexoptions_binaryorderentry_sbe_v1_02.order_qty.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8631,10 +8660,16 @@ end
 iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.dissect = function(buffer, offset, packet, parent, size_of_client_sbe_message)
   local index = offset + size_of_client_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.client_sbe_message, buffer(offset, 0))
-    local current = iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.fields(buffer, offset, packet, parent, size_of_client_sbe_message)
+    local decoded, failure = pcall(iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.fields, bounded, offset, packet, parent, size_of_client_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexoptions_binaryorderentry_sbe_v1_02.experts.undecoded, "Client Sbe Message does not decode within its "..size_of_client_sbe_message.." bytes")
+    end
     parent:set_len(size_of_client_sbe_message)
     local display = iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -8642,7 +8677,10 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.fields(buffer, offset, packet, parent, size_of_client_sbe_message)
+    local decoded, failure = pcall(iex_iexoptions_binaryorderentry_sbe_v1_02.client_sbe_message.fields, bounded, offset, packet, parent, size_of_client_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexoptions_binaryorderentry_sbe_v1_02.experts.undecoded, "Client Sbe Message does not decode within its "..size_of_client_sbe_message.." bytes")
+    end
 
     return index
   end

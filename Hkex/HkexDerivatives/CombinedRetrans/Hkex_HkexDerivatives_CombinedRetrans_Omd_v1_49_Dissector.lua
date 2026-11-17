@@ -216,17 +216,22 @@ omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.book_entry_index = Pro
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.content_index = ProtoField.new("Content Index", "hkex.hkexderivatives.combinedretrans.omd.v1.49.contentindex", ftypes.UINT16)
 omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.message_index = ProtoField.new("Message Index", "hkex.hkexderivatives.combinedretrans.omd.v1.49.messageindex", ftypes.UINT16)
 
+-- Hkex HkexDerivatives CombinedRetrans Omd 1.49 Expert Info
+hkex_hkexderivatives_combinedretrans_omd_v1_49.experts = {}
+hkex_hkexderivatives_combinedretrans_omd_v1_49.experts.undecoded = ProtoExpert.new("hkex.hkexderivatives.combinedretrans.omd.v1.49.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.experts = { hkex_hkexderivatives_combinedretrans_omd_v1_49.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Hkex HkexDerivatives CombinedRetrans Omd 1.49 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 hkex_hkexderivatives_combinedretrans_omd_v1_49.timestamp_format = 2
 
 
@@ -307,6 +312,14 @@ local function zlib_decompress(range)
   end
 
   return range:uncompress("Decompressed")
+end
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
 end
 -----------------------------------------------------------------------
 -- Hkex HkexDerivatives CombinedRetrans Omd 1.49 Fields
@@ -691,7 +704,7 @@ hkex_hkexderivatives_combinedretrans_omd_v1_49.content.dissect = function(buffer
   local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexderivatives_combinedretrans_omd_v1_49.content.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.content, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.content, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1165,7 +1178,7 @@ hkex_hkexderivatives_combinedretrans_omd_v1_49.filler_1.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedretrans_omd_v1_49.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.filler_1, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1188,7 +1201,7 @@ hkex_hkexderivatives_combinedretrans_omd_v1_49.filler_2.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedretrans_omd_v1_49.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.filler_2, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1211,7 +1224,7 @@ hkex_hkexderivatives_combinedretrans_omd_v1_49.filler_3.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedretrans_omd_v1_49.filler_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.filler_3, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.filler_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1234,7 +1247,7 @@ hkex_hkexderivatives_combinedretrans_omd_v1_49.filler_4.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedretrans_omd_v1_49.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.filler_4, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1257,7 +1270,7 @@ hkex_hkexderivatives_combinedretrans_omd_v1_49.filler_6.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexderivatives_combinedretrans_omd_v1_49.filler_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.filler_6, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.filler_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1349,7 +1362,7 @@ hkex_hkexderivatives_combinedretrans_omd_v1_49.header.dissect = function(buffer,
   local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexderivatives_combinedretrans_omd_v1_49.header.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.header, range, value, display)
+  parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.header, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6061,10 +6074,16 @@ end
 hkex_hkexderivatives_combinedretrans_omd_v1_49.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_hkex_hkexderivatives_combinedretrans_omd_v1_49.fields.message, buffer(offset, 0))
-    local current = hkex_hkexderivatives_combinedretrans_omd_v1_49.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(hkex_hkexderivatives_combinedretrans_omd_v1_49.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, hkex_hkexderivatives_combinedretrans_omd_v1_49.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = hkex_hkexderivatives_combinedretrans_omd_v1_49.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6072,7 +6091,10 @@ hkex_hkexderivatives_combinedretrans_omd_v1_49.message.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    hkex_hkexderivatives_combinedretrans_omd_v1_49.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(hkex_hkexderivatives_combinedretrans_omd_v1_49.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, hkex_hkexderivatives_combinedretrans_omd_v1_49.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

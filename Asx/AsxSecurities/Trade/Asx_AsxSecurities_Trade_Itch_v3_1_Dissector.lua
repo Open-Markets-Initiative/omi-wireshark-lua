@@ -117,11 +117,11 @@ omi_asx_asxsecurities_trade_itch_v3_1.fields.timestamp = ProtoField.new("Timesta
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 asx_asxsecurities_trade_itch_v3_1.timestamp_format = 2
 
 
@@ -674,7 +674,7 @@ asx_asxsecurities_trade_itch_v3_1.match_id.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = asx_asxsecurities_trade_itch_v3_1.match_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.match_id, range, value, display)
+  parent:add(omi_asx_asxsecurities_trade_itch_v3_1.fields.match_id, range, range:raw(), display)
 
   return offset + length, value
 end

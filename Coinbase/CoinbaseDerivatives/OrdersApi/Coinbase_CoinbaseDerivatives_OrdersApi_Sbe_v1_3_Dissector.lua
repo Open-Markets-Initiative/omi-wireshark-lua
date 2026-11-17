@@ -50,6 +50,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.last_processed_seq_no
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.leg1fillprice", ftypes.INT64, nil, nil, nil, "leg1FillPrice")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.leg2fillprice", ftypes.INT64, nil, nil, nil, "leg2FillPrice")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.limit_price = ProtoField.new("Limit Price", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.limitprice", ftypes.INT64, nil, nil, nil, "limitPrice")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.logout_reason = ProtoField.new("Logout Reason", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.logoutreason", ftypes.STRING, nil, nil, nil, "reason")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.match_id = ProtoField.new("Match Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.matchid", ftypes.INT64, nil, nil, nil, "matchId")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.messagelength", ftypes.UINT16, nil, nil, nil, "Total message length in bytes including this header")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.new_limit_price = ProtoField.new("New Limit Price", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.newlimitprice", ftypes.INT64, nil, nil, nil, "newLimitPrice")
@@ -65,7 +66,6 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.padding = ProtoField.
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.password = ProtoField.new("Password", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.password", ftypes.STRING, nil, nil, nil, "Logon password")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.protocolid", ftypes.UINT8, nil, nil, nil, "Coinbase protocol identifier")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.quantity", ftypes.INT32, nil, nil, nil, "Quantity with 0 decimal places")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reason = ProtoField.new("Reason", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.reason", ftypes.STRING)
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.receive_time = ProtoField.new("Receive Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.receivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "receiveTime")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.receive_time_utc = ProtoField.new("Receive Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.receivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "receiveTime")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.request_time = ProtoField.new("Request Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.requesttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "requestTime")
@@ -146,17 +146,22 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.unlock_trading_reject
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.order_message = ProtoField.new("Order Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.ordermessage", ftypes.STRING, nil, nil, nil, "Message of sbe schema fairx.gateway.sbe.codec.order (schema id 1101)")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.session_message = ProtoField.new("Session Message", "coinbase.coinbasederivatives.ordersapi.sbe.v1.3.sessionmessage", ftypes.STRING, nil, nil, nil, "Message of sbe schema fairx.gateway.sbe.codec.session (schema id 1100)")
 
+-- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.3 Expert Info
+coinbase_coinbasederivatives_ordersapi_sbe_v1_3.experts = {}
+coinbase_coinbasederivatives_ordersapi_sbe_v1_3.experts.undecoded = ProtoExpert.new("coinbase.coinbasederivatives.ordersapi.sbe.v1.3.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.experts = { coinbase_coinbasederivatives_ordersapi_sbe_v1_3.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.3 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.timestamp_format = 2
 
 
@@ -202,6 +207,19 @@ function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Coinbase CoinbaseDerivatives OrdersApi Sbe 1.3 Fields
 -----------------------------------------------------------------------
@@ -551,7 +569,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_3.data_value.dissect = function(bu
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.data_value.display(value, packet, parent, size)
 
-  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.data_value, range, value, display)
+  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.data_value, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1072,6 +1090,45 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_3.limit_price.dissect = function(b
   return offset + length, value
 end
 
+-- Logout Reason
+coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_reason = {}
+
+-- Size: Logout Reason
+coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_reason.size = 64
+
+-- Display: Logout Reason
+coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Logout Reason: No Value"
+  end
+
+  return "Logout Reason: "..value
+end
+
+-- Dissect: Logout Reason
+coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_reason.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.logout_reason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Match Id
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.match_id = {}
 
@@ -1383,7 +1440,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_3.padding.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.padding.display(value, packet, parent, size)
 
-  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.padding, range, value, display)
+  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.padding, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1436,7 +1493,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_3.protocol_id.size = 1
 -- Display: Protocol Id
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.protocol_id.display = function(value)
   if value == 241 then
-    return "Protocol Id: Orders Api"
+    return "Protocol Id: Orders Api (241)"
   end
 
   return "Protocol Id: Unknown("..value..")"
@@ -1473,45 +1530,6 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_3.quantity.dissect = function(buff
   local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.quantity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.quantity, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason
-coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reason = {}
-
--- Size: Reason
-coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reason.size = 64
-
--- Display: Reason
-coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reason.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reason: No Value"
-  end
-
-  return "Reason: "..value
-end
-
--- Dissect: Reason
-coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reason.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reason.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -4175,7 +4193,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logged_out_message = {}
 
 -- Size: Logged Out Message
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logged_out_message.size =
-  coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reason.size
+  coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_reason.size
 
 -- Display: Logged Out Message
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logged_out_message.display = function(packet, parent, length)
@@ -4186,8 +4204,8 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logged_out_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason: String64
-  index, reason = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reason.dissect(buffer, index, packet, parent)
+  -- Logout Reason: String64
+  index, logout_reason = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4215,7 +4233,7 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_message = {}
 
 -- Size: Logout Message
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_message.size =
-  coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reason.size
+  coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_reason.size
 
 -- Display: Logout Message
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_message.display = function(packet, parent, length)
@@ -4226,8 +4244,8 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason: String64
-  index, reason = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.reason.dissect(buffer, index, packet, parent)
+  -- Logout Reason: String64
+  index, logout_reason = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.logout_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4601,10 +4619,16 @@ end
 coinbase_coinbasederivatives_ordersapi_sbe_v1_3.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset + size_of_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_3.fields.sbe_message, buffer(offset, 0))
-    local current = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(coinbase_coinbasederivatives_ordersapi_sbe_v1_3.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, coinbase_coinbasederivatives_ordersapi_sbe_v1_3.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
     parent:set_len(size_of_sbe_message)
     local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_3.sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4612,7 +4636,10 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_3.sbe_message.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    coinbase_coinbasederivatives_ordersapi_sbe_v1_3.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(coinbase_coinbasederivatives_ordersapi_sbe_v1_3.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, coinbase_coinbasederivatives_ordersapi_sbe_v1_3.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
 
     return index
   end

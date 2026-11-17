@@ -146,7 +146,8 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.composite_timestamp = P
 -- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Expert Info
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts = {}
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.not_a_number = ProtoExpert.new("nsxaustralia.nets.marketdatafeed.itch.v4.2.55.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts = { nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.not_a_number }
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.undecoded = ProtoExpert.new("nsxaustralia.nets.marketdatafeed.itch.v4.2.55.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts = { nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.not_a_number, nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Formatting
@@ -155,11 +156,11 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts = { nsxaustralia_nets_
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format = 2
 
 -- assumed connection role
@@ -301,6 +302,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- NsxAustralia Nets MarketDataFeed Itch 4.2.55 Fields
 -----------------------------------------------------------------------
@@ -2265,7 +2274,7 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.unsequenced_message.dissect = func
   local value = range:bytes():tohex(false, " ")
   local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.unsequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.unsequenced_message, range, value, display)
+  parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.unsequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -3778,7 +3787,8 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.debug_packet.size = function(buffe
   local index = 0
 
   -- Parse runtime size of: Debug Text
-  index = index + buffer(offset + index - 3, 2):uint()
+  local packet_length = buffer(offset + index - 3, 2):uint()
+  index = index + packet_length - 1
 
   return index
 end
@@ -3917,10 +3927,16 @@ end
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset + size_of_server_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_server_soup_bin_tcp_packet)
     local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3928,7 +3944,10 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_soup_bin_tcp_packet.dissect
     return index, parent
   else
     -- Skip element, add fields directly
-    nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nsxaustralia_nets_marketdatafeed_itch_v4_2_55.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end
@@ -4242,10 +4261,16 @@ end
 nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
   local index = offset + size_of_client_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_client_soup_bin_tcp_packet)
     local display = nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4253,7 +4278,10 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_soup_bin_tcp_packet.dissect
     return index, parent
   else
     -- Skip element, add fields directly
-    nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nsxaustralia_nets_marketdatafeed_itch_v4_2_55.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nsxaustralia_nets_marketdatafeed_itch_v4_2_55.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end

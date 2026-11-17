@@ -109,11 +109,11 @@ omi_iex_iexequities_tops_iextp_v1_64.fields.message_sequence_number = ProtoField
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 iex_iexequities_tops_iextp_v1_64.timestamp_format = 2
 
 
@@ -713,7 +713,7 @@ iex_iexequities_tops_iextp_v1_64.message_protocol_id.size = 2
 -- Display: Message Protocol Id
 iex_iexequities_tops_iextp_v1_64.message_protocol_id.display = function(value)
   if value == 32771 then
-    return "Message Protocol Id: Iex Tops"
+    return "Message Protocol Id: Iex Tops (32771)"
   end
 
   return "Message Protocol Id: Unknown("..value..")"
@@ -998,7 +998,7 @@ iex_iexequities_tops_iextp_v1_64.reserved.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = iex_iexequities_tops_iextp_v1_64.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexequities_tops_iextp_v1_64.fields.reserved, range, value, display)
+  parent:add(omi_iex_iexequities_tops_iextp_v1_64.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1367,7 +1367,7 @@ iex_iexequities_tops_iextp_v1_64.version.size = 1
 -- Display: Version
 iex_iexequities_tops_iextp_v1_64.version.display = function(value)
   if value == 1 then
-    return "Version: Iex Tp"
+    return "Version: Iex Tp (1)"
   end
 
   return "Version: Unknown("..value..")"

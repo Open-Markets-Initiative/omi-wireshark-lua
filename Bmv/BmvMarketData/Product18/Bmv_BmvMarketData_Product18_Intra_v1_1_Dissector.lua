@@ -95,8 +95,8 @@ omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.value_type = ProtoField.new("V
 omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.variation = ProtoField.new("Variation", "bmv.bmvmarketdata.product18.intra.v1.1.variation", ftypes.DOUBLE, nil, nil, nil, "Variation points")
 omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.virtual_trades_status = ProtoField.new("Virtual Trades Status", "bmv.bmvmarketdata.product18.intra.v1.1.virtualtradesstatus", ftypes.STRING, nil, nil, nil, "A-Addition B-Deletion (Document label: Status)")
 omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.volatility = ProtoField.new("Volatility", "bmv.bmvmarketdata.product18.intra.v1.1.volatility", ftypes.DOUBLE, nil, nil, nil, "Volatility instrument.")
-omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.volume_int_324 = ProtoField.new("Volume Int 324", "bmv.bmvmarketdata.product18.intra.v1.1.volumeint324", ftypes.INT32, nil, nil, nil, "Traded stocks")
-omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.volume_int_648 = ProtoField.new("Volume Int 648", "bmv.bmvmarketdata.product18.intra.v1.1.volumeint648", ftypes.INT64, nil, nil, nil, "Traded volume")
+omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.volume = ProtoField.new("Volume", "bmv.bmvmarketdata.product18.intra.v1.1.volume", ftypes.INT32, nil, nil, nil, "Traded stocks")
+omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.volume_long = ProtoField.new("Volume Long", "bmv.bmvmarketdata.product18.intra.v1.1.volumelong", ftypes.INT64, nil, nil, nil, "Traded volume")
 omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.weighted_average_price = ProtoField.new("Weighted Average Price", "bmv.bmvmarketdata.product18.intra.v1.1.weightedaverageprice", ftypes.DOUBLE, nil, nil, nil, "Average price instrument.")
 
 -- Bmv BmvMarketData Product18 Intra 1.1 Framing
@@ -127,6 +127,11 @@ omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.weighted_average_price_settlem
 omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.message_block_index = ProtoField.new("Message Block Index", "bmv.bmvmarketdata.product18.intra.v1.1.messageblockindex", ftypes.UINT16)
 omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.price_level_index = ProtoField.new("Price Level Index", "bmv.bmvmarketdata.product18.intra.v1.1.pricelevelindex", ftypes.UINT16)
 
+-- Bmv BmvMarketData Product18 Intra 1.1 Expert Info
+bmv_bmvmarketdata_product18_intra_v1_1.experts = {}
+bmv_bmvmarketdata_product18_intra_v1_1.experts.undecoded = ProtoExpert.new("bmv.bmvmarketdata.product18.intra.v1.1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_bmv_bmvmarketdata_product18_intra_v1_1.experts = { bmv_bmvmarketdata_product18_intra_v1_1.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Bmv BmvMarketData Product18 Intra 1.1 Formatting
 -----------------------------------------------------------------------
@@ -136,11 +141,11 @@ bmv_bmvmarketdata_product18_intra_v1_1.text_encoding = ENC_ASCII
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 bmv_bmvmarketdata_product18_intra_v1_1.timestamp_format = 2
 
 
@@ -207,6 +212,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Bmv BmvMarketData Product18 Intra 1.1 Fields
 -----------------------------------------------------------------------
@@ -2309,48 +2322,48 @@ bmv_bmvmarketdata_product18_intra_v1_1.volatility.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Volume Int 324
-bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324 = {}
+-- Volume
+bmv_bmvmarketdata_product18_intra_v1_1.volume = {}
 
--- Size: Volume Int 324
-bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.size = 4
+-- Size: Volume
+bmv_bmvmarketdata_product18_intra_v1_1.volume.size = 4
 
--- Display: Volume Int 324
-bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.display = function(value)
-  return "Volume Int 324: "..value
+-- Display: Volume
+bmv_bmvmarketdata_product18_intra_v1_1.volume.display = function(value)
+  return "Volume: "..value
 end
 
--- Dissect: Volume Int 324
-bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.dissect = function(buffer, offset, packet, parent)
-  local length = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.size
+-- Dissect: Volume
+bmv_bmvmarketdata_product18_intra_v1_1.volume.dissect = function(buffer, offset, packet, parent)
+  local length = bmv_bmvmarketdata_product18_intra_v1_1.volume.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.display(value, buffer, offset, packet, parent)
+  local display = bmv_bmvmarketdata_product18_intra_v1_1.volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.volume_int_324, range, value, display)
+  parent:add(omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.volume, range, value, display)
 
   return offset + length, value
 end
 
--- Volume Int 648
-bmv_bmvmarketdata_product18_intra_v1_1.volume_int_648 = {}
+-- Volume Long
+bmv_bmvmarketdata_product18_intra_v1_1.volume_long = {}
 
--- Size: Volume Int 648
-bmv_bmvmarketdata_product18_intra_v1_1.volume_int_648.size = 8
+-- Size: Volume Long
+bmv_bmvmarketdata_product18_intra_v1_1.volume_long.size = 8
 
--- Display: Volume Int 648
-bmv_bmvmarketdata_product18_intra_v1_1.volume_int_648.display = function(value)
-  return "Volume Int 648: "..value
+-- Display: Volume Long
+bmv_bmvmarketdata_product18_intra_v1_1.volume_long.display = function(value)
+  return "Volume Long: "..value
 end
 
--- Dissect: Volume Int 648
-bmv_bmvmarketdata_product18_intra_v1_1.volume_int_648.dissect = function(buffer, offset, packet, parent)
-  local length = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_648.size
+-- Dissect: Volume Long
+bmv_bmvmarketdata_product18_intra_v1_1.volume_long.dissect = function(buffer, offset, packet, parent)
+  local length = bmv_bmvmarketdata_product18_intra_v1_1.volume_long.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_648.display(value, buffer, offset, packet, parent)
+  local display = bmv_bmvmarketdata_product18_intra_v1_1.volume_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.volume_int_648, range, value, display)
+  parent:add(omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.volume_long, range, value, display)
 
   return offset + length, value
 end
@@ -2441,7 +2454,7 @@ bmv_bmvmarketdata_product18_intra_v1_1.general_indices_message.size =
   bmv_bmvmarketdata_product18_intra_v1_1.component.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.sector.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.indices_hour.size + 
-  bmv_bmvmarketdata_product18_intra_v1_1.volume_int_648.size + 
+  bmv_bmvmarketdata_product18_intra_v1_1.volume_long.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.indices.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.variation.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.percentage.size + 
@@ -2466,8 +2479,8 @@ bmv_bmvmarketdata_product18_intra_v1_1.general_indices_message.fields = function
   -- Indices Hour: Timestamp(2)
   index, indices_hour = bmv_bmvmarketdata_product18_intra_v1_1.indices_hour.dissect(buffer, index, packet, parent)
 
-  -- Volume Int 648: Int64
-  index, volume_int_648 = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_648.dissect(buffer, index, packet, parent)
+  -- Volume Long: Int64
+  index, volume_long = bmv_bmvmarketdata_product18_intra_v1_1.volume_long.dissect(buffer, index, packet, parent)
 
   -- Indices: Price (4)
   index, indices = bmv_bmvmarketdata_product18_intra_v1_1.indices.dissect(buffer, index, packet, parent)
@@ -2511,7 +2524,7 @@ bmv_bmvmarketdata_product18_intra_v1_1.best_offer_message = {}
 -- Size: Best Offer Message
 bmv_bmvmarketdata_product18_intra_v1_1.best_offer_message.size =
   bmv_bmvmarketdata_product18_intra_v1_1.instrument_number.size + 
-  bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.size + 
+  bmv_bmvmarketdata_product18_intra_v1_1.volume.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.price_rate.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.offer_direction.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.operation_type.size
@@ -2528,8 +2541,8 @@ bmv_bmvmarketdata_product18_intra_v1_1.best_offer_message.fields = function(buff
   -- Instrument Number: Int32
   index, instrument_number = bmv_bmvmarketdata_product18_intra_v1_1.instrument_number.dissect(buffer, index, packet, parent)
 
-  -- Volume Int 324: Int32
-  index, volume_int_324 = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.dissect(buffer, index, packet, parent)
+  -- Volume: Int32
+  index, volume = bmv_bmvmarketdata_product18_intra_v1_1.volume.dissect(buffer, index, packet, parent)
 
   -- Price Rate: Price (8)
   index, price_rate = bmv_bmvmarketdata_product18_intra_v1_1.price_rate.dissect(buffer, index, packet, parent)
@@ -2568,7 +2581,7 @@ bmv_bmvmarketdata_product18_intra_v1_1.price_level = {}
 bmv_bmvmarketdata_product18_intra_v1_1.price_level.size =
   bmv_bmvmarketdata_product18_intra_v1_1.price.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.number_of_orders.size + 
-  bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.size
+  bmv_bmvmarketdata_product18_intra_v1_1.volume.size
 
 -- Display: Price Level
 bmv_bmvmarketdata_product18_intra_v1_1.price_level.display = function(packet, parent, length)
@@ -2591,8 +2604,8 @@ bmv_bmvmarketdata_product18_intra_v1_1.price_level.fields = function(buffer, off
   -- Number Of Orders: Int16
   index, number_of_orders = bmv_bmvmarketdata_product18_intra_v1_1.number_of_orders.dissect(buffer, index, packet, parent)
 
-  -- Volume Int 324: Int32
-  index, volume_int_324 = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.dissect(buffer, index, packet, parent)
+  -- Volume: Int32
+  index, volume = bmv_bmvmarketdata_product18_intra_v1_1.volume.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2688,7 +2701,7 @@ bmv_bmvmarketdata_product18_intra_v1_1.virtual_trades_message.size =
   bmv_bmvmarketdata_product18_intra_v1_1.virtual_trades_status.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.operation_type.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.number.size + 
-  bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.size + 
+  bmv_bmvmarketdata_product18_intra_v1_1.volume.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.concertation.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.buy.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.sell.size
@@ -2714,8 +2727,8 @@ bmv_bmvmarketdata_product18_intra_v1_1.virtual_trades_message.fields = function(
   -- Number: Int32
   index, number = bmv_bmvmarketdata_product18_intra_v1_1.number.dissect(buffer, index, packet, parent)
 
-  -- Volume Int 324: Int32
-  index, volume_int_324 = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.dissect(buffer, index, packet, parent)
+  -- Volume: Int32
+  index, volume = bmv_bmvmarketdata_product18_intra_v1_1.volume.dissect(buffer, index, packet, parent)
 
   -- Concertation: ALPHA
   index, concertation = bmv_bmvmarketdata_product18_intra_v1_1.concertation.dissect(buffer, index, packet, parent)
@@ -2754,7 +2767,7 @@ bmv_bmvmarketdata_product18_intra_v1_1.tradability_message = {}
 bmv_bmvmarketdata_product18_intra_v1_1.tradability_message.size =
   bmv_bmvmarketdata_product18_intra_v1_1.instrument_number.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.number_of_operations.size + 
-  bmv_bmvmarketdata_product18_intra_v1_1.volume_int_648.size + 
+  bmv_bmvmarketdata_product18_intra_v1_1.volume_long.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.amount.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.opening_price.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.maximum.size + 
@@ -2777,8 +2790,8 @@ bmv_bmvmarketdata_product18_intra_v1_1.tradability_message.fields = function(buf
   -- Number Of Operations: Int32
   index, number_of_operations = bmv_bmvmarketdata_product18_intra_v1_1.number_of_operations.dissect(buffer, index, packet, parent)
 
-  -- Volume Int 648: Int64
-  index, volume_int_648 = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_648.dissect(buffer, index, packet, parent)
+  -- Volume Long: Int64
+  index, volume_long = bmv_bmvmarketdata_product18_intra_v1_1.volume_long.dissect(buffer, index, packet, parent)
 
   -- Amount: Precio(8)
   index, amount = bmv_bmvmarketdata_product18_intra_v1_1.amount.dissect(buffer, index, packet, parent)
@@ -3070,7 +3083,7 @@ bmv_bmvmarketdata_product18_intra_v1_1.probable_allocation_price_message = {}
 bmv_bmvmarketdata_product18_intra_v1_1.probable_allocation_price_message.size =
   bmv_bmvmarketdata_product18_intra_v1_1.instrument_number.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.probable_allocation_price.size + 
-  bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.size
+  bmv_bmvmarketdata_product18_intra_v1_1.volume.size
 
 -- Display: Probable Allocation Price Message
 bmv_bmvmarketdata_product18_intra_v1_1.probable_allocation_price_message.display = function(packet, parent, length)
@@ -3087,8 +3100,8 @@ bmv_bmvmarketdata_product18_intra_v1_1.probable_allocation_price_message.fields 
   -- Probable Allocation Price: Precio (8)
   index, probable_allocation_price = bmv_bmvmarketdata_product18_intra_v1_1.probable_allocation_price.dissect(buffer, index, packet, parent)
 
-  -- Volume Int 324: Int32
-  index, volume_int_324 = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.dissect(buffer, index, packet, parent)
+  -- Volume: Int32
+  index, volume = bmv_bmvmarketdata_product18_intra_v1_1.volume.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3118,7 +3131,7 @@ bmv_bmvmarketdata_product18_intra_v1_1.capital_trades_message = {}
 bmv_bmvmarketdata_product18_intra_v1_1.capital_trades_message.size =
   bmv_bmvmarketdata_product18_intra_v1_1.instrument_number.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.trade_time.size + 
-  bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.size + 
+  bmv_bmvmarketdata_product18_intra_v1_1.volume.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.price.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.concertation_type.size + 
   bmv_bmvmarketdata_product18_intra_v1_1.trade_number.size + 
@@ -3145,8 +3158,8 @@ bmv_bmvmarketdata_product18_intra_v1_1.capital_trades_message.fields = function(
   -- Trade Time: Timestamp(2)
   index, trade_time = bmv_bmvmarketdata_product18_intra_v1_1.trade_time.dissect(buffer, index, packet, parent)
 
-  -- Volume Int 324: Int32
-  index, volume_int_324 = bmv_bmvmarketdata_product18_intra_v1_1.volume_int_324.dissect(buffer, index, packet, parent)
+  -- Volume: Int32
+  index, volume = bmv_bmvmarketdata_product18_intra_v1_1.volume.dissect(buffer, index, packet, parent)
 
   -- Price: Price (8)
   index, price = bmv_bmvmarketdata_product18_intra_v1_1.price.dissect(buffer, index, packet, parent)
@@ -3542,10 +3555,16 @@ end
 bmv_bmvmarketdata_product18_intra_v1_1.message_block.dissect = function(buffer, offset, packet, parent, size_of_message_block, message_block_index)
   local index = offset + size_of_message_block
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_bmv_bmvmarketdata_product18_intra_v1_1.fields.message_block, buffer(offset, 0))
-    local current = bmv_bmvmarketdata_product18_intra_v1_1.message_block.fields(buffer, offset, packet, parent, size_of_message_block, message_block_index)
+    local decoded, failure = pcall(bmv_bmvmarketdata_product18_intra_v1_1.message_block.fields, bounded, offset, packet, parent, size_of_message_block, message_block_index)
+    if not decoded then
+      undecoded(failure, parent, bmv_bmvmarketdata_product18_intra_v1_1.experts.undecoded, "Message Block does not decode within its "..size_of_message_block.." bytes")
+    end
     parent:set_len(size_of_message_block)
     local display = bmv_bmvmarketdata_product18_intra_v1_1.message_block.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3553,7 +3572,10 @@ bmv_bmvmarketdata_product18_intra_v1_1.message_block.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    bmv_bmvmarketdata_product18_intra_v1_1.message_block.fields(buffer, offset, packet, parent, size_of_message_block, message_block_index)
+    local decoded, failure = pcall(bmv_bmvmarketdata_product18_intra_v1_1.message_block.fields, bounded, offset, packet, parent, size_of_message_block, message_block_index)
+    if not decoded then
+      undecoded(failure, parent, bmv_bmvmarketdata_product18_intra_v1_1.experts.undecoded, "Message Block does not decode within its "..size_of_message_block.." bytes")
+    end
 
     return index
   end
@@ -3641,6 +3663,12 @@ bmv_bmvmarketdata_product18_intra_v1_1.packet.dissect = function(buffer, packet,
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(bmv_bmvmarketdata_product18_intra_v1_1.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):int()

@@ -46,11 +46,11 @@ omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.message_index = ProtoField.
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_nyseoptions_commonclient_pillar_v2_6.timestamp_format = 2
 
 
@@ -238,7 +238,7 @@ nyse_nyseoptions_commonclient_pillar_v2_6.payload.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseoptions_commonclient_pillar_v2_6.payload.display(value, packet, parent, size)
 
-  parent:add(omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.payload, range, value, display)
+  parent:add(omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.payload, range, range:raw(), display)
 
   return offset + size, value
 end

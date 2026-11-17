@@ -80,7 +80,8 @@ omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.trading_status_message = Proto
 -- Cboe ByxEquities Top AsciiPitch 1.3.2 Expert Info
 cboe_byxequities_top_asciipitch_v1_3_2.experts = {}
 cboe_byxequities_top_asciipitch_v1_3_2.experts.not_a_number = ProtoExpert.new("cboe.byxequities.top.asciipitch.v1.3.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_cboe_byxequities_top_asciipitch_v1_3_2.experts = { cboe_byxequities_top_asciipitch_v1_3_2.experts.not_a_number }
+cboe_byxequities_top_asciipitch_v1_3_2.experts.undecoded = ProtoExpert.new("cboe.byxequities.top.asciipitch.v1.3.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cboe_byxequities_top_asciipitch_v1_3_2.experts = { cboe_byxequities_top_asciipitch_v1_3_2.experts.not_a_number, cboe_byxequities_top_asciipitch_v1_3_2.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Cboe ByxEquities Top AsciiPitch 1.3.2 Formatting
@@ -90,11 +91,11 @@ omi_cboe_byxequities_top_asciipitch_v1_3_2.experts = { cboe_byxequities_top_asci
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format = 2
 
 
@@ -209,6 +210,14 @@ format_implied_decimal_text = function(str, places)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cboe ByxEquities Top AsciiPitch 1.3.2 Fields
 -----------------------------------------------------------------------
@@ -814,10 +823,8 @@ cboe_byxequities_top_asciipitch_v1_3_2.last_trade_time.display = function(value,
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Last Trade Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Last Trade Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -1200,10 +1207,8 @@ cboe_byxequities_top_asciipitch_v1_3_2.timestamp.display = function(value, buffe
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -1240,7 +1245,7 @@ cboe_byxequities_top_asciipitch_v1_3_2.top_lf.size = 1
 -- Display: Top Lf
 cboe_byxequities_top_asciipitch_v1_3_2.top_lf.display = function(value)
   if value == 10 then
-    return "Top Lf: Line Feed"
+    return "Top Lf: Line Feed (10)"
   end
 
   return "Top Lf: Unknown("..value..")"
@@ -2349,10 +2354,16 @@ end
 cboe_byxequities_top_asciipitch_v1_3_2.frame.dissect = function(buffer, offset, packet, parent, size_of_frame)
   local index = offset + size_of_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cboe_byxequities_top_asciipitch_v1_3_2.fields.frame, buffer(offset, 0))
-    local current = cboe_byxequities_top_asciipitch_v1_3_2.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    local decoded, failure = pcall(cboe_byxequities_top_asciipitch_v1_3_2.frame.fields, bounded, offset, packet, parent, size_of_frame)
+    if not decoded then
+      undecoded(failure, parent, cboe_byxequities_top_asciipitch_v1_3_2.experts.undecoded, "Frame does not decode within its "..size_of_frame.." bytes")
+    end
     parent:set_len(size_of_frame)
     local display = cboe_byxequities_top_asciipitch_v1_3_2.frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2360,7 +2371,10 @@ cboe_byxequities_top_asciipitch_v1_3_2.frame.dissect = function(buffer, offset, 
     return index, parent
   else
     -- Skip element, add fields directly
-    cboe_byxequities_top_asciipitch_v1_3_2.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    local decoded, failure = pcall(cboe_byxequities_top_asciipitch_v1_3_2.frame.fields, bounded, offset, packet, parent, size_of_frame)
+    if not decoded then
+      undecoded(failure, parent, cboe_byxequities_top_asciipitch_v1_3_2.experts.undecoded, "Frame does not decode within its "..size_of_frame.." bytes")
+    end
 
     return index
   end

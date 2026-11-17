@@ -116,11 +116,11 @@ omi_sgx_titandt_depthofbook_itch_v1_4.fields.timestamp = ProtoField.new("Timesta
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 sgx_titandt_depthofbook_itch_v1_4.timestamp_format = 2
 
 
@@ -1336,7 +1336,7 @@ sgx_titandt_depthofbook_itch_v1_4.reserved_12.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = sgx_titandt_depthofbook_itch_v1_4.reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_12, range, value, display)
+  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1359,7 +1359,7 @@ sgx_titandt_depthofbook_itch_v1_4.reserved_4_a.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = sgx_titandt_depthofbook_itch_v1_4.reserved_4_a.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_4_a, range, value, display)
+  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_4_a, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1382,7 +1382,7 @@ sgx_titandt_depthofbook_itch_v1_4.reserved_4_b.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = sgx_titandt_depthofbook_itch_v1_4.reserved_4_b.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_4_b, range, value, display)
+  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_4_b, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1405,7 +1405,7 @@ sgx_titandt_depthofbook_itch_v1_4.reserved_4_c.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = sgx_titandt_depthofbook_itch_v1_4.reserved_4_c.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_4_c, range, value, display)
+  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_4_c, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1428,7 +1428,7 @@ sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = sgx_titandt_depthofbook_itch_v1_4.reserved_7_a.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_7_a, range, value, display)
+  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_7_a, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1451,7 +1451,7 @@ sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = sgx_titandt_depthofbook_itch_v1_4.reserved_7_b.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_7_b, range, value, display)
+  parent:add(omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_7_b, range, range:raw(), display)
 
   return offset + length, value
 end

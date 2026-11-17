@@ -158,11 +158,11 @@ omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.working_price_calculate = 
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_arcaoptions_complexfeed_pillar_v1_0_h.timestamp_format = 2
 
 -- Ask Price Calculate format (true = decimal-scaled, false = raw mantissa)
@@ -1720,7 +1720,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.reserved_1.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1743,7 +1743,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.reserved_2.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1766,7 +1766,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.reserved_4.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1902,7 +1902,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.second_reserved_1.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_1, range, value, display)
+  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1925,7 +1925,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.second_reserved_2.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.second_reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_2, range, value, display)
+  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.second_reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2894,7 +2894,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.third_reserved_1.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.third_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.third_reserved_1, range, value, display)
+  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.third_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2917,7 +2917,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_h.third_reserved_2.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaoptions_complexfeed_pillar_v1_0_h.third_reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.third_reserved_2, range, value, display)
+  parent:add(omi_nyse_arcaoptions_complexfeed_pillar_v1_0_h.fields.third_reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end

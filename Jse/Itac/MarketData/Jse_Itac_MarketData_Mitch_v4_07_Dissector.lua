@@ -191,6 +191,11 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.trade_message = ProtoField.new("Trade
 omi_jse_itac_marketdata_mitch_v4_07.fields.message_index = ProtoField.new("Message Index", "jse.itac.marketdata.mitch.v4.07.messageindex", ftypes.UINT16)
 omi_jse_itac_marketdata_mitch_v4_07.fields.timestamp = ProtoField.new("Timestamp", "jse.itac.marketdata.mitch.v4.07.timestamp", ftypes.UINT64)
 
+-- Jse Itac MarketData Mitch 4.07 Expert Info
+jse_itac_marketdata_mitch_v4_07.experts = {}
+jse_itac_marketdata_mitch_v4_07.experts.undecoded = ProtoExpert.new("jse.itac.marketdata.mitch.v4.07.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_jse_itac_marketdata_mitch_v4_07.experts = { jse_itac_marketdata_mitch_v4_07.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Jse Itac MarketData Mitch 4.07 Formatting
 -----------------------------------------------------------------------
@@ -199,11 +204,11 @@ omi_jse_itac_marketdata_mitch_v4_07.fields.timestamp = ProtoField.new("Timestamp
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 jse_itac_marketdata_mitch_v4_07.timestamp_format = 2
 
 
@@ -300,6 +305,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Jse Itac MarketData Mitch 4.07 Fields
 -----------------------------------------------------------------------
@@ -2120,7 +2133,7 @@ jse_itac_marketdata_mitch_v4_07.reserved_2.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = jse_itac_marketdata_mitch_v4_07.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_2, range, value, display)
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2143,7 +2156,7 @@ jse_itac_marketdata_mitch_v4_07.reserved_4.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = jse_itac_marketdata_mitch_v4_07.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_4, range, value, display)
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2166,7 +2179,7 @@ jse_itac_marketdata_mitch_v4_07.reserved_8.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = jse_itac_marketdata_mitch_v4_07.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_8, range, value, display)
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2189,7 +2202,7 @@ jse_itac_marketdata_mitch_v4_07.reserved_a.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = jse_itac_marketdata_mitch_v4_07.reserved_a.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_a, range, value, display)
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_a, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2212,7 +2225,7 @@ jse_itac_marketdata_mitch_v4_07.reserved_b.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = jse_itac_marketdata_mitch_v4_07.reserved_b.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_b, range, value, display)
+  parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.reserved_b, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3265,10 +3278,8 @@ jse_itac_marketdata_mitch_v4_07.timestamp.display = function(nanosecond, stored_
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = jse_itac_marketdata_mitch_v4_07.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", fraction)
     end
   end
 
@@ -6121,10 +6132,16 @@ end
 jse_itac_marketdata_mitch_v4_07.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_jse_itac_marketdata_mitch_v4_07.fields.message, buffer(offset, 0))
-    local current = jse_itac_marketdata_mitch_v4_07.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(jse_itac_marketdata_mitch_v4_07.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, jse_itac_marketdata_mitch_v4_07.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = jse_itac_marketdata_mitch_v4_07.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6132,7 +6149,10 @@ jse_itac_marketdata_mitch_v4_07.message.dissect = function(buffer, offset, packe
     return index, parent
   else
     -- Skip element, add fields directly
-    jse_itac_marketdata_mitch_v4_07.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(jse_itac_marketdata_mitch_v4_07.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, jse_itac_marketdata_mitch_v4_07.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -6220,6 +6240,12 @@ jse_itac_marketdata_mitch_v4_07.packet.dissect = function(buffer, packet, parent
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(jse_itac_marketdata_mitch_v4_07.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):le_uint()

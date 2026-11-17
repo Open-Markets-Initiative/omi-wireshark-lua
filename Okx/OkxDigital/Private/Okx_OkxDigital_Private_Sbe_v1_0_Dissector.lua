@@ -985,7 +985,7 @@ okx_okxdigital_private_sbe_v1_0.schema_id.size = 2
 -- Display: Schema Id
 okx_okxdigital_private_sbe_v1_0.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: 1"
+    return "Schema Id: Com Okx Sbe Private (1)"
   end
 
   return "Schema Id: Unknown("..value..")"

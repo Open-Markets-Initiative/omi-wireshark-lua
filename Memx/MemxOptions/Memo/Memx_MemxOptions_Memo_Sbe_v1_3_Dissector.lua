@@ -210,11 +210,11 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.two_sided_quotes_group_index = ProtoFi
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 memx_memxoptions_memo_sbe_v1_3.timestamp_format = 2
 
 -- assumed connection role
@@ -2704,7 +2704,7 @@ memx_memxoptions_memo_sbe_v1_3.schema_id.size = 1
 -- Display: Schema Id
 memx_memxoptions_memo_sbe_v1_3.schema_id.display = function(value)
   if value == 9 then
-    return "Schema Id: 9"
+    return "Schema Id: Com Memx Us Options Memo Sbe V1 3 (9)"
   end
 
   return "Schema Id: Unknown("..value..")"

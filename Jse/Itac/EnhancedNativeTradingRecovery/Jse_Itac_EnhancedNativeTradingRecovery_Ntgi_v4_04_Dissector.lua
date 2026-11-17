@@ -95,17 +95,22 @@ omi_jse_itac_enhancednativetradingrecovery_ntgi_v4_04.fields.security_definition
 omi_jse_itac_enhancednativetradingrecovery_ntgi_v4_04.fields.system_status_message = ProtoField.new("System Status Message", "jse.itac.enhancednativetradingrecovery.ntgi.v4.04.systemstatusmessage", ftypes.STRING, nil, nil, nil, "Disseminated in the recovery channel to indicate the status of a partition.")
 omi_jse_itac_enhancednativetradingrecovery_ntgi_v4_04.fields.transmission_complete_message = ProtoField.new("Transmission Complete Message", "jse.itac.enhancednativetradingrecovery.ntgi.v4.04.transmissioncompletemessage", ftypes.STRING, nil, nil, nil, "Used by the server to indicate that the transmission of missed messages is complete.")
 
+-- Jse Itac EnhancedNativeTradingRecovery Ntgi 4.04 Expert Info
+jse_itac_enhancednativetradingrecovery_ntgi_v4_04.experts = {}
+jse_itac_enhancednativetradingrecovery_ntgi_v4_04.experts.undecoded = ProtoExpert.new("jse.itac.enhancednativetradingrecovery.ntgi.v4.04.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_jse_itac_enhancednativetradingrecovery_ntgi_v4_04.experts = { jse_itac_enhancednativetradingrecovery_ntgi_v4_04.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Jse Itac EnhancedNativeTradingRecovery Ntgi 4.04 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 jse_itac_enhancednativetradingrecovery_ntgi_v4_04.timestamp_format = 2
 
 
@@ -146,6 +151,19 @@ function omi_jse_itac_enhancednativetradingrecovery_ntgi_v4_04.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Jse Itac EnhancedNativeTradingRecovery Ntgi 4.04 Fields
 -----------------------------------------------------------------------
@@ -2832,10 +2850,16 @@ end
 jse_itac_enhancednativetradingrecovery_ntgi_v4_04.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_jse_itac_enhancednativetradingrecovery_ntgi_v4_04.fields.message, buffer(offset, 0))
-    local current = jse_itac_enhancednativetradingrecovery_ntgi_v4_04.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(jse_itac_enhancednativetradingrecovery_ntgi_v4_04.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, jse_itac_enhancednativetradingrecovery_ntgi_v4_04.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = jse_itac_enhancednativetradingrecovery_ntgi_v4_04.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2843,7 +2867,10 @@ jse_itac_enhancednativetradingrecovery_ntgi_v4_04.message.dissect = function(buf
     return index, parent
   else
     -- Skip element, add fields directly
-    jse_itac_enhancednativetradingrecovery_ntgi_v4_04.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(jse_itac_enhancednativetradingrecovery_ntgi_v4_04.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, jse_itac_enhancednativetradingrecovery_ntgi_v4_04.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

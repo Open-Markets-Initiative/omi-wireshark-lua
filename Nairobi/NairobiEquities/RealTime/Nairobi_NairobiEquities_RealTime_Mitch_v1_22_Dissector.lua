@@ -173,6 +173,11 @@ omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.update_price_point_messa
 omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.message_index = ProtoField.new("Message Index", "nairobi.nairobiequities.realtime.mitch.v1.22.messageindex", ftypes.UINT16)
 omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.timestamp = ProtoField.new("Timestamp", "nairobi.nairobiequities.realtime.mitch.v1.22.timestamp", ftypes.UINT64)
 
+-- Nairobi NairobiEquities RealTime Mitch 1.22 Expert Info
+nairobi_nairobiequities_realtime_mitch_v1_22.experts = {}
+nairobi_nairobiequities_realtime_mitch_v1_22.experts.undecoded = ProtoExpert.new("nairobi.nairobiequities.realtime.mitch.v1.22.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nairobi_nairobiequities_realtime_mitch_v1_22.experts = { nairobi_nairobiequities_realtime_mitch_v1_22.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nairobi NairobiEquities RealTime Mitch 1.22 Formatting
 -----------------------------------------------------------------------
@@ -181,11 +186,11 @@ omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.timestamp = ProtoField.n
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nairobi_nairobiequities_realtime_mitch_v1_22.timestamp_format = 2
 
 
@@ -282,6 +287,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nairobi NairobiEquities RealTime Mitch 1.22 Fields
 -----------------------------------------------------------------------
@@ -1867,7 +1880,7 @@ nairobi_nairobiequities_realtime_mitch_v1_22.reserved_1.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = nairobi_nairobiequities_realtime_mitch_v1_22.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.reserved_1, range, value, display)
+  parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1890,7 +1903,7 @@ nairobi_nairobiequities_realtime_mitch_v1_22.reserved_2.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = nairobi_nairobiequities_realtime_mitch_v1_22.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.reserved_2, range, value, display)
+  parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1913,7 +1926,7 @@ nairobi_nairobiequities_realtime_mitch_v1_22.reserved_8.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = nairobi_nairobiequities_realtime_mitch_v1_22.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.reserved_8, range, value, display)
+  parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2868,10 +2881,8 @@ nairobi_nairobiequities_realtime_mitch_v1_22.timestamp.display = function(nanose
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = nairobi_nairobiequities_realtime_mitch_v1_22.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", fraction)
     end
   end
 
@@ -5433,10 +5444,16 @@ end
 nairobi_nairobiequities_realtime_mitch_v1_22.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nairobi_nairobiequities_realtime_mitch_v1_22.fields.message, buffer(offset, 0))
-    local current = nairobi_nairobiequities_realtime_mitch_v1_22.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(nairobi_nairobiequities_realtime_mitch_v1_22.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, nairobi_nairobiequities_realtime_mitch_v1_22.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = nairobi_nairobiequities_realtime_mitch_v1_22.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5444,7 +5461,10 @@ nairobi_nairobiequities_realtime_mitch_v1_22.message.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    nairobi_nairobiequities_realtime_mitch_v1_22.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(nairobi_nairobiequities_realtime_mitch_v1_22.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, nairobi_nairobiequities_realtime_mitch_v1_22.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -5532,6 +5552,12 @@ nairobi_nairobiequities_realtime_mitch_v1_22.packet.dissect = function(buffer, p
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(nairobi_nairobiequities_realtime_mitch_v1_22.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):le_uint()

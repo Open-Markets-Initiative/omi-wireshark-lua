@@ -84,11 +84,11 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.qty_calculate = ProtoField.ne
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 binance_binancespot_marketdata_sbe_v1_0.timestamp_format = 2
 
 -- Price Calculate format (true = decimal-scaled, false = raw mantissa)
@@ -606,7 +606,7 @@ binance_binancespot_marketdata_sbe_v1_0.schema_id.size = 2
 -- Display: Schema Id
 binance_binancespot_marketdata_sbe_v1_0.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: 1"
+    return "Schema Id: Spot Stream (1)"
   end
 
   return "Schema Id: Unknown("..value..")"

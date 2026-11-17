@@ -374,7 +374,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.uncrossing_trade = ProtoFi
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "euronext.optiq.orderentrygateway.sbe.v4.13.underlyinginstrumentid", ftypes.UINT32, nil, nil, nil, "underlyingInstrumentID")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.undisclosed_iceberg_type = ProtoField.new("Undisclosed Iceberg Type", "euronext.optiq.orderentrygateway.sbe.v4.13.undisclosedicebergtype", ftypes.UINT8, nil, nil, nil, "undisclosedIcebergType")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.undisclosed_price = ProtoField.new("Undisclosed Price", "euronext.optiq.orderentrygateway.sbe.v4.13.undisclosedprice", ftypes.INT64, nil, nil, nil, "undisclosedPrice")
-omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.unused_trading_session_validityset_0 = ProtoField.new("Unused Trading Session Validityset 0", "euronext.optiq.orderentrygateway.sbe.v4.13.unusedtradingsessionvalidityset0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Unused TradingSessionValidity_set 0")
+omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.unused_1 = ProtoField.new("Unused 1", "euronext.optiq.orderentrygateway.sbe.v4.13.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "1 unused bit")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.use_of_cross_partition = ProtoField.new("Use Of Cross Partition", "euronext.optiq.orderentrygateway.sbe.v4.13.useofcrosspartition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "UseOfCrossPartition")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.user_status = ProtoField.new("User Status", "euronext.optiq.orderentrygateway.sbe.v4.13.userstatus", ftypes.UINT8, nil, nil, nil, "userStatus")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.version = ProtoField.new("Version", "euronext.optiq.orderentrygateway.sbe.v4.13.version", ftypes.UINT16, nil, nil, nil, "Schema version")
@@ -411,7 +411,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.declaration_notice_message
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.fill_message = ProtoField.new("Fill Message", "euronext.optiq.orderentrygateway.sbe.v4.13.fillmessage", ftypes.STRING, nil, nil, nil, "FillMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.fund_price_input_ack_message = ProtoField.new("Fund Price Input Ack Message", "euronext.optiq.orderentrygateway.sbe.v4.13.fundpriceinputackmessage", ftypes.STRING, nil, nil, nil, "FundPriceInputAckMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.fund_price_input_message = ProtoField.new("Fund Price Input Message", "euronext.optiq.orderentrygateway.sbe.v4.13.fundpriceinputmessage", ftypes.STRING, nil, nil, nil, "FundPriceInputMessage")
-omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "euronext.optiq.orderentrygateway.sbe.v4.13.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "HeartbeatMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.instrument_synchronization_list_message = ProtoField.new("Instrument Synchronization List Message", "euronext.optiq.orderentrygateway.sbe.v4.13.instrumentsynchronizationlistmessage", ftypes.STRING, nil, nil, nil, "InstrumentSynchronizationListMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.kill_message = ProtoField.new("Kill Message", "euronext.optiq.orderentrygateway.sbe.v4.13.killmessage", ftypes.STRING, nil, nil, nil, "KillMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.liquidity_provider_command_message = ProtoField.new("Liquidity Provider Command Message", "euronext.optiq.orderentrygateway.sbe.v4.13.liquidityprovidercommandmessage", ftypes.STRING, nil, nil, nil, "LiquidityProviderCommandMessage")
@@ -445,12 +444,15 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.security_definition_ack_me
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.security_definition_request_message = ProtoField.new("Security Definition Request Message", "euronext.optiq.orderentrygateway.sbe.v4.13.securitydefinitionrequestmessage", ftypes.STRING, nil, nil, nil, "SecurityDefinitionRequestMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.synchronization_time_message = ProtoField.new("Synchronization Time Message", "euronext.optiq.orderentrygateway.sbe.v4.13.synchronizationtimemessage", ftypes.STRING, nil, nil, nil, "SynchronizationTimeMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.technical_reject_message = ProtoField.new("Technical Reject Message", "euronext.optiq.orderentrygateway.sbe.v4.13.technicalrejectmessage", ftypes.STRING, nil, nil, nil, "TechnicalRejectMessage")
-omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.test_request_message = ProtoField.new("Test Request Message", "euronext.optiq.orderentrygateway.sbe.v4.13.testrequestmessage", ftypes.BYTES, nil, nil, nil, "TestRequestMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.trade_bust_notification_message = ProtoField.new("Trade Bust Notification Message", "euronext.optiq.orderentrygateway.sbe.v4.13.tradebustnotificationmessage", ftypes.STRING, nil, nil, nil, "TradeBustNotificationMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.user_notification_message = ProtoField.new("User Notification Message", "euronext.optiq.orderentrygateway.sbe.v4.13.usernotificationmessage", ftypes.STRING, nil, nil, nil, "UserNotificationMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.wave_for_liquidity_message = ProtoField.new("Wave For Liquidity Message", "euronext.optiq.orderentrygateway.sbe.v4.13.waveforliquiditymessage", ftypes.STRING, nil, nil, nil, "WaveForLiquidityMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.wave_for_liquidity_notification_message = ProtoField.new("Wave For Liquidity Notification Message", "euronext.optiq.orderentrygateway.sbe.v4.13.waveforliquiditynotificationmessage", ftypes.STRING, nil, nil, nil, "WaveForLiquidityNotificationMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.wholesale_order_ack_message = ProtoField.new("Wholesale Order Ack Message", "euronext.optiq.orderentrygateway.sbe.v4.13.wholesaleorderackmessage", ftypes.STRING, nil, nil, nil, "WholesaleOrderAckMessage")
+
+-- Euronext Optiq OrderEntryGateway 4.13 Session Messages
+omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "euronext.optiq.orderentrygateway.sbe.v4.13.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "HeartbeatMessage")
+omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.test_request_message = ProtoField.new("Test Request Message", "euronext.optiq.orderentrygateway.sbe.v4.13.testrequestmessage", ftypes.BYTES, nil, nil, nil, "TestRequestMessage")
 
 -- Euronext Optiq OrderEntryGateway Sbe 4.13 Generated Fields
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.additional_infos_group_index = ProtoField.new("Additional Infos Group Index", "euronext.optiq.orderentrygateway.sbe.v4.13.additionalinfosgroupindex", ftypes.UINT16)
@@ -482,17 +484,22 @@ omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.wholesale_ack_legs_group_i
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.wholesale_client_group_index = ProtoField.new("Wholesale Client Group Index", "euronext.optiq.orderentrygateway.sbe.v4.13.wholesaleclientgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.wholesale_legs_group_index = ProtoField.new("Wholesale Legs Group Index", "euronext.optiq.orderentrygateway.sbe.v4.13.wholesalelegsgroupindex", ftypes.UINT16)
 
+-- Euronext Optiq OrderEntryGateway Sbe 4.13 Expert Info
+euronext_optiq_orderentrygateway_sbe_v4_13.experts = {}
+euronext_optiq_orderentrygateway_sbe_v4_13.experts.undecoded = ProtoExpert.new("euronext.optiq.orderentrygateway.sbe.v4.13.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_euronext_optiq_orderentrygateway_sbe_v4_13.experts = { euronext_optiq_orderentrygateway_sbe_v4_13.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Euronext Optiq OrderEntryGateway Sbe 4.13 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 euronext_optiq_orderentrygateway_sbe_v4_13.timestamp_format = 2
 
 
@@ -543,6 +550,19 @@ function omi_euronext_optiq_orderentrygateway_sbe_v4_13.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Euronext Optiq OrderEntryGateway Sbe 4.13 Fields
 -----------------------------------------------------------------------
@@ -6300,7 +6320,7 @@ euronext_optiq_orderentrygateway_sbe_v4_13.schema_id.size = 2
 -- Display: Schema Id
 euronext_optiq_orderentrygateway_sbe_v4_13.schema_id.display = function(value)
   if value == 0 then
-    return "Schema Id: 0"
+    return "Schema Id: Com Euronext Optiq Dd (0)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -15948,8 +15968,8 @@ end
 -- Dissect Bit Fields: Trading Session
 euronext_optiq_orderentrygateway_sbe_v4_13.trading_session.bits = function(range, value, packet, parent)
 
-  -- Unused Trading Session Validityset 0: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.unused_trading_session_validityset_0, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.unused_1, range, value)
 
   -- Session 1: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.session_1, range, value)
@@ -17898,10 +17918,16 @@ end
 euronext_optiq_orderentrygateway_sbe_v4_13.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v4_13.fields.message, buffer(offset, 0))
-    local current = euronext_optiq_orderentrygateway_sbe_v4_13.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(euronext_optiq_orderentrygateway_sbe_v4_13.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, euronext_optiq_orderentrygateway_sbe_v4_13.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = euronext_optiq_orderentrygateway_sbe_v4_13.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -17909,7 +17935,10 @@ euronext_optiq_orderentrygateway_sbe_v4_13.message.dissect = function(buffer, of
     return index, parent
   else
     -- Skip element, add fields directly
-    euronext_optiq_orderentrygateway_sbe_v4_13.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(euronext_optiq_orderentrygateway_sbe_v4_13.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, euronext_optiq_orderentrygateway_sbe_v4_13.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

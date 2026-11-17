@@ -165,11 +165,11 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.timestamp = ProtoField.new("Timesta
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 asx_asxderivatives_ntp_itch_v1_05.timestamp_format = 2
 
 

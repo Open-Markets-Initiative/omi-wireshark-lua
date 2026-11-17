@@ -578,7 +578,7 @@ tmx_mx_solaorderentry_sail_v1_21.alignment_padding.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solaorderentry_sail_v1_21.alignment_padding.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.alignment_padding, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.alignment_padding, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1484,7 +1484,7 @@ tmx_mx_solaorderentry_sail_v1_21.end_of_text.size = 1
 -- Display: End Of Text
 tmx_mx_solaorderentry_sail_v1_21.end_of_text.display = function(value)
   if value == 3 then
-    return "End Of Text: End Of Text"
+    return "End Of Text: End Of Text (3)"
   end
 
   return "End Of Text: Unknown("..value..")"
@@ -1823,7 +1823,7 @@ tmx_mx_solaorderentry_sail_v1_21.filler_1.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solaorderentry_sail_v1_21.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_1, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1846,7 +1846,7 @@ tmx_mx_solaorderentry_sail_v1_21.filler_2.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solaorderentry_sail_v1_21.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_2, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1869,7 +1869,7 @@ tmx_mx_solaorderentry_sail_v1_21.filler_20.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solaorderentry_sail_v1_21.filler_20.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_20, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_20, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1892,7 +1892,7 @@ tmx_mx_solaorderentry_sail_v1_21.filler_4.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solaorderentry_sail_v1_21.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_4, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1915,7 +1915,7 @@ tmx_mx_solaorderentry_sail_v1_21.filler_5.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solaorderentry_sail_v1_21.filler_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_5, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1938,7 +1938,7 @@ tmx_mx_solaorderentry_sail_v1_21.filler_6.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solaorderentry_sail_v1_21.filler_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_6, range, value, display)
+  parent:add(omi_tmx_mx_solaorderentry_sail_v1_21.fields.filler_6, range, range:raw(), display)
 
   return offset + length, value
 end

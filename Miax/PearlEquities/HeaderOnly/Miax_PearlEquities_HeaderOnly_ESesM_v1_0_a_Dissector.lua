@@ -65,6 +65,11 @@ omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.trading_session_update = P
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.login_matching_engine_index = ProtoField.new("Login Matching Engine Index", "miax.pearlequities.headeronly.esesm.v1.0.a.loginmatchingengineindex", ftypes.UINT16)
 omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.requested_matching_engine_index = ProtoField.new("Requested Matching Engine Index", "miax.pearlequities.headeronly.esesm.v1.0.a.requestedmatchingengineindex", ftypes.UINT16)
 
+-- Miax PearlEquities HeaderOnly ESesM 1.0.a Expert Info
+miax_pearlequities_headeronly_esesm_v1_0_a.experts = {}
+miax_pearlequities_headeronly_esesm_v1_0_a.experts.undecoded = ProtoExpert.new("miax.pearlequities.headeronly.esesm.v1.0.a.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_pearlequities_headeronly_esesm_v1_0_a.experts = { miax_pearlequities_headeronly_esesm_v1_0_a.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -118,6 +123,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax PearlEquities HeaderOnly ESesM 1.0.a Fields
 -----------------------------------------------------------------------
@@ -566,7 +579,7 @@ miax_pearlequities_headeronly_esesm_v1_0_a.sequenced_message.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_headeronly_esesm_v1_0_a.sequenced_message.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.sequenced_message, range, value, display)
+  parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.sequenced_message, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -677,7 +690,7 @@ miax_pearlequities_headeronly_esesm_v1_0_a.unsequenced_message.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_headeronly_esesm_v1_0_a.unsequenced_message.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.unsequenced_message, range, value, display)
+  parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.unsequenced_message, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -741,7 +754,8 @@ miax_pearlequities_headeronly_esesm_v1_0_a.test_packet.size = function(buffer, o
   local index = 0
 
   -- Parse runtime size of: Test Text
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + esesm_packet_length - 1
 
   return index
 end
@@ -873,7 +887,8 @@ miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_packet.size = function(buffer
   index = index + miax_pearlequities_headeronly_esesm_v1_0_a.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + esesm_packet_length - 2
 
   return index
 end
@@ -930,7 +945,8 @@ miax_pearlequities_headeronly_esesm_v1_0_a.logout_request.size = function(buffer
   index = index + miax_pearlequities_headeronly_esesm_v1_0_a.logout_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + esesm_packet_length - 2
 
   return index
 end
@@ -1506,10 +1522,16 @@ end
 miax_pearlequities_headeronly_esesm_v1_0_a.esesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
   local index = offset + size_of_esesm_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_pearlequities_headeronly_esesm_v1_0_a.fields.esesm_tcp_packet, buffer(offset, 0))
-    local current = miax_pearlequities_headeronly_esesm_v1_0_a.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    local decoded, failure = pcall(miax_pearlequities_headeronly_esesm_v1_0_a.esesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_esesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_pearlequities_headeronly_esesm_v1_0_a.experts.undecoded, "Esesm Tcp Packet does not decode within its "..size_of_esesm_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_esesm_tcp_packet)
     local display = miax_pearlequities_headeronly_esesm_v1_0_a.esesm_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1517,7 +1539,10 @@ miax_pearlequities_headeronly_esesm_v1_0_a.esesm_tcp_packet.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_pearlequities_headeronly_esesm_v1_0_a.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    local decoded, failure = pcall(miax_pearlequities_headeronly_esesm_v1_0_a.esesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_esesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_pearlequities_headeronly_esesm_v1_0_a.experts.undecoded, "Esesm Tcp Packet does not decode within its "..size_of_esesm_tcp_packet.." bytes")
+    end
 
     return index
   end

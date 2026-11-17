@@ -225,17 +225,22 @@ omi_siac_cts_output_cta_v2_11_b.fields.message_index = ProtoField.new("Message I
 omi_siac_cts_output_cta_v2_11_b.fields.participant_index = ProtoField.new("Participant Index", "siac.cts.output.cta.v2.11.b.participantindex", ftypes.UINT16)
 omi_siac_cts_output_cta_v2_11_b.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "siac.cts.output.cta.v2.11.b.messagesequencenumber", ftypes.UINT64)
 
+-- Siac Cts Output Cta 2.11.b Expert Info
+siac_cts_output_cta_v2_11_b.experts = {}
+siac_cts_output_cta_v2_11_b.experts.undecoded = ProtoExpert.new("siac.cts.output.cta.v2.11.b.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_siac_cts_output_cta_v2_11_b.experts = { siac_cts_output_cta_v2_11_b.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Siac Cts Output Cta 2.11.b Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 siac_cts_output_cta_v2_11_b.timestamp_format = 2
 
 
@@ -312,6 +317,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Siac Cts Output Cta 2.11.b Fields
 -----------------------------------------------------------------------
@@ -3302,7 +3315,7 @@ siac_cts_output_cta_v2_11_b.reserved.dissect = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = siac_cts_output_cta_v2_11_b.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.reserved, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3325,7 +3338,7 @@ siac_cts_output_cta_v2_11_b.reserved_128.dissect = function(buffer, offset, pack
   local value = range:bytes():tohex(false, " ")
   local display = siac_cts_output_cta_v2_11_b.reserved_128.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.reserved_128, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.reserved_128, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3348,7 +3361,7 @@ siac_cts_output_cta_v2_11_b.reserved_62.dissect = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = siac_cts_output_cta_v2_11_b.reserved_62.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.reserved_62, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.reserved_62, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3558,7 +3571,7 @@ siac_cts_output_cta_v2_11_b.second_reserved.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = siac_cts_output_cta_v2_11_b.second_reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.second_reserved, range, value, display)
+  parent:add(omi_siac_cts_output_cta_v2_11_b.fields.second_reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -9143,10 +9156,16 @@ end
 siac_cts_output_cta_v2_11_b.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.headers then
     parent = parent:add(omi_siac_cts_output_cta_v2_11_b.fields.message, buffer(offset, 0))
-    local current = siac_cts_output_cta_v2_11_b.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(siac_cts_output_cta_v2_11_b.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, siac_cts_output_cta_v2_11_b.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = siac_cts_output_cta_v2_11_b.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -9154,7 +9173,10 @@ siac_cts_output_cta_v2_11_b.message.dissect = function(buffer, offset, packet, p
     return index, parent
   else
     -- Skip element, add fields directly
-    siac_cts_output_cta_v2_11_b.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(siac_cts_output_cta_v2_11_b.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, siac_cts_output_cta_v2_11_b.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

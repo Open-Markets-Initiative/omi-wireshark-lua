@@ -59,17 +59,22 @@ omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.refresh_complete_message =
 -- Hkex HkexSecurities IndexRefresh Omd 1.44 Generated Fields
 omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.message_index = ProtoField.new("Message Index", "hkex.hkexsecurities.indexrefresh.omd.v1.44.messageindex", ftypes.UINT16)
 
+-- Hkex HkexSecurities IndexRefresh Omd 1.44 Expert Info
+hkex_hkexsecurities_indexrefresh_omd_v1_44.experts = {}
+hkex_hkexsecurities_indexrefresh_omd_v1_44.experts.undecoded = ProtoExpert.new("hkex.hkexsecurities.indexrefresh.omd.v1.44.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.experts = { hkex_hkexsecurities_indexrefresh_omd_v1_44.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Hkex HkexSecurities IndexRefresh Omd 1.44 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 hkex_hkexsecurities_indexrefresh_omd_v1_44.timestamp_format = 2
 
 
@@ -136,6 +141,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Hkex HkexSecurities IndexRefresh Omd 1.44 Fields
 -----------------------------------------------------------------------
@@ -289,7 +302,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.filler.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.filler, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -312,7 +325,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.filler_1.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.filler_1, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -335,7 +348,7 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.filler_3.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.filler_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.filler_3, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.filler_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1257,10 +1270,16 @@ end
 hkex_hkexsecurities_indexrefresh_omd_v1_44.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_hkex_hkexsecurities_indexrefresh_omd_v1_44.fields.message, buffer(offset, 0))
-    local current = hkex_hkexsecurities_indexrefresh_omd_v1_44.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(hkex_hkexsecurities_indexrefresh_omd_v1_44.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, hkex_hkexsecurities_indexrefresh_omd_v1_44.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = hkex_hkexsecurities_indexrefresh_omd_v1_44.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1268,7 +1287,10 @@ hkex_hkexsecurities_indexrefresh_omd_v1_44.message.dissect = function(buffer, of
     return index, parent
   else
     -- Skip element, add fields directly
-    hkex_hkexsecurities_indexrefresh_omd_v1_44.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(hkex_hkexsecurities_indexrefresh_omd_v1_44.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, hkex_hkexsecurities_indexrefresh_omd_v1_44.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

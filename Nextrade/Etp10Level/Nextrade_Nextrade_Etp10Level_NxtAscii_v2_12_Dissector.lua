@@ -3012,7 +3012,7 @@ nextrade_nextrade_etp10level_nxtascii_v2_12.processing_time_of_trading_system.di
     return "Processing Time Of Trading System: "..value
   end
 
-  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12)
+  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12).." Asia/Seoul"
 end
 
 -- Dissect: Processing Time Of Trading System

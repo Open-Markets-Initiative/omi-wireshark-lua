@@ -92,11 +92,11 @@ omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01.fields.message_sequence_numbe
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 tradelogiq_omegaats_multicastlevel1_itch_v1_01.timestamp_format = 2
 
 
@@ -899,7 +899,7 @@ tradelogiq_omegaats_multicastlevel1_itch_v1_01.reserved_1.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = tradelogiq_omegaats_multicastlevel1_itch_v1_01.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01.fields.reserved_1, range, value, display)
+  parent:add(omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -922,7 +922,7 @@ tradelogiq_omegaats_multicastlevel1_itch_v1_01.reserved_2.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = tradelogiq_omegaats_multicastlevel1_itch_v1_01.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01.fields.reserved_2, range, value, display)
+  parent:add(omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -945,7 +945,7 @@ tradelogiq_omegaats_multicastlevel1_itch_v1_01.reserved_3.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = tradelogiq_omegaats_multicastlevel1_itch_v1_01.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01.fields.reserved_3, range, value, display)
+  parent:add(omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01.fields.reserved_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -968,7 +968,7 @@ tradelogiq_omegaats_multicastlevel1_itch_v1_01.reserved_9.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = tradelogiq_omegaats_multicastlevel1_itch_v1_01.reserved_9.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01.fields.reserved_9, range, value, display)
+  parent:add(omi_tradelogiq_omegaats_multicastlevel1_itch_v1_01.fields.reserved_9, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1173,10 +1173,8 @@ tradelogiq_omegaats_multicastlevel1_itch_v1_01.timestamp.display = function(valu
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = tradelogiq_omegaats_multicastlevel1_itch_v1_01.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 

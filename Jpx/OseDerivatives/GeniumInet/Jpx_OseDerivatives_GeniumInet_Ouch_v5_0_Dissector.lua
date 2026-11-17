@@ -96,7 +96,8 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.sequenced_data_packet_sequenc
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Expert Info
 jpx_osederivatives_geniuminet_ouch_v5_0.experts = {}
 jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number = ProtoExpert.new("jpx.osederivatives.geniuminet.ouch.v5.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.experts = { jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number }
+jpx_osederivatives_geniuminet_ouch_v5_0.experts.undecoded = ProtoExpert.new("jpx.osederivatives.geniuminet.ouch.v5.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.experts = { jpx_osederivatives_geniuminet_ouch_v5_0.experts.not_a_number, jpx_osederivatives_geniuminet_ouch_v5_0.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Formatting
@@ -104,11 +105,11 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.experts = { jpx_osederivatives_geniu
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_format = 2
 
 -- assumed connection role
@@ -250,6 +251,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Jpx OseDerivatives GeniumInet Ouch 5.0 Fields
 -----------------------------------------------------------------------
@@ -2096,7 +2105,8 @@ jpx_osederivatives_geniuminet_ouch_v5_0.debug_packet.size = function(buffer, off
   local index = 0
 
   -- Parse runtime size of: Debug Text
-  index = index + buffer(offset + index - 3, 2):uint()
+  local packet_length = buffer(offset + index - 3, 2):uint()
+  index = index + packet_length - 1
 
   return index
 end
@@ -2235,10 +2245,16 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset + size_of_server_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, jpx_osederivatives_geniuminet_ouch_v5_0.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_server_soup_bin_tcp_packet)
     local display = jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2246,7 +2262,10 @@ jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.dissect = fun
     return index, parent
   else
     -- Skip element, add fields directly
-    jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(jpx_osederivatives_geniuminet_ouch_v5_0.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, jpx_osederivatives_geniuminet_ouch_v5_0.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end
@@ -2923,10 +2942,16 @@ end
 jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
   local index = offset + size_of_client_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, jpx_osederivatives_geniuminet_ouch_v5_0.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_client_soup_bin_tcp_packet)
     local display = jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2934,7 +2959,10 @@ jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.dissect = fun
     return index, parent
   else
     -- Skip element, add fields directly
-    jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(jpx_osederivatives_geniuminet_ouch_v5_0.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, jpx_osederivatives_geniuminet_ouch_v5_0.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end

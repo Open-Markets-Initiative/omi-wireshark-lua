@@ -218,11 +218,11 @@ omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.leg_px_index = ProtoF
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 taifex_taifexderivatives_orderentry_tmp_v2_18_7.timestamp_format = 2
 
 
@@ -842,7 +842,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_1514.
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_1514.display(value, packet, parent, size)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdr_msg_length_1514, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdr_msg_length_1514, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -861,7 +861,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_156.d
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.data_uint_8_hdr_msg_length_156.display(value, packet, parent, size)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdr_msg_length_156, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.data_uint_8_hdr_msg_length_156, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -2229,7 +2229,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_12.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_12, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2252,7 +2252,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_13.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_13.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_13, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_13, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2275,7 +2275,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_20.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_20.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_20, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_20, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2298,7 +2298,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_33.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_33.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_33, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_33, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2321,7 +2321,7 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_8.dissect = function(bu
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_orderentry_tmp_v2_18_7.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_8, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_orderentry_tmp_v2_18_7.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3383,7 +3383,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_bulletin_report_message.siz
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size
 
   -- Parse runtime size of: Data Char Hdr Msg Length 1525
-  index = index + buffer(offset + index - 42, 2):uint()
+  local msg_length = buffer(offset + index - 42, 2):uint()
+  index = index + msg_length - 40
 
   return index
 end
@@ -3461,7 +3462,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.flex_bulletin_request_message.si
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size
 
   -- Parse runtime size of: Data Char Hdr Msg Length 1515
-  index = index + buffer(offset + index - 32, 2):uint()
+  local msg_length = buffer(offset + index - 32, 2):uint()
+  index = index + msg_length - 30
 
   return index
 end
@@ -3587,7 +3589,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.send_flex_group_report_resend_me
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.size
 
   -- Parse runtime size of: Data Uint 8 Hdr Msg Length 1514
-  index = index + buffer(offset + index - 31, 2):uint()
+  local msg_length = buffer(offset + index - 31, 2):uint()
+  index = index + msg_length - 29
 
   return index
 end
@@ -5114,7 +5117,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_notification_message.size
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.status_code.size
 
   -- Parse runtime size of: Data Char Hdr Msg Length 151
-  index = index + buffer(offset + index - 18, 2):uint()
+  local msg_length = buffer(offset + index - 18, 2):uint()
+  index = index + msg_length - 16
 
   return index
 end
@@ -5169,7 +5173,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_setting_message.size = fu
   local index = 0
 
   -- Parse runtime size of: Data Char Hdr Msg Length 15
-  index = index + buffer(offset + index - 17, 2):uint()
+  local msg_length = buffer(offset + index - 17, 2):uint()
+  index = index + msg_length - 15
 
   return index
 end
@@ -5293,7 +5298,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_report_message.size = f
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size
 
   -- Parse runtime size of: Data Char Hdr Msg Length 1516
-  index = index + buffer(offset + index - 33, 2):uint()
+  local msg_length = buffer(offset + index - 33, 2):uint()
+  index = index + msg_length - 31
 
   return index
 end
@@ -5366,7 +5372,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.bulletin_request_message.size = 
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.system_type.size
 
   -- Parse runtime size of: Data Char Hdr Msg Length 159
-  index = index + buffer(offset + index - 26, 2):uint()
+  local msg_length = buffer(offset + index - 26, 2):uint()
+  index = index + msg_length - 24
 
   return index
 end
@@ -7810,7 +7817,8 @@ taifex_taifexderivatives_orderentry_tmp_v2_18_7.resend_report_message.size = fun
   index = index + taifex_taifexderivatives_orderentry_tmp_v2_18_7.file_size.size
 
   -- Parse runtime size of: Data Uint 8 Hdr Msg Length 156
-  index = index + buffer(offset + index - 23, 2):uint()
+  local msg_length = buffer(offset + index - 23, 2):uint()
+  index = index + msg_length - 21
 
   return index
 end

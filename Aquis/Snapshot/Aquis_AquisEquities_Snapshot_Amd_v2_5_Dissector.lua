@@ -54,17 +54,22 @@ omi_aquis_aquisequities_snapshot_amd_v2_5.fields.snapshot_start_message = ProtoF
 -- Aquis AquisEquities Snapshot Amd 2.5 Generated Fields
 omi_aquis_aquisequities_snapshot_amd_v2_5.fields.message_index = ProtoField.new("Message Index", "aquis.aquisequities.snapshot.amd.v2.5.messageindex", ftypes.UINT16)
 
+-- Aquis AquisEquities Snapshot Amd 2.5 Expert Info
+aquis_aquisequities_snapshot_amd_v2_5.experts = {}
+aquis_aquisequities_snapshot_amd_v2_5.experts.undecoded = ProtoExpert.new("aquis.aquisequities.snapshot.amd.v2.5.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_aquis_aquisequities_snapshot_amd_v2_5.experts = { aquis_aquisequities_snapshot_amd_v2_5.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Aquis AquisEquities Snapshot Amd 2.5 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 aquis_aquisequities_snapshot_amd_v2_5.timestamp_format = 2
 
 
@@ -110,6 +115,19 @@ function omi_aquis_aquisequities_snapshot_amd_v2_5.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Aquis AquisEquities Snapshot Amd 2.5 Fields
 -----------------------------------------------------------------------
@@ -937,10 +955,16 @@ end
 aquis_aquisequities_snapshot_amd_v2_5.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_aquis_aquisequities_snapshot_amd_v2_5.fields.message, buffer(offset, 0))
-    local current = aquis_aquisequities_snapshot_amd_v2_5.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(aquis_aquisequities_snapshot_amd_v2_5.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, aquis_aquisequities_snapshot_amd_v2_5.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = aquis_aquisequities_snapshot_amd_v2_5.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -948,7 +972,10 @@ aquis_aquisequities_snapshot_amd_v2_5.message.dissect = function(buffer, offset,
     return index, parent
   else
     -- Skip element, add fields directly
-    aquis_aquisequities_snapshot_amd_v2_5.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(aquis_aquisequities_snapshot_amd_v2_5.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, aquis_aquisequities_snapshot_amd_v2_5.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -1016,6 +1043,12 @@ aquis_aquisequities_snapshot_amd_v2_5.packet.dissect = function(buffer, packet, 
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 + 1 > end_of_payload then
+      parent:add_proto_expert_info(aquis_aquisequities_snapshot_amd_v2_5.experts.undecoded, "Msg Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Msg Length
     local msg_length = buffer(index + 1, 1):uint()

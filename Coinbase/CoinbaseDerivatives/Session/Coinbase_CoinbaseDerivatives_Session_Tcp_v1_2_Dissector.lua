@@ -23,12 +23,12 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.gap_fill_padding = Prot
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.coinbasederivatives.session.tcp.v1.2.heartbeatintervalseconds", ftypes.INT32, nil, nil, nil, "heartbeatIntervalSeconds")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.is_resend = ProtoField.new("Is Resend", "coinbase.coinbasederivatives.session.tcp.v1.2.isresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Possibly resent message indicator (Bit 0)")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.coinbasederivatives.session.tcp.v1.2.lastprocessedseqno", ftypes.UINT32, nil, nil, nil, "Highest sequence number the sender has processed from the counterparty")
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.logout_reason = ProtoField.new("Logout Reason", "coinbase.coinbasederivatives.session.tcp.v1.2.logoutreason", ftypes.STRING, nil, nil, nil, "reason")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.message_length = ProtoField.new("Message Length", "coinbase.coinbasederivatives.session.tcp.v1.2.messagelength", ftypes.UINT16, nil, nil, nil, "Total message length in bytes including this header")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.new_sequence_number = ProtoField.new("New Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.newsequencenumber", ftypes.UINT32, nil, nil, nil, "newSequenceNumber")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.padding = ProtoField.new("Padding", "coinbase.coinbasederivatives.session.tcp.v1.2.padding", ftypes.BYTES, nil, nil, nil, "Tcp sbe alignment padding")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.password = ProtoField.new("Password", "coinbase.coinbasederivatives.session.tcp.v1.2.password", ftypes.STRING, nil, nil, nil, "Logon password")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.coinbasederivatives.session.tcp.v1.2.protocolid", ftypes.UINT8, nil, nil, nil, "Coinbase protocol identifier")
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reason_string_64 = ProtoField.new("Reason String 64", "coinbase.coinbasederivatives.session.tcp.v1.2.reasonstring64", ftypes.STRING, nil, nil, nil, "reason")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.ref_sequence_number = ProtoField.new("Ref Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.refsequencenumber", ftypes.UINT32, nil, nil, nil, "refSequenceNumber")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reject_reason = ProtoField.new("Reject Reason", "coinbase.coinbasederivatives.session.tcp.v1.2.rejectreason", ftypes.INT32, nil, nil, nil, "reason")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved = ProtoField.new("Reserved", "coinbase.coinbasederivatives.session.tcp.v1.2.reserved", ftypes.UINT32, nil, nil, nil, "Reserved for future use")
@@ -60,17 +60,22 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reject_message = ProtoF
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.resend_request_message = ProtoField.new("Resend Request Message", "coinbase.coinbasederivatives.session.tcp.v1.2.resendrequestmessage", ftypes.STRING, nil, nil, nil, "ResendRequestMessage")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.test_request_message = ProtoField.new("Test Request Message", "coinbase.coinbasederivatives.session.tcp.v1.2.testrequestmessage", ftypes.STRING, nil, nil, nil, "TestRequestMessage")
 
+-- Coinbase CoinbaseDerivatives Session Tcp 1.2 Expert Info
+coinbase_coinbasederivatives_session_tcp_v1_2.experts = {}
+coinbase_coinbasederivatives_session_tcp_v1_2.experts.undecoded = ProtoExpert.new("coinbase.coinbasederivatives.session.tcp.v1.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.experts = { coinbase_coinbasederivatives_session_tcp_v1_2.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Coinbase CoinbaseDerivatives Session Tcp 1.2 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 coinbase_coinbasederivatives_session_tcp_v1_2.timestamp_format = 2
 
 
@@ -111,6 +116,19 @@ function omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Coinbase CoinbaseDerivatives Session Tcp 1.2 Fields
 -----------------------------------------------------------------------
@@ -292,6 +310,45 @@ coinbase_coinbasederivatives_session_tcp_v1_2.last_processed_seq_no.dissect = fu
   return offset + length, value
 end
 
+-- Logout Reason
+coinbase_coinbasederivatives_session_tcp_v1_2.logout_reason = {}
+
+-- Size: Logout Reason
+coinbase_coinbasederivatives_session_tcp_v1_2.logout_reason.size = 64
+
+-- Display: Logout Reason
+coinbase_coinbasederivatives_session_tcp_v1_2.logout_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Logout Reason: No Value"
+  end
+
+  return "Logout Reason: "..value
+end
+
+-- Dissect: Logout Reason
+coinbase_coinbasederivatives_session_tcp_v1_2.logout_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_coinbasederivatives_session_tcp_v1_2.logout_reason.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = coinbase_coinbasederivatives_session_tcp_v1_2.logout_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.logout_reason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Message Length
 coinbase_coinbasederivatives_session_tcp_v1_2.message_length = {}
 
@@ -352,7 +409,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.padding.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_coinbasederivatives_session_tcp_v1_2.padding.display(value, packet, parent, size)
 
-  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.padding, range, value, display)
+  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.padding, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -405,7 +462,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.size = 1
 -- Display: Protocol Id
 coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.display = function(value)
   if value == 241 then
-    return "Protocol Id: Orders Api"
+    return "Protocol Id: Orders Api (241)"
   end
 
   return "Protocol Id: Unknown("..value..")"
@@ -419,45 +476,6 @@ coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.dissect = function(buf
   local display = coinbase_coinbasederivatives_session_tcp_v1_2.protocol_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.protocol_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason String 64
-coinbase_coinbasederivatives_session_tcp_v1_2.reason_string_64 = {}
-
--- Size: Reason String 64
-coinbase_coinbasederivatives_session_tcp_v1_2.reason_string_64.size = 64
-
--- Display: Reason String 64
-coinbase_coinbasederivatives_session_tcp_v1_2.reason_string_64.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Reason String 64: No Value"
-  end
-
-  return "Reason String 64: "..value
-end
-
--- Dissect: Reason String 64
-coinbase_coinbasederivatives_session_tcp_v1_2.reason_string_64.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_coinbasederivatives_session_tcp_v1_2.reason_string_64.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = coinbase_coinbasederivatives_session_tcp_v1_2.reason_string_64.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reason_string_64, range, value, display)
 
   return offset + length, value
 end
@@ -575,7 +593,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.schema_id.size = 2
 -- Display: Schema Id
 coinbase_coinbasederivatives_session_tcp_v1_2.schema_id.display = function(value)
   if value == 1100 then
-    return "Schema Id: 1100"
+    return "Schema Id: Fairx Gateway Sbe Codec Session (1100)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -990,7 +1008,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.logged_out_message = {}
 
 -- Size: Logged Out Message
 coinbase_coinbasederivatives_session_tcp_v1_2.logged_out_message.size =
-  coinbase_coinbasederivatives_session_tcp_v1_2.reason_string_64.size
+  coinbase_coinbasederivatives_session_tcp_v1_2.logout_reason.size
 
 -- Display: Logged Out Message
 coinbase_coinbasederivatives_session_tcp_v1_2.logged_out_message.display = function(packet, parent, length)
@@ -1001,8 +1019,8 @@ end
 coinbase_coinbasederivatives_session_tcp_v1_2.logged_out_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason String 64: String64
-  index, reason_string_64 = coinbase_coinbasederivatives_session_tcp_v1_2.reason_string_64.dissect(buffer, index, packet, parent)
+  -- Logout Reason: String64
+  index, logout_reason = coinbase_coinbasederivatives_session_tcp_v1_2.logout_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1030,7 +1048,7 @@ coinbase_coinbasederivatives_session_tcp_v1_2.logout_message = {}
 
 -- Size: Logout Message
 coinbase_coinbasederivatives_session_tcp_v1_2.logout_message.size =
-  coinbase_coinbasederivatives_session_tcp_v1_2.reason_string_64.size
+  coinbase_coinbasederivatives_session_tcp_v1_2.logout_reason.size
 
 -- Display: Logout Message
 coinbase_coinbasederivatives_session_tcp_v1_2.logout_message.display = function(packet, parent, length)
@@ -1041,8 +1059,8 @@ end
 coinbase_coinbasederivatives_session_tcp_v1_2.logout_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason String 64: String64
-  index, reason_string_64 = coinbase_coinbasederivatives_session_tcp_v1_2.reason_string_64.dissect(buffer, index, packet, parent)
+  -- Logout Reason: String64
+  index, logout_reason = coinbase_coinbasederivatives_session_tcp_v1_2.logout_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1347,10 +1365,16 @@ end
 coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset + size_of_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.sbe_message, buffer(offset, 0))
-    local current = coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, coinbase_coinbasederivatives_session_tcp_v1_2.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
     parent:set_len(size_of_sbe_message)
     local display = coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1358,7 +1382,10 @@ coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.dissect = function(buf
     return index, parent
   else
     -- Skip element, add fields directly
-    coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(coinbase_coinbasederivatives_session_tcp_v1_2.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, coinbase_coinbasederivatives_session_tcp_v1_2.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
 
     return index
   end

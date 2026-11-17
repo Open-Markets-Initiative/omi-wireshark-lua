@@ -80,11 +80,11 @@ omi_lme_lmeselect_ringdatasnapshot_lmesource_v4_18.fields.trade_legs_index = Pro
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 lme_lmeselect_ringdatasnapshot_lmesource_v4_18.timestamp_format = 2
 
 
@@ -1692,7 +1692,8 @@ lme_lmeselect_ringdatasnapshot_lmesource_v4_18.message.size = function(buffer, o
   index = index + lme_lmeselect_ringdatasnapshot_lmesource_v4_18.message_header.size
 
   -- Parse runtime size of: Payload
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local msg_size = buffer(offset + index - 4, 2):le_uint()
+  index = index + msg_size - 4
 
   return index
 end

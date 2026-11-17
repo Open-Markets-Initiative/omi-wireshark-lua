@@ -108,17 +108,22 @@ omi_iex_iexequities_deep_snap_v1_6.fields.trade_break_message = ProtoField.new("
 omi_iex_iexequities_deep_snap_v1_6.fields.trade_report_message = ProtoField.new("Trade Report Message", "iex.iexequities.deep.snap.v1.6.tradereportmessage", ftypes.STRING, nil, nil, nil, "Trade Report Messages are sent when an order on the IEX Order Book is executed in whole or in part")
 omi_iex_iexequities_deep_snap_v1_6.fields.trading_status_message = ProtoField.new("Trading Status Message", "iex.iexequities.deep.snap.v1.6.tradingstatusmessage", ftypes.STRING, nil, nil, nil, "The Trading Status Message is used to indicate the current trading status of a security.")
 
+-- Iex IexEquities Deep Snap 1.6 Expert Info
+iex_iexequities_deep_snap_v1_6.experts = {}
+iex_iexequities_deep_snap_v1_6.experts.undecoded = ProtoExpert.new("iex.iexequities.deep.snap.v1.6.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_iex_iexequities_deep_snap_v1_6.experts = { iex_iexequities_deep_snap_v1_6.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Iex IexEquities Deep Snap 1.6 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 iex_iexequities_deep_snap_v1_6.timestamp_format = 2
 
 
@@ -180,6 +185,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Iex IexEquities Deep Snap 1.6 Fields
 -----------------------------------------------------------------------
@@ -1071,7 +1084,7 @@ iex_iexequities_deep_snap_v1_6.reserved.dissect = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = iex_iexequities_deep_snap_v1_6.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_iex_iexequities_deep_snap_v1_6.fields.reserved, range, value, display)
+  parent:add(omi_iex_iexequities_deep_snap_v1_6.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2837,10 +2850,16 @@ end
 iex_iexequities_deep_snap_v1_6.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_iex_iexequities_deep_snap_v1_6.fields.message, buffer(offset, 0))
-    local current = iex_iexequities_deep_snap_v1_6.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(iex_iexequities_deep_snap_v1_6.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexequities_deep_snap_v1_6.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = iex_iexequities_deep_snap_v1_6.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2848,7 +2867,10 @@ iex_iexequities_deep_snap_v1_6.message.dissect = function(buffer, offset, packet
     return index, parent
   else
     -- Skip element, add fields directly
-    iex_iexequities_deep_snap_v1_6.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(iex_iexequities_deep_snap_v1_6.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, iex_iexequities_deep_snap_v1_6.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

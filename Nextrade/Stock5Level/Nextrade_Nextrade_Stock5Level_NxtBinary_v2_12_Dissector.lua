@@ -266,7 +266,7 @@ nextrade_nextrade_stock5level_nxtbinary_v2_12.accumulated_trading_value.dissect 
   local value = range:le_float()
   local display = nextrade_nextrade_stock5level_nxtbinary_v2_12.accumulated_trading_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nextrade_nextrade_stock5level_nxtbinary_v2_12.fields.accumulated_trading_value, range, value, display)
+  parent:add(omi_nextrade_nextrade_stock5level_nxtbinary_v2_12.fields.accumulated_trading_value, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1295,7 +1295,7 @@ nextrade_nextrade_stock5level_nxtbinary_v2_12.processing_time_of_trading_system.
     return "Processing Time Of Trading System: "..value
   end
 
-  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12)
+  return "Processing Time Of Trading System: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12).." Asia/Seoul"
 end
 
 -- Dissect: Processing Time Of Trading System

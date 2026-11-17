@@ -126,17 +126,22 @@ omi_bse_bseindia_eobi_fbe_v1_4.fields.instrmt_leg_grp_index = ProtoField.new("In
 omi_bse_bseindia_eobi_fbe_v1_4.fields.md_instrument_entry_grp_index = ProtoField.new("Md Instrument Entry Grp Index", "bse.bseindia.eobi.fbe.v1.4.mdinstrumententrygrpindex", ftypes.UINT16)
 omi_bse_bseindia_eobi_fbe_v1_4.fields.md_trade_entry_grp_index = ProtoField.new("Md Trade Entry Grp Index", "bse.bseindia.eobi.fbe.v1.4.mdtradeentrygrpindex", ftypes.UINT16)
 
+-- Bse BseIndia Eobi Fbe 1.4 Expert Info
+bse_bseindia_eobi_fbe_v1_4.experts = {}
+bse_bseindia_eobi_fbe_v1_4.experts.undecoded = ProtoExpert.new("bse.bseindia.eobi.fbe.v1.4.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_bse_bseindia_eobi_fbe_v1_4.experts = { bse_bseindia_eobi_fbe_v1_4.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Bse BseIndia Eobi Fbe 1.4 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 bse_bseindia_eobi_fbe_v1_4.timestamp_format = 2
 
 
@@ -192,6 +197,19 @@ function omi_bse_bseindia_eobi_fbe_v1_4.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Bse BseIndia Eobi Fbe 1.4 Fields
 -----------------------------------------------------------------------
@@ -1054,7 +1072,7 @@ bse_bseindia_eobi_fbe_v1_4.pad_1.dissect = function(buffer, offset, packet, pare
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eobi_fbe_v1_4.pad_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_1, range, value, display)
+  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1077,7 +1095,7 @@ bse_bseindia_eobi_fbe_v1_4.pad_3.dissect = function(buffer, offset, packet, pare
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eobi_fbe_v1_4.pad_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_3, range, value, display)
+  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1100,7 +1118,7 @@ bse_bseindia_eobi_fbe_v1_4.pad_4.dissect = function(buffer, offset, packet, pare
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eobi_fbe_v1_4.pad_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_4, range, value, display)
+  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1123,7 +1141,7 @@ bse_bseindia_eobi_fbe_v1_4.pad_5.dissect = function(buffer, offset, packet, pare
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eobi_fbe_v1_4.pad_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_5, range, value, display)
+  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1146,7 +1164,7 @@ bse_bseindia_eobi_fbe_v1_4.pad_6.dissect = function(buffer, offset, packet, pare
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eobi_fbe_v1_4.pad_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_6, range, value, display)
+  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1169,7 +1187,7 @@ bse_bseindia_eobi_fbe_v1_4.pad_7.dissect = function(buffer, offset, packet, pare
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eobi_fbe_v1_4.pad_7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_7, range, value, display)
+  parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.pad_7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3620,10 +3638,16 @@ end
 bse_bseindia_eobi_fbe_v1_4.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_bse_bseindia_eobi_fbe_v1_4.fields.message, buffer(offset, 0))
-    local current = bse_bseindia_eobi_fbe_v1_4.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(bse_bseindia_eobi_fbe_v1_4.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, bse_bseindia_eobi_fbe_v1_4.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = bse_bseindia_eobi_fbe_v1_4.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3631,7 +3655,10 @@ bse_bseindia_eobi_fbe_v1_4.message.dissect = function(buffer, offset, packet, pa
     return index, parent
   else
     -- Skip element, add fields directly
-    bse_bseindia_eobi_fbe_v1_4.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(bse_bseindia_eobi_fbe_v1_4.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, bse_bseindia_eobi_fbe_v1_4.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -3779,6 +3806,12 @@ bse_bseindia_eobi_fbe_v1_4.packet.dissect = function(buffer, packet, parent)
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(bse_bseindia_eobi_fbe_v1_4.experts.undecoded, "Body Len runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Body Len
     local body_len = buffer(index, 2):le_uint()

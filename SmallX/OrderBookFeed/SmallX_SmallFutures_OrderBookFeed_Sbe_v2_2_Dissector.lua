@@ -56,10 +56,10 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.instrument_update_action =
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_incremental_message_seq = ProtoField.new("Last Incremental Message Seq", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lastincrementalmessageseq", ftypes.INT64, nil, nil, nil, "Last incremental message sequence in this incarnation related to this instrument")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_price = ProtoField.new("Last Trade Price", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradeprice", ftypes.DOUBLE, nil, nil, nil, "Last traded price for the instrument")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_size = ProtoField.new("Last Trade Size", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradesize", ftypes.DOUBLE, nil, nil, nil, "Size of the last trade")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp = ProtoField.new("Last Trade Time Timestamp", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetimetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the session last trade")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_utc = ProtoField.new("Last Trade Time Timestamp", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetimetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of the session last trade")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_optional = ProtoField.new("Last Trade Time Timestamp Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetimetimestampoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the last trade for the day")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_optional_utc = ProtoField.new("Last Trade Time Timestamp Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetimetimestampoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of the last trade for the day")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the session last trade")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_utc = ProtoField.new("Last Trade Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of the session last trade")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_optional = ProtoField.new("Last Trade Time Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the last trade for the day")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_optional_utc = ProtoField.new("Last Trade Time Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of the last trade for the day")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trading_session_date = ProtoField.new("Last Trading Session Date", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradingsessiondate", ftypes.UINT16, nil, nil, nil, "Instrument last trading business day")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.leg_instrument_id = ProtoField.new("Leg Instrument Id", "smallx.smallfutures.orderbookfeed.sbe.v2.2.leginstrumentid", ftypes.INT32, nil, nil, nil, "Unique numeric ID of the leg instrument. The ID is used to reference instrument definition message of the leg transmitted in the snapshot line for getting details and all information data fields from it")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.leg_product = ProtoField.new("Leg Product", "smallx.smallfutures.orderbookfeed.sbe.v2.2.legproduct", ftypes.STRING, nil, nil, nil, "Leg instrument product")
@@ -117,8 +117,8 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.synthetic = ProtoField.new
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.template_id = ProtoField.new("Template Id", "smallx.smallfutures.orderbookfeed.sbe.v2.2.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.time = ProtoField.new("Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.time", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade timestamp, or the order timestamp in the Order Book Snapshot Message")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.time_utc = ProtoField.new("Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.time.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trade timestamp, or the order timestamp in the Order Book Snapshot Message")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.total_volume_quantity = ProtoField.new("Total Volume Quantity", "smallx.smallfutures.orderbookfeed.sbe.v2.2.totalvolumequantity", ftypes.DOUBLE, nil, nil, nil, "Total day traded volume for the instrument")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.total_volume_quantity_optional = ProtoField.new("Total Volume Quantity Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.totalvolumequantityoptional", ftypes.DOUBLE, nil, nil, nil, "Total traded volume for the instrument session")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.total_volume = ProtoField.new("Total Volume", "smallx.smallfutures.orderbookfeed.sbe.v2.2.totalvolume", ftypes.DOUBLE, nil, nil, nil, "Total day traded volume for the instrument")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.total_volume_optional = ProtoField.new("Total Volume Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.totalvolumeoptional", ftypes.DOUBLE, nil, nil, nil, "Total traded volume for the instrument session")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_bust_group = ProtoField.new("Trade Bust Group", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradebustgroup", ftypes.STRING, nil, nil, nil, "NoTrades")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_bust_groups = ProtoField.new("Trade Bust Groups", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradebustgroups", ftypes.STRING, nil, nil, nil, "Busted trades repeating group")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_conditions = ProtoField.new("Trade Conditions", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradeconditions", ftypes.STRING, nil, nil, nil, "Bit set of trade condition flags")
@@ -134,9 +134,8 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transaction_begin = ProtoF
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transaction_end = ProtoField.new("Transaction End", "smallx.smallfutures.orderbookfeed.sbe.v2.2.transactionend", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Set in the last message resulting a single business event processing")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "smallx.smallfutures.orderbookfeed.sbe.v2.2.underlyinginstrumentid", ftypes.INT32, nil, nil, nil, "Option underlying ID. The ID is used to reference instrument definition message of the underlying transmitted in the snapshot line for getting underlying details from it")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "smallx.smallfutures.orderbookfeed.sbe.v2.2.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Option underlying symbol")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_0 = ProtoField.new("Unused Snapshot Message Instructions 0", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unusedsnapshotmessageinstructions0", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Unused SnapshotMessageInstructions 0")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_1 = ProtoField.new("Unused Snapshot Message Instructions 1", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unusedsnapshotmessageinstructions1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Unused SnapshotMessageInstructions 1")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_6 = ProtoField.new("Unused Snapshot Message Instructions 6", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unusedsnapshotmessageinstructions6", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "Unused SnapshotMessageInstructions 6")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_1 = ProtoField.new("Unused 1", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "1 unused bit")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_2 = ProtoField.new("Unused 2", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unused2", ftypes.UINT16, nil, base.DEC, 0x0003, "2 unused bits")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.value = ProtoField.new("Value", "smallx.smallfutures.orderbookfeed.sbe.v2.2.value", ftypes.DOUBLE, nil, nil, nil, "Last index value")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.version = ProtoField.new("Version", "smallx.smallfutures.orderbookfeed.sbe.v2.2.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 
@@ -170,17 +169,22 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.snapshot_orders_group_inde
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_bust_group_index = ProtoField.new("Trade Bust Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradebustgroupindex", ftypes.UINT16)
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_correct_group_index = ProtoField.new("Trade Correct Group Index", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradecorrectgroupindex", ftypes.UINT16)
 
+-- SmallX SmallFutures OrderBookFeed Sbe 2.2 Expert Info
+smallx_smallfutures_orderbookfeed_sbe_v2_2.experts = {}
+smallx_smallfutures_orderbookfeed_sbe_v2_2.experts.undecoded = ProtoExpert.new("smallx.smallfutures.orderbookfeed.sbe.v2.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.experts = { smallx_smallfutures_orderbookfeed_sbe_v2_2.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- SmallX SmallFutures OrderBookFeed Sbe 2.2 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format = 2
 
 
@@ -231,6 +235,19 @@ function omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- SmallX SmallFutures OrderBookFeed Sbe 2.2 Fields
 -----------------------------------------------------------------------
@@ -1136,27 +1153,27 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_size.dissect = function(bu
   return offset + length, value
 end
 
--- Last Trade Time Timestamp
-smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp = {}
+-- Last Trade Time
+smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time = {}
 
--- Size: Last Trade Time Timestamp
-smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.size = 8
+-- Size: Last Trade Time
+smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time.size = 8
 
--- Dissect: Last Trade Time Timestamp
-smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.size
+-- Dissect: Last Trade Time
+smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time.size
   local range = buffer(offset, length)
   local value = range:le_int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp
-  if smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format == 3 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_utc end
+  local field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time
+  if smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format == 3 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_utc end
 
   if value == Int64(0x00000000, 0x80000000) then
     -- Null: the field keeps its type, and the line says so instead
     local item = parent:add(field, range, NSTime.new(0, 0))
-    item:set_text("Last Trade Time Timestamp: No Value")
+    item:set_text("Last Trade Time: No Value")
     return offset + length, value
   end
 
@@ -1167,27 +1184,27 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.dissect = f
   return offset + length, value
 end
 
--- Last Trade Time Timestamp Optional
-smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional = {}
+-- Last Trade Time Optional
+smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_optional = {}
 
--- Size: Last Trade Time Timestamp Optional
-smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size = 8
+-- Size: Last Trade Time Optional
+smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_optional.size = 8
 
--- Dissect: Last Trade Time Timestamp Optional
-smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size
+-- Dissect: Last Trade Time Optional
+smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_optional.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_optional.size
   local range = buffer(offset, length)
   local value = range:le_int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_optional
-  if smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format == 3 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_timestamp_optional_utc end
+  local field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_optional
+  if smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format == 3 then field = omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_optional_utc end
 
   if value == Int64(0x00000000, 0x80000000) then
     -- Null: the field keeps its type, and the line says so instead
     local item = parent:add(field, range, NSTime.new(0, 0))
-    item:set_text("Last Trade Time Timestamp Optional: No Value")
+    item:set_text("Last Trade Time Optional: No Value")
     return offset + length, value
   end
 
@@ -1994,7 +2011,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.schema_id.size = 2
 -- Display: Schema Id
 smallx_smallfutures_orderbookfeed_sbe_v2_2.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: 1"
+    return "Schema Id: Com Thesmallexchange Feed Sbe (1)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -2523,53 +2540,53 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.time.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Total Volume Quantity
-smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity = {}
+-- Total Volume
+smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume = {}
 
--- Size: Total Volume Quantity
-smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.size = 8
+-- Size: Total Volume
+smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.size = 8
 
--- Display: Total Volume Quantity
-smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.display = function(value)
-  return "Total Volume Quantity: "..value
+-- Display: Total Volume
+smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.display = function(value)
+  return "Total Volume: "..value
 end
 
--- Translate: Total Volume Quantity
-smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.translate = function(raw)
+-- Translate: Total Volume
+smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.translate = function(raw)
   return raw:tonumber()
 end
 
--- Dissect: Total Volume Quantity
-smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.size
+-- Dissect: Total Volume
+smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.translate(raw)
-  local display = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.display(value, buffer, offset, packet, parent)
+  local value = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.translate(raw)
+  local display = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.total_volume_quantity, range, value, display)
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.total_volume, range, value, display)
 
   return offset + length, value
 end
 
--- Total Volume Quantity Optional
-smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional = {}
+-- Total Volume Optional
+smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_optional = {}
 
--- Size: Total Volume Quantity Optional
-smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size = 8
+-- Size: Total Volume Optional
+smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_optional.size = 8
 
--- Display: Total Volume Quantity Optional
-smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display = function(raw, value)
+-- Display: Total Volume Optional
+smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_optional.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Total Volume Quantity Optional: No Value"
+    return "Total Volume Optional: No Value"
   end
 
-  return "Total Volume Quantity Optional: "..value
+  return "Total Volume Optional: "..value
 end
 
--- Translate: Total Volume Quantity Optional
-smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.translate = function(raw)
+-- Translate: Total Volume Optional
+smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -2578,15 +2595,15 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.transl
   return raw:tonumber()
 end
 
--- Dissect: Total Volume Quantity Optional
-smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.dissect = function(buffer, offset, packet, parent)
-  local length = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size
+-- Dissect: Total Volume Optional
+smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_optional.dissect = function(buffer, offset, packet, parent)
+  local length = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.translate(raw)
-  local display = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.display(raw, value, buffer, offset, packet, parent)
+  local value = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_optional.translate(raw)
+  local display = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_optional.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.total_volume_quantity_optional, range, value, display)
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.total_volume_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3069,11 +3086,8 @@ end
 -- Dissect Bit Fields: Snapshot Message Instructions
 smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits = function(range, value, packet, parent)
 
-  -- Unused Snapshot Message Instructions 0: 1 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_0, range, value)
-
-  -- Unused Snapshot Message Instructions 1: 1 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_1, range, value)
+  -- Unused 2: 2 Bit
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_2, range, value)
 
   -- Instrument Begin: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.instrument_begin, range, value)
@@ -3087,8 +3101,8 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits = 
   -- Book End: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.book_end, range, value)
 
-  -- Unused Snapshot Message Instructions 6: 1 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_snapshot_message_instructions_6, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_1, range, value)
 
   -- Snapshot Begin: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.snapshot_begin, range, value)
@@ -3191,7 +3205,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.multileg_definition_snapshot_v_2_mess
   -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_smallfutures_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Message Instructions: Struct of 10 fields
+  -- Snapshot Message Instructions: Struct of 9 fields
   index, snapshot_message_instructions = smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
   -- Snapshot Instruments Count: SnapshotInstrumentsCount
@@ -3318,7 +3332,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.single_instrument_definition_snapshot
   -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_smallfutures_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Message Instructions: Struct of 10 fields
+  -- Snapshot Message Instructions: Struct of 9 fields
   index, snapshot_message_instructions = smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
   -- Snapshot Instruments Count: SnapshotInstrumentsCount
@@ -3809,7 +3823,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.index_value_snapshot_message.fields =
   -- Transact Time: int64
   index, transact_time = smallx_smallfutures_orderbookfeed_sbe_v2_2.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Message Instructions: Struct of 10 fields
+  -- Snapshot Message Instructions: Struct of 9 fields
   index, snapshot_message_instructions = smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
   -- Index Count: SnapshotInstrumentsCount
@@ -3872,8 +3886,8 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.size 
   smallx_smallfutures_orderbookfeed_sbe_v2_2.last_incremental_message_seq.size + 
   smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_price.size + 
   smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_size.size + 
-  smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.size + 
-  smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.size + 
+  smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time.size + 
+  smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_optional.size + 
   smallx_smallfutures_orderbookfeed_sbe_v2_2.open_price.size + 
   smallx_smallfutures_orderbookfeed_sbe_v2_2.open_price_type.size + 
   smallx_smallfutures_orderbookfeed_sbe_v2_2.high_price.size + 
@@ -3907,7 +3921,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.field
   -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_smallfutures_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Message Instructions: Struct of 10 fields
+  -- Snapshot Message Instructions: Struct of 9 fields
   index, snapshot_message_instructions = smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
   -- Snapshot Instruments Count: SnapshotInstrumentsCount
@@ -3922,11 +3936,11 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.market_summary_snapshot_message.field
   -- Last Trade Size: QuantityOptional
   index, last_trade_size = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Time Timestamp: Timestamp
-  index, last_trade_time_timestamp = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp.dissect(buffer, index, packet, parent)
+  -- Last Trade Time: Timestamp
+  index, last_trade_time = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time.dissect(buffer, index, packet, parent)
 
-  -- Total Volume Quantity Optional: QuantityOptional
-  index, total_volume_quantity_optional = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity_optional.dissect(buffer, index, packet, parent)
+  -- Total Volume Optional: QuantityOptional
+  index, total_volume_optional = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_optional.dissect(buffer, index, packet, parent)
 
   -- Open Price: PriceOptional
   index, open_price = smallx_smallfutures_orderbookfeed_sbe_v2_2.open_price.dissect(buffer, index, packet, parent)
@@ -4195,7 +4209,7 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.order_book_snapshot_message.fields = 
   -- Instrument Trading Status: InstrumentTradingStatus
   index, instrument_trading_status = smallx_smallfutures_orderbookfeed_sbe_v2_2.instrument_trading_status.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Message Instructions: Struct of 10 fields
+  -- Snapshot Message Instructions: Struct of 9 fields
   index, snapshot_message_instructions = smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.dissect(buffer, index, packet, parent)
 
   -- Snapshot Instruments Count: SnapshotInstrumentsCount
@@ -4730,9 +4744,9 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_bust_message.size = function(bu
 
   index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_size.size
 
-  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size
+  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_optional.size
 
-  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.size
+  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.size
 
   index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_bust_groups.size(buffer, offset + index)
 
@@ -4772,11 +4786,11 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_bust_message.fields = function(
   -- Last Trade Size: QuantityOptional
   index, last_trade_size = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Time Timestamp Optional: TimestampOptional
-  index, last_trade_time_timestamp_optional = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.dissect(buffer, index, packet, parent)
+  -- Last Trade Time Optional: TimestampOptional
+  index, last_trade_time_optional = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Total Volume Quantity: Quantity
-  index, total_volume_quantity = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.dissect(buffer, index, packet, parent)
+  -- Total Volume: Quantity
+  index, total_volume = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.dissect(buffer, index, packet, parent)
 
   -- Trade Bust Groups: Struct of 2 fields
   index, trade_bust_groups = smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_bust_groups.dissect(buffer, index, packet, parent)
@@ -4960,9 +4974,9 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_correct_message.size = function
 
   index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_size.size
 
-  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size
+  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_optional.size
 
-  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.size
+  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.size
 
   index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_correct_groups.size(buffer, offset + index)
 
@@ -5002,11 +5016,11 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_correct_message.fields = functi
   -- Last Trade Size: QuantityOptional
   index, last_trade_size = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Time Timestamp Optional: TimestampOptional
-  index, last_trade_time_timestamp_optional = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.dissect(buffer, index, packet, parent)
+  -- Last Trade Time Optional: TimestampOptional
+  index, last_trade_time_optional = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Total Volume Quantity: Quantity
-  index, total_volume_quantity = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.dissect(buffer, index, packet, parent)
+  -- Total Volume: Quantity
+  index, total_volume = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.dissect(buffer, index, packet, parent)
 
   -- Trade Correct Groups: Struct of 2 fields
   index, trade_correct_groups = smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_correct_groups.dissect(buffer, index, packet, parent)
@@ -5182,9 +5196,9 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.trades_incremental_message.size = fun
 
   index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_size.size
 
-  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.size
+  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_optional.size
 
-  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.size
+  index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.size
 
   index = index + smallx_smallfutures_orderbookfeed_sbe_v2_2.incremental_trade_groups.size(buffer, offset + index)
 
@@ -5224,11 +5238,11 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.trades_incremental_message.fields = f
   -- Last Trade Size: QuantityOptional
   index, last_trade_size = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_size.dissect(buffer, index, packet, parent)
 
-  -- Last Trade Time Timestamp Optional: TimestampOptional
-  index, last_trade_time_timestamp_optional = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_timestamp_optional.dissect(buffer, index, packet, parent)
+  -- Last Trade Time Optional: TimestampOptional
+  index, last_trade_time_optional = smallx_smallfutures_orderbookfeed_sbe_v2_2.last_trade_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Total Volume Quantity: Quantity
-  index, total_volume_quantity = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume_quantity.dissect(buffer, index, packet, parent)
+  -- Total Volume: Quantity
+  index, total_volume = smallx_smallfutures_orderbookfeed_sbe_v2_2.total_volume.dissect(buffer, index, packet, parent)
 
   -- Incremental Trade Groups: Struct of 2 fields
   index, incremental_trade_groups = smallx_smallfutures_orderbookfeed_sbe_v2_2.incremental_trade_groups.dissect(buffer, index, packet, parent)
@@ -5433,10 +5447,16 @@ end
 smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.dissect = function(buffer, offset, packet, parent, size_of_sbe_frame, sbe_frame_index)
   local index = offset + size_of_sbe_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.sbe_frame, buffer(offset, 0))
-    local current = smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields(buffer, offset, packet, parent, size_of_sbe_frame, sbe_frame_index)
+    local decoded, failure = pcall(smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields, bounded, offset, packet, parent, size_of_sbe_frame, sbe_frame_index)
+    if not decoded then
+      undecoded(failure, parent, smallx_smallfutures_orderbookfeed_sbe_v2_2.experts.undecoded, "Sbe Frame does not decode within its "..size_of_sbe_frame.." bytes")
+    end
     parent:set_len(size_of_sbe_frame)
     local display = smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5444,7 +5464,10 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields(buffer, offset, packet, parent, size_of_sbe_frame, sbe_frame_index)
+    local decoded, failure = pcall(smallx_smallfutures_orderbookfeed_sbe_v2_2.sbe_frame.fields, bounded, offset, packet, parent, size_of_sbe_frame, sbe_frame_index)
+    if not decoded then
+      undecoded(failure, parent, smallx_smallfutures_orderbookfeed_sbe_v2_2.experts.undecoded, "Sbe Frame does not decode within its "..size_of_sbe_frame.." bytes")
+    end
 
     return index
   end

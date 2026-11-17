@@ -397,7 +397,7 @@ finra_finraotc_bbds_dfi_v2018_1a.block_soh.size = 1
 -- Display: Block Soh
 finra_finraotc_bbds_dfi_v2018_1a.block_soh.display = function(value)
   if value == 1 then
-    return "Block Soh: Block Soh"
+    return "Block Soh: Block Soh (1)"
   end
 
   return "Block Soh: Unknown("..value..")"
@@ -1324,7 +1324,7 @@ finra_finraotc_bbds_dfi_v2018_1a.reserved_1.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = finra_finraotc_bbds_dfi_v2018_1a.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reserved_1, range, value, display)
+  parent:add(omi_finra_finraotc_bbds_dfi_v2018_1a.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end

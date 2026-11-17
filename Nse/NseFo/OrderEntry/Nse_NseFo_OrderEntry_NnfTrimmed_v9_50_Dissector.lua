@@ -115,18 +115,27 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.order_modify_cancel_trimmed_mes
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.quick_acknowledgement_message = ProtoField.new("Quick Acknowledgement Message", "nse.nsefo.orderentry.nnftrimmed.v9.50.quickacknowledgementmessage", ftypes.STRING, nil, nil, nil, "Immediate acknowledgement that an order related request reached the exchange")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.trade_confirmation_trimmed_message = ProtoField.new("Trade Confirmation Trimmed Message", "nse.nsefo.orderentry.nnftrimmed.v9.50.tradeconfirmationtrimmedmessage", ftypes.STRING, nil, nil, nil, "Trimmed trade confirmation")
 
+-- Nse NseFo OrderEntry NnfTrimmed 9.50 Expert Info
+nse_nsefo_orderentry_nnftrimmed_v9_50.experts = {}
+nse_nsefo_orderentry_nnftrimmed_v9_50.experts.undecoded = ProtoExpert.new("nse.nsefo.orderentry.nnftrimmed.v9.50.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.experts = { nse_nsefo_orderentry_nnftrimmed_v9_50.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nse NseFo OrderEntry NnfTrimmed 9.50 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 },
+  { 3, "DateTime Asia/Kolkata", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format = 2
+
+-- Offset of the source's zone from utc in seconds, as the reader states it
+nse_nsefo_orderentry_nnftrimmed_v9_50.zone_offset = 0
 
 
 -----------------------------------------------------------------------
@@ -146,6 +155,7 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.show_application_messages = Pref
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences
 function omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs_changed()
@@ -162,6 +172,17 @@ function omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs_changed()
   end
   if nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format ~= omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.timestamp_format then
     nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format = omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.timestamp_format
+  end
+  local sign, hours, minutes = string.match(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.zone_offset, "^%s*([+-]?)(%d%d?):?(%d?%d?)%s*$")
+
+  nse_nsefo_orderentry_nnftrimmed_v9_50.zone_offset = 0
+
+  if hours then
+    nse_nsefo_orderentry_nnftrimmed_v9_50.zone_offset = tonumber(hours) * 3600 + (tonumber(minutes) or 0) * 60
+  end
+
+  if sign == "-" then
+    nse_nsefo_orderentry_nnftrimmed_v9_50.zone_offset = -nse_nsefo_orderentry_nnftrimmed_v9_50.zone_offset
   end
 end
 
@@ -182,6 +203,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nse NseFo OrderEntry NnfTrimmed 9.50 Fields
 -----------------------------------------------------------------------
@@ -226,9 +255,18 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.activity_time.dissect = function(buffer, o
   local field = omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.activity_time
   if nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.activity_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Activity Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnftrimmed_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -457,9 +495,18 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.entry_date_time.dissect = function(buffer,
   local field = omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.entry_date_time
   if nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.entry_date_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Entry Date Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnftrimmed_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -504,9 +551,18 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.expiry_date.dissect = function(buffer, off
   local field = omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.expiry_date
   if nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.expiry_date_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Expiry Date: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnftrimmed_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -718,9 +774,18 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.log_time.dissect = function(buffer, offset
   local field = omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.log_time
   if nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.log_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Log Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnftrimmed_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -1071,7 +1136,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1094,7 +1159,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_2.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_2, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1117,7 +1182,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_24.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_24.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_24, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_24, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1140,7 +1205,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_32.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_32.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_32, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_32, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1163,7 +1228,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_52.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnftrimmed_v9_50.reserved_52.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_52, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.reserved_52, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1209,7 +1274,7 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.second_reserved_1.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnftrimmed_v9_50.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.second_reserved_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2755,10 +2820,16 @@ end
 nse_nsefo_orderentry_nnftrimmed_v9_50.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.message, buffer(offset, 0))
-    local current = nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_orderentry_nnftrimmed_v9_50.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = nse_nsefo_orderentry_nnftrimmed_v9_50.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2766,7 +2837,10 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.message.dissect = function(buffer, offset,
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(nse_nsefo_orderentry_nnftrimmed_v9_50.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_orderentry_nnftrimmed_v9_50.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

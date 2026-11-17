@@ -168,11 +168,11 @@ omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_short_quote_ap
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 siac_cqs_input_cta_v2_9_b.timestamp_format = 2
 
 
@@ -1805,7 +1805,7 @@ siac_cqs_input_cta_v2_9_b.reserved.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_input_cta_v2_9_b.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved, range, value, display)
+  parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1828,7 +1828,7 @@ siac_cqs_input_cta_v2_9_b.reserved_2.dissect = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_input_cta_v2_9_b.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved_2, range, value, display)
+  parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1851,7 +1851,7 @@ siac_cqs_input_cta_v2_9_b.reserved_62.dissect = function(buffer, offset, packet,
   local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_input_cta_v2_9_b.reserved_62.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved_62, range, value, display)
+  parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved_62, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1874,7 +1874,7 @@ siac_cqs_input_cta_v2_9_b.reserved_8.dissect = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = siac_cqs_input_cta_v2_9_b.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved_8, range, value, display)
+  parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5007,7 +5007,8 @@ siac_cqs_input_cta_v2_9_b.message.size = function(buffer, offset)
   index = index + siac_cqs_input_cta_v2_9_b.message_header.size
 
   -- Parse runtime size of: Message Payload
-  index = index + buffer(offset + index - 26, 2):uint()
+  local message_length = buffer(offset + index - 26, 2):uint()
+  index = index + message_length - 26
 
   return index
 end

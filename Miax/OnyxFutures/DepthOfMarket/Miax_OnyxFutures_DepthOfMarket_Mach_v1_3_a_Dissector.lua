@@ -129,17 +129,22 @@ omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.start_of_session = ProtoFi
 omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.deprecated_instrument_leg_index = ProtoField.new("Deprecated Instrument Leg Index", "miax.onyxfutures.depthofmarket.mach.v1.3.a.deprecatedinstrumentlegindex", ftypes.UINT16)
 omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "miax.onyxfutures.depthofmarket.mach.v1.3.a.instrumentlegindex", ftypes.UINT16)
 
+-- Miax OnyxFutures DepthOfMarket Mach 1.3.a Expert Info
+miax_onyxfutures_depthofmarket_mach_v1_3_a.experts = {}
+miax_onyxfutures_depthofmarket_mach_v1_3_a.experts.undecoded = ProtoExpert.new("miax.onyxfutures.depthofmarket.mach.v1.3.a.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.experts = { miax_onyxfutures_depthofmarket_mach_v1_3_a.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Miax OnyxFutures DepthOfMarket Mach 1.3.a Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 miax_onyxfutures_depthofmarket_mach_v1_3_a.timestamp_format = 2
 
 
@@ -211,6 +216,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax OnyxFutures DepthOfMarket Mach 1.3.a Fields
 -----------------------------------------------------------------------
@@ -1398,7 +1411,7 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_16.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_16, range, value, display)
+  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1421,7 +1434,7 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_3.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_3, range, value, display)
+  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1444,7 +1457,7 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_32.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_32.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_32, range, value, display)
+  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_32, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1467,7 +1480,7 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_4.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_4, range, value, display)
+  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1490,7 +1503,7 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_6.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_6, range, value, display)
+  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1513,7 +1526,7 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_64.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_depthofmarket_mach_v1_3_a.reserved_64.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_64, range, value, display)
+  parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.reserved_64, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3861,10 +3874,16 @@ end
 miax_onyxfutures_depthofmarket_mach_v1_3_a.mach_message.dissect = function(buffer, offset, packet, parent, size_of_mach_message)
   local index = offset + size_of_mach_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_onyxfutures_depthofmarket_mach_v1_3_a.fields.mach_message, buffer(offset, 0))
-    local current = miax_onyxfutures_depthofmarket_mach_v1_3_a.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+    local decoded, failure = pcall(miax_onyxfutures_depthofmarket_mach_v1_3_a.mach_message.fields, bounded, offset, packet, parent, size_of_mach_message)
+    if not decoded then
+      undecoded(failure, parent, miax_onyxfutures_depthofmarket_mach_v1_3_a.experts.undecoded, "Mach Message does not decode within its "..size_of_mach_message.." bytes")
+    end
     parent:set_len(size_of_mach_message)
     local display = miax_onyxfutures_depthofmarket_mach_v1_3_a.mach_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3872,7 +3891,10 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.mach_message.dissect = function(buffe
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_onyxfutures_depthofmarket_mach_v1_3_a.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+    local decoded, failure = pcall(miax_onyxfutures_depthofmarket_mach_v1_3_a.mach_message.fields, bounded, offset, packet, parent, size_of_mach_message)
+    if not decoded then
+      undecoded(failure, parent, miax_onyxfutures_depthofmarket_mach_v1_3_a.experts.undecoded, "Mach Message does not decode within its "..size_of_mach_message.." bytes")
+    end
 
     return index
   end
@@ -3897,6 +3919,12 @@ miax_onyxfutures_depthofmarket_mach_v1_3_a.packet.dissect = function(buffer, pac
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 8 + 2 > end_of_payload then
+      parent:add_proto_expert_info(miax_onyxfutures_depthofmarket_mach_v1_3_a.experts.undecoded, "Packet Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Packet Length
     local packet_length = buffer(index + 8, 2):le_uint()

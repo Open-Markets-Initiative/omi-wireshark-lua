@@ -677,11 +677,11 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.unit_sequence_index = Pro
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cboe_edgxoptions_binaryorderentry_boe_v2_10.timestamp_format = 2
 
 
@@ -5566,7 +5566,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_1.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_1, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5589,7 +5589,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_12.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_12, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5612,7 +5612,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_15.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_15.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_15, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_15, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5635,7 +5635,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_17.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_17.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_17, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_17, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5658,7 +5658,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_2.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5681,7 +5681,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_3.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_3, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5704,7 +5704,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_4.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_4, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5727,7 +5727,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_6.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgxoptions_binaryorderentry_boe_v2_10.reserved_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_6, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_10.fields.reserved_6, range, range:raw(), display)
 
   return offset + length, value
 end

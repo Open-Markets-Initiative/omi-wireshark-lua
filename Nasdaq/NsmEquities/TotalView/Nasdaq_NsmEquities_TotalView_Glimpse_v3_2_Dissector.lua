@@ -80,7 +80,8 @@ omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.unsequenced_data_packet = P
 -- Nasdaq NsmEquities TotalView Glimpse 3.2 Expert Info
 nasdaq_nsmequities_totalview_glimpse_v3_2.experts = {}
 nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.totalview.glimpse.v3.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_nasdaq_nsmequities_totalview_glimpse_v3_2.experts = { nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number }
+nasdaq_nsmequities_totalview_glimpse_v3_2.experts.undecoded = ProtoExpert.new("nasdaq.nsmequities.totalview.glimpse.v3.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.experts = { nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, nasdaq_nsmequities_totalview_glimpse_v3_2.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView Glimpse 3.2 Formatting
@@ -90,11 +91,11 @@ omi_nasdaq_nsmequities_totalview_glimpse_v3_2.experts = { nasdaq_nsmequities_tot
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nasdaq_nsmequities_totalview_glimpse_v3_2.timestamp_format = 2
 
 -- assumed connection role
@@ -196,6 +197,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView Glimpse 3.2 Fields
 -----------------------------------------------------------------------
@@ -893,10 +902,8 @@ nasdaq_nsmequities_totalview_glimpse_v3_2.second.display = function(value, buffe
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = nasdaq_nsmequities_totalview_glimpse_v3_2.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S" or "%Y-%m-%d %H:%M:%S"
-      return "Second: "..os.date(format, midnight + seconds)
+      return "Second: "..os.date(format, settled + seconds)
     end
   end
 
@@ -995,7 +1002,7 @@ nasdaq_nsmequities_totalview_glimpse_v3_2.soup_lf.size = 1
 -- Display: Soup Lf
 nasdaq_nsmequities_totalview_glimpse_v3_2.soup_lf.display = function(value)
   if value == 10 then
-    return "Soup Lf: Line Feed"
+    return "Soup Lf: Line Feed (10)"
   end
 
   return "Soup Lf: Unknown("..value..")"
@@ -1099,7 +1106,7 @@ nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_message.dissect = function
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nsmequities_totalview_glimpse_v3_2.unsequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.unsequenced_message, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.unsequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1952,10 +1959,16 @@ end
 nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.dissect = function(buffer, offset, packet, parent, size_of_server_frame)
   local index = offset + size_of_server_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.server_frame, buffer(offset, 0))
-    local current = nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    local decoded, failure = pcall(nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.fields, bounded, offset, packet, parent, size_of_server_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_totalview_glimpse_v3_2.experts.undecoded, "Server Frame does not decode within its "..size_of_server_frame.." bytes")
+    end
     parent:set_len(size_of_server_frame)
     local display = nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1963,7 +1976,10 @@ nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.fields(buffer, offset, packet, parent, size_of_server_frame)
+    local decoded, failure = pcall(nasdaq_nsmequities_totalview_glimpse_v3_2.server_frame.fields, bounded, offset, packet, parent, size_of_server_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_totalview_glimpse_v3_2.experts.undecoded, "Server Frame does not decode within its "..size_of_server_frame.." bytes")
+    end
 
     return index
   end
@@ -2222,10 +2238,16 @@ end
 nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.dissect = function(buffer, offset, packet, parent, size_of_client_frame)
   local index = offset + size_of_client_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.client_frame, buffer(offset, 0))
-    local current = nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    local decoded, failure = pcall(nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.fields, bounded, offset, packet, parent, size_of_client_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_totalview_glimpse_v3_2.experts.undecoded, "Client Frame does not decode within its "..size_of_client_frame.." bytes")
+    end
     parent:set_len(size_of_client_frame)
     local display = nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2233,7 +2255,10 @@ nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.fields(buffer, offset, packet, parent, size_of_client_frame)
+    local decoded, failure = pcall(nasdaq_nsmequities_totalview_glimpse_v3_2.client_frame.fields, bounded, offset, packet, parent, size_of_client_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_totalview_glimpse_v3_2.experts.undecoded, "Client Frame does not decode within its "..size_of_client_frame.." bytes")
+    end
 
     return index
   end

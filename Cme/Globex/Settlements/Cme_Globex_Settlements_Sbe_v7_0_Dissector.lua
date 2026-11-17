@@ -76,7 +76,7 @@ omi_cme_globex_settlements_sbe_v7_0.fields.underlying_maturity_month_year = Prot
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_product_guid = ProtoField.new("Underlying Product Guid", "cme.globex.settlements.sbe.v7.0.underlyingproductguid", ftypes.UINT64)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "cme.globex.settlements.sbe.v7.0.underlyingsecurityexchange", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_security_type = ProtoField.new("Underlying Security Type", "cme.globex.settlements.sbe.v7.0.underlyingsecuritytype", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.unused_settl_price_type_6 = ProtoField.new("Unused Settl Price Type 6", "cme.globex.settlements.sbe.v7.0.unusedsettlpricetype6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Unused SettlPriceType 6")
+omi_cme_globex_settlements_sbe_v7_0.fields.unused_1 = ProtoField.new("Unused 1", "cme.globex.settlements.sbe.v7.0.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "1 unused bit")
 omi_cme_globex_settlements_sbe_v7_0.fields.version = ProtoField.new("Version", "cme.globex.settlements.sbe.v7.0.version", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.week = ProtoField.new("Week", "cme.globex.settlements.sbe.v7.0.week", ftypes.UINT8, nil, nil, nil, "WW")
 omi_cme_globex_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.globex.settlements.sbe.v7.0.year", ftypes.UINT16, nil, nil, nil, "YYYY")
@@ -91,8 +91,10 @@ omi_cme_globex_settlements_sbe_v7_0.fields.tcp_packet = ProtoField.new("Tcp Pack
 omi_cme_globex_settlements_sbe_v7_0.fields.technical_header = ProtoField.new("Technical Header", "cme.globex.settlements.sbe.v7.0.technicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header")
 omi_cme_globex_settlements_sbe_v7_0.fields.udp_packet = ProtoField.new("Udp Packet", "cme.globex.settlements.sbe.v7.0.udppacket", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet")
 
--- Cme Globex Settlements 7.0 Application Messages
+-- Cme Globex Settlements 7.0 Session Messages
 omi_cme_globex_settlements_sbe_v7_0.fields.admin_heartbeat = ProtoField.new("Admin Heartbeat", "cme.globex.settlements.sbe.v7.0.adminheartbeat", ftypes.BYTES, nil, nil, nil, "AdminHeartbeat")
+
+-- Cme Globex Settlements 7.0 Application Messages
 omi_cme_globex_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.globex.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING, nil, nil, nil, "MDIncrementalRefreshHighLow")
 omi_cme_globex_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.globex.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING, nil, nil, nil, "MDIncrementalRefreshSettle")
 omi_cme_globex_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.globex.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING, nil, nil, nil, "MDIncrementalRefreshVOI")
@@ -102,17 +104,22 @@ omi_cme_globex_settlements_sbe_v7_0.fields.incremental_refresh_high_low_group_in
 omi_cme_globex_settlements_sbe_v7_0.fields.incremental_refresh_settle_group_index = ProtoField.new("Incremental Refresh Settle Group Index", "cme.globex.settlements.sbe.v7.0.incrementalrefreshsettlegroupindex", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.incremental_refresh_voi_group_index = ProtoField.new("Incremental Refresh Voi Group Index", "cme.globex.settlements.sbe.v7.0.incrementalrefreshvoigroupindex", ftypes.UINT16)
 
+-- Cme Globex Settlements Sbe 7.0 Expert Info
+cme_globex_settlements_sbe_v7_0.experts = {}
+cme_globex_settlements_sbe_v7_0.experts.undecoded = ProtoExpert.new("cme.globex.settlements.sbe.v7.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cme_globex_settlements_sbe_v7_0.experts = { cme_globex_settlements_sbe_v7_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Cme Globex Settlements Sbe 7.0 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cme_globex_settlements_sbe_v7_0.timestamp_format = 2
 
 
@@ -163,6 +170,19 @@ function omi_cme_globex_settlements_sbe_v7_0.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cme Globex Settlements Sbe 7.0 Fields
 -----------------------------------------------------------------------
@@ -294,7 +314,7 @@ cme_globex_settlements_sbe_v7_0.encoding_type.size = 2
 -- Display: Encoding Type
 cme_globex_settlements_sbe_v7_0.encoding_type.display = function(value)
   if value == 51966 then
-    return "Encoding Type: Cme Sbe Message"
+    return "Encoding Type: Cme Sbe Message (51966)"
   end
 
   return "Encoding Type: Unknown("..value..")"
@@ -877,7 +897,7 @@ cme_globex_settlements_sbe_v7_0.schema_id.size = 2
 -- Display: Schema Id
 cme_globex_settlements_sbe_v7_0.schema_id.display = function(value)
   if value == 7 then
-    return "Schema Id: 7"
+    return "Schema Id: Svstreammktdata (7)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -2246,8 +2266,8 @@ cme_globex_settlements_sbe_v7_0.settl_price_type.bits = function(range, value, p
   -- Reserved Bits: 1 Bit
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.reserved_bits, range, value)
 
-  -- Unused Settl Price Type 6: 1 Bit
-  parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.unused_settl_price_type_6, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.unused_1, range, value)
 
   -- Null Value: 1 Bit
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.null_value, range, value)
@@ -2805,10 +2825,16 @@ end
 cme_globex_settlements_sbe_v7_0.tcp_frame.dissect = function(buffer, offset, packet, parent, size_of_tcp_frame)
   local index = offset + size_of_tcp_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.tcp_frame, buffer(offset, 0))
-    local current = cme_globex_settlements_sbe_v7_0.tcp_frame.fields(buffer, offset, packet, parent, size_of_tcp_frame)
+    local decoded, failure = pcall(cme_globex_settlements_sbe_v7_0.tcp_frame.fields, bounded, offset, packet, parent, size_of_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_settlements_sbe_v7_0.experts.undecoded, "Tcp Frame does not decode within its "..size_of_tcp_frame.." bytes")
+    end
     parent:set_len(size_of_tcp_frame)
     local display = cme_globex_settlements_sbe_v7_0.tcp_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2816,7 +2842,10 @@ cme_globex_settlements_sbe_v7_0.tcp_frame.dissect = function(buffer, offset, pac
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_settlements_sbe_v7_0.tcp_frame.fields(buffer, offset, packet, parent, size_of_tcp_frame)
+    local decoded, failure = pcall(cme_globex_settlements_sbe_v7_0.tcp_frame.fields, bounded, offset, packet, parent, size_of_tcp_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_settlements_sbe_v7_0.experts.undecoded, "Tcp Frame does not decode within its "..size_of_tcp_frame.." bytes")
+    end
 
     return index
   end
@@ -2909,10 +2938,16 @@ end
 cme_globex_settlements_sbe_v7_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.message, buffer(offset, 0))
-    local current = cme_globex_settlements_sbe_v7_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_settlements_sbe_v7_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_settlements_sbe_v7_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = cme_globex_settlements_sbe_v7_0.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2920,7 +2955,10 @@ cme_globex_settlements_sbe_v7_0.message.dissect = function(buffer, offset, packe
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_globex_settlements_sbe_v7_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_settlements_sbe_v7_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, cme_globex_settlements_sbe_v7_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -2992,6 +3030,12 @@ cme_globex_settlements_sbe_v7_0.udp_packet.dissect = function(buffer, packet, pa
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(cme_globex_settlements_sbe_v7_0.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()

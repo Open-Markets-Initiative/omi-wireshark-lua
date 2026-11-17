@@ -111,17 +111,22 @@ omi_lseg_turquoise_level1_gtp_v24_4.fields.trade_message = ProtoField.new("Trade
 -- Lseg Turquoise Level1 Gtp 24.4 Generated Fields
 omi_lseg_turquoise_level1_gtp_v24_4.fields.message_index = ProtoField.new("Message Index", "lseg.turquoise.level1.gtp.v24.4.messageindex", ftypes.UINT16)
 
+-- Lseg Turquoise Level1 Gtp 24.4 Expert Info
+lseg_turquoise_level1_gtp_v24_4.experts = {}
+lseg_turquoise_level1_gtp_v24_4.experts.undecoded = ProtoExpert.new("lseg.turquoise.level1.gtp.v24.4.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_lseg_turquoise_level1_gtp_v24_4.experts = { lseg_turquoise_level1_gtp_v24_4.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Lseg Turquoise Level1 Gtp 24.4 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 lseg_turquoise_level1_gtp_v24_4.timestamp_format = 2
 
 
@@ -188,6 +193,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Lseg Turquoise Level1 Gtp 24.4 Fields
 -----------------------------------------------------------------------
@@ -1129,7 +1142,7 @@ lseg_turquoise_level1_gtp_v24_4.reserved_1.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level1_gtp_v24_4.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_1, range, value, display)
+  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1152,7 +1165,7 @@ lseg_turquoise_level1_gtp_v24_4.reserved_11.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level1_gtp_v24_4.reserved_11.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_11, range, value, display)
+  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_11, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1175,7 +1188,7 @@ lseg_turquoise_level1_gtp_v24_4.reserved_12.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level1_gtp_v24_4.reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_12, range, value, display)
+  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1198,7 +1211,7 @@ lseg_turquoise_level1_gtp_v24_4.reserved_4.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level1_gtp_v24_4.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_4, range, value, display)
+  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1221,7 +1234,7 @@ lseg_turquoise_level1_gtp_v24_4.reserved_8.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level1_gtp_v24_4.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_8, range, value, display)
+  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1244,7 +1257,7 @@ lseg_turquoise_level1_gtp_v24_4.second_reserved_1.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level1_gtp_v24_4.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.second_reserved_1, range, value, display)
+  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1267,7 +1280,7 @@ lseg_turquoise_level1_gtp_v24_4.second_reserved_8.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level1_gtp_v24_4.second_reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.second_reserved_8, range, value, display)
+  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.second_reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1526,7 +1539,7 @@ lseg_turquoise_level1_gtp_v24_4.third_reserved_8.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = lseg_turquoise_level1_gtp_v24_4.third_reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.third_reserved_8, range, value, display)
+  parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.third_reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2995,10 +3008,16 @@ end
 lseg_turquoise_level1_gtp_v24_4.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_lseg_turquoise_level1_gtp_v24_4.fields.message, buffer(offset, 0))
-    local current = lseg_turquoise_level1_gtp_v24_4.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(lseg_turquoise_level1_gtp_v24_4.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, lseg_turquoise_level1_gtp_v24_4.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = lseg_turquoise_level1_gtp_v24_4.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3006,7 +3025,10 @@ lseg_turquoise_level1_gtp_v24_4.message.dissect = function(buffer, offset, packe
     return index, parent
   else
     -- Skip element, add fields directly
-    lseg_turquoise_level1_gtp_v24_4.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(lseg_turquoise_level1_gtp_v24_4.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, lseg_turquoise_level1_gtp_v24_4.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -3086,6 +3108,12 @@ lseg_turquoise_level1_gtp_v24_4.packet.dissect = function(buffer, packet, parent
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(lseg_turquoise_level1_gtp_v24_4.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):le_uint()

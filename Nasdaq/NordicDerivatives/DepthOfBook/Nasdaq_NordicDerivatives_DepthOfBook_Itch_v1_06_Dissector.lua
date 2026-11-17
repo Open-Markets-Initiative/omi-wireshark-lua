@@ -126,11 +126,11 @@ omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.timestamp = ProtoFiel
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.timestamp_format = 2
 
 
@@ -816,7 +816,7 @@ nasdaq_nordicderivatives_depthofbook_itch_v1_06.match_id.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.match_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.match_id, range, value, display)
+  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.match_id, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1354,7 +1354,7 @@ nasdaq_nordicderivatives_depthofbook_itch_v1_06.reserved_4_a.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.reserved_4_a.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_4_a, range, value, display)
+  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_4_a, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1377,7 +1377,7 @@ nasdaq_nordicderivatives_depthofbook_itch_v1_06.reserved_4_b.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.reserved_4_b.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_4_b, range, value, display)
+  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_4_b, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1400,7 +1400,7 @@ nasdaq_nordicderivatives_depthofbook_itch_v1_06.reserved_8_a.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.reserved_8_a.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_8_a, range, value, display)
+  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_8_a, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1423,7 +1423,7 @@ nasdaq_nordicderivatives_depthofbook_itch_v1_06.reserved_8_b.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nordicderivatives_depthofbook_itch_v1_06.reserved_8_b.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_8_b, range, value, display)
+  parent:add(omi_nasdaq_nordicderivatives_depthofbook_itch_v1_06.fields.reserved_8_b, range, range:raw(), display)
 
   return offset + length, value
 end

@@ -214,11 +214,11 @@ omi_nasdaq_utp_input_utp_v4_0.experts = { nasdaq_utp_input_utp_v4_0.experts.not_
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nasdaq_utp_input_utp_v4_0.timestamp_format = 2
 
 -- assumed connection role
@@ -3045,7 +3045,8 @@ nasdaq_utp_input_utp_v4_0.debug_packet.size = function(buffer, offset)
   local index = 0
 
   -- Parse runtime size of: Debug Text
-  index = index + buffer(offset + index - 3, 2):uint()
+  local packet_length = buffer(offset + index - 3, 2):uint()
+  index = index + packet_length - 1
 
   return index
 end
@@ -7126,7 +7127,8 @@ nasdaq_utp_input_utp_v4_0.sequenced_data_packet.size = function(buffer, offset)
   index = index + nasdaq_utp_input_utp_v4_0.message_header.size
 
   -- Parse runtime size of: Category Payload
-  index = index + buffer(offset + index - 5, 2):uint()
+  local packet_length = buffer(offset + index - 5, 2):uint()
+  index = index + packet_length - 3
 
   return index
 end
@@ -7363,7 +7365,8 @@ nasdaq_utp_input_utp_v4_0.unsequenced_data_packet.size = function(buffer, offset
   index = index + nasdaq_utp_input_utp_v4_0.message_header.size
 
   -- Parse runtime size of: Category Payload
-  index = index + buffer(offset + index - 5, 2):uint()
+  local packet_length = buffer(offset + index - 5, 2):uint()
+  index = index + packet_length - 3
 
   return index
 end

@@ -127,6 +127,11 @@ omi_lseg_millennium_level2replay_mitch_v11_9.fields.trade_message = ProtoField.n
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.level2replay.mitch.v11.9.messageindex", ftypes.UINT16)
 omi_lseg_millennium_level2replay_mitch_v11_9.fields.timestamp = ProtoField.new("Timestamp", "lseg.millennium.level2replay.mitch.v11.9.timestamp", ftypes.UINT64)
 
+-- Lseg Millennium Level2Replay Mitch 11.9 Expert Info
+lseg_millennium_level2replay_mitch_v11_9.experts = {}
+lseg_millennium_level2replay_mitch_v11_9.experts.undecoded = ProtoExpert.new("lseg.millennium.level2replay.mitch.v11.9.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_lseg_millennium_level2replay_mitch_v11_9.experts = { lseg_millennium_level2replay_mitch_v11_9.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Lseg Millennium Level2Replay Mitch 11.9 Formatting
 -----------------------------------------------------------------------
@@ -135,11 +140,11 @@ omi_lseg_millennium_level2replay_mitch_v11_9.fields.timestamp = ProtoField.new("
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 lseg_millennium_level2replay_mitch_v11_9.timestamp_format = 2
 
 
@@ -236,6 +241,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Lseg Millennium Level2Replay Mitch 11.9 Fields
 -----------------------------------------------------------------------
@@ -1200,7 +1213,7 @@ lseg_millennium_level2replay_mitch_v11_9.reserved_1.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2replay_mitch_v11_9.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_1, range, value, display)
+  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1223,7 +1236,7 @@ lseg_millennium_level2replay_mitch_v11_9.reserved_10.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2replay_mitch_v11_9.reserved_10.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_10, range, value, display)
+  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_10, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1246,7 +1259,7 @@ lseg_millennium_level2replay_mitch_v11_9.reserved_4.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2replay_mitch_v11_9.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_4, range, value, display)
+  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1269,7 +1282,7 @@ lseg_millennium_level2replay_mitch_v11_9.reserved_a.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2replay_mitch_v11_9.reserved_a.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_a, range, value, display)
+  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_a, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1292,7 +1305,7 @@ lseg_millennium_level2replay_mitch_v11_9.reserved_b.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2replay_mitch_v11_9.reserved_b.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_b, range, value, display)
+  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_b, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1315,7 +1328,7 @@ lseg_millennium_level2replay_mitch_v11_9.reserved_byte.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_level2replay_mitch_v11_9.reserved_byte.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_byte, range, value, display)
+  parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.reserved_byte, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1807,10 +1820,8 @@ lseg_millennium_level2replay_mitch_v11_9.timestamp.display = function(nanosecond
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = lseg_millennium_level2replay_mitch_v11_9.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", fraction)
     end
   end
 
@@ -3759,10 +3770,16 @@ end
 lseg_millennium_level2replay_mitch_v11_9.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.message, buffer(offset, 0))
-    local current = lseg_millennium_level2replay_mitch_v11_9.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(lseg_millennium_level2replay_mitch_v11_9.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, lseg_millennium_level2replay_mitch_v11_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = lseg_millennium_level2replay_mitch_v11_9.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3770,7 +3787,10 @@ lseg_millennium_level2replay_mitch_v11_9.message.dissect = function(buffer, offs
     return index, parent
   else
     -- Skip element, add fields directly
-    lseg_millennium_level2replay_mitch_v11_9.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(lseg_millennium_level2replay_mitch_v11_9.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, lseg_millennium_level2replay_mitch_v11_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -3851,6 +3871,12 @@ lseg_millennium_level2replay_mitch_v11_9.tcp_unit.fields = function(buffer, offs
   while index < end_of_payload do
     message_index = message_index + 1
 
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(lseg_millennium_level2replay_mitch_v11_9.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
+
     -- Dependency element: Message Length
     local message_length = buffer(index, 1):uint()
 
@@ -3865,10 +3891,16 @@ end
 lseg_millennium_level2replay_mitch_v11_9.tcp_unit.dissect = function(buffer, offset, packet, parent, size_of_tcp_unit)
   local index = offset + size_of_tcp_unit
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_lseg_millennium_level2replay_mitch_v11_9.fields.tcp_unit, buffer(offset, 0))
-    local current = lseg_millennium_level2replay_mitch_v11_9.tcp_unit.fields(buffer, offset, packet, parent, size_of_tcp_unit)
+    local decoded, failure = pcall(lseg_millennium_level2replay_mitch_v11_9.tcp_unit.fields, bounded, offset, packet, parent, size_of_tcp_unit)
+    if not decoded then
+      undecoded(failure, parent, lseg_millennium_level2replay_mitch_v11_9.experts.undecoded, "Tcp Unit does not decode within its "..size_of_tcp_unit.." bytes")
+    end
     parent:set_len(size_of_tcp_unit)
     local display = lseg_millennium_level2replay_mitch_v11_9.tcp_unit.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3876,7 +3908,10 @@ lseg_millennium_level2replay_mitch_v11_9.tcp_unit.dissect = function(buffer, off
     return index, parent
   else
     -- Skip element, add fields directly
-    lseg_millennium_level2replay_mitch_v11_9.tcp_unit.fields(buffer, offset, packet, parent, size_of_tcp_unit)
+    local decoded, failure = pcall(lseg_millennium_level2replay_mitch_v11_9.tcp_unit.fields, bounded, offset, packet, parent, size_of_tcp_unit)
+    if not decoded then
+      undecoded(failure, parent, lseg_millennium_level2replay_mitch_v11_9.experts.undecoded, "Tcp Unit does not decode within its "..size_of_tcp_unit.." bytes")
+    end
 
     return index
   end

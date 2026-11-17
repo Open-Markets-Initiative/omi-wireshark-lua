@@ -422,17 +422,22 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_event_grp_comp_index = ProtoField.
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.quote_leg_exec_grp_comp_index = ProtoField.new("Quote Leg Exec Grp Comp Index", "bse.bseindia.eti.fbe.v1.6.14.quotelegexecgrpcompindex", ftypes.UINT16)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.sessions_grp_comp_index = ProtoField.new("Sessions Grp Comp Index", "bse.bseindia.eti.fbe.v1.6.14.sessionsgrpcompindex", ftypes.UINT16)
 
+-- Bse BseIndia Eti Fbe 1.6.14 Expert Info
+bse_bseindia_eti_fbe_v1_6_14.experts = {}
+bse_bseindia_eti_fbe_v1_6_14.experts.undecoded = ProtoExpert.new("bse.bseindia.eti.fbe.v1.6.14.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_bse_bseindia_eti_fbe_v1_6_14.experts = { bse_bseindia_eti_fbe_v1_6_14.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Bse BseIndia Eti Fbe 1.6.14 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 bse_bseindia_eti_fbe_v1_6_14.timestamp_format = 2
 
 -- assumed connection role
@@ -514,6 +519,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Bse BseIndia Eti Fbe 1.6.14 Fields
 -----------------------------------------------------------------------
@@ -739,7 +752,7 @@ bse_bseindia_eti_fbe_v1_6_14.alignment_padding.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.alignment_padding.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.alignment_padding, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.alignment_padding, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -805,7 +818,7 @@ bse_bseindia_eti_fbe_v1_6_14.appl_beg_msg_id.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.appl_beg_msg_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_beg_msg_id, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_beg_msg_id, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -856,7 +869,7 @@ bse_bseindia_eti_fbe_v1_6_14.appl_end_msg_id.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.appl_end_msg_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_end_msg_id, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_end_msg_id, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -988,7 +1001,7 @@ bse_bseindia_eti_fbe_v1_6_14.appl_msg_id.dissect = function(buffer, offset, pack
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.appl_msg_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_msg_id, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.appl_msg_id, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2660,7 +2673,7 @@ bse_bseindia_eti_fbe_v1_6_14.filler1.dissect = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.filler1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler1, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2683,7 +2696,7 @@ bse_bseindia_eti_fbe_v1_6_14.filler2.dissect = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.filler2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler2, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2706,7 +2719,7 @@ bse_bseindia_eti_fbe_v1_6_14.filler3.dissect = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.filler3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler3, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2729,7 +2742,7 @@ bse_bseindia_eti_fbe_v1_6_14.filler4.dissect = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.filler4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler4, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2752,7 +2765,7 @@ bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect = function(buffer, offset, packet
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.filler4v2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler4v2, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler4v2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5123,7 +5136,7 @@ bse_bseindia_eti_fbe_v1_6_14.pad1.dissect = function(buffer, offset, packet, par
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.pad1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad1, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5146,7 +5159,7 @@ bse_bseindia_eti_fbe_v1_6_14.pad2.dissect = function(buffer, offset, packet, par
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.pad2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad2, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5169,7 +5182,7 @@ bse_bseindia_eti_fbe_v1_6_14.pad2v2.dissect = function(buffer, offset, packet, p
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.pad2v2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad2v2, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad2v2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5192,7 +5205,7 @@ bse_bseindia_eti_fbe_v1_6_14.pad3.dissect = function(buffer, offset, packet, par
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.pad3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad3, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5215,7 +5228,7 @@ bse_bseindia_eti_fbe_v1_6_14.pad4.dissect = function(buffer, offset, packet, par
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.pad4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad4, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5238,7 +5251,7 @@ bse_bseindia_eti_fbe_v1_6_14.pad5.dissect = function(buffer, offset, packet, par
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.pad5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad5, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5261,7 +5274,7 @@ bse_bseindia_eti_fbe_v1_6_14.pad6.dissect = function(buffer, offset, packet, par
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.pad6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad6, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5284,7 +5297,7 @@ bse_bseindia_eti_fbe_v1_6_14.pad7.dissect = function(buffer, offset, packet, par
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.pad7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad7, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.pad7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6540,7 +6553,7 @@ bse_bseindia_eti_fbe_v1_6_14.ref_appl_last_msg_id.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = bse_bseindia_eti_fbe_v1_6_14.ref_appl_last_msg_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.ref_appl_last_msg_id, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.ref_appl_last_msg_id, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -16072,10 +16085,16 @@ end
 bse_bseindia_eti_fbe_v1_6_14.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
   local index = offset + size_of_server_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.server_message, buffer(offset, 0))
-    local current = bse_bseindia_eti_fbe_v1_6_14.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(bse_bseindia_eti_fbe_v1_6_14.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, bse_bseindia_eti_fbe_v1_6_14.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
     parent:set_len(size_of_server_message)
     local display = bse_bseindia_eti_fbe_v1_6_14.server_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -16083,7 +16102,10 @@ bse_bseindia_eti_fbe_v1_6_14.server_message.dissect = function(buffer, offset, p
     return index, parent
   else
     -- Skip element, add fields directly
-    bse_bseindia_eti_fbe_v1_6_14.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(bse_bseindia_eti_fbe_v1_6_14.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, bse_bseindia_eti_fbe_v1_6_14.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
 
     return index
   end
@@ -19138,10 +19160,16 @@ end
 bse_bseindia_eti_fbe_v1_6_14.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message)
   local index = offset + size_of_client_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.client_message, buffer(offset, 0))
-    local current = bse_bseindia_eti_fbe_v1_6_14.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    local decoded, failure = pcall(bse_bseindia_eti_fbe_v1_6_14.client_message.fields, bounded, offset, packet, parent, size_of_client_message)
+    if not decoded then
+      undecoded(failure, parent, bse_bseindia_eti_fbe_v1_6_14.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
     parent:set_len(size_of_client_message)
     local display = bse_bseindia_eti_fbe_v1_6_14.client_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -19149,7 +19177,10 @@ bse_bseindia_eti_fbe_v1_6_14.client_message.dissect = function(buffer, offset, p
     return index, parent
   else
     -- Skip element, add fields directly
-    bse_bseindia_eti_fbe_v1_6_14.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    local decoded, failure = pcall(bse_bseindia_eti_fbe_v1_6_14.client_message.fields, bounded, offset, packet, parent, size_of_client_message)
+    if not decoded then
+      undecoded(failure, parent, bse_bseindia_eti_fbe_v1_6_14.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
 
     return index
   end

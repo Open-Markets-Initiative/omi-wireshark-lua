@@ -32,7 +32,7 @@ runuser -u tester -- tshark \
   > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LoggedOutMessage.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LoggedOutMessage.json.stderr \
   || { echo "--- tshark FAILED (LoggedOutMessage) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LoggedOutMessage.json.stderr; exit 1; }
 
-grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.reason" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LoggedOutMessage.json
+grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.4.logoutreason" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.4.LoggedOutMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.4/LogonConfMessage.pcap" \
   -X "lua_script:Coinbase/CoinbaseDerivatives/OrdersApi/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_4_Dissector.lua" \

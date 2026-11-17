@@ -56,7 +56,8 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.auction_update_message =
 -- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Expert Info
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts = {}
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number = ProtoExpert.new("cboe.bxeequities.auctionfeed.asciipitch.v1.4.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts = { cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number }
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.undecoded = ProtoExpert.new("cboe.bxeequities.auctionfeed.asciipitch.v1.4.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts = { cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.not_a_number, cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Formatting
@@ -66,11 +67,12 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts = { cboe_bxeequities_au
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime Europe/London", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp_format = 2
 
 
@@ -209,6 +211,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cboe BxeEquities AuctionFeed AsciiPitch 1.4 Fields
 -----------------------------------------------------------------------
@@ -668,7 +678,7 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.soup_lf.size = 1
 -- Display: Soup Lf
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.soup_lf.display = function(value)
   if value == 10 then
-    return "Soup Lf: Line Feed"
+    return "Soup Lf: Line Feed (10)"
   end
 
   return "Soup Lf: Unknown("..value..")"
@@ -765,10 +775,15 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp.display = function(value,
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." Europe/London"
+      end
 
       local format = cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -810,7 +825,7 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.unsequenced_message.dissect = funct
   local value = range:bytes():tohex(false, " ")
   local display = cboe_bxeequities_auctionfeed_asciipitch_v1_4.unsequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.unsequenced_message, range, value, display)
+  parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.unsequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1354,10 +1369,16 @@ end
 cboe_bxeequities_auctionfeed_asciipitch_v1_4.frame.dissect = function(buffer, offset, packet, parent, size_of_frame)
   local index = offset + size_of_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.fields.frame, buffer(offset, 0))
-    local current = cboe_bxeequities_auctionfeed_asciipitch_v1_4.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    local decoded, failure = pcall(cboe_bxeequities_auctionfeed_asciipitch_v1_4.frame.fields, bounded, offset, packet, parent, size_of_frame)
+    if not decoded then
+      undecoded(failure, parent, cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.undecoded, "Frame does not decode within its "..size_of_frame.." bytes")
+    end
     parent:set_len(size_of_frame)
     local display = cboe_bxeequities_auctionfeed_asciipitch_v1_4.frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1365,7 +1386,10 @@ cboe_bxeequities_auctionfeed_asciipitch_v1_4.frame.dissect = function(buffer, of
     return index, parent
   else
     -- Skip element, add fields directly
-    cboe_bxeequities_auctionfeed_asciipitch_v1_4.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    local decoded, failure = pcall(cboe_bxeequities_auctionfeed_asciipitch_v1_4.frame.fields, bounded, offset, packet, parent, size_of_frame)
+    if not decoded then
+      undecoded(failure, parent, cboe_bxeequities_auctionfeed_asciipitch_v1_4.experts.undecoded, "Frame does not decode within its "..size_of_frame.." bytes")
+    end
 
     return index
   end

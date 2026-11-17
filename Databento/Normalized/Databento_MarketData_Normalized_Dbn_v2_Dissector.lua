@@ -241,17 +241,22 @@ omi_databento_marketdata_normalized_dbn_v2.fields.partial_symbol_index = ProtoFi
 omi_databento_marketdata_normalized_dbn_v2.fields.symbol_index = ProtoField.new("Symbol Index", "databento.marketdata.normalized.dbn.v2.symbolindex", ftypes.UINT16)
 omi_databento_marketdata_normalized_dbn_v2.fields.symbol_mapping_index = ProtoField.new("Symbol Mapping Index", "databento.marketdata.normalized.dbn.v2.symbolmappingindex", ftypes.UINT16)
 
+-- Databento MarketData Normalized Dbn 2 Expert Info
+databento_marketdata_normalized_dbn_v2.experts = {}
+databento_marketdata_normalized_dbn_v2.experts.undecoded = ProtoExpert.new("databento.marketdata.normalized.dbn.v2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_databento_marketdata_normalized_dbn_v2.experts = { databento_marketdata_normalized_dbn_v2.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Databento MarketData Normalized Dbn 2 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 databento_marketdata_normalized_dbn_v2.timestamp_format = 2
 
 -- assumed connection role
@@ -377,6 +382,19 @@ end
 
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Databento MarketData Normalized Dbn 2 Fields
 -----------------------------------------------------------------------
@@ -2567,7 +2585,7 @@ databento_marketdata_normalized_dbn_v2.metadata_padding.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.metadata_padding.display(value, packet, parent, size)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.metadata_padding, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.metadata_padding, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -2590,7 +2608,7 @@ databento_marketdata_normalized_dbn_v2.metadata_reserved.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.metadata_reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.metadata_reserved, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.metadata_reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3392,7 +3410,7 @@ databento_marketdata_normalized_dbn_v2.reserved_1.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_1, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3415,7 +3433,7 @@ databento_marketdata_normalized_dbn_v2.reserved_10.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.reserved_10.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_10, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_10, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3438,7 +3456,7 @@ databento_marketdata_normalized_dbn_v2.reserved_2.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_2, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3461,7 +3479,7 @@ databento_marketdata_normalized_dbn_v2.reserved_4.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_4, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3484,7 +3502,7 @@ databento_marketdata_normalized_dbn_v2.reserved_6.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.reserved_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_6, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3507,7 +3525,7 @@ databento_marketdata_normalized_dbn_v2.reserved_7.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.reserved_7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_7, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3530,7 +3548,7 @@ databento_marketdata_normalized_dbn_v2.reserved_8.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_8, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3685,7 +3703,7 @@ databento_marketdata_normalized_dbn_v2.schema_definition.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.schema_definition.display(value, packet, parent, size)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.schema_definition, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.schema_definition, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -3731,7 +3749,7 @@ databento_marketdata_normalized_dbn_v2.second_reserved_1.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.second_reserved_1, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3754,7 +3772,7 @@ databento_marketdata_normalized_dbn_v2.second_reserved_2.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = databento_marketdata_normalized_dbn_v2.second_reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.second_reserved_2, range, value, display)
+  parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.second_reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5437,10 +5455,16 @@ end
 databento_marketdata_normalized_dbn_v2.control_message.dissect = function(buffer, offset, packet, parent, size_of_control_message)
   local index = offset + size_of_control_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.control_message, buffer(offset, 0))
-    local current = databento_marketdata_normalized_dbn_v2.control_message.fields(buffer, offset, packet, parent, size_of_control_message)
+    local decoded, failure = pcall(databento_marketdata_normalized_dbn_v2.control_message.fields, bounded, offset, packet, parent, size_of_control_message)
+    if not decoded then
+      undecoded(failure, parent, databento_marketdata_normalized_dbn_v2.experts.undecoded, "Control Message does not decode within its "..size_of_control_message.." bytes")
+    end
     parent:set_len(size_of_control_message)
     local display = databento_marketdata_normalized_dbn_v2.control_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5448,7 +5472,10 @@ databento_marketdata_normalized_dbn_v2.control_message.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    databento_marketdata_normalized_dbn_v2.control_message.fields(buffer, offset, packet, parent, size_of_control_message)
+    local decoded, failure = pcall(databento_marketdata_normalized_dbn_v2.control_message.fields, bounded, offset, packet, parent, size_of_control_message)
+    if not decoded then
+      undecoded(failure, parent, databento_marketdata_normalized_dbn_v2.experts.undecoded, "Control Message does not decode within its "..size_of_control_message.." bytes")
+    end
 
     return index
   end
@@ -7203,10 +7230,16 @@ end
 databento_marketdata_normalized_dbn_v2.record.dissect = function(buffer, offset, packet, parent, size_of_record)
   local index = offset + size_of_record
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.record, buffer(offset, 0))
-    local current = databento_marketdata_normalized_dbn_v2.record.fields(buffer, offset, packet, parent, size_of_record)
+    local decoded, failure = pcall(databento_marketdata_normalized_dbn_v2.record.fields, bounded, offset, packet, parent, size_of_record)
+    if not decoded then
+      undecoded(failure, parent, databento_marketdata_normalized_dbn_v2.experts.undecoded, "Record does not decode within its "..size_of_record.." bytes")
+    end
     parent:set_len(size_of_record)
     local display = databento_marketdata_normalized_dbn_v2.record.display(buffer, packet, parent)
     parent:append_text(display)
@@ -7214,7 +7247,10 @@ databento_marketdata_normalized_dbn_v2.record.dissect = function(buffer, offset,
     return index, parent
   else
     -- Skip element, add fields directly
-    databento_marketdata_normalized_dbn_v2.record.fields(buffer, offset, packet, parent, size_of_record)
+    local decoded, failure = pcall(databento_marketdata_normalized_dbn_v2.record.fields, bounded, offset, packet, parent, size_of_record)
+    if not decoded then
+      undecoded(failure, parent, databento_marketdata_normalized_dbn_v2.experts.undecoded, "Record does not decode within its "..size_of_record.." bytes")
+    end
 
     return index
   end
@@ -7473,10 +7509,16 @@ end
 databento_marketdata_normalized_dbn_v2.metadata.dissect = function(buffer, offset, packet, parent, size_of_metadata)
   local index = offset + size_of_metadata
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_databento_marketdata_normalized_dbn_v2.fields.metadata, buffer(offset, 0))
-    local current = databento_marketdata_normalized_dbn_v2.metadata.fields(buffer, offset, packet, parent, size_of_metadata)
+    local decoded, failure = pcall(databento_marketdata_normalized_dbn_v2.metadata.fields, bounded, offset, packet, parent, size_of_metadata)
+    if not decoded then
+      undecoded(failure, parent, databento_marketdata_normalized_dbn_v2.experts.undecoded, "Metadata does not decode within its "..size_of_metadata.." bytes")
+    end
     parent:set_len(size_of_metadata)
     local display = databento_marketdata_normalized_dbn_v2.metadata.display(buffer, packet, parent)
     parent:append_text(display)
@@ -7484,7 +7526,10 @@ databento_marketdata_normalized_dbn_v2.metadata.dissect = function(buffer, offse
     return index, parent
   else
     -- Skip element, add fields directly
-    databento_marketdata_normalized_dbn_v2.metadata.fields(buffer, offset, packet, parent, size_of_metadata)
+    local decoded, failure = pcall(databento_marketdata_normalized_dbn_v2.metadata.fields, bounded, offset, packet, parent, size_of_metadata)
+    if not decoded then
+      undecoded(failure, parent, databento_marketdata_normalized_dbn_v2.experts.undecoded, "Metadata does not decode within its "..size_of_metadata.." bytes")
+    end
 
     return index
   end

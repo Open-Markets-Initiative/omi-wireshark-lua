@@ -88,11 +88,11 @@ omi_cboe_edgaequities_summarydepth_csdp_v1_0_9.fields.message_sequence_number = 
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cboe_edgaequities_summarydepth_csdp_v1_0_9.timestamp_format = 2
 
 
@@ -657,7 +657,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_9.reserved_1.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_9.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_9.fields.reserved_1, range, value, display)
+  parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_9.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -680,7 +680,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_9.reserved_8.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_9.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_9.fields.reserved_8, range, value, display)
+  parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_9.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -807,7 +807,7 @@ cboe_edgaequities_summarydepth_csdp_v1_0_9.spare_reserved_1.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = cboe_edgaequities_summarydepth_csdp_v1_0_9.spare_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_9.fields.spare_reserved_1, range, value, display)
+  parent:add(omi_cboe_edgaequities_summarydepth_csdp_v1_0_9.fields.spare_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end

@@ -377,17 +377,22 @@ omi_cme_ebs_ilink3_sbe_v8_7.fields.trade_addendum_legs_group_index = ProtoField.
 omi_cme_ebs_ilink3_sbe_v8_7.fields.trade_legs_group_index = ProtoField.new("Trade Legs Group Index", "cme.ebs.ilink3.sbe.v8.7.tradelegsgroupindex", ftypes.UINT16)
 omi_cme_ebs_ilink3_sbe_v8_7.fields.trd_reg_publications_group_index = ProtoField.new("Trd Reg Publications Group Index", "cme.ebs.ilink3.sbe.v8.7.trdregpublicationsgroupindex", ftypes.UINT16)
 
+-- Cme Ebs iLink3 Sbe 8.7 Expert Info
+cme_ebs_ilink3_sbe_v8_7.experts = {}
+cme_ebs_ilink3_sbe_v8_7.experts.undecoded = ProtoExpert.new("cme.ebs.ilink3.sbe.v8.7.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cme_ebs_ilink3_sbe_v8_7.experts = { cme_ebs_ilink3_sbe_v8_7.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Cme Ebs iLink3 Sbe 8.7 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cme_ebs_ilink3_sbe_v8_7.timestamp_format = 2
 
 -- assumed connection role
@@ -448,6 +453,19 @@ function omi_cme_ebs_ilink3_sbe_v8_7.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Cme Ebs iLink3 Sbe 8.7 Fields
 -----------------------------------------------------------------------
@@ -964,7 +982,7 @@ cme_ebs_ilink3_sbe_v8_7.credentials_data.dissect = function(buffer, offset, pack
   local value = range:bytes():tohex(false, " ")
   local display = cme_ebs_ilink3_sbe_v8_7.credentials_data.display(value, packet, parent, size)
 
-  parent:add(omi_cme_ebs_ilink3_sbe_v8_7.fields.credentials_data, range, value, display)
+  parent:add(omi_cme_ebs_ilink3_sbe_v8_7.fields.credentials_data, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1471,7 +1489,7 @@ cme_ebs_ilink3_sbe_v8_7.encoding_type.size = 2
 -- Display: Encoding Type
 cme_ebs_ilink3_sbe_v8_7.encoding_type.display = function(value)
   if value == 51966 then
-    return "Encoding Type: Cme Sbe Message"
+    return "Encoding Type: Cme Sbe Message (51966)"
   end
 
   return "Encoding Type: Unknown("..value..")"
@@ -2169,7 +2187,7 @@ cme_ebs_ilink3_sbe_v8_7.hmac_signature.dissect = function(buffer, offset, packet
   local value = range:bytes():tohex(false, " ")
   local display = cme_ebs_ilink3_sbe_v8_7.hmac_signature.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_ebs_ilink3_sbe_v8_7.fields.hmac_signature, range, value, display)
+  parent:add(omi_cme_ebs_ilink3_sbe_v8_7.fields.hmac_signature, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5407,7 +5425,7 @@ cme_ebs_ilink3_sbe_v8_7.schema_id.size = 2
 -- Display: Schema Id
 cme_ebs_ilink3_sbe_v8_7.schema_id.display = function(value)
   if value == 8 then
-    return "Schema Id: iLink3"
+    return "Schema Id: iLink3 (8)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -14040,10 +14058,16 @@ end
 cme_ebs_ilink3_sbe_v8_7.server_simple_open_frame.dissect = function(buffer, offset, packet, parent, size_of_server_simple_open_frame)
   local index = offset + size_of_server_simple_open_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_ebs_ilink3_sbe_v8_7.fields.server_simple_open_frame, buffer(offset, 0))
-    local current = cme_ebs_ilink3_sbe_v8_7.server_simple_open_frame.fields(buffer, offset, packet, parent, size_of_server_simple_open_frame)
+    local decoded, failure = pcall(cme_ebs_ilink3_sbe_v8_7.server_simple_open_frame.fields, bounded, offset, packet, parent, size_of_server_simple_open_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_ebs_ilink3_sbe_v8_7.experts.undecoded, "Server Simple Open Frame does not decode within its "..size_of_server_simple_open_frame.." bytes")
+    end
     parent:set_len(size_of_server_simple_open_frame)
     local display = cme_ebs_ilink3_sbe_v8_7.server_simple_open_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -14051,7 +14075,10 @@ cme_ebs_ilink3_sbe_v8_7.server_simple_open_frame.dissect = function(buffer, offs
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_ebs_ilink3_sbe_v8_7.server_simple_open_frame.fields(buffer, offset, packet, parent, size_of_server_simple_open_frame)
+    local decoded, failure = pcall(cme_ebs_ilink3_sbe_v8_7.server_simple_open_frame.fields, bounded, offset, packet, parent, size_of_server_simple_open_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_ebs_ilink3_sbe_v8_7.experts.undecoded, "Server Simple Open Frame does not decode within its "..size_of_server_simple_open_frame.." bytes")
+    end
 
     return index
   end
@@ -16384,10 +16411,16 @@ end
 cme_ebs_ilink3_sbe_v8_7.client_simple_open_frame.dissect = function(buffer, offset, packet, parent, size_of_client_simple_open_frame)
   local index = offset + size_of_client_simple_open_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cme_ebs_ilink3_sbe_v8_7.fields.client_simple_open_frame, buffer(offset, 0))
-    local current = cme_ebs_ilink3_sbe_v8_7.client_simple_open_frame.fields(buffer, offset, packet, parent, size_of_client_simple_open_frame)
+    local decoded, failure = pcall(cme_ebs_ilink3_sbe_v8_7.client_simple_open_frame.fields, bounded, offset, packet, parent, size_of_client_simple_open_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_ebs_ilink3_sbe_v8_7.experts.undecoded, "Client Simple Open Frame does not decode within its "..size_of_client_simple_open_frame.." bytes")
+    end
     parent:set_len(size_of_client_simple_open_frame)
     local display = cme_ebs_ilink3_sbe_v8_7.client_simple_open_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -16395,7 +16428,10 @@ cme_ebs_ilink3_sbe_v8_7.client_simple_open_frame.dissect = function(buffer, offs
     return index, parent
   else
     -- Skip element, add fields directly
-    cme_ebs_ilink3_sbe_v8_7.client_simple_open_frame.fields(buffer, offset, packet, parent, size_of_client_simple_open_frame)
+    local decoded, failure = pcall(cme_ebs_ilink3_sbe_v8_7.client_simple_open_frame.fields, bounded, offset, packet, parent, size_of_client_simple_open_frame)
+    if not decoded then
+      undecoded(failure, parent, cme_ebs_ilink3_sbe_v8_7.experts.undecoded, "Client Simple Open Frame does not decode within its "..size_of_client_simple_open_frame.." bytes")
+    end
 
     return index
   end

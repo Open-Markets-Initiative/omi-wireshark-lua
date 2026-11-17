@@ -126,7 +126,8 @@ omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.timestamp = ProtoField.new("
 -- Nasdaq NsmEquities TotalView Itch 4.0.f Expert Info
 nasdaq_nsmequities_totalview_itch_v4_0_f.experts = {}
 nasdaq_nsmequities_totalview_itch_v4_0_f.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.totalview.itch.v4.0.f.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_nasdaq_nsmequities_totalview_itch_v4_0_f.experts = { nasdaq_nsmequities_totalview_itch_v4_0_f.experts.not_a_number }
+nasdaq_nsmequities_totalview_itch_v4_0_f.experts.undecoded = ProtoExpert.new("nasdaq.nsmequities.totalview.itch.v4.0.f.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_nsmequities_totalview_itch_v4_0_f.experts = { nasdaq_nsmequities_totalview_itch_v4_0_f.experts.not_a_number, nasdaq_nsmequities_totalview_itch_v4_0_f.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView Itch 4.0.f Formatting
@@ -136,11 +137,11 @@ omi_nasdaq_nsmequities_totalview_itch_v4_0_f.experts = { nasdaq_nsmequities_tota
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nasdaq_nsmequities_totalview_itch_v4_0_f.timestamp_format = 2
 
 -- assumed connection role
@@ -292,6 +293,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities TotalView Itch 4.0.f Fields
 -----------------------------------------------------------------------
@@ -1572,7 +1581,7 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.reserved.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nsmequities_totalview_itch_v4_0_f.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.reserved, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1895,7 +1904,7 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.unsequenced_message.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_nsmequities_totalview_itch_v4_0_f.unsequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.unsequenced_message, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.unsequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1974,10 +1983,8 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.timestamp.display = function(nanosecond
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = nasdaq_nsmequities_totalview_itch_v4_0_f.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", fraction)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", fraction)
     end
   end
 
@@ -3504,7 +3511,8 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.debug_packet.size = function(buffer, of
   local index = 0
 
   -- Parse runtime size of: Debug Text
-  index = index + buffer(offset + index - 3, 2):uint()
+  local packet_length = buffer(offset + index - 3, 2):uint()
+  index = index + packet_length - 1
 
   return index
 end
@@ -3643,10 +3651,16 @@ end
 nasdaq_nsmequities_totalview_itch_v4_0_f.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset + size_of_server_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nasdaq_nsmequities_totalview_itch_v4_0_f.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_nsmequities_totalview_itch_v4_0_f.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_totalview_itch_v4_0_f.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_server_soup_bin_tcp_packet)
     local display = nasdaq_nsmequities_totalview_itch_v4_0_f.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3654,7 +3668,10 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.server_soup_bin_tcp_packet.dissect = fu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_totalview_itch_v4_0_f.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_nsmequities_totalview_itch_v4_0_f.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_totalview_itch_v4_0_f.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end
@@ -3968,10 +3985,16 @@ end
 nasdaq_nsmequities_totalview_itch_v4_0_f.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
   local index = offset + size_of_client_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_totalview_itch_v4_0_f.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nasdaq_nsmequities_totalview_itch_v4_0_f.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_nsmequities_totalview_itch_v4_0_f.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_totalview_itch_v4_0_f.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_client_soup_bin_tcp_packet)
     local display = nasdaq_nsmequities_totalview_itch_v4_0_f.client_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3979,7 +4002,10 @@ nasdaq_nsmequities_totalview_itch_v4_0_f.client_soup_bin_tcp_packet.dissect = fu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_totalview_itch_v4_0_f.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_nsmequities_totalview_itch_v4_0_f.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_totalview_itch_v4_0_f.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end

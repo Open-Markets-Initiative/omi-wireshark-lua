@@ -25,6 +25,11 @@ omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.message = ProtoField.new("Mess
 omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.message_header = ProtoField.new("Message Header", "aquis.aquisequities.tcpheader.amd.v1.0.messageheader", ftypes.STRING, nil, nil, nil, "Aquis market data message header")
 omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.packet = ProtoField.new("Packet", "aquis.aquisequities.tcpheader.amd.v1.0.packet", ftypes.STRING, nil, nil, nil, "Aquis Tcp Packet")
 
+-- Aquis AquisEquities TcpHeader Amd 1.0 Expert Info
+aquis_aquisequities_tcpheader_amd_v1_0.experts = {}
+aquis_aquisequities_tcpheader_amd_v1_0.experts.undecoded = ProtoExpert.new("aquis.aquisequities.tcpheader.amd.v1.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_aquis_aquisequities_tcpheader_amd_v1_0.experts = { aquis_aquisequities_tcpheader_amd_v1_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -52,6 +57,19 @@ function omi_aquis_aquisequities_tcpheader_amd_v1_0.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Aquis AquisEquities TcpHeader Amd 1.0 Fields
 -----------------------------------------------------------------------
@@ -120,7 +138,7 @@ aquis_aquisequities_tcpheader_amd_v1_0.payload.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = aquis_aquisequities_tcpheader_amd_v1_0.payload.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.payload, range, value, display)
+  parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.payload, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -226,10 +244,16 @@ end
 aquis_aquisequities_tcpheader_amd_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_aquis_aquisequities_tcpheader_amd_v1_0.fields.message, buffer(offset, 0))
-    local current = aquis_aquisequities_tcpheader_amd_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(aquis_aquisequities_tcpheader_amd_v1_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, aquis_aquisequities_tcpheader_amd_v1_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = aquis_aquisequities_tcpheader_amd_v1_0.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -237,7 +261,10 @@ aquis_aquisequities_tcpheader_amd_v1_0.message.dissect = function(buffer, offset
     return index, parent
   else
     -- Skip element, add fields directly
-    aquis_aquisequities_tcpheader_amd_v1_0.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(aquis_aquisequities_tcpheader_amd_v1_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, aquis_aquisequities_tcpheader_amd_v1_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

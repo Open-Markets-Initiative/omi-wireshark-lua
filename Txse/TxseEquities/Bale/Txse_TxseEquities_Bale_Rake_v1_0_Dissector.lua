@@ -89,17 +89,22 @@ omi_txse_txseequities_bale_rake_v1_0.fields.trading_session_status_message = Pro
 -- Txse TxseEquities Bale Rake 1.0 Generated Fields
 omi_txse_txseequities_bale_rake_v1_0.fields.udp_sequenced_message_index = ProtoField.new("Udp Sequenced Message Index", "txse.txseequities.bale.rake.v1.0.udpsequencedmessageindex", ftypes.UINT16)
 
+-- Txse TxseEquities Bale Rake 1.0 Expert Info
+txse_txseequities_bale_rake_v1_0.experts = {}
+txse_txseequities_bale_rake_v1_0.experts.undecoded = ProtoExpert.new("txse.txseequities.bale.rake.v1.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_txse_txseequities_bale_rake_v1_0.experts = { txse_txseequities_bale_rake_v1_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Txse TxseEquities Bale Rake 1.0 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 txse_txseequities_bale_rake_v1_0.timestamp_format = 2
 
 
@@ -161,6 +166,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Txse TxseEquities Bale Rake 1.0 Fields
 -----------------------------------------------------------------------
@@ -2141,10 +2154,16 @@ end
 txse_txseequities_bale_rake_v1_0.udp_sequenced_message.dissect = function(buffer, offset, packet, parent, size_of_udp_sequenced_message, udp_sequenced_message_index)
   local index = offset + size_of_udp_sequenced_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_txse_txseequities_bale_rake_v1_0.fields.udp_sequenced_message, buffer(offset, 0))
-    local current = txse_txseequities_bale_rake_v1_0.udp_sequenced_message.fields(buffer, offset, packet, parent, size_of_udp_sequenced_message, udp_sequenced_message_index)
+    local decoded, failure = pcall(txse_txseequities_bale_rake_v1_0.udp_sequenced_message.fields, bounded, offset, packet, parent, size_of_udp_sequenced_message, udp_sequenced_message_index)
+    if not decoded then
+      undecoded(failure, parent, txse_txseequities_bale_rake_v1_0.experts.undecoded, "Udp Sequenced Message does not decode within its "..size_of_udp_sequenced_message.." bytes")
+    end
     parent:set_len(size_of_udp_sequenced_message)
     local display = txse_txseequities_bale_rake_v1_0.udp_sequenced_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2152,7 +2171,10 @@ txse_txseequities_bale_rake_v1_0.udp_sequenced_message.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    txse_txseequities_bale_rake_v1_0.udp_sequenced_message.fields(buffer, offset, packet, parent, size_of_udp_sequenced_message, udp_sequenced_message_index)
+    local decoded, failure = pcall(txse_txseequities_bale_rake_v1_0.udp_sequenced_message.fields, bounded, offset, packet, parent, size_of_udp_sequenced_message, udp_sequenced_message_index)
+    if not decoded then
+      undecoded(failure, parent, txse_txseequities_bale_rake_v1_0.experts.undecoded, "Udp Sequenced Message does not decode within its "..size_of_udp_sequenced_message.." bytes")
+    end
 
     return index
   end

@@ -156,11 +156,11 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.md_message_index = ProtoField
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 coinbase_deribit_marketdataapi_sbe_v1_0.timestamp_format = 2
 
 
@@ -1264,7 +1264,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.padding.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.padding.display(value, packet, parent, size)
 
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.padding, range, value, display)
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.padding, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1287,7 +1287,7 @@ coinbase_deribit_marketdataapi_sbe_v1_0.padding_2.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_deribit_marketdataapi_sbe_v1_0.padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.padding_2, range, value, display)
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.padding_2, range, range:raw(), display)
 
   return offset + length, value
 end

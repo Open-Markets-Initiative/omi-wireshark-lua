@@ -133,11 +133,11 @@ omi_siac_opra_output_obi_v6_2.fields.scaled_underlying_price = ProtoField.new("S
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 siac_opra_output_obi_v6_2.timestamp_format = 2
 
 -- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
@@ -1703,7 +1703,7 @@ siac_opra_output_obi_v6_2.reserved_1.dissect = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_output_obi_v6_2.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_output_obi_v6_2.fields.reserved_1, range, value, display)
+  parent:add(omi_siac_opra_output_obi_v6_2.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1726,7 +1726,7 @@ siac_opra_output_obi_v6_2.reserved_4.dissect = function(buffer, offset, packet, 
   local value = range:bytes():tohex(false, " ")
   local display = siac_opra_output_obi_v6_2.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_output_obi_v6_2.fields.reserved_4, range, value, display)
+  parent:add(omi_siac_opra_output_obi_v6_2.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2145,7 +2145,7 @@ siac_opra_output_obi_v6_2.version.size = 1
 -- Display: Version
 siac_opra_output_obi_v6_2.version.display = function(value)
   if value == 6 then
-    return "Version: Opra 6"
+    return "Version: Opra 6 (6)"
   end
 
   return "Version: Unknown("..value..")"

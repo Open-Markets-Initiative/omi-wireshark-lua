@@ -139,17 +139,22 @@ omi_eurex_t7_edci_fbe_v13_1.fields.fills_grp_comp_index = ProtoField.new("Fills 
 omi_eurex_t7_edci_fbe_v13_1.fields.partition_grp_comp_index = ProtoField.new("Partition Grp Comp Index", "eurex.t7.edci.fbe.v13.1.partitiongrpcompindex", ftypes.UINT16)
 omi_eurex_t7_edci_fbe_v13_1.fields.sessions_grp_comp_index = ProtoField.new("Sessions Grp Comp Index", "eurex.t7.edci.fbe.v13.1.sessionsgrpcompindex", ftypes.UINT16)
 
+-- Eurex T7 Edci Fbe 13.1 Expert Info
+eurex_t7_edci_fbe_v13_1.experts = {}
+eurex_t7_edci_fbe_v13_1.experts.undecoded = ProtoExpert.new("eurex.t7.edci.fbe.v13.1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_eurex_t7_edci_fbe_v13_1.experts = { eurex_t7_edci_fbe_v13_1.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Eurex T7 Edci Fbe 13.1 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 eurex_t7_edci_fbe_v13_1.timestamp_format = 2
 
 -- assumed connection role
@@ -231,6 +236,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Eurex T7 Edci Fbe 13.1 Fields
 -----------------------------------------------------------------------
@@ -393,7 +406,7 @@ eurex_t7_edci_fbe_v13_1.alignment_padding.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_edci_fbe_v13_1.alignment_padding.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.alignment_padding, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.alignment_padding, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1796,7 +1809,7 @@ eurex_t7_edci_fbe_v13_1.pad2.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_edci_fbe_v13_1.pad2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad2, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1819,7 +1832,7 @@ eurex_t7_edci_fbe_v13_1.pad2v2.dissect = function(buffer, offset, packet, parent
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_edci_fbe_v13_1.pad2v2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad2v2, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad2v2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1842,7 +1855,7 @@ eurex_t7_edci_fbe_v13_1.pad3.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_edci_fbe_v13_1.pad3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad3, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1865,7 +1878,7 @@ eurex_t7_edci_fbe_v13_1.pad4.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_edci_fbe_v13_1.pad4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad4, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1888,7 +1901,7 @@ eurex_t7_edci_fbe_v13_1.pad6.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_edci_fbe_v13_1.pad6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad6, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1911,7 +1924,7 @@ eurex_t7_edci_fbe_v13_1.pad7.dissect = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = eurex_t7_edci_fbe_v13_1.pad7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad7, range, value, display)
+  parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.pad7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4387,10 +4400,16 @@ end
 eurex_t7_edci_fbe_v13_1.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
   local index = offset + size_of_server_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.server_message, buffer(offset, 0))
-    local current = eurex_t7_edci_fbe_v13_1.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(eurex_t7_edci_fbe_v13_1.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_edci_fbe_v13_1.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
     parent:set_len(size_of_server_message)
     local display = eurex_t7_edci_fbe_v13_1.server_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4398,7 +4417,10 @@ eurex_t7_edci_fbe_v13_1.server_message.dissect = function(buffer, offset, packet
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_t7_edci_fbe_v13_1.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(eurex_t7_edci_fbe_v13_1.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_edci_fbe_v13_1.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
 
     return index
   end
@@ -4746,10 +4768,16 @@ end
 eurex_t7_edci_fbe_v13_1.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message)
   local index = offset + size_of_client_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_eurex_t7_edci_fbe_v13_1.fields.client_message, buffer(offset, 0))
-    local current = eurex_t7_edci_fbe_v13_1.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    local decoded, failure = pcall(eurex_t7_edci_fbe_v13_1.client_message.fields, bounded, offset, packet, parent, size_of_client_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_edci_fbe_v13_1.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
     parent:set_len(size_of_client_message)
     local display = eurex_t7_edci_fbe_v13_1.client_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4757,7 +4785,10 @@ eurex_t7_edci_fbe_v13_1.client_message.dissect = function(buffer, offset, packet
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_t7_edci_fbe_v13_1.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    local decoded, failure = pcall(eurex_t7_edci_fbe_v13_1.client_message.fields, bounded, offset, packet, parent, size_of_client_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_edci_fbe_v13_1.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
 
     return index
   end

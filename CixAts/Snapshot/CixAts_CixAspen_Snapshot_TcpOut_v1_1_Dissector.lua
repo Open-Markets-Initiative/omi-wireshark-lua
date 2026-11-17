@@ -68,7 +68,8 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.symbol_state_message = ProtoFiel
 -- CixAts CixAspen Snapshot TcpOut 1.1 Expert Info
 cixats_cixaspen_snapshot_tcpout_v1_1.experts = {}
 cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number = ProtoExpert.new("cixats.cixaspen.snapshot.tcpout.v1.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_cixats_cixaspen_snapshot_tcpout_v1_1.experts = { cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number }
+cixats_cixaspen_snapshot_tcpout_v1_1.experts.undecoded = ProtoExpert.new("cixats.cixaspen.snapshot.tcpout.v1.1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.experts = { cixats_cixaspen_snapshot_tcpout_v1_1.experts.not_a_number, cixats_cixaspen_snapshot_tcpout_v1_1.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- CixAts CixAspen Snapshot TcpOut 1.1 Formatting
@@ -76,11 +77,11 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.experts = { cixats_cixaspen_snapshot_tc
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cixats_cixaspen_snapshot_tcpout_v1_1.timestamp_format = 2
 
 
@@ -156,6 +157,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- CixAts CixAspen Snapshot TcpOut 1.1 Fields
 -----------------------------------------------------------------------
@@ -1722,10 +1731,16 @@ end
 cixats_cixaspen_snapshot_tcpout_v1_1.tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_tcp_packet)
   local index = offset + size_of_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.tcp_packet, buffer(offset, 0))
-    local current = cixats_cixaspen_snapshot_tcpout_v1_1.tcp_packet.fields(buffer, offset, packet, parent, size_of_tcp_packet)
+    local decoded, failure = pcall(cixats_cixaspen_snapshot_tcpout_v1_1.tcp_packet.fields, bounded, offset, packet, parent, size_of_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, cixats_cixaspen_snapshot_tcpout_v1_1.experts.undecoded, "Tcp Packet does not decode within its "..size_of_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_tcp_packet)
     local display = cixats_cixaspen_snapshot_tcpout_v1_1.tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1733,7 +1748,10 @@ cixats_cixaspen_snapshot_tcpout_v1_1.tcp_packet.dissect = function(buffer, offse
     return index, parent
   else
     -- Skip element, add fields directly
-    cixats_cixaspen_snapshot_tcpout_v1_1.tcp_packet.fields(buffer, offset, packet, parent, size_of_tcp_packet)
+    local decoded, failure = pcall(cixats_cixaspen_snapshot_tcpout_v1_1.tcp_packet.fields, bounded, offset, packet, parent, size_of_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, cixats_cixaspen_snapshot_tcpout_v1_1.experts.undecoded, "Tcp Packet does not decode within its "..size_of_tcp_packet.." bytes")
+    end
 
     return index
   end

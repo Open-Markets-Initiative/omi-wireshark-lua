@@ -184,7 +184,8 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.sequenced_data_packet_sequence_nu
 -- Nasdaq NsmEquities Orders Ouch 5.0 Expert Info
 nasdaq_nsmequities_orders_ouch_v5_0.experts = {}
 nasdaq_nsmequities_orders_ouch_v5_0.experts.not_a_number = ProtoExpert.new("nasdaq.nsmequities.orders.ouch.v5.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_nasdaq_nsmequities_orders_ouch_v5_0.experts = { nasdaq_nsmequities_orders_ouch_v5_0.experts.not_a_number }
+nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded = ProtoExpert.new("nasdaq.nsmequities.orders.ouch.v5.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_nsmequities_orders_ouch_v5_0.experts = { nasdaq_nsmequities_orders_ouch_v5_0.experts.not_a_number, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Orders Ouch 5.0 Formatting
@@ -194,11 +195,12 @@ omi_nasdaq_nsmequities_orders_ouch_v5_0.experts = { nasdaq_nsmequities_orders_ou
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nasdaq_nsmequities_orders_ouch_v5_0.timestamp_format = 2
 
 -- assumed connection role
@@ -340,6 +342,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nasdaq NsmEquities Orders Ouch 5.0 Fields
 -----------------------------------------------------------------------
@@ -2949,10 +2959,15 @@ nasdaq_nsmequities_orders_ouch_v5_0.timestamp.display = function(value, buffer, 
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if nasdaq_nsmequities_orders_ouch_v5_0.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = nasdaq_nsmequities_orders_ouch_v5_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Timestamp: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -3188,10 +3203,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage)
   local index = offset + size_of_enable_order_entry_response_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enable_order_entry_response_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields, bounded, offset, packet, parent, size_of_enable_order_entry_response_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Enable Order Entry Response Appendage does not decode within its "..size_of_enable_order_entry_response_appendage.." bytes")
+    end
     parent:set_len(size_of_enable_order_entry_response_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3199,7 +3220,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.dissec
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_response_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_appendage.fields, bounded, offset, packet, parent, size_of_enable_order_entry_response_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Enable Order Entry Response Appendage does not decode within its "..size_of_enable_order_entry_response_appendage.." bytes")
+    end
 
     return index
   end
@@ -3243,6 +3267,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_response_message.fields =
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -3321,10 +3351,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage)
   local index = offset + size_of_disable_order_entry_response_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_response_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.fields, bounded, offset, packet, parent, size_of_disable_order_entry_response_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Disable Order Entry Response Appendage does not decode within its "..size_of_disable_order_entry_response_appendage.." bytes")
+    end
     parent:set_len(size_of_disable_order_entry_response_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3332,7 +3368,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.disse
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_response_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_appendage.fields, bounded, offset, packet, parent, size_of_disable_order_entry_response_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Disable Order Entry Response Appendage does not decode within its "..size_of_disable_order_entry_response_appendage.." bytes")
+    end
 
     return index
   end
@@ -3376,6 +3415,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_response_message.fields 
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -3456,10 +3501,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage)
   local index = offset + size_of_mass_cancel_response_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_response_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields, bounded, offset, packet, parent, size_of_mass_cancel_response_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Mass Cancel Response Appendage does not decode within its "..size_of_mass_cancel_response_appendage.." bytes")
+    end
     parent:set_len(size_of_mass_cancel_response_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3467,7 +3518,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.dissect = fun
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_response_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_appendage.fields, bounded, offset, packet, parent, size_of_mass_cancel_response_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Mass Cancel Response Appendage does not decode within its "..size_of_mass_cancel_response_appendage.." bytes")
+    end
 
     return index
   end
@@ -3514,6 +3568,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_response_message.fields = functi
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -3592,10 +3652,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.dissect = function(buffer, offset, packet, parent, size_of_account_query_response_appendage)
   local index = offset + size_of_account_query_response_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_response_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields(buffer, offset, packet, parent, size_of_account_query_response_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields, bounded, offset, packet, parent, size_of_account_query_response_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Account Query Response Appendage does not decode within its "..size_of_account_query_response_appendage.." bytes")
+    end
     parent:set_len(size_of_account_query_response_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3603,7 +3669,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.dissect = f
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields(buffer, offset, packet, parent, size_of_account_query_response_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_appendage.fields, bounded, offset, packet, parent, size_of_account_query_response_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Account Query Response Appendage does not decode within its "..size_of_account_query_response_appendage.." bytes")
+    end
 
     return index
   end
@@ -3650,6 +3719,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_response_message.fields = func
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -3731,10 +3806,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_restated_appendage)
   local index = offset + size_of_order_restated_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_restated_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields(buffer, offset, packet, parent, size_of_order_restated_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields, bounded, offset, packet, parent, size_of_order_restated_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Order Restated Appendage does not decode within its "..size_of_order_restated_appendage.." bytes")
+    end
     parent:set_len(size_of_order_restated_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3742,7 +3823,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields(buffer, offset, packet, parent, size_of_order_restated_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.order_restated_appendage.fields, bounded, offset, packet, parent, size_of_order_restated_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Order Restated Appendage does not decode within its "..size_of_order_restated_appendage.." bytes")
+    end
 
     return index
   end
@@ -3786,6 +3870,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_restated_message.fields = function(buf
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -3866,10 +3956,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_modified_appendage)
   local index = offset + size_of_order_modified_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_modified_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields(buffer, offset, packet, parent, size_of_order_modified_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields, bounded, offset, packet, parent, size_of_order_modified_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Order Modified Appendage does not decode within its "..size_of_order_modified_appendage.." bytes")
+    end
     parent:set_len(size_of_order_modified_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3877,7 +3973,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields(buffer, offset, packet, parent, size_of_order_modified_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.order_modified_appendage.fields, bounded, offset, packet, parent, size_of_order_modified_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Order Modified Appendage does not decode within its "..size_of_order_modified_appendage.." bytes")
+    end
 
     return index
   end
@@ -3930,6 +4029,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_modified_message.fields = function(buf
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -4008,10 +4113,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
   local index = offset + size_of_order_priority_update_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_priority_update_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields, bounded, offset, packet, parent, size_of_order_priority_update_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Order Priority Update Appendage does not decode within its "..size_of_order_priority_update_appendage.." bytes")
+    end
     parent:set_len(size_of_order_priority_update_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4019,7 +4130,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.dissect = fu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields(buffer, offset, packet, parent, size_of_order_priority_update_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_appendage.fields, bounded, offset, packet, parent, size_of_order_priority_update_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Order Priority Update Appendage does not decode within its "..size_of_order_priority_update_appendage.." bytes")
+    end
 
     return index
   end
@@ -4075,6 +4189,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_priority_update_message.fields = funct
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -4153,10 +4273,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
   local index = offset + size_of_cancel_reject_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_reject_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields, bounded, offset, packet, parent, size_of_cancel_reject_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Cancel Reject Appendage does not decode within its "..size_of_cancel_reject_appendage.." bytes")
+    end
     parent:set_len(size_of_cancel_reject_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4164,7 +4290,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields(buffer, offset, packet, parent, size_of_cancel_reject_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_appendage.fields, bounded, offset, packet, parent, size_of_cancel_reject_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Cancel Reject Appendage does not decode within its "..size_of_cancel_reject_appendage.." bytes")
+    end
 
     return index
   end
@@ -4211,6 +4340,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_reject_message.fields = function(buff
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -4289,10 +4424,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
   local index = offset + size_of_cancel_pending_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_pending_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields, bounded, offset, packet, parent, size_of_cancel_pending_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Cancel Pending Appendage does not decode within its "..size_of_cancel_pending_appendage.." bytes")
+    end
     parent:set_len(size_of_cancel_pending_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4300,7 +4441,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields(buffer, offset, packet, parent, size_of_cancel_pending_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_appendage.fields, bounded, offset, packet, parent, size_of_cancel_pending_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Cancel Pending Appendage does not decode within its "..size_of_cancel_pending_appendage.." bytes")
+    end
 
     return index
   end
@@ -4347,6 +4491,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_pending_message.fields = function(buf
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -4425,10 +4575,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_rejected_order_appendage)
   local index = offset + size_of_rejected_order_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.rejected_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields(buffer, offset, packet, parent, size_of_rejected_order_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields, bounded, offset, packet, parent, size_of_rejected_order_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Rejected Order Appendage does not decode within its "..size_of_rejected_order_appendage.." bytes")
+    end
     parent:set_len(size_of_rejected_order_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4436,7 +4592,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields(buffer, offset, packet, parent, size_of_rejected_order_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_appendage.fields, bounded, offset, packet, parent, size_of_rejected_order_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Rejected Order Appendage does not decode within its "..size_of_rejected_order_appendage.." bytes")
+    end
 
     return index
   end
@@ -4489,6 +4648,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.rejected_order_message.fields = function(buf
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -4567,10 +4732,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.dissect = function(buffer, offset, packet, parent, size_of_broken_trade_appendage)
   local index = offset + size_of_broken_trade_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.broken_trade_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields(buffer, offset, packet, parent, size_of_broken_trade_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields, bounded, offset, packet, parent, size_of_broken_trade_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Broken Trade Appendage does not decode within its "..size_of_broken_trade_appendage.." bytes")
+    end
     parent:set_len(size_of_broken_trade_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4578,7 +4749,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields(buffer, offset, packet, parent, size_of_broken_trade_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_appendage.fields, bounded, offset, packet, parent, size_of_broken_trade_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Broken Trade Appendage does not decode within its "..size_of_broken_trade_appendage.." bytes")
+    end
 
     return index
   end
@@ -4634,6 +4808,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.broken_trade_message.fields = function(buffe
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -4712,10 +4892,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_executed_appendage)
   local index = offset + size_of_order_executed_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_executed_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields(buffer, offset, packet, parent, size_of_order_executed_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields, bounded, offset, packet, parent, size_of_order_executed_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Order Executed Appendage does not decode within its "..size_of_order_executed_appendage.." bytes")
+    end
     parent:set_len(size_of_order_executed_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4723,7 +4909,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields(buffer, offset, packet, parent, size_of_order_executed_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.order_executed_appendage.fields, bounded, offset, packet, parent, size_of_order_executed_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Order Executed Appendage does not decode within its "..size_of_order_executed_appendage.." bytes")
+    end
 
     return index
   end
@@ -4776,6 +4965,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_executed_message.fields = function(buf
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -4854,10 +5049,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.dissect = function(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
   local index = offset + size_of_aiq_canceled_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.aiq_canceled_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields, bounded, offset, packet, parent, size_of_aiq_canceled_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Aiq Canceled Appendage does not decode within its "..size_of_aiq_canceled_appendage.." bytes")
+    end
     parent:set_len(size_of_aiq_canceled_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4865,7 +5066,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields(buffer, offset, packet, parent, size_of_aiq_canceled_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_appendage.fields, bounded, offset, packet, parent, size_of_aiq_canceled_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Aiq Canceled Appendage does not decode within its "..size_of_aiq_canceled_appendage.." bytes")
+    end
 
     return index
   end
@@ -4930,6 +5134,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.aiq_canceled_message.fields = function(buffe
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -5008,10 +5218,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.dissect = function(buffer, offset, packet, parent, size_of_canceled_message_appendage)
   local index = offset + size_of_canceled_message_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.canceled_message_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields(buffer, offset, packet, parent, size_of_canceled_message_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields, bounded, offset, packet, parent, size_of_canceled_message_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Canceled Message Appendage does not decode within its "..size_of_canceled_message_appendage.." bytes")
+    end
     parent:set_len(size_of_canceled_message_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5019,7 +5235,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.dissect = functio
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields(buffer, offset, packet, parent, size_of_canceled_message_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.canceled_message_appendage.fields, bounded, offset, packet, parent, size_of_canceled_message_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Canceled Message Appendage does not decode within its "..size_of_canceled_message_appendage.." bytes")
+    end
 
     return index
   end
@@ -5072,6 +5291,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.canceled_message.fields = function(buffer, o
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -5161,10 +5386,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.dissect = function(buffer, offset, packet, parent, size_of_replaced_message_appendage)
   local index = offset + size_of_replaced_message_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replaced_message_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields(buffer, offset, packet, parent, size_of_replaced_message_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields, bounded, offset, packet, parent, size_of_replaced_message_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Replaced Message Appendage does not decode within its "..size_of_replaced_message_appendage.." bytes")
+    end
     parent:set_len(size_of_replaced_message_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5172,7 +5403,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.dissect = functio
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields(buffer, offset, packet, parent, size_of_replaced_message_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.replaced_message_appendage.fields, bounded, offset, packet, parent, size_of_replaced_message_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Replaced Message Appendage does not decode within its "..size_of_replaced_message_appendage.." bytes")
+    end
 
     return index
   end
@@ -5252,6 +5486,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.replaced_message.fields = function(buffer, o
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -5350,10 +5590,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.dissect = function(buffer, offset, packet, parent, size_of_order_accepted_appendage)
   local index = offset + size_of_order_accepted_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.order_accepted_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields(buffer, offset, packet, parent, size_of_order_accepted_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields, bounded, offset, packet, parent, size_of_order_accepted_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Order Accepted Appendage does not decode within its "..size_of_order_accepted_appendage.." bytes")
+    end
     parent:set_len(size_of_order_accepted_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5361,7 +5607,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields(buffer, offset, packet, parent, size_of_order_accepted_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_appendage.fields, bounded, offset, packet, parent, size_of_order_accepted_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Order Accepted Appendage does not decode within its "..size_of_order_accepted_appendage.." bytes")
+    end
 
     return index
   end
@@ -5438,6 +5687,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.order_accepted_message.fields = function(buf
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -5737,7 +5992,8 @@ nasdaq_nsmequities_orders_ouch_v5_0.debug_packet.size = function(buffer, offset)
   local index = 0
 
   -- Parse runtime size of: Debug Text
-  index = index + buffer(offset + index - 3, 2):uint()
+  local packet_length = buffer(offset + index - 3, 2):uint()
+  index = index + packet_length - 1
 
   return index
 end
@@ -5876,10 +6132,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset + size_of_server_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_server_soup_bin_tcp_packet)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5887,7 +6149,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.server_soup_bin_tcp_packet.dissect = functio
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end
@@ -6040,10 +6305,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.dissect = function(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage)
   local index = offset + size_of_enable_order_entry_request_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enable_order_entry_request_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields, bounded, offset, packet, parent, size_of_enable_order_entry_request_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Enable Order Entry Request Appendage does not decode within its "..size_of_enable_order_entry_request_appendage.." bytes")
+    end
     parent:set_len(size_of_enable_order_entry_request_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6051,7 +6322,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.dissect
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_enable_order_entry_request_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_appendage.fields, bounded, offset, packet, parent, size_of_enable_order_entry_request_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Enable Order Entry Request Appendage does not decode within its "..size_of_enable_order_entry_request_appendage.." bytes")
+    end
 
     return index
   end
@@ -6092,6 +6366,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.enable_order_entry_request_message.fields = 
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -6170,10 +6450,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.dissect = function(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage)
   local index = offset + size_of_disable_order_entry_request_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.disable_order_entry_request_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields, bounded, offset, packet, parent, size_of_disable_order_entry_request_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Disable Order Entry Request Appendage does not decode within its "..size_of_disable_order_entry_request_appendage.." bytes")
+    end
     parent:set_len(size_of_disable_order_entry_request_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6181,7 +6467,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.dissec
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields(buffer, offset, packet, parent, size_of_disable_order_entry_request_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_appendage.fields, bounded, offset, packet, parent, size_of_disable_order_entry_request_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Disable Order Entry Request Appendage does not decode within its "..size_of_disable_order_entry_request_appendage.." bytes")
+    end
 
     return index
   end
@@ -6222,6 +6511,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.disable_order_entry_request_message.fields =
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -6302,10 +6597,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.dissect = function(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage)
   local index = offset + size_of_mass_cancel_request_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.mass_cancel_request_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields, bounded, offset, packet, parent, size_of_mass_cancel_request_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Mass Cancel Request Appendage does not decode within its "..size_of_mass_cancel_request_appendage.." bytes")
+    end
     parent:set_len(size_of_mass_cancel_request_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6313,7 +6614,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.dissect = func
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields(buffer, offset, packet, parent, size_of_mass_cancel_request_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_appendage.fields, bounded, offset, packet, parent, size_of_mass_cancel_request_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Mass Cancel Request Appendage does not decode within its "..size_of_mass_cancel_request_appendage.." bytes")
+    end
 
     return index
   end
@@ -6357,6 +6661,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.mass_cancel_request_message.fields = functio
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -6435,10 +6745,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect = function(buffer, offset, packet, parent, size_of_account_query_appendage)
   local index = offset + size_of_account_query_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.account_query_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields(buffer, offset, packet, parent, size_of_account_query_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields, bounded, offset, packet, parent, size_of_account_query_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Account Query Appendage does not decode within its "..size_of_account_query_appendage.." bytes")
+    end
     parent:set_len(size_of_account_query_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6446,7 +6762,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields(buffer, offset, packet, parent, size_of_account_query_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.account_query_appendage.fields, bounded, offset, packet, parent, size_of_account_query_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Account Query Appendage does not decode within its "..size_of_account_query_appendage.." bytes")
+    end
 
     return index
   end
@@ -6487,6 +6806,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.account_query_message.fields = function(buff
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -6567,10 +6892,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_modify_order_appendage)
   local index = offset + size_of_modify_order_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.modify_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields(buffer, offset, packet, parent, size_of_modify_order_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields, bounded, offset, packet, parent, size_of_modify_order_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Modify Order Appendage does not decode within its "..size_of_modify_order_appendage.." bytes")
+    end
     parent:set_len(size_of_modify_order_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6578,7 +6909,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields(buffer, offset, packet, parent, size_of_modify_order_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.modify_order_appendage.fields, bounded, offset, packet, parent, size_of_modify_order_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Modify Order Appendage does not decode within its "..size_of_modify_order_appendage.." bytes")
+    end
 
     return index
   end
@@ -6628,6 +6962,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.modify_order_message.fields = function(buffe
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -6706,10 +7046,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_cancel_order_appendage)
   local index = offset + size_of_cancel_order_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.cancel_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields(buffer, offset, packet, parent, size_of_cancel_order_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields, bounded, offset, packet, parent, size_of_cancel_order_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Cancel Order Appendage does not decode within its "..size_of_cancel_order_appendage.." bytes")
+    end
     parent:set_len(size_of_cancel_order_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6717,7 +7063,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields(buffer, offset, packet, parent, size_of_cancel_order_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_appendage.fields, bounded, offset, packet, parent, size_of_cancel_order_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Cancel Order Appendage does not decode within its "..size_of_cancel_order_appendage.." bytes")
+    end
 
     return index
   end
@@ -6764,6 +7113,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.cancel_order_message.fields = function(buffe
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -6859,10 +7214,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_replace_order_appendage)
   local index = offset + size_of_replace_order_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.replace_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields(buffer, offset, packet, parent, size_of_replace_order_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields, bounded, offset, packet, parent, size_of_replace_order_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Replace Order Appendage does not decode within its "..size_of_replace_order_appendage.." bytes")
+    end
     parent:set_len(size_of_replace_order_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6870,7 +7231,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields(buffer, offset, packet, parent, size_of_replace_order_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.replace_order_appendage.fields, bounded, offset, packet, parent, size_of_replace_order_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Replace Order Appendage does not decode within its "..size_of_replace_order_appendage.." bytes")
+    end
 
     return index
   end
@@ -6929,6 +7293,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.replace_order_message.fields = function(buff
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -7026,10 +7396,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.dissect = function(buffer, offset, packet, parent, size_of_enter_order_appendage)
   local index = offset + size_of_enter_order_appendage
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.enter_order_appendage, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields(buffer, offset, packet, parent, size_of_enter_order_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields, bounded, offset, packet, parent, size_of_enter_order_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Enter Order Appendage does not decode within its "..size_of_enter_order_appendage.." bytes")
+    end
     parent:set_len(size_of_enter_order_appendage)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.display(buffer, packet, parent)
     parent:append_text(display)
@@ -7037,7 +7413,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.dissect = function(buf
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields(buffer, offset, packet, parent, size_of_enter_order_appendage)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.enter_order_appendage.fields, bounded, offset, packet, parent, size_of_enter_order_appendage)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Enter Order Appendage does not decode within its "..size_of_enter_order_appendage.." bytes")
+    end
 
     return index
   end
@@ -7105,6 +7484,12 @@ nasdaq_nsmequities_orders_ouch_v5_0.enter_order_message.fields = function(buffer
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Optional Field Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Optional Field Length
     local optional_field_length = buffer(index, 1):uint()
@@ -7361,10 +7746,16 @@ end
 nasdaq_nsmequities_orders_ouch_v5_0.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
   local index = offset + size_of_client_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_nsmequities_orders_ouch_v5_0.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nasdaq_nsmequities_orders_ouch_v5_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_client_soup_bin_tcp_packet)
     local display = nasdaq_nsmequities_orders_ouch_v5_0.client_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -7372,7 +7763,10 @@ nasdaq_nsmequities_orders_ouch_v5_0.client_soup_bin_tcp_packet.dissect = functio
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_nsmequities_orders_ouch_v5_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_nsmequities_orders_ouch_v5_0.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_nsmequities_orders_ouch_v5_0.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end

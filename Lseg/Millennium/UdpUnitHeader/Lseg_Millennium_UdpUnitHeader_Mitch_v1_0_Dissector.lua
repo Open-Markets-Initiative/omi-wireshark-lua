@@ -32,6 +32,11 @@ omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.unit_header = ProtoField.new
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Generated Fields
 omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message_index = ProtoField.new("Message Index", "lseg.millennium.udpunitheader.mitch.v1.0.messageindex", ftypes.UINT16)
 
+-- Lseg Millennium UdpUnitHeader Mitch 1.0 Expert Info
+lseg_millennium_udpunitheader_mitch_v1_0.experts = {}
+lseg_millennium_udpunitheader_mitch_v1_0.experts.undecoded = ProtoExpert.new("lseg.millennium.udpunitheader.mitch.v1.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_lseg_millennium_udpunitheader_mitch_v1_0.experts = { lseg_millennium_udpunitheader_mitch_v1_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -64,6 +69,19 @@ function omi_lseg_millennium_udpunitheader_mitch_v1_0.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Lseg Millennium UdpUnitHeader Mitch 1.0 Fields
 -----------------------------------------------------------------------
@@ -197,7 +215,7 @@ lseg_millennium_udpunitheader_mitch_v1_0.payload.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = lseg_millennium_udpunitheader_mitch_v1_0.payload.display(value, packet, parent, size)
 
-  parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.payload, range, value, display)
+  parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.payload, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -311,10 +329,16 @@ end
 lseg_millennium_udpunitheader_mitch_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_lseg_millennium_udpunitheader_mitch_v1_0.fields.message, buffer(offset, 0))
-    local current = lseg_millennium_udpunitheader_mitch_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(lseg_millennium_udpunitheader_mitch_v1_0.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, lseg_millennium_udpunitheader_mitch_v1_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = lseg_millennium_udpunitheader_mitch_v1_0.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -322,7 +346,10 @@ lseg_millennium_udpunitheader_mitch_v1_0.message.dissect = function(buffer, offs
     return index, parent
   else
     -- Skip element, add fields directly
-    lseg_millennium_udpunitheader_mitch_v1_0.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(lseg_millennium_udpunitheader_mitch_v1_0.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, lseg_millennium_udpunitheader_mitch_v1_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -402,6 +429,12 @@ lseg_millennium_udpunitheader_mitch_v1_0.packet.dissect = function(buffer, packe
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 1 > end_of_payload then
+      parent:add_proto_expert_info(lseg_millennium_udpunitheader_mitch_v1_0.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 1):uint()

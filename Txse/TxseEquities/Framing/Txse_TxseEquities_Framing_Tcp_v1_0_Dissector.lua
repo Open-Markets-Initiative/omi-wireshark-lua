@@ -43,6 +43,11 @@ omi_txse_txseequities_framing_tcp_v1_0.fields.rake_message_header = ProtoField.n
 omi_txse_txseequities_framing_tcp_v1_0.fields.server_packet = ProtoField.new("Server Packet", "txse.txseequities.framing.tcp.v1.0.serverpacket", ftypes.STRING, nil, nil, nil, "Rake Packet sent by the Exchange")
 omi_txse_txseequities_framing_tcp_v1_0.fields.server_rake_tcp_message = ProtoField.new("Server Rake Tcp Message", "txse.txseequities.framing.tcp.v1.0.serverraketcpmessage", ftypes.STRING, nil, nil, nil, "Rake Tcp Message sent by the Exchange to the Member")
 
+-- Txse TxseEquities Framing Tcp 1.0 Expert Info
+txse_txseequities_framing_tcp_v1_0.experts = {}
+txse_txseequities_framing_tcp_v1_0.experts.undecoded = ProtoExpert.new("txse.txseequities.framing.tcp.v1.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_txse_txseequities_framing_tcp_v1_0.experts = { txse_txseequities_framing_tcp_v1_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Txse TxseEquities Framing Tcp 1.0 Formatting
 -----------------------------------------------------------------------
@@ -101,6 +106,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Txse TxseEquities Framing Tcp 1.0 Fields
 -----------------------------------------------------------------------
@@ -346,7 +359,7 @@ txse_txseequities_framing_tcp_v1_0.sequenced_message.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = txse_txseequities_framing_tcp_v1_0.sequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.sequenced_message, range, value, display)
+  parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.sequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -453,7 +466,7 @@ txse_txseequities_framing_tcp_v1_0.unsequenced_message.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = txse_txseequities_framing_tcp_v1_0.unsequenced_message.display(value, packet, parent, size)
 
-  parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.unsequenced_message, range, value, display)
+  parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.unsequenced_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -610,7 +623,8 @@ txse_txseequities_framing_tcp_v1_0.debug_message.size = function(buffer, offset)
   local index = 0
 
   -- Parse runtime size of: Text
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local message_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + message_length - 1
 
   return index
 end
@@ -747,10 +761,16 @@ end
 txse_txseequities_framing_tcp_v1_0.server_rake_tcp_message.dissect = function(buffer, offset, packet, parent, size_of_server_rake_tcp_message)
   local index = offset + size_of_server_rake_tcp_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.server_rake_tcp_message, buffer(offset, 0))
-    local current = txse_txseequities_framing_tcp_v1_0.server_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_server_rake_tcp_message)
+    local decoded, failure = pcall(txse_txseequities_framing_tcp_v1_0.server_rake_tcp_message.fields, bounded, offset, packet, parent, size_of_server_rake_tcp_message)
+    if not decoded then
+      undecoded(failure, parent, txse_txseequities_framing_tcp_v1_0.experts.undecoded, "Server Rake Tcp Message does not decode within its "..size_of_server_rake_tcp_message.." bytes")
+    end
     parent:set_len(size_of_server_rake_tcp_message)
     local display = txse_txseequities_framing_tcp_v1_0.server_rake_tcp_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -758,7 +778,10 @@ txse_txseequities_framing_tcp_v1_0.server_rake_tcp_message.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    txse_txseequities_framing_tcp_v1_0.server_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_server_rake_tcp_message)
+    local decoded, failure = pcall(txse_txseequities_framing_tcp_v1_0.server_rake_tcp_message.fields, bounded, offset, packet, parent, size_of_server_rake_tcp_message)
+    if not decoded then
+      undecoded(failure, parent, txse_txseequities_framing_tcp_v1_0.experts.undecoded, "Server Rake Tcp Message does not decode within its "..size_of_server_rake_tcp_message.." bytes")
+    end
 
     return index
   end
@@ -981,10 +1004,16 @@ end
 txse_txseequities_framing_tcp_v1_0.client_rake_tcp_message.dissect = function(buffer, offset, packet, parent, size_of_client_rake_tcp_message)
   local index = offset + size_of_client_rake_tcp_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_txse_txseequities_framing_tcp_v1_0.fields.client_rake_tcp_message, buffer(offset, 0))
-    local current = txse_txseequities_framing_tcp_v1_0.client_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_client_rake_tcp_message)
+    local decoded, failure = pcall(txse_txseequities_framing_tcp_v1_0.client_rake_tcp_message.fields, bounded, offset, packet, parent, size_of_client_rake_tcp_message)
+    if not decoded then
+      undecoded(failure, parent, txse_txseequities_framing_tcp_v1_0.experts.undecoded, "Client Rake Tcp Message does not decode within its "..size_of_client_rake_tcp_message.." bytes")
+    end
     parent:set_len(size_of_client_rake_tcp_message)
     local display = txse_txseequities_framing_tcp_v1_0.client_rake_tcp_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -992,7 +1021,10 @@ txse_txseequities_framing_tcp_v1_0.client_rake_tcp_message.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    txse_txseequities_framing_tcp_v1_0.client_rake_tcp_message.fields(buffer, offset, packet, parent, size_of_client_rake_tcp_message)
+    local decoded, failure = pcall(txse_txseequities_framing_tcp_v1_0.client_rake_tcp_message.fields, bounded, offset, packet, parent, size_of_client_rake_tcp_message)
+    if not decoded then
+      undecoded(failure, parent, txse_txseequities_framing_tcp_v1_0.experts.undecoded, "Client Rake Tcp Message does not decode within its "..size_of_client_rake_tcp_message.." bytes")
+    end
 
     return index
   end

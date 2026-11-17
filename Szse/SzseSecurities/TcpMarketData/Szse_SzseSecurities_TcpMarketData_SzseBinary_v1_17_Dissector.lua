@@ -189,11 +189,11 @@ omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.trade_md_entries_i
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.timestamp_format = 2
 
 
@@ -2106,7 +2106,7 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.raw_data.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.raw_data.display(value, packet, parent, size)
 
-  parent:add(omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.raw_data, range, value, display)
+  parent:add(omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.raw_data, range, range:raw(), display)
 
   return offset + size, value
 end

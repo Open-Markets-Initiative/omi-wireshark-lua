@@ -124,17 +124,22 @@ omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.fields.trade_cancel_m
 -- Miax OnyxFutures TopOfMarketRetransmission SesM 1.1.a Generated Fields
 omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "miax.onyxfutures.topofmarketretransmission.sesm.v1.1.a.instrumentlegindex", ftypes.UINT16)
 
+-- Miax OnyxFutures TopOfMarketRetransmission SesM 1.1.a Expert Info
+miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.experts = {}
+miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.experts.undecoded = ProtoExpert.new("miax.onyxfutures.topofmarketretransmission.sesm.v1.1.a.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.experts = { miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Miax OnyxFutures TopOfMarketRetransmission SesM 1.1.a Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.timestamp_format = 2
 
 
@@ -206,6 +211,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax OnyxFutures TopOfMarketRetransmission SesM 1.1.a Fields
 -----------------------------------------------------------------------
@@ -1463,7 +1476,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.reserved_16.dissect = fun
   local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.fields.reserved_16, range, value, display)
+  parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.fields.reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1486,7 +1499,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.reserved_4.dissect = func
   local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.fields.reserved_4, range, value, display)
+  parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1509,7 +1522,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.reserved_6.dissect = func
   local value = range:bytes():tohex(false, " ")
   local display = miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.reserved_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.fields.reserved_6, range, value, display)
+  parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.fields.reserved_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2328,7 +2341,8 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.goodbye_packet.size = fun
   index = index + miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.logout_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + sesm_packet_length - 2
 
   return index
 end
@@ -2385,7 +2399,8 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.logout_request.size = fun
   index = index + miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.logout_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + sesm_packet_length - 2
 
   return index
 end
@@ -3722,10 +3737,16 @@ end
 miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.sesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
   local index = offset + size_of_sesm_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.fields.sesm_tcp_packet, buffer(offset, 0))
-    local current = miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    local decoded, failure = pcall(miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.sesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_sesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.experts.undecoded, "Sesm Tcp Packet does not decode within its "..size_of_sesm_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_sesm_tcp_packet)
     local display = miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.sesm_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3733,7 +3754,10 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.sesm_tcp_packet.dissect =
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    local decoded, failure = pcall(miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.sesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_sesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.experts.undecoded, "Sesm Tcp Packet does not decode within its "..size_of_sesm_tcp_packet.." bytes")
+    end
 
     return index
   end

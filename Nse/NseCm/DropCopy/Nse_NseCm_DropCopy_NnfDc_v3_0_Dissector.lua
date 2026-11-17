@@ -136,18 +136,27 @@ omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.gr_secure_user_registration_request_mes
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.gr_secure_user_registration_response_message = ProtoField.new("Gr Secure User Registration Response Message", "nse.nsecm.dropcopy.nnfdc.v3.0.grsecureuserregistrationresponsemessage", ftypes.BYTES, nil, nil, nil, "Acknowledges the registration, its Error Code terminating the connection when set")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsecm.dropcopy.nnfdc.v3.0.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "Keeps the connection alive, sent after thirty seconds of inactivity; the host disconnects the socket after two missed in succession")
 
+-- Nse NseCm DropCopy NnfDc 3.0 Expert Info
+nse_nsecm_dropcopy_nnfdc_v3_0.experts = {}
+nse_nsecm_dropcopy_nnfdc_v3_0.experts.undecoded = ProtoExpert.new("nse.nsecm.dropcopy.nnfdc.v3.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nse_nsecm_dropcopy_nnfdc_v3_0.experts = { nse_nsecm_dropcopy_nnfdc_v3_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nse NseCm DropCopy NnfDc 3.0 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 },
+  { 3, "DateTime Asia/Kolkata", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nse_nsecm_dropcopy_nnfdc_v3_0.timestamp_format = 2
+
+-- Offset of the source's zone from utc in seconds, as the reader states it
+nse_nsecm_dropcopy_nnfdc_v3_0.zone_offset = 0
 
 -- assumed connection role
 local role_enum = {
@@ -179,6 +188,7 @@ omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_headers = Pref.bool("Show Headers",
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences
 function omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs_changed()
@@ -198,6 +208,17 @@ function omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs_changed()
   end
   if nse_nsecm_dropcopy_nnfdc_v3_0.timestamp_format ~= omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.timestamp_format then
     nse_nsecm_dropcopy_nnfdc_v3_0.timestamp_format = omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.timestamp_format
+  end
+  local sign, hours, minutes = string.match(omi_nse_nsecm_dropcopy_nnfdc_v3_0.prefs.zone_offset, "^%s*([+-]?)(%d%d?):?(%d?%d?)%s*$")
+
+  nse_nsecm_dropcopy_nnfdc_v3_0.zone_offset = 0
+
+  if hours then
+    nse_nsecm_dropcopy_nnfdc_v3_0.zone_offset = tonumber(hours) * 3600 + (tonumber(minutes) or 0) * 60
+  end
+
+  if sign == "-" then
+    nse_nsecm_dropcopy_nnfdc_v3_0.zone_offset = -nse_nsecm_dropcopy_nnfdc_v3_0.zone_offset
   end
 end
 
@@ -286,6 +307,14 @@ local function lz4_decompress(input, decompressed_size)
   output:set_size(decompressed_position)
   return output
 end
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nse NseCm DropCopy NnfDc 3.0 Fields
 -----------------------------------------------------------------------
@@ -330,9 +359,19 @@ nse_nsecm_dropcopy_nnfdc_v3_0.activity_time_in_nanos.dissect = function(buffer, 
   local field = omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.activity_time_in_nanos
   if nse_nsecm_dropcopy_nnfdc_v3_0.timestamp_format == 3 then field = omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.activity_time_in_nanos_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
   local nanos = (value % UInt64(1000000000)):tonumber()
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsecm_dropcopy_nnfdc_v3_0.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, nanos))
+    item:set_text("Activity Time In Nanos: "..os.date("!%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanos).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsecm_dropcopy_nnfdc_v3_0.zone_offset, nanos))
 
   return offset + length, value
 end
@@ -487,7 +526,7 @@ nse_nsecm_dropcopy_nnfdc_v3_0.checksum.dissect = function(buffer, offset, packet
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecm_dropcopy_nnfdc_v3_0.checksum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.checksum, range, value, display)
+  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.checksum, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1355,7 +1394,7 @@ nse_nsecm_dropcopy_nnfdc_v3_0.reserve.dissect = function(buffer, offset, packet,
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecm_dropcopy_nnfdc_v3_0.reserve.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.reserve, range, value, display)
+  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.reserve, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4312,10 +4351,16 @@ end
 nse_nsecm_dropcopy_nnfdc_v3_0.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
   local index = offset + size_of_server_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.server_message, buffer(offset, 0))
-    local current = nse_nsecm_dropcopy_nnfdc_v3_0.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(nse_nsecm_dropcopy_nnfdc_v3_0.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, nse_nsecm_dropcopy_nnfdc_v3_0.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
     parent:set_len(size_of_server_message)
     local display = nse_nsecm_dropcopy_nnfdc_v3_0.server_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4323,7 +4368,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.server_message.dissect = function(buffer, offset, 
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsecm_dropcopy_nnfdc_v3_0.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(nse_nsecm_dropcopy_nnfdc_v3_0.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, nse_nsecm_dropcopy_nnfdc_v3_0.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
 
     return index
   end
@@ -4353,6 +4401,12 @@ nse_nsecm_dropcopy_nnfdc_v3_0.message_buffer.fields = function(buffer, offset, p
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 12 + 2 > end_of_payload then
+      parent:add_proto_expert_info(nse_nsecm_dropcopy_nnfdc_v3_0.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Length
     local message_length = buffer(index + 12, 2):int()
@@ -4516,10 +4570,16 @@ end
 nse_nsecm_dropcopy_nnfdc_v3_0.server_drop_copy_packet.dissect = function(buffer, offset, packet, parent, size_of_server_drop_copy_packet)
   local index = offset + size_of_server_drop_copy_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.server_drop_copy_packet, buffer(offset, 0))
-    local current = nse_nsecm_dropcopy_nnfdc_v3_0.server_drop_copy_packet.fields(buffer, offset, packet, parent, size_of_server_drop_copy_packet)
+    local decoded, failure = pcall(nse_nsecm_dropcopy_nnfdc_v3_0.server_drop_copy_packet.fields, bounded, offset, packet, parent, size_of_server_drop_copy_packet)
+    if not decoded then
+      undecoded(failure, parent, nse_nsecm_dropcopy_nnfdc_v3_0.experts.undecoded, "Server Drop Copy Packet does not decode within its "..size_of_server_drop_copy_packet.." bytes")
+    end
     parent:set_len(size_of_server_drop_copy_packet)
     local display = nse_nsecm_dropcopy_nnfdc_v3_0.server_drop_copy_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4527,7 +4587,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.server_drop_copy_packet.dissect = function(buffer,
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsecm_dropcopy_nnfdc_v3_0.server_drop_copy_packet.fields(buffer, offset, packet, parent, size_of_server_drop_copy_packet)
+    local decoded, failure = pcall(nse_nsecm_dropcopy_nnfdc_v3_0.server_drop_copy_packet.fields, bounded, offset, packet, parent, size_of_server_drop_copy_packet)
+    if not decoded then
+      undecoded(failure, parent, nse_nsecm_dropcopy_nnfdc_v3_0.experts.undecoded, "Server Drop Copy Packet does not decode within its "..size_of_server_drop_copy_packet.." bytes")
+    end
 
     return index
   end
@@ -4889,10 +4952,16 @@ end
 nse_nsecm_dropcopy_nnfdc_v3_0.client_drop_copy_packet.dissect = function(buffer, offset, packet, parent, size_of_client_drop_copy_packet)
   local index = offset + size_of_client_drop_copy_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.client_drop_copy_packet, buffer(offset, 0))
-    local current = nse_nsecm_dropcopy_nnfdc_v3_0.client_drop_copy_packet.fields(buffer, offset, packet, parent, size_of_client_drop_copy_packet)
+    local decoded, failure = pcall(nse_nsecm_dropcopy_nnfdc_v3_0.client_drop_copy_packet.fields, bounded, offset, packet, parent, size_of_client_drop_copy_packet)
+    if not decoded then
+      undecoded(failure, parent, nse_nsecm_dropcopy_nnfdc_v3_0.experts.undecoded, "Client Drop Copy Packet does not decode within its "..size_of_client_drop_copy_packet.." bytes")
+    end
     parent:set_len(size_of_client_drop_copy_packet)
     local display = nse_nsecm_dropcopy_nnfdc_v3_0.client_drop_copy_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4900,7 +4969,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.client_drop_copy_packet.dissect = function(buffer,
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsecm_dropcopy_nnfdc_v3_0.client_drop_copy_packet.fields(buffer, offset, packet, parent, size_of_client_drop_copy_packet)
+    local decoded, failure = pcall(nse_nsecm_dropcopy_nnfdc_v3_0.client_drop_copy_packet.fields, bounded, offset, packet, parent, size_of_client_drop_copy_packet)
+    if not decoded then
+      undecoded(failure, parent, nse_nsecm_dropcopy_nnfdc_v3_0.experts.undecoded, "Client Drop Copy Packet does not decode within its "..size_of_client_drop_copy_packet.." bytes")
+    end
 
     return index
   end

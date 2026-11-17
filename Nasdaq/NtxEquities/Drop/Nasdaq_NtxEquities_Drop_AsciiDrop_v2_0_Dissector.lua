@@ -48,7 +48,8 @@ omi_nasdaq_ntxequities_drop_asciidrop_v2_0.fields.previous_execution_broken_mess
 -- Nasdaq NtxEquities Drop AsciiDrop 2.0 Expert Info
 nasdaq_ntxequities_drop_asciidrop_v2_0.experts = {}
 nasdaq_ntxequities_drop_asciidrop_v2_0.experts.not_a_number = ProtoExpert.new("nasdaq.ntxequities.drop.asciidrop.v2.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_nasdaq_ntxequities_drop_asciidrop_v2_0.experts = { nasdaq_ntxequities_drop_asciidrop_v2_0.experts.not_a_number }
+nasdaq_ntxequities_drop_asciidrop_v2_0.experts.undecoded = ProtoExpert.new("nasdaq.ntxequities.drop.asciidrop.v2.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_ntxequities_drop_asciidrop_v2_0.experts = { nasdaq_ntxequities_drop_asciidrop_v2_0.experts.not_a_number, nasdaq_ntxequities_drop_asciidrop_v2_0.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -114,6 +115,14 @@ trim_left_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nasdaq NtxEquities Drop AsciiDrop 2.0 Fields
 -----------------------------------------------------------------------
@@ -207,7 +216,7 @@ nasdaq_ntxequities_drop_asciidrop_v2_0.cr.size = 1
 -- Display: Cr
 nasdaq_ntxequities_drop_asciidrop_v2_0.cr.display = function(value)
   if value == 13 then
-    return "Cr: Carriage Return"
+    return "Cr: Carriage Return (13)"
   end
 
   return "Cr: Unknown("..value..")"
@@ -257,7 +266,7 @@ nasdaq_ntxequities_drop_asciidrop_v2_0.lf.size = 1
 -- Display: Lf
 nasdaq_ntxequities_drop_asciidrop_v2_0.lf.display = function(value)
   if value == 10 then
-    return "Lf: Line Feed"
+    return "Lf: Line Feed (10)"
   end
 
   return "Lf: Unknown("..value..")"
@@ -1253,10 +1262,16 @@ end
 nasdaq_ntxequities_drop_asciidrop_v2_0.frame.dissect = function(buffer, offset, packet, parent, size_of_frame)
   local index = offset + size_of_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_ntxequities_drop_asciidrop_v2_0.fields.frame, buffer(offset, 0))
-    local current = nasdaq_ntxequities_drop_asciidrop_v2_0.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    local decoded, failure = pcall(nasdaq_ntxequities_drop_asciidrop_v2_0.frame.fields, bounded, offset, packet, parent, size_of_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_ntxequities_drop_asciidrop_v2_0.experts.undecoded, "Frame does not decode within its "..size_of_frame.." bytes")
+    end
     parent:set_len(size_of_frame)
     local display = nasdaq_ntxequities_drop_asciidrop_v2_0.frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1264,7 +1279,10 @@ nasdaq_ntxequities_drop_asciidrop_v2_0.frame.dissect = function(buffer, offset, 
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_ntxequities_drop_asciidrop_v2_0.frame.fields(buffer, offset, packet, parent, size_of_frame)
+    local decoded, failure = pcall(nasdaq_ntxequities_drop_asciidrop_v2_0.frame.fields, bounded, offset, packet, parent, size_of_frame)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_ntxequities_drop_asciidrop_v2_0.experts.undecoded, "Frame does not decode within its "..size_of_frame.." bytes")
+    end
 
     return index
   end

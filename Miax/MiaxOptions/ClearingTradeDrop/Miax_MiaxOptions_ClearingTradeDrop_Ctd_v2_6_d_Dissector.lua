@@ -46,8 +46,7 @@ omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.ctd_version = ProtoFiel
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.current_quantity = ProtoField.new("Current Quantity", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.currentquantity", ftypes.UINT32, nil, nil, nil, "Current counted quantity at the time of the event for this Metric ID.")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.directed_status = ProtoField.new("Directed Status", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.directedstatus", ftypes.STRING, nil, nil, nil, "Status of directed order flow.")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.endsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the last packet to be retransmitted")
-omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.event_id_binary_4u_4 = ProtoField.new("Event Id Binary 4u 4", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.eventidbinary4u4", ftypes.UINT32, nil, nil, nil, "Unique ID assigned by MIAX for this event. Can be used to order events. Event Type S Event ID will equal zero")
-omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.event_id_binary_u_4 = ProtoField.new("Event Id Binary U 4", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.eventidbinaryu4", ftypes.UINT32, nil, nil, nil, "Event ID in case this trade is a result of a liquidity gathering event at MIAX. 0 otherwise. Please refer to the TransactionType field for the Event type associated with this Event ID.")
+omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.event_id = ProtoField.new("Event Id", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.eventid", ftypes.UINT32, nil, nil, nil, "Unique ID assigned by MIAX for this event. Can be used to order events. Event Type S Event ID will equal zero")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.event_type = ProtoField.new("Event Type", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.eventtype", ftypes.STRING)
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.executing_mpid = ProtoField.new("Executing Mpid", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.executingmpid", ftypes.STRING, nil, nil, nil, "For Trades due to Orders: MPID of the EEM/OFP (SenderSubID field in FIX order or FirmMPID for MIAX PRIME/cPRIME Order; Note that this will be different than Clearing MPID for MM FIX orders). For Trades due to Quotes, eQuotes: MM MPID.")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.execution_exchange = ProtoField.new("Execution Exchange", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.executionexchange", ftypes.STRING, nil, nil, nil, "Option leg: Market where a customer option order was traded after routing from MIAX")
@@ -106,7 +105,6 @@ omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.sesm_packet_length = Pr
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.sesmpackettype", ftypes.STRING, nil, nil, nil, "SesM protocol packet type")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.sesm_version = ProtoField.new("Sesm Version", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.sesmversion", ftypes.STRING, nil, nil, nil, "1.1 (right padded with spaces)")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.session_id = ProtoField.new("Session Id", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.sessionid", ftypes.UINT8, nil, nil, nil, "The session ID of the session that is now logged into")
-omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.session_id = ProtoField.new("Session ID", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.sessionid", ftypes.UINT32, nil, nil, nil, "MIAX assigned ID for the current trading session. A change in Session ID will mean that restarting at message sequence number 1.")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.side = ProtoField.new("Side", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.side", ftypes.STRING, nil, nil, nil, "The side of the trade on which this receiver was involved in.")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.size = ProtoField.new("Size", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.size", ftypes.UINT32, nil, nil, nil, "Number of option contracts or stock shares traded in this clearing trade. In case of a corrected trade, this is the corrected trade size.")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
@@ -129,6 +127,7 @@ omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.trade_id = ProtoField.n
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.trade_time = ProtoField.new("Trade Time", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.tradetime", ftypes.UINT64, nil, nil, nil, "Automatic Trades: Time at which the Matching Engine created this trade. Will be same as Processing Time. Manual Trades: Trade Time of the new manual trade. Trades cancels, corrections: Trade Time of the original trade.")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.trade_type = ProtoField.new("Trade Type", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.tradetype", ftypes.STRING)
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.traded_with_directed_mm = ProtoField.new("Traded With Directed Mm", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.tradedwithdirectedmm", ftypes.STRING, nil, nil, nil, "Indicates if the trade occurred with the MM to which the order was Directed")
+omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.trading_session_id = ProtoField.new("Session Id", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.tradingsessionid", ftypes.UINT32, nil, nil, nil, "MIAX assigned ID for the current trading session. A change in Session ID will mean that restarting at message sequence number 1.")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.transaction_id = ProtoField.new("Transaction Id", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.transactionid", ftypes.UINT32, nil, nil, nil, "All clearing trades generated from a single Engine transaction will have the same transaction ID")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying Symbol for the option or stock leg. Format for Stock Leg: OCC Options Underlying Symbol (default) or Stock Ticker Symbol (configurable)")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.underlying_type = ProtoField.new("Underlying Type", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.underlyingtype", ftypes.STRING)
@@ -158,6 +157,11 @@ omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.risk_notification_messa
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.system_state = ProtoField.new("System State", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.systemstate", ftypes.STRING, nil, nil, nil, "This message format is used to notify firms of the state changes of the system. Firms can use notifications as triggers in their system to ensure electronic synchronization of systems.")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.trade_message = ProtoField.new("Trade Message", "miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.trademessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate all MIAX trade related content for entitled parties. MIAX sends trades, trade corrections and trade cancels using this message. This is a sequenced message.")
 
+-- Miax MiaxOptions ClearingTradeDrop Ctd 2.6.d Expert Info
+miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.experts = {}
+miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.experts.undecoded = ProtoExpert.new("miax.miaxoptions.clearingtradedrop.ctd.v2.6.d.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.experts = { miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Miax MiaxOptions ClearingTradeDrop Ctd 2.6.d Formatting
 -----------------------------------------------------------------------
@@ -166,11 +170,12 @@ omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.trade_message = ProtoFi
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.timestamp_format = 2
 
 
@@ -237,6 +242,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax MiaxOptions ClearingTradeDrop Ctd 2.6.d Fields
 -----------------------------------------------------------------------
@@ -1154,48 +1167,25 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.end_sequence_number.dissect = func
   return offset + length, value
 end
 
--- Event Id Binary 4u 4
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_4u_4 = {}
+-- Event Id
+miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id = {}
 
--- Size: Event Id Binary 4u 4
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_4u_4.size = 4
+-- Size: Event Id
+miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id.size = 4
 
--- Display: Event Id Binary 4u 4
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_4u_4.display = function(value)
-  return "Event Id Binary 4u 4: "..value
+-- Display: Event Id
+miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id.display = function(value)
+  return "Event Id: "..value
 end
 
--- Dissect: Event Id Binary 4u 4
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_4u_4.size
+-- Dissect: Event Id
+miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_4u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.event_id_binary_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Event Id Binary U 4
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_u_4 = {}
-
--- Size: Event Id Binary U 4
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_u_4.size = 4
-
--- Display: Event Id Binary U 4
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_u_4.display = function(value)
-  return "Event Id Binary U 4: "..value
-end
-
--- Dissect: Event Id Binary U 4
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_u_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.event_id_binary_u_4, range, value, display)
+  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.event_id, range, value, display)
 
   return offset + length, value
 end
@@ -2077,10 +2067,15 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.notification_time.display = functi
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Notification Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Notification Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Notification Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2302,10 +2297,15 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.processing_time.display = function
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Processing Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Processing Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Processing Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2450,10 +2450,15 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reference_trade_time.display = fun
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Reference Trade Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Reference Trade Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Reference Trade Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2537,7 +2542,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_12.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.reserved_12, range, value, display)
+  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2560,7 +2565,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_32.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_32.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.reserved_32, range, value, display)
+  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.reserved_32, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2583,7 +2588,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_4.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.reserved_4, range, value, display)
+  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2606,7 +2611,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_7.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.reserved_7, range, value, display)
+  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.reserved_7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2629,7 +2634,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_8.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.reserved_8, range, value, display)
+  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2698,7 +2703,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.second_reserved_12.dissect = funct
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.second_reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.second_reserved_12, range, value, display)
+  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.second_reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2721,7 +2726,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.second_reserved_8.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.second_reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.second_reserved_8, range, value, display)
+  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.second_reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2901,29 +2906,6 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id.dissect = function(buff
   local length = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Session ID
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id = {}
-
--- Size: Session ID
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id.size = 4
-
--- Display: Session ID
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id.display = function(value)
-  return "Session ID: "..value
-end
-
--- Dissect: Session ID
-miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
   local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.session_id, range, value, display)
@@ -3368,7 +3350,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.third_reserved_12.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.third_reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.third_reserved_12, range, value, display)
+  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.third_reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3657,10 +3639,15 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trade_time.display = function(valu
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Trade Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Trade Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Trade Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -3737,6 +3724,29 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.traded_with_directed_mm.dissect = 
   local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.traded_with_directed_mm.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.traded_with_directed_mm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session Id
+miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trading_session_id = {}
+
+-- Size: Trading Session Id
+miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trading_session_id.size = 4
+
+-- Display: Trading Session Id
+miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trading_session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Trading Session Id
+miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trading_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trading_session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trading_session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.trading_session_id, range, value, display)
 
   return offset + length, value
 end
@@ -3879,7 +3889,8 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.test_packet.size = function(buffer
   local index = 0
 
   -- Parse runtime size of: Test Text
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + sesm_packet_length - 1
 
   return index
 end
@@ -3984,7 +3995,8 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.goodbye_packet.size = function(buf
   index = index + miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + sesm_packet_length - 2
 
   return index
 end
@@ -4041,7 +4053,8 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.logout_request.size = function(buf
   index = index + miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.logout_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + sesm_packet_length - 2
 
   return index
 end
@@ -4269,7 +4282,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.risk_notification_message.size =
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.metric_type.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.protection_type.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_type.size + 
-  miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_4u_4.size + 
+  miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.configured_counting_time_period.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.configured_max_quantity.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.current_quantity.size + 
@@ -4307,8 +4320,8 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.risk_notification_message.fields =
   -- Event Type: Alphanumeric
   index, event_type = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_type.dissect(buffer, index, packet, parent)
 
-  -- Event Id Binary 4u 4: Binary4U
-  index, event_id_binary_4u_4 = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_4u_4.dissect(buffer, index, packet, parent)
+  -- Event Id: Binary4U
+  index, event_id = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id.dissect(buffer, index, packet, parent)
 
   -- Configured Counting Time Period: Binary4U
   index, configured_counting_time_period = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.configured_counting_time_period.dissect(buffer, index, packet, parent)
@@ -4442,7 +4455,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trade_message.size =
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reference_trade_id.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reference_correction_number.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.correction_type.size + 
-  miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_u_4.size + 
+  miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.strategy_id.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.reserved_12.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.product_id.size + 
@@ -4559,8 +4572,8 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trade_message.fields = function(bu
   -- Correction Type: Alphanumeric
   index, correction_type = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.correction_type.dissect(buffer, index, packet, parent)
 
-  -- Event Id Binary U 4: BinaryU
-  index, event_id_binary_u_4 = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Event Id: Binary4U
+  index, event_id = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.event_id.dissect(buffer, index, packet, parent)
 
   -- Strategy Id: BinaryU
   index, strategy_id = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.strategy_id.dissect(buffer, index, packet, parent)
@@ -4819,7 +4832,7 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.system_state = {}
 miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.system_state.size =
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.notification_time.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.ctd_version.size + 
-  miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id.size + 
+  miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trading_session_id.size + 
   miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.system_status.size
 
 -- Display: System State
@@ -4837,8 +4850,8 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.system_state.fields = function(buf
   -- Ctd Version: Alphanumeric
   index, ctd_version = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.ctd_version.dissect(buffer, index, packet, parent)
 
-  -- Session ID: BinaryU
-  index, session_id = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.session_id.dissect(buffer, index, packet, parent)
+  -- Trading Session Id: BinaryU
+  index, trading_session_id = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.trading_session_id.dissect(buffer, index, packet, parent)
 
   -- System Status: Alphanumeric
   index, system_status = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.system_status.dissect(buffer, index, packet, parent)
@@ -5041,10 +5054,16 @@ end
 miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.sesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
   local index = offset + size_of_sesm_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.fields.sesm_tcp_packet, buffer(offset, 0))
-    local current = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    local decoded, failure = pcall(miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.sesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_sesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.experts.undecoded, "Sesm Tcp Packet does not decode within its "..size_of_sesm_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_sesm_tcp_packet)
     local display = miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.sesm_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -5052,7 +5071,10 @@ miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.sesm_tcp_packet.dissect = function
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    local decoded, failure = pcall(miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.sesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_sesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_miaxoptions_clearingtradedrop_ctd_v2_6_d.experts.undecoded, "Sesm Tcp Packet does not decode within its "..size_of_sesm_tcp_packet.." bytes")
+    end
 
     return index
   end

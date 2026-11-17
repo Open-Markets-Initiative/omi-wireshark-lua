@@ -55,17 +55,22 @@ omi_nyse_amexequities_depthfeedrequest_pillar_v1_7.fields.symbol_index_mapping_r
 omi_nyse_amexequities_depthfeedrequest_pillar_v1_7.fields.client_message_index = ProtoField.new("Client Message Index", "nyse.amexequities.depthfeedrequest.pillar.v1.7.clientmessageindex", ftypes.UINT16)
 omi_nyse_amexequities_depthfeedrequest_pillar_v1_7.fields.server_message_index = ProtoField.new("Server Message Index", "nyse.amexequities.depthfeedrequest.pillar.v1.7.servermessageindex", ftypes.UINT16)
 
+-- Nyse AmexEquities DepthFeedRequest Pillar 1.7 Expert Info
+nyse_amexequities_depthfeedrequest_pillar_v1_7.experts = {}
+nyse_amexequities_depthfeedrequest_pillar_v1_7.experts.undecoded = ProtoExpert.new("nyse.amexequities.depthfeedrequest.pillar.v1.7.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nyse_amexequities_depthfeedrequest_pillar_v1_7.experts = { nyse_amexequities_depthfeedrequest_pillar_v1_7.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nyse AmexEquities DepthFeedRequest Pillar 1.7 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_amexequities_depthfeedrequest_pillar_v1_7.timestamp_format = 2
 
 -- assumed connection role
@@ -121,6 +126,19 @@ function omi_nyse_amexequities_depthfeedrequest_pillar_v1_7.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nyse AmexEquities DepthFeedRequest Pillar 1.7 Fields
 -----------------------------------------------------------------------
@@ -765,10 +783,16 @@ end
 nyse_amexequities_depthfeedrequest_pillar_v1_7.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message, server_message_index)
   local index = offset + size_of_server_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nyse_amexequities_depthfeedrequest_pillar_v1_7.fields.server_message, buffer(offset, 0))
-    local current = nyse_amexequities_depthfeedrequest_pillar_v1_7.server_message.fields(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+    local decoded, failure = pcall(nyse_amexequities_depthfeedrequest_pillar_v1_7.server_message.fields, bounded, offset, packet, parent, size_of_server_message, server_message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_amexequities_depthfeedrequest_pillar_v1_7.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
     parent:set_len(size_of_server_message)
     local display = nyse_amexequities_depthfeedrequest_pillar_v1_7.server_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -776,7 +800,10 @@ nyse_amexequities_depthfeedrequest_pillar_v1_7.server_message.dissect = function
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_amexequities_depthfeedrequest_pillar_v1_7.server_message.fields(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+    local decoded, failure = pcall(nyse_amexequities_depthfeedrequest_pillar_v1_7.server_message.fields, bounded, offset, packet, parent, size_of_server_message, server_message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_amexequities_depthfeedrequest_pillar_v1_7.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
 
     return index
   end
@@ -1190,10 +1217,16 @@ end
 nyse_amexequities_depthfeedrequest_pillar_v1_7.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message, client_message_index)
   local index = offset + size_of_client_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nyse_amexequities_depthfeedrequest_pillar_v1_7.fields.client_message, buffer(offset, 0))
-    local current = nyse_amexequities_depthfeedrequest_pillar_v1_7.client_message.fields(buffer, offset, packet, parent, size_of_client_message, client_message_index)
+    local decoded, failure = pcall(nyse_amexequities_depthfeedrequest_pillar_v1_7.client_message.fields, bounded, offset, packet, parent, size_of_client_message, client_message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_amexequities_depthfeedrequest_pillar_v1_7.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
     parent:set_len(size_of_client_message)
     local display = nyse_amexequities_depthfeedrequest_pillar_v1_7.client_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1201,7 +1234,10 @@ nyse_amexequities_depthfeedrequest_pillar_v1_7.client_message.dissect = function
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_amexequities_depthfeedrequest_pillar_v1_7.client_message.fields(buffer, offset, packet, parent, size_of_client_message, client_message_index)
+    local decoded, failure = pcall(nyse_amexequities_depthfeedrequest_pillar_v1_7.client_message.fields, bounded, offset, packet, parent, size_of_client_message, client_message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_amexequities_depthfeedrequest_pillar_v1_7.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
 
     return index
   end

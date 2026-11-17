@@ -90,6 +90,11 @@ omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.trading_status_message = Prot
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message_index = ProtoField.new("Message Index", "jpx.sseequities.marketbyorder.flex.v1.1.messageindex", ftypes.UINT16)
 omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.timestamp = ProtoField.new("Timestamp", "jpx.sseequities.marketbyorder.flex.v1.1.timestamp", ftypes.UINT64)
 
+-- Jpx SseEquities MarketByOrder Flex 1.1 Expert Info
+jpx_sseequities_marketbyorder_flex_v1_1.experts = {}
+jpx_sseequities_marketbyorder_flex_v1_1.experts.undecoded = ProtoExpert.new("jpx.sseequities.marketbyorder.flex.v1.1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_jpx_sseequities_marketbyorder_flex_v1_1.experts = { jpx_sseequities_marketbyorder_flex_v1_1.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Jpx SseEquities MarketByOrder Flex 1.1 Formatting
 -----------------------------------------------------------------------
@@ -97,11 +102,11 @@ omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.timestamp = ProtoField.new("T
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 jpx_sseequities_marketbyorder_flex_v1_1.timestamp_format = 2
 
 
@@ -193,6 +198,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Jpx SseEquities MarketByOrder Flex 1.1 Fields
 -----------------------------------------------------------------------
@@ -375,7 +388,7 @@ jpx_sseequities_marketbyorder_flex_v1_1.data.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = jpx_sseequities_marketbyorder_flex_v1_1.data.display(value, packet, parent, size)
 
-  parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.data, range, value, display)
+  parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.data, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -916,7 +929,7 @@ jpx_sseequities_marketbyorder_flex_v1_1.requested_message_count.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = jpx_sseequities_marketbyorder_flex_v1_1.requested_message_count.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.requested_message_count, range, value, display)
+  parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.requested_message_count, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2454,10 +2467,16 @@ end
 jpx_sseequities_marketbyorder_flex_v1_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_jpx_sseequities_marketbyorder_flex_v1_1.fields.message, buffer(offset, 0))
-    local current = jpx_sseequities_marketbyorder_flex_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(jpx_sseequities_marketbyorder_flex_v1_1.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, jpx_sseequities_marketbyorder_flex_v1_1.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = jpx_sseequities_marketbyorder_flex_v1_1.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2465,7 +2484,10 @@ jpx_sseequities_marketbyorder_flex_v1_1.message.dissect = function(buffer, offse
     return index, parent
   else
     -- Skip element, add fields directly
-    jpx_sseequities_marketbyorder_flex_v1_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(jpx_sseequities_marketbyorder_flex_v1_1.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, jpx_sseequities_marketbyorder_flex_v1_1.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

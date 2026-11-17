@@ -8573,7 +8573,7 @@ koscom_mdcsrealtime_bonda_exture_v2_020.filler_4.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_bonda_exture_v2_020.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_020.fields.filler_4, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_bonda_exture_v2_020.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end

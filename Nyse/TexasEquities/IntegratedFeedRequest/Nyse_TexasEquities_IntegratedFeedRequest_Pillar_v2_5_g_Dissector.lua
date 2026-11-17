@@ -55,17 +55,22 @@ omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.symbol_index_m
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.client_message_index = ProtoField.new("Client Message Index", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.clientmessageindex", ftypes.UINT16)
 omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.server_message_index = ProtoField.new("Server Message Index", "nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.servermessageindex", ftypes.UINT16)
 
+-- Nyse TexasEquities IntegratedFeedRequest Pillar 2.5.g Expert Info
+nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.experts = {}
+nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.experts.undecoded = ProtoExpert.new("nyse.texasequities.integratedfeedrequest.pillar.v2.5.g.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.experts = { nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nyse TexasEquities IntegratedFeedRequest Pillar 2.5.g Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.timestamp_format = 2
 
 -- assumed connection role
@@ -121,6 +126,19 @@ function omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.prefs_change
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nyse TexasEquities IntegratedFeedRequest Pillar 2.5.g Fields
 -----------------------------------------------------------------------
@@ -765,10 +783,16 @@ end
 nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message, server_message_index)
   local index = offset + size_of_server_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.server_message, buffer(offset, 0))
-    local current = nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.server_message.fields(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+    local decoded, failure = pcall(nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.server_message.fields, bounded, offset, packet, parent, size_of_server_message, server_message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
     parent:set_len(size_of_server_message)
     local display = nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.server_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -776,7 +800,10 @@ nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.server_message.dissect = 
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.server_message.fields(buffer, offset, packet, parent, size_of_server_message, server_message_index)
+    local decoded, failure = pcall(nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.server_message.fields, bounded, offset, packet, parent, size_of_server_message, server_message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
 
     return index
   end
@@ -1190,10 +1217,16 @@ end
 nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message, client_message_index)
   local index = offset + size_of_client_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.fields.client_message, buffer(offset, 0))
-    local current = nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.client_message.fields(buffer, offset, packet, parent, size_of_client_message, client_message_index)
+    local decoded, failure = pcall(nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.client_message.fields, bounded, offset, packet, parent, size_of_client_message, client_message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
     parent:set_len(size_of_client_message)
     local display = nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.client_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1201,7 +1234,10 @@ nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.client_message.dissect = 
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.client_message.fields(buffer, offset, packet, parent, size_of_client_message, client_message_index)
+    local decoded, failure = pcall(nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.client_message.fields, bounded, offset, packet, parent, size_of_client_message, client_message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_texasequities_integratedfeedrequest_pillar_v2_5_g.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
 
     return index
   end

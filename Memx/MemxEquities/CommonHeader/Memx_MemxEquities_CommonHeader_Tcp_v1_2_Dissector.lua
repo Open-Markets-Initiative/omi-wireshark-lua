@@ -120,7 +120,7 @@ memx_memxequities_commonheader_tcp_v1_2.client_sbe_message.dissect = function(bu
   local value = range:bytes():tohex(false, " ")
   local display = memx_memxequities_commonheader_tcp_v1_2.client_sbe_message.display(value, packet, parent, size)
 
-  parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.client_sbe_message, range, value, display)
+  parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.client_sbe_message, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -380,7 +380,7 @@ memx_memxequities_commonheader_tcp_v1_2.server_sbe_message.dissect = function(bu
   local value = range:bytes():tohex(false, " ")
   local display = memx_memxequities_commonheader_tcp_v1_2.server_sbe_message.display(value, packet, parent, size)
 
-  parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.server_sbe_message, range, value, display)
+  parent:add(omi_memx_memxequities_commonheader_tcp_v1_2.fields.server_sbe_message, range, range:raw(), display)
 
   return offset + size, value
 end

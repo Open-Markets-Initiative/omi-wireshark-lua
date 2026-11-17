@@ -93,11 +93,11 @@ omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.message_sequence_numb
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cboe_neoequities_crossingfacility_pitch_v1_0_14.timestamp_format = 2
 
 
@@ -829,7 +829,7 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.reserved_1.dissect = function(bu
   local value = range:bytes():tohex(false, " ")
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.reserved_1, range, value, display)
+  parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -852,7 +852,7 @@ cboe_neoequities_crossingfacility_pitch_v1_0_14.reserved_4.dissect = function(bu
   local value = range:bytes():tohex(false, " ")
   local display = cboe_neoequities_crossingfacility_pitch_v1_0_14.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.reserved_4, range, value, display)
+  parent:add(omi_cboe_neoequities_crossingfacility_pitch_v1_0_14.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end

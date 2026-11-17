@@ -37,6 +37,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.bid_reject_reason = ProtoField.ne
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.bid_status = ProtoField.new("Bid Status", "coinbase.deribit.ordersapi.sbe.v1.4.bidstatus", ftypes.INT8, nil, nil, nil, "bidStatus")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.block_length = ProtoField.new("Block Length", "coinbase.deribit.ordersapi.sbe.v1.4.blocklength", ftypes.UINT16, nil, nil, nil, "blockLength")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "coinbase.deribit.ordersapi.sbe.v1.4.cancelondisconnect", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "cancelOnDisconnect")
+omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.cancel_order_reject_reason = ProtoField.new("Cancel Order Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.cancelorderrejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.cancel_reason = ProtoField.new("Cancel Reason", "coinbase.deribit.ordersapi.sbe.v1.4.cancelreason", ftypes.INT8, nil, nil, nil, "cancelReason")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.client_id = ProtoField.new("Client Id", "coinbase.deribit.ordersapi.sbe.v1.4.clientid", ftypes.STRING, nil, nil, nil, "clientId")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.client_order_id = ProtoField.new("Client Order Id", "coinbase.deribit.ordersapi.sbe.v1.4.clientorderid", ftypes.INT64, nil, nil, nil, "clientOrderId")
@@ -76,12 +77,14 @@ omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.leg_side = ProtoField.new("Leg Si
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mantissa = ProtoField.new("Mantissa", "coinbase.deribit.ordersapi.sbe.v1.4.mantissa", ftypes.INT64)
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mantissa_optional = ProtoField.new("Mantissa Optional", "coinbase.deribit.ordersapi.sbe.v1.4.mantissaoptional", ftypes.INT64, nil, nil, nil, "mantissa")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.market_limit = ProtoField.new("Market Limit", "coinbase.deribit.ordersapi.sbe.v1.4.marketlimit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "marketLimit")
+omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.masscancelrejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_orders_placed_message_fills_group = ProtoField.new("Mass Quote Orders Placed Message Fills Group", "coinbase.deribit.ordersapi.sbe.v1.4.massquoteordersplacedmessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_orders_placed_message_fills_groups = ProtoField.new("Mass Quote Orders Placed Message Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.4.massquoteordersplacedmessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_orders_placed_message_legs_group = ProtoField.new("Mass Quote Orders Placed Message Legs Group", "coinbase.deribit.ordersapi.sbe.v1.4.massquoteordersplacedmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_orders_placed_message_legs_groups = ProtoField.new("Mass Quote Orders Placed Message Legs Groups", "coinbase.deribit.ordersapi.sbe.v1.4.massquoteordersplacedmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_orders_placed_message_orders_group = ProtoField.new("Mass Quote Orders Placed Message Orders Group", "coinbase.deribit.ordersapi.sbe.v1.4.massquoteordersplacedmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_orders_placed_message_orders_groups = ProtoField.new("Mass Quote Orders Placed Message Orders Groups", "coinbase.deribit.ordersapi.sbe.v1.4.massquoteordersplacedmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_reject_reason = ProtoField.new("Mass Quote Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.massquoterejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_request_message_quotes_group = ProtoField.new("Mass Quote Request Message Quotes Group", "coinbase.deribit.ordersapi.sbe.v1.4.massquoterequestmessagequotesgroup", ftypes.STRING, nil, nil, nil, "quotes")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_request_message_quotes_groups = ProtoField.new("Mass Quote Request Message Quotes Groups", "coinbase.deribit.ordersapi.sbe.v1.4.massquoterequestmessagequotesgroups", ftypes.STRING, nil, nil, nil, "quotes Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_response_message_ask_fills_group = ProtoField.new("Mass Quote Response Message Ask Fills Group", "coinbase.deribit.ordersapi.sbe.v1.4.massquoteresponsemessageaskfillsgroup", ftypes.STRING, nil, nil, nil, "askFills")
@@ -96,6 +99,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.match_id = ProtoField.new("Match 
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.message_length = ProtoField.new("Message Length", "coinbase.deribit.ordersapi.sbe.v1.4.messagelength", ftypes.UINT16, nil, nil, nil, "Total message length in bytes including this header")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mmp = ProtoField.new("Mmp", "coinbase.deribit.ordersapi.sbe.v1.4.mmp", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mmp_group_id = ProtoField.new("Mmp Group Id", "coinbase.deribit.ordersapi.sbe.v1.4.mmpgroupid", ftypes.INT64, nil, nil, nil, "mmpGroupId")
+omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mmp_status_reject_reason = ProtoField.new("Mmp Status Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.mmpstatusrejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.new_order_response_message_fills_group = ProtoField.new("New Order Response Message Fills Group", "coinbase.deribit.ordersapi.sbe.v1.4.neworderresponsemessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.new_order_response_message_fills_groups = ProtoField.new("New Order Response Message Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.4.neworderresponsemessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.new_order_response_message_legs_group = ProtoField.new("New Order Response Message Legs Group", "coinbase.deribit.ordersapi.sbe.v1.4.neworderresponsemessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
@@ -107,12 +111,12 @@ omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_filled_message_fills_groups
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_filled_message_legs_group = ProtoField.new("Order Filled Message Legs Group", "coinbase.deribit.ordersapi.sbe.v1.4.orderfilledmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_filled_message_legs_groups = ProtoField.new("Order Filled Message Legs Groups", "coinbase.deribit.ordersapi.sbe.v1.4.orderfilledmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_id = ProtoField.new("Order Id", "coinbase.deribit.ordersapi.sbe.v1.4.orderid", ftypes.INT64, nil, nil, nil, "orderId")
-omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_id_fill_id = ProtoField.new("Order Id Fill Id", "coinbase.deribit.ordersapi.sbe.v1.4.orderidfillid", ftypes.INT64, nil, nil, nil, "orderId")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_id_optional = ProtoField.new("Order Id Optional", "coinbase.deribit.ordersapi.sbe.v1.4.orderidoptional", ftypes.INT64, nil, nil, nil, "orderId")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_placed_message_fills_group = ProtoField.new("Order Placed Message Fills Group", "coinbase.deribit.ordersapi.sbe.v1.4.orderplacedmessagefillsgroup", ftypes.STRING, nil, nil, nil, "fills")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_placed_message_fills_groups = ProtoField.new("Order Placed Message Fills Groups", "coinbase.deribit.ordersapi.sbe.v1.4.orderplacedmessagefillsgroups", ftypes.STRING, nil, nil, nil, "fills Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_placed_message_legs_group = ProtoField.new("Order Placed Message Legs Group", "coinbase.deribit.ordersapi.sbe.v1.4.orderplacedmessagelegsgroup", ftypes.STRING, nil, nil, nil, "legs")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_placed_message_legs_groups = ProtoField.new("Order Placed Message Legs Groups", "coinbase.deribit.ordersapi.sbe.v1.4.orderplacedmessagelegsgroups", ftypes.STRING, nil, nil, nil, "legs Block")
+omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.orderrejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.orders_canceled_message_orders_group = ProtoField.new("Orders Canceled Message Orders Group", "coinbase.deribit.ordersapi.sbe.v1.4.orderscanceledmessageordersgroup", ftypes.STRING, nil, nil, nil, "orders")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.orders_canceled_message_orders_groups = ProtoField.new("Orders Canceled Message Orders Groups", "coinbase.deribit.ordersapi.sbe.v1.4.orderscanceledmessageordersgroups", ftypes.STRING, nil, nil, nil, "orders Block")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.padding = ProtoField.new("Padding", "coinbase.deribit.ordersapi.sbe.v1.4.padding", ftypes.BYTES, nil, nil, nil, "Tcp sbe alignment padding")
@@ -126,17 +130,12 @@ omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.quantity = ProtoField.new("Quanti
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.quantity_level = ProtoField.new("Quantity Level", "coinbase.deribit.ordersapi.sbe.v1.4.quantitylevel", ftypes.DOUBLE, nil, nil, nil, "quantityLevel")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.quote_id = ProtoField.new("Quote Id", "coinbase.deribit.ordersapi.sbe.v1.4.quoteid", ftypes.INT64, nil, nil, nil, "quoteId")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason = ProtoField.new("Reason", "coinbase.deribit.ordersapi.sbe.v1.4.reason", ftypes.STRING, nil, nil, nil, "reason data struct")
-omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_cancel_order_reject_reason = ProtoField.new("Reason Cancel Order Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.reasoncancelorderrejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_data = ProtoField.new("Reason Data", "coinbase.deribit.ordersapi.sbe.v1.4.reasondata", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_length = ProtoField.new("Reason Length", "coinbase.deribit.ordersapi.sbe.v1.4.reasonlength", ftypes.UINT8)
-omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_mass_cancel_reject_reason = ProtoField.new("Reason Mass Cancel Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.reasonmasscancelrejectreason", ftypes.INT8, nil, nil, nil, "reason")
-omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_mass_quote_reject_reason = ProtoField.new("Reason Mass Quote Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.reasonmassquoterejectreason", ftypes.INT8, nil, nil, nil, "reason")
-omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_mmp_status_reject_reason = ProtoField.new("Reason Mmp Status Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.reasonmmpstatusrejectreason", ftypes.INT8, nil, nil, nil, "reason")
-omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_order_reject_reason = ProtoField.new("Reason Order Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.reasonorderrejectreason", ftypes.INT8, nil, nil, nil, "reason")
-omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_reject_reason = ProtoField.new("Reason Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.reasonrejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.receive_time = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.4.receivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "receiveTime")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.receive_time_utc = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.4.receivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "receiveTime")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.ref_sequence_number = ProtoField.new("Ref Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.4.refsequencenumber", ftypes.INT64, nil, nil, nil, "refSequenceNumber")
+omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reject_reason = ProtoField.new("Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.4.rejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reserved_10 = ProtoField.new("Reserved 10", "coinbase.deribit.ordersapi.sbe.v1.4.reserved10", ftypes.UINT16, nil, base.DEC, 0xFFC0, "10 reserved bits")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reserved_13 = ProtoField.new("Reserved 13", "coinbase.deribit.ordersapi.sbe.v1.4.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reserved_6 = ProtoField.new("Reserved 6", "coinbase.deribit.ordersapi.sbe.v1.4.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
@@ -163,7 +162,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.to_sequence_number = ProtoField.n
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.total_filled = ProtoField.new("Total Filled", "coinbase.deribit.ordersapi.sbe.v1.4.totalfilled", ftypes.STRING, nil, nil, nil, "NewOrderResponseMessage")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.total_order_count = ProtoField.new("Total Order Count", "coinbase.deribit.ordersapi.sbe.v1.4.totalordercount", ftypes.INT32, nil, nil, nil, "totalOrderCount")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.trigger = ProtoField.new("Trigger", "coinbase.deribit.ordersapi.sbe.v1.4.trigger", ftypes.INT8)
-omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.unused_replace_order_flags_0 = ProtoField.new("Unused Replace Order Flags 0", "coinbase.deribit.ordersapi.sbe.v1.4.unusedreplaceorderflags0", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Unused ReplaceOrderFlags 0")
+omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.unused_1 = ProtoField.new("Unused 1", "coinbase.deribit.ordersapi.sbe.v1.4.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "1 unused bit")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.vega_level = ProtoField.new("Vega Level", "coinbase.deribit.ordersapi.sbe.v1.4.vegalevel", ftypes.DOUBLE, nil, nil, nil, "vegaLevel")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.visible_qty = ProtoField.new("Visible Qty", "coinbase.deribit.ordersapi.sbe.v1.4.visibleqty", ftypes.STRING, nil, nil, nil, "NewOrderResponseMessage")
 
@@ -233,17 +232,22 @@ omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_placed_message_fills_group_
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_placed_message_legs_group_index = ProtoField.new("Order Placed Message Legs Group Index", "coinbase.deribit.ordersapi.sbe.v1.4.orderplacedmessagelegsgroupindex", ftypes.UINT16)
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.orders_canceled_message_orders_group_index = ProtoField.new("Orders Canceled Message Orders Group Index", "coinbase.deribit.ordersapi.sbe.v1.4.orderscanceledmessageordersgroupindex", ftypes.UINT16)
 
+-- Coinbase Deribit OrdersApi Sbe 1.4 Expert Info
+coinbase_deribit_ordersapi_sbe_v1_4.experts = {}
+coinbase_deribit_ordersapi_sbe_v1_4.experts.undecoded = ProtoExpert.new("coinbase.deribit.ordersapi.sbe.v1.4.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_coinbase_deribit_ordersapi_sbe_v1_4.experts = { coinbase_deribit_ordersapi_sbe_v1_4.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Coinbase Deribit OrdersApi Sbe 1.4 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 coinbase_deribit_ordersapi_sbe_v1_4.timestamp_format = 2
 
 
@@ -299,6 +303,19 @@ function omi_coinbase_deribit_ordersapi_sbe_v1_4.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Coinbase Deribit OrdersApi Sbe 1.4 Fields
 -----------------------------------------------------------------------
@@ -686,6 +703,41 @@ coinbase_deribit_ordersapi_sbe_v1_4.block_length.dissect = function(buffer, offs
   local display = coinbase_deribit_ordersapi_sbe_v1_4.block_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.block_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cancel Order Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_reason = {}
+
+-- Size: Cancel Order Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_reason.size = 1
+
+-- Display: Cancel Order Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_reason.labels = {
+  [0] = "Cancel Order Reject Reason: Error (0)",
+  [1] = "Cancel Order Reject Reason: Unknown Order (1)",
+  [2] = "Cancel Order Reject Reason: Client Permission Error (2)",
+  [3] = "Cancel Order Reject Reason: Not Allowed By Market State (3)",
+  [4] = "Cancel Order Reject Reason: Cancel Pending (4)",
+  [5] = "Cancel Order Reject Reason: In Liquidation (5)",
+  [6] = "Cancel Order Reject Reason: Invalid Instrument (6)",
+  [7] = "Cancel Order Reject Reason: Time In Force (7)",
+  [8] = "Cancel Order Reject Reason: Speed Bump Converted To Ioc (8)",
+}
+
+coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_reason.labels[value] or "Cancel Order Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Cancel Order Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.cancel_order_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1330,6 +1382,71 @@ coinbase_deribit_ordersapi_sbe_v1_4.mantissa_optional.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Mass Cancel Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_reason = {}
+
+-- Size: Mass Cancel Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_reason.size = 1
+
+-- Display: Mass Cancel Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_reason.labels = {
+  [0] = "Mass Cancel Reject Reason: Error (0)",
+  [1] = "Mass Cancel Reject Reason: Invalid Mmp Group (1)",
+  [2] = "Mass Cancel Reject Reason: Client Permission Error (2)",
+  [3] = "Mass Cancel Reject Reason: Not Allowed By Market State (3)",
+}
+
+coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_reason.labels[value] or "Mass Cancel Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Mass Cancel Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_cancel_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Quote Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_reason = {}
+
+-- Size: Mass Quote Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_reason.size = 1
+
+-- Display: Mass Quote Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_reason.labels = {
+  [0] = "Mass Quote Reject Reason: System Error (0)",
+  [1] = "Mass Quote Reject Reason: Invalid Mmp Group (1)",
+  [2] = "Mass Quote Reject Reason: Mmp Group Disabled (2)",
+  [3] = "Mass Quote Reject Reason: Mmp Group Frozen (3)",
+  [4] = "Mass Quote Reject Reason: Too Many Quotes (4)",
+  [5] = "Mass Quote Reject Reason: Invalid Instrument (5)",
+  [6] = "Mass Quote Reject Reason: Rate Limit (6)",
+  [7] = "Mass Quote Reject Reason: Portfolio Locked (7)",
+  [8] = "Mass Quote Reject Reason: Duplicate Instrument (8)",
+}
+
+coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_reason.labels[value] or "Mass Quote Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Mass Quote Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mass_quote_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Match Id
 coinbase_deribit_ordersapi_sbe_v1_4.match_id = {}
 
@@ -1395,6 +1512,34 @@ coinbase_deribit_ordersapi_sbe_v1_4.mmp_group_id.dissect = function(buffer, offs
   local display = coinbase_deribit_ordersapi_sbe_v1_4.mmp_group_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mmp_group_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mmp Status Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason = {}
+
+-- Size: Mmp Status Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.size = 1
+
+-- Display: Mmp Status Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.labels = {
+  [0] = "Mmp Status Reject Reason: System Error (0)",
+  [1] = "Mmp Status Reject Reason: Invalid Mmp Group (1)",
+}
+
+coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.labels[value] or "Mmp Status Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Mmp Status Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.mmp_status_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1468,29 +1613,6 @@ coinbase_deribit_ordersapi_sbe_v1_4.order_id.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Order Id Fill Id
-coinbase_deribit_ordersapi_sbe_v1_4.order_id_fill_id = {}
-
--- Size: Order Id Fill Id
-coinbase_deribit_ordersapi_sbe_v1_4.order_id_fill_id.size = 8
-
--- Display: Order Id Fill Id
-coinbase_deribit_ordersapi_sbe_v1_4.order_id_fill_id.display = function(value)
-  return "Order Id Fill Id: "..value
-end
-
--- Dissect: Order Id Fill Id
-coinbase_deribit_ordersapi_sbe_v1_4.order_id_fill_id.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_deribit_ordersapi_sbe_v1_4.order_id_fill_id.size
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = coinbase_deribit_ordersapi_sbe_v1_4.order_id_fill_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_id_fill_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Order Id Optional
 coinbase_deribit_ordersapi_sbe_v1_4.order_id_optional = {}
 
@@ -1519,6 +1641,62 @@ coinbase_deribit_ordersapi_sbe_v1_4.order_id_optional.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Order Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason = {}
+
+-- Size: Order Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.size = 1
+
+-- Display: Order Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.labels = {
+  [0] = "Order Reject Reason: System Error (0)",
+  [1] = "Order Reject Reason: Invalid Instrument (1)",
+  [2] = "Order Reject Reason: Invalid Field (2)",
+  [3] = "Order Reject Reason: Insufficient Margin (3)",
+  [4] = "Order Reject Reason: Duplicate Client Order Id (4)",
+  [5] = "Order Reject Reason: Invalid Quantity (5)",
+  [6] = "Order Reject Reason: Invalid Price (6)",
+  [7] = "Order Reject Reason: Not Allowed By Market State (7)",
+  [8] = "Order Reject Reason: Post Only (8)",
+  [9] = "Order Reject Reason: Too Many Open Orders (9)",
+  [10] = "Order Reject Reason: Permission Error (10)",
+  [11] = "Order Reject Reason: Portfolio Not Found (11)",
+  [12] = "Order Reject Reason: Order Not Found (12)",
+  [13] = "Order Reject Reason: Mmp Not Configured (13)",
+  [14] = "Order Reject Reason: Mmp Max Quote Qty Exceeded (14)",
+  [15] = "Order Reject Reason: Mmp Group Frozen (15)",
+  [16] = "Order Reject Reason: Invalid Margin Mode (16)",
+  [17] = "Order Reject Reason: In Liquidation (17)",
+  [18] = "Order Reject Reason: Risk Check Timed Out (18)",
+  [19] = "Order Reject Reason: Too Many Pending Replaces (19)",
+  [20] = "Order Reject Reason: Iceberg Not Allowed (20)",
+  [21] = "Order Reject Reason: Invalid Allocations (21)",
+  [22] = "Order Reject Reason: Price Too High (22)",
+  [23] = "Order Reject Reason: Price Too Low (23)",
+  [24] = "Order Reject Reason: Price Band Unavailable (24)",
+  [25] = "Order Reject Reason: Rate Limit (25)",
+  [26] = "Order Reject Reason: Portfolio Locked (26)",
+  [27] = "Order Reject Reason: Position Limit Exceeded (27)",
+  [28] = "Order Reject Reason: Order Size Limit Exceeded (28)",
+  [29] = "Order Reject Reason: Member Speed Bump Limit Exceeded (29)",
+}
+
+coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.labels[value] or "Order Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Order Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.order_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Padding
 coinbase_deribit_ordersapi_sbe_v1_4.padding = {}
 
@@ -1533,7 +1711,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.padding.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_deribit_ordersapi_sbe_v1_4.padding.display(value, packet, parent, size)
 
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.padding, range, value, display)
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.padding, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -1556,7 +1734,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.padding_3.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = coinbase_deribit_ordersapi_sbe_v1_4.padding_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.padding_3, range, value, display)
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.padding_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1631,7 +1809,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.protocol_id.size = 1
 -- Display: Protocol Id
 coinbase_deribit_ordersapi_sbe_v1_4.protocol_id.display = function(value)
   if value == 219 then
-    return "Protocol Id: Deribit Starbase"
+    return "Protocol Id: Deribit Starbase (219)"
   end
 
   return "Protocol Id: Unknown("..value..")"
@@ -1695,41 +1873,6 @@ coinbase_deribit_ordersapi_sbe_v1_4.quote_id.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Reason Cancel Order Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_cancel_order_reject_reason = {}
-
--- Size: Reason Cancel Order Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_cancel_order_reject_reason.size = 1
-
--- Display: Reason Cancel Order Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_cancel_order_reject_reason.labels = {
-  [0] = "Reason Cancel Order Reject Reason: Error (0)",
-  [1] = "Reason Cancel Order Reject Reason: Unknown Order (1)",
-  [2] = "Reason Cancel Order Reject Reason: Client Permission Error (2)",
-  [3] = "Reason Cancel Order Reject Reason: Not Allowed By Market State (3)",
-  [4] = "Reason Cancel Order Reject Reason: Cancel Pending (4)",
-  [5] = "Reason Cancel Order Reject Reason: In Liquidation (5)",
-  [6] = "Reason Cancel Order Reject Reason: Invalid Instrument (6)",
-  [7] = "Reason Cancel Order Reject Reason: Time In Force (7)",
-  [8] = "Reason Cancel Order Reject Reason: Speed Bump Converted To Ioc (8)",
-}
-
-coinbase_deribit_ordersapi_sbe_v1_4.reason_cancel_order_reject_reason.display = function(value)
-  return coinbase_deribit_ordersapi_sbe_v1_4.reason_cancel_order_reject_reason.labels[value] or "Reason Cancel Order Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Cancel Order Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_cancel_order_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_deribit_ordersapi_sbe_v1_4.reason_cancel_order_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = coinbase_deribit_ordersapi_sbe_v1_4.reason_cancel_order_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_cancel_order_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Reason Data
 coinbase_deribit_ordersapi_sbe_v1_4.reason_data = {}
 
@@ -1768,186 +1911,6 @@ coinbase_deribit_ordersapi_sbe_v1_4.reason_length.dissect = function(buffer, off
   local display = coinbase_deribit_ordersapi_sbe_v1_4.reason_length.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_length, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Mass Cancel Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_cancel_reject_reason = {}
-
--- Size: Reason Mass Cancel Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_cancel_reject_reason.size = 1
-
--- Display: Reason Mass Cancel Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_cancel_reject_reason.labels = {
-  [0] = "Reason Mass Cancel Reject Reason: Error (0)",
-  [1] = "Reason Mass Cancel Reject Reason: Invalid Mmp Group (1)",
-  [2] = "Reason Mass Cancel Reject Reason: Client Permission Error (2)",
-  [3] = "Reason Mass Cancel Reject Reason: Not Allowed By Market State (3)",
-}
-
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_cancel_reject_reason.display = function(value)
-  return coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_cancel_reject_reason.labels[value] or "Reason Mass Cancel Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Mass Cancel Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_cancel_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_cancel_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_mass_cancel_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Mass Quote Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_quote_reject_reason = {}
-
--- Size: Reason Mass Quote Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_quote_reject_reason.size = 1
-
--- Display: Reason Mass Quote Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_quote_reject_reason.labels = {
-  [0] = "Reason Mass Quote Reject Reason: System Error (0)",
-  [1] = "Reason Mass Quote Reject Reason: Invalid Mmp Group (1)",
-  [2] = "Reason Mass Quote Reject Reason: Mmp Group Disabled (2)",
-  [3] = "Reason Mass Quote Reject Reason: Mmp Group Frozen (3)",
-  [4] = "Reason Mass Quote Reject Reason: Too Many Quotes (4)",
-  [5] = "Reason Mass Quote Reject Reason: Invalid Instrument (5)",
-  [6] = "Reason Mass Quote Reject Reason: Rate Limit (6)",
-  [7] = "Reason Mass Quote Reject Reason: Portfolio Locked (7)",
-  [8] = "Reason Mass Quote Reject Reason: Duplicate Instrument (8)",
-}
-
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_quote_reject_reason.display = function(value)
-  return coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_quote_reject_reason.labels[value] or "Reason Mass Quote Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Mass Quote Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_quote_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_quote_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_quote_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_mass_quote_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Mmp Status Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason = {}
-
--- Size: Reason Mmp Status Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.size = 1
-
--- Display: Reason Mmp Status Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.labels = {
-  [0] = "Reason Mmp Status Reject Reason: System Error (0)",
-  [1] = "Reason Mmp Status Reject Reason: Invalid Mmp Group (1)",
-}
-
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.display = function(value)
-  return coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.labels[value] or "Reason Mmp Status Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Mmp Status Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_mmp_status_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Order Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason = {}
-
--- Size: Reason Order Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.size = 1
-
--- Display: Reason Order Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.labels = {
-  [0] = "Reason Order Reject Reason: System Error (0)",
-  [1] = "Reason Order Reject Reason: Invalid Instrument (1)",
-  [2] = "Reason Order Reject Reason: Invalid Field (2)",
-  [3] = "Reason Order Reject Reason: Insufficient Margin (3)",
-  [4] = "Reason Order Reject Reason: Duplicate Client Order Id (4)",
-  [5] = "Reason Order Reject Reason: Invalid Quantity (5)",
-  [6] = "Reason Order Reject Reason: Invalid Price (6)",
-  [7] = "Reason Order Reject Reason: Not Allowed By Market State (7)",
-  [8] = "Reason Order Reject Reason: Post Only (8)",
-  [9] = "Reason Order Reject Reason: Too Many Open Orders (9)",
-  [10] = "Reason Order Reject Reason: Permission Error (10)",
-  [11] = "Reason Order Reject Reason: Portfolio Not Found (11)",
-  [12] = "Reason Order Reject Reason: Order Not Found (12)",
-  [13] = "Reason Order Reject Reason: Mmp Not Configured (13)",
-  [14] = "Reason Order Reject Reason: Mmp Max Quote Qty Exceeded (14)",
-  [15] = "Reason Order Reject Reason: Mmp Group Frozen (15)",
-  [16] = "Reason Order Reject Reason: Invalid Margin Mode (16)",
-  [17] = "Reason Order Reject Reason: In Liquidation (17)",
-  [18] = "Reason Order Reject Reason: Risk Check Timed Out (18)",
-  [19] = "Reason Order Reject Reason: Too Many Pending Replaces (19)",
-  [20] = "Reason Order Reject Reason: Iceberg Not Allowed (20)",
-  [21] = "Reason Order Reject Reason: Invalid Allocations (21)",
-  [22] = "Reason Order Reject Reason: Price Too High (22)",
-  [23] = "Reason Order Reject Reason: Price Too Low (23)",
-  [24] = "Reason Order Reject Reason: Price Band Unavailable (24)",
-  [25] = "Reason Order Reject Reason: Rate Limit (25)",
-  [26] = "Reason Order Reject Reason: Portfolio Locked (26)",
-  [27] = "Reason Order Reject Reason: Position Limit Exceeded (27)",
-  [28] = "Reason Order Reject Reason: Order Size Limit Exceeded (28)",
-  [29] = "Reason Order Reject Reason: Member Speed Bump Limit Exceeded (29)",
-}
-
-coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.display = function(value)
-  return coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.labels[value] or "Reason Order Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Order Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_order_reject_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_reject_reason = {}
-
--- Size: Reason Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_reject_reason.size = 1
-
--- Display: Reason Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_reject_reason.labels = {
-  [1] = "Reason Reject Reason: Invalid Schema Id (1)",
-  [2] = "Reason Reject Reason: Invalid Template Id (2)",
-  [3] = "Reason Reject Reason: Invalid Block Length (3)",
-  [4] = "Reason Reject Reason: Invalid Field Value (4)",
-  [5] = "Reason Reject Reason: Message Disabled (5)",
-}
-
-coinbase_deribit_ordersapi_sbe_v1_4.reason_reject_reason.display = function(value)
-  return coinbase_deribit_ordersapi_sbe_v1_4.reason_reject_reason.labels[value] or "Reason Reject Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Reject Reason
-coinbase_deribit_ordersapi_sbe_v1_4.reason_reject_reason.dissect = function(buffer, offset, packet, parent)
-  local length = coinbase_deribit_ordersapi_sbe_v1_4.reason_reject_reason.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = coinbase_deribit_ordersapi_sbe_v1_4.reason_reject_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reason_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1995,6 +1958,37 @@ coinbase_deribit_ordersapi_sbe_v1_4.ref_sequence_number.dissect = function(buffe
   local display = coinbase_deribit_ordersapi_sbe_v1_4.ref_sequence_number.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.ref_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.reject_reason = {}
+
+-- Size: Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.reject_reason.size = 1
+
+-- Display: Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.reject_reason.labels = {
+  [1] = "Reject Reason: Invalid Schema Id (1)",
+  [2] = "Reject Reason: Invalid Template Id (2)",
+  [3] = "Reject Reason: Invalid Block Length (3)",
+  [4] = "Reject Reason: Invalid Field Value (4)",
+  [5] = "Reject Reason: Message Disabled (5)",
+}
+
+coinbase_deribit_ordersapi_sbe_v1_4.reject_reason.display = function(value)
+  return coinbase_deribit_ordersapi_sbe_v1_4.reject_reason.labels[value] or "Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Reject Reason
+coinbase_deribit_ordersapi_sbe_v1_4.reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = coinbase_deribit_ordersapi_sbe_v1_4.reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = coinbase_deribit_ordersapi_sbe_v1_4.reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2927,7 +2921,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_orders_placed_message_fills_group
 -- Size: Mass Quote Orders Placed Message Fills Group
 coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_orders_placed_message_fills_group.size =
   coinbase_deribit_ordersapi_sbe_v1_4.match_id.size + 
-  coinbase_deribit_ordersapi_sbe_v1_4.order_id_fill_id.size + 
+  coinbase_deribit_ordersapi_sbe_v1_4.order_id.size + 
   coinbase_deribit_ordersapi_sbe_v1_4.fill_price.size + 
   coinbase_deribit_ordersapi_sbe_v1_4.fill_qty.size
 
@@ -2949,8 +2943,8 @@ coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_orders_placed_message_fills_group
   -- Match Id: FillId
   index, match_id = coinbase_deribit_ordersapi_sbe_v1_4.match_id.dissect(buffer, index, packet, parent)
 
-  -- Order Id Fill Id: FillId
-  index, order_id_fill_id = coinbase_deribit_ordersapi_sbe_v1_4.order_id_fill_id.dissect(buffer, index, packet, parent)
+  -- Order Id: OrderId
+  index, order_id = coinbase_deribit_ordersapi_sbe_v1_4.order_id.dissect(buffer, index, packet, parent)
 
   -- Fill Price: Price9
   index, fill_price = coinbase_deribit_ordersapi_sbe_v1_4.fill_price.dissect(buffer, index, packet, parent)
@@ -4387,7 +4381,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.get_orders_mmp_status_reject_message = {}
 coinbase_deribit_ordersapi_sbe_v1_4.get_orders_mmp_status_reject_message.size =
   coinbase_deribit_ordersapi_sbe_v1_4.timestamp.size + 
   coinbase_deribit_ordersapi_sbe_v1_4.correlation_id.size + 
-  coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.size
+  coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.size
 
 -- Display: Get Orders Mmp Status Reject Message
 coinbase_deribit_ordersapi_sbe_v1_4.get_orders_mmp_status_reject_message.display = function(packet, parent, length)
@@ -4404,8 +4398,8 @@ coinbase_deribit_ordersapi_sbe_v1_4.get_orders_mmp_status_reject_message.fields 
   -- Correlation Id: int64
   index, correlation_id = coinbase_deribit_ordersapi_sbe_v1_4.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Mmp Status Reject Reason: MmpStatusRejectReason
-  index, reason_mmp_status_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.dissect(buffer, index, packet, parent)
+  -- Mmp Status Reject Reason: MmpStatusRejectReason
+  index, mmp_status_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4487,7 +4481,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.get_mass_quote_mmp_status_reject_message = {
 coinbase_deribit_ordersapi_sbe_v1_4.get_mass_quote_mmp_status_reject_message.size =
   coinbase_deribit_ordersapi_sbe_v1_4.timestamp.size + 
   coinbase_deribit_ordersapi_sbe_v1_4.correlation_id.size + 
-  coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.size
+  coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.size
 
 -- Display: Get Mass Quote Mmp Status Reject Message
 coinbase_deribit_ordersapi_sbe_v1_4.get_mass_quote_mmp_status_reject_message.display = function(packet, parent, length)
@@ -4504,8 +4498,8 @@ coinbase_deribit_ordersapi_sbe_v1_4.get_mass_quote_mmp_status_reject_message.fie
   -- Correlation Id: int64
   index, correlation_id = coinbase_deribit_ordersapi_sbe_v1_4.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Mmp Status Reject Reason: MmpStatusRejectReason
-  index, reason_mmp_status_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.reason_mmp_status_reject_reason.dissect(buffer, index, packet, parent)
+  -- Mmp Status Reject Reason: MmpStatusRejectReason
+  index, mmp_status_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.mmp_status_reject_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4664,7 +4658,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_message.size = function(b
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.correlation_id.size
 
-  index = index + coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_cancel_reject_reason.size
+  index = index + coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_reason.size
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.details.size(buffer, offset + index)
 
@@ -4689,8 +4683,8 @@ coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_message.fields = function
   -- Correlation Id: int64
   index, correlation_id = coinbase_deribit_ordersapi_sbe_v1_4.correlation_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Mass Cancel Reject Reason: MassCancelRejectReason
-  index, reason_mass_cancel_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_cancel_reject_reason.dissect(buffer, index, packet, parent)
+  -- Mass Cancel Reject Reason: MassCancelRejectReason
+  index, mass_cancel_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.mass_cancel_reject_reason.dissect(buffer, index, packet, parent)
 
   -- Details: Struct of 2 fields
   index, details = coinbase_deribit_ordersapi_sbe_v1_4.details.dissect(buffer, index, packet, parent)
@@ -4789,7 +4783,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_message.size = function(bu
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.mmp_group_id.size
 
-  index = index + coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_quote_reject_reason.size
+  index = index + coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_reason.size
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.details.size(buffer, offset + index)
 
@@ -4820,8 +4814,8 @@ coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_message.fields = function(
   -- Mmp Group Id: int64
   index, mmp_group_id = coinbase_deribit_ordersapi_sbe_v1_4.mmp_group_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Mass Quote Reject Reason: MassQuoteRejectReason
-  index, reason_mass_quote_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.reason_mass_quote_reject_reason.dissect(buffer, index, packet, parent)
+  -- Mass Quote Reject Reason: MassQuoteRejectReason
+  index, mass_quote_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.mass_quote_reject_reason.dissect(buffer, index, packet, parent)
 
   -- Details: Struct of 2 fields
   index, details = coinbase_deribit_ordersapi_sbe_v1_4.details.dissect(buffer, index, packet, parent)
@@ -5660,7 +5654,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_message.size = function(
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.instrument_id.size
 
-  index = index + coinbase_deribit_ordersapi_sbe_v1_4.reason_cancel_order_reject_reason.size
+  index = index + coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_reason.size
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.details.size(buffer, offset + index)
 
@@ -5694,8 +5688,8 @@ coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_message.fields = functio
   -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_deribit_ordersapi_sbe_v1_4.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Cancel Order Reject Reason: CancelOrderRejectReason
-  index, reason_cancel_order_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.reason_cancel_order_reject_reason.dissect(buffer, index, packet, parent)
+  -- Cancel Order Reject Reason: CancelOrderRejectReason
+  index, cancel_order_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.cancel_order_reject_reason.dissect(buffer, index, packet, parent)
 
   -- Details: Struct of 2 fields
   index, details = coinbase_deribit_ordersapi_sbe_v1_4.details.dissect(buffer, index, packet, parent)
@@ -5804,7 +5798,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.amend_order_reject_message.size = function(b
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.instrument_id.size
 
-  index = index + coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.size
+  index = index + coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.size
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.details.size(buffer, offset + index)
 
@@ -5838,8 +5832,8 @@ coinbase_deribit_ordersapi_sbe_v1_4.amend_order_reject_message.fields = function
   -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_deribit_ordersapi_sbe_v1_4.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Order Reject Reason: OrderRejectReason
-  index, reason_order_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.dissect(buffer, index, packet, parent)
+  -- Order Reject Reason: OrderRejectReason
+  index, order_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.dissect(buffer, index, packet, parent)
 
   -- Details: Struct of 2 fields
   index, details = coinbase_deribit_ordersapi_sbe_v1_4.details.dissect(buffer, index, packet, parent)
@@ -6229,7 +6223,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.new_order_reject_message.size = function(buf
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.instrument_id.size
 
-  index = index + coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.size
+  index = index + coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.size
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.details.size(buffer, offset + index)
 
@@ -6263,8 +6257,8 @@ coinbase_deribit_ordersapi_sbe_v1_4.new_order_reject_message.fields = function(b
   -- Instrument Id: InstrumentId
   index, instrument_id = coinbase_deribit_ordersapi_sbe_v1_4.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Order Reject Reason: OrderRejectReason
-  index, reason_order_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.reason_order_reject_reason.dissect(buffer, index, packet, parent)
+  -- Order Reject Reason: OrderRejectReason
+  index, order_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.order_reject_reason.dissect(buffer, index, packet, parent)
 
   -- Details: Struct of 2 fields
   index, details = coinbase_deribit_ordersapi_sbe_v1_4.details.dissect(buffer, index, packet, parent)
@@ -7349,8 +7343,8 @@ end
 -- Dissect Bit Fields: Flags Replace Order Flags
 coinbase_deribit_ordersapi_sbe_v1_4.flags_replace_order_flags.bits = function(range, value, packet, parent)
 
-  -- Unused Replace Order Flags 0: 1 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.unused_replace_order_flags_0, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.unused_1, range, value)
 
   -- Post Only: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.post_only, range, value)
@@ -7662,7 +7656,7 @@ coinbase_deribit_ordersapi_sbe_v1_4.reject_message.size = function(buffer, offse
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.ref_sequence_number.size
 
-  index = index + coinbase_deribit_ordersapi_sbe_v1_4.reason_reject_reason.size
+  index = index + coinbase_deribit_ordersapi_sbe_v1_4.reject_reason.size
 
   index = index + coinbase_deribit_ordersapi_sbe_v1_4.details.size(buffer, offset + index)
 
@@ -7681,8 +7675,8 @@ coinbase_deribit_ordersapi_sbe_v1_4.reject_message.fields = function(buffer, off
   -- Ref Sequence Number: int64
   index, ref_sequence_number = coinbase_deribit_ordersapi_sbe_v1_4.ref_sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Reason Reject Reason: RejectReason
-  index, reason_reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.reason_reject_reason.dissect(buffer, index, packet, parent)
+  -- Reject Reason: RejectReason
+  index, reject_reason = coinbase_deribit_ordersapi_sbe_v1_4.reject_reason.dissect(buffer, index, packet, parent)
 
   -- Details: Struct of 2 fields
   index, details = coinbase_deribit_ordersapi_sbe_v1_4.details.dissect(buffer, index, packet, parent)
@@ -8342,10 +8336,16 @@ end
 coinbase_deribit_ordersapi_sbe_v1_4.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset + size_of_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.sbe_message, buffer(offset, 0))
-    local current = coinbase_deribit_ordersapi_sbe_v1_4.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(coinbase_deribit_ordersapi_sbe_v1_4.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, coinbase_deribit_ordersapi_sbe_v1_4.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
     parent:set_len(size_of_sbe_message)
     local display = coinbase_deribit_ordersapi_sbe_v1_4.sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -8353,7 +8353,10 @@ coinbase_deribit_ordersapi_sbe_v1_4.sbe_message.dissect = function(buffer, offse
     return index, parent
   else
     -- Skip element, add fields directly
-    coinbase_deribit_ordersapi_sbe_v1_4.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(coinbase_deribit_ordersapi_sbe_v1_4.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, coinbase_deribit_ordersapi_sbe_v1_4.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
 
     return index
   end

@@ -111,11 +111,12 @@ omi_nasdaq_phlxoptions_orders_itch_v1_91.experts = { nasdaq_phlxoptions_orders_i
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nasdaq_phlxoptions_orders_itch_v1_91.timestamp_format = 2
 
 
@@ -1142,7 +1143,7 @@ nasdaq_phlxoptions_orders_itch_v1_91.reserved_3.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_phlxoptions_orders_itch_v1_91.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.reserved_3, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_orders_itch_v1_91.fields.reserved_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2563,7 +2564,8 @@ nasdaq_phlxoptions_orders_itch_v1_91.message_data.size = function(buffer, offset
   index = index + nasdaq_phlxoptions_orders_itch_v1_91.message_header.size
 
   -- Parse runtime size of: Payload
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local message_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + message_length - 1
 
   return index
 end

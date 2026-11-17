@@ -63,11 +63,11 @@ omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.message_sequence_number =
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 cboe_matchnow_multicasttrades_pitch_v1_0_14.timestamp_format = 2
 
 
@@ -394,7 +394,7 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_2.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_2, range, value, display)
+  parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -417,7 +417,7 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_3.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_3, range, value, display)
+  parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -440,7 +440,7 @@ cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = cboe_matchnow_multicasttrades_pitch_v1_0_14.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_4, range, value, display)
+  parent:add(omi_cboe_matchnow_multicasttrades_pitch_v1_0_14.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end

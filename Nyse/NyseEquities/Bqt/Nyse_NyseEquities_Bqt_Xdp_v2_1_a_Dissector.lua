@@ -142,6 +142,11 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.close_price_index = ProtoField.new("
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.bqt.xdp.v2.1.a.messageindex", ftypes.UINT16)
 omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.bqt.xdp.v2.1.a.timestamp", ftypes.UINT64)
 
+-- Nyse NyseEquities Bqt Xdp 2.1.a Expert Info
+nyse_nyseequities_bqt_xdp_v2_1_a.experts = {}
+nyse_nyseequities_bqt_xdp_v2_1_a.experts.undecoded = ProtoExpert.new("nyse.nyseequities.bqt.xdp.v2.1.a.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nyse_nyseequities_bqt_xdp_v2_1_a.experts = { nyse_nyseequities_bqt_xdp_v2_1_a.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nyse NyseEquities Bqt Xdp 2.1.a Formatting
 -----------------------------------------------------------------------
@@ -149,11 +154,11 @@ omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.timestamp = ProtoField.new("Timestam
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_nyseequities_bqt_xdp_v2_1_a.timestamp_format = 2
 
 
@@ -234,6 +239,19 @@ end
 nyse_nyseequities_bqt_xdp_v2_1_a.conversation.current = nil
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nyse NyseEquities Bqt Xdp 2.1.a Fields
 -----------------------------------------------------------------------
@@ -4684,10 +4702,16 @@ end
 nyse_nyseequities_bqt_xdp_v2_1_a.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nyse_nyseequities_bqt_xdp_v2_1_a.fields.message, buffer(offset, 0))
-    local current = nyse_nyseequities_bqt_xdp_v2_1_a.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(nyse_nyseequities_bqt_xdp_v2_1_a.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_nyseequities_bqt_xdp_v2_1_a.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = nyse_nyseequities_bqt_xdp_v2_1_a.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4695,7 +4719,10 @@ nyse_nyseequities_bqt_xdp_v2_1_a.message.dissect = function(buffer, offset, pack
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_nyseequities_bqt_xdp_v2_1_a.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(nyse_nyseequities_bqt_xdp_v2_1_a.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, nyse_nyseequities_bqt_xdp_v2_1_a.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -4863,6 +4890,12 @@ nyse_nyseequities_bqt_xdp_v2_1_a.packet.dissect = function(buffer, packet, paren
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(nyse_nyseequities_bqt_xdp_v2_1_a.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()

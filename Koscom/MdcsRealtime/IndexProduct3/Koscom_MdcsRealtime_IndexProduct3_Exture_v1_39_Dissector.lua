@@ -1564,7 +1564,7 @@ koscom_mdcsrealtime_indexproduct3_exture_v1_39.filler_4.dissect = function(buffe
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_indexproduct3_exture_v1_39.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.filler_4, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_indexproduct3_exture_v1_39.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end

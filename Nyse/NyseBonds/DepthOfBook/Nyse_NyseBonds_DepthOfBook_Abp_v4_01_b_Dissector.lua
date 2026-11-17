@@ -85,6 +85,11 @@ omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.login_message = ProtoField.new
 omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.logoff_message = ProtoField.new("Logoff Message", "nyse.nysebonds.depthofbook.abp.v4.01.b.logoffmessage", ftypes.STRING, nil, nil, nil, "Closes the session. Carries only its type code and the terminator")
 omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.test_request_message = ProtoField.new("Test Request Message", "nyse.nysebonds.depthofbook.abp.v4.01.b.testrequestmessage", ftypes.STRING, nil, nil, nil, "Signals or tests that the Tcp connection is open. Any text given is echoed back in a Test Response")
 
+-- Nyse NyseBonds DepthOfBook Abp 4.01.b Expert Info
+nyse_nysebonds_depthofbook_abp_v4_01_b.experts = {}
+nyse_nysebonds_depthofbook_abp_v4_01_b.experts.undecoded = ProtoExpert.new("nyse.nysebonds.depthofbook.abp.v4.01.b.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nyse_nysebonds_depthofbook_abp_v4_01_b.experts = { nyse_nysebonds_depthofbook_abp_v4_01_b.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nyse NyseBonds DepthOfBook Abp 4.01.b Formatting
 -----------------------------------------------------------------------
@@ -93,11 +98,11 @@ omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.test_request_message = ProtoFi
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_nysebonds_depthofbook_abp_v4_01_b.timestamp_format = 2
 
 -- assumed connection role
@@ -153,6 +158,19 @@ function omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nyse NyseBonds DepthOfBook Abp 4.01.b Fields
 -----------------------------------------------------------------------
@@ -1432,10 +1450,8 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.time.display = function(value, buffer, of
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = nyse_nysebonds_depthofbook_abp_v4_01_b.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -2585,10 +2601,16 @@ end
 nyse_nysebonds_depthofbook_abp_v4_01_b.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nyse_nysebonds_depthofbook_abp_v4_01_b.fields.message, buffer(offset, 0))
-    local current = nyse_nysebonds_depthofbook_abp_v4_01_b.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(nyse_nysebonds_depthofbook_abp_v4_01_b.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, nyse_nysebonds_depthofbook_abp_v4_01_b.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = nyse_nysebonds_depthofbook_abp_v4_01_b.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2596,7 +2618,10 @@ nyse_nysebonds_depthofbook_abp_v4_01_b.message.dissect = function(buffer, offset
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_nysebonds_depthofbook_abp_v4_01_b.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(nyse_nysebonds_depthofbook_abp_v4_01_b.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, nyse_nysebonds_depthofbook_abp_v4_01_b.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

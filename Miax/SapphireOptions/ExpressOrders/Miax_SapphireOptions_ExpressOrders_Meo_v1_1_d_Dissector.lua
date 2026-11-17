@@ -19,10 +19,10 @@ omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.action = ProtoField.new
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.active_on_sapphire = ProtoField.new("Active On Sapphire", "miax.sapphireoptions.expressorders.meo.v1.1.d.activeonsapphire", ftypes.STRING, nil, nil, nil, "Indicates if this symbol is tradable on Sapphire in the current session")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.allowable_engagement_percentage = ProtoField.new("Allowable Engagement Percentage", "miax.sapphireoptions.expressorders.meo.v1.1.d.allowableengagementpercentage", ftypes.UINT32, nil, nil, nil, "Percentage of order size at which the Member wants Sapphire to trigger ARM protection for this underlying. Minimum value is 1 (1%). Maximum is 65,535 (65,535%)")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.application_protocol = ProtoField.new("Application Protocol", "miax.sapphireoptions.expressorders.meo.v1.1.d.applicationprotocol", ftypes.STRING, nil, nil, nil, "Eg: MEI1.0 (right padded with spaces)")
+omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.arm_2_counting_period = ProtoField.new("Arm 2 Counting Period", "miax.sapphireoptions.expressorders.meo.v1.1.d.arm2countingperiod", ftypes.UINT32, nil, nil, nil, "Counting Period in milliseconds in which the number of unique ARM triggers cannot exceed the configured ARM Threshold Count specified for ARM2 protection")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.arm_2_settings_update_status = ProtoField.new("Arm 2 Settings Update Status", "miax.sapphireoptions.expressorders.meo.v1.1.d.arm2settingsupdatestatus", ftypes.STRING, nil, nil, nil, "ARM2 settings update status")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.arm_settings_update_status = ProtoField.new("Arm Settings Update Status", "miax.sapphireoptions.expressorders.meo.v1.1.d.armsettingsupdatestatus", ftypes.STRING)
-omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.arm_threshold_count_binary_4u_4 = ProtoField.new("Arm Threshold Count Binary 4u 4", "miax.sapphireoptions.expressorders.meo.v1.1.d.armthresholdcountbinary4u4", ftypes.UINT32, nil, nil, nil, "Number of unique ARM triggers for the Counting Period that will trigger ARM2 Firm Level protection")
-omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.arm_threshold_count_binary_u_4 = ProtoField.new("Arm Threshold Count Binary U 4", "miax.sapphireoptions.expressorders.meo.v1.1.d.armthresholdcountbinaryu4", ftypes.UINT32, nil, nil, nil, "Number of ARM triggers for the Counting Period for the specified underlying that will trigger ARM2 Underlying level protection. Minimum: 3 Maximum: 99")
+omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.arm_threshold_count = ProtoField.new("Arm Threshold Count", "miax.sapphireoptions.expressorders.meo.v1.1.d.armthresholdcount", ftypes.UINT32, nil, nil, nil, "Number of unique ARM triggers for the Counting Period that will trigger ARM2 Firm Level protection")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.assignment_settings_status = ProtoField.new("Assignment Settings Status", "miax.sapphireoptions.expressorders.meo.v1.1.d.assignmentsettingsstatus", ftypes.STRING)
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.bulk_order_index = ProtoField.new("Bulk Order Index", "miax.sapphireoptions.expressorders.meo.v1.1.d.bulkorderindex", ftypes.UINT8, nil, nil, nil, "Bulk Liquidity Index assigned by Sapphire to each Order in bulk Liquidity (order position in the bulk liquidity). Set to zero for Complex binary order")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.bulk_order_status = ProtoField.new("Bulk Order Status", "miax.sapphireoptions.expressorders.meo.v1.1.d.bulkorderstatus", ftypes.STRING)
@@ -34,9 +34,7 @@ omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.client_send_time = Prot
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.client_send_time_utc = ProtoField.new("Client Send Time", "miax.sapphireoptions.expressorders.meo.v1.1.d.clientsendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Firm's send time for the Liquidities. Nanoseconds since Epoch")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.closing_time = ProtoField.new("Closing Time", "miax.sapphireoptions.expressorders.meo.v1.1.d.closingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. e.g.: 16:15:00")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.computer_id = ProtoField.new("Computer Id", "miax.sapphireoptions.expressorders.meo.v1.1.d.computerid", ftypes.STRING, nil, nil, nil, "ID issued by MIAX during initial setup")
-omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.counting_period_binary_4u_4 = ProtoField.new("Counting Period Binary 4u 4", "miax.sapphireoptions.expressorders.meo.v1.1.d.countingperiodbinary4u4", ftypes.UINT32, nil, nil, nil, "Counting Period in milliseconds in which the number of unique ARM triggers cannot exceed the configured ARM Threshold Count specified for ARM2 protection")
-omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.counting_period_binary_u_2 = ProtoField.new("Counting Period Binary U 2", "miax.sapphireoptions.expressorders.meo.v1.1.d.countingperiodbinaryu2", ftypes.UINT16, nil, nil, nil, "Duration (in number of milliseconds) in which Engagement percentage is calculated in order to determine if the MPID should be put on ARM protection for this underlying. Allowable Range: 100 to 15,000 milliseconds")
-omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.counting_period_binary_u_4 = ProtoField.new("Counting Period Binary U 4", "miax.sapphireoptions.expressorders.meo.v1.1.d.countingperiodbinaryu4", ftypes.UINT32, nil, nil, nil, "Duration (in number of milliseconds) for which ARM triggers are counted in order to determine if they don't exceed the specified ARM2 Threshold. Allowable Range: 1000 to 24,300,000 milliseconds")
+omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.counting_period = ProtoField.new("Counting Period", "miax.sapphireoptions.expressorders.meo.v1.1.d.countingperiod", ftypes.UINT16, nil, nil, nil, "Duration (in number of milliseconds) in which Engagement percentage is calculated in order to determine if the MPID should be put on ARM protection for this underlying. Allowable Range: 100 to 15,000 milliseconds")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.sapphireoptions.expressorders.meo.v1.1.d.endsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the last packet to be retransmitted")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.engine_sequence_number = ProtoField.new("Engine Sequence Number", "miax.sapphireoptions.expressorders.meo.v1.1.d.enginesequencenumber", ftypes.UINT64, nil, nil, nil, "Sapphire Engine sequence number of this cancel")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.engine_transaction_time = ProtoField.new("Engine Transaction Time", "miax.sapphireoptions.expressorders.meo.v1.1.d.enginetransactiontime", ftypes.UINT64, nil, nil, nil, "Unique timestamp, assigned by the Sapphire Matching Engine, for orders processed successfully and zero if rejected")
@@ -64,6 +62,7 @@ omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.long_term_option = Prot
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.mass_cancel_scope = ProtoField.new("Mass Cancel Scope", "miax.sapphireoptions.expressorders.meo.v1.1.d.masscancelscope", ftypes.STRING)
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.meo_version = ProtoField.new("Meo Version", "miax.sapphireoptions.expressorders.meo.v1.1.d.meoversion", ftypes.STRING, nil, nil, nil, "Eg: MEOX.X (where X.X is MEO version)")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.mpid = ProtoField.new("Mpid", "miax.sapphireoptions.expressorders.meo.v1.1.d.mpid", ftypes.STRING, nil, nil, nil, "Sapphire assigned ID of the Member")
+omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.net_price = ProtoField.new("Net Price", "miax.sapphireoptions.expressorders.meo.v1.1.d.netprice", ftypes.DOUBLE, nil, nil, nil, "The net limit price for the strategy. If Side is B, a positive number represents net debit and a negative number net credit; if Side is A, a positive number represents net credit and a negative number a net debit. Price of zero is net neutral transaction for either side")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.notification_time = ProtoField.new("Notification Time", "miax.sapphireoptions.expressorders.meo.v1.1.d.notificationtime", ftypes.UINT64, nil, nil, nil, "Time at which this was generated by Sapphire system")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.notification_type = ProtoField.new("Notification Type", "miax.sapphireoptions.expressorders.meo.v1.1.d.notificationtype", ftypes.STRING)
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.number_of_legs = ProtoField.new("Number Of Legs", "miax.sapphireoptions.expressorders.meo.v1.1.d.numberoflegs", ftypes.UINT8, nil, nil, nil, "Number of Legs. Valid values: 2 to 12 (for Options only), 2 to 13 (for Stock-tied)")
@@ -76,7 +75,6 @@ omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.order_count = ProtoFiel
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.order_id = ProtoField.new("Order Id", "miax.sapphireoptions.expressorders.meo.v1.1.d.orderid", ftypes.UINT64, nil, nil, nil, "Sapphire assigned ID for complex binary order if accepted; Zero if complex binary order was rejected")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.order_response = ProtoField.new("Order Response", "miax.sapphireoptions.expressorders.meo.v1.1.d.orderresponse", ftypes.STRING, nil, nil, nil, "1 to N single-side order responses")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.order_status = ProtoField.new("Order Status", "miax.sapphireoptions.expressorders.meo.v1.1.d.orderstatus", ftypes.STRING)
-omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.price_binary_prc_4s_8 = ProtoField.new("Price Binary Prc 4s 8", "miax.sapphireoptions.expressorders.meo.v1.1.d.pricebinaryprc4s8", ftypes.DOUBLE, nil, nil, nil, "The net limit price for the strategy. If Side is B, a positive number represents net debit and a negative number net credit; if Side is A, a positive number represents net credit and a negative number a net debit. Price of zero is net neutral transaction for either side")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.product_add_update_time = ProtoField.new("Product Add Update Time", "miax.sapphireoptions.expressorders.meo.v1.1.d.productaddupdatetime", ftypes.UINT64, nil, nil, nil, "Time at which this product is added/updated on Sapphire system today")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.product_id = ProtoField.new("Product Id", "miax.sapphireoptions.expressorders.meo.v1.1.d.productid", ftypes.UINT32, nil, nil, nil, "Sapphire Product ID mapped to a given option. It is assigned per trading session and is valid for that session")
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.relief_multiplier = ProtoField.new("Relief Multiplier", "miax.sapphireoptions.expressorders.meo.v1.1.d.reliefmultiplier", ftypes.DOUBLE, nil, nil, nil, "Relief is the multiplier times the regular acceptable Exchange Opening width (Opening BBO width)")
@@ -179,6 +177,11 @@ omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.legs_index = ProtoField
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.liquidity_units_index = ProtoField.new("Liquidity Units Index", "miax.sapphireoptions.expressorders.meo.v1.1.d.liquidityunitsindex", ftypes.UINT16)
 omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.order_response_index = ProtoField.new("Order Response Index", "miax.sapphireoptions.expressorders.meo.v1.1.d.orderresponseindex", ftypes.UINT16)
 
+-- Miax SapphireOptions ExpressOrders Meo 1.1.d Expert Info
+miax_sapphireoptions_expressorders_meo_v1_1_d.experts = {}
+miax_sapphireoptions_expressorders_meo_v1_1_d.experts.undecoded = ProtoExpert.new("miax.sapphireoptions.expressorders.meo.v1.1.d.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_sapphireoptions_expressorders_meo_v1_1_d.experts = { miax_sapphireoptions_expressorders_meo_v1_1_d.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Miax SapphireOptions ExpressOrders Meo 1.1.d Formatting
 -----------------------------------------------------------------------
@@ -187,11 +190,12 @@ omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.order_response_index = 
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format = 2
 
 
@@ -268,6 +272,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax SapphireOptions ExpressOrders Meo 1.1.d Fields
 -----------------------------------------------------------------------
@@ -376,6 +388,29 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.application_protocol.dissect = fun
   return offset + length, value
 end
 
+-- Arm 2 Counting Period
+miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period = {}
+
+-- Size: Arm 2 Counting Period
+miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.size = 4
+
+-- Display: Arm 2 Counting Period
+miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.display = function(value)
+  return "Arm 2 Counting Period: "..value
+end
+
+-- Dissect: Arm 2 Counting Period
+miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.arm_2_counting_period, range, value, display)
+
+  return offset + length, value
+end
+
 -- Arm 2 Settings Update Status
 miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_settings_update_status = {}
 
@@ -478,48 +513,25 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_settings_update_status.dissect
   return offset + length, value
 end
 
--- Arm Threshold Count Binary 4u 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_4u_4 = {}
+-- Arm Threshold Count
+miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count = {}
 
--- Size: Arm Threshold Count Binary 4u 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_4u_4.size = 4
+-- Size: Arm Threshold Count
+miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.size = 4
 
--- Display: Arm Threshold Count Binary 4u 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_4u_4.display = function(value)
-  return "Arm Threshold Count Binary 4u 4: "..value
+-- Display: Arm Threshold Count
+miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.display = function(value)
+  return "Arm Threshold Count: "..value
 end
 
--- Dissect: Arm Threshold Count Binary 4u 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_4u_4.size
+-- Dissect: Arm Threshold Count
+miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_4u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.arm_threshold_count_binary_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Arm Threshold Count Binary U 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4 = {}
-
--- Size: Arm Threshold Count Binary U 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.size = 4
-
--- Display: Arm Threshold Count Binary U 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.display = function(value)
-  return "Arm Threshold Count Binary U 4: "..value
-end
-
--- Dissect: Arm Threshold Count Binary U 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.arm_threshold_count_binary_u_4, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.arm_threshold_count, range, value, display)
 
   return offset + length, value
 end
@@ -810,71 +822,25 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.computer_id.dissect = function(buf
   return offset + length, value
 end
 
--- Counting Period Binary 4u 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_4u_4 = {}
+-- Counting Period
+miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period = {}
 
--- Size: Counting Period Binary 4u 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_4u_4.size = 4
+-- Size: Counting Period
+miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period.size = 2
 
--- Display: Counting Period Binary 4u 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_4u_4.display = function(value)
-  return "Counting Period Binary 4u 4: "..value
+-- Display: Counting Period
+miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period.display = function(value)
+  return "Counting Period: "..value
 end
 
--- Dissect: Counting Period Binary 4u 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_4u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_4u_4.size
+-- Dissect: Counting Period
+miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_4u_4.display(value, buffer, offset, packet, parent)
+  local display = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.counting_period_binary_4u_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Counting Period Binary U 2
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_2 = {}
-
--- Size: Counting Period Binary U 2
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_2.size = 2
-
--- Display: Counting Period Binary U 2
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_2.display = function(value)
-  return "Counting Period Binary U 2: "..value
-end
-
--- Dissect: Counting Period Binary U 2
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_2.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_2.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.counting_period_binary_u_2, range, value, display)
-
-  return offset + length, value
-end
-
--- Counting Period Binary U 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4 = {}
-
--- Size: Counting Period Binary U 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.size = 4
-
--- Display: Counting Period Binary U 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.display = function(value)
-  return "Counting Period Binary U 4: "..value
-end
-
--- Dissect: Counting Period Binary U 4
-miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.counting_period_binary_u_4, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.counting_period, range, value, display)
 
   return offset + length, value
 end
@@ -951,10 +917,15 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.engine_transaction_time.display = 
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Engine Transaction Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Engine Transaction Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Engine Transaction Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -1051,10 +1022,15 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.expected_event_time.display = func
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Expected Event Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Expected Event Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Expected Event Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -1357,7 +1333,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.liquidity_unit.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_expressorders_meo_v1_1_d.liquidity_unit.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.liquidity_unit, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.liquidity_unit, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1587,6 +1563,35 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.mpid.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Net Price
+miax_sapphireoptions_expressorders_meo_v1_1_d.net_price = {}
+
+-- Size: Net Price
+miax_sapphireoptions_expressorders_meo_v1_1_d.net_price.size = 8
+
+-- Display: Net Price
+miax_sapphireoptions_expressorders_meo_v1_1_d.net_price.display = function(value)
+  return "Net Price: "..value
+end
+
+-- Translate: Net Price
+miax_sapphireoptions_expressorders_meo_v1_1_d.net_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Net Price
+miax_sapphireoptions_expressorders_meo_v1_1_d.net_price.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_expressorders_meo_v1_1_d.net_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = miax_sapphireoptions_expressorders_meo_v1_1_d.net_price.translate(raw)
+  local display = miax_sapphireoptions_expressorders_meo_v1_1_d.net_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.net_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Notification Time
 miax_sapphireoptions_expressorders_meo_v1_1_d.notification_time = {}
 
@@ -1613,10 +1618,15 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.notification_time.display = functi
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Notification Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Notification Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Notification Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -1836,10 +1846,15 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.order_ack_time.display = function(
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Order Ack Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Order Ack Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Order Ack Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2016,35 +2031,6 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.order_status.dissect = function(bu
   return offset + length, value
 end
 
--- Price Binary Prc 4s 8
-miax_sapphireoptions_expressorders_meo_v1_1_d.price_binary_prc_4s_8 = {}
-
--- Size: Price Binary Prc 4s 8
-miax_sapphireoptions_expressorders_meo_v1_1_d.price_binary_prc_4s_8.size = 8
-
--- Display: Price Binary Prc 4s 8
-miax_sapphireoptions_expressorders_meo_v1_1_d.price_binary_prc_4s_8.display = function(value)
-  return "Price Binary Prc 4s 8: "..value
-end
-
--- Translate: Price Binary Prc 4s 8
-miax_sapphireoptions_expressorders_meo_v1_1_d.price_binary_prc_4s_8.translate = function(raw)
-  return raw:tonumber()/10000
-end
-
--- Dissect: Price Binary Prc 4s 8
-miax_sapphireoptions_expressorders_meo_v1_1_d.price_binary_prc_4s_8.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_expressorders_meo_v1_1_d.price_binary_prc_4s_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = miax_sapphireoptions_expressorders_meo_v1_1_d.price_binary_prc_4s_8.translate(raw)
-  local display = miax_sapphireoptions_expressorders_meo_v1_1_d.price_binary_prc_4s_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.price_binary_prc_4s_8, range, value, display)
-
-  return offset + length, value
-end
-
 -- Product Add Update Time
 miax_sapphireoptions_expressorders_meo_v1_1_d.product_add_update_time = {}
 
@@ -2071,10 +2057,15 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.product_add_update_time.display = 
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Product Add Update Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_sapphireoptions_expressorders_meo_v1_1_d.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Product Add Update Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Product Add Update Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2210,7 +2201,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_1.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_1, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2233,7 +2224,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_10.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_10.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_10, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_10, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2256,7 +2247,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_12.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_12, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2279,7 +2270,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_15.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_15.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_15, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_15, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2302,7 +2293,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_16.dissect = function(buf
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_16, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2325,7 +2316,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_4.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_4, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2348,7 +2339,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_7.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_7, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2371,7 +2362,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_8.dissect = function(buff
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_8, range, value, display)
+  parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3335,7 +3326,8 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.test_packet.size = function(buffer
   local index = 0
 
   -- Parse runtime size of: Test Text
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + sesm_packet_length - 1
 
   return index
 end
@@ -3440,7 +3432,8 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.goodbye_packet.size = function(buf
   index = index + miax_sapphireoptions_expressorders_meo_v1_1_d.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + sesm_packet_length - 2
 
   return index
 end
@@ -3497,7 +3490,8 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.logout_request.size = function(buf
   index = index + miax_sapphireoptions_expressorders_meo_v1_1_d.logout_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + sesm_packet_length - 2
 
   return index
 end
@@ -4191,7 +4185,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.complex_binary_order_request.size 
   miax_sapphireoptions_expressorders_meo_v1_1_d.client_send_time.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.strategy_id.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.time_in_force.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.price_binary_prc_4s_8.size + 
+  miax_sapphireoptions_expressorders_meo_v1_1_d.net_price.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.size.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.side.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.stock_sell_short_indicator.size + 
@@ -4221,8 +4215,8 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.complex_binary_order_request.field
   -- Time In Force: Alphanumeric
   index, time_in_force = miax_sapphireoptions_expressorders_meo_v1_1_d.time_in_force.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Prc 4s 8: BinaryPrc4S
-  index, price_binary_prc_4s_8 = miax_sapphireoptions_expressorders_meo_v1_1_d.price_binary_prc_4s_8.dissect(buffer, index, packet, parent)
+  -- Net Price: BinaryPrc4S
+  index, net_price = miax_sapphireoptions_expressorders_meo_v1_1_d.net_price.dissect(buffer, index, packet, parent)
 
   -- Size: BinaryU
   index, size = miax_sapphireoptions_expressorders_meo_v1_1_d.size.dissect(buffer, index, packet, parent)
@@ -4673,8 +4667,8 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_underlying_level_protection_
   miax_sapphireoptions_expressorders_meo_v1_1_d.mpid.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.action.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.underlying_symbol.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.size
+  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.size + 
+  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.size
 
 -- Display: Arm 2 Underlying Level Protection Settings Update Request
 miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_underlying_level_protection_settings_update_request.display = function(packet, parent, length)
@@ -4697,11 +4691,11 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_underlying_level_protection_
   -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = miax_sapphireoptions_expressorders_meo_v1_1_d.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Arm Threshold Count Binary U 4: BinaryU
-  index, arm_threshold_count_binary_u_4 = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm Threshold Count: Binary4U
+  index, arm_threshold_count = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary U 4: BinaryU
-  index, counting_period_binary_u_4 = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm 2 Counting Period: Binary4U
+  index, arm_2_counting_period = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4786,7 +4780,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_settings_update_request.size =
   miax_sapphireoptions_expressorders_meo_v1_1_d.action.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.underlying_symbol.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.allowable_engagement_percentage.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_2.size
+  miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period.size
 
 -- Display: Arm Settings Update Request
 miax_sapphireoptions_expressorders_meo_v1_1_d.arm_settings_update_request.display = function(packet, parent, length)
@@ -4812,8 +4806,8 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_settings_update_request.fields
   -- Allowable Engagement Percentage: BinaryU
   index, allowable_engagement_percentage = miax_sapphireoptions_expressorders_meo_v1_1_d.allowable_engagement_percentage.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary U 2: BinaryU
-  index, counting_period_binary_u_2 = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Counting Period: BinaryU
+  index, counting_period = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5280,8 +5274,8 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_firm_level_protection_notifi
 -- Size: Arm 2 Firm Level Protection Notification
 miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_firm_level_protection_notification.size =
   miax_sapphireoptions_expressorders_meo_v1_1_d.notification_time.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_4u_4.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_4u_4.size + 
+  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.size + 
+  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.notification_type.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_16.size
 
@@ -5297,11 +5291,11 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_firm_level_protection_notifi
   -- Notification Time: NanoTime
   index, notification_time = miax_sapphireoptions_expressorders_meo_v1_1_d.notification_time.dissect(buffer, index, packet, parent)
 
-  -- Arm Threshold Count Binary 4u 4: Binary4U
-  index, arm_threshold_count_binary_4u_4 = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_4u_4.dissect(buffer, index, packet, parent)
+  -- Arm Threshold Count: Binary4U
+  index, arm_threshold_count = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary 4u 4: Binary4U
-  index, counting_period_binary_4u_4 = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_4u_4.dissect(buffer, index, packet, parent)
+  -- Arm 2 Counting Period: Binary4U
+  index, arm_2_counting_period = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.dissect(buffer, index, packet, parent)
 
   -- Notification Type: Alphanumeric
   index, notification_type = miax_sapphireoptions_expressorders_meo_v1_1_d.notification_type.dissect(buffer, index, packet, parent)
@@ -5343,8 +5337,8 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_underlying_level_protection_
   miax_sapphireoptions_expressorders_meo_v1_1_d.mpid.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.underlying_symbol.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.notification_type.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.size + 
+  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.size + 
+  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_16.size
 
 -- Display: Arm 2 Underlying Level Protection Notification
@@ -5368,11 +5362,11 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_underlying_level_protection_
   -- Notification Type: Alphanumeric
   index, notification_type = miax_sapphireoptions_expressorders_meo_v1_1_d.notification_type.dissect(buffer, index, packet, parent)
 
-  -- Arm Threshold Count Binary U 4: BinaryU
-  index, arm_threshold_count_binary_u_4 = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm Threshold Count: Binary4U
+  index, arm_threshold_count = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary U 4: BinaryU
-  index, counting_period_binary_u_4 = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm 2 Counting Period: Binary4U
+  index, arm_2_counting_period = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alphanumeric
   if show.padding then
@@ -5483,8 +5477,8 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_underlying_level_protection_
   miax_sapphireoptions_expressorders_meo_v1_1_d.mpid.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.action.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.underlying_symbol.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.size + 
+  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.size + 
+  miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.reserved_16.size
 
 -- Display: Arm 2 Underlying Level Protection Settings Notification
@@ -5508,11 +5502,11 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_underlying_level_protection_
   -- Underlying Symbol: Alphanumeric
   index, underlying_symbol = miax_sapphireoptions_expressorders_meo_v1_1_d.underlying_symbol.dissect(buffer, index, packet, parent)
 
-  -- Arm Threshold Count Binary U 4: BinaryU
-  index, arm_threshold_count_binary_u_4 = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm Threshold Count: Binary4U
+  index, arm_threshold_count = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_threshold_count.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary U 4: BinaryU
-  index, counting_period_binary_u_4 = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_4.dissect(buffer, index, packet, parent)
+  -- Arm 2 Counting Period: Binary4U
+  index, arm_2_counting_period = miax_sapphireoptions_expressorders_meo_v1_1_d.arm_2_counting_period.dissect(buffer, index, packet, parent)
 
   -- Reserved 16: Alphanumeric
   if show.padding then
@@ -5551,7 +5545,7 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_protection_settings_notificati
   miax_sapphireoptions_expressorders_meo_v1_1_d.mpid.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.underlying_symbol.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.allowable_engagement_percentage.size + 
-  miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_2.size + 
+  miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.action.size + 
   miax_sapphireoptions_expressorders_meo_v1_1_d.source.size
 
@@ -5576,8 +5570,8 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.arm_protection_settings_notificati
   -- Allowable Engagement Percentage: BinaryU
   index, allowable_engagement_percentage = miax_sapphireoptions_expressorders_meo_v1_1_d.allowable_engagement_percentage.dissect(buffer, index, packet, parent)
 
-  -- Counting Period Binary U 2: BinaryU
-  index, counting_period_binary_u_2 = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period_binary_u_2.dissect(buffer, index, packet, parent)
+  -- Counting Period: BinaryU
+  index, counting_period = miax_sapphireoptions_expressorders_meo_v1_1_d.counting_period.dissect(buffer, index, packet, parent)
 
   -- Action: Alphanumeric
   index, action = miax_sapphireoptions_expressorders_meo_v1_1_d.action.dissect(buffer, index, packet, parent)
@@ -6114,10 +6108,16 @@ end
 miax_sapphireoptions_expressorders_meo_v1_1_d.sesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
   local index = offset + size_of_sesm_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_sapphireoptions_expressorders_meo_v1_1_d.fields.sesm_tcp_packet, buffer(offset, 0))
-    local current = miax_sapphireoptions_expressorders_meo_v1_1_d.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    local decoded, failure = pcall(miax_sapphireoptions_expressorders_meo_v1_1_d.sesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_sesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_sapphireoptions_expressorders_meo_v1_1_d.experts.undecoded, "Sesm Tcp Packet does not decode within its "..size_of_sesm_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_sesm_tcp_packet)
     local display = miax_sapphireoptions_expressorders_meo_v1_1_d.sesm_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6125,7 +6125,10 @@ miax_sapphireoptions_expressorders_meo_v1_1_d.sesm_tcp_packet.dissect = function
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_sapphireoptions_expressorders_meo_v1_1_d.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    local decoded, failure = pcall(miax_sapphireoptions_expressorders_meo_v1_1_d.sesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_sesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_sapphireoptions_expressorders_meo_v1_1_d.experts.undecoded, "Sesm Tcp Packet does not decode within its "..size_of_sesm_tcp_packet.." bytes")
+    end
 
     return index
   end

@@ -2759,7 +2759,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_1, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2782,7 +2782,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_10.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_10, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_10, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2805,7 +2805,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_11.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_11, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_11, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2828,7 +2828,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_19.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_19, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_19, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2851,7 +2851,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_2, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2874,7 +2874,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_28.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_28, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_28, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2897,7 +2897,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_33.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_33, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_33, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2920,7 +2920,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_38.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_38, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_38, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2943,7 +2943,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_4, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2966,7 +2966,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_40.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_40, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_40, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2989,7 +2989,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_46.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_46, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_46, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3012,7 +3012,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_5, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3035,7 +3035,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_56.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_56, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_56, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3058,7 +3058,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_6, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3081,7 +3081,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_60.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_60, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_60, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3104,7 +3104,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_7, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3127,7 +3127,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = koscom_mdcsrealtime_koscom_exture_v1_20.filler_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_8, range, value, display)
+  parent:add(omi_koscom_mdcsrealtime_koscom_exture_v1_20.fields.filler_8, range, range:raw(), display)
 
   return offset + length, value
 end

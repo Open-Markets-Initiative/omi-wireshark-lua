@@ -25,6 +25,11 @@ omi_eurex_t7_eti_fbe_v1.fields.message_header = ProtoField.new("Message Header",
 omi_eurex_t7_eti_fbe_v1.fields.server_message = ProtoField.new("Server Message", "eurex.t7.eti.fbe.v1.servermessage", ftypes.STRING, nil, nil, nil, "Eurex T7 Eti Message sent by Eurex to the participant")
 omi_eurex_t7_eti_fbe_v1.fields.server_packet = ProtoField.new("Server Packet", "eurex.t7.eti.fbe.v1.serverpacket", ftypes.STRING, nil, nil, nil, "T7 Tcp Message Block sent by Eurex to the participant")
 
+-- Eurex T7 Eti Fbe 1 Expert Info
+eurex_t7_eti_fbe_v1.experts = {}
+eurex_t7_eti_fbe_v1.experts.undecoded = ProtoExpert.new("eurex.t7.eti.fbe.v1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_eurex_t7_eti_fbe_v1.experts = { eurex_t7_eti_fbe_v1.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Eurex T7 Eti Fbe 1 Formatting
 -----------------------------------------------------------------------
@@ -67,6 +72,19 @@ function omi_eurex_t7_eti_fbe_v1.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Eurex T7 Eti Fbe 1 Fields
 -----------------------------------------------------------------------
@@ -191,10 +209,16 @@ end
 eurex_t7_eti_fbe_v1.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
   local index = offset + size_of_server_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_eurex_t7_eti_fbe_v1.fields.server_message, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v1.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(eurex_t7_eti_fbe_v1.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_eti_fbe_v1.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
     parent:set_len(size_of_server_message)
     local display = eurex_t7_eti_fbe_v1.server_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -202,7 +226,10 @@ eurex_t7_eti_fbe_v1.server_message.dissect = function(buffer, offset, packet, pa
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v1.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(eurex_t7_eti_fbe_v1.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_eti_fbe_v1.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
 
     return index
   end
@@ -292,10 +319,16 @@ end
 eurex_t7_eti_fbe_v1.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message)
   local index = offset + size_of_client_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_eurex_t7_eti_fbe_v1.fields.client_message, buffer(offset, 0))
-    local current = eurex_t7_eti_fbe_v1.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    local decoded, failure = pcall(eurex_t7_eti_fbe_v1.client_message.fields, bounded, offset, packet, parent, size_of_client_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_eti_fbe_v1.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
     parent:set_len(size_of_client_message)
     local display = eurex_t7_eti_fbe_v1.client_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -303,7 +336,10 @@ eurex_t7_eti_fbe_v1.client_message.dissect = function(buffer, offset, packet, pa
     return index, parent
   else
     -- Skip element, add fields directly
-    eurex_t7_eti_fbe_v1.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    local decoded, failure = pcall(eurex_t7_eti_fbe_v1.client_message.fields, bounded, offset, packet, parent, size_of_client_message)
+    if not decoded then
+      undecoded(failure, parent, eurex_t7_eti_fbe_v1.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
 
     return index
   end

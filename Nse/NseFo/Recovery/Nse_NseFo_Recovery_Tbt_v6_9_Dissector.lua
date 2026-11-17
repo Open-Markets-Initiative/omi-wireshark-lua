@@ -58,18 +58,27 @@ omi_nse_nsefo_recovery_tbt_v6_9.fields.tick_data_recovery_response_message = Pro
 omi_nse_nsefo_recovery_tbt_v6_9.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "nse.nsefo.recovery.tbt.v6.9.tradecancelmessage", ftypes.STRING, nil, nil, nil, "For CM and FO segments only. This message is sent whenever a Trade gets cancelled.")
 omi_nse_nsefo_recovery_tbt_v6_9.fields.trade_message = ProtoField.new("Trade Message", "nse.nsefo.recovery.tbt.v6.9.trademessage", ftypes.STRING, nil, nil, nil, "This message is sent whenever an order in the order book gets executed fully or partially.")
 
+-- Nse NseFo Recovery Tbt 6.9 Expert Info
+nse_nsefo_recovery_tbt_v6_9.experts = {}
+nse_nsefo_recovery_tbt_v6_9.experts.undecoded = ProtoExpert.new("nse.nsefo.recovery.tbt.v6.9.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nse_nsefo_recovery_tbt_v6_9.experts = { nse_nsefo_recovery_tbt_v6_9.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nse NseFo Recovery Tbt 6.9 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 },
+  { 3, "DateTime Asia/Kolkata", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nse_nsefo_recovery_tbt_v6_9.timestamp_format = 2
+
+-- Offset of the source's zone from utc in seconds, as the reader states it
+nse_nsefo_recovery_tbt_v6_9.zone_offset = 0
 
 -- assumed connection role
 local role_enum = {
@@ -99,6 +108,7 @@ omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_application_messages = Pref.bool("Sho
 omi_nse_nsefo_recovery_tbt_v6_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
 omi_nse_nsefo_recovery_tbt_v6_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsefo_recovery_tbt_v6_9.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences
 function omi_nse_nsefo_recovery_tbt_v6_9.prefs_changed()
@@ -116,9 +126,33 @@ function omi_nse_nsefo_recovery_tbt_v6_9.prefs_changed()
   if nse_nsefo_recovery_tbt_v6_9.timestamp_format ~= omi_nse_nsefo_recovery_tbt_v6_9.prefs.timestamp_format then
     nse_nsefo_recovery_tbt_v6_9.timestamp_format = omi_nse_nsefo_recovery_tbt_v6_9.prefs.timestamp_format
   end
+  local sign, hours, minutes = string.match(omi_nse_nsefo_recovery_tbt_v6_9.prefs.zone_offset, "^%s*([+-]?)(%d%d?):?(%d?%d?)%s*$")
+
+  nse_nsefo_recovery_tbt_v6_9.zone_offset = 0
+
+  if hours then
+    nse_nsefo_recovery_tbt_v6_9.zone_offset = tonumber(hours) * 3600 + (tonumber(minutes) or 0) * 60
+  end
+
+  if sign == "-" then
+    nse_nsefo_recovery_tbt_v6_9.zone_offset = -nse_nsefo_recovery_tbt_v6_9.zone_offset
+  end
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nse NseFo Recovery Tbt 6.9 Fields
 -----------------------------------------------------------------------
@@ -519,9 +553,19 @@ nse_nsefo_recovery_tbt_v6_9.timestamp.dissect = function(buffer, offset, packet,
   local field = omi_nse_nsefo_recovery_tbt_v6_9.fields.timestamp
   if nse_nsefo_recovery_tbt_v6_9.timestamp_format == 3 then field = omi_nse_nsefo_recovery_tbt_v6_9.fields.timestamp_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = (value / UInt64(1000000000)):tonumber() + 315532800
   local nanos = (value % UInt64(1000000000)):tonumber()
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_recovery_tbt_v6_9.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, nanos))
+    item:set_text("Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", seconds)..string.format("%09d", nanos).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_recovery_tbt_v6_9.zone_offset, nanos))
 
   return offset + length, value
 end
@@ -1521,10 +1565,16 @@ end
 nse_nsefo_recovery_tbt_v6_9.stream_packet.dissect = function(buffer, offset, packet, parent, size_of_stream_packet)
   local index = offset + size_of_stream_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nse_nsefo_recovery_tbt_v6_9.fields.stream_packet, buffer(offset, 0))
-    local current = nse_nsefo_recovery_tbt_v6_9.stream_packet.fields(buffer, offset, packet, parent, size_of_stream_packet)
+    local decoded, failure = pcall(nse_nsefo_recovery_tbt_v6_9.stream_packet.fields, bounded, offset, packet, parent, size_of_stream_packet)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_recovery_tbt_v6_9.experts.undecoded, "Stream Packet does not decode within its "..size_of_stream_packet.." bytes")
+    end
     parent:set_len(size_of_stream_packet)
     local display = nse_nsefo_recovery_tbt_v6_9.stream_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1532,7 +1582,10 @@ nse_nsefo_recovery_tbt_v6_9.stream_packet.dissect = function(buffer, offset, pac
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsefo_recovery_tbt_v6_9.stream_packet.fields(buffer, offset, packet, parent, size_of_stream_packet)
+    local decoded, failure = pcall(nse_nsefo_recovery_tbt_v6_9.stream_packet.fields, bounded, offset, packet, parent, size_of_stream_packet)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_recovery_tbt_v6_9.experts.undecoded, "Stream Packet does not decode within its "..size_of_stream_packet.." bytes")
+    end
 
     return index
   end

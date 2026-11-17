@@ -307,6 +307,11 @@ omi_gpw_wse_marketinformation_xdp_v6_8.fields.class_phase_index = ProtoField.new
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.depositary_list_index = ProtoField.new("Depositary List Index", "gpw.wse.marketinformation.xdp.v6.8.depositarylistindex", ftypes.UINT16)
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.message_index = ProtoField.new("Message Index", "gpw.wse.marketinformation.xdp.v6.8.messageindex", ftypes.UINT16)
 
+-- Gpw Wse MarketInformation Xdp 6.8 Expert Info
+gpw_wse_marketinformation_xdp_v6_8.experts = {}
+gpw_wse_marketinformation_xdp_v6_8.experts.undecoded = ProtoExpert.new("gpw.wse.marketinformation.xdp.v6.8.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_gpw_wse_marketinformation_xdp_v6_8.experts = { gpw_wse_marketinformation_xdp_v6_8.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Gpw Wse MarketInformation Xdp 6.8 Formatting
 -----------------------------------------------------------------------
@@ -315,11 +320,11 @@ omi_gpw_wse_marketinformation_xdp_v6_8.fields.message_index = ProtoField.new("Me
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 gpw_wse_marketinformation_xdp_v6_8.timestamp_format = 2
 
 
@@ -400,6 +405,14 @@ local function zlib_decompress(range)
   end
 
   return range:uncompress("Decompressed")
+end
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
 end
 -----------------------------------------------------------------------
 -- Gpw Wse MarketInformation Xdp 6.8 Fields
@@ -1429,7 +1442,7 @@ gpw_wse_marketinformation_xdp_v6_8.eighth_reserved_1.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.eighth_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.eighth_reserved_1, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.eighth_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1560,7 +1573,7 @@ gpw_wse_marketinformation_xdp_v6_8.fifth_reserved_1.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.fifth_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.fifth_reserved_1, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.fifth_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1629,7 +1642,7 @@ gpw_wse_marketinformation_xdp_v6_8.fourth_reserved_1.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.fourth_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.fourth_reserved_1, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.fourth_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1652,7 +1665,7 @@ gpw_wse_marketinformation_xdp_v6_8.fourth_reserved_4.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.fourth_reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.fourth_reserved_4, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.fourth_reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3510,7 +3523,7 @@ gpw_wse_marketinformation_xdp_v6_8.ninth_reserved_1.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.ninth_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.ninth_reserved_1, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.ninth_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4272,7 +4285,7 @@ gpw_wse_marketinformation_xdp_v6_8.reserved_1.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_1, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4295,7 +4308,7 @@ gpw_wse_marketinformation_xdp_v6_8.reserved_2.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_2, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4318,7 +4331,7 @@ gpw_wse_marketinformation_xdp_v6_8.reserved_203.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.reserved_203.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_203, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_203, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4341,7 +4354,7 @@ gpw_wse_marketinformation_xdp_v6_8.reserved_3.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_3, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4364,7 +4377,7 @@ gpw_wse_marketinformation_xdp_v6_8.reserved_4.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_4, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4387,7 +4400,7 @@ gpw_wse_marketinformation_xdp_v6_8.reserved_59.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.reserved_59.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_59, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.reserved_59, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4479,7 +4492,7 @@ gpw_wse_marketinformation_xdp_v6_8.second_reserved_1.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.second_reserved_1, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4502,7 +4515,7 @@ gpw_wse_marketinformation_xdp_v6_8.second_reserved_2.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.second_reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.second_reserved_2, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.second_reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4525,7 +4538,7 @@ gpw_wse_marketinformation_xdp_v6_8.second_reserved_4.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.second_reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.second_reserved_4, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.second_reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4912,7 +4925,7 @@ gpw_wse_marketinformation_xdp_v6_8.seventh_reserved_1.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.seventh_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.seventh_reserved_1, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.seventh_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5027,7 +5040,7 @@ gpw_wse_marketinformation_xdp_v6_8.sixth_reserved_1.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.sixth_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.sixth_reserved_1, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.sixth_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5104,10 +5117,8 @@ gpw_wse_marketinformation_xdp_v6_8.source_time.display = function(value, buffer,
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = gpw_wse_marketinformation_xdp_v6_8.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Source Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Source Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -5846,7 +5857,7 @@ gpw_wse_marketinformation_xdp_v6_8.third_reserved_1.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.third_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.third_reserved_1, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.third_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5869,7 +5880,7 @@ gpw_wse_marketinformation_xdp_v6_8.third_reserved_4.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = gpw_wse_marketinformation_xdp_v6_8.third_reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.third_reserved_4, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.third_reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -9221,10 +9232,16 @@ end
 gpw_wse_marketinformation_xdp_v6_8.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.message, buffer(offset, 0))
-    local current = gpw_wse_marketinformation_xdp_v6_8.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(gpw_wse_marketinformation_xdp_v6_8.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, gpw_wse_marketinformation_xdp_v6_8.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = gpw_wse_marketinformation_xdp_v6_8.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -9232,7 +9249,10 @@ gpw_wse_marketinformation_xdp_v6_8.message.dissect = function(buffer, offset, pa
     return index, parent
   else
     -- Skip element, add fields directly
-    gpw_wse_marketinformation_xdp_v6_8.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(gpw_wse_marketinformation_xdp_v6_8.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, gpw_wse_marketinformation_xdp_v6_8.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -9262,6 +9282,12 @@ gpw_wse_marketinformation_xdp_v6_8.message_buffer.fields = function(buffer, offs
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(gpw_wse_marketinformation_xdp_v6_8.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):uint()

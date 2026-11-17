@@ -157,11 +157,11 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.leg_px_index = Pr
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format = 2
 
 
@@ -1607,7 +1607,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_12.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.reserved_12, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1630,7 +1630,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_13.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_13.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.reserved_13, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.reserved_13, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1653,7 +1653,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_16.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.reserved_16, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1676,7 +1676,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_33.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_33.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.reserved_33, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.reserved_33, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1699,7 +1699,7 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_8.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.reserved_8, range, value, display)
+  parent:add(omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end

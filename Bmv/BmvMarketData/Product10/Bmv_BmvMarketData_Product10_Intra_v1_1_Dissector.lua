@@ -65,6 +65,11 @@ omi_bmv_bmvmarketdata_product10_intra_v1_1.fields.weighted_average_price_settlem
 -- Bmv BmvMarketData Product10 Intra 1.1 Generated Fields
 omi_bmv_bmvmarketdata_product10_intra_v1_1.fields.message_block_index = ProtoField.new("Message Block Index", "bmv.bmvmarketdata.product10.intra.v1.1.messageblockindex", ftypes.UINT16)
 
+-- Bmv BmvMarketData Product10 Intra 1.1 Expert Info
+bmv_bmvmarketdata_product10_intra_v1_1.experts = {}
+bmv_bmvmarketdata_product10_intra_v1_1.experts.undecoded = ProtoExpert.new("bmv.bmvmarketdata.product10.intra.v1.1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_bmv_bmvmarketdata_product10_intra_v1_1.experts = { bmv_bmvmarketdata_product10_intra_v1_1.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Bmv BmvMarketData Product10 Intra 1.1 Formatting
 -----------------------------------------------------------------------
@@ -74,11 +79,11 @@ bmv_bmvmarketdata_product10_intra_v1_1.text_encoding = ENC_ASCII
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 bmv_bmvmarketdata_product10_intra_v1_1.timestamp_format = 2
 
 
@@ -124,6 +129,19 @@ function omi_bmv_bmvmarketdata_product10_intra_v1_1.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Bmv BmvMarketData Product10 Intra 1.1 Fields
 -----------------------------------------------------------------------
@@ -1515,10 +1533,16 @@ end
 bmv_bmvmarketdata_product10_intra_v1_1.message_block.dissect = function(buffer, offset, packet, parent, size_of_message_block, message_block_index)
   local index = offset + size_of_message_block
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_bmv_bmvmarketdata_product10_intra_v1_1.fields.message_block, buffer(offset, 0))
-    local current = bmv_bmvmarketdata_product10_intra_v1_1.message_block.fields(buffer, offset, packet, parent, size_of_message_block, message_block_index)
+    local decoded, failure = pcall(bmv_bmvmarketdata_product10_intra_v1_1.message_block.fields, bounded, offset, packet, parent, size_of_message_block, message_block_index)
+    if not decoded then
+      undecoded(failure, parent, bmv_bmvmarketdata_product10_intra_v1_1.experts.undecoded, "Message Block does not decode within its "..size_of_message_block.." bytes")
+    end
     parent:set_len(size_of_message_block)
     local display = bmv_bmvmarketdata_product10_intra_v1_1.message_block.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1526,7 +1550,10 @@ bmv_bmvmarketdata_product10_intra_v1_1.message_block.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    bmv_bmvmarketdata_product10_intra_v1_1.message_block.fields(buffer, offset, packet, parent, size_of_message_block, message_block_index)
+    local decoded, failure = pcall(bmv_bmvmarketdata_product10_intra_v1_1.message_block.fields, bounded, offset, packet, parent, size_of_message_block, message_block_index)
+    if not decoded then
+      undecoded(failure, parent, bmv_bmvmarketdata_product10_intra_v1_1.experts.undecoded, "Message Block does not decode within its "..size_of_message_block.." bytes")
+    end
 
     return index
   end
@@ -1614,6 +1641,12 @@ bmv_bmvmarketdata_product10_intra_v1_1.packet.dissect = function(buffer, packet,
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(bmv_bmvmarketdata_product10_intra_v1_1.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Length
     local message_length = buffer(index, 2):int()

@@ -538,7 +538,8 @@ omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.scaled_trade_price = ProtoF
 -- Tmx Mx SolaTcpRetransmission Hsvf 1.12.2 Expert Info
 tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts = {}
 tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts.not_a_number = ProtoExpert.new("tmx.mx.solatcpretransmission.hsvf.v1.12.2.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts = { tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts.not_a_number }
+tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts.undecoded = ProtoExpert.new("tmx.mx.solatcpretransmission.hsvf.v1.12.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts = { tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts.not_a_number, tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Tmx Mx SolaTcpRetransmission Hsvf 1.12.2 Formatting
@@ -649,6 +650,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Tmx Mx SolaTcpRetransmission Hsvf 1.12.2 Fields
 -----------------------------------------------------------------------
@@ -1689,7 +1698,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.filler_1, range, value, display)
+  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1712,7 +1721,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.filler_2, range, value, display)
+  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1735,7 +1744,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.filler_6.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.filler_6, range, value, display)
+  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.filler_6, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4810,7 +4819,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.reserved.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.reserved, range, value, display)
+  parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5059,7 +5068,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.size = 1
 -- Display: Sola Message End
 tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_end.display = function(value)
   if value == 3 then
-    return "Sola Message End: Etx"
+    return "Sola Message End: Etx (3)"
   end
 
   return "Sola Message End: Unknown("..value..")"
@@ -5086,7 +5095,7 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.size = 1
 -- Display: Sola Message Start
 tmx_mx_solatcpretransmission_hsvf_v1_12_2.sola_message_start.display = function(value)
   if value == 2 then
-    return "Sola Message Start: Stx"
+    return "Sola Message Start: Stx (2)"
   end
 
   return "Sola Message Start: Unknown("..value..")"
@@ -24315,10 +24324,16 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.dissect = function(buffer, offset, packet, parent, size_of_server_sola_frame)
   local index = offset + size_of_server_sola_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.server_sola_frame, buffer(offset, 0))
-    local current = tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.fields(buffer, offset, packet, parent, size_of_server_sola_frame)
+    local decoded, failure = pcall(tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.fields, bounded, offset, packet, parent, size_of_server_sola_frame)
+    if not decoded then
+      undecoded(failure, parent, tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts.undecoded, "Server Sola Frame does not decode within its "..size_of_server_sola_frame.." bytes")
+    end
     parent:set_len(size_of_server_sola_frame)
     local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -24326,7 +24341,10 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.fields(buffer, offset, packet, parent, size_of_server_sola_frame)
+    local decoded, failure = pcall(tmx_mx_solatcpretransmission_hsvf_v1_12_2.server_sola_frame.fields, bounded, offset, packet, parent, size_of_server_sola_frame)
+    if not decoded then
+      undecoded(failure, parent, tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts.undecoded, "Server Sola Frame does not decode within its "..size_of_server_sola_frame.." bytes")
+    end
 
     return index
   end
@@ -24616,10 +24634,16 @@ end
 tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.dissect = function(buffer, offset, packet, parent, size_of_client_sola_frame)
   local index = offset + size_of_client_sola_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_tmx_mx_solatcpretransmission_hsvf_v1_12_2.fields.client_sola_frame, buffer(offset, 0))
-    local current = tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.fields(buffer, offset, packet, parent, size_of_client_sola_frame)
+    local decoded, failure = pcall(tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.fields, bounded, offset, packet, parent, size_of_client_sola_frame)
+    if not decoded then
+      undecoded(failure, parent, tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts.undecoded, "Client Sola Frame does not decode within its "..size_of_client_sola_frame.." bytes")
+    end
     parent:set_len(size_of_client_sola_frame)
     local display = tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -24627,7 +24651,10 @@ tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.fields(buffer, offset, packet, parent, size_of_client_sola_frame)
+    local decoded, failure = pcall(tmx_mx_solatcpretransmission_hsvf_v1_12_2.client_sola_frame.fields, bounded, offset, packet, parent, size_of_client_sola_frame)
+    if not decoded then
+      undecoded(failure, parent, tmx_mx_solatcpretransmission_hsvf_v1_12_2.experts.undecoded, "Client Sola Frame does not decode within its "..size_of_client_sola_frame.." bytes")
+    end
 
     return index
   end

@@ -371,11 +371,11 @@ omi_gpw_wse_snapshotfulldepth_wats_v1_7_6_20.fields.weekdays_index = ProtoField.
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 gpw_wse_snapshotfulldepth_wats_v1_7_6_20.timestamp_format = 2
 
 
@@ -12280,7 +12280,8 @@ gpw_wse_snapshotfulldepth_wats_v1_7_6_20.message.size = function(buffer, offset)
   index = index + gpw_wse_snapshotfulldepth_wats_v1_7_6_20.message_header.size
 
   -- Parse runtime size of: Payload
-  index = index + buffer(offset + index - 42, 2):le_uint()
+  local message_length = buffer(offset + index - 42, 2):le_uint()
+  index = index + message_length - 42
 
   return index
 end

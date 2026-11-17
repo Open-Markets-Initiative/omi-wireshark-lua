@@ -40,17 +40,22 @@ omi_euronext_optiq_marketdatapacket_udp_v1.fields.message_header = ProtoField.ne
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.optiq_message = ProtoField.new("Optiq Message", "euronext.optiq.marketdatapacket.udp.v1.optiqmessage", ftypes.STRING, nil, nil, nil, "Optiq Udp Message")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet = ProtoField.new("Packet", "euronext.optiq.marketdatapacket.udp.v1.packet", ftypes.STRING, nil, nil, nil, "Optiq Udp Packet")
 
+-- Euronext Optiq MarketDataPacket Udp 1 Expert Info
+euronext_optiq_marketdatapacket_udp_v1.experts = {}
+euronext_optiq_marketdatapacket_udp_v1.experts.undecoded = ProtoExpert.new("euronext.optiq.marketdatapacket.udp.v1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_euronext_optiq_marketdatapacket_udp_v1.experts = { euronext_optiq_marketdatapacket_udp_v1.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Euronext Optiq MarketDataPacket Udp 1 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 euronext_optiq_marketdatapacket_udp_v1.timestamp_format = 2
 
 
@@ -158,6 +163,14 @@ local function lz4_decompress(input, decompressed_size)
 
   output:set_size(decompressed_position)
   return output
+end
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
 end
 -----------------------------------------------------------------------
 -- Euronext Optiq MarketDataPacket Udp 1 Fields
@@ -293,7 +306,7 @@ euronext_optiq_marketdatapacket_udp_v1.payload.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = euronext_optiq_marketdatapacket_udp_v1.payload.display(value, packet, parent, size)
 
-  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1.fields.payload, range, value, display)
+  parent:add(omi_euronext_optiq_marketdatapacket_udp_v1.fields.payload, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -459,10 +472,16 @@ end
 euronext_optiq_marketdatapacket_udp_v1.optiq_message.dissect = function(buffer, offset, packet, parent, size_of_optiq_message)
   local index = offset + size_of_optiq_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_euronext_optiq_marketdatapacket_udp_v1.fields.optiq_message, buffer(offset, 0))
-    local current = euronext_optiq_marketdatapacket_udp_v1.optiq_message.fields(buffer, offset, packet, parent, size_of_optiq_message)
+    local decoded, failure = pcall(euronext_optiq_marketdatapacket_udp_v1.optiq_message.fields, bounded, offset, packet, parent, size_of_optiq_message)
+    if not decoded then
+      undecoded(failure, parent, euronext_optiq_marketdatapacket_udp_v1.experts.undecoded, "Optiq Message does not decode within its "..size_of_optiq_message.." bytes")
+    end
     parent:set_len(size_of_optiq_message)
     local display = euronext_optiq_marketdatapacket_udp_v1.optiq_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -470,7 +489,10 @@ euronext_optiq_marketdatapacket_udp_v1.optiq_message.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    euronext_optiq_marketdatapacket_udp_v1.optiq_message.fields(buffer, offset, packet, parent, size_of_optiq_message)
+    local decoded, failure = pcall(euronext_optiq_marketdatapacket_udp_v1.optiq_message.fields, bounded, offset, packet, parent, size_of_optiq_message)
+    if not decoded then
+      undecoded(failure, parent, euronext_optiq_marketdatapacket_udp_v1.experts.undecoded, "Optiq Message does not decode within its "..size_of_optiq_message.." bytes")
+    end
 
     return index
   end
@@ -631,6 +653,12 @@ euronext_optiq_marketdatapacket_udp_v1.packet.dissect = function(buffer, packet,
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(euronext_optiq_marketdatapacket_udp_v1.experts.undecoded, "Frame runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Frame
     local frame = buffer(index, 2):le_uint()

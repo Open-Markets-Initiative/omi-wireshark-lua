@@ -42,18 +42,18 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.cleared_alias = ProtoField.new("Cleared A
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cleared_alias_data = ProtoField.new("Cleared Alias Data", "ice.icefutures.bgw.sbe.v7.0.clearedaliasdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cleared_alias_length = ProtoField.new("Cleared Alias Length", "ice.icefutures.bgw.sbe.v7.0.clearedaliaslength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.clearing_account = ProtoField.new("Clearing Account", "ice.icefutures.bgw.sbe.v7.0.clearingaccount", ftypes.STRING, nil, nil, nil, "clearingAccount")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.clearing_account_optional = ProtoField.new("Clearing Account optional", "ice.icefutures.bgw.sbe.v7.0.clearingaccountoptional", ftypes.STRING, nil, nil, nil, "clearingAccount")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.clearing_account_optional = ProtoField.new("Clearing Account Optional", "ice.icefutures.bgw.sbe.v7.0.clearingaccountoptional", ftypes.STRING, nil, nil, nil, "clearingAccount")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.clearing_firm = ProtoField.new("Clearing Firm", "ice.icefutures.bgw.sbe.v7.0.clearingfirm", ftypes.INT32, nil, nil, nil, "clearingFirm")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.clearing_firm_optional = ProtoField.new("Clearing Firm optional", "ice.icefutures.bgw.sbe.v7.0.clearingfirmoptional", ftypes.INT32, nil, nil, nil, "clearingFirm")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.clearing_firm_optional = ProtoField.new("Clearing Firm Optional", "ice.icefutures.bgw.sbe.v7.0.clearingfirmoptional", ftypes.INT32, nil, nil, nil, "clearingFirm")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.client_id = ProtoField.new("Client Id", "ice.icefutures.bgw.sbe.v7.0.clientid", ftypes.INT32, nil, nil, nil, "clientID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.client_id_code = ProtoField.new("Client Id Code", "ice.icefutures.bgw.sbe.v7.0.clientidcode", ftypes.INT64, nil, nil, nil, "clientIDCode")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.commodity_deriv_indicator = ProtoField.new("Commodity Deriv Indicator", "ice.icefutures.bgw.sbe.v7.0.commodityderivindicator", ftypes.UINT8, nil, nil, nil, "commodityDerivIndicator")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.contract_multiplier = ProtoField.new("Contract Multiplier", "ice.icefutures.bgw.sbe.v7.0.contractmultiplier", ftypes.INT32, nil, nil, nil, "contractMultiplier")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.contract_size = ProtoField.new("Contract Size", "ice.icefutures.bgw.sbe.v7.0.contractsize", ftypes.INT32, nil, nil, nil, "contractSize")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.cross_i_d_optional = ProtoField.new("Cross I D optional", "ice.icefutures.bgw.sbe.v7.0.crossidoptional", ftypes.INT64, nil, nil, nil, "crossID")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.cross_i_d_optional = ProtoField.new("Cross I D Optional", "ice.icefutures.bgw.sbe.v7.0.crossidoptional", ftypes.INT64, nil, nil, nil, "crossID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cross_id = ProtoField.new("Cross Id", "ice.icefutures.bgw.sbe.v7.0.crossid", ftypes.INT64, nil, nil, nil, "crossID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cross_type = ProtoField.new("Cross Type", "ice.icefutures.bgw.sbe.v7.0.crosstype", ftypes.STRING, nil, nil, nil, "crossType")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.cross_type_optional = ProtoField.new("Cross Type optional", "ice.icefutures.bgw.sbe.v7.0.crosstypeoptional", ftypes.STRING, nil, nil, nil, "crossType")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.cross_type_optional = ProtoField.new("Cross Type Optional", "ice.icefutures.bgw.sbe.v7.0.crosstypeoptional", ftypes.STRING, nil, nil, nil, "crossType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.crossing_order_futures_allowed = ProtoField.new("Crossing Order Futures Allowed", "ice.icefutures.bgw.sbe.v7.0.crossingorderfuturesallowed", ftypes.UINT8, nil, nil, nil, "crossingOrderFuturesAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.crossing_order_options_allowed = ProtoField.new("Crossing Order Options Allowed", "ice.icefutures.bgw.sbe.v7.0.crossingorderoptionsallowed", ftypes.UINT8, nil, nil, nil, "crossingOrderOptionsAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cum_qty = ProtoField.new("Cum Qty", "ice.icefutures.bgw.sbe.v7.0.cumqty", ftypes.INT64, nil, nil, nil, "cumQty")
@@ -128,26 +128,26 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_qty = ProtoField.new("Leg Qty", "ice.
 omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_ratio_price_denominator = ProtoField.new("Leg Ratio Price Denominator", "ice.icefutures.bgw.sbe.v7.0.legratiopricedenominator", ftypes.INT16, nil, nil, nil, "legRatioPriceDenominator")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_ratio_price_numerator = ProtoField.new("Leg Ratio Price Numerator", "ice.icefutures.bgw.sbe.v7.0.legratiopricenumerator", ftypes.INT16, nil, nil, nil, "legRatioPriceNumerator")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_ratio_qty_denominator = ProtoField.new("Leg Ratio Qty Denominator", "ice.icefutures.bgw.sbe.v7.0.legratioqtydenominator", ftypes.INT16, nil, nil, nil, "legRatioQtyDenominator")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_ratio_qty_denominator_optional = ProtoField.new("Leg Ratio Qty Denominator optional", "ice.icefutures.bgw.sbe.v7.0.legratioqtydenominatoroptional", ftypes.INT16, nil, nil, nil, "Required if legSecurityType is OPT or FUT")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_ratio_qty_denominator_optional = ProtoField.new("Leg Ratio Qty Denominator Optional", "ice.icefutures.bgw.sbe.v7.0.legratioqtydenominatoroptional", ftypes.INT16, nil, nil, nil, "Required if legSecurityType is OPT or FUT")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_ratio_qty_numerator = ProtoField.new("Leg Ratio Qty Numerator", "ice.icefutures.bgw.sbe.v7.0.legratioqtynumerator", ftypes.INT16, nil, nil, nil, "legRatioQtyNumerator")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_ratio_qty_numerator_optional = ProtoField.new("Leg Ratio Qty Numerator optional", "ice.icefutures.bgw.sbe.v7.0.legratioqtynumeratoroptional", ftypes.INT16, nil, nil, nil, "Required if legSecurityType is OPT or FUT")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_ratio_qty_numerator_optional = ProtoField.new("Leg Ratio Qty Numerator Optional", "ice.icefutures.bgw.sbe.v7.0.legratioqtynumeratoroptional", ftypes.INT16, nil, nil, nil, "Required if legSecurityType is OPT or FUT")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_security_id = ProtoField.new("Leg Security Id", "ice.icefutures.bgw.sbe.v7.0.legsecurityid", ftypes.STRING, nil, nil, nil, "legSecurityID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_security_id_source = ProtoField.new("Leg Security Id Source", "ice.icefutures.bgw.sbe.v7.0.legsecurityidsource", ftypes.INT8, nil, nil, nil, "legSecurityIDSource")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_security_sub_type = ProtoField.new("Leg Security Sub Type", "ice.icefutures.bgw.sbe.v7.0.legsecuritysubtype", ftypes.INT16, nil, nil, nil, "legSecuritySubType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_security_type = ProtoField.new("Leg Security Type", "ice.icefutures.bgw.sbe.v7.0.legsecuritytype", ftypes.UINT8, nil, nil, nil, "legSecurityType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_side = ProtoField.new("Leg Side", "ice.icefutures.bgw.sbe.v7.0.legside", ftypes.UINT8, nil, nil, nil, "legSide")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_symbol = ProtoField.new("Leg Symbol", "ice.icefutures.bgw.sbe.v7.0.legsymbol", ftypes.INT32, nil, nil, nil, "legSymbol")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_symbol_optional = ProtoField.new("Leg Symbol optional", "ice.icefutures.bgw.sbe.v7.0.legsymboloptional", ftypes.INT32, nil, nil, nil, "legSymbol")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.leg_symbol_optional = ProtoField.new("Leg Symbol Optional", "ice.icefutures.bgw.sbe.v7.0.legsymboloptional", ftypes.INT32, nil, nil, nil, "legSymbol")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.link_exec_id = ProtoField.new("Link Exec Id", "ice.icefutures.bgw.sbe.v7.0.linkexecid", ftypes.INT64, nil, nil, nil, "linkExecID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "ice.icefutures.bgw.sbe.v7.0.liquidityindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "liquidityIndicator")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.liquidity_provision = ProtoField.new("Liquidity Provision", "ice.icefutures.bgw.sbe.v7.0.liquidityprovision", ftypes.UINT8, nil, nil, nil, "liquidityProvision")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.list_seq_no = ProtoField.new("List Seq No", "ice.icefutures.bgw.sbe.v7.0.listseqno", ftypes.INT32, nil, nil, nil, "listSeqNo")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.lot_size = ProtoField.new("Lot Size", "ice.icefutures.bgw.sbe.v7.0.lotsize", ftypes.INT32, nil, nil, nil, "lotSize")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.lot_size_multiplier = ProtoField.new("Lot Size Multiplier", "ice.icefutures.bgw.sbe.v7.0.lotsizemultiplier", ftypes.INT64, nil, nil, nil, "lotSizeMultiplier")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.lot_size_multiplier_optional = ProtoField.new("Lot Size Multiplier optional", "ice.icefutures.bgw.sbe.v7.0.lotsizemultiplieroptional", ftypes.INT64, nil, nil, nil, "lotSizeMultiplier")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.lot_size_multiplier_optional = ProtoField.new("Lot Size Multiplier Optional", "ice.icefutures.bgw.sbe.v7.0.lotsizemultiplieroptional", ftypes.INT64, nil, nil, nil, "lotSizeMultiplier")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "ice.icefutures.bgw.sbe.v7.0.manualorderindicator", ftypes.UINT8, nil, nil, nil, "manualOrderIndicator")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.market_transparency_type = ProtoField.new("Market Transparency Type", "ice.icefutures.bgw.sbe.v7.0.markettransparencytype", ftypes.UINT8, nil, nil, nil, "marketTransparencyType")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.market_type_i_d_optional = ProtoField.new("Market Type I D optional", "ice.icefutures.bgw.sbe.v7.0.markettypeidoptional", ftypes.INT32, nil, nil, nil, "marketTypeID")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.market_type_i_d_optional = ProtoField.new("Market Type I D Optional", "ice.icefutures.bgw.sbe.v7.0.markettypeidoptional", ftypes.INT32, nil, nil, nil, "marketTypeID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.market_type_id = ProtoField.new("Market Type Id", "ice.icefutures.bgw.sbe.v7.0.markettypeid", ftypes.INT32, nil, nil, nil, "marketTypeID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "ice.icefutures.bgw.sbe.v7.0.masscancelrejectreason", ftypes.UINT8, nil, nil, nil, "massCancelRejectReason")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_cancel_request_type = ProtoField.new("Mass Cancel Request Type", "ice.icefutures.bgw.sbe.v7.0.masscancelrequesttype", ftypes.UINT8, nil, nil, nil, "massCancelRequestType")
@@ -162,13 +162,13 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.max_price = ProtoField.new("Max Price", "
 omi_ice_icefutures_bgw_sbe_v7_0.fields.max_show = ProtoField.new("Max Show", "ice.icefutures.bgw.sbe.v7.0.maxshow", ftypes.INT64, nil, nil, nil, "maxShow")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time = ProtoField.new("Me Acceptance Time", "ice.icefutures.bgw.sbe.v7.0.meacceptancetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "meAcceptanceTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_utc = ProtoField.new("Me Acceptance Time", "ice.icefutures.bgw.sbe.v7.0.meacceptancetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "meAcceptanceTime")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional = ProtoField.new("Me Acceptance Time optional", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "meAcceptanceTime")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional_utc = ProtoField.new("Me Acceptance Time optional", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "meAcceptanceTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional = ProtoField.new("Me Acceptance Time Optional", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "meAcceptanceTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional_utc = ProtoField.new("Me Acceptance Time Optional", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "meAcceptanceTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.memo = ProtoField.new("Memo", "ice.icefutures.bgw.sbe.v7.0.memo", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.message_length = ProtoField.new("Message Length", "ice.icefutures.bgw.sbe.v7.0.messagelength", ftypes.UINT16, nil, nil, nil, "messageLength")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_id = ProtoField.new("Mifid Id", "ice.icefutures.bgw.sbe.v7.0.mifidid", ftypes.INT64, nil, nil, nil, "mifidID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_regulated_market = ProtoField.new("Mifid Regulated Market", "ice.icefutures.bgw.sbe.v7.0.mifidregulatedmarket", ftypes.UINT8, nil, nil, nil, "mifidRegulatedMarket")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_regulated_market_optional = ProtoField.new("Mifid Regulated Market optional", "ice.icefutures.bgw.sbe.v7.0.mifidregulatedmarketoptional", ftypes.UINT8, nil, nil, nil, "mifidRegulatedMarket")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_regulated_market_optional = ProtoField.new("Mifid Regulated Market Optional", "ice.icefutures.bgw.sbe.v7.0.mifidregulatedmarketoptional", ftypes.UINT8, nil, nil, nil, "mifidRegulatedMarket")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.min_price = ProtoField.new("Min Price", "ice.icefutures.bgw.sbe.v7.0.minprice", ftypes.INT64, nil, nil, nil, "minPrice")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_group = ProtoField.new("New Order Cross Request Message No Legs Group", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenolegsgroup", ftypes.STRING, nil, nil, nil, "noLegs")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.new_order_cross_request_message_no_legs_groups = ProtoField.new("New Order Cross Request Message No Legs Groups", "ice.icefutures.bgw.sbe.v7.0.newordercrossrequestmessagenolegsgroups", ftypes.STRING, nil, nil, nil, "noLegs Block")
@@ -180,25 +180,25 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.no_rpts = ProtoField.new("No Rpts", "ice.
 omi_ice_icefutures_bgw_sbe_v7_0.fields.non_commoditized_market = ProtoField.new("Non Commoditized Market", "ice.icefutures.bgw.sbe.v7.0.noncommoditizedmarket", ftypes.UINT8, nil, nil, nil, "nonCommoditizedMarket")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.num_in_group = ProtoField.new("Num In Group", "ice.icefutures.bgw.sbe.v7.0.numingroup", ftypes.UINT16, nil, nil, nil, "numInGroup")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.num_of_cycles = ProtoField.new("Num Of Cycles", "ice.icefutures.bgw.sbe.v7.0.numofcycles", ftypes.INT16, nil, nil, nil, "numOfCycles")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.num_of_cycles_optional = ProtoField.new("Num Of Cycles optional", "ice.icefutures.bgw.sbe.v7.0.numofcyclesoptional", ftypes.INT16, nil, nil, nil, "numOfCycles")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.num_of_cycles_optional = ProtoField.new("Num Of Cycles Optional", "ice.icefutures.bgw.sbe.v7.0.numofcyclesoptional", ftypes.INT16, nil, nil, nil, "numOfCycles")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.num_of_decimal_price = ProtoField.new("Num Of Decimal Price", "ice.icefutures.bgw.sbe.v7.0.numofdecimalprice", ftypes.INT8, nil, nil, nil, "numOfDecimalPrice")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.num_of_decimal_qty = ProtoField.new("Num Of Decimal Qty", "ice.icefutures.bgw.sbe.v7.0.numofdecimalqty", ftypes.INT8, nil, nil, nil, "numOfDecimalQty")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.num_of_decimal_strike_price = ProtoField.new("Num Of Decimal Strike Price", "ice.icefutures.bgw.sbe.v7.0.numofdecimalstrikeprice", ftypes.INT8, nil, nil, nil, "numOfDecimalStrikePrice")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.num_of_lots = ProtoField.new("Num Of Lots", "ice.icefutures.bgw.sbe.v7.0.numoflots", ftypes.INT64, nil, nil, nil, "numOfLots")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.off_exchange_increment_price = ProtoField.new("Off Exchange Increment Price", "ice.icefutures.bgw.sbe.v7.0.offexchangeincrementprice", ftypes.INT64, nil, nil, nil, "offExchangeIncrementPrice")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.off_exchange_increment_price_optional = ProtoField.new("Off Exchange Increment Price optional", "ice.icefutures.bgw.sbe.v7.0.offexchangeincrementpriceoptional", ftypes.INT64, nil, nil, nil, "offExchangeIncrementPrice")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.off_exchange_increment_price_optional = ProtoField.new("Off Exchange Increment Price Optional", "ice.icefutures.bgw.sbe.v7.0.offexchangeincrementpriceoptional", ftypes.INT64, nil, nil, nil, "offExchangeIncrementPrice")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.off_exchange_increment_qty = ProtoField.new("Off Exchange Increment Qty", "ice.icefutures.bgw.sbe.v7.0.offexchangeincrementqty", ftypes.INT64, nil, nil, nil, "offExchangeIncrementQty")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.off_exchange_increment_qty_optional = ProtoField.new("Off Exchange Increment Qty optional", "ice.icefutures.bgw.sbe.v7.0.offexchangeincrementqtyoptional", ftypes.INT64, nil, nil, nil, "offExchangeIncrementQty")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.off_exchange_increment_qty_optional = ProtoField.new("Off Exchange Increment Qty Optional", "ice.icefutures.bgw.sbe.v7.0.offexchangeincrementqtyoptional", ftypes.INT64, nil, nil, nil, "offExchangeIncrementQty")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.offer_px = ProtoField.new("Offer Px", "ice.icefutures.bgw.sbe.v7.0.offerpx", ftypes.INT64, nil, nil, nil, "offerPx")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.offer_sz = ProtoField.new("Offer Sz", "ice.icefutures.bgw.sbe.v7.0.offersz", ftypes.INT64, nil, nil, nil, "offerSz")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.on_behalf_of_comp_id = ProtoField.new("On Behalf Of Comp Id", "ice.icefutures.bgw.sbe.v7.0.onbehalfofcompid", ftypes.STRING, nil, nil, nil, "onBehalfOfCompId")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.on_behalf_of_location_i_d_optional = ProtoField.new("On Behalf Of Location I D optional", "ice.icefutures.bgw.sbe.v7.0.onbehalfoflocationidoptional", ftypes.STRING, nil, nil, nil, "onBehalfOfLocationID")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.on_behalf_of_location_i_d_optional = ProtoField.new("On Behalf Of Location I D Optional", "ice.icefutures.bgw.sbe.v7.0.onbehalfoflocationidoptional", ftypes.STRING, nil, nil, nil, "onBehalfOfLocationID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.on_behalf_of_location_id = ProtoField.new("On Behalf Of Location Id", "ice.icefutures.bgw.sbe.v7.0.onbehalfoflocationid", ftypes.STRING, nil, nil, nil, "onBehalfOfLocationID")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.on_behalf_of_sub_i_d_optional = ProtoField.new("On Behalf Of Sub I D optional", "ice.icefutures.bgw.sbe.v7.0.onbehalfofsubidoptional", ftypes.STRING, nil, nil, nil, "onBehalfOfSubID")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.on_behalf_of_sub_i_d_optional = ProtoField.new("On Behalf Of Sub I D Optional", "ice.icefutures.bgw.sbe.v7.0.onbehalfofsubidoptional", ftypes.STRING, nil, nil, nil, "onBehalfOfSubID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.on_behalf_of_sub_id = ProtoField.new("On Behalf Of Sub Id", "ice.icefutures.bgw.sbe.v7.0.onbehalfofsubid", ftypes.STRING, nil, nil, nil, "onBehalfOfSubID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.options_allowed = ProtoField.new("Options Allowed", "ice.icefutures.bgw.sbe.v7.0.optionsallowed", ftypes.UINT8, nil, nil, nil, "optionsAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ord_type = ProtoField.new("Ord Type", "ice.icefutures.bgw.sbe.v7.0.ordtype", ftypes.UINT8, nil, nil, nil, "ordType")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.ord_type_optional = ProtoField.new("Ord Type optional", "ice.icefutures.bgw.sbe.v7.0.ordtypeoptional", ftypes.UINT8, nil, nil, nil, "ordType")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.ord_type_optional = ProtoField.new("Ord Type Optional", "ice.icefutures.bgw.sbe.v7.0.ordtypeoptional", ftypes.UINT8, nil, nil, nil, "ordType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_2 = ProtoField.new("Order Flags reserved 2", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "reserved2")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_3 = ProtoField.new("Order Flags reserved 3", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "reserved3")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_4 = ProtoField.new("Order Flags reserved 4", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "reserved4")
@@ -208,10 +208,10 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_7 = ProtoField.new("
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_id = ProtoField.new("Order Id", "ice.icefutures.bgw.sbe.v7.0.orderid", ftypes.INT64, nil, nil, nil, "orderID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_modification_flags = ProtoField.new("Order Modification Flags", "ice.icefutures.bgw.sbe.v7.0.ordermodificationflags", ftypes.STRING, nil, nil, nil, "OrderFlags bit set")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_qty = ProtoField.new("Order Qty", "ice.icefutures.bgw.sbe.v7.0.orderqty", ftypes.INT64, nil, nil, nil, "orderQty")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.order_qty_optional = ProtoField.new("Order Qty optional", "ice.icefutures.bgw.sbe.v7.0.orderqtyoptional", ftypes.INT64, nil, nil, nil, "orderQty")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.order_qty_optional = ProtoField.new("Order Qty Optional", "ice.icefutures.bgw.sbe.v7.0.orderqtyoptional", ftypes.INT64, nil, nil, nil, "orderQty")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_state = ProtoField.new("Order State", "ice.icefutures.bgw.sbe.v7.0.orderstate", ftypes.UINT8, nil, nil, nil, "orderState")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_status = ProtoField.new("Order Status", "ice.icefutures.bgw.sbe.v7.0.orderstatus", ftypes.UINT8, nil, nil, nil, "orderStatus")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.orig_cl_ord_i_d_optional = ProtoField.new("Orig Cl Ord I D optional", "ice.icefutures.bgw.sbe.v7.0.origclordidoptional", ftypes.INT64, nil, nil, nil, "origClOrdID")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.orig_cl_ord_i_d_optional = ProtoField.new("Orig Cl Ord I D Optional", "ice.icefutures.bgw.sbe.v7.0.origclordidoptional", ftypes.INT64, nil, nil, nil, "origClOrdID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "ice.icefutures.bgw.sbe.v7.0.origclordid", ftypes.INT64, nil, nil, nil, "origClOrdID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.orig_order_id = ProtoField.new("Orig Order Id", "ice.icefutures.bgw.sbe.v7.0.origorderid", ftypes.STRING, nil, nil, nil, "ExecutionReport_NewMessage")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.original_creation_timestamp = ProtoField.new("Original Creation Timestamp", "ice.icefutures.bgw.sbe.v7.0.originalcreationtimestamp", ftypes.UINT64, nil, nil, nil, "originalCreationTimestamp")
@@ -229,7 +229,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.price = ProtoField.new("Price", "ice.icef
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_denomination = ProtoField.new("Price Denomination", "ice.icefutures.bgw.sbe.v7.0.pricedenomination", ftypes.STRING, nil, nil, nil, "priceDenomination data struct")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_denomination_data = ProtoField.new("Price Denomination Data", "ice.icefutures.bgw.sbe.v7.0.pricedenominationdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_denomination_length = ProtoField.new("Price Denomination Length", "ice.icefutures.bgw.sbe.v7.0.pricedenominationlength", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.price_optional = ProtoField.new("Price optional", "ice.icefutures.bgw.sbe.v7.0.priceoptional", ftypes.INT64, nil, nil, nil, "price")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.price_optional = ProtoField.new("Price Optional", "ice.icefutures.bgw.sbe.v7.0.priceoptional", ftypes.INT64, nil, nil, nil, "price")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_type = ProtoField.new("Price Type", "ice.icefutures.bgw.sbe.v7.0.pricetype", ftypes.UINT8, nil, nil, nil, "priceType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_unit = ProtoField.new("Price Unit", "ice.icefutures.bgw.sbe.v7.0.priceunit", ftypes.STRING, nil, nil, nil, "priceUnit data struct")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.price_unit_data = ProtoField.new("Price Unit Data", "ice.icefutures.bgw.sbe.v7.0.priceunitdata", ftypes.STRING)
@@ -240,7 +240,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.product_desc_length = ProtoField.new("Pro
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_group = ProtoField.new("Product Group", "ice.icefutures.bgw.sbe.v7.0.productgroup", ftypes.STRING, nil, nil, nil, "productGroup data struct")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_group_data = ProtoField.new("Product Group Data", "ice.icefutures.bgw.sbe.v7.0.productgroupdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_group_length = ProtoField.new("Product Group Length", "ice.icefutures.bgw.sbe.v7.0.productgrouplength", ftypes.UINT16)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.product_i_d_optional = ProtoField.new("Product I D optional", "ice.icefutures.bgw.sbe.v7.0.productidoptional", ftypes.INT32, nil, nil, nil, "productID")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.product_i_d_optional = ProtoField.new("Product I D Optional", "ice.icefutures.bgw.sbe.v7.0.productidoptional", ftypes.INT32, nil, nil, nil, "productID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_id = ProtoField.new("Product Id", "ice.icefutures.bgw.sbe.v7.0.productid", ftypes.INT32, nil, nil, nil, "productID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_name = ProtoField.new("Product Name", "ice.icefutures.bgw.sbe.v7.0.productname", ftypes.STRING, nil, nil, nil, "productName data struct")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.product_name_data = ProtoField.new("Product Name Data", "ice.icefutures.bgw.sbe.v7.0.productnamedata", ftypes.STRING)
@@ -302,10 +302,10 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.security_request_type = ProtoField.new("S
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_response_id = ProtoField.new("Security Response Id", "ice.icefutures.bgw.sbe.v7.0.securityresponseid", ftypes.INT32, nil, nil, nil, "securityResponseID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_response_type = ProtoField.new("Security Response Type", "ice.icefutures.bgw.sbe.v7.0.securityresponsetype", ftypes.UINT8, nil, nil, nil, "securityResponseType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_sub_type = ProtoField.new("Security Sub Type", "ice.icefutures.bgw.sbe.v7.0.securitysubtype", ftypes.INT16, nil, nil, nil, "securitySubType")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_sub_type_optional = ProtoField.new("Security Sub Type optional", "ice.icefutures.bgw.sbe.v7.0.securitysubtypeoptional", ftypes.INT16, nil, nil, nil, "securitySubType")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_sub_type_optional = ProtoField.new("Security Sub Type Optional", "ice.icefutures.bgw.sbe.v7.0.securitysubtypeoptional", ftypes.INT16, nil, nil, nil, "securitySubType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_trading_status = ProtoField.new("Security Trading Status", "ice.icefutures.bgw.sbe.v7.0.securitytradingstatus", ftypes.UINT8, nil, nil, nil, "securityTradingStatus")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_type = ProtoField.new("Security Type", "ice.icefutures.bgw.sbe.v7.0.securitytype", ftypes.UINT8, nil, nil, nil, "securityType")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.security_type_optional = ProtoField.new("Security Type optional", "ice.icefutures.bgw.sbe.v7.0.securitytypeoptional", ftypes.UINT8, nil, nil, nil, "securityType")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.security_type_optional = ProtoField.new("Security Type Optional", "ice.icefutures.bgw.sbe.v7.0.securitytypeoptional", ftypes.UINT8, nil, nil, nil, "securityType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.self_block_allowed = ProtoField.new("Self Block Allowed", "ice.icefutures.bgw.sbe.v7.0.selfblockallowed", ftypes.UINT8, nil, nil, nil, "selfBlockAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.self_match_prevention_id = ProtoField.new("Self Match Prevention Id", "ice.icefutures.bgw.sbe.v7.0.selfmatchpreventionid", ftypes.INT64, nil, nil, nil, "selfMatchPreventionID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.self_match_prevention_instruction = ProtoField.new("Self Match Prevention Instruction", "ice.icefutures.bgw.sbe.v7.0.selfmatchpreventioninstruction", ftypes.STRING, nil, nil, nil, "selfMatchPreventionInstruction")
@@ -315,7 +315,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.sequence_id = ProtoField.new("Sequence Id
 omi_ice_icefutures_bgw_sbe_v7_0.fields.settl_method = ProtoField.new("Settl Method", "ice.icefutures.bgw.sbe.v7.0.settlmethod", ftypes.STRING, nil, nil, nil, "settlMethod")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.severity_level = ProtoField.new("Severity Level", "ice.icefutures.bgw.sbe.v7.0.severitylevel", ftypes.UINT8, nil, nil, nil, "severityLevel")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.side = ProtoField.new("Side", "ice.icefutures.bgw.sbe.v7.0.side", ftypes.UINT8)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.side_optional = ProtoField.new("Side optional", "ice.icefutures.bgw.sbe.v7.0.sideoptional", ftypes.UINT8, nil, nil, nil, "side")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.side_optional = ProtoField.new("Side Optional", "ice.icefutures.bgw.sbe.v7.0.sideoptional", ftypes.UINT8, nil, nil, nil, "side")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.start_date = ProtoField.new("Start Date", "ice.icefutures.bgw.sbe.v7.0.startdate", ftypes.UINT16, nil, nil, nil, "startDate")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.status = ProtoField.new("Status", "ice.icefutures.bgw.sbe.v7.0.status", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.stop_elected = ProtoField.new("Stop Elected", "ice.icefutures.bgw.sbe.v7.0.stopelected", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "stopElected")
@@ -335,19 +335,19 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.strip_type = ProtoField.new("Strip Type",
 omi_ice_icefutures_bgw_sbe_v7_0.fields.success = ProtoField.new("Success", "ice.icefutures.bgw.sbe.v7.0.success", ftypes.UINT8)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.supported_schema_version = ProtoField.new("Supported Schema Version", "ice.icefutures.bgw.sbe.v7.0.supportedschemaversion", ftypes.STRING, nil, nil, nil, "supportedSchemaVersion")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.symbol = ProtoField.new("Symbol", "ice.icefutures.bgw.sbe.v7.0.symbol", ftypes.INT32)
-omi_ice_icefutures_bgw_sbe_v7_0.fields.symbol_optional = ProtoField.new("Symbol optional", "ice.icefutures.bgw.sbe.v7.0.symboloptional", ftypes.INT32, nil, nil, nil, "symbol")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.symbol_optional = ProtoField.new("Symbol Optional", "ice.icefutures.bgw.sbe.v7.0.symboloptional", ftypes.INT32, nil, nil, nil, "symbol")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.system_id = ProtoField.new("System Id", "ice.icefutures.bgw.sbe.v7.0.systemid", ftypes.INT64, nil, nil, nil, "systemID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.system_sequence_id = ProtoField.new("System Sequence Id", "ice.icefutures.bgw.sbe.v7.0.systemsequenceid", ftypes.INT32, nil, nil, nil, "systemSequenceID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.template_id = ProtoField.new("Template Id", "ice.icefutures.bgw.sbe.v7.0.templateid", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.test_market_indicator = ProtoField.new("Test Market Indicator", "ice.icefutures.bgw.sbe.v7.0.testmarketindicator", ftypes.UINT8, nil, nil, nil, "testMarketIndicator")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.test_market_indicator_optional = ProtoField.new("Test Market Indicator optional", "ice.icefutures.bgw.sbe.v7.0.testmarketindicatoroptional", ftypes.UINT8, nil, nil, nil, "testMarketIndicator")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.test_market_indicator_optional = ProtoField.new("Test Market Indicator Optional", "ice.icefutures.bgw.sbe.v7.0.testmarketindicatoroptional", ftypes.UINT8, nil, nil, nil, "testMarketIndicator")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.text = ProtoField.new("Text", "ice.icefutures.bgw.sbe.v7.0.text", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.text_data = ProtoField.new("Text Data", "ice.icefutures.bgw.sbe.v7.0.textdata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.text_length = ProtoField.new("Text Length", "ice.icefutures.bgw.sbe.v7.0.textlength", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.text_var_string_16_null = ProtoField.new("Text var String 16 Null", "ice.icefutures.bgw.sbe.v7.0.textvarstring16null", ftypes.STRING, nil, nil, nil, "text data struct")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.tick_value = ProtoField.new("Tick Value", "ice.icefutures.bgw.sbe.v7.0.tickvalue", ftypes.INT64, nil, nil, nil, "tickValue")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force = ProtoField.new("Time In Force", "ice.icefutures.bgw.sbe.v7.0.timeinforce", ftypes.UINT8, nil, nil, nil, "timeInForce")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force_optional = ProtoField.new("Time In Force optional", "ice.icefutures.bgw.sbe.v7.0.timeinforceoptional", ftypes.UINT8, nil, nil, nil, "timeInForce")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force_optional = ProtoField.new("Time In Force Optional", "ice.icefutures.bgw.sbe.v7.0.timeinforceoptional", ftypes.UINT8, nil, nil, nil, "timeInForce")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "timePriority")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority_utc = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "timePriority")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags = ProtoField.new("Trade Flags", "ice.icefutures.bgw.sbe.v7.0.tradeflags", ftypes.STRING, nil, nil, nil, "TradeFlags bit set")
@@ -362,8 +362,8 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.trading_capacity = ProtoField.new("Tradin
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_details = ProtoField.new("Transact Details", "ice.icefutures.bgw.sbe.v7.0.transactdetails", ftypes.STRING, nil, nil, nil, "transactDetails")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "ice.icefutures.bgw.sbe.v7.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc = ProtoField.new("Transact Time", "ice.icefutures.bgw.sbe.v7.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional = ProtoField.new("Transact Time optional", "ice.icefutures.bgw.sbe.v7.0.transacttimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional_utc = ProtoField.new("Transact Time optional", "ice.icefutures.bgw.sbe.v7.0.transacttimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional = ProtoField.new("Transact Time Optional", "ice.icefutures.bgw.sbe.v7.0.transacttimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional_utc = ProtoField.new("Transact Time Optional", "ice.icefutures.bgw.sbe.v7.0.transacttimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp = ProtoField.new("Transact Time Utc Timestamp", "ice.icefutures.bgw.sbe.v7.0.transacttimeutctimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp_utc = ProtoField.new("Transact Time Utc Timestamp", "ice.icefutures.bgw.sbe.v7.0.transacttimeutctimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.uds_futures_allowed = ProtoField.new("Uds Futures Allowed", "ice.icefutures.bgw.sbe.v7.0.udsfuturesallowed", ftypes.UINT8, nil, nil, nil, "udsFuturesAllowed")
@@ -372,7 +372,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_product = ProtoField.new("Unde
 omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "ice.icefutures.bgw.sbe.v7.0.underlyingsecurityid", ftypes.INT32, nil, nil, nil, "underlyingSecurityID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_strategy_symbol = ProtoField.new("Underlying Strategy Symbol", "ice.icefutures.bgw.sbe.v7.0.underlyingstrategysymbol", ftypes.INT32, nil, nil, nil, "underlyingStrategySymbol")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "ice.icefutures.bgw.sbe.v7.0.underlyingsymbol", ftypes.INT32, nil, nil, nil, "underlyingSymbol")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_symbol_optional = ProtoField.new("Underlying Symbol optional", "ice.icefutures.bgw.sbe.v7.0.underlyingsymboloptional", ftypes.INT32, nil, nil, nil, "underlyingSymbol")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_symbol_optional = ProtoField.new("Underlying Symbol Optional", "ice.icefutures.bgw.sbe.v7.0.underlyingsymboloptional", ftypes.INT32, nil, nil, nil, "underlyingSymbol")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "ice.icefutures.bgw.sbe.v7.0.unitofmeasure", ftypes.STRING, nil, nil, nil, "unitOfMeasure data struct")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.unit_of_measure_data = ProtoField.new("Unit Of Measure Data", "ice.icefutures.bgw.sbe.v7.0.unitofmeasuredata", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.unit_of_measure_length = ProtoField.new("Unit Of Measure Length", "ice.icefutures.bgw.sbe.v7.0.unitofmeasurelength", ftypes.UINT16)
@@ -447,17 +447,22 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_messa
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_report_strategy_message_no_security_alt_i_d_group_index = ProtoField.new("Security Definition Report Strategy Message No Security Alt I D Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionreportstrategymessagenosecurityaltidgroupindex", ftypes.UINT16)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.security_definition_request_create_strategy_message_no_legs_group_index = ProtoField.new("Security Definition Request Create Strategy Message No Legs Group Index", "ice.icefutures.bgw.sbe.v7.0.securitydefinitionrequestcreatestrategymessagenolegsgroupindex", ftypes.UINT16)
 
+-- Ice IceFutures Bgw Sbe 7.0 Expert Info
+ice_icefutures_bgw_sbe_v7_0.experts = {}
+ice_icefutures_bgw_sbe_v7_0.experts.undecoded = ProtoExpert.new("ice.icefutures.bgw.sbe.v7.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_ice_icefutures_bgw_sbe_v7_0.experts = { ice_icefutures_bgw_sbe_v7_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Ice IceFutures Bgw Sbe 7.0 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 ice_icefutures_bgw_sbe_v7_0.timestamp_format = 2
 
 
@@ -513,6 +518,19 @@ function omi_ice_icefutures_bgw_sbe_v7_0.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Ice IceFutures Bgw Sbe 7.0 Fields
 -----------------------------------------------------------------------
@@ -1333,23 +1351,23 @@ ice_icefutures_bgw_sbe_v7_0.clearing_account.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Clearing Account optional
+-- Clearing Account Optional
 ice_icefutures_bgw_sbe_v7_0.clearing_account_optional = {}
 
--- Size: Clearing Account optional
+-- Size: Clearing Account Optional
 ice_icefutures_bgw_sbe_v7_0.clearing_account_optional.size = 14
 
--- Display: Clearing Account optional
+-- Display: Clearing Account Optional
 ice_icefutures_bgw_sbe_v7_0.clearing_account_optional.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Clearing Account optional: No Value"
+    return "Clearing Account Optional: No Value"
   end
 
-  return "Clearing Account optional: "..value
+  return "Clearing Account Optional: "..value
 end
 
--- Dissect: Clearing Account optional
+-- Dissect: Clearing Account Optional
 ice_icefutures_bgw_sbe_v7_0.clearing_account_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.clearing_account_optional.size
   local range = buffer(offset, length)
@@ -1395,23 +1413,23 @@ ice_icefutures_bgw_sbe_v7_0.clearing_firm.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Clearing Firm optional
+-- Clearing Firm Optional
 ice_icefutures_bgw_sbe_v7_0.clearing_firm_optional = {}
 
--- Size: Clearing Firm optional
+-- Size: Clearing Firm Optional
 ice_icefutures_bgw_sbe_v7_0.clearing_firm_optional.size = 4
 
--- Display: Clearing Firm optional
+-- Display: Clearing Firm Optional
 ice_icefutures_bgw_sbe_v7_0.clearing_firm_optional.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Clearing Firm optional: No Value"
+    return "Clearing Firm Optional: No Value"
   end
 
-  return "Clearing Firm optional: "..value
+  return "Clearing Firm Optional: "..value
 end
 
--- Dissect: Clearing Firm optional
+-- Dissect: Clearing Firm Optional
 ice_icefutures_bgw_sbe_v7_0.clearing_firm_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.clearing_firm_optional.size
   local range = buffer(offset, length)
@@ -1553,23 +1571,23 @@ ice_icefutures_bgw_sbe_v7_0.contract_size.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Cross I D optional
+-- Cross I D Optional
 ice_icefutures_bgw_sbe_v7_0.cross_i_d_optional = {}
 
--- Size: Cross I D optional
+-- Size: Cross I D Optional
 ice_icefutures_bgw_sbe_v7_0.cross_i_d_optional.size = 8
 
--- Display: Cross I D optional
+-- Display: Cross I D Optional
 ice_icefutures_bgw_sbe_v7_0.cross_i_d_optional.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Cross I D optional: No Value"
+    return "Cross I D Optional: No Value"
   end
 
-  return "Cross I D optional: "..value
+  return "Cross I D Optional: "..value
 end
 
--- Dissect: Cross I D optional
+-- Dissect: Cross I D Optional
 ice_icefutures_bgw_sbe_v7_0.cross_i_d_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.cross_i_d_optional.size
   local range = buffer(offset, length)
@@ -1647,33 +1665,33 @@ ice_icefutures_bgw_sbe_v7_0.cross_type.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Cross Type optional
+-- Cross Type Optional
 ice_icefutures_bgw_sbe_v7_0.cross_type_optional = {}
 
--- Size: Cross Type optional
+-- Size: Cross Type Optional
 ice_icefutures_bgw_sbe_v7_0.cross_type_optional.size = 1
 
--- Display: Cross Type optional
+-- Display: Cross Type Optional
 ice_icefutures_bgw_sbe_v7_0.cross_type_optional.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Cross Type optional: No Value"
+    return "Cross Type Optional: No Value"
   end
 
   if value == "1" then
-    return "Cross Type optional: Aon (1)"
+    return "Cross Type Optional: Aon (1)"
   end
   if value == "2" then
-    return "Cross Type optional: Ioc (2)"
+    return "Cross Type Optional: Ioc (2)"
   end
   if value == 0 then
-    return "Cross Type optional: No Value"
+    return "Cross Type Optional: No Value"
   end
 
-  return "Cross Type optional: Unknown("..value..")"
+  return "Cross Type Optional: Unknown("..value..")"
 end
 
--- Dissect: Cross Type optional
+-- Dissect: Cross Type Optional
 ice_icefutures_bgw_sbe_v7_0.cross_type_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.cross_type_optional.size
   local range = buffer(offset, length)
@@ -3479,23 +3497,23 @@ ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_denominator.dissect = function(buffer,
   return offset + length, value
 end
 
--- Leg Ratio Qty Denominator optional
+-- Leg Ratio Qty Denominator Optional
 ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_denominator_optional = {}
 
--- Size: Leg Ratio Qty Denominator optional
+-- Size: Leg Ratio Qty Denominator Optional
 ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_denominator_optional.size = 2
 
--- Display: Leg Ratio Qty Denominator optional
+-- Display: Leg Ratio Qty Denominator Optional
 ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_denominator_optional.display = function(value)
   -- Check if field has value
   if value == -32768 then
-    return "Leg Ratio Qty Denominator optional: No Value"
+    return "Leg Ratio Qty Denominator Optional: No Value"
   end
 
-  return "Leg Ratio Qty Denominator optional: "..value
+  return "Leg Ratio Qty Denominator Optional: "..value
 end
 
--- Dissect: Leg Ratio Qty Denominator optional
+-- Dissect: Leg Ratio Qty Denominator Optional
 ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_denominator_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_denominator_optional.size
   local range = buffer(offset, length)
@@ -3530,23 +3548,23 @@ ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_numerator.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Leg Ratio Qty Numerator optional
+-- Leg Ratio Qty Numerator Optional
 ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_numerator_optional = {}
 
--- Size: Leg Ratio Qty Numerator optional
+-- Size: Leg Ratio Qty Numerator Optional
 ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_numerator_optional.size = 2
 
--- Display: Leg Ratio Qty Numerator optional
+-- Display: Leg Ratio Qty Numerator Optional
 ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_numerator_optional.display = function(value)
   -- Check if field has value
   if value == -32768 then
-    return "Leg Ratio Qty Numerator optional: No Value"
+    return "Leg Ratio Qty Numerator Optional: No Value"
   end
 
-  return "Leg Ratio Qty Numerator optional: "..value
+  return "Leg Ratio Qty Numerator Optional: "..value
 end
 
--- Dissect: Leg Ratio Qty Numerator optional
+-- Dissect: Leg Ratio Qty Numerator Optional
 ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_numerator_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_numerator_optional.size
   local range = buffer(offset, length)
@@ -3734,23 +3752,23 @@ ice_icefutures_bgw_sbe_v7_0.leg_symbol.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Leg Symbol optional
+-- Leg Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.leg_symbol_optional = {}
 
--- Size: Leg Symbol optional
+-- Size: Leg Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.leg_symbol_optional.size = 4
 
--- Display: Leg Symbol optional
+-- Display: Leg Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.leg_symbol_optional.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Leg Symbol optional: No Value"
+    return "Leg Symbol Optional: No Value"
   end
 
-  return "Leg Symbol optional: "..value
+  return "Leg Symbol Optional: "..value
 end
 
--- Dissect: Leg Symbol optional
+-- Dissect: Leg Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.leg_symbol_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.leg_symbol_optional.size
   local range = buffer(offset, length)
@@ -3892,23 +3910,23 @@ ice_icefutures_bgw_sbe_v7_0.lot_size_multiplier.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Lot Size Multiplier optional
+-- Lot Size Multiplier Optional
 ice_icefutures_bgw_sbe_v7_0.lot_size_multiplier_optional = {}
 
--- Size: Lot Size Multiplier optional
+-- Size: Lot Size Multiplier Optional
 ice_icefutures_bgw_sbe_v7_0.lot_size_multiplier_optional.size = 8
 
--- Display: Lot Size Multiplier optional
+-- Display: Lot Size Multiplier Optional
 ice_icefutures_bgw_sbe_v7_0.lot_size_multiplier_optional.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Lot Size Multiplier optional: No Value"
+    return "Lot Size Multiplier Optional: No Value"
   end
 
-  return "Lot Size Multiplier optional: "..value
+  return "Lot Size Multiplier Optional: "..value
 end
 
--- Dissect: Lot Size Multiplier optional
+-- Dissect: Lot Size Multiplier Optional
 ice_icefutures_bgw_sbe_v7_0.lot_size_multiplier_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.lot_size_multiplier_optional.size
   local range = buffer(offset, length)
@@ -3986,23 +4004,23 @@ ice_icefutures_bgw_sbe_v7_0.market_transparency_type.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Market Type I D optional
+-- Market Type I D Optional
 ice_icefutures_bgw_sbe_v7_0.market_type_i_d_optional = {}
 
--- Size: Market Type I D optional
+-- Size: Market Type I D Optional
 ice_icefutures_bgw_sbe_v7_0.market_type_i_d_optional.size = 4
 
--- Display: Market Type I D optional
+-- Display: Market Type I D Optional
 ice_icefutures_bgw_sbe_v7_0.market_type_i_d_optional.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Market Type I D optional: No Value"
+    return "Market Type I D Optional: No Value"
   end
 
-  return "Market Type I D optional: "..value
+  return "Market Type I D Optional: "..value
 end
 
--- Dissect: Market Type I D optional
+-- Dissect: Market Type I D Optional
 ice_icefutures_bgw_sbe_v7_0.market_type_i_d_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.market_type_i_d_optional.size
   local range = buffer(offset, length)
@@ -4269,13 +4287,13 @@ ice_icefutures_bgw_sbe_v7_0.me_acceptance_time.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Me Acceptance Time optional
+-- Me Acceptance Time Optional
 ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional = {}
 
--- Size: Me Acceptance Time optional
+-- Size: Me Acceptance Time Optional
 ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional.size = 8
 
--- Dissect: Me Acceptance Time optional
+-- Dissect: Me Acceptance Time Optional
 ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional.size
   local range = buffer(offset, length)
@@ -4289,7 +4307,7 @@ ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional.dissect = function(buffe
   if value == UInt64(0x00000000, 0x00000000) then
     -- Null: the field keeps its type, and the line says so instead
     local item = parent:add(field, range, NSTime.new(0, 0))
-    item:set_text("Me Acceptance Time optional: No Value")
+    item:set_text("Me Acceptance Time Optional: No Value")
     return offset + length, value
   end
 
@@ -4418,28 +4436,28 @@ ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Mifid Regulated Market optional
+-- Mifid Regulated Market Optional
 ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_optional = {}
 
--- Size: Mifid Regulated Market optional
+-- Size: Mifid Regulated Market Optional
 ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_optional.size = 1
 
--- Display: Mifid Regulated Market optional
+-- Display: Mifid Regulated Market Optional
 ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_optional.display = function(value)
   if value == 0 then
-    return "Mifid Regulated Market optional: False (0)"
+    return "Mifid Regulated Market Optional: False (0)"
   end
   if value == 1 then
-    return "Mifid Regulated Market optional: True (1)"
+    return "Mifid Regulated Market Optional: True (1)"
   end
   if value == 255 then
-    return "Mifid Regulated Market optional: No Value"
+    return "Mifid Regulated Market Optional: No Value"
   end
 
-  return "Mifid Regulated Market optional: Unknown("..value..")"
+  return "Mifid Regulated Market Optional: Unknown("..value..")"
 end
 
--- Dissect: Mifid Regulated Market optional
+-- Dissect: Mifid Regulated Market Optional
 ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_optional.size
   local range = buffer(offset, length)
@@ -4627,23 +4645,23 @@ ice_icefutures_bgw_sbe_v7_0.num_of_cycles.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Num Of Cycles optional
+-- Num Of Cycles Optional
 ice_icefutures_bgw_sbe_v7_0.num_of_cycles_optional = {}
 
--- Size: Num Of Cycles optional
+-- Size: Num Of Cycles Optional
 ice_icefutures_bgw_sbe_v7_0.num_of_cycles_optional.size = 2
 
--- Display: Num Of Cycles optional
+-- Display: Num Of Cycles Optional
 ice_icefutures_bgw_sbe_v7_0.num_of_cycles_optional.display = function(value)
   -- Check if field has value
   if value == -32768 then
-    return "Num Of Cycles optional: No Value"
+    return "Num Of Cycles Optional: No Value"
   end
 
-  return "Num Of Cycles optional: "..value
+  return "Num Of Cycles Optional: "..value
 end
 
--- Dissect: Num Of Cycles optional
+-- Dissect: Num Of Cycles Optional
 ice_icefutures_bgw_sbe_v7_0.num_of_cycles_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.num_of_cycles_optional.size
   local range = buffer(offset, length)
@@ -4780,23 +4798,23 @@ ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_price.dissect = function(buff
   return offset + length, value
 end
 
--- Off Exchange Increment Price optional
+-- Off Exchange Increment Price Optional
 ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_price_optional = {}
 
--- Size: Off Exchange Increment Price optional
+-- Size: Off Exchange Increment Price Optional
 ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_price_optional.size = 8
 
--- Display: Off Exchange Increment Price optional
+-- Display: Off Exchange Increment Price Optional
 ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_price_optional.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Off Exchange Increment Price optional: No Value"
+    return "Off Exchange Increment Price Optional: No Value"
   end
 
-  return "Off Exchange Increment Price optional: "..value
+  return "Off Exchange Increment Price Optional: "..value
 end
 
--- Dissect: Off Exchange Increment Price optional
+-- Dissect: Off Exchange Increment Price Optional
 ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_price_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_price_optional.size
   local range = buffer(offset, length)
@@ -4831,23 +4849,23 @@ ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_qty.dissect = function(buffer
   return offset + length, value
 end
 
--- Off Exchange Increment Qty optional
+-- Off Exchange Increment Qty Optional
 ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_qty_optional = {}
 
--- Size: Off Exchange Increment Qty optional
+-- Size: Off Exchange Increment Qty Optional
 ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_qty_optional.size = 8
 
--- Display: Off Exchange Increment Qty optional
+-- Display: Off Exchange Increment Qty Optional
 ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_qty_optional.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Off Exchange Increment Qty optional: No Value"
+    return "Off Exchange Increment Qty Optional: No Value"
   end
 
-  return "Off Exchange Increment Qty optional: "..value
+  return "Off Exchange Increment Qty Optional: "..value
 end
 
--- Dissect: Off Exchange Increment Qty optional
+-- Dissect: Off Exchange Increment Qty Optional
 ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_qty_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_qty_optional.size
   local range = buffer(offset, length)
@@ -4944,23 +4962,23 @@ ice_icefutures_bgw_sbe_v7_0.on_behalf_of_comp_id.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- On Behalf Of Location I D optional
+-- On Behalf Of Location I D Optional
 ice_icefutures_bgw_sbe_v7_0.on_behalf_of_location_i_d_optional = {}
 
--- Size: On Behalf Of Location I D optional
+-- Size: On Behalf Of Location I D Optional
 ice_icefutures_bgw_sbe_v7_0.on_behalf_of_location_i_d_optional.size = 41
 
--- Display: On Behalf Of Location I D optional
+-- Display: On Behalf Of Location I D Optional
 ice_icefutures_bgw_sbe_v7_0.on_behalf_of_location_i_d_optional.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "On Behalf Of Location I D optional: No Value"
+    return "On Behalf Of Location I D Optional: No Value"
   end
 
-  return "On Behalf Of Location I D optional: "..value
+  return "On Behalf Of Location I D Optional: "..value
 end
 
--- Dissect: On Behalf Of Location I D optional
+-- Dissect: On Behalf Of Location I D Optional
 ice_icefutures_bgw_sbe_v7_0.on_behalf_of_location_i_d_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.on_behalf_of_location_i_d_optional.size
   local range = buffer(offset, length)
@@ -5022,23 +5040,23 @@ ice_icefutures_bgw_sbe_v7_0.on_behalf_of_location_id.dissect = function(buffer, 
   return offset + length, value
 end
 
--- On Behalf Of Sub I D optional
+-- On Behalf Of Sub I D Optional
 ice_icefutures_bgw_sbe_v7_0.on_behalf_of_sub_i_d_optional = {}
 
--- Size: On Behalf Of Sub I D optional
+-- Size: On Behalf Of Sub I D Optional
 ice_icefutures_bgw_sbe_v7_0.on_behalf_of_sub_i_d_optional.size = 41
 
--- Display: On Behalf Of Sub I D optional
+-- Display: On Behalf Of Sub I D Optional
 ice_icefutures_bgw_sbe_v7_0.on_behalf_of_sub_i_d_optional.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "On Behalf Of Sub I D optional: No Value"
+    return "On Behalf Of Sub I D Optional: No Value"
   end
 
-  return "On Behalf Of Sub I D optional: "..value
+  return "On Behalf Of Sub I D Optional: "..value
 end
 
--- Dissect: On Behalf Of Sub I D optional
+-- Dissect: On Behalf Of Sub I D Optional
 ice_icefutures_bgw_sbe_v7_0.on_behalf_of_sub_i_d_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.on_behalf_of_sub_i_d_optional.size
   local range = buffer(offset, length)
@@ -5163,34 +5181,34 @@ ice_icefutures_bgw_sbe_v7_0.ord_type.dissect = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Ord Type optional
+-- Ord Type Optional
 ice_icefutures_bgw_sbe_v7_0.ord_type_optional = {}
 
--- Size: Ord Type optional
+-- Size: Ord Type Optional
 ice_icefutures_bgw_sbe_v7_0.ord_type_optional.size = 1
 
--- Display: Ord Type optional
+-- Display: Ord Type Optional
 ice_icefutures_bgw_sbe_v7_0.ord_type_optional.display = function(value)
   if value == 1 then
-    return "Ord Type optional: Market (1)"
+    return "Ord Type Optional: Market (1)"
   end
   if value == 2 then
-    return "Ord Type optional: Limit (2)"
+    return "Ord Type Optional: Limit (2)"
   end
   if value == 3 then
-    return "Ord Type optional: Stop (3)"
+    return "Ord Type Optional: Stop (3)"
   end
   if value == 4 then
-    return "Ord Type optional: Stop Limit (4)"
+    return "Ord Type Optional: Stop Limit (4)"
   end
   if value == 255 then
-    return "Ord Type optional: No Value"
+    return "Ord Type Optional: No Value"
   end
 
-  return "Ord Type optional: Unknown("..value..")"
+  return "Ord Type Optional: Unknown("..value..")"
 end
 
--- Dissect: Ord Type optional
+-- Dissect: Ord Type Optional
 ice_icefutures_bgw_sbe_v7_0.ord_type_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.ord_type_optional.size
   local range = buffer(offset, length)
@@ -5248,23 +5266,23 @@ ice_icefutures_bgw_sbe_v7_0.order_qty.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Order Qty optional
+-- Order Qty Optional
 ice_icefutures_bgw_sbe_v7_0.order_qty_optional = {}
 
--- Size: Order Qty optional
+-- Size: Order Qty Optional
 ice_icefutures_bgw_sbe_v7_0.order_qty_optional.size = 8
 
--- Display: Order Qty optional
+-- Display: Order Qty Optional
 ice_icefutures_bgw_sbe_v7_0.order_qty_optional.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Order Qty optional: No Value"
+    return "Order Qty Optional: No Value"
   end
 
-  return "Order Qty optional: "..value
+  return "Order Qty Optional: "..value
 end
 
--- Dissect: Order Qty optional
+-- Dissect: Order Qty Optional
 ice_icefutures_bgw_sbe_v7_0.order_qty_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.order_qty_optional.size
   local range = buffer(offset, length)
@@ -5363,23 +5381,23 @@ ice_icefutures_bgw_sbe_v7_0.order_status.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Orig Cl Ord I D optional
+-- Orig Cl Ord I D Optional
 ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_optional = {}
 
--- Size: Orig Cl Ord I D optional
+-- Size: Orig Cl Ord I D Optional
 ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_optional.size = 8
 
--- Display: Orig Cl Ord I D optional
+-- Display: Orig Cl Ord I D Optional
 ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_optional.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Orig Cl Ord I D optional: No Value"
+    return "Orig Cl Ord I D Optional: No Value"
   end
 
-  return "Orig Cl Ord I D optional: "..value
+  return "Orig Cl Ord I D Optional: "..value
 end
 
--- Dissect: Orig Cl Ord I D optional
+-- Dissect: Orig Cl Ord I D Optional
 ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_optional.size
   local range = buffer(offset, length)
@@ -5713,23 +5731,23 @@ ice_icefutures_bgw_sbe_v7_0.price_denomination_length.dissect = function(buffer,
   return offset + length, value
 end
 
--- Price optional
+-- Price Optional
 ice_icefutures_bgw_sbe_v7_0.price_optional = {}
 
--- Size: Price optional
+-- Size: Price Optional
 ice_icefutures_bgw_sbe_v7_0.price_optional.size = 8
 
--- Display: Price optional
+-- Display: Price Optional
 ice_icefutures_bgw_sbe_v7_0.price_optional.display = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
-    return "Price optional: No Value"
+    return "Price Optional: No Value"
   end
 
-  return "Price optional: "..value
+  return "Price Optional: "..value
 end
 
--- Dissect: Price optional
+-- Dissect: Price Optional
 ice_icefutures_bgw_sbe_v7_0.price_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.price_optional.size
   local range = buffer(offset, length)
@@ -5912,23 +5930,23 @@ ice_icefutures_bgw_sbe_v7_0.product_group_length.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Product I D optional
+-- Product I D Optional
 ice_icefutures_bgw_sbe_v7_0.product_i_d_optional = {}
 
--- Size: Product I D optional
+-- Size: Product I D Optional
 ice_icefutures_bgw_sbe_v7_0.product_i_d_optional.size = 4
 
--- Display: Product I D optional
+-- Display: Product I D Optional
 ice_icefutures_bgw_sbe_v7_0.product_i_d_optional.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Product I D optional: No Value"
+    return "Product I D Optional: No Value"
   end
 
-  return "Product I D optional: "..value
+  return "Product I D Optional: "..value
 end
 
--- Dissect: Product I D optional
+-- Dissect: Product I D Optional
 ice_icefutures_bgw_sbe_v7_0.product_i_d_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.product_i_d_optional.size
   local range = buffer(offset, length)
@@ -6745,7 +6763,7 @@ ice_icefutures_bgw_sbe_v7_0.schema_id.size = 2
 -- Display: Schema Id
 ice_icefutures_bgw_sbe_v7_0.schema_id.display = function(value)
   if value == 7 then
-    return "Schema Id: 7"
+    return "Schema Id: Com Ice Bgw Api Message (7)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -7178,23 +7196,23 @@ ice_icefutures_bgw_sbe_v7_0.security_sub_type.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Security Sub Type optional
+-- Security Sub Type Optional
 ice_icefutures_bgw_sbe_v7_0.security_sub_type_optional = {}
 
--- Size: Security Sub Type optional
+-- Size: Security Sub Type Optional
 ice_icefutures_bgw_sbe_v7_0.security_sub_type_optional.size = 2
 
--- Display: Security Sub Type optional
+-- Display: Security Sub Type Optional
 ice_icefutures_bgw_sbe_v7_0.security_sub_type_optional.display = function(value)
   -- Check if field has value
   if value == -32768 then
-    return "Security Sub Type optional: No Value"
+    return "Security Sub Type Optional: No Value"
   end
 
-  return "Security Sub Type optional: "..value
+  return "Security Sub Type Optional: "..value
 end
 
--- Dissect: Security Sub Type optional
+-- Dissect: Security Sub Type Optional
 ice_icefutures_bgw_sbe_v7_0.security_sub_type_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.security_sub_type_optional.size
   local range = buffer(offset, length)
@@ -7270,34 +7288,34 @@ ice_icefutures_bgw_sbe_v7_0.security_type.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Security Type optional
+-- Security Type Optional
 ice_icefutures_bgw_sbe_v7_0.security_type_optional = {}
 
--- Size: Security Type optional
+-- Size: Security Type Optional
 ice_icefutures_bgw_sbe_v7_0.security_type_optional.size = 1
 
--- Display: Security Type optional
+-- Display: Security Type Optional
 ice_icefutures_bgw_sbe_v7_0.security_type_optional.display = function(value)
   if value == 1 then
-    return "Security Type optional: Fut (1)"
+    return "Security Type Optional: Fut (1)"
   end
   if value == 2 then
-    return "Security Type optional: Opt (2)"
+    return "Security Type Optional: Opt (2)"
   end
   if value == 3 then
-    return "Security Type optional: Common Stock (3)"
+    return "Security Type Optional: Common Stock (3)"
   end
   if value == 4 then
-    return "Security Type optional: Mleg (4)"
+    return "Security Type Optional: Mleg (4)"
   end
   if value == 255 then
-    return "Security Type optional: No Value"
+    return "Security Type Optional: No Value"
   end
 
-  return "Security Type optional: Unknown("..value..")"
+  return "Security Type Optional: Unknown("..value..")"
 end
 
--- Dissect: Security Type optional
+-- Dissect: Security Type Optional
 ice_icefutures_bgw_sbe_v7_0.security_type_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.security_type_optional.size
   local range = buffer(offset, length)
@@ -7576,28 +7594,28 @@ ice_icefutures_bgw_sbe_v7_0.side.dissect = function(buffer, offset, packet, pare
   return offset + length, value
 end
 
--- Side optional
+-- Side Optional
 ice_icefutures_bgw_sbe_v7_0.side_optional = {}
 
--- Size: Side optional
+-- Size: Side Optional
 ice_icefutures_bgw_sbe_v7_0.side_optional.size = 1
 
--- Display: Side optional
+-- Display: Side Optional
 ice_icefutures_bgw_sbe_v7_0.side_optional.display = function(value)
   if value == 1 then
-    return "Side optional: Buy (1)"
+    return "Side Optional: Buy (1)"
   end
   if value == 2 then
-    return "Side optional: Sell (2)"
+    return "Side Optional: Sell (2)"
   end
   if value == 255 then
-    return "Side optional: No Value"
+    return "Side Optional: No Value"
   end
 
-  return "Side optional: Unknown("..value..")"
+  return "Side Optional: Unknown("..value..")"
 end
 
--- Dissect: Side optional
+-- Dissect: Side Optional
 ice_icefutures_bgw_sbe_v7_0.side_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.side_optional.size
   local range = buffer(offset, length)
@@ -8016,23 +8034,23 @@ ice_icefutures_bgw_sbe_v7_0.symbol.dissect = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
--- Symbol optional
+-- Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.symbol_optional = {}
 
--- Size: Symbol optional
+-- Size: Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.symbol_optional.size = 4
 
--- Display: Symbol optional
+-- Display: Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.symbol_optional.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Symbol optional: No Value"
+    return "Symbol Optional: No Value"
   end
 
-  return "Symbol optional: "..value
+  return "Symbol Optional: "..value
 end
 
--- Dissect: Symbol optional
+-- Dissect: Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.symbol_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.symbol_optional.size
   local range = buffer(offset, length)
@@ -8186,28 +8204,28 @@ ice_icefutures_bgw_sbe_v7_0.test_market_indicator.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Test Market Indicator optional
+-- Test Market Indicator Optional
 ice_icefutures_bgw_sbe_v7_0.test_market_indicator_optional = {}
 
--- Size: Test Market Indicator optional
+-- Size: Test Market Indicator Optional
 ice_icefutures_bgw_sbe_v7_0.test_market_indicator_optional.size = 1
 
--- Display: Test Market Indicator optional
+-- Display: Test Market Indicator Optional
 ice_icefutures_bgw_sbe_v7_0.test_market_indicator_optional.display = function(value)
   if value == 0 then
-    return "Test Market Indicator optional: False (0)"
+    return "Test Market Indicator Optional: False (0)"
   end
   if value == 1 then
-    return "Test Market Indicator optional: True (1)"
+    return "Test Market Indicator Optional: True (1)"
   end
   if value == 255 then
-    return "Test Market Indicator optional: No Value"
+    return "Test Market Indicator Optional: No Value"
   end
 
-  return "Test Market Indicator optional: Unknown("..value..")"
+  return "Test Market Indicator Optional: Unknown("..value..")"
 end
 
--- Dissect: Test Market Indicator optional
+-- Dissect: Test Market Indicator Optional
 ice_icefutures_bgw_sbe_v7_0.test_market_indicator_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.test_market_indicator_optional.size
   local range = buffer(offset, length)
@@ -8354,37 +8372,37 @@ ice_icefutures_bgw_sbe_v7_0.time_in_force.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Time In Force optional
+-- Time In Force Optional
 ice_icefutures_bgw_sbe_v7_0.time_in_force_optional = {}
 
--- Size: Time In Force optional
+-- Size: Time In Force Optional
 ice_icefutures_bgw_sbe_v7_0.time_in_force_optional.size = 1
 
--- Display: Time In Force optional
+-- Display: Time In Force Optional
 ice_icefutures_bgw_sbe_v7_0.time_in_force_optional.display = function(value)
   if value == 0 then
-    return "Time In Force optional: Day (0)"
+    return "Time In Force Optional: Day (0)"
   end
   if value == 1 then
-    return "Time In Force optional: Gtc (1)"
+    return "Time In Force Optional: Gtc (1)"
   end
   if value == 3 then
-    return "Time In Force optional: Fak (3)"
+    return "Time In Force Optional: Fak (3)"
   end
   if value == 4 then
-    return "Time In Force optional: Fok (4)"
+    return "Time In Force Optional: Fok (4)"
   end
   if value == 6 then
-    return "Time In Force optional: Gtd (6)"
+    return "Time In Force Optional: Gtd (6)"
   end
   if value == 255 then
-    return "Time In Force optional: No Value"
+    return "Time In Force Optional: No Value"
   end
 
-  return "Time In Force optional: Unknown("..value..")"
+  return "Time In Force Optional: Unknown("..value..")"
 end
 
--- Dissect: Time In Force optional
+-- Dissect: Time In Force Optional
 ice_icefutures_bgw_sbe_v7_0.time_in_force_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.time_in_force_optional.size
   local range = buffer(offset, length)
@@ -8558,13 +8576,13 @@ ice_icefutures_bgw_sbe_v7_0.transact_time.dissect = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Transact Time optional
+-- Transact Time Optional
 ice_icefutures_bgw_sbe_v7_0.transact_time_optional = {}
 
--- Size: Transact Time optional
+-- Size: Transact Time Optional
 ice_icefutures_bgw_sbe_v7_0.transact_time_optional.size = 8
 
--- Dissect: Transact Time optional
+-- Dissect: Transact Time Optional
 ice_icefutures_bgw_sbe_v7_0.transact_time_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.transact_time_optional.size
   local range = buffer(offset, length)
@@ -8578,7 +8596,7 @@ ice_icefutures_bgw_sbe_v7_0.transact_time_optional.dissect = function(buffer, of
   if value == UInt64(0x00000000, 0x00000000) then
     -- Null: the field keeps its type, and the line says so instead
     local item = parent:add(field, range, NSTime.new(0, 0))
-    item:set_text("Transact Time optional: No Value")
+    item:set_text("Transact Time Optional: No Value")
     return offset + length, value
   end
 
@@ -8781,23 +8799,23 @@ ice_icefutures_bgw_sbe_v7_0.underlying_symbol.dissect = function(buffer, offset,
   return offset + length, value
 end
 
--- Underlying Symbol optional
+-- Underlying Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.underlying_symbol_optional = {}
 
--- Size: Underlying Symbol optional
+-- Size: Underlying Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.underlying_symbol_optional.size = 4
 
--- Display: Underlying Symbol optional
+-- Display: Underlying Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.underlying_symbol_optional.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Underlying Symbol optional: No Value"
+    return "Underlying Symbol Optional: No Value"
   end
 
-  return "Underlying Symbol optional: "..value
+  return "Underlying Symbol Optional: "..value
 end
 
--- Dissect: Underlying Symbol optional
+-- Dissect: Underlying Symbol Optional
 ice_icefutures_bgw_sbe_v7_0.underlying_symbol_optional.dissect = function(buffer, offset, packet, parent)
   local length = ice_icefutures_bgw_sbe_v7_0.underlying_symbol_optional.size
   local range = buffer(offset, length)
@@ -9327,10 +9345,10 @@ ice_icefutures_bgw_sbe_v7_0.mass_quote_report_message.fields = function(buffer, 
   -- Quote Reject Reason: QuoteRejectReasonEnumNULL
   index, quote_reject_reason = ice_icefutures_bgw_sbe_v7_0.quote_reject_reason.dissect(buffer, index, packet, parent)
 
-  -- Transact Time optional: UTCTimestampNULL
+  -- Transact Time Optional: UTCTimestampNULL
   index, transact_time_optional = ice_icefutures_bgw_sbe_v7_0.transact_time_optional.dissect(buffer, index, packet, parent)
 
-  -- Me Acceptance Time optional: UTCTimestampNULL
+  -- Me Acceptance Time Optional: UTCTimestampNULL
   index, me_acceptance_time_optional = ice_icefutures_bgw_sbe_v7_0.me_acceptance_time_optional.dissect(buffer, index, packet, parent)
 
   -- Exchange Code: int32NULL
@@ -9391,7 +9409,7 @@ ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_report_message.fields = function(b
   -- Originator User Id: string20
   index, originator_user_id = ice_icefutures_bgw_sbe_v7_0.originator_user_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol optional: int32NULL
+  -- Symbol Optional: int32NULL
   index, symbol_optional = ice_icefutures_bgw_sbe_v7_0.symbol_optional.dissect(buffer, index, packet, parent)
 
   -- Cl Ord Id: int64
@@ -9400,7 +9418,7 @@ ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_report_message.fields = function(b
   -- Transact Time: UTCTimestamp
   index, transact_time = ice_icefutures_bgw_sbe_v7_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Market Type I D optional: int32NULL
+  -- Market Type I D Optional: int32NULL
   index, market_type_i_d_optional = ice_icefutures_bgw_sbe_v7_0.market_type_i_d_optional.dissect(buffer, index, packet, parent)
 
   -- Mass Cancel Request Type: MassCancelRequestTypeEnum
@@ -9530,7 +9548,7 @@ ice_icefutures_bgw_sbe_v7_0.quote_report_message.fields = function(buffer, offse
   -- Originator User Id: string20
   index, originator_user_id = ice_icefutures_bgw_sbe_v7_0.originator_user_id.dissect(buffer, index, packet, parent)
 
-  -- Side optional: SideEnumNULL
+  -- Side Optional: SideEnumNULL
   index, side_optional = ice_icefutures_bgw_sbe_v7_0.side_optional.dissect(buffer, index, packet, parent)
 
   -- Symbol: int32
@@ -9545,7 +9563,7 @@ ice_icefutures_bgw_sbe_v7_0.quote_report_message.fields = function(buffer, offse
   -- Transact Time: UTCTimestamp
   index, transact_time = ice_icefutures_bgw_sbe_v7_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Order Qty optional: Decimal9NULL
+  -- Order Qty Optional: Decimal9NULL
   index, order_qty_optional = ice_icefutures_bgw_sbe_v7_0.order_qty_optional.dissect(buffer, index, packet, parent)
 
   -- Quote Ack Status: QuoteAckStatusEnum
@@ -9801,10 +9819,10 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_trade_message.fields = function(buf
   -- Trade Flags: Struct of 8 fields
   index, trade_flags = ice_icefutures_bgw_sbe_v7_0.trade_flags.dissect(buffer, index, packet, parent)
 
-  -- Clearing Firm optional: int32NULL
+  -- Clearing Firm Optional: int32NULL
   index, clearing_firm_optional = ice_icefutures_bgw_sbe_v7_0.clearing_firm_optional.dissect(buffer, index, packet, parent)
 
-  -- Clearing Account optional: string14NULL
+  -- Clearing Account Optional: string14NULL
   index, clearing_account_optional = ice_icefutures_bgw_sbe_v7_0.clearing_account_optional.dissect(buffer, index, packet, parent)
 
   -- Memo: string30NULL
@@ -9831,10 +9849,10 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_trade_message.fields = function(buf
   -- Delivery End Date: UTCTimestampNULL
   index, delivery_end_date = ice_icefutures_bgw_sbe_v7_0.delivery_end_date.dissect(buffer, index, packet, parent)
 
-  -- Cross I D optional: int64NULL
+  -- Cross I D Optional: int64NULL
   index, cross_i_d_optional = ice_icefutures_bgw_sbe_v7_0.cross_i_d_optional.dissect(buffer, index, packet, parent)
 
-  -- Cross Type optional: CrossTypeEnumNULL
+  -- Cross Type Optional: CrossTypeEnumNULL
   index, cross_type_optional = ice_icefutures_bgw_sbe_v7_0.cross_type_optional.dissect(buffer, index, packet, parent)
 
   -- Waiver Indicator: WaiverIndicatorEnumNULL
@@ -9998,7 +10016,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_snapshot_message.fields = function(
   -- Cum Qty: Decimal9
   index, cum_qty = ice_icefutures_bgw_sbe_v7_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Price optional: Decimal9NULL
+  -- Price Optional: Decimal9NULL
   index, price_optional = ice_icefutures_bgw_sbe_v7_0.price_optional.dissect(buffer, index, packet, parent)
 
   -- Stop Px: Decimal9NULL
@@ -10022,7 +10040,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_snapshot_message.fields = function(
   -- Give Up Clearing Firm: int32NULL
   index, give_up_clearing_firm = ice_icefutures_bgw_sbe_v7_0.give_up_clearing_firm.dissect(buffer, index, packet, parent)
 
-  -- Clearing Firm optional: int32NULL
+  -- Clearing Firm Optional: int32NULL
   index, clearing_firm_optional = ice_icefutures_bgw_sbe_v7_0.clearing_firm_optional.dissect(buffer, index, packet, parent)
 
   -- Direct Electronic Access: BooleanEnumNULL
@@ -10070,7 +10088,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_snapshot_message.fields = function(
   -- Alloc Handl Inst: AllocHandlInstEnumNULL
   index, alloc_handl_inst = ice_icefutures_bgw_sbe_v7_0.alloc_handl_inst.dissect(buffer, index, packet, parent)
 
-  -- Clearing Account optional: string14NULL
+  -- Clearing Account Optional: string14NULL
   index, clearing_account_optional = ice_icefutures_bgw_sbe_v7_0.clearing_account_optional.dissect(buffer, index, packet, parent)
 
   -- Customer Account Ref Id: string12NULL
@@ -10085,10 +10103,10 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_snapshot_message.fields = function(
   -- On Behalf Of Comp Id: string41NULL
   index, on_behalf_of_comp_id = ice_icefutures_bgw_sbe_v7_0.on_behalf_of_comp_id.dissect(buffer, index, packet, parent)
 
-  -- On Behalf Of Sub I D optional: string41NULL
+  -- On Behalf Of Sub I D Optional: string41NULL
   index, on_behalf_of_sub_i_d_optional = ice_icefutures_bgw_sbe_v7_0.on_behalf_of_sub_i_d_optional.dissect(buffer, index, packet, parent)
 
-  -- On Behalf Of Location I D optional: string41NULL
+  -- On Behalf Of Location I D Optional: string41NULL
   index, on_behalf_of_location_i_d_optional = ice_icefutures_bgw_sbe_v7_0.on_behalf_of_location_i_d_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -10153,7 +10171,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_reject_message.fields = function(bu
   -- Symbol: int32
   index, symbol = ice_icefutures_bgw_sbe_v7_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Ord Type optional: OrderTypeEnumNULL
+  -- Ord Type Optional: OrderTypeEnumNULL
   index, ord_type_optional = ice_icefutures_bgw_sbe_v7_0.ord_type_optional.dissect(buffer, index, packet, parent)
 
   -- Side: SideEnum
@@ -10162,7 +10180,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_reject_message.fields = function(bu
   -- Orig Order Id: Struct of 2 fields
   index, orig_order_id = ice_icefutures_bgw_sbe_v7_0.orig_order_id.dissect(buffer, index, packet, parent)
 
-  -- Orig Cl Ord I D optional: int64NULL
+  -- Orig Cl Ord I D Optional: int64NULL
   index, orig_cl_ord_i_d_optional = ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_optional.dissect(buffer, index, packet, parent)
 
   -- Order Status: OrderStatusEnumNULL
@@ -10253,7 +10271,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_cancel_message.fields = function(bu
   -- Orig Order Id: Struct of 2 fields
   index, orig_order_id = ice_icefutures_bgw_sbe_v7_0.orig_order_id.dissect(buffer, index, packet, parent)
 
-  -- Orig Cl Ord I D optional: int64NULL
+  -- Orig Cl Ord I D Optional: int64NULL
   index, orig_cl_ord_i_d_optional = ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_optional.dissect(buffer, index, packet, parent)
 
   -- Me Acceptance Time: UTCTimestamp
@@ -10265,7 +10283,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_cancel_message.fields = function(bu
   -- Cancel Reason: CancelReasonEnumNULL
   index, cancel_reason = ice_icefutures_bgw_sbe_v7_0.cancel_reason.dissect(buffer, index, packet, parent)
 
-  -- Cross I D optional: int64NULL
+  -- Cross I D Optional: int64NULL
   index, cross_i_d_optional = ice_icefutures_bgw_sbe_v7_0.cross_i_d_optional.dissect(buffer, index, packet, parent)
 
   -- Text: string100NULL
@@ -10436,7 +10454,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_modify_message.fields = function(bu
   -- Orig Order Id: Struct of 2 fields
   index, orig_order_id = ice_icefutures_bgw_sbe_v7_0.orig_order_id.dissect(buffer, index, packet, parent)
 
-  -- Orig Cl Ord I D optional: int64NULL
+  -- Orig Cl Ord I D Optional: int64NULL
   index, orig_cl_ord_i_d_optional = ice_icefutures_bgw_sbe_v7_0.orig_cl_ord_i_d_optional.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: Decimal9
@@ -10445,7 +10463,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_modify_message.fields = function(bu
   -- Cum Qty: Decimal9
   index, cum_qty = ice_icefutures_bgw_sbe_v7_0.cum_qty.dissect(buffer, index, packet, parent)
 
-  -- Price optional: Decimal9NULL
+  -- Price Optional: Decimal9NULL
   index, price_optional = ice_icefutures_bgw_sbe_v7_0.price_optional.dissect(buffer, index, packet, parent)
 
   -- Me Acceptance Time: UTCTimestamp
@@ -10545,7 +10563,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_new_message.fields = function(buffe
   -- Leaves Qty: Decimal9
   index, leaves_qty = ice_icefutures_bgw_sbe_v7_0.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Price optional: Decimal9NULL
+  -- Price Optional: Decimal9NULL
   index, price_optional = ice_icefutures_bgw_sbe_v7_0.price_optional.dissect(buffer, index, packet, parent)
 
   -- Me Acceptance Time: UTCTimestamp
@@ -10619,10 +10637,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_flex_message.fiel
   -- Maturity Date: UTCDateOnlyNULL
   index, maturity_date = ice_icefutures_bgw_sbe_v7_0.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Product I D optional: int32NULL
+  -- Product I D Optional: int32NULL
   index, product_i_d_optional = ice_icefutures_bgw_sbe_v7_0.product_i_d_optional.dissect(buffer, index, packet, parent)
 
-  -- Symbol optional: int32NULL
+  -- Symbol Optional: int32NULL
   index, symbol_optional = ice_icefutures_bgw_sbe_v7_0.symbol_optional.dissect(buffer, index, packet, parent)
 
   -- Strike Price: Decimal9NULL
@@ -10686,10 +10704,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message_
   -- Leg Side: SideEnum
   index, leg_side = ice_icefutures_bgw_sbe_v7_0.leg_side.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Denominator optional: int16NULL
+  -- Leg Ratio Qty Denominator Optional: int16NULL
   index, leg_ratio_qty_denominator_optional = ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_denominator_optional.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Numerator optional: int16NULL
+  -- Leg Ratio Qty Numerator Optional: int16NULL
   index, leg_ratio_qty_numerator_optional = ice_icefutures_bgw_sbe_v7_0.leg_ratio_qty_numerator_optional.dissect(buffer, index, packet, parent)
 
   -- Leg Price: Decimal9NULL
@@ -10822,10 +10840,10 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_request_create_strategy_message.
   -- Market Type Id: int32
   index, market_type_id = ice_icefutures_bgw_sbe_v7_0.market_type_id.dissect(buffer, index, packet, parent)
 
-  -- Security Sub Type optional: int16NULL
+  -- Security Sub Type Optional: int16NULL
   index, security_sub_type_optional = ice_icefutures_bgw_sbe_v7_0.security_sub_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Product I D optional: int32NULL
+  -- Product I D Optional: int32NULL
   index, product_i_d_optional = ice_icefutures_bgw_sbe_v7_0.product_i_d_optional.dissect(buffer, index, packet, parent)
 
   -- Start Date: UTCDateOnlyNULL
@@ -10885,7 +10903,7 @@ ice_icefutures_bgw_sbe_v7_0.quote_cancel_request_message_no_quote_entries_group.
     iteration:set_generated()
   end
 
-  -- Underlying Symbol optional: int32NULL
+  -- Underlying Symbol Optional: int32NULL
   index, underlying_symbol_optional = ice_icefutures_bgw_sbe_v7_0.underlying_symbol_optional.dissect(buffer, index, packet, parent)
 
   -- Underlying Security Id: int32NULL
@@ -11301,31 +11319,31 @@ ice_icefutures_bgw_sbe_v7_0.order_mass_cancel_request_message.fields = function(
   -- Originator User Id: string20
   index, originator_user_id = ice_icefutures_bgw_sbe_v7_0.originator_user_id.dissect(buffer, index, packet, parent)
 
-  -- Ord Type optional: OrderTypeEnumNULL
+  -- Ord Type Optional: OrderTypeEnumNULL
   index, ord_type_optional = ice_icefutures_bgw_sbe_v7_0.ord_type_optional.dissect(buffer, index, packet, parent)
 
-  -- Side optional: SideEnumNULL
+  -- Side Optional: SideEnumNULL
   index, side_optional = ice_icefutures_bgw_sbe_v7_0.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Symbol optional: int32NULL
+  -- Symbol Optional: int32NULL
   index, symbol_optional = ice_icefutures_bgw_sbe_v7_0.symbol_optional.dissect(buffer, index, packet, parent)
 
   -- Cl Ord Id: int64
   index, cl_ord_id = ice_icefutures_bgw_sbe_v7_0.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Market Type I D optional: int32NULL
+  -- Market Type I D Optional: int32NULL
   index, market_type_i_d_optional = ice_icefutures_bgw_sbe_v7_0.market_type_i_d_optional.dissect(buffer, index, packet, parent)
 
-  -- Price optional: Decimal9NULL
+  -- Price Optional: Decimal9NULL
   index, price_optional = ice_icefutures_bgw_sbe_v7_0.price_optional.dissect(buffer, index, packet, parent)
 
   -- Mass Cancel Request Type: MassCancelRequestTypeEnum
   index, mass_cancel_request_type = ice_icefutures_bgw_sbe_v7_0.mass_cancel_request_type.dissect(buffer, index, packet, parent)
 
-  -- Time In Force optional: TimeInForceEnumNULL
+  -- Time In Force Optional: TimeInForceEnumNULL
   index, time_in_force_optional = ice_icefutures_bgw_sbe_v7_0.time_in_force_optional.dissect(buffer, index, packet, parent)
 
-  -- On Behalf Of Sub I D optional: string41NULL
+  -- On Behalf Of Sub I D Optional: string41NULL
   index, on_behalf_of_sub_i_d_optional = ice_icefutures_bgw_sbe_v7_0.on_behalf_of_sub_i_d_optional.dissect(buffer, index, packet, parent)
 
   return index
@@ -11378,7 +11396,7 @@ ice_icefutures_bgw_sbe_v7_0.new_order_cross_request_message_no_legs_group.fields
     iteration:set_generated()
   end
 
-  -- Leg Symbol optional: int32NULL
+  -- Leg Symbol Optional: int32NULL
   index, leg_symbol_optional = ice_icefutures_bgw_sbe_v7_0.leg_symbol_optional.dissect(buffer, index, packet, parent)
 
   -- Leg Security Id Source: int8NULL
@@ -11842,10 +11860,10 @@ ice_icefutures_bgw_sbe_v7_0.quote_request_message.fields = function(buffer, offs
   -- Originator User Id: string20
   index, originator_user_id = ice_icefutures_bgw_sbe_v7_0.originator_user_id.dissect(buffer, index, packet, parent)
 
-  -- Side optional: SideEnumNULL
+  -- Side Optional: SideEnumNULL
   index, side_optional = ice_icefutures_bgw_sbe_v7_0.side_optional.dissect(buffer, index, packet, parent)
 
-  -- Order Qty optional: Decimal9NULL
+  -- Order Qty Optional: Decimal9NULL
   index, order_qty_optional = ice_icefutures_bgw_sbe_v7_0.order_qty_optional.dissect(buffer, index, packet, parent)
 
   -- Rfq Req Id: int64
@@ -11854,10 +11872,10 @@ ice_icefutures_bgw_sbe_v7_0.quote_request_message.fields = function(buffer, offs
   -- Symbol: int32
   index, symbol = ice_icefutures_bgw_sbe_v7_0.symbol.dissect(buffer, index, packet, parent)
 
-  -- Clearing Firm optional: int32NULL
+  -- Clearing Firm Optional: int32NULL
   index, clearing_firm_optional = ice_icefutures_bgw_sbe_v7_0.clearing_firm_optional.dissect(buffer, index, packet, parent)
 
-  -- Clearing Account optional: string14NULL
+  -- Clearing Account Optional: string14NULL
   index, clearing_account_optional = ice_icefutures_bgw_sbe_v7_0.clearing_account_optional.dissect(buffer, index, packet, parent)
 
   -- On Behalf Of Comp Id: string41NULL
@@ -11996,7 +12014,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.cancel_replace_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price optional: Decimal9NULL
+  -- Price Optional: Decimal9NULL
   index, price_optional = ice_icefutures_bgw_sbe_v7_0.price_optional.dissect(buffer, index, packet, parent)
 
   -- Order Qty: Decimal9
@@ -12173,7 +12191,7 @@ end
 ice_icefutures_bgw_sbe_v7_0.new_order_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price optional: Decimal9NULL
+  -- Price Optional: Decimal9NULL
   index, price_optional = ice_icefutures_bgw_sbe_v7_0.price_optional.dissect(buffer, index, packet, parent)
 
   -- Order Qty: Decimal9
@@ -13295,7 +13313,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_reject_message.fields = function
   -- Market Type Id: int32
   index, market_type_id = ice_icefutures_bgw_sbe_v7_0.market_type_id.dissect(buffer, index, packet, parent)
 
-  -- Security Type optional: SecurityTypeEnumNULL
+  -- Security Type Optional: SecurityTypeEnumNULL
   index, security_type_optional = ice_icefutures_bgw_sbe_v7_0.security_type_optional.dissect(buffer, index, packet, parent)
 
   -- Exchange Code: int32NULL
@@ -14598,7 +14616,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message.fields = function
   -- Cfi Code: string12
   index, cfi_code = ice_icefutures_bgw_sbe_v7_0.cfi_code.dissect(buffer, index, packet, parent)
 
-  -- Security Sub Type optional: int16NULL
+  -- Security Sub Type Optional: int16NULL
   index, security_sub_type_optional = ice_icefutures_bgw_sbe_v7_0.security_sub_type_optional.dissect(buffer, index, packet, parent)
 
   -- Maturity Date: UTCDateOnlyNULL
@@ -14733,7 +14751,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message.fields = function
   -- Aon Allowed: BooleanEnumNULL
   index, aon_allowed = ice_icefutures_bgw_sbe_v7_0.aon_allowed.dissect(buffer, index, packet, parent)
 
-  -- Mifid Regulated Market optional: BooleanEnumNULL
+  -- Mifid Regulated Market Optional: BooleanEnumNULL
   index, mifid_regulated_market_optional = ice_icefutures_bgw_sbe_v7_0.mifid_regulated_market_optional.dissect(buffer, index, packet, parent)
 
   -- Flex Strike Allowed: BooleanEnumNULL
@@ -14745,7 +14763,7 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_message.fields = function
   -- Override Block Min: BooleanEnumNULL
   index, override_block_min = ice_icefutures_bgw_sbe_v7_0.override_block_min.dissect(buffer, index, packet, parent)
 
-  -- Test Market Indicator optional: BooleanEnumNULL
+  -- Test Market Indicator Optional: BooleanEnumNULL
   index, test_market_indicator_optional = ice_icefutures_bgw_sbe_v7_0.test_market_indicator_optional.dissect(buffer, index, packet, parent)
 
   -- Ref Sprd Product Id: int32NULL
@@ -15447,19 +15465,19 @@ ice_icefutures_bgw_sbe_v7_0.security_definition_report_strategy_message.fields =
   -- Implied Type: charTypeNULL
   index, implied_type = ice_icefutures_bgw_sbe_v7_0.implied_type.dissect(buffer, index, packet, parent)
 
-  -- Off Exchange Increment Price optional: Decimal9NULL
+  -- Off Exchange Increment Price Optional: Decimal9NULL
   index, off_exchange_increment_price_optional = ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_price_optional.dissect(buffer, index, packet, parent)
 
-  -- Off Exchange Increment Qty optional: Decimal9NULL
+  -- Off Exchange Increment Qty Optional: Decimal9NULL
   index, off_exchange_increment_qty_optional = ice_icefutures_bgw_sbe_v7_0.off_exchange_increment_qty_optional.dissect(buffer, index, packet, parent)
 
   -- Num Of Decimal Strike Price: int8NULL
   index, num_of_decimal_strike_price = ice_icefutures_bgw_sbe_v7_0.num_of_decimal_strike_price.dissect(buffer, index, packet, parent)
 
-  -- Num Of Cycles optional: int16NULL
+  -- Num Of Cycles Optional: int16NULL
   index, num_of_cycles_optional = ice_icefutures_bgw_sbe_v7_0.num_of_cycles_optional.dissect(buffer, index, packet, parent)
 
-  -- Lot Size Multiplier optional: Decimal9NULL
+  -- Lot Size Multiplier Optional: Decimal9NULL
   index, lot_size_multiplier_optional = ice_icefutures_bgw_sbe_v7_0.lot_size_multiplier_optional.dissect(buffer, index, packet, parent)
 
   -- Block Only: BooleanEnumNULL
@@ -16301,10 +16319,16 @@ end
 ice_icefutures_bgw_sbe_v7_0.simple_open_frame.dissect = function(buffer, offset, packet, parent, size_of_simple_open_frame)
   local index = offset + size_of_simple_open_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.simple_open_frame, buffer(offset, 0))
-    local current = ice_icefutures_bgw_sbe_v7_0.simple_open_frame.fields(buffer, offset, packet, parent, size_of_simple_open_frame)
+    local decoded, failure = pcall(ice_icefutures_bgw_sbe_v7_0.simple_open_frame.fields, bounded, offset, packet, parent, size_of_simple_open_frame)
+    if not decoded then
+      undecoded(failure, parent, ice_icefutures_bgw_sbe_v7_0.experts.undecoded, "Simple Open Frame does not decode within its "..size_of_simple_open_frame.." bytes")
+    end
     parent:set_len(size_of_simple_open_frame)
     local display = ice_icefutures_bgw_sbe_v7_0.simple_open_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -16312,7 +16336,10 @@ ice_icefutures_bgw_sbe_v7_0.simple_open_frame.dissect = function(buffer, offset,
     return index, parent
   else
     -- Skip element, add fields directly
-    ice_icefutures_bgw_sbe_v7_0.simple_open_frame.fields(buffer, offset, packet, parent, size_of_simple_open_frame)
+    local decoded, failure = pcall(ice_icefutures_bgw_sbe_v7_0.simple_open_frame.fields, bounded, offset, packet, parent, size_of_simple_open_frame)
+    if not decoded then
+      undecoded(failure, parent, ice_icefutures_bgw_sbe_v7_0.experts.undecoded, "Simple Open Frame does not decode within its "..size_of_simple_open_frame.." bytes")
+    end
 
     return index
   end

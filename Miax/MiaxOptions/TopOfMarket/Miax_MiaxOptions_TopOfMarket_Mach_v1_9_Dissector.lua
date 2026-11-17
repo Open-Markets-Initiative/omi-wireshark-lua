@@ -104,6 +104,11 @@ omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.start_of_session = ProtoField.
 -- Miax MiaxOptions TopOfMarket Mach 1.9 Generated Fields
 omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.timestamp = ProtoField.new("Timestamp", "miax.miaxoptions.topofmarket.mach.v1.9.timestamp", ftypes.UINT64)
 
+-- Miax MiaxOptions TopOfMarket Mach 1.9 Expert Info
+miax_miaxoptions_topofmarket_mach_v1_9.experts = {}
+miax_miaxoptions_topofmarket_mach_v1_9.experts.undecoded = ProtoExpert.new("miax.miaxoptions.topofmarket.mach.v1.9.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_miaxoptions_topofmarket_mach_v1_9.experts = { miax_miaxoptions_topofmarket_mach_v1_9.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Miax MiaxOptions TopOfMarket Mach 1.9 Formatting
 -----------------------------------------------------------------------
@@ -111,11 +116,11 @@ omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.timestamp = ProtoField.new("Ti
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 miax_miaxoptions_topofmarket_mach_v1_9.timestamp_format = 2
 
 
@@ -207,6 +212,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax MiaxOptions TopOfMarket Mach 1.9 Fields
 -----------------------------------------------------------------------
@@ -1329,7 +1342,7 @@ miax_miaxoptions_topofmarket_mach_v1_9.reserved_8.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = miax_miaxoptions_topofmarket_mach_v1_9.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.reserved_8, range, value, display)
+  parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2804,10 +2817,16 @@ end
 miax_miaxoptions_topofmarket_mach_v1_9.mach_message.dissect = function(buffer, offset, packet, parent, size_of_mach_message)
   local index = offset + size_of_mach_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_miaxoptions_topofmarket_mach_v1_9.fields.mach_message, buffer(offset, 0))
-    local current = miax_miaxoptions_topofmarket_mach_v1_9.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+    local decoded, failure = pcall(miax_miaxoptions_topofmarket_mach_v1_9.mach_message.fields, bounded, offset, packet, parent, size_of_mach_message)
+    if not decoded then
+      undecoded(failure, parent, miax_miaxoptions_topofmarket_mach_v1_9.experts.undecoded, "Mach Message does not decode within its "..size_of_mach_message.." bytes")
+    end
     parent:set_len(size_of_mach_message)
     local display = miax_miaxoptions_topofmarket_mach_v1_9.mach_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -2815,7 +2834,10 @@ miax_miaxoptions_topofmarket_mach_v1_9.mach_message.dissect = function(buffer, o
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_miaxoptions_topofmarket_mach_v1_9.mach_message.fields(buffer, offset, packet, parent, size_of_mach_message)
+    local decoded, failure = pcall(miax_miaxoptions_topofmarket_mach_v1_9.mach_message.fields, bounded, offset, packet, parent, size_of_mach_message)
+    if not decoded then
+      undecoded(failure, parent, miax_miaxoptions_topofmarket_mach_v1_9.experts.undecoded, "Mach Message does not decode within its "..size_of_mach_message.." bytes")
+    end
 
     return index
   end
@@ -2848,6 +2870,12 @@ miax_miaxoptions_topofmarket_mach_v1_9.packet.dissect = function(buffer, packet,
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 8 + 2 > end_of_payload then
+      parent:add_proto_expert_info(miax_miaxoptions_topofmarket_mach_v1_9.experts.undecoded, "Packet Length runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Packet Length
     local packet_length = buffer(index + 8, 2):le_uint()

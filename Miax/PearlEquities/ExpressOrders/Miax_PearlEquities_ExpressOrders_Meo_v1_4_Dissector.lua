@@ -104,8 +104,7 @@ omi_miax_pearlequities_expressorders_meo_v1_4.fields.ticker_symbol = ProtoField.
 omi_miax_pearlequities_expressorders_meo_v1_4.fields.time_in_force = ProtoField.new("Time In Force", "miax.pearlequities.expressorders.meo.v1.4.timeinforce", ftypes.STRING)
 omi_miax_pearlequities_expressorders_meo_v1_4.fields.trade_id = ProtoField.new("Trade Id", "miax.pearlequities.expressorders.meo.v1.4.tradeid", ftypes.UINT64, nil, nil, nil, "Exchange assigned unique Trade ID See notes")
 omi_miax_pearlequities_expressorders_meo_v1_4.fields.trade_status = ProtoField.new("Trade Status", "miax.pearlequities.expressorders.meo.v1.4.tradestatus", ftypes.STRING, nil, nil, nil, "Possible values:")
-omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_collar_dollar_value_price_6s_8 = ProtoField.new("Trading Collar Dollar Value Price 6s 8", "miax.pearlequities.expressorders.meo.v1.4.tradingcollardollarvalueprice6s8", ftypes.DOUBLE, nil, nil, nil, "Market Order Custom Dollar Value Trading Collar Protection")
-omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_collar_dollar_value_price_6u_8 = ProtoField.new("Trading Collar Dollar Value Price 6u 8", "miax.pearlequities.expressorders.meo.v1.4.tradingcollardollarvalueprice6u8", ftypes.DOUBLE, nil, nil, nil, "As specified in the New Order Request")
+omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_collar_dollar_value = ProtoField.new("Trading Collar Dollar Value", "miax.pearlequities.expressorders.meo.v1.4.tradingcollardollarvalue", ftypes.DOUBLE, nil, nil, nil, "Market Order Custom Dollar Value Trading Collar Protection")
 omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_session_id = ProtoField.new("Trading Session Id", "miax.pearlequities.expressorders.meo.v1.4.tradingsessionid", ftypes.UINT8, nil, nil, nil, "The current trading session ID of the corresponding Matching Engine")
 omi_miax_pearlequities_expressorders_meo_v1_4.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "miax.pearlequities.expressorders.meo.v1.4.unsequenceddatapacket", ftypes.STRING, nil, nil, nil, "Each unsequenced data packet carries one unsequenced message from the higher-lever protocol")
 omi_miax_pearlequities_expressorders_meo_v1_4.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "miax.pearlequities.expressorders.meo.v1.4.unsequencedmessagetype", ftypes.STRING, nil, nil, nil, "ESesM unsequenced message type")
@@ -155,17 +154,22 @@ omi_miax_pearlequities_expressorders_meo_v1_4.fields.login_matching_engine_index
 omi_miax_pearlequities_expressorders_meo_v1_4.fields.matching_engine_index = ProtoField.new("Matching Engine Index", "miax.pearlequities.expressorders.meo.v1.4.matchingengineindex", ftypes.UINT16)
 omi_miax_pearlequities_expressorders_meo_v1_4.fields.requested_matching_engine_index = ProtoField.new("Requested Matching Engine Index", "miax.pearlequities.expressorders.meo.v1.4.requestedmatchingengineindex", ftypes.UINT16)
 
+-- Miax PearlEquities ExpressOrders Meo 1.4 Expert Info
+miax_pearlequities_expressorders_meo_v1_4.experts = {}
+miax_pearlequities_expressorders_meo_v1_4.experts.undecoded = ProtoExpert.new("miax.pearlequities.expressorders.meo.v1.4.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_pearlequities_expressorders_meo_v1_4.experts = { miax_pearlequities_expressorders_meo_v1_4.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Miax PearlEquities ExpressOrders Meo 1.4 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 miax_pearlequities_expressorders_meo_v1_4.timestamp_format = 2
 
 
@@ -242,6 +246,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax PearlEquities ExpressOrders Meo 1.4 Fields
 -----------------------------------------------------------------------
@@ -1829,7 +1841,7 @@ miax_pearlequities_expressorders_meo_v1_4.reserved_1.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v1_4.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_1, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1852,7 +1864,7 @@ miax_pearlequities_expressorders_meo_v1_4.reserved_10.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v1_4.reserved_10.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_10, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_10, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1875,7 +1887,7 @@ miax_pearlequities_expressorders_meo_v1_4.reserved_12.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v1_4.reserved_12.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_12, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_12, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1898,7 +1910,7 @@ miax_pearlequities_expressorders_meo_v1_4.reserved_20.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v1_4.reserved_20.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_20, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_20, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1921,7 +1933,7 @@ miax_pearlequities_expressorders_meo_v1_4.reserved_8.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = miax_pearlequities_expressorders_meo_v1_4.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_8, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2335,60 +2347,31 @@ miax_pearlequities_expressorders_meo_v1_4.trade_status.dissect = function(buffer
   return offset + length, value
 end
 
--- Trading Collar Dollar Value Price 6s 8
-miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8 = {}
+-- Trading Collar Dollar Value
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value = {}
 
--- Size: Trading Collar Dollar Value Price 6s 8
-miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.size = 8
+-- Size: Trading Collar Dollar Value
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.size = 8
 
--- Display: Trading Collar Dollar Value Price 6s 8
-miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.display = function(value)
-  return "Trading Collar Dollar Value Price 6s 8: "..value
+-- Display: Trading Collar Dollar Value
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.display = function(value)
+  return "Trading Collar Dollar Value: "..value
 end
 
--- Translate: Trading Collar Dollar Value Price 6s 8
-miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.translate = function(raw)
+-- Translate: Trading Collar Dollar Value
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.translate = function(raw)
   return raw:tonumber()/1000000
 end
 
--- Dissect: Trading Collar Dollar Value Price 6s 8
-miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.size
+-- Dissect: Trading Collar Dollar Value
+miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.dissect = function(buffer, offset, packet, parent)
+  local length = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.translate(raw)
-  local display = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.display(value, buffer, offset, packet, parent)
+  local value = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.translate(raw)
+  local display = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_collar_dollar_value_price_6s_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Collar Dollar Value Price 6u 8
-miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8 = {}
-
--- Size: Trading Collar Dollar Value Price 6u 8
-miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.size = 8
-
--- Display: Trading Collar Dollar Value Price 6u 8
-miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.display = function(value)
-  return "Trading Collar Dollar Value Price 6u 8: "..value
-end
-
--- Translate: Trading Collar Dollar Value Price 6u 8
-miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.translate = function(raw)
-  return raw:tonumber()/1000000
-end
-
--- Dissect: Trading Collar Dollar Value Price 6u 8
-miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.dissect = function(buffer, offset, packet, parent)
-  local length = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.translate(raw)
-  local display = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_collar_dollar_value_price_6u_8, range, value, display)
+  parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.trading_collar_dollar_value, range, value, display)
 
   return offset + length, value
 end
@@ -2516,7 +2499,8 @@ miax_pearlequities_expressorders_meo_v1_4.test_packet.size = function(buffer, of
   local index = 0
 
   -- Parse runtime size of: Test Text
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + esesm_packet_length - 1
 
   return index
 end
@@ -2648,7 +2632,8 @@ miax_pearlequities_expressorders_meo_v1_4.goodbye_packet.size = function(buffer,
   index = index + miax_pearlequities_expressorders_meo_v1_4.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + esesm_packet_length - 2
 
   return index
 end
@@ -2705,7 +2690,8 @@ miax_pearlequities_expressorders_meo_v1_4.logout_request.size = function(buffer,
   index = index + miax_pearlequities_expressorders_meo_v1_4.logout_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local esesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + esesm_packet_length - 2
 
   return index
 end
@@ -4016,7 +4002,7 @@ miax_pearlequities_expressorders_meo_v1_4.new_order_request_message.size =
   miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.size + 
   miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.size + 
   miax_pearlequities_expressorders_meo_v1_4.routing.size + 
-  miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.size + 
+  miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.size + 
   miax_pearlequities_expressorders_meo_v1_4.capacity.size + 
   miax_pearlequities_expressorders_meo_v1_4.account.size + 
   miax_pearlequities_expressorders_meo_v1_4.clearing_account.size + 
@@ -4074,8 +4060,8 @@ miax_pearlequities_expressorders_meo_v1_4.new_order_request_message.fields = fun
   -- Routing: Struct of 2 fields
   index, routing = miax_pearlequities_expressorders_meo_v1_4.routing.dissect(buffer, index, packet, parent)
 
-  -- Trading Collar Dollar Value Price 6s 8: Price6S
-  index, trading_collar_dollar_value_price_6s_8 = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6s_8.dissect(buffer, index, packet, parent)
+  -- Trading Collar Dollar Value: Price6S
+  index, trading_collar_dollar_value = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.dissect(buffer, index, packet, parent)
 
   -- Capacity: Alphanumeric
   index, capacity = miax_pearlequities_expressorders_meo_v1_4.capacity.dissect(buffer, index, packet, parent)
@@ -4436,7 +4422,7 @@ miax_pearlequities_expressorders_meo_v1_4.new_order_notification.size =
   miax_pearlequities_expressorders_meo_v1_4.self_trade_protection.size + 
   miax_pearlequities_expressorders_meo_v1_4.self_trade_protection_group.size + 
   miax_pearlequities_expressorders_meo_v1_4.routing.size + 
-  miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.size + 
+  miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.size + 
   miax_pearlequities_expressorders_meo_v1_4.capacity.size + 
   miax_pearlequities_expressorders_meo_v1_4.account.size + 
   miax_pearlequities_expressorders_meo_v1_4.clearing_account.size + 
@@ -4493,8 +4479,8 @@ miax_pearlequities_expressorders_meo_v1_4.new_order_notification.fields = functi
   -- Routing: Struct of 2 fields
   index, routing = miax_pearlequities_expressorders_meo_v1_4.routing.dissect(buffer, index, packet, parent)
 
-  -- Trading Collar Dollar Value Price 6u 8: Price6U
-  index, trading_collar_dollar_value_price_6u_8 = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value_price_6u_8.dissect(buffer, index, packet, parent)
+  -- Trading Collar Dollar Value: Price6S
+  index, trading_collar_dollar_value = miax_pearlequities_expressorders_meo_v1_4.trading_collar_dollar_value.dissect(buffer, index, packet, parent)
 
   -- Capacity: Alphanumeric
   index, capacity = miax_pearlequities_expressorders_meo_v1_4.capacity.dissect(buffer, index, packet, parent)
@@ -4868,10 +4854,16 @@ end
 miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
   local index = offset + size_of_esesm_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_pearlequities_expressorders_meo_v1_4.fields.esesm_tcp_packet, buffer(offset, 0))
-    local current = miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    local decoded, failure = pcall(miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_esesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_pearlequities_expressorders_meo_v1_4.experts.undecoded, "Esesm Tcp Packet does not decode within its "..size_of_esesm_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_esesm_tcp_packet)
     local display = miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4879,7 +4871,10 @@ miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.dissect = function(bu
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_esesm_tcp_packet)
+    local decoded, failure = pcall(miax_pearlequities_expressorders_meo_v1_4.esesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_esesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_pearlequities_expressorders_meo_v1_4.experts.undecoded, "Esesm Tcp Packet does not decode within its "..size_of_esesm_tcp_packet.." bytes")
+    end
 
     return index
   end

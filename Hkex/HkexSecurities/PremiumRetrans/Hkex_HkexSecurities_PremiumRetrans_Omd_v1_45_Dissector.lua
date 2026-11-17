@@ -208,17 +208,22 @@ omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.news_market_index = Prot
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.news_security_index = ProtoField.new("News Security Index", "hkex.hkexsecurities.premiumretrans.omd.v1.45.newssecurityindex", ftypes.UINT16)
 omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.underlying_security_index = ProtoField.new("Underlying Security Index", "hkex.hkexsecurities.premiumretrans.omd.v1.45.underlyingsecurityindex", ftypes.UINT16)
 
+-- Hkex HkexSecurities PremiumRetrans Omd 1.45 Expert Info
+hkex_hkexsecurities_premiumretrans_omd_v1_45.experts = {}
+hkex_hkexsecurities_premiumretrans_omd_v1_45.experts.undecoded = ProtoExpert.new("hkex.hkexsecurities.premiumretrans.omd.v1.45.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.experts = { hkex_hkexsecurities_premiumretrans_omd_v1_45.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Hkex HkexSecurities PremiumRetrans Omd 1.45 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 hkex_hkexsecurities_premiumretrans_omd_v1_45.timestamp_format = 2
 
 
@@ -290,6 +295,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Hkex HkexSecurities PremiumRetrans Omd 1.45 Fields
 -----------------------------------------------------------------------
@@ -1112,7 +1125,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.filler.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1135,7 +1148,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_1.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_1, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1158,7 +1171,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_2.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_2, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1181,7 +1194,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_3.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_3, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1204,7 +1217,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_37.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_37.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_37, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_37, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1227,7 +1240,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_4.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_4, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1250,7 +1263,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_44.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_44.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_44, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_44, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1273,7 +1286,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_62.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_62.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_62, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_62, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1296,7 +1309,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_63.dissect = function(buffer
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.filler_63.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_63, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.filler_63, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1319,7 +1332,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.fourth_filler_1.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.fourth_filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.fourth_filler_1, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.fourth_filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1404,7 +1417,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.headline_utf16.dissect = function(b
   local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.headline_utf16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.headline_utf16, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.headline_utf16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1988,7 +2001,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.news_line_utf16.dissect = function(
   local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.news_line_utf16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.news_line_utf16, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.news_line_utf16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2699,7 +2712,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.second_filler_1.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.second_filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.second_filler_1, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.second_filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2722,7 +2735,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.second_filler_2.dissect = function(
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.second_filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.second_filler_2, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.second_filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2768,7 +2781,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.security_name_gb.dissect = function
   local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.security_name_gb.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.security_name_gb, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.security_name_gb, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2791,7 +2804,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.security_name_gccs.dissect = functi
   local value = range:string(ENC_UTF_16 + ENC_LITTLE_ENDIAN)
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.security_name_gccs.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.security_name_gccs, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.security_name_gccs, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3253,7 +3266,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.third_filler_1.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.third_filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.third_filler_1, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.third_filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3276,7 +3289,7 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.third_filler_2.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.third_filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.third_filler_2, range, value, display)
+  parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.third_filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6278,10 +6291,16 @@ end
 hkex_hkexsecurities_premiumretrans_omd_v1_45.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_hkex_hkexsecurities_premiumretrans_omd_v1_45.fields.message, buffer(offset, 0))
-    local current = hkex_hkexsecurities_premiumretrans_omd_v1_45.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(hkex_hkexsecurities_premiumretrans_omd_v1_45.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, hkex_hkexsecurities_premiumretrans_omd_v1_45.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = hkex_hkexsecurities_premiumretrans_omd_v1_45.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6289,7 +6308,10 @@ hkex_hkexsecurities_premiumretrans_omd_v1_45.message.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    hkex_hkexsecurities_premiumretrans_omd_v1_45.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(hkex_hkexsecurities_premiumretrans_omd_v1_45.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, hkex_hkexsecurities_premiumretrans_omd_v1_45.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

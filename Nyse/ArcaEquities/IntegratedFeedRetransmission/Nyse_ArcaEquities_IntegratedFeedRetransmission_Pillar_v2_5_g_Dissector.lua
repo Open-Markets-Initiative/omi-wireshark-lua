@@ -147,11 +147,11 @@ omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.upper_co
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.timestamp_format = 2
 
 -- Price Calculate format (true = decimal-scaled, false = raw mantissa)
@@ -1607,7 +1607,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.reserved_1.dissect 
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1630,7 +1630,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.reserved_2.dissect 
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.reserved_2, range, value, display)
+  parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1653,7 +1653,7 @@ nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.reserved_4.dissect 
   local value = range:bytes():tohex(false, " ")
   local display = nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_arcaequities_integratedfeedretransmission_pillar_v2_5_g.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end

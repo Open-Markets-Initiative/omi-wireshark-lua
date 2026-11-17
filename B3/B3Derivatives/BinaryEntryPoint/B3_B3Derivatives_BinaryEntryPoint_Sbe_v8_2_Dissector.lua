@@ -36,6 +36,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.build_number = ProtoField.
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.business_reject_reason = ProtoField.new("Business Reject Reason", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.businessrejectreason", ftypes.UINT32, nil, nil, nil, "businessRejectReason")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.business_reject_ref_id = ProtoField.new("Business Reject Ref Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.businessrejectrefid", ftypes.UINT64, nil, nil, nil, "businessRejectRefID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cancel_on_disconnect_type = ProtoField.new("Cancel On Disconnect Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.cancelondisconnecttype", ftypes.UINT8, nil, nil, nil, "cancelOnDisconnectType")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cl_ord_id = ProtoField.new("ClOrdId", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.clordid", ftypes.UINT64)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cl_ord_id_optional = ProtoField.new("ClOrdId Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.clordidoptional", ftypes.UINT64, nil, nil, nil, "clOrdID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.clearing_business_date = ProtoField.new("Clearing Business Date", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.clearingbusinessdate", ftypes.UINT16, nil, nil, nil, "clearingBusinessDate")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.client_app_name = ProtoField.new("Client App Name", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.clientappname", ftypes.STRING, nil, nil, nil, "clientAppName data struct")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.client_app_name_data = ProtoField.new("Client App Name Data", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.clientappnamedata", ftypes.STRING, nil, nil, nil, "Client system information.")
@@ -46,8 +48,6 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.client_app_version_length 
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.client_ip = ProtoField.new("Client Ip", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.clientip", ftypes.STRING, nil, nil, nil, "clientIP data struct")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.client_ip_data = ProtoField.new("Client Ip Data", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.clientipdata", ftypes.STRING, nil, nil, nil, "Client system information.")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.client_ip_length = ProtoField.new("Client Ip Length", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.clientiplength", ftypes.UINT8, nil, nil, nil, "Length of client system information.")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.clordid = ProtoField.new("ClOrdId", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.clordid", ftypes.UINT64)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.clordid_optional = ProtoField.new("ClOrdId Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.clordidoptional", ftypes.UINT64, nil, nil, nil, "clOrdID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cod_timeout_window = ProtoField.new("Cod Timeout Window", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.codtimeoutwindow", ftypes.UINT64, nil, nil, nil, "codTimeoutWindow")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.contra_broker = ProtoField.new("Contra Broker", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.contrabroker", ftypes.UINT32, nil, nil, nil, "contraBroker")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.contrary_instruction_indicator = ProtoField.new("Contrary Instruction Indicator", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.contraryinstructionindicator", ftypes.UINT8, nil, nil, nil, "contraryInstructionIndicator")
@@ -55,13 +55,13 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.count = ProtoField.new("Co
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.credentials = ProtoField.new("Credentials", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.credentials", ftypes.STRING, nil, nil, nil, "credentials data struct")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.credentials_data = ProtoField.new("Credentials Data", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.credentialsdata", ftypes.STRING, nil, nil, nil, "Credentials data in ASCII.")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.credentials_length = ProtoField.new("Credentials Length", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.credentialslength", ftypes.UINT8, nil, nil, nil, "Length of credentials data.")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cross_id = ProtoField.new("CrossId", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.crossid", ftypes.UINT64)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cross_id_optional = ProtoField.new("CrossId Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.crossidoptional", ftypes.UINT64, nil, nil, nil, "crossID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cross_prioritization = ProtoField.new("Cross Prioritization", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.crossprioritization", ftypes.UINT8, nil, nil, nil, "crossPrioritization")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cross_sides_group = ProtoField.new("Cross Sides Group", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.crosssidesgroup", ftypes.STRING, nil, nil, nil, "noSides")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cross_sides_groups = ProtoField.new("Cross Sides Groups", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.crosssidesgroups", ftypes.STRING, nil, nil, nil, "noSides Block")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cross_type = ProtoField.new("Cross Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.crosstype", ftypes.UINT8, nil, nil, nil, "crossType")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.crossed_indicator = ProtoField.new("Crossed Indicator", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.crossedindicator", ftypes.UINT16, nil, nil, nil, "crossedIndicator")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.crossid = ProtoField.new("CrossId", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.crossid", ftypes.UINT64)
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.crossid_optional = ProtoField.new("CrossId Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.crossidoptional", ftypes.UINT64, nil, nil, nil, "crossID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cum_qty = ProtoField.new("Cum Qty", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.cumqty", ftypes.UINT64, nil, nil, nil, "cumQty")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.current_session_ver_id = ProtoField.new("Current Session Ver Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.currentsessionverid", ftypes.UINT64, nil, nil, nil, "currentSessionVerID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.custodian = ProtoField.new("Custodian", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.custodian", ftypes.UINT32)
@@ -89,8 +89,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.execute_underlying_trade =
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.executing_trader = ProtoField.new("Executing Trader", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.executingtrader", ftypes.STRING, nil, nil, nil, "executingTrader")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.executing_trader_optional = ProtoField.new("Executing Trader Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.executingtraderoptional", ftypes.STRING, nil, nil, nil, "executingTrader")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.expire_date = ProtoField.new("Expire Date", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.expiredate", ftypes.UINT16, nil, nil, nil, "expireDate")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.fixed_rate_percentage_8 = ProtoField.new("Fixed Rate Percentage 8", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.fixedratepercentage8", ftypes.DOUBLE, nil, nil, nil, "fixedRate")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.fixed_rate_percentage_8_optional = ProtoField.new("Fixed Rate Percentage 8 Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.fixedratepercentage8optional", ftypes.DOUBLE, nil, nil, nil, "fixedRate")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.fixed_rate = ProtoField.new("Fixed Rate", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.fixedrate", ftypes.DOUBLE, nil, nil, nil, "fixedRate")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.fixed_rate_optional = ProtoField.new("Fixed Rate Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.fixedrateoptional", ftypes.DOUBLE, nil, nil, nil, "fixedRate")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.from_seq_no = ProtoField.new("From Seq No", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.fromseqno", ftypes.UINT32, nil, nil, nil, "fromSeqNo")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.groupsizeencoding", ftypes.STRING, nil, nil, nil, "GroupSizeEncoding")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.implied_event_id = ProtoField.new("Implied Event Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.impliedeventid", ftypes.STRING, nil, nil, nil, "ExecutionReport_TradeMessage")
@@ -316,17 +316,22 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.legs_group_index = ProtoFi
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.positions_group_index = ProtoField.new("Positions Group Index", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.positionsgroupindex", ftypes.UINT16)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.sides_group_index = ProtoField.new("Sides Group Index", "b3.b3derivatives.binaryentrypoint.sbe.v8.2.sidesgroupindex", ftypes.UINT16)
 
+-- B3 B3Derivatives BinaryEntryPoint Sbe 8.2 Expert Info
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.experts = {}
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.experts.undecoded = ProtoExpert.new("b3.b3derivatives.binaryentrypoint.sbe.v8.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.experts = { b3_b3derivatives_binaryentrypoint_sbe_v8_2.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- B3 B3Derivatives BinaryEntryPoint Sbe 8.2 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 b3_b3derivatives_binaryentrypoint_sbe_v8_2.timestamp_format = 2
 
 
@@ -382,6 +387,19 @@ function omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- B3 B3Derivatives BinaryEntryPoint Sbe 8.2 Fields
 -----------------------------------------------------------------------
@@ -1000,6 +1018,57 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.cancel_on_disconnect_type.dissect = f
   return offset + length, value
 end
 
+-- Cl Ord Id
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id = {}
+
+-- Size: Cl Ord Id
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size = 8
+
+-- Display: Cl Ord Id
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.display = function(value)
+  return "ClOrdId: "..value
+end
+
+-- Dissect: Cl Ord Id
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cl_ord_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cl Ord Id Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id_optional = {}
+
+-- Size: Cl Ord Id Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id_optional.size = 8
+
+-- Display: Cl Ord Id Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "ClOrdId Optional: No Value"
+  end
+
+  return "ClOrdId Optional: "..value
+end
+
+-- Dissect: Cl Ord Id Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cl_ord_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Clearing Business Date
 b3_b3derivatives_binaryentrypoint_sbe_v8_2.clearing_business_date = {}
 
@@ -1149,57 +1218,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.client_ip_length.dissect = function(b
   return offset + length, value
 end
 
--- ClOrdId
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid = {}
-
--- Size: ClOrdId
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size = 8
-
--- Display: ClOrdId
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.display = function(value)
-  return "ClOrdId: "..value
-end
-
--- Dissect: ClOrdId
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.clordid, range, value, display)
-
-  return offset + length, value
-end
-
--- ClOrdId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid_optional = {}
-
--- Size: ClOrdId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid_optional.size = 8
-
--- Display: ClOrdId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "ClOrdId Optional: No Value"
-  end
-
-  return "ClOrdId Optional: "..value
-end
-
--- Dissect: ClOrdId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.clordid_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Cod Timeout Window
 b3_b3derivatives_binaryentrypoint_sbe_v8_2.cod_timeout_window = {}
 
@@ -1339,6 +1357,57 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.credentials_length.dissect = function
   return offset + length, value
 end
 
+-- Cross Id
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id = {}
+
+-- Size: Cross Id
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id.size = 8
+
+-- Display: Cross Id
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id.display = function(value)
+  return "CrossId: "..value
+end
+
+-- Dissect: Cross Id
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cross_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Id Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional = {}
+
+-- Size: Cross Id Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.size = 8
+
+-- Display: Cross Id Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.display = function(value)
+  -- Check if field has value
+  if value == UInt64(0x00000000, 0x00000000) then
+    return "CrossId Optional: No Value"
+  end
+
+  return "CrossId Optional: "..value
+end
+
+-- Dissect: Cross Id Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.cross_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Cross Prioritization
 b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_prioritization = {}
 
@@ -1440,57 +1509,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossed_indicator.dissect = function(
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossed_indicator.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.crossed_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- CrossId
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid = {}
-
--- Size: CrossId
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid.size = 8
-
--- Display: CrossId
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid.display = function(value)
-  return "CrossId: "..value
-end
-
--- Dissect: CrossId
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.crossid, range, value, display)
-
-  return offset + length, value
-end
-
--- CrossId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional = {}
-
--- Size: CrossId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.size = 8
-
--- Display: CrossId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0x00000000, 0x00000000) then
-    return "CrossId Optional: No Value"
-  end
-
-  return "CrossId Optional: "..value
-end
-
--- Dissect: CrossId Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.crossid_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1789,7 +1807,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.encoding_type.size = 2
 -- Display: Encoding Type
 b3_b3derivatives_binaryentrypoint_sbe_v8_2.encoding_type.display = function(value)
   if value == 60240 then
-    return "Encoding Type: Sbe Little Endian"
+    return "Encoding Type: Sbe Little Endian (60240)"
   end
 
   return "Encoding Type: Unknown("..value..")"
@@ -2299,53 +2317,53 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.expire_date.dissect = function(buffer
   return offset + length, value
 end
 
--- Fixed Rate Percentage 8
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8 = {}
+-- Fixed Rate
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate = {}
 
--- Size: Fixed Rate Percentage 8
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.size = 8
+-- Size: Fixed Rate
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.size = 8
 
--- Display: Fixed Rate Percentage 8
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.display = function(value)
-  return "Fixed Rate Percentage 8: "..value
+-- Display: Fixed Rate
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.display = function(value)
+  return "Fixed Rate: "..value
 end
 
--- Translate: Fixed Rate Percentage 8
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.translate = function(raw)
+-- Translate: Fixed Rate
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Fixed Rate Percentage 8
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.size
+-- Dissect: Fixed Rate
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.translate(raw)
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.display(value, buffer, offset, packet, parent)
+  local value = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.translate(raw)
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.fixed_rate_percentage_8, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.fixed_rate, range, value, display)
 
   return offset + length, value
 end
 
--- Fixed Rate Percentage 8 Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional = {}
+-- Fixed Rate Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional = {}
 
--- Size: Fixed Rate Percentage 8 Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.size = 8
+-- Size: Fixed Rate Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.size = 8
 
--- Display: Fixed Rate Percentage 8 Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.display = function(raw, value)
+-- Display: Fixed Rate Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Fixed Rate Percentage 8 Optional: No Value"
+    return "Fixed Rate Optional: No Value"
   end
 
-  return "Fixed Rate Percentage 8 Optional: "..value
+  return "Fixed Rate Optional: "..value
 end
 
--- Translate: Fixed Rate Percentage 8 Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.translate = function(raw)
+-- Translate: Fixed Rate Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
     return 0/0
@@ -2354,15 +2372,15 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.tran
   return raw:tonumber()/100000000
 end
 
--- Dissect: Fixed Rate Percentage 8 Optional
-b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.size
+-- Dissect: Fixed Rate Optional
+b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.dissect = function(buffer, offset, packet, parent)
+  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.translate(raw)
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.display(raw, value, buffer, offset, packet, parent)
+  local value = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.translate(raw)
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.fixed_rate_percentage_8_optional, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.fixed_rate_optional, range, value, display)
 
   return offset + length, value
 end
@@ -3500,7 +3518,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_1_padding_1.dissect = function
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_1_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_1_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_1_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3523,7 +3541,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_100_padding_4.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_100_padding_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_100_padding_4, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_100_padding_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3546,7 +3564,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_118_padding_2.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_118_padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_118_padding_2, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_118_padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3569,7 +3587,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_119_padding_1.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_119_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_119_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_119_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3592,7 +3610,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_146_padding_3.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_146_padding_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_146_padding_3, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_146_padding_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3615,7 +3633,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_152_padding_3.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_152_padding_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_152_padding_3, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_152_padding_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3638,7 +3656,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_159_padding_1.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_159_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_159_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_159_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3661,7 +3679,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_164_padding_3.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_164_padding_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_164_padding_3, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_164_padding_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3684,7 +3702,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_167_padding_1.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_167_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_167_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_167_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3707,7 +3725,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_168_padding_3.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_168_padding_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_168_padding_3, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_168_padding_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3730,7 +3748,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_18_padding_2.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_18_padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_18_padding_2, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_18_padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3753,7 +3771,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_181_padding_1.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_181_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_181_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_181_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3776,7 +3794,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_19_padding_1.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_19_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_19_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_19_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3799,7 +3817,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_2_padding_2.dissect = function
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_2_padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_2_padding_2, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_2_padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3822,7 +3840,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_21_padding_1.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_21_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_21_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_21_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3845,7 +3863,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_25_padding_3.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_25_padding_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_25_padding_3, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_25_padding_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3868,7 +3886,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_31_padding_1.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_31_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_31_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_31_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3891,7 +3909,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_33_padding_1.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_33_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_33_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_33_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3914,7 +3932,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_49_padding_1.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_49_padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_49_padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_49_padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3937,7 +3955,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_54_padding_2.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_54_padding_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_54_padding_2, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.offset_54_padding_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4908,7 +4926,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.padding_1.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.padding_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.padding_1, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.padding_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6090,7 +6108,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.schema_id.size = 2
 -- Display: Schema Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_2.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: 1"
+    return "Schema Id: B3 Entrypoint Fixp Sbe (1)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -7804,7 +7822,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.order_mass_action_report_message.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.mass_action_scope.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.mass_action_report_id.size
 
@@ -7851,8 +7869,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.order_mass_action_report_message.fiel
   -- Mass Action Scope: MassActionScope
   index, mass_action_scope = b3_b3derivatives_binaryentrypoint_sbe_v8_2.mass_action_scope.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Mass Action Report Id: MassActionReportID
   index, mass_action_report_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.mass_action_report_id.dissect(buffer, index, packet, parent)
@@ -7979,7 +7997,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.order_mass_action_request_message.siz
   b3_b3derivatives_binaryentrypoint_sbe_v8_2.inbound_business_header.size + 
   b3_b3derivatives_binaryentrypoint_sbe_v8_2.mass_action_type.size + 
   b3_b3derivatives_binaryentrypoint_sbe_v8_2.mass_action_scope.size + 
-  b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size + 
+  b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size + 
   b3_b3derivatives_binaryentrypoint_sbe_v8_2.mass_cancel_restatement_reason.size + 
   b3_b3derivatives_binaryentrypoint_sbe_v8_2.ordtagid.size + 
   b3_b3derivatives_binaryentrypoint_sbe_v8_2.side_optional.size + 
@@ -8006,8 +8024,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.order_mass_action_request_message.fie
   -- Mass Action Scope: MassActionScope
   index, mass_action_scope = b3_b3derivatives_binaryentrypoint_sbe_v8_2.mass_action_scope.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Mass Cancel Restatement Reason: ExecRestatementReasonValidForMassCancel
   index, mass_cancel_restatement_reason = b3_b3derivatives_binaryentrypoint_sbe_v8_2.mass_cancel_restatement_reason.dissect(buffer, index, packet, parent)
@@ -9084,7 +9102,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.quote_request_reject_message.size = f
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.executing_trader.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.days_to_settlement_optional.size
 
@@ -9150,8 +9168,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.quote_request_reject_message.fields =
   -- Executing Trader: Trader
   index, executing_trader = b3_b3derivatives_binaryentrypoint_sbe_v8_2.executing_trader.dissect(buffer, index, packet, parent)
 
-  -- Fixed Rate Percentage 8 Optional: Percentage8Optional
-  index, fixed_rate_percentage_8_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.dissect(buffer, index, packet, parent)
+  -- Fixed Rate Optional: Percentage8Optional
+  index, fixed_rate_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.dissect(buffer, index, packet, parent)
 
   -- Days To Settlement Optional: DaysToSettlementOptional
   index, days_to_settlement_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.days_to_settlement_optional.dissect(buffer, index, packet, parent)
@@ -9312,7 +9330,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.quote_message.size = function(buffer,
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.executing_trader.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.execute_underlying_trade.size
 
@@ -9373,8 +9391,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.quote_message.fields = function(buffe
   -- Executing Trader: Trader
   index, executing_trader = b3_b3derivatives_binaryentrypoint_sbe_v8_2.executing_trader.dissect(buffer, index, packet, parent)
 
-  -- Fixed Rate Percentage 8: Percentage8
-  index, fixed_rate_percentage_8 = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.dissect(buffer, index, packet, parent)
+  -- Fixed Rate: Percentage8
+  index, fixed_rate = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.dissect(buffer, index, packet, parent)
 
   -- Execute Underlying Trade: ExecuteUnderlyingTrade
   index, execute_underlying_trade = b3_b3derivatives_binaryentrypoint_sbe_v8_2.execute_underlying_trade.dissect(buffer, index, packet, parent)
@@ -9452,7 +9470,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.quote_status_report_message.size = fu
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.executing_trader.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.execute_underlying_trade.size
 
@@ -9530,8 +9548,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.quote_status_report_message.fields = 
   -- Executing Trader: Trader
   index, executing_trader = b3_b3derivatives_binaryentrypoint_sbe_v8_2.executing_trader.dissect(buffer, index, packet, parent)
 
-  -- Fixed Rate Percentage 8 Optional: Percentage8Optional
-  index, fixed_rate_percentage_8_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.dissect(buffer, index, packet, parent)
+  -- Fixed Rate Optional: Percentage8Optional
+  index, fixed_rate_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.dissect(buffer, index, packet, parent)
 
   -- Execute Underlying Trade: ExecuteUnderlyingTrade
   index, execute_underlying_trade = b3_b3derivatives_binaryentrypoint_sbe_v8_2.execute_underlying_trade.dissect(buffer, index, packet, parent)
@@ -9604,7 +9622,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.quote_request_message.size = function
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.executing_trader.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.days_to_settlement.size
 
@@ -9668,8 +9686,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.quote_request_message.fields = functi
   -- Executing Trader: Trader
   index, executing_trader = b3_b3derivatives_binaryentrypoint_sbe_v8_2.executing_trader.dissect(buffer, index, packet, parent)
 
-  -- Fixed Rate Percentage 8: Percentage8
-  index, fixed_rate_percentage_8 = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8.dissect(buffer, index, packet, parent)
+  -- Fixed Rate: Percentage8
+  index, fixed_rate = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate.dissect(buffer, index, packet, parent)
 
   -- Days To Settlement: DaysToSettlement
   index, days_to_settlement = b3_b3derivatives_binaryentrypoint_sbe_v8_2.days_to_settlement.dissect(buffer, index, packet, parent)
@@ -10065,7 +10083,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_forward_message.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.ord_status.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id.size
 
@@ -10105,7 +10123,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_forward_message.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.exec_ref_id.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.order_qty.size
 
@@ -10140,8 +10158,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_forward_message.fiel
   -- Ord Status: OrdStatus
   index, ord_status = b3_b3derivatives_binaryentrypoint_sbe_v8_2.ord_status.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId Optional: ClOrdIDOptional
-  index, clordid_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid_optional.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Optional: ClOrdIDOptional
+  index, cl_ord_id_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id_optional.dissect(buffer, index, packet, parent)
 
   -- Secondary Order Id: OrderID
   index, secondary_order_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id.dissect(buffer, index, packet, parent)
@@ -10204,8 +10222,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_forward_message.fiel
   -- Exec Ref Id: ExecIDOptional
   index, exec_ref_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.exec_ref_id.dissect(buffer, index, packet, parent)
 
-  -- Fixed Rate Percentage 8 Optional: Percentage8Optional
-  index, fixed_rate_percentage_8_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_percentage_8_optional.dissect(buffer, index, packet, parent)
+  -- Fixed Rate Optional: Percentage8Optional
+  index, fixed_rate_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.fixed_rate_optional.dissect(buffer, index, packet, parent)
 
   -- Order Qty: Quantity
   index, order_qty = b3_b3derivatives_binaryentrypoint_sbe_v8_2.order_qty.dissect(buffer, index, packet, parent)
@@ -10259,7 +10277,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_reject_message.size 
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cxl_rej_response_to.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id_optional.size
 
@@ -10293,7 +10311,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_reject_message.size 
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.max_floor.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossed_indicator.size
 
@@ -10334,8 +10352,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_reject_message.field
   -- Cxl Rej Response To: CxlRejResponseTo
   index, cxl_rej_response_to = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cxl_rej_response_to.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Secondary Order Id Optional: OrderIDOptional
   index, secondary_order_id_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id_optional.dissect(buffer, index, packet, parent)
@@ -10385,8 +10403,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_reject_message.field
   -- Max Floor: QuantityOptional
   index, max_floor = b3_b3derivatives_binaryentrypoint_sbe_v8_2.max_floor.dissect(buffer, index, packet, parent)
 
-  -- CrossId Optional: CrossIDOptional
-  index, crossid_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.dissect(buffer, index, packet, parent)
+  -- Cross Id Optional: CrossIDOptional
+  index, cross_id_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.dissect(buffer, index, packet, parent)
 
   -- Crossed Indicator: CrossedIndicator
   index, crossed_indicator = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossed_indicator.dissect(buffer, index, packet, parent)
@@ -10497,7 +10515,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_trade_message.size =
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.ord_status.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id.size
 
@@ -10541,7 +10559,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_trade_message.size =
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.exec_ref_id.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossed_indicator.size
 
@@ -10588,8 +10606,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_trade_message.fields
   -- Ord Status: OrdStatus
   index, ord_status = b3_b3derivatives_binaryentrypoint_sbe_v8_2.ord_status.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId Optional: ClOrdIDOptional
-  index, clordid_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid_optional.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id Optional: ClOrdIDOptional
+  index, cl_ord_id_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id_optional.dissect(buffer, index, packet, parent)
 
   -- Secondary Order Id: OrderID
   index, secondary_order_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id.dissect(buffer, index, packet, parent)
@@ -10658,8 +10676,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_trade_message.fields
   -- Exec Ref Id: ExecIDOptional
   index, exec_ref_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.exec_ref_id.dissect(buffer, index, packet, parent)
 
-  -- CrossId Optional: CrossIDOptional
-  index, crossid_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.dissect(buffer, index, packet, parent)
+  -- Cross Id Optional: CrossIDOptional
+  index, cross_id_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.dissect(buffer, index, packet, parent)
 
   -- Crossed Indicator: CrossedIndicator
   index, crossed_indicator = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossed_indicator.dissect(buffer, index, packet, parent)
@@ -10735,7 +10753,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_cancel_message.size 
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.ord_status.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id.size
 
@@ -10818,8 +10836,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_cancel_message.field
   -- Ord Status: OrdStatus
   index, ord_status = b3_b3derivatives_binaryentrypoint_sbe_v8_2.ord_status.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Secondary Order Id: OrderID
   index, secondary_order_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id.dissect(buffer, index, packet, parent)
@@ -10953,7 +10971,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_modify_message.size 
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.ord_status.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id.size
 
@@ -11038,8 +11056,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_modify_message.field
   -- Ord Status: OrdStatus
   index, ord_status = b3_b3derivatives_binaryentrypoint_sbe_v8_2.ord_status.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Secondary Order Id: OrderID
   index, secondary_order_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id.dissect(buffer, index, packet, parent)
@@ -11176,7 +11194,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_new_message.size = f
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.ord_status.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id.size
 
@@ -11216,7 +11234,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_new_message.size = f
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.max_floor.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.received_time.size
 
@@ -11261,8 +11279,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_new_message.fields =
   -- Ord Status: OrdStatus
   index, ord_status = b3_b3derivatives_binaryentrypoint_sbe_v8_2.ord_status.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Secondary Order Id: OrderID
   index, secondary_order_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.secondary_order_id.dissect(buffer, index, packet, parent)
@@ -11321,8 +11339,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.execution_report_new_message.fields =
   -- Max Floor: QuantityOptional
   index, max_floor = b3_b3derivatives_binaryentrypoint_sbe_v8_2.max_floor.dissect(buffer, index, packet, parent)
 
-  -- CrossId Optional: CrossIDOptional
-  index, crossid_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid_optional.dissect(buffer, index, packet, parent)
+  -- Cross Id Optional: CrossIDOptional
+  index, cross_id_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id_optional.dissect(buffer, index, packet, parent)
 
   -- Received Time: UTCTimestampNanosOptional
   index, received_time = b3_b3derivatives_binaryentrypoint_sbe_v8_2.received_time.dissect(buffer, index, packet, parent)
@@ -11395,7 +11413,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_sides_group.size =
   b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_1_padding_1.size + 
   b3_b3derivatives_binaryentrypoint_sbe_v8_2.account.size + 
   b3_b3derivatives_binaryentrypoint_sbe_v8_2.entering_firm_optional.size + 
-  b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
 -- Display: Cross Sides Group
 b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_sides_group.display = function(packet, parent, length)
@@ -11428,8 +11446,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_sides_group.fields = function(b
   -- Entering Firm Optional: FirmOptional
   index, entering_firm_optional = b3_b3derivatives_binaryentrypoint_sbe_v8_2.entering_firm_optional.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -11520,7 +11538,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.new_order_cross_message.size = functi
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_18_padding_2.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.sender_location.size
 
@@ -11570,8 +11588,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.new_order_cross_message.fields = func
     index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_18_padding_2.size
   end
 
-  -- CrossId: CrossID
-  index, crossid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.crossid.dissect(buffer, index, packet, parent)
+  -- Cross Id: CrossID
+  index, cross_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cross_id.dissect(buffer, index, packet, parent)
 
   -- Sender Location: SenderLocation
   index, sender_location = b3_b3derivatives_binaryentrypoint_sbe_v8_2.sender_location.dissect(buffer, index, packet, parent)
@@ -11644,7 +11662,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.order_cancel_request_message.size = f
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_18_padding_2.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.security_id.size
 
@@ -11690,8 +11708,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.order_cancel_request_message.fields =
     index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.offset_18_padding_2.size
   end
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Security Id: SecurityID
   index, security_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.security_id.dissect(buffer, index, packet, parent)
@@ -11812,7 +11830,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.order_cancel_replace_request_message.
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.mm_protection_reset.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.account.size
 
@@ -11883,8 +11901,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.order_cancel_replace_request_message.
   -- Mm Protection Reset: Boolean
   index, mm_protection_reset = b3_b3derivatives_binaryentrypoint_sbe_v8_2.mm_protection_reset.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Account: AccountOptional
   index, account = b3_b3derivatives_binaryentrypoint_sbe_v8_2.account.dissect(buffer, index, packet, parent)
@@ -11992,7 +12010,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.new_order_single_message.size = funct
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.mm_protection_reset.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.account.size
 
@@ -12057,8 +12075,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.new_order_single_message.fields = fun
   -- Mm Protection Reset: Boolean
   index, mm_protection_reset = b3_b3derivatives_binaryentrypoint_sbe_v8_2.mm_protection_reset.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Account: AccountOptional
   index, account = b3_b3derivatives_binaryentrypoint_sbe_v8_2.account.dissect(buffer, index, packet, parent)
@@ -12157,7 +12175,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_modify_order_message.size = fu
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.mm_protection_reset.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.account.size
 
@@ -12210,8 +12228,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_modify_order_message.fields = 
   -- Mm Protection Reset: Boolean
   index, mm_protection_reset = b3_b3derivatives_binaryentrypoint_sbe_v8_2.mm_protection_reset.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Account: AccountOptional
   index, account = b3_b3derivatives_binaryentrypoint_sbe_v8_2.account.dissect(buffer, index, packet, parent)
@@ -12292,7 +12310,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_new_order_message.size = funct
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.mm_protection_reset.size
 
-  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.size
+  index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.size
 
   index = index + b3_b3derivatives_binaryentrypoint_sbe_v8_2.account.size
 
@@ -12341,8 +12359,8 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_new_order_message.fields = fun
   -- Mm Protection Reset: Boolean
   index, mm_protection_reset = b3_b3derivatives_binaryentrypoint_sbe_v8_2.mm_protection_reset.dissect(buffer, index, packet, parent)
 
-  -- ClOrdId: ClOrdID
-  index, clordid = b3_b3derivatives_binaryentrypoint_sbe_v8_2.clordid.dissect(buffer, index, packet, parent)
+  -- Cl Ord Id: ClOrdID
+  index, cl_ord_id = b3_b3derivatives_binaryentrypoint_sbe_v8_2.cl_ord_id.dissect(buffer, index, packet, parent)
 
   -- Account: AccountOptional
   index, account = b3_b3derivatives_binaryentrypoint_sbe_v8_2.account.dissect(buffer, index, packet, parent)
@@ -13629,10 +13647,16 @@ end
 b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_open_frame.dissect = function(buffer, offset, packet, parent, size_of_simple_open_frame)
   local index = offset + size_of_simple_open_frame
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_2.fields.simple_open_frame, buffer(offset, 0))
-    local current = b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_open_frame.fields(buffer, offset, packet, parent, size_of_simple_open_frame)
+    local decoded, failure = pcall(b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_open_frame.fields, bounded, offset, packet, parent, size_of_simple_open_frame)
+    if not decoded then
+      undecoded(failure, parent, b3_b3derivatives_binaryentrypoint_sbe_v8_2.experts.undecoded, "Simple Open Frame does not decode within its "..size_of_simple_open_frame.." bytes")
+    end
     parent:set_len(size_of_simple_open_frame)
     local display = b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_open_frame.display(buffer, packet, parent)
     parent:append_text(display)
@@ -13640,7 +13664,10 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_open_frame.dissect = function(
     return index, parent
   else
     -- Skip element, add fields directly
-    b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_open_frame.fields(buffer, offset, packet, parent, size_of_simple_open_frame)
+    local decoded, failure = pcall(b3_b3derivatives_binaryentrypoint_sbe_v8_2.simple_open_frame.fields, bounded, offset, packet, parent, size_of_simple_open_frame)
+    if not decoded then
+      undecoded(failure, parent, b3_b3derivatives_binaryentrypoint_sbe_v8_2.experts.undecoded, "Simple Open Frame does not decode within its "..size_of_simple_open_frame.." bytes")
+    end
 
     return index
   end

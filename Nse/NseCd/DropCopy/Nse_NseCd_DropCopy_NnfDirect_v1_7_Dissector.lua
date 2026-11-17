@@ -140,18 +140,27 @@ omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.trade_modify_reject_message = Proto
 -- Nse NseCd DropCopy 1.7 Session Messages
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "nse.nsecd.dropcopy.nnfdirect.v1.7.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "Keeps the connection alive during periods of inactivity")
 
+-- Nse NseCd DropCopy NnfDirect 1.7 Expert Info
+nse_nsecd_dropcopy_nnfdirect_v1_7.experts = {}
+nse_nsecd_dropcopy_nnfdirect_v1_7.experts.undecoded = ProtoExpert.new("nse.nsecd.dropcopy.nnfdirect.v1.7.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nse_nsecd_dropcopy_nnfdirect_v1_7.experts = { nse_nsecd_dropcopy_nnfdirect_v1_7.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nse NseCd DropCopy NnfDirect 1.7 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 },
+  { 3, "DateTime Asia/Kolkata", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format = 2
+
+-- Offset of the source's zone from utc in seconds, as the reader states it
+nse_nsecd_dropcopy_nnfdirect_v1_7.zone_offset = 0
 
 -- assumed connection role
 local role_enum = {
@@ -183,6 +192,7 @@ omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.show_headers = Pref.bool("Show Heade
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences
 function omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs_changed()
@@ -203,6 +213,17 @@ function omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs_changed()
   if nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format ~= omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.timestamp_format then
     nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.timestamp_format
   end
+  local sign, hours, minutes = string.match(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.zone_offset, "^%s*([+-]?)(%d%d?):?(%d?%d?)%s*$")
+
+  nse_nsecd_dropcopy_nnfdirect_v1_7.zone_offset = 0
+
+  if hours then
+    nse_nsecd_dropcopy_nnfdirect_v1_7.zone_offset = tonumber(hours) * 3600 + (tonumber(minutes) or 0) * 60
+  end
+
+  if sign == "-" then
+    nse_nsecd_dropcopy_nnfdirect_v1_7.zone_offset = -nse_nsecd_dropcopy_nnfdirect_v1_7.zone_offset
+  end
 end
 
 
@@ -222,6 +243,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nse NseCd DropCopy NnfDirect 1.7 Fields
 -----------------------------------------------------------------------
@@ -266,9 +295,18 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.activity_time.dissect = function(buffer, offse
   local field = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.activity_time
   if nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format == 3 then field = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.activity_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Activity Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsecd_dropcopy_nnfdirect_v1_7.zone_offset, 0))
 
   return offset + length, value
 end
@@ -518,7 +556,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.checksum.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.checksum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.checksum, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.checksum, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -632,9 +670,18 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.expiry_date.dissect = function(buffer, offset,
   local field = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.expiry_date
   if nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format == 3 then field = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.expiry_date_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Expiry Date: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsecd_dropcopy_nnfdirect_v1_7.zone_offset, 0))
 
   return offset + length, value
 end
@@ -657,7 +704,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.fifth_reserved_1.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.fifth_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fifth_reserved_1, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fifth_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -801,7 +848,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.fourth_reserved_1.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.fourth_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fourth_reserved_1, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fourth_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -984,9 +1031,18 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.last_modified_date_time.dissect = function(buf
   local field = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.last_modified_date_time
   if nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format == 3 then field = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.last_modified_date_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Last Modified Date Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsecd_dropcopy_nnfdirect_v1_7.zone_offset, 0))
 
   return offset + length, value
 end
@@ -1008,9 +1064,18 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.log_time.dissect = function(buffer, offset, pa
   local field = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.log_time
   if nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format == 3 then field = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.log_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Log Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsecd_dropcopy_nnfdirect_v1_7.zone_offset, 0))
 
   return offset + length, value
 end
@@ -1533,7 +1598,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_1.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_1, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1556,7 +1621,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_119.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_119.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_119, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_119, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1579,7 +1644,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_16.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_16, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1602,7 +1667,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_38.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_38.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_38, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_38, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1625,7 +1690,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_4.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_4, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1648,7 +1713,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_44.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_44.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_44, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_44, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1671,7 +1736,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_8.dissect = function(buffer, offset, 
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_8, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1717,7 +1782,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.second_reserved_1.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.second_reserved_1, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1740,7 +1805,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.second_reserved_16.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.second_reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.second_reserved_16, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.second_reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1848,7 +1913,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.third_reserved_1.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.third_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.third_reserved_1, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.third_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1871,7 +1936,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.third_reserved_16.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.third_reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.third_reserved_16, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.third_reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4024,10 +4089,16 @@ end
 nse_nsecd_dropcopy_nnfdirect_v1_7.server_direct_packet.dissect = function(buffer, offset, packet, parent, size_of_server_direct_packet)
   local index = offset + size_of_server_direct_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.server_direct_packet, buffer(offset, 0))
-    local current = nse_nsecd_dropcopy_nnfdirect_v1_7.server_direct_packet.fields(buffer, offset, packet, parent, size_of_server_direct_packet)
+    local decoded, failure = pcall(nse_nsecd_dropcopy_nnfdirect_v1_7.server_direct_packet.fields, bounded, offset, packet, parent, size_of_server_direct_packet)
+    if not decoded then
+      undecoded(failure, parent, nse_nsecd_dropcopy_nnfdirect_v1_7.experts.undecoded, "Server Direct Packet does not decode within its "..size_of_server_direct_packet.." bytes")
+    end
     parent:set_len(size_of_server_direct_packet)
     local display = nse_nsecd_dropcopy_nnfdirect_v1_7.server_direct_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4035,7 +4106,10 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.server_direct_packet.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsecd_dropcopy_nnfdirect_v1_7.server_direct_packet.fields(buffer, offset, packet, parent, size_of_server_direct_packet)
+    local decoded, failure = pcall(nse_nsecd_dropcopy_nnfdirect_v1_7.server_direct_packet.fields, bounded, offset, packet, parent, size_of_server_direct_packet)
+    if not decoded then
+      undecoded(failure, parent, nse_nsecd_dropcopy_nnfdirect_v1_7.experts.undecoded, "Server Direct Packet does not decode within its "..size_of_server_direct_packet.." bytes")
+    end
 
     return index
   end
@@ -4312,10 +4386,16 @@ end
 nse_nsecd_dropcopy_nnfdirect_v1_7.client_direct_packet.dissect = function(buffer, offset, packet, parent, size_of_client_direct_packet)
   local index = offset + size_of_client_direct_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.client_direct_packet, buffer(offset, 0))
-    local current = nse_nsecd_dropcopy_nnfdirect_v1_7.client_direct_packet.fields(buffer, offset, packet, parent, size_of_client_direct_packet)
+    local decoded, failure = pcall(nse_nsecd_dropcopy_nnfdirect_v1_7.client_direct_packet.fields, bounded, offset, packet, parent, size_of_client_direct_packet)
+    if not decoded then
+      undecoded(failure, parent, nse_nsecd_dropcopy_nnfdirect_v1_7.experts.undecoded, "Client Direct Packet does not decode within its "..size_of_client_direct_packet.." bytes")
+    end
     parent:set_len(size_of_client_direct_packet)
     local display = nse_nsecd_dropcopy_nnfdirect_v1_7.client_direct_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4323,7 +4403,10 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.client_direct_packet.dissect = function(buffer
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsecd_dropcopy_nnfdirect_v1_7.client_direct_packet.fields(buffer, offset, packet, parent, size_of_client_direct_packet)
+    local decoded, failure = pcall(nse_nsecd_dropcopy_nnfdirect_v1_7.client_direct_packet.fields, bounded, offset, packet, parent, size_of_client_direct_packet)
+    if not decoded then
+      undecoded(failure, parent, nse_nsecd_dropcopy_nnfdirect_v1_7.experts.undecoded, "Client Direct Packet does not decode within its "..size_of_client_direct_packet.." bytes")
+    end
 
     return index
   end

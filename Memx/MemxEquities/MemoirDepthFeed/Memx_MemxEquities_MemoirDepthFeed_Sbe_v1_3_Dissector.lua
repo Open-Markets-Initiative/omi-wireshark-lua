@@ -80,17 +80,22 @@ omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.session_shutdown = ProtoFi
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.message_index = ProtoField.new("Message Index", "memx.memxequities.memoirdepthfeed.sbe.v1.3.messageindex", ftypes.UINT16)
 omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "memx.memxequities.memoirdepthfeed.sbe.v1.3.messagesequencenumber", ftypes.UINT64)
 
+-- Memx MemxEquities MemoirDepthFeed Sbe 1.3 Expert Info
+memx_memxequities_memoirdepthfeed_sbe_v1_3.experts = {}
+memx_memxequities_memoirdepthfeed_sbe_v1_3.experts.undecoded = ProtoExpert.new("memx.memxequities.memoirdepthfeed.sbe.v1.3.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.experts = { memx_memxequities_memoirdepthfeed_sbe_v1_3.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Memx MemxEquities MemoirDepthFeed Sbe 1.3 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 memx_memxequities_memoirdepthfeed_sbe_v1_3.timestamp_format = 2
 
 
@@ -146,6 +151,19 @@ function omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Memx MemxEquities MemoirDepthFeed Sbe 1.3 Fields
 -----------------------------------------------------------------------
@@ -548,7 +566,7 @@ memx_memxequities_memoirdepthfeed_sbe_v1_3.reserved.dissect = function(buffer, o
   local value = range:bytes():tohex(false, " ")
   local display = memx_memxequities_memoirdepthfeed_sbe_v1_3.reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.reserved, range, value, display)
+  parent:add(omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -585,7 +603,7 @@ memx_memxequities_memoirdepthfeed_sbe_v1_3.schema_id.size = 1
 -- Display: Schema Id
 memx_memxequities_memoirdepthfeed_sbe_v1_3.schema_id.display = function(value)
   if value == 2 then
-    return "Schema Id: 2"
+    return "Schema Id: Com Memx Us Equities Memoir Depth Sbe V1 (2)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -1958,10 +1976,16 @@ end
 memx_memxequities_memoirdepthfeed_sbe_v1_3.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_memx_memxequities_memoirdepthfeed_sbe_v1_3.fields.message, buffer(offset, 0))
-    local current = memx_memxequities_memoirdepthfeed_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(memx_memxequities_memoirdepthfeed_sbe_v1_3.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, memx_memxequities_memoirdepthfeed_sbe_v1_3.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = memx_memxequities_memoirdepthfeed_sbe_v1_3.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1969,7 +1993,10 @@ memx_memxequities_memoirdepthfeed_sbe_v1_3.message.dissect = function(buffer, of
     return index, parent
   else
     -- Skip element, add fields directly
-    memx_memxequities_memoirdepthfeed_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(memx_memxequities_memoirdepthfeed_sbe_v1_3.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, memx_memxequities_memoirdepthfeed_sbe_v1_3.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -1985,7 +2012,8 @@ memx_memxequities_memoirdepthfeed_sbe_v1_3.sequenced_message.size = function(buf
   index = index + memx_memxequities_memoirdepthfeed_sbe_v1_3.message_count.size
 
   -- Parse runtime size of: Message
-  index = index + buffer(offset + index - 0, 2):uint()
+  local message_length = buffer(offset + index - 0, 2):uint()
+  index = index + message_length + 2
 
   return index
 end

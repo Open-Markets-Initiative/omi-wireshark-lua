@@ -59,6 +59,11 @@ omi_ltse_commonheader_tcp_v1_2.fields.stream_rejected_message = ProtoField.new("
 omi_ltse_commonheader_tcp_v1_2.fields.stream_request_message = ProtoField.new("Stream Request Message", "ltse.commonheader.tcp.v1.2.streamrequestmessage", ftypes.STRING, nil, nil, nil, "Memx Tcp Stream Request message")
 omi_ltse_commonheader_tcp_v1_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.commonheader.tcp.v1.2.unsequencedmessage", ftypes.STRING, nil, nil, nil, "Memx Tcp unsequenced message")
 
+-- Ltse CommonHeader Tcp 1.2 Expert Info
+ltse_commonheader_tcp_v1_2.experts = {}
+ltse_commonheader_tcp_v1_2.experts.undecoded = ProtoExpert.new("ltse.commonheader.tcp.v1.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_ltse_commonheader_tcp_v1_2.experts = { ltse_commonheader_tcp_v1_2.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
@@ -91,6 +96,19 @@ function omi_ltse_commonheader_tcp_v1_2.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Ltse CommonHeader Tcp 1.2 Fields
 -----------------------------------------------------------------------
@@ -319,7 +337,7 @@ ltse_commonheader_tcp_v1_2.payload.dissect = function(buffer, offset, packet, pa
   local value = range:bytes():tohex(false, " ")
   local display = ltse_commonheader_tcp_v1_2.payload.display(value, packet, parent, size)
 
-  parent:add(omi_ltse_commonheader_tcp_v1_2.fields.payload, range, value, display)
+  parent:add(omi_ltse_commonheader_tcp_v1_2.fields.payload, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -681,10 +699,16 @@ end
 ltse_commonheader_tcp_v1_2.sbe_message.dissect = function(buffer, offset, packet, parent, size_of_sbe_message)
   local index = offset + size_of_sbe_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_ltse_commonheader_tcp_v1_2.fields.sbe_message, buffer(offset, 0))
-    local current = ltse_commonheader_tcp_v1_2.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(ltse_commonheader_tcp_v1_2.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, ltse_commonheader_tcp_v1_2.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
     parent:set_len(size_of_sbe_message)
     local display = ltse_commonheader_tcp_v1_2.sbe_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -692,7 +716,10 @@ ltse_commonheader_tcp_v1_2.sbe_message.dissect = function(buffer, offset, packet
     return index, parent
   else
     -- Skip element, add fields directly
-    ltse_commonheader_tcp_v1_2.sbe_message.fields(buffer, offset, packet, parent, size_of_sbe_message)
+    local decoded, failure = pcall(ltse_commonheader_tcp_v1_2.sbe_message.fields, bounded, offset, packet, parent, size_of_sbe_message)
+    if not decoded then
+      undecoded(failure, parent, ltse_commonheader_tcp_v1_2.experts.undecoded, "Sbe Message does not decode within its "..size_of_sbe_message.." bytes")
+    end
 
     return index
   end
@@ -706,7 +733,8 @@ ltse_commonheader_tcp_v1_2.sequenced_message.size = function(buffer, offset)
   local index = 0
 
   -- Parse runtime size of: Sbe Message
-  index = index + buffer(offset + index - 0, 2):uint()
+  local block_length = buffer(offset + index - 0, 2):uint()
+  index = index + block_length + 6
 
   return index
 end
@@ -1126,7 +1154,8 @@ ltse_commonheader_tcp_v1_2.unsequenced_message.size = function(buffer, offset)
   local index = 0
 
   -- Parse runtime size of: Sbe Message
-  index = index + buffer(offset + index - 0, 2):uint()
+  local block_length = buffer(offset + index - 0, 2):uint()
+  index = index + block_length + 6
 
   return index
 end

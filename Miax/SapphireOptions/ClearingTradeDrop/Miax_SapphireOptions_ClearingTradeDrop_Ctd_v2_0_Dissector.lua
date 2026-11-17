@@ -101,7 +101,6 @@ omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.sesm_packet_length = 
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.sesm_packet_type = ProtoField.new("Sesm Packet Type", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.sesmpackettype", ftypes.STRING, nil, nil, nil, "SesM protocol packet type")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.sesm_version = ProtoField.new("Sesm Version", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.sesmversion", ftypes.STRING, nil, nil, nil, "1.1 (right padded with spaces)")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.session_id = ProtoField.new("Session Id", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.sessionid", ftypes.UINT8, nil, nil, nil, "The session ID of the session that is now logged into")
-omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.session_id = ProtoField.new("Session ID", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.sessionid", ftypes.UINT32, nil, nil, nil, "Sapphire assigned ID for the current trading session. A change in Session ID will mean that restarting at message sequence number 1.")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.side = ProtoField.new("Side", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.side", ftypes.STRING, nil, nil, nil, "The side of the trade on which this receiver was involved in.")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.size = ProtoField.new("Size", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.size", ftypes.UINT32, nil, nil, nil, "Number of option contracts or stock shares traded in this clearing trade. This is the corrected trade size if that size changed in a trade correction.")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.start_sequence_number = ProtoField.new("Start Sequence Number", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.startsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first packet to be retransmitted")
@@ -119,6 +118,7 @@ omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.trade_condition = Pro
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.trade_id = ProtoField.new("Trade Id", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.tradeid", ftypes.UINT32, nil, nil, nil, "Sapphire assigned unique Trade ID for the day. For corrections and cancels, this is the trade ID of the original trade. When used in conjunction with Correction Number, Side and Trade Action, this is a unique identifier for each clearing trade.")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.trade_time = ProtoField.new("Trade Time", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.tradetime", ftypes.UINT64, nil, nil, nil, "Automatic Trades: Time at which the Matching Engine created this trade. Will be same as Processing Time. Manual Trades: Trade Time of the new manual trade. Trades cancels, corrections: Trade Time of the original trade.")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.trade_type = ProtoField.new("Trade Type", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.tradetype", ftypes.STRING)
+omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.trading_session_id = ProtoField.new("Session Id", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.tradingsessionid", ftypes.UINT32, nil, nil, nil, "Sapphire assigned ID for the current trading session. A change in Session ID will mean that restarting at message sequence number 1.")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.transaction_id = ProtoField.new("Transaction Id", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.transactionid", ftypes.UINT32, nil, nil, nil, "All clearing trades generated from a single Engine transaction will have the same transaction ID")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying Symbol for the option or stock leg. Format for Stock Leg: OCC Options Underlying Symbol (default) or Stock Ticker Symbol (configurable)")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.underlying_type = ProtoField.new("Underlying Type", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.underlyingtype", ftypes.STRING)
@@ -148,6 +148,11 @@ omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.risk_notification_mes
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.system_state = ProtoField.new("System State", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.systemstate", ftypes.STRING, nil, nil, nil, "This message format is used to notify firms of the state changes of the system. Firms can use notifications as triggers in their system to ensure electronic synchronization of systems.")
 omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.trade_message = ProtoField.new("Trade Message", "miax.sapphireoptions.clearingtradedrop.ctd.v2.0.trademessage", ftypes.STRING, nil, nil, nil, "This is the message format that will be used to disseminate all Sapphire trade related content for entitled parties. Sapphire sends trades, trade corrections and trade cancels using this message. This is a sequenced message.")
 
+-- Miax SapphireOptions ClearingTradeDrop Ctd 2.0 Expert Info
+miax_sapphireoptions_clearingtradedrop_ctd_v2_0.experts = {}
+miax_sapphireoptions_clearingtradedrop_ctd_v2_0.experts.undecoded = ProtoExpert.new("miax.sapphireoptions.clearingtradedrop.ctd.v2.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.experts = { miax_sapphireoptions_clearingtradedrop_ctd_v2_0.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Miax SapphireOptions ClearingTradeDrop Ctd 2.0 Formatting
 -----------------------------------------------------------------------
@@ -156,11 +161,12 @@ omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.trade_message = Proto
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 miax_sapphireoptions_clearingtradedrop_ctd_v2_0.timestamp_format = 2
 
 
@@ -227,6 +233,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Miax SapphireOptions ClearingTradeDrop Ctd 2.0 Fields
 -----------------------------------------------------------------------
@@ -1820,10 +1834,15 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.notification_time.display = func
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_sapphireoptions_clearingtradedrop_ctd_v2_0.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Notification Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Notification Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Notification Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2045,10 +2064,15 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.processing_time.display = functi
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_sapphireoptions_clearingtradedrop_ctd_v2_0.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Processing Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Processing Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Processing Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2193,10 +2217,15 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reference_trade_time.display = f
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_sapphireoptions_clearingtradedrop_ctd_v2_0.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Reference Trade Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Reference Trade Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Reference Trade Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -2280,7 +2309,7 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reserved_11.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reserved_11.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.reserved_11, range, value, display)
+  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.reserved_11, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2303,7 +2332,7 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reserved_14.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reserved_14.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.reserved_14, range, value, display)
+  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.reserved_14, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2326,7 +2355,7 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reserved_16.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.reserved_16, range, value, display)
+  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2349,7 +2378,7 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reserved_32.dissect = function(b
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reserved_32.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.reserved_32, range, value, display)
+  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.reserved_32, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2372,7 +2401,7 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reserved_8.dissect = function(bu
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.reserved_8, range, value, display)
+  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2471,7 +2500,7 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.second_reserved_14.dissect = fun
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.second_reserved_14.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.second_reserved_14, range, value, display)
+  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.second_reserved_14, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2494,7 +2523,7 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.second_reserved_16.dissect = fun
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.second_reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.second_reserved_16, range, value, display)
+  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.second_reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2517,7 +2546,7 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.second_reserved_8.dissect = func
   local value = range:bytes():tohex(false, " ")
   local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.second_reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.second_reserved_8, range, value, display)
+  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.second_reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2697,29 +2726,6 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id.dissect = function(bu
   local length = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.session_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Session ID
-miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id = {}
-
--- Size: Session ID
-miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id.size = 4
-
--- Display: Session ID
-miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id.display = function(value)
-  return "Session ID: "..value
-end
-
--- Dissect: Session ID
-miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id.dissect = function(buffer, offset, packet, parent)
-  local length = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
   local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.session_id, range, value, display)
@@ -3270,10 +3276,15 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trade_time.display = function(va
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
+      -- The zone's own date and clock, in the zone it keeps
+      if miax_sapphireoptions_clearingtradedrop_ctd_v2_0.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Trade Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Trade Time: "..os.date(format, midnight + seconds)..string.format("%09d", nanoseconds)
+      return "Trade Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
   end
 
@@ -3317,6 +3328,29 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trade_type.dissect = function(bu
   local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trade_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.trade_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Session Id
+miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trading_session_id = {}
+
+-- Size: Trading Session Id
+miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trading_session_id.size = 4
+
+-- Display: Trading Session Id
+miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trading_session_id.display = function(value)
+  return "Session Id: "..value
+end
+
+-- Dissect: Trading Session Id
+miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trading_session_id.dissect = function(buffer, offset, packet, parent)
+  local length = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trading_session_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trading_session_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.trading_session_id, range, value, display)
 
   return offset + length, value
 end
@@ -3459,7 +3493,8 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.test_packet.size = function(buff
   local index = 0
 
   -- Parse runtime size of: Test Text
-  index = index + buffer(offset + index - 3, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 3, 2):le_uint()
+  index = index + sesm_packet_length - 1
 
   return index
 end
@@ -3564,7 +3599,8 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.goodbye_packet.size = function(b
   index = index + miax_sapphireoptions_clearingtradedrop_ctd_v2_0.goodbye_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + sesm_packet_length - 2
 
   return index
 end
@@ -3621,7 +3657,8 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.logout_request.size = function(b
   index = index + miax_sapphireoptions_clearingtradedrop_ctd_v2_0.logout_reason.size
 
   -- Parse runtime size of: Logout Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
+  local sesm_packet_length = buffer(offset + index - 4, 2):le_uint()
+  index = index + sesm_packet_length - 2
 
   return index
 end
@@ -4359,7 +4396,7 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.system_state = {}
 miax_sapphireoptions_clearingtradedrop_ctd_v2_0.system_state.size =
   miax_sapphireoptions_clearingtradedrop_ctd_v2_0.notification_time.size + 
   miax_sapphireoptions_clearingtradedrop_ctd_v2_0.ctd_version.size + 
-  miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id.size + 
+  miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trading_session_id.size + 
   miax_sapphireoptions_clearingtradedrop_ctd_v2_0.system_status.size
 
 -- Display: System State
@@ -4377,8 +4414,8 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.system_state.fields = function(b
   -- Ctd Version: Alphanumeric
   index, ctd_version = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.ctd_version.dissect(buffer, index, packet, parent)
 
-  -- Session ID: BinaryU
-  index, session_id = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.session_id.dissect(buffer, index, packet, parent)
+  -- Trading Session Id: BinaryU
+  index, trading_session_id = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.trading_session_id.dissect(buffer, index, packet, parent)
 
   -- System Status: Alphanumeric
   index, system_status = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.system_status.dissect(buffer, index, packet, parent)
@@ -4581,10 +4618,16 @@ end
 miax_sapphireoptions_clearingtradedrop_ctd_v2_0.sesm_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
   local index = offset + size_of_sesm_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_miax_sapphireoptions_clearingtradedrop_ctd_v2_0.fields.sesm_tcp_packet, buffer(offset, 0))
-    local current = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    local decoded, failure = pcall(miax_sapphireoptions_clearingtradedrop_ctd_v2_0.sesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_sesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_sapphireoptions_clearingtradedrop_ctd_v2_0.experts.undecoded, "Sesm Tcp Packet does not decode within its "..size_of_sesm_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_sesm_tcp_packet)
     local display = miax_sapphireoptions_clearingtradedrop_ctd_v2_0.sesm_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -4592,7 +4635,10 @@ miax_sapphireoptions_clearingtradedrop_ctd_v2_0.sesm_tcp_packet.dissect = functi
     return index, parent
   else
     -- Skip element, add fields directly
-    miax_sapphireoptions_clearingtradedrop_ctd_v2_0.sesm_tcp_packet.fields(buffer, offset, packet, parent, size_of_sesm_tcp_packet)
+    local decoded, failure = pcall(miax_sapphireoptions_clearingtradedrop_ctd_v2_0.sesm_tcp_packet.fields, bounded, offset, packet, parent, size_of_sesm_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, miax_sapphireoptions_clearingtradedrop_ctd_v2_0.experts.undecoded, "Sesm Tcp Packet does not decode within its "..size_of_sesm_tcp_packet.." bytes")
+    end
 
     return index
   end

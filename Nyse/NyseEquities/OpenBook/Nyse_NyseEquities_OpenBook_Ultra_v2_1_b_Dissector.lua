@@ -88,6 +88,11 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.delta_update_message_index = 
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.full_update_message_index = ProtoField.new("Full Update Message Index", "nyse.nyseequities.openbook.ultra.v2.1.b.fullupdatemessageindex", ftypes.UINT16)
 omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.symbol_index_mapping_response_message_index = ProtoField.new("Symbol Index Mapping Response Message Index", "nyse.nyseequities.openbook.ultra.v2.1.b.symbolindexmappingresponsemessageindex", ftypes.UINT16)
 
+-- Nyse NyseEquities OpenBook Ultra 2.1.b Expert Info
+nyse_nyseequities_openbook_ultra_v2_1_b.experts = {}
+nyse_nyseequities_openbook_ultra_v2_1_b.experts.undecoded = ProtoExpert.new("nyse.nyseequities.openbook.ultra.v2.1.b.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nyse_nyseequities_openbook_ultra_v2_1_b.experts = { nyse_nyseequities_openbook_ultra_v2_1_b.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nyse NyseEquities OpenBook Ultra 2.1.b Formatting
 -----------------------------------------------------------------------
@@ -96,11 +101,11 @@ omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.symbol_index_mapping_response
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
-  { 3, "Full DateTime Local", 2 },
-  { 4, "Full DateTime Utc", 3 }
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_nyseequities_openbook_ultra_v2_1_b.timestamp_format = 2
 
 
@@ -156,6 +161,19 @@ function omi_nyse_nyseequities_openbook_ultra_v2_1_b.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nyse NyseEquities OpenBook Ultra 2.1.b Fields
 -----------------------------------------------------------------------
@@ -270,7 +288,7 @@ nyse_nyseequities_openbook_ultra_v2_1_b.filler_1.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_openbook_ultra_v2_1_b.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.filler_1, range, value, display)
+  parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -293,7 +311,7 @@ nyse_nyseequities_openbook_ultra_v2_1_b.filler_2.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_openbook_ultra_v2_1_b.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.filler_2, range, value, display)
+  parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -622,7 +640,7 @@ nyse_nyseequities_openbook_ultra_v2_1_b.product_id.size = 1
 -- Display: Product Id
 nyse_nyseequities_openbook_ultra_v2_1_b.product_id.display = function(value)
   if value == 12 then
-    return "Product Id: Nyse OpenBook Ultra"
+    return "Product Id: Nyse OpenBook Ultra (12)"
   end
 
   return "Product Id: Unknown("..value..")"
@@ -808,7 +826,7 @@ nyse_nyseequities_openbook_ultra_v2_1_b.reserved_1.dissect = function(buffer, of
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_openbook_ultra_v2_1_b.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.reserved_1, range, value, display)
+  parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1013,10 +1031,8 @@ nyse_nyseequities_openbook_ultra_v2_1_b.source_time.display = function(value, bu
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
-      local midnight = math.floor(settled / 86400 + 0.5) * 86400
-
       local format = nyse_nyseequities_openbook_ultra_v2_1_b.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
-      return "Source Time: "..os.date(format, midnight + seconds)..string.format("%03d", milliseconds)
+      return "Source Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
   end
 
@@ -1474,10 +1490,16 @@ end
 nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_message_body.dissect = function(buffer, offset, packet, parent, size_of_delta_update_message_body)
   local index = offset + size_of_delta_update_message_body
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.application_messages then
     parent = parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.delta_update_message_body, buffer(offset, 0))
-    local current = nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_message_body.fields(buffer, offset, packet, parent, size_of_delta_update_message_body)
+    local decoded, failure = pcall(nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_message_body.fields, bounded, offset, packet, parent, size_of_delta_update_message_body)
+    if not decoded then
+      undecoded(failure, parent, nyse_nyseequities_openbook_ultra_v2_1_b.experts.undecoded, "Delta Update Message Body does not decode within its "..size_of_delta_update_message_body.." bytes")
+    end
     parent:set_len(size_of_delta_update_message_body)
     local display = nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_message_body.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1485,7 +1507,10 @@ nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_message_body.dissect = func
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_message_body.fields(buffer, offset, packet, parent, size_of_delta_update_message_body)
+    local decoded, failure = pcall(nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_message_body.fields, bounded, offset, packet, parent, size_of_delta_update_message_body)
+    if not decoded then
+      undecoded(failure, parent, nyse_nyseequities_openbook_ultra_v2_1_b.experts.undecoded, "Delta Update Message Body does not decode within its "..size_of_delta_update_message_body.." bytes")
+    end
 
     return index
   end
@@ -1501,7 +1526,8 @@ nyse_nyseequities_openbook_ultra_v2_1_b.delta_update_message.size = function(buf
   index = index + nyse_nyseequities_openbook_ultra_v2_1_b.delta_size.size
 
   -- Parse runtime size of: Delta Update Message Body
-  index = index + buffer(offset + index - 2, 2):int()
+  local delta_size = buffer(offset + index - 2, 2):int()
+  index = index + delta_size - 2
 
   return index
 end
@@ -1730,10 +1756,16 @@ end
 nyse_nyseequities_openbook_ultra_v2_1_b.full_update_message_body.dissect = function(buffer, offset, packet, parent, size_of_full_update_message_body)
   local index = offset + size_of_full_update_message_body
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.application_messages then
     parent = parent:add(omi_nyse_nyseequities_openbook_ultra_v2_1_b.fields.full_update_message_body, buffer(offset, 0))
-    local current = nyse_nyseequities_openbook_ultra_v2_1_b.full_update_message_body.fields(buffer, offset, packet, parent, size_of_full_update_message_body)
+    local decoded, failure = pcall(nyse_nyseequities_openbook_ultra_v2_1_b.full_update_message_body.fields, bounded, offset, packet, parent, size_of_full_update_message_body)
+    if not decoded then
+      undecoded(failure, parent, nyse_nyseequities_openbook_ultra_v2_1_b.experts.undecoded, "Full Update Message Body does not decode within its "..size_of_full_update_message_body.." bytes")
+    end
     parent:set_len(size_of_full_update_message_body)
     local display = nyse_nyseequities_openbook_ultra_v2_1_b.full_update_message_body.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1741,7 +1773,10 @@ nyse_nyseequities_openbook_ultra_v2_1_b.full_update_message_body.dissect = funct
     return index, parent
   else
     -- Skip element, add fields directly
-    nyse_nyseequities_openbook_ultra_v2_1_b.full_update_message_body.fields(buffer, offset, packet, parent, size_of_full_update_message_body)
+    local decoded, failure = pcall(nyse_nyseequities_openbook_ultra_v2_1_b.full_update_message_body.fields, bounded, offset, packet, parent, size_of_full_update_message_body)
+    if not decoded then
+      undecoded(failure, parent, nyse_nyseequities_openbook_ultra_v2_1_b.experts.undecoded, "Full Update Message Body does not decode within its "..size_of_full_update_message_body.." bytes")
+    end
 
     return index
   end
@@ -1757,7 +1792,8 @@ nyse_nyseequities_openbook_ultra_v2_1_b.full_update_message.size = function(buff
   index = index + nyse_nyseequities_openbook_ultra_v2_1_b.update_size.size
 
   -- Parse runtime size of: Full Update Message Body
-  index = index + buffer(offset + index - 2, 2):int()
+  local update_size = buffer(offset + index - 2, 2):int()
+  index = index + update_size - 2
 
   return index
 end

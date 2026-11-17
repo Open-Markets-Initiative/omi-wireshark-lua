@@ -78,17 +78,22 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_message = ProtoField.new("Trad
 -- A2X A2XEquities Rtmdf Amd 1.3.2 Generated Fields
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message_index = ProtoField.new("Message Index", "a2x.a2xequities.rtmdf.amd.v1.3.2.messageindex", ftypes.UINT16)
 
+-- A2X A2XEquities Rtmdf Amd 1.3.2 Expert Info
+a2x_a2xequities_rtmdf_amd_v1_3_2.experts = {}
+a2x_a2xequities_rtmdf_amd_v1_3_2.experts.undecoded = ProtoExpert.new("a2x.a2xequities.rtmdf.amd.v1.3.2.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.experts = { a2x_a2xequities_rtmdf_amd_v1_3_2.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- A2X A2XEquities Rtmdf Amd 1.3.2 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp_format = 2
 
 
@@ -134,6 +139,19 @@ function omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- A2X A2XEquities Rtmdf Amd 1.3.2 Fields
 -----------------------------------------------------------------------
@@ -1760,10 +1778,16 @@ end
 a2x_a2xequities_rtmdf_amd_v1_3_2.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.message, buffer(offset, 0))
-    local current = a2x_a2xequities_rtmdf_amd_v1_3_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(a2x_a2xequities_rtmdf_amd_v1_3_2.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, a2x_a2xequities_rtmdf_amd_v1_3_2.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = a2x_a2xequities_rtmdf_amd_v1_3_2.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -1771,7 +1795,10 @@ a2x_a2xequities_rtmdf_amd_v1_3_2.message.dissect = function(buffer, offset, pack
     return index, parent
   else
     -- Skip element, add fields directly
-    a2x_a2xequities_rtmdf_amd_v1_3_2.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(a2x_a2xequities_rtmdf_amd_v1_3_2.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, a2x_a2xequities_rtmdf_amd_v1_3_2.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

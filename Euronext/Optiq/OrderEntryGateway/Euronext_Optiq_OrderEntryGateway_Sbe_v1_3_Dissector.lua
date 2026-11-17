@@ -265,8 +265,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.uncrossing_trade = ProtoFie
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "euronext.optiq.orderentrygateway.sbe.v1.3.underlyinginstrumentid", ftypes.UINT32, nil, nil, nil, "underlyingInstrumentID")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.undisclosed_iceberg_type = ProtoField.new("Undisclosed Iceberg Type", "euronext.optiq.orderentrygateway.sbe.v1.3.undisclosedicebergtype", ftypes.UINT8, nil, nil, nil, "undisclosedIcebergType")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.undisclosed_price = ProtoField.new("Undisclosed Price", "euronext.optiq.orderentrygateway.sbe.v1.3.undisclosedprice", ftypes.INT64, nil, nil, nil, "undisclosedPrice")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_trade_qualifierset_7 = ProtoField.new("Unused Trade Qualifierset 7", "euronext.optiq.orderentrygateway.sbe.v1.3.unusedtradequalifierset7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Unused TradeQualifier_set 7")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_trading_session_validityset_0 = ProtoField.new("Unused Trading Session Validityset 0", "euronext.optiq.orderentrygateway.sbe.v1.3.unusedtradingsessionvalidityset0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Unused TradingSessionValidity_set 0")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_1 = ProtoField.new("Unused 1", "euronext.optiq.orderentrygateway.sbe.v1.3.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "1 unused bit")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.user_status = ProtoField.new("User Status", "euronext.optiq.orderentrygateway.sbe.v1.3.userstatus", ftypes.UINT8, nil, nil, nil, "userStatus")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.version = ProtoField.new("Version", "euronext.optiq.orderentrygateway.sbe.v1.3.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.waiver_indicator = ProtoField.new("Waiver Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.waiverindicator", ftypes.STRING, nil, nil, nil, "WaiverIndicator_set bit set")
@@ -291,7 +290,6 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.declaration_notice_message 
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fill_message = ProtoField.new("Fill Message", "euronext.optiq.orderentrygateway.sbe.v1.3.fillmessage", ftypes.STRING, nil, nil, nil, "FillMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fund_price_input_ack_message = ProtoField.new("Fund Price Input Ack Message", "euronext.optiq.orderentrygateway.sbe.v1.3.fundpriceinputackmessage", ftypes.STRING, nil, nil, nil, "FundPriceInputAckMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.fund_price_input_message = ProtoField.new("Fund Price Input Message", "euronext.optiq.orderentrygateway.sbe.v1.3.fundpriceinputmessage", ftypes.STRING, nil, nil, nil, "FundPriceInputMessage")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "euronext.optiq.orderentrygateway.sbe.v1.3.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "HeartbeatMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.instrument_synchronization_list_message = ProtoField.new("Instrument Synchronization List Message", "euronext.optiq.orderentrygateway.sbe.v1.3.instrumentsynchronizationlistmessage", ftypes.STRING, nil, nil, nil, "InstrumentSynchronizationListMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.kill_message = ProtoField.new("Kill Message", "euronext.optiq.orderentrygateway.sbe.v1.3.killmessage", ftypes.STRING, nil, nil, nil, "KillMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.liquidity_provider_command_message = ProtoField.new("Liquidity Provider Command Message", "euronext.optiq.orderentrygateway.sbe.v1.3.liquidityprovidercommandmessage", ftypes.STRING, nil, nil, nil, "LiquidityProviderCommandMessage")
@@ -315,9 +313,12 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_matching_status_message
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_notification_message = ProtoField.new("Rfq Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.rfqnotificationmessage", ftypes.STRING, nil, nil, nil, "RFQNotificationMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.synchronization_time_message = ProtoField.new("Synchronization Time Message", "euronext.optiq.orderentrygateway.sbe.v1.3.synchronizationtimemessage", ftypes.STRING, nil, nil, nil, "SynchronizationTimeMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.technical_reject_message = ProtoField.new("Technical Reject Message", "euronext.optiq.orderentrygateway.sbe.v1.3.technicalrejectmessage", ftypes.STRING, nil, nil, nil, "TechnicalRejectMessage")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.test_request_message = ProtoField.new("Test Request Message", "euronext.optiq.orderentrygateway.sbe.v1.3.testrequestmessage", ftypes.BYTES, nil, nil, nil, "TestRequestMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.trade_bust_notification_message = ProtoField.new("Trade Bust Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.tradebustnotificationmessage", ftypes.STRING, nil, nil, nil, "TradeBustNotificationMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.user_notification_message = ProtoField.new("User Notification Message", "euronext.optiq.orderentrygateway.sbe.v1.3.usernotificationmessage", ftypes.STRING, nil, nil, nil, "UserNotificationMessage")
+
+-- Euronext Optiq OrderEntryGateway 1.3 Session Messages
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "euronext.optiq.orderentrygateway.sbe.v1.3.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "HeartbeatMessage")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.test_request_message = ProtoField.new("Test Request Message", "euronext.optiq.orderentrygateway.sbe.v1.3.testrequestmessage", ftypes.BYTES, nil, nil, nil, "TestRequestMessage")
 
 -- Euronext Optiq OrderEntryGateway Sbe 1.3 Generated Fields
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.cancel_replace_clearing_fields_group_index = ProtoField.new("Cancel Replace Clearing Fields Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.cancelreplaceclearingfieldsgroupindex", ftypes.UINT16)
@@ -334,17 +335,22 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.order_optional_fields_group
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quote_acks_group_index = ProtoField.new("Quote Acks Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.quoteacksgroupindex", ftypes.UINT16)
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.quotes_rep_group_index = ProtoField.new("Quotes Rep Group Index", "euronext.optiq.orderentrygateway.sbe.v1.3.quotesrepgroupindex", ftypes.UINT16)
 
+-- Euronext Optiq OrderEntryGateway Sbe 1.3 Expert Info
+euronext_optiq_orderentrygateway_sbe_v1_3.experts = {}
+euronext_optiq_orderentrygateway_sbe_v1_3.experts.undecoded = ProtoExpert.new("euronext.optiq.orderentrygateway.sbe.v1.3.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.experts = { euronext_optiq_orderentrygateway_sbe_v1_3.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Euronext Optiq OrderEntryGateway Sbe 1.3 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 euronext_optiq_orderentrygateway_sbe_v1_3.timestamp_format = 2
 
 
@@ -395,6 +401,19 @@ function omi_euronext_optiq_orderentrygateway_sbe_v1_3.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Euronext Optiq OrderEntryGateway Sbe 1.3 Fields
 -----------------------------------------------------------------------
@@ -4478,7 +4497,7 @@ euronext_optiq_orderentrygateway_sbe_v1_3.schema_id.size = 2
 -- Display: Schema Id
 euronext_optiq_orderentrygateway_sbe_v1_3.schema_id.display = function(value)
   if value == 0 then
-    return "Schema Id: 0"
+    return "Schema Id: Com Euronext Optiq Dd (0)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -9434,8 +9453,8 @@ end
 -- Dissect Bit Fields: Trading Session
 euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.bits = function(range, value, packet, parent)
 
-  -- Unused Trading Session Validityset 0: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_trading_session_validityset_0, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_1, range, value)
 
   -- Session 1: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_1, range, value)
@@ -10404,8 +10423,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.bits = function(range,
   -- Nav Trade Expressed In Price Currency: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nav_trade_expressed_in_price_currency, range, value)
 
-  -- Unused Trade Qualifierset 7: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_trade_qualifierset_7, range, value)
+  -- Unused 1: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_1, range, value)
 end
 
 -- Dissect: Trade Qualifier
@@ -11338,10 +11357,16 @@ end
 euronext_optiq_orderentrygateway_sbe_v1_3.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.message, buffer(offset, 0))
-    local current = euronext_optiq_orderentrygateway_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(euronext_optiq_orderentrygateway_sbe_v1_3.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, euronext_optiq_orderentrygateway_sbe_v1_3.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = euronext_optiq_orderentrygateway_sbe_v1_3.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -11349,7 +11374,10 @@ euronext_optiq_orderentrygateway_sbe_v1_3.message.dissect = function(buffer, off
     return index, parent
   else
     -- Skip element, add fields directly
-    euronext_optiq_orderentrygateway_sbe_v1_3.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(euronext_optiq_orderentrygateway_sbe_v1_3.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, euronext_optiq_orderentrygateway_sbe_v1_3.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end

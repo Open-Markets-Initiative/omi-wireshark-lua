@@ -16,7 +16,7 @@ local moex_spectra_futinfoincremental_simba_v8_0_0 = {}
 
 -- Moex Spectra FutInfoIncremental Simba 8.0.0 Fields
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.auction_id = ProtoField.new("Auction Id", "moex.spectra.futinfoincremental.simba.v8.0.0.auctionid", ftypes.INT64, nil, nil, nil, "AuctionID")
-omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.base_contract_id_int_32_null_optional = ProtoField.new("Base Contract Id Int 32 Null optional", "moex.spectra.futinfoincremental.simba.v8.0.0.basecontractidint32nulloptional", ftypes.INT32, nil, nil, nil, "BaseContractID")
+omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.base_contract_id_optional = ProtoField.new("Base Contract Id Optional", "moex.spectra.futinfoincremental.simba.v8.0.0.basecontractidoptional", ftypes.INT32, nil, nil, nil, "BaseContractID")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.block_length = ProtoField.new("Block Length", "moex.spectra.futinfoincremental.simba.v8.0.0.blocklength", ftypes.UINT16, nil, nil, nil, "blockLength")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.clr_sess_begin = ProtoField.new("Clr Sess Begin", "moex.spectra.futinfoincremental.simba.v8.0.0.clrsessbegin", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "ClrSessBegin")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.clr_sess_begin_utc = ProtoField.new("Clr Sess Begin", "moex.spectra.futinfoincremental.simba.v8.0.0.clrsessbegin.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "ClrSessBegin")
@@ -25,10 +25,10 @@ omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.discrete_auction_message
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.end_of_snapshot = ProtoField.new("End Of Snapshot", "moex.spectra.futinfoincremental.simba.v8.0.0.endofsnapshot", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "EndOfSnapshot")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.event_id_close = ProtoField.new("Event Id Close", "moex.spectra.futinfoincremental.simba.v8.0.0.eventidclose", ftypes.INT32, nil, nil, nil, "EventIDClose")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.event_id_open = ProtoField.new("Event Id Open", "moex.spectra.futinfoincremental.simba.v8.0.0.eventidopen", ftypes.INT32, nil, nil, nil, "EventIDOpen")
-omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.exchange_trading_session_i_d_uint_32_optional = ProtoField.new("Exchange Trading Session I D uint 32 optional", "moex.spectra.futinfoincremental.simba.v8.0.0.exchangetradingsessioniduint32optional", ftypes.UINT32, nil, nil, nil, "ExchangeTradingSessionID")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.exchange_trading_session_id_int_32 = ProtoField.new("Exchange Trading Session Id Int 32", "moex.spectra.futinfoincremental.simba.v8.0.0.exchangetradingsessionidint32", ftypes.INT32, nil, nil, nil, "ExchangeTradingSessionID")
-omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.exchange_trading_session_id_int_32_null_optional = ProtoField.new("Exchange Trading Session Id Int 32 Null optional", "moex.spectra.futinfoincremental.simba.v8.0.0.exchangetradingsessionidint32nulloptional", ftypes.INT32, nil, nil, nil, "ExchangeTradingSessionID")
-omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.group_mask_int_64_null_optional = ProtoField.new("Group Mask Int 64 Null optional", "moex.spectra.futinfoincremental.simba.v8.0.0.groupmaskint64nulloptional", ftypes.INT64, nil, nil, nil, "GroupMask")
+omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.exchange_trading_session_id_int_32_null_optional = ProtoField.new("Exchange Trading Session Id Int 32 Null Optional", "moex.spectra.futinfoincremental.simba.v8.0.0.exchangetradingsessionidint32nulloptional", ftypes.INT32, nil, nil, nil, "ExchangeTradingSessionID")
+omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.exchange_trading_session_id_optional = ProtoField.new("Exchange Trading Session Id Optional", "moex.spectra.futinfoincremental.simba.v8.0.0.exchangetradingsessionidoptional", ftypes.UINT32, nil, nil, nil, "ExchangeTradingSessionID")
+omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.group_mask_optional = ProtoField.new("Group Mask Optional", "moex.spectra.futinfoincremental.simba.v8.0.0.groupmaskoptional", ftypes.INT64, nil, nil, nil, "GroupMask")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.group_size = ProtoField.new("Group Size", "moex.spectra.futinfoincremental.simba.v8.0.0.groupsize", ftypes.STRING, nil, nil, nil, "groupSize")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.group_size_2 = ProtoField.new("Group Size 2", "moex.spectra.futinfoincremental.simba.v8.0.0.groupsize2", ftypes.STRING, nil, nil, nil, "groupSize2")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.halt_type = ProtoField.new("Halt Type", "moex.spectra.futinfoincremental.simba.v8.0.0.halttype", ftypes.UINT8, nil, nil, nil, "HaltType")
@@ -51,7 +51,7 @@ omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.num_in_group_uint_8 = Pr
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.poss_dup_flag = ProtoField.new("Poss Dup Flag", "moex.spectra.futinfoincremental.simba.v8.0.0.possdupflag", ftypes.UINT16, {[0]="Online Updates", [1]="Full Order Books"}, base.DEC, 0x0010, "PossDupFlag")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "moex.spectra.futinfoincremental.simba.v8.0.0.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFFE0, "Bits the schema's MsgFlagsSet leaves unused")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.schema_id = ProtoField.new("Schema Id", "moex.spectra.futinfoincremental.simba.v8.0.0.schemaid", ftypes.UINT16, nil, nil, nil, "Message schema identifier")
-omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.section_id_int_32_null_optional = ProtoField.new("Section Id Int 32 Null optional", "moex.spectra.futinfoincremental.simba.v8.0.0.sectionidint32nulloptional", ftypes.INT32, nil, nil, nil, "SectionID")
+omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.section_id_optional = ProtoField.new("Section Id Optional", "moex.spectra.futinfoincremental.simba.v8.0.0.sectionidoptional", ftypes.INT32, nil, nil, nil, "SectionID")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.security_group_id = ProtoField.new("Security Group Id", "moex.spectra.futinfoincremental.simba.v8.0.0.securitygroupid", ftypes.INT64, nil, nil, nil, "SecurityGroupID")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.security_id = ProtoField.new("Security Id", "moex.spectra.futinfoincremental.simba.v8.0.0.securityid", ftypes.INT32, nil, nil, nil, "SecurityID")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.security_mass_status_message_no_related_sym_group = ProtoField.new("Security Mass Status Message No Related Sym Group", "moex.spectra.futinfoincremental.simba.v8.0.0.securitymassstatusmessagenorelatedsymgroup", ftypes.STRING, nil, nil, nil, "NoRelatedSym")
@@ -93,12 +93,14 @@ omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.udp_packet = ProtoField.
 
 -- Moex Spectra FutInfoIncremental 8.0.0 Application Messages
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.discrete_auction_message = ProtoField.new("Discrete Auction Message", "moex.spectra.futinfoincremental.simba.v8.0.0.discreteauctionmessage", ftypes.STRING, nil, nil, nil, "DiscreteAuctionMessage")
-omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "moex.spectra.futinfoincremental.simba.v8.0.0.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "HeartbeatMessage")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.security_group_status_message = ProtoField.new("Security Group Status Message", "moex.spectra.futinfoincremental.simba.v8.0.0.securitygroupstatusmessage", ftypes.STRING, nil, nil, nil, "SecurityGroupStatusMessage")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.security_mass_status_message = ProtoField.new("Security Mass Status Message", "moex.spectra.futinfoincremental.simba.v8.0.0.securitymassstatusmessage", ftypes.STRING, nil, nil, nil, "SecurityMassStatusMessage")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.security_status_message = ProtoField.new("Security Status Message", "moex.spectra.futinfoincremental.simba.v8.0.0.securitystatusmessage", ftypes.STRING, nil, nil, nil, "SecurityStatusMessage")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.sequence_reset_message = ProtoField.new("Sequence Reset Message", "moex.spectra.futinfoincremental.simba.v8.0.0.sequenceresetmessage", ftypes.STRING, nil, nil, nil, "SequenceResetMessage")
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.trading_session_status_message = ProtoField.new("Trading Session Status Message", "moex.spectra.futinfoincremental.simba.v8.0.0.tradingsessionstatusmessage", ftypes.STRING, nil, nil, nil, "TradingSessionStatusMessage")
+
+-- Moex Spectra FutInfoIncremental 8.0.0 Session Messages
+omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "moex.spectra.futinfoincremental.simba.v8.0.0.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "HeartbeatMessage")
 
 -- Moex Spectra FutInfoIncremental Simba 8.0.0 Generated Fields
 omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.discrete_auction_message_no_underlyings_group_index = ProtoField.new("Discrete Auction Message No Underlyings Group Index", "moex.spectra.futinfoincremental.simba.v8.0.0.discreteauctionmessagenounderlyingsgroupindex", ftypes.UINT16)
@@ -110,11 +112,11 @@ omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.security_mass_status_mes
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 moex_spectra_futinfoincremental_simba_v8_0_0.timestamp_format = 2
 
 
@@ -192,30 +194,30 @@ moex_spectra_futinfoincremental_simba_v8_0_0.auction_id.dissect = function(buffe
   return offset + length, value
 end
 
--- Base Contract Id Int 32 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_int_32_null_optional = {}
+-- Base Contract Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_optional = {}
 
--- Size: Base Contract Id Int 32 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_int_32_null_optional.size = 4
+-- Size: Base Contract Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_optional.size = 4
 
--- Display: Base Contract Id Int 32 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_int_32_null_optional.display = function(value)
+-- Display: Base Contract Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_optional.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Base Contract Id Int 32 Null optional: No Value"
+    return "Base Contract Id Optional: No Value"
   end
 
-  return "Base Contract Id Int 32 Null optional: "..value
+  return "Base Contract Id Optional: "..value
 end
 
--- Dissect: Base Contract Id Int 32 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_int_32_null_optional.dissect = function(buffer, offset, packet, parent)
-  local length = moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_int_32_null_optional.size
+-- Dissect: Base Contract Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_optional.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_int_32_null_optional.display(value, buffer, offset, packet, parent)
+  local display = moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.base_contract_id_int_32_null_optional, range, value, display)
+  parent:add(omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.base_contract_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -336,34 +338,6 @@ moex_spectra_futinfoincremental_simba_v8_0_0.event_id_open.dissect = function(bu
   return offset + length, value
 end
 
--- Exchange Trading Session I D uint 32 optional
-moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_i_d_uint_32_optional = {}
-
--- Size: Exchange Trading Session I D uint 32 optional
-moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_i_d_uint_32_optional.size = 4
-
--- Display: Exchange Trading Session I D uint 32 optional
-moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_i_d_uint_32_optional.display = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Exchange Trading Session I D uint 32 optional: No Value"
-  end
-
-  return "Exchange Trading Session I D uint 32 optional: "..value
-end
-
--- Dissect: Exchange Trading Session I D uint 32 optional
-moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_i_d_uint_32_optional.dissect = function(buffer, offset, packet, parent)
-  local length = moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_i_d_uint_32_optional.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_i_d_uint_32_optional.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.exchange_trading_session_i_d_uint_32_optional, range, value, display)
-
-  return offset + length, value
-end
-
 -- Exchange Trading Session Id Int 32
 moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_int_32 = {}
 
@@ -387,23 +361,23 @@ moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_int_32.
   return offset + length, value
 end
 
--- Exchange Trading Session Id Int 32 Null optional
+-- Exchange Trading Session Id Int 32 Null Optional
 moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_int_32_null_optional = {}
 
--- Size: Exchange Trading Session Id Int 32 Null optional
+-- Size: Exchange Trading Session Id Int 32 Null Optional
 moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_int_32_null_optional.size = 4
 
--- Display: Exchange Trading Session Id Int 32 Null optional
+-- Display: Exchange Trading Session Id Int 32 Null Optional
 moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_int_32_null_optional.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Exchange Trading Session Id Int 32 Null optional: No Value"
+    return "Exchange Trading Session Id Int 32 Null Optional: No Value"
   end
 
-  return "Exchange Trading Session Id Int 32 Null optional: "..value
+  return "Exchange Trading Session Id Int 32 Null Optional: "..value
 end
 
--- Dissect: Exchange Trading Session Id Int 32 Null optional
+-- Dissect: Exchange Trading Session Id Int 32 Null Optional
 moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_int_32_null_optional.dissect = function(buffer, offset, packet, parent)
   local length = moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_int_32_null_optional.size
   local range = buffer(offset, length)
@@ -415,30 +389,58 @@ moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_int_32_
   return offset + length, value
 end
 
--- Group Mask Int 64 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_int_64_null_optional = {}
+-- Exchange Trading Session Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_optional = {}
 
--- Size: Group Mask Int 64 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_int_64_null_optional.size = 8
+-- Size: Exchange Trading Session Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_optional.size = 4
 
--- Display: Group Mask Int 64 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_int_64_null_optional.display = function(value)
+-- Display: Exchange Trading Session Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_optional.display = function(value)
   -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Group Mask Int 64 Null optional: No Value"
+  if value == 4294967295 then
+    return "Exchange Trading Session Id Optional: No Value"
   end
 
-  return "Group Mask Int 64 Null optional: "..value
+  return "Exchange Trading Session Id Optional: "..value
 end
 
--- Dissect: Group Mask Int 64 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_int_64_null_optional.dissect = function(buffer, offset, packet, parent)
-  local length = moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_int_64_null_optional.size
+-- Dissect: Exchange Trading Session Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_optional.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_optional.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.exchange_trading_session_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Group Mask Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_optional = {}
+
+-- Size: Group Mask Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_optional.size = 8
+
+-- Display: Group Mask Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_optional.display = function(value)
+  -- Check if field has value
+  if value == Int64(0x00000000, 0x80000000) then
+    return "Group Mask Optional: No Value"
+  end
+
+  return "Group Mask Optional: "..value
+end
+
+-- Dissect: Group Mask Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_optional.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_optional.size
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_int_64_null_optional.display(value, buffer, offset, packet, parent)
+  local display = moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.group_mask_int_64_null_optional, range, value, display)
+  parent:add(omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.group_mask_optional, range, value, display)
 
   return offset + length, value
 end
@@ -837,7 +839,7 @@ moex_spectra_futinfoincremental_simba_v8_0_0.schema_id.size = 2
 -- Display: Schema Id
 moex_spectra_futinfoincremental_simba_v8_0_0.schema_id.display = function(value)
   if value == 19780 then
-    return "Schema Id: 19780"
+    return "Schema Id: Moex Spectra Simba (19780)"
   end
 
   return "Schema Id: Unknown("..value..")"
@@ -855,30 +857,41 @@ moex_spectra_futinfoincremental_simba_v8_0_0.schema_id.dissect = function(buffer
   return offset + length, value
 end
 
--- Section Id Int 32 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.section_id_int_32_null_optional = {}
+-- Section Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.section_id_optional = {}
 
--- Size: Section Id Int 32 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.section_id_int_32_null_optional.size = 4
+-- Size: Section Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.section_id_optional.size = 4
 
--- Display: Section Id Int 32 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.section_id_int_32_null_optional.display = function(value)
-  -- Check if field has value
+-- Display: Section Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.section_id_optional.display = function(value)
   if value == -2147483648 then
-    return "Section Id Int 32 Null optional: No Value"
+    return "Section Id Optional: No Value"
+  end
+  if value == 0 then
+    return "Section Id Optional: All Sections (0)"
+  end
+  if value == 1 then
+    return "Section Id Optional: Stock Section (1)"
+  end
+  if value == 2 then
+    return "Section Id Optional: Commodity Section (2)"
+  end
+  if value == 3 then
+    return "Section Id Optional: Money Section (3)"
   end
 
-  return "Section Id Int 32 Null optional: "..value
+  return "Section Id Optional: Unknown("..value..")"
 end
 
--- Dissect: Section Id Int 32 Null optional
-moex_spectra_futinfoincremental_simba_v8_0_0.section_id_int_32_null_optional.dissect = function(buffer, offset, packet, parent)
-  local length = moex_spectra_futinfoincremental_simba_v8_0_0.section_id_int_32_null_optional.size
+-- Dissect: Section Id Optional
+moex_spectra_futinfoincremental_simba_v8_0_0.section_id_optional.dissect = function(buffer, offset, packet, parent)
+  local length = moex_spectra_futinfoincremental_simba_v8_0_0.section_id_optional.size
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = moex_spectra_futinfoincremental_simba_v8_0_0.section_id_int_32_null_optional.display(value, buffer, offset, packet, parent)
+  local display = moex_spectra_futinfoincremental_simba_v8_0_0.section_id_optional.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.section_id_int_32_null_optional, range, value, display)
+  parent:add(omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.section_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1052,41 +1065,18 @@ moex_spectra_futinfoincremental_simba_v8_0_0.status_change_time.size = 8
 moex_spectra_futinfoincremental_simba_v8_0_0.status_change_time.dissect = function(buffer, offset, packet, parent)
   local length = moex_spectra_futinfoincremental_simba_v8_0_0.status_change_time.size
   local range = buffer(offset, length)
-  local packed = range:le_uint64():tonumber()
+  local value = range:le_uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.status_change_time
   if moex_spectra_futinfoincremental_simba_v8_0_0.timestamp_format == 3 then field = omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.status_change_time_utc end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
-  local year = math.floor(civil / 10000000000)
-  local month = math.floor(civil / 100000000) % 100
-  local day = math.floor(civil / 1000000) % 100
-  local hour = math.floor(civil / 10000) % 100
-  local minute = math.floor(civil / 100) % 100
-  local second = civil % 100
-
-  if month < 1 or month > 12 or day < 1 or day > 31 then
-    local item = parent:add(field, range, NSTime.new(0, 0))
-    item:set_text("Status Change Time: " .. tostring(packed))
-    return offset + length, packed
-  end
-
-  -- Days since the Unix epoch, by civil date arithmetic, in Utc
-  local y = year - (month <= 2 and 1 or 0)
-  local era = math.floor((y >= 0 and y or y - 399) / 400)
-  local yoe = y - era * 400
-  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
-  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
-  local days = era * 146097 + doe - 719468
-
-  local seconds = days * 86400 + hour * 3600 + minute * 60 + second
-  local nanos = millis * 1000000
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
   parent:add(field, range, NSTime.new(seconds, nanos))
 
-  return offset + length, packed
+  return offset + length, value
 end
 
 -- Symbol
@@ -1517,6 +1507,13 @@ moex_spectra_futinfoincremental_simba_v8_0_0.transact_time.dissect = function(bu
   local field = omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.transact_time
   if moex_spectra_futinfoincremental_simba_v8_0_0.timestamp_format == 3 then field = omi_moex_spectra_futinfoincremental_simba_v8_0_0.fields.transact_time_utc end
 
+  if value == UInt64(0x00000000, 0x00000000) then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Transact Time: No Value")
+    return offset + length, value
+  end
+
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
   parent:add(field, range, NSTime.new(seconds, nanos))
@@ -1606,9 +1603,9 @@ moex_spectra_futinfoincremental_simba_v8_0_0.security_group_status_message.size 
   moex_spectra_futinfoincremental_simba_v8_0_0.security_group_id.size + 
   moex_spectra_futinfoincremental_simba_v8_0_0.halt_type.size + 
   moex_spectra_futinfoincremental_simba_v8_0_0.trade_mode_mask.size + 
-  moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_int_64_null_optional.size + 
-  moex_spectra_futinfoincremental_simba_v8_0_0.section_id_int_32_null_optional.size + 
-  moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_int_32_null_optional.size + 
+  moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_optional.size + 
+  moex_spectra_futinfoincremental_simba_v8_0_0.section_id_optional.size + 
+  moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_optional.size + 
   moex_spectra_futinfoincremental_simba_v8_0_0.security_trading_status.size + 
   moex_spectra_futinfoincremental_simba_v8_0_0.status_change_time.size
 
@@ -1630,14 +1627,14 @@ moex_spectra_futinfoincremental_simba_v8_0_0.security_group_status_message.field
   -- Trade Mode Mask: Int32NULL
   index, trade_mode_mask = moex_spectra_futinfoincremental_simba_v8_0_0.trade_mode_mask.dissect(buffer, index, packet, parent)
 
-  -- Group Mask Int 64 Null optional: Int64NULL
-  index, group_mask_int_64_null_optional = moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_int_64_null_optional.dissect(buffer, index, packet, parent)
+  -- Group Mask Optional: Int64NULL
+  index, group_mask_optional = moex_spectra_futinfoincremental_simba_v8_0_0.group_mask_optional.dissect(buffer, index, packet, parent)
 
-  -- Section Id Int 32 Null optional: Int32NULL
-  index, section_id_int_32_null_optional = moex_spectra_futinfoincremental_simba_v8_0_0.section_id_int_32_null_optional.dissect(buffer, index, packet, parent)
+  -- Section Id Optional: Int32NULL
+  index, section_id_optional = moex_spectra_futinfoincremental_simba_v8_0_0.section_id_optional.dissect(buffer, index, packet, parent)
 
-  -- Base Contract Id Int 32 Null optional: Int32NULL
-  index, base_contract_id_int_32_null_optional = moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_int_32_null_optional.dissect(buffer, index, packet, parent)
+  -- Base Contract Id Optional: Int32NULL
+  index, base_contract_id_optional = moex_spectra_futinfoincremental_simba_v8_0_0.base_contract_id_optional.dissect(buffer, index, packet, parent)
 
   -- Security Trading Status: SecurityTradingStatus
   index, security_trading_status = moex_spectra_futinfoincremental_simba_v8_0_0.security_trading_status.dissect(buffer, index, packet, parent)
@@ -2205,7 +2202,7 @@ moex_spectra_futinfoincremental_simba_v8_0_0.trading_session_status_message.fiel
   -- Trading Session Id: TradingSessionID
   index, trading_session_id = moex_spectra_futinfoincremental_simba_v8_0_0.trading_session_id.dissect(buffer, index, packet, parent)
 
-  -- Exchange Trading Session Id Int 32 Null optional: Int32NULL
+  -- Exchange Trading Session Id Int 32 Null Optional: Int32NULL
   index, exchange_trading_session_id_int_32_null_optional = moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_int_32_null_optional.dissect(buffer, index, packet, parent)
 
   -- Trad Ses Status: TradSesStatus
@@ -2510,7 +2507,7 @@ moex_spectra_futinfoincremental_simba_v8_0_0.incremental_packet_header = {}
 -- Size: Incremental Packet Header
 moex_spectra_futinfoincremental_simba_v8_0_0.incremental_packet_header.size =
   moex_spectra_futinfoincremental_simba_v8_0_0.transact_time.size + 
-  moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_i_d_uint_32_optional.size
+  moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_optional.size
 
 -- Display: Incremental Packet Header
 moex_spectra_futinfoincremental_simba_v8_0_0.incremental_packet_header.display = function(packet, parent, length)
@@ -2524,8 +2521,8 @@ moex_spectra_futinfoincremental_simba_v8_0_0.incremental_packet_header.fields = 
   -- Transact Time: uint64
   index, transact_time = moex_spectra_futinfoincremental_simba_v8_0_0.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Exchange Trading Session I D uint 32 optional: uint32
-  index, exchange_trading_session_i_d_uint_32_optional = moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_i_d_uint_32_optional.dissect(buffer, index, packet, parent)
+  -- Exchange Trading Session Id Optional: uint32
+  index, exchange_trading_session_id_optional = moex_spectra_futinfoincremental_simba_v8_0_0.exchange_trading_session_id_optional.dissect(buffer, index, packet, parent)
 
   return index
 end

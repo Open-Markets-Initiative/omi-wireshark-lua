@@ -236,17 +236,22 @@ omi_bme_bmeequities_replay_bmegate_v1_6.fields.trading_session_status_message = 
 -- Bme BmeEquities Replay BmeGate 1.6 Generated Fields
 omi_bme_bmeequities_replay_bmegate_v1_6.fields.statistics_repeating_group_index = ProtoField.new("Statistics Repeating Group Index", "bme.bmeequities.replay.bmegate.v1.6.statisticsrepeatinggroupindex", ftypes.UINT16)
 
+-- Bme BmeEquities Replay BmeGate 1.6 Expert Info
+bme_bmeequities_replay_bmegate_v1_6.experts = {}
+bme_bmeequities_replay_bmegate_v1_6.experts.undecoded = ProtoExpert.new("bme.bmeequities.replay.bmegate.v1.6.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_bme_bmeequities_replay_bmegate_v1_6.experts = { bme_bmeequities_replay_bmegate_v1_6.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Bme BmeEquities Replay BmeGate 1.6 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 bme_bmeequities_replay_bmegate_v1_6.timestamp_format = 2
 
 
@@ -292,6 +297,19 @@ function omi_bme_bmeequities_replay_bmegate_v1_6.prefs_changed()
 end
 
 
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Bme BmeEquities Replay BmeGate 1.6 Fields
 -----------------------------------------------------------------------
@@ -3213,7 +3231,7 @@ bme_bmeequities_replay_bmegate_v1_6.msg_rejected_reference.dissect = function(bu
   local value = range:bytes():tohex(false, " ")
   local display = bme_bmeequities_replay_bmegate_v1_6.msg_rejected_reference.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bme_bmeequities_replay_bmegate_v1_6.fields.msg_rejected_reference, range, value, display)
+  parent:add(omi_bme_bmeequities_replay_bmegate_v1_6.fields.msg_rejected_reference, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -8567,10 +8585,16 @@ end
 bme_bmeequities_replay_bmegate_v1_6.message.dissect = function(buffer, offset, packet, parent, size_of_message)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_bme_bmeequities_replay_bmegate_v1_6.fields.message, buffer(offset, 0))
-    local current = bme_bmeequities_replay_bmegate_v1_6.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(bme_bmeequities_replay_bmegate_v1_6.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, bme_bmeequities_replay_bmegate_v1_6.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = bme_bmeequities_replay_bmegate_v1_6.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -8578,7 +8602,10 @@ bme_bmeequities_replay_bmegate_v1_6.message.dissect = function(buffer, offset, p
     return index, parent
   else
     -- Skip element, add fields directly
-    bme_bmeequities_replay_bmegate_v1_6.message.fields(buffer, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(bme_bmeequities_replay_bmegate_v1_6.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, bme_bmeequities_replay_bmegate_v1_6.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
@@ -8603,6 +8630,12 @@ bme_bmeequities_replay_bmegate_v1_6.packet.dissect = function(buffer, packet, pa
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(bme_bmeequities_replay_bmegate_v1_6.experts.undecoded, "Message Size runs past the end of the payload")
+      break
+    end
 
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()

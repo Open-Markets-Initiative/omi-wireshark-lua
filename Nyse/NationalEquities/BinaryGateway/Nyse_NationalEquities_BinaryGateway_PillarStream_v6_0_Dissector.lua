@@ -268,11 +268,11 @@ omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.stream_avail = 
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_nationalequities_binarygateway_pillarstream_v6_0.timestamp_format = 2
 
 -- assumed connection role
@@ -3192,7 +3192,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_100.dissect = fun
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_100.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_100, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_100, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3215,7 +3215,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_190.dissect = fun
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_190.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_190, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_190, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3238,7 +3238,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_199.dissect = fun
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_199.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_199, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_199, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3261,7 +3261,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_200.dissect = fun
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_200.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_200, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_200, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3284,7 +3284,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_27.dissect = func
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_27.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_27, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_27, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3307,7 +3307,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_3.dissect = funct
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_3, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3330,7 +3330,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.dissect = funct
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3353,7 +3353,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_49.dissect = func
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_49.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_49, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_49, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3376,7 +3376,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_50.dissect = func
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_50.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_50, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_50, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3399,7 +3399,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_7.dissect = funct
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_7, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3422,7 +3422,7 @@ nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_8.dissect = funct
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nationalequities_binarygateway_pillarstream_v6_0.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_8, range, value, display)
+  parent:add(omi_nyse_nationalequities_binarygateway_pillarstream_v6_0.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end

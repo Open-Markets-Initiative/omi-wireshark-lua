@@ -122,11 +122,11 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.timestamp = ProtoField.new(
 -- timestamp format
 local timestamp_format_enum = {
   { 1, "Raw", 0 },
-  { 2, "Full DateTime Local", 2 },
-  { 3, "Full DateTime Utc", 3 }
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 bist_borsaistanbul_geniuminet_itch_v21_12.timestamp_format = 2
 
 
@@ -1361,7 +1361,7 @@ bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.dissect = function(buffer,
   local value = range:bytes():tohex(false, " ")
   local display = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_14.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_14, range, value, display)
+  parent:add(omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_14, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1384,7 +1384,7 @@ bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.dissect = function(buffer, 
   local value = range:bytes():tohex(false, " ")
   local display = bist_borsaistanbul_geniuminet_itch_v21_12.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_4, range, value, display)
+  parent:add(omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end

@@ -262,11 +262,11 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.stream_avail = Pro
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nyse_nyseequities_binarygateway_pillarstream_v5_10.timestamp_format = 2
 
 -- assumed connection role
@@ -3224,7 +3224,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_100.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_100.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_100, range, value, display)
+  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_100, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3247,7 +3247,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_190.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_190.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_190, range, value, display)
+  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_190, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3270,7 +3270,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_199.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_199.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_199, range, value, display)
+  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_199, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3293,7 +3293,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_200.dissect = functi
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_200.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_200, range, value, display)
+  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_200, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3316,7 +3316,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_4.dissect = function
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_4, range, value, display)
+  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3339,7 +3339,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_49.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_49.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_49, range, value, display)
+  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_49, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3362,7 +3362,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_50.dissect = functio
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_50.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_50, range, value, display)
+  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_50, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3385,7 +3385,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_7.dissect = function
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_7, range, value, display)
+  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3408,7 +3408,7 @@ nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_8.dissect = function
   local value = range:bytes():tohex(false, " ")
   local display = nyse_nyseequities_binarygateway_pillarstream_v5_10.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_8, range, value, display)
+  parent:add(omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end

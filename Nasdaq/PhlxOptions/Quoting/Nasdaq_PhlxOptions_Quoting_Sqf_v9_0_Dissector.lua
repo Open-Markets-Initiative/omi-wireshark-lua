@@ -212,7 +212,8 @@ omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.sequenced_data_packet_sequence_nu
 -- Nasdaq PhlxOptions Quoting Sqf 9.0 Expert Info
 nasdaq_phlxoptions_quoting_sqf_v9_0.experts = {}
 nasdaq_phlxoptions_quoting_sqf_v9_0.experts.not_a_number = ProtoExpert.new("nasdaq.phlxoptions.quoting.sqf.v9.0.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_nasdaq_phlxoptions_quoting_sqf_v9_0.experts = { nasdaq_phlxoptions_quoting_sqf_v9_0.experts.not_a_number }
+nasdaq_phlxoptions_quoting_sqf_v9_0.experts.undecoded = ProtoExpert.new("nasdaq.phlxoptions.quoting.sqf.v9.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nasdaq_phlxoptions_quoting_sqf_v9_0.experts = { nasdaq_phlxoptions_quoting_sqf_v9_0.experts.not_a_number, nasdaq_phlxoptions_quoting_sqf_v9_0.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Nasdaq PhlxOptions Quoting Sqf 9.0 Formatting
@@ -220,11 +221,11 @@ omi_nasdaq_phlxoptions_quoting_sqf_v9_0.experts = { nasdaq_phlxoptions_quoting_s
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nasdaq_phlxoptions_quoting_sqf_v9_0.timestamp_format = 2
 
 -- assumed connection role
@@ -381,6 +382,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nasdaq PhlxOptions Quoting Sqf 9.0 Fields
 -----------------------------------------------------------------------
@@ -2453,7 +2462,7 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_1.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_1, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2476,7 +2485,7 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_16.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_16, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2499,7 +2508,7 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_32.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_32.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_32, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_32, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2522,7 +2531,7 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_4.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_4, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2545,7 +2554,7 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_8.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_8, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2568,7 +2577,7 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_9.dissect = function(buffer, offset
   local value = range:bytes():tohex(false, " ")
   local display = nasdaq_phlxoptions_quoting_sqf_v9_0.reserved_9.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_9, range, value, display)
+  parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.reserved_9, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6262,7 +6271,8 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.debug_packet.size = function(buffer, offset)
   local index = 0
 
   -- Parse runtime size of: Debug Text
-  index = index + buffer(offset + index - 3, 2):uint()
+  local packet_length = buffer(offset + index - 3, 2):uint()
+  index = index + packet_length - 1
 
   return index
 end
@@ -6402,10 +6412,16 @@ end
 nasdaq_phlxoptions_quoting_sqf_v9_0.server_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
   local index = offset + size_of_server_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.server_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nasdaq_phlxoptions_quoting_sqf_v9_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_phlxoptions_quoting_sqf_v9_0.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_phlxoptions_quoting_sqf_v9_0.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_server_soup_bin_tcp_packet)
     local display = nasdaq_phlxoptions_quoting_sqf_v9_0.server_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -6413,7 +6429,10 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.server_soup_bin_tcp_packet.dissect = functio
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_phlxoptions_quoting_sqf_v9_0.server_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_phlxoptions_quoting_sqf_v9_0.server_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_server_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_phlxoptions_quoting_sqf_v9_0.experts.undecoded, "Server Soup Bin Tcp Packet does not decode within its "..size_of_server_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end
@@ -8005,10 +8024,16 @@ end
 nasdaq_phlxoptions_quoting_sqf_v9_0.client_soup_bin_tcp_packet.dissect = function(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
   local index = offset + size_of_client_soup_bin_tcp_packet
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nasdaq_phlxoptions_quoting_sqf_v9_0.fields.client_soup_bin_tcp_packet, buffer(offset, 0))
-    local current = nasdaq_phlxoptions_quoting_sqf_v9_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_phlxoptions_quoting_sqf_v9_0.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_phlxoptions_quoting_sqf_v9_0.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
     parent:set_len(size_of_client_soup_bin_tcp_packet)
     local display = nasdaq_phlxoptions_quoting_sqf_v9_0.client_soup_bin_tcp_packet.display(buffer, packet, parent)
     parent:append_text(display)
@@ -8016,7 +8041,10 @@ nasdaq_phlxoptions_quoting_sqf_v9_0.client_soup_bin_tcp_packet.dissect = functio
     return index, parent
   else
     -- Skip element, add fields directly
-    nasdaq_phlxoptions_quoting_sqf_v9_0.client_soup_bin_tcp_packet.fields(buffer, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    local decoded, failure = pcall(nasdaq_phlxoptions_quoting_sqf_v9_0.client_soup_bin_tcp_packet.fields, bounded, offset, packet, parent, size_of_client_soup_bin_tcp_packet)
+    if not decoded then
+      undecoded(failure, parent, nasdaq_phlxoptions_quoting_sqf_v9_0.experts.undecoded, "Client Soup Bin Tcp Packet does not decode within its "..size_of_client_soup_bin_tcp_packet.." bytes")
+    end
 
     return index
   end

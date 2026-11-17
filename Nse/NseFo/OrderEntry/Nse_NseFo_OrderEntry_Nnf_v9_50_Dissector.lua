@@ -98,6 +98,7 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.disclosed_vol_remaining_1 = ProtoField
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.disclosed_vol_remaining_2 = ProtoField.new("Disclosed Vol Remaining 2", "nse.nsefo.orderentry.nnf.v9.50.disclosedvolremaining2", ftypes.INT32, nil, nil, nil, "Disclosed quantity still outstanding")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.disclosed_volume = ProtoField.new("Disclosed Volume", "nse.nsefo.orderentry.nnf.v9.50.disclosedvolume", ftypes.INT32, nil, nil, nil, "Quantity disclosed to the market")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.disclosed_volume_remaining = ProtoField.new("Disclosed Volume Remaining", "nse.nsefo.orderentry.nnf.v9.50.disclosedvolumeremaining", ftypes.INT32, nil, nil, nil, "Disclosed quantity still outstanding")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.download_header = ProtoField.new("Download Header", "nse.nsefo.orderentry.nnf.v9.50.downloadheader", ftypes.STRING, nil, nil, nil, "MESSAGE_HEADER of the downloaded message")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.download_payload = ProtoField.new("Download Payload", "nse.nsefo.orderentry.nnf.v9.50.downloadpayload", ftypes.BYTES, nil, nil, nil, "Downloaded record body, any transaction code, opaque")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.dynamic_cryptographic_iv = ProtoField.new("Dynamic Cryptographic Iv", "nse.nsefo.orderentry.nnf.v9.50.dynamiccryptographiciv", ftypes.INT64, nil, nil, nil, "Varying half of the initialisation vector")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.eligible_aon = ProtoField.new("Eligible Aon", "nse.nsefo.orderentry.nnf.v9.50.eligibleaon", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000, "Eligible for all or none orders")
@@ -459,17 +460,18 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.giveup_confirmation_message = ProtoFie
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.global_contracts_message = ProtoField.new("Global Contracts Message", "nse.nsefo.orderentry.nnf.v9.50.globalcontractsmessage", ftypes.STRING, nil, nil, nil, "Carries the values of a global contract")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.global_indices_message = ProtoField.new("Global Indices Message", "nse.nsefo.orderentry.nnf.v9.50.globalindicesmessage", ftypes.STRING, nil, nil, nil, "Carries the values of a global index")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.industry_index_report_message = ProtoField.new("Industry Index Report Message", "nse.nsefo.orderentry.nnf.v9.50.industryindexreportmessage", ftypes.STRING, nil, nil, nil, "Bhavcopy industry index report")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.kill_switch_request_message = ProtoField.new("Kill Switch Request Message", "nse.nsefo.orderentry.nnf.v9.50.killswitchrequestmessage", ftypes.STRING, nil, nil, nil, "Cancels all of a trader's orders, or all on one contract, carried in the shared order entry structure")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.market_index_report_message = ProtoField.new("Market Index Report Message", "nse.nsefo.orderentry.nnf.v9.50.marketindexreportmessage", ftypes.STRING, nil, nil, nil, "Bhavcopy market index report")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.market_statistics_report_message = ProtoField.new("Market Statistics Report Message", "nse.nsefo.orderentry.nnf.v9.50.marketstatisticsreportmessage", ftypes.STRING, nil, nil, nil, "Bhavcopy header, market statistics records or trailer. Message Type selects which")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_record_message = ProtoField.new("Message Record Message", "nse.nsefo.orderentry.nnf.v9.50.messagerecordmessage", ftypes.STRING, nil, nil, nil, "Carries one downloaded message wrapped in an inner header")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_record_message = ProtoField.new("Message Record Message", "nse.nsefo.orderentry.nnf.v9.50.messagerecordmessage", ftypes.STRING, nil, nil, nil, "Carries one downloaded message wrapped in a second message header")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.normal_order_limit_update_message = ProtoField.new("Normal Order Limit Update Message", "nse.nsefo.orderentry.nnf.v9.50.normalorderlimitupdatemessage", ftypes.STRING, nil, nil, nil, "Sets the order quantity and value limits for a user")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_cancellation_confirmation_message = ProtoField.new("Order Cancellation Confirmation Message", "nse.nsefo.orderentry.nnf.v9.50.ordercancellationconfirmationmessage", ftypes.STRING, nil, nil, nil, "Confirms an order cancellation. Message Length selects the ordinary or the two and three leg layout")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_cancellation_request_message = ProtoField.new("Order Cancellation Request Message", "nse.nsefo.orderentry.nnf.v9.50.ordercancellationrequestmessage", ftypes.STRING, nil, nil, nil, "Order cancellation request, carried in the shared order entry structure")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_confirmation_message = ProtoField.new("Order Confirmation Message", "nse.nsefo.orderentry.nnf.v9.50.orderconfirmationmessage", ftypes.STRING, nil, nil, nil, "Order entry confirmation, carried in the shared order entry structure")
-omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_entry_message = ProtoField.new("Order Entry Message", "nse.nsefo.orderentry.nnf.v9.50.orderentrymessage", ftypes.STRING, nil, nil, nil, "Order entry acknowledgements, rejections, errors and kill switch, all carried in the shared order entry structure. Transaction Code in the header names the operation")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_entry_request_message = ProtoField.new("Order Entry Request Message", "nse.nsefo.orderentry.nnf.v9.50.orderentryrequestmessage", ftypes.STRING, nil, nil, nil, "Order entry request, carried in the shared order entry structure")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_modification_confirmation_message = ProtoField.new("Order Modification Confirmation Message", "nse.nsefo.orderentry.nnf.v9.50.ordermodificationconfirmationmessage", ftypes.STRING, nil, nil, nil, "Order modification confirmation, carried in the shared order entry structure")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_modification_request_message = ProtoField.new("Order Modification Request Message", "nse.nsefo.orderentry.nnf.v9.50.ordermodificationrequestmessage", ftypes.STRING, nil, nil, nil, "Order modification request, carried in the shared order entry structure")
+omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_response_message = ProtoField.new("Order Response Message", "nse.nsefo.orderentry.nnf.v9.50.orderresponsemessage", ftypes.STRING, nil, nil, nil, "Price confirmation, modification and cancellation rejections, freeze, order error and batch cancellation, all carried in the shared order entry structure. Transaction Code in the header names the response")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.price_modification_message = ProtoField.new("Price Modification Message", "nse.nsefo.orderentry.nnf.v9.50.pricemodificationmessage", ftypes.STRING, nil, nil, nil, "Modifies the price of a live order, and its acknowledgement")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.reset_user_password_message = ProtoField.new("Reset User Password Message", "nse.nsefo.orderentry.nnf.v9.50.resetuserpasswordmessage", ftypes.STRING, nil, nil, nil, "Requests a reset of the user password")
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.sector_index_report_message = ProtoField.new("Sector Index Report Message", "nse.nsefo.orderentry.nnf.v9.50.sectorindexreportmessage", ftypes.STRING, nil, nil, nil, "Bhavcopy sector index report")
@@ -514,18 +516,27 @@ omi_nse_nsefo_orderentry_nnf_v9_50.fields.ms_spd_leg_info_index = ProtoField.new
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.spd_stats_data_index = ProtoField.new("Spd Stats Data Index", "nse.nsefo.orderentry.nnf.v9.50.spdstatsdataindex", ftypes.UINT16)
 omi_nse_nsefo_orderentry_nnf_v9_50.fields.user_limits_index = ProtoField.new("User Limits Index", "nse.nsefo.orderentry.nnf.v9.50.userlimitsindex", ftypes.UINT16)
 
+-- Nse NseFo OrderEntry Nnf 9.50 Expert Info
+nse_nsefo_orderentry_nnf_v9_50.experts = {}
+nse_nsefo_orderentry_nnf_v9_50.experts.undecoded = ProtoExpert.new("nse.nsefo.orderentry.nnf.v9.50.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_nse_nsefo_orderentry_nnf_v9_50.experts = { nse_nsefo_orderentry_nnf_v9_50.experts.undecoded }
+
 -----------------------------------------------------------------------
 -- Nse NseFo OrderEntry Nnf 9.50 Formatting
 -----------------------------------------------------------------------
 
 -- timestamp format
 local timestamp_format_enum = {
-  { 1, "Full DateTime Local", 2 },
-  { 2, "Full DateTime Utc", 3 }
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 },
+  { 3, "DateTime Asia/Kolkata", 4 }
 }
 
--- 0=Raw, 1=Time of Day, 2=Full DateTime Local, 3=Full DateTime Utc
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 nse_nsefo_orderentry_nnf_v9_50.timestamp_format = 2
+
+-- Offset of the source's zone from utc in seconds, as the reader states it
+nse_nsefo_orderentry_nnf_v9_50.zone_offset = 0
 
 -- assumed connection role
 local role_enum = {
@@ -559,6 +570,7 @@ omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_padding = Pref.bool("Show Padding"
 omi_nse_nsefo_orderentry_nnf_v9_50.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
 omi_nse_nsefo_orderentry_nnf_v9_50.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsefo_orderentry_nnf_v9_50.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences
 function omi_nse_nsefo_orderentry_nnf_v9_50.prefs_changed()
@@ -582,6 +594,17 @@ function omi_nse_nsefo_orderentry_nnf_v9_50.prefs_changed()
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format ~= omi_nse_nsefo_orderentry_nnf_v9_50.prefs.timestamp_format then
     nse_nsefo_orderentry_nnf_v9_50.timestamp_format = omi_nse_nsefo_orderentry_nnf_v9_50.prefs.timestamp_format
   end
+  local sign, hours, minutes = string.match(omi_nse_nsefo_orderentry_nnf_v9_50.prefs.zone_offset, "^%s*([+-]?)(%d%d?):?(%d?%d?)%s*$")
+
+  nse_nsefo_orderentry_nnf_v9_50.zone_offset = 0
+
+  if hours then
+    nse_nsefo_orderentry_nnf_v9_50.zone_offset = tonumber(hours) * 3600 + (tonumber(minutes) or 0) * 60
+  end
+
+  if sign == "-" then
+    nse_nsefo_orderentry_nnf_v9_50.zone_offset = -nse_nsefo_orderentry_nnf_v9_50.zone_offset
+  end
 end
 
 
@@ -601,6 +624,14 @@ trim_right_spaces = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Nse NseFo OrderEntry Nnf 9.50 Fields
 -----------------------------------------------------------------------
@@ -691,9 +722,18 @@ nse_nsefo_orderentry_nnf_v9_50.activity_time.dissect = function(buffer, offset, 
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.activity_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.activity_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Activity Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -836,9 +876,18 @@ nse_nsefo_orderentry_nnf_v9_50.batch_2_start_time.dissect = function(buffer, off
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.batch_2_start_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.batch_2_start_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Batch 2 Start Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -1975,7 +2024,7 @@ nse_nsefo_orderentry_nnf_v9_50.data_payload.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.data_payload.display(value, packet, parent, size)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.data_payload, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.data_payload, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -2247,7 +2296,7 @@ nse_nsefo_orderentry_nnf_v9_50.download_payload.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.download_payload.display(value, packet, parent, size)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.download_payload, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.download_payload, range, range:raw(), display)
 
   return offset + size, value
 end
@@ -2315,9 +2364,18 @@ nse_nsefo_orderentry_nnf_v9_50.end_time.dissect = function(buffer, offset, packe
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.end_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.end_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("End Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -2339,9 +2397,18 @@ nse_nsefo_orderentry_nnf_v9_50.entry_date_time.dissect = function(buffer, offset
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Entry Date Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -2363,9 +2430,18 @@ nse_nsefo_orderentry_nnf_v9_50.entry_date_time_1.dissect = function(buffer, offs
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_1
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.entry_date_time_1_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Entry Date Time 1: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -2853,9 +2929,18 @@ nse_nsefo_orderentry_nnf_v9_50.expiry_date.dissect = function(buffer, offset, pa
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expiry_date
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expiry_date_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Expiry Date: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -2877,9 +2962,18 @@ nse_nsefo_orderentry_nnf_v9_50.expirydate_1.dissect = function(buffer, offset, p
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_1
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_1_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Expirydate 1: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -2901,9 +2995,18 @@ nse_nsefo_orderentry_nnf_v9_50.expirydate_2.dissect = function(buffer, offset, p
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_2
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.expirydate_2_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Expirydate 2: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -2926,7 +3029,7 @@ nse_nsefo_orderentry_nnf_v9_50.fifth_reserved_1.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.fifth_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.fifth_reserved_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.fifth_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3392,7 +3495,7 @@ nse_nsefo_orderentry_nnf_v9_50.fourth_reserved_1.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.fourth_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.fourth_reserved_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.fourth_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3765,9 +3868,18 @@ nse_nsefo_orderentry_nnf_v9_50.inner_log_time.dissect = function(buffer, offset,
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_log_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.inner_log_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Inner Log Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -4111,9 +4223,18 @@ nse_nsefo_orderentry_nnf_v9_50.last_modified_date_time.dissect = function(buffer
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_modified_date_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_modified_date_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Last Modified Date Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -4135,9 +4256,18 @@ nse_nsefo_orderentry_nnf_v9_50.last_password_change_date.dissect = function(buff
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_password_change_date
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_password_change_date_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Last Password Change Date: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -4159,9 +4289,18 @@ nse_nsefo_orderentry_nnf_v9_50.last_update_index_time.dissect = function(buffer,
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_index_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_index_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Last Update Index Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -4183,9 +4322,18 @@ nse_nsefo_orderentry_nnf_v9_50.last_update_instrument_time.dissect = function(bu
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_instrument_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_instrument_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Last Update Instrument Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -4207,9 +4355,18 @@ nse_nsefo_orderentry_nnf_v9_50.last_update_participant_time.dissect = function(b
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_participant_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_participant_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Last Update Participant Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -4231,9 +4388,18 @@ nse_nsefo_orderentry_nnf_v9_50.last_update_portfolio_t_ime.dissect = function(bu
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_portfolio_t_ime
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_portfolio_t_ime_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Last Update Portfolio T Ime: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -4255,9 +4421,18 @@ nse_nsefo_orderentry_nnf_v9_50.last_update_security_time.dissect = function(buff
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_security_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.last_update_security_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Last Update Security Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -4394,9 +4569,18 @@ nse_nsefo_orderentry_nnf_v9_50.log_time.dissect = function(buffer, offset, packe
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.log_time
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.log_time_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Log Time: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -6518,9 +6702,18 @@ nse_nsefo_orderentry_nnf_v9_50.report_date.dissect = function(buffer, offset, pa
   local field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_date
   if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnf_v9_50.fields.report_date_utc end
 
+  -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
-  local nanos = 0
-  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  -- Kept in Asia/Kolkata: the count as it is sent is the zone's own date and clock
+  if nse_nsefo_orderentry_nnf_v9_50.timestamp_format == 4 then
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Report Date: "..os.date("!%Y-%m-%d %H:%M:%S", seconds).." Asia/Kolkata")
+    return offset + length, value
+  end
+
+  -- An instant is the source's clock less the offset the reader states for its zone
+  parent:add(field, range, NSTime.new(seconds - nse_nsefo_orderentry_nnf_v9_50.zone_offset, 0))
 
   return offset + length, value
 end
@@ -6589,7 +6782,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_1.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6612,7 +6805,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_10.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_10.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_10, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_10, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6635,7 +6828,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_14.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_14.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_14, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_14, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6658,7 +6851,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_145.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_145.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_145, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_145, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6681,7 +6874,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_16.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_16, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6704,7 +6897,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_2.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_2, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6727,7 +6920,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_200.dissect = function(buffer, offset, p
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_200.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_200, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_200, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6750,7 +6943,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_24.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_24.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_24, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_24, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6773,7 +6966,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_25.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_25.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_25, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_25, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6796,7 +6989,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_26.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_26.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_26, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_26, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6819,7 +7012,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_32.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_32.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_32, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_32, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6842,7 +7035,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_36.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_36.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_36, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_36, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6865,7 +7058,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_4.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_4, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6888,7 +7081,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_5.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_5.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_5, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_5, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6911,7 +7104,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_52.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_52.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_52, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_52, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6934,7 +7127,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_60.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_60.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_60, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_60, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6957,7 +7150,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_7.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_7.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_7, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_7, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -6980,7 +7173,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_70.dissect = function(buffer, offset, pa
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_70.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_70, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_70, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7003,7 +7196,7 @@ nse_nsefo_orderentry_nnf_v9_50.reserved_8.dissect = function(buffer, offset, pac
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_8, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7072,7 +7265,7 @@ nse_nsefo_orderentry_nnf_v9_50.second_reserved_1.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.second_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.second_reserved_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.second_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7095,7 +7288,7 @@ nse_nsefo_orderentry_nnf_v9_50.second_reserved_16.dissect = function(buffer, off
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.second_reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.second_reserved_16, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.second_reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7118,7 +7311,7 @@ nse_nsefo_orderentry_nnf_v9_50.second_reserved_2.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.second_reserved_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.second_reserved_2, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.second_reserved_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7141,7 +7334,7 @@ nse_nsefo_orderentry_nnf_v9_50.second_reserved_8.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.second_reserved_8.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.second_reserved_8, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.second_reserved_8, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7440,7 +7633,7 @@ nse_nsefo_orderentry_nnf_v9_50.sixth_reserved_1.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.sixth_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.sixth_reserved_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.sixth_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7854,7 +8047,7 @@ nse_nsefo_orderentry_nnf_v9_50.third_reserved_1.dissect = function(buffer, offse
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.third_reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.third_reserved_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.third_reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -7877,7 +8070,7 @@ nse_nsefo_orderentry_nnf_v9_50.third_reserved_16.dissect = function(buffer, offs
   local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnf_v9_50.third_reserved_16.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.third_reserved_16, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.third_reserved_16, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -8348,13 +8541,13 @@ nse_nsefo_orderentry_nnf_v9_50.transaction_code.labels = {
   [2070] = "Transaction Code: Order Cancellation Request Message (2070)",
   [2073] = "Transaction Code: Order Confirmation Message (2073)",
   [2074] = "Transaction Code: Order Modification Confirmation Message (2074)",
-  [2012] = "Transaction Code: Order Entry Message (2012)",
-  [2042] = "Transaction Code: Order Entry Message (2042)",
-  [2062] = "Transaction Code: Order Entry Message (2062)",
-  [2072] = "Transaction Code: Order Entry Message (2072)",
-  [2170] = "Transaction Code: Order Entry Message (2170)",
-  [2231] = "Transaction Code: Order Entry Message (2231)",
-  [9002] = "Transaction Code: Order Entry Message (9002)",
+  [2012] = "Transaction Code: Order Response Message (2012)",
+  [2042] = "Transaction Code: Order Response Message (2042)",
+  [2072] = "Transaction Code: Order Response Message (2072)",
+  [2170] = "Transaction Code: Order Response Message (2170)",
+  [2231] = "Transaction Code: Order Response Message (2231)",
+  [9002] = "Transaction Code: Order Response Message (9002)",
+  [2062] = "Transaction Code: Kill Switch Request Message (2062)",
   [2013] = "Transaction Code: Price Modification Message (2013)",
   [20406] = "Transaction Code: Price Modification Message (20406)",
   [5445] = "Transaction Code: Trade Inquiry Message (5445)",
@@ -12417,6 +12610,126 @@ nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect = function(buf
   end
 end
 
+-- Order Response Message
+nse_nsefo_orderentry_nnf_v9_50.order_response_message = {}
+
+-- Size: Order Response Message
+nse_nsefo_orderentry_nnf_v9_50.order_response_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.order_entry_body.size
+
+-- Display: Order Response Message
+nse_nsefo_orderentry_nnf_v9_50.order_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Response Message
+nse_nsefo_orderentry_nnf_v9_50.order_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Entry Body: Struct of 52 fields
+  index, order_entry_body = nse_nsefo_orderentry_nnf_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Response Message
+nse_nsefo_orderentry_nnf_v9_50.order_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_response_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.order_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.order_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.order_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Modification Confirmation Message
+nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message = {}
+
+-- Size: Order Modification Confirmation Message
+nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.order_entry_body.size
+
+-- Display: Order Modification Confirmation Message
+nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Modification Confirmation Message
+nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Entry Body: Struct of 52 fields
+  index, order_entry_body = nse_nsefo_orderentry_nnf_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Modification Confirmation Message
+nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_modification_confirmation_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Confirmation Message
+nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message = {}
+
+-- Size: Order Confirmation Message
+nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.size =
+  nse_nsefo_orderentry_nnf_v9_50.order_entry_body.size
+
+-- Display: Order Confirmation Message
+nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Confirmation Message
+nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Order Entry Body: Struct of 52 fields
+  index, order_entry_body = nse_nsefo_orderentry_nnf_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Order Confirmation Message
+nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_confirmation_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Trailer Record Message
 nse_nsefo_orderentry_nnf_v9_50.trailer_record_message = {}
 
@@ -12453,7 +12766,7 @@ nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields = function(buffer, o
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
-    index, download_payload = nse_nsefo_orderentry_nnf_v9_50.download_payload.dissect(buffer, index, packet, parent)
+    index, download_payload = nse_nsefo_orderentry_nnf_v9_50.download_payload.dissect(buffer, index, packet, parent, end_of_payload - index)
   end
 
   return index
@@ -12463,10 +12776,16 @@ end
 nse_nsefo_orderentry_nnf_v9_50.message_download_data.dissect = function(buffer, offset, packet, parent, size_of_message_download_data)
   local index = offset + size_of_message_download_data
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_download_data, buffer(offset, 0))
-    local current = nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields(buffer, offset, packet, parent, size_of_message_download_data)
+    local decoded, failure = pcall(nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields, bounded, offset, packet, parent, size_of_message_download_data)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_orderentry_nnf_v9_50.experts.undecoded, "Message Download Data does not decode within its "..size_of_message_download_data.." bytes")
+    end
     parent:set_len(size_of_message_download_data)
     local display = nse_nsefo_orderentry_nnf_v9_50.message_download_data.display(buffer, packet, parent)
     parent:append_text(display)
@@ -12474,7 +12793,212 @@ nse_nsefo_orderentry_nnf_v9_50.message_download_data.dissect = function(buffer, 
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields(buffer, offset, packet, parent, size_of_message_download_data)
+    local decoded, failure = pcall(nse_nsefo_orderentry_nnf_v9_50.message_download_data.fields, bounded, offset, packet, parent, size_of_message_download_data)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_orderentry_nnf_v9_50.experts.undecoded, "Message Download Data does not decode within its "..size_of_message_download_data.." bytes")
+    end
+
+    return index
+  end
+end
+
+-- Download Header
+nse_nsefo_orderentry_nnf_v9_50.download_header = {}
+
+-- Size: Download Header
+nse_nsefo_orderentry_nnf_v9_50.download_header.size =
+  nse_nsefo_orderentry_nnf_v9_50.inner_transaction_code.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_log_time.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_alpha_char.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_trader_id.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_error_code.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_timestamp.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_1.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_2.size + 
+  nse_nsefo_orderentry_nnf_v9_50.inner_message_length.size
+
+-- Display: Download Header
+nse_nsefo_orderentry_nnf_v9_50.download_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Download Header
+nse_nsefo_orderentry_nnf_v9_50.download_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Inner Transaction Code: SHORT
+  index, inner_transaction_code = nse_nsefo_orderentry_nnf_v9_50.inner_transaction_code.dissect(buffer, index, packet, parent)
+
+  -- Inner Log Time: LONG
+  index, inner_log_time = nse_nsefo_orderentry_nnf_v9_50.inner_log_time.dissect(buffer, index, packet, parent)
+
+  -- Inner Alpha Char: CHAR
+  index, inner_alpha_char = nse_nsefo_orderentry_nnf_v9_50.inner_alpha_char.dissect(buffer, index, packet, parent)
+
+  -- Inner Trader Id: LONG
+  index, inner_trader_id = nse_nsefo_orderentry_nnf_v9_50.inner_trader_id.dissect(buffer, index, packet, parent)
+
+  -- Inner Error Code: SHORT
+  index, inner_error_code = nse_nsefo_orderentry_nnf_v9_50.inner_error_code.dissect(buffer, index, packet, parent)
+
+  -- Inner Timestamp: LONG LONG
+  index, inner_timestamp = nse_nsefo_orderentry_nnf_v9_50.inner_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Inner Time Stamp 1: CHAR
+  index, inner_time_stamp_1 = nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_1.dissect(buffer, index, packet, parent)
+
+  -- Inner Time Stamp 2: CHAR
+  index, inner_time_stamp_2 = nse_nsefo_orderentry_nnf_v9_50.inner_time_stamp_2.dissect(buffer, index, packet, parent)
+
+  -- Inner Message Length: SHORT
+  index, inner_message_length = nse_nsefo_orderentry_nnf_v9_50.inner_message_length.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Download Header
+nse_nsefo_orderentry_nnf_v9_50.download_header.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.download_header, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.download_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.download_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.download_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message Record Message
+nse_nsefo_orderentry_nnf_v9_50.message_record_message = {}
+
+-- Calculate size of: Message Record Message
+nse_nsefo_orderentry_nnf_v9_50.message_record_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nse_nsefo_orderentry_nnf_v9_50.download_header.size
+
+  -- Parse runtime size of: Message Download Data
+  local message_length = buffer(offset + index - 42, 2):int()
+  index = index + message_length - 80
+
+  return index
+end
+
+-- Display: Message Record Message
+nse_nsefo_orderentry_nnf_v9_50.message_record_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Record Message
+nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Download Header: Struct of 9 fields
+  index, download_header = nse_nsefo_orderentry_nnf_v9_50.download_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 2, 2):int()
+
+  -- Runtime Size Of: Message Download Data
+  local size_of_message_download_data = message_length - 80
+
+  -- Message Download Data: Struct of 1 fields
+  index, message_download_data = nse_nsefo_orderentry_nnf_v9_50.message_download_data.dissect(buffer, index, packet, parent, size_of_message_download_data)
+
+  return index
+end
+
+-- Dissect: Message Record Message
+nse_nsefo_orderentry_nnf_v9_50.message_record_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_record_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.message_record_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Header Record Message
+nse_nsefo_orderentry_nnf_v9_50.header_record_message = {}
+
+-- Display: Header Record Message
+nse_nsefo_orderentry_nnf_v9_50.header_record_message.display = function(packet, parent, length)
+  return "Header Record Message"
+end
+
+
+-- Dissect: Header Record Message
+nse_nsefo_orderentry_nnf_v9_50.header_record_message.dissect = function(buffer, offset, packet, parent)
+  local display = nse_nsefo_orderentry_nnf_v9_50.header_record_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Local Database Data
+nse_nsefo_orderentry_nnf_v9_50.local_database_data = {}
+
+-- Display: Local Database Data
+nse_nsefo_orderentry_nnf_v9_50.local_database_data.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Local Database Data
+nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields = function(buffer, offset, packet, parent, size_of_local_database_data)
+  local index = offset
+
+  -- Dependency for Data Payload
+  local end_of_payload = offset + size_of_local_database_data
+
+  -- Data Payload: 0 Byte
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+    index, data_payload = nse_nsefo_orderentry_nnf_v9_50.data_payload.dissect(buffer, index, packet, parent, end_of_payload - index)
+  end
+
+  return index
+end
+
+-- Dissect: Local Database Data
+nse_nsefo_orderentry_nnf_v9_50.local_database_data.dissect = function(buffer, offset, packet, parent, size_of_local_database_data)
+  local index = offset + size_of_local_database_data
+
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.local_database_data, buffer(offset, 0))
+    local decoded, failure = pcall(nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields, bounded, offset, packet, parent, size_of_local_database_data)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_orderentry_nnf_v9_50.experts.undecoded, "Local Database Data does not decode within its "..size_of_local_database_data.." bytes")
+    end
+    parent:set_len(size_of_local_database_data)
+    local display = nse_nsefo_orderentry_nnf_v9_50.local_database_data.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    local decoded, failure = pcall(nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields, bounded, offset, packet, parent, size_of_local_database_data)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_orderentry_nnf_v9_50.experts.undecoded, "Local Database Data does not decode within its "..size_of_local_database_data.." bytes")
+    end
 
     return index
   end
@@ -12552,126 +13076,6 @@ nse_nsefo_orderentry_nnf_v9_50.inner_header.dissect = function(buffer, offset, p
   end
 end
 
--- Message Record Message
-nse_nsefo_orderentry_nnf_v9_50.message_record_message = {}
-
--- Calculate size of: Message Record Message
-nse_nsefo_orderentry_nnf_v9_50.message_record_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nse_nsefo_orderentry_nnf_v9_50.inner_header.size
-
-  -- Parse runtime size of: Message Download Data
-  index = index + buffer(offset + index - 42, 2):int()
-
-  return index
-end
-
--- Display: Message Record Message
-nse_nsefo_orderentry_nnf_v9_50.message_record_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Message Record Message
-nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Inner Header: Struct of 9 fields
-  index, inner_header = nse_nsefo_orderentry_nnf_v9_50.inner_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 2, 2):int()
-
-  -- Runtime Size Of: Message Download Data
-  local size_of_message_download_data = message_length - 80
-
-  -- Message Download Data: Struct of 1 fields
-  index, message_download_data = nse_nsefo_orderentry_nnf_v9_50.message_download_data.dissect(buffer, index, packet, parent, size_of_message_download_data)
-
-  return index
-end
-
--- Dissect: Message Record Message
-nse_nsefo_orderentry_nnf_v9_50.message_record_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.message_record_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.message_record_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.message_record_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Header Record Message
-nse_nsefo_orderentry_nnf_v9_50.header_record_message = {}
-
--- Display: Header Record Message
-nse_nsefo_orderentry_nnf_v9_50.header_record_message.display = function(packet, parent, length)
-  return "Header Record Message"
-end
-
-
--- Dissect: Header Record Message
-nse_nsefo_orderentry_nnf_v9_50.header_record_message.dissect = function(buffer, offset, packet, parent)
-  local display = nse_nsefo_orderentry_nnf_v9_50.header_record_message.display(packet, parent, 0)
-  packet.cols.info = display
-
-  return offset
-end
-
--- Local Database Data
-nse_nsefo_orderentry_nnf_v9_50.local_database_data = {}
-
--- Display: Local Database Data
-nse_nsefo_orderentry_nnf_v9_50.local_database_data.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Local Database Data
-nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields = function(buffer, offset, packet, parent, size_of_local_database_data)
-  local index = offset
-
-  -- Dependency for Data Payload
-  local end_of_payload = offset + size_of_local_database_data
-
-  -- Data Payload: 0 Byte
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-    index, data_payload = nse_nsefo_orderentry_nnf_v9_50.data_payload.dissect(buffer, index, packet, parent)
-  end
-
-  return index
-end
-
--- Dissect: Local Database Data
-nse_nsefo_orderentry_nnf_v9_50.local_database_data.dissect = function(buffer, offset, packet, parent, size_of_local_database_data)
-  local index = offset + size_of_local_database_data
-
-  -- Optionally add group/struct element to protocol tree
-  if show.structs then
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.local_database_data, buffer(offset, 0))
-    local current = nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields(buffer, offset, packet, parent, size_of_local_database_data)
-    parent:set_len(size_of_local_database_data)
-    local display = nse_nsefo_orderentry_nnf_v9_50.local_database_data.display(buffer, packet, parent)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    nse_nsefo_orderentry_nnf_v9_50.local_database_data.fields(buffer, offset, packet, parent, size_of_local_database_data)
-
-    return index
-  end
-end
-
 -- Update Local Database Data Message
 nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message = {}
 
@@ -12682,7 +13086,8 @@ nse_nsefo_orderentry_nnf_v9_50.update_local_database_data_message.size = functio
   index = index + nse_nsefo_orderentry_nnf_v9_50.inner_header.size
 
   -- Parse runtime size of: Local Database Data
-  index = index + buffer(offset + index - 42, 2):int()
+  local message_length = buffer(offset + index - 42, 2):int()
+  index = index + message_length - 80
 
   return index
 end
@@ -13277,6 +13682,7 @@ nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.size =
   nse_nsefo_orderentry_nnf_v9_50.st_ex_market_status.size + 
   nse_nsefo_orderentry_nnf_v9_50.st_pl_market_status.size + 
   nse_nsefo_orderentry_nnf_v9_50.update_portfolio.size + 
+  nse_nsefo_orderentry_nnf_v9_50.reserved_1.size + 
   nse_nsefo_orderentry_nnf_v9_50.market_index.size + 
   nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_normal.size + 
   nse_nsefo_orderentry_nnf_v9_50.default_settlement_period_spot.size + 
@@ -13314,6 +13720,13 @@ nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.fields = function(
 
   -- Update Portfolio: CHAR
   index, update_portfolio = nse_nsefo_orderentry_nnf_v9_50.update_portfolio.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: CHAR
+  if show.padding then
+    index, reserved_1 = nse_nsefo_orderentry_nnf_v9_50.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnf_v9_50.reserved_1.size
+  end
 
   -- Market Index: LONG
   index, market_index = nse_nsefo_orderentry_nnf_v9_50.market_index.dissect(buffer, index, packet, parent)
@@ -13702,6 +14115,14 @@ nse_nsefo_orderentry_nnf_v9_50.server_message_payload.dispatch = {
   [7011] = nse_nsefo_orderentry_nnf_v9_50.header_record_message.dissect,
   [7021] = nse_nsefo_orderentry_nnf_v9_50.message_record_message.dissect,
   [7031] = nse_nsefo_orderentry_nnf_v9_50.trailer_record_message.dissect,
+  [2073] = nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.dissect,
+  [2074] = nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.dissect,
+  [2012] = nse_nsefo_orderentry_nnf_v9_50.order_response_message.dissect,
+  [2042] = nse_nsefo_orderentry_nnf_v9_50.order_response_message.dissect,
+  [2072] = nse_nsefo_orderentry_nnf_v9_50.order_response_message.dissect,
+  [2170] = nse_nsefo_orderentry_nnf_v9_50.order_response_message.dissect,
+  [2231] = nse_nsefo_orderentry_nnf_v9_50.order_response_message.dissect,
+  [9002] = nse_nsefo_orderentry_nnf_v9_50.order_response_message.dissect,
   [2222] = nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect,
   [2212] = nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect,
   [2282] = nse_nsefo_orderentry_nnf_v9_50.trade_confirmation_message.dissect,
@@ -13832,7 +14253,7 @@ nse_nsefo_orderentry_nnf_v9_50.server_message.fields = function(buffer, offset, 
   -- Dependency element: Transaction Code
   local transaction_code = buffer(index - 40, 2):int()
 
-  -- Server Message Payload: Runtime Type with 32 branches
+  -- Server Message Payload: Runtime Type with 35 branches
   index = nse_nsefo_orderentry_nnf_v9_50.server_message_payload.dissect(buffer, index, packet, parent, transaction_code)
 
   return index
@@ -13842,10 +14263,16 @@ end
 nse_nsefo_orderentry_nnf_v9_50.server_message.dissect = function(buffer, offset, packet, parent, size_of_server_message)
   local index = offset + size_of_server_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.server_message, buffer(offset, 0))
-    local current = nse_nsefo_orderentry_nnf_v9_50.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(nse_nsefo_orderentry_nnf_v9_50.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_orderentry_nnf_v9_50.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
     parent:set_len(size_of_server_message)
     local display = nse_nsefo_orderentry_nnf_v9_50.server_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -13853,7 +14280,10 @@ nse_nsefo_orderentry_nnf_v9_50.server_message.dissect = function(buffer, offset,
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsefo_orderentry_nnf_v9_50.server_message.fields(buffer, offset, packet, parent, size_of_server_message)
+    local decoded, failure = pcall(nse_nsefo_orderentry_nnf_v9_50.server_message.fields, bounded, offset, packet, parent, size_of_server_message)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_orderentry_nnf_v9_50.experts.undecoded, "Server Message does not decode within its "..size_of_server_message.." bytes")
+    end
 
     return index
   end
@@ -14851,20 +15281,20 @@ nse_nsefo_orderentry_nnf_v9_50.price_modification_message.dissect = function(buf
   end
 end
 
--- Order Entry Message
-nse_nsefo_orderentry_nnf_v9_50.order_entry_message = {}
+-- Kill Switch Request Message
+nse_nsefo_orderentry_nnf_v9_50.kill_switch_request_message = {}
 
--- Size: Order Entry Message
-nse_nsefo_orderentry_nnf_v9_50.order_entry_message.size =
+-- Size: Kill Switch Request Message
+nse_nsefo_orderentry_nnf_v9_50.kill_switch_request_message.size =
   nse_nsefo_orderentry_nnf_v9_50.order_entry_body.size
 
--- Display: Order Entry Message
-nse_nsefo_orderentry_nnf_v9_50.order_entry_message.display = function(packet, parent, length)
+-- Display: Kill Switch Request Message
+nse_nsefo_orderentry_nnf_v9_50.kill_switch_request_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Entry Message
-nse_nsefo_orderentry_nnf_v9_50.order_entry_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Kill Switch Request Message
+nse_nsefo_orderentry_nnf_v9_50.kill_switch_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Entry Body: Struct of 52 fields
@@ -14873,101 +15303,21 @@ nse_nsefo_orderentry_nnf_v9_50.order_entry_message.fields = function(buffer, off
   return index
 end
 
--- Dissect: Order Entry Message
-nse_nsefo_orderentry_nnf_v9_50.order_entry_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Kill Switch Request Message
+nse_nsefo_orderentry_nnf_v9_50.kill_switch_request_message.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_entry_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.order_entry_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.kill_switch_request_message, buffer(offset, 0))
+    local index = nse_nsefo_orderentry_nnf_v9_50.kill_switch_request_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.order_entry_message.display(packet, parent, length)
+    local display = nse_nsefo_orderentry_nnf_v9_50.kill_switch_request_message.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.order_entry_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Order Modification Confirmation Message
-nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message = {}
-
--- Size: Order Modification Confirmation Message
-nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.order_entry_body.size
-
--- Display: Order Modification Confirmation Message
-nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Modification Confirmation Message
-nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Entry Body: Struct of 52 fields
-  index, order_entry_body = nse_nsefo_orderentry_nnf_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Modification Confirmation Message
-nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_modification_confirmation_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Order Confirmation Message
-nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message = {}
-
--- Size: Order Confirmation Message
-nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.size =
-  nse_nsefo_orderentry_nnf_v9_50.order_entry_body.size
-
--- Display: Order Confirmation Message
-nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Order Confirmation Message
-nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Order Entry Body: Struct of 52 fields
-  index, order_entry_body = nse_nsefo_orderentry_nnf_v9_50.order_entry_body.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Order Confirmation Message
-nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.order_confirmation_message, buffer(offset, 0))
-    local index = nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.fields(buffer, offset, packet, parent)
+    return nse_nsefo_orderentry_nnf_v9_50.kill_switch_request_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -15498,15 +15848,7 @@ nse_nsefo_orderentry_nnf_v9_50.client_message_payload.dispatch = {
   [2000] = nse_nsefo_orderentry_nnf_v9_50.order_entry_request_message.dissect,
   [2040] = nse_nsefo_orderentry_nnf_v9_50.order_modification_request_message.dissect,
   [2070] = nse_nsefo_orderentry_nnf_v9_50.order_cancellation_request_message.dissect,
-  [2073] = nse_nsefo_orderentry_nnf_v9_50.order_confirmation_message.dissect,
-  [2074] = nse_nsefo_orderentry_nnf_v9_50.order_modification_confirmation_message.dissect,
-  [2012] = nse_nsefo_orderentry_nnf_v9_50.order_entry_message.dissect,
-  [2042] = nse_nsefo_orderentry_nnf_v9_50.order_entry_message.dissect,
-  [2062] = nse_nsefo_orderentry_nnf_v9_50.order_entry_message.dissect,
-  [2072] = nse_nsefo_orderentry_nnf_v9_50.order_entry_message.dissect,
-  [2170] = nse_nsefo_orderentry_nnf_v9_50.order_entry_message.dissect,
-  [2231] = nse_nsefo_orderentry_nnf_v9_50.order_entry_message.dissect,
-  [9002] = nse_nsefo_orderentry_nnf_v9_50.order_entry_message.dissect,
+  [2062] = nse_nsefo_orderentry_nnf_v9_50.kill_switch_request_message.dissect,
   [2013] = nse_nsefo_orderentry_nnf_v9_50.price_modification_message.dissect,
   [20406] = nse_nsefo_orderentry_nnf_v9_50.price_modification_message.dissect,
   [5445] = nse_nsefo_orderentry_nnf_v9_50.trade_inquiry_message.dissect,
@@ -15577,7 +15919,7 @@ nse_nsefo_orderentry_nnf_v9_50.client_message.fields = function(buffer, offset, 
   -- Dependency element: Transaction Code
   local transaction_code = buffer(index - 40, 2):int()
 
-  -- Client Message Payload: Runtime Type with 26 branches
+  -- Client Message Payload: Runtime Type with 24 branches
   index = nse_nsefo_orderentry_nnf_v9_50.client_message_payload.dissect(buffer, index, packet, parent, transaction_code)
 
   return index
@@ -15587,10 +15929,16 @@ end
 nse_nsefo_orderentry_nnf_v9_50.client_message.dissect = function(buffer, offset, packet, parent, size_of_client_message)
   local index = offset + size_of_client_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_nse_nsefo_orderentry_nnf_v9_50.fields.client_message, buffer(offset, 0))
-    local current = nse_nsefo_orderentry_nnf_v9_50.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    local decoded, failure = pcall(nse_nsefo_orderentry_nnf_v9_50.client_message.fields, bounded, offset, packet, parent, size_of_client_message)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_orderentry_nnf_v9_50.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
     parent:set_len(size_of_client_message)
     local display = nse_nsefo_orderentry_nnf_v9_50.client_message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -15598,7 +15946,10 @@ nse_nsefo_orderentry_nnf_v9_50.client_message.dissect = function(buffer, offset,
     return index, parent
   else
     -- Skip element, add fields directly
-    nse_nsefo_orderentry_nnf_v9_50.client_message.fields(buffer, offset, packet, parent, size_of_client_message)
+    local decoded, failure = pcall(nse_nsefo_orderentry_nnf_v9_50.client_message.fields, bounded, offset, packet, parent, size_of_client_message)
+    if not decoded then
+      undecoded(failure, parent, nse_nsefo_orderentry_nnf_v9_50.experts.undecoded, "Client Message does not decode within its "..size_of_client_message.." bytes")
+    end
 
     return index
   end
@@ -15824,48 +16175,8 @@ nse_nsefo_orderentry_nnf_v9_50.client_packet.fingerprint = function(buffer)
     return true
   end
 
-  -- Order Confirmation Message
-  if transaction_code == 2073 then
-    return true
-  end
-
-  -- Order Modification Confirmation Message
-  if transaction_code == 2074 then
-    return true
-  end
-
-  -- Order Entry Message
-  if transaction_code == 2012 then
-    return true
-  end
-
-  -- Order Entry Message
-  if transaction_code == 2042 then
-    return true
-  end
-
-  -- Order Entry Message
+  -- Kill Switch Request Message
   if transaction_code == 2062 then
-    return true
-  end
-
-  -- Order Entry Message
-  if transaction_code == 2072 then
-    return true
-  end
-
-  -- Order Entry Message
-  if transaction_code == 2170 then
-    return true
-  end
-
-  -- Order Entry Message
-  if transaction_code == 2231 then
-    return true
-  end
-
-  -- Order Entry Message
-  if transaction_code == 9002 then
     return true
   end
 
@@ -16143,6 +16454,46 @@ nse_nsefo_orderentry_nnf_v9_50.server_packet.fingerprint = function(buffer)
 
   -- Trailer Record Message
   if transaction_code == 7031 then
+    return true
+  end
+
+  -- Order Confirmation Message
+  if transaction_code == 2073 then
+    return true
+  end
+
+  -- Order Modification Confirmation Message
+  if transaction_code == 2074 then
+    return true
+  end
+
+  -- Order Response Message
+  if transaction_code == 2012 then
+    return true
+  end
+
+  -- Order Response Message
+  if transaction_code == 2042 then
+    return true
+  end
+
+  -- Order Response Message
+  if transaction_code == 2072 then
+    return true
+  end
+
+  -- Order Response Message
+  if transaction_code == 2170 then
+    return true
+  end
+
+  -- Order Response Message
+  if transaction_code == 2231 then
+    return true
+  end
+
+  -- Order Response Message
+  if transaction_code == 9002 then
     return true
   end
 

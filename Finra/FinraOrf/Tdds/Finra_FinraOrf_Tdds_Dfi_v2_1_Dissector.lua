@@ -115,7 +115,8 @@ omi_finra_finraorf_tdds_dfi_v2_1.fields.message_index = ProtoField.new("Message 
 -- Finra FinraOrf Tdds Dfi 2.1 Expert Info
 finra_finraorf_tdds_dfi_v2_1.experts = {}
 finra_finraorf_tdds_dfi_v2_1.experts.not_a_number = ProtoExpert.new("finra.finraorf.tdds.dfi.v2.1.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
-omi_finra_finraorf_tdds_dfi_v2_1.experts = { finra_finraorf_tdds_dfi_v2_1.experts.not_a_number }
+finra_finraorf_tdds_dfi_v2_1.experts.undecoded = ProtoExpert.new("finra.finraorf.tdds.dfi.v2.1.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_finra_finraorf_tdds_dfi_v2_1.experts = { finra_finraorf_tdds_dfi_v2_1.experts.not_a_number, finra_finraorf_tdds_dfi_v2_1.experts.undecoded }
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -194,6 +195,14 @@ ascii_to_uint64 = function(str)
 end
 
 
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
 -----------------------------------------------------------------------
 -- Finra FinraOrf Tdds Dfi 2.1 Fields
 -----------------------------------------------------------------------
@@ -1260,7 +1269,7 @@ finra_finraorf_tdds_dfi_v2_1.reserved_1.dissect = function(buffer, offset, packe
   local value = range:bytes():tohex(false, " ")
   local display = finra_finraorf_tdds_dfi_v2_1.reserved_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.reserved_1, range, value, display)
+  parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.reserved_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2638,7 +2647,8 @@ finra_finraorf_tdds_dfi_v2_1.general_administrative_message.size = function(buff
   index = index + finra_finraorf_tdds_dfi_v2_1.message_header.size
 
   -- Parse runtime size of: Text
-  index = index + buffer(offset + index - 37, 2):uint()
+  local length = buffer(offset + index - 37, 2):uint()
+  index = index + length - 35
 
   return index
 end
@@ -3599,10 +3609,16 @@ end
 finra_finraorf_tdds_dfi_v2_1.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
   local index = offset + size_of_message
 
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
   -- Optionally add group/struct element to protocol tree
   if show.structs then
     parent = parent:add(omi_finra_finraorf_tdds_dfi_v2_1.fields.message, buffer(offset, 0))
-    local current = finra_finraorf_tdds_dfi_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(finra_finraorf_tdds_dfi_v2_1.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, finra_finraorf_tdds_dfi_v2_1.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
     parent:set_len(size_of_message)
     local display = finra_finraorf_tdds_dfi_v2_1.message.display(buffer, packet, parent)
     parent:append_text(display)
@@ -3610,7 +3626,10 @@ finra_finraorf_tdds_dfi_v2_1.message.dissect = function(buffer, offset, packet, 
     return index, parent
   else
     -- Skip element, add fields directly
-    finra_finraorf_tdds_dfi_v2_1.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    local decoded, failure = pcall(finra_finraorf_tdds_dfi_v2_1.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, finra_finraorf_tdds_dfi_v2_1.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
 
     return index
   end
