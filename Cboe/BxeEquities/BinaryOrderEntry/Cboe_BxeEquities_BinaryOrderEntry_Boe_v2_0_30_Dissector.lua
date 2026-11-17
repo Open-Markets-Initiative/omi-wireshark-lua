@@ -189,8 +189,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.investor_id = ProtoFiel
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.investor_qualified_role = ProtoField.new("Investor Qualified Role", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.investorqualifiedrole", ftypes.UINT8)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.large_size = ProtoField.new("Large Size", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.largesize", ftypes.UINT64)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.last_mkt = ProtoField.new("Last Mkt", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.lastmkt", ftypes.STRING)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.last_px_binary_price_8 = ProtoField.new("Last Px Binary Price 8", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.lastpxbinaryprice8", ftypes.DOUBLE)
-omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.last_px_trade_price_8 = ProtoField.new("Last Px Trade Price 8", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.lastpxtradeprice8", ftypes.DOUBLE, nil, nil, nil, "Corresponds to LastPx (31) in Bats FIX. Price of this fill.")
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.last_px = ProtoField.new("Last Px", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.lastpx", ftypes.DOUBLE)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.last_received_sequence_number = ProtoField.new("Last Received Sequence Number", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.lastreceivedsequencenumber", ftypes.UINT32, nil, nil, nil, "Last inbound (Participant to Bats) message se- quence number processed by Bats.")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.last_shares = ProtoField.new("Last Shares", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.lastshares", ftypes.UINT32, nil, nil, nil, "Corresponds to LastShares (32) in Bats FIX. Executed share quantity. If the LargeSize op- tional field is specified, that value holds pre- cedance over this field.")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.leaves_qty = ProtoField.new("Leaves Qty", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.leavesqty", ftypes.UINT32)
@@ -1352,6 +1351,7 @@ omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_capture_confirm_v
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_capture_confirm_v_2_bitfield_9_order_category = ProtoField.new("Trade Capture Confirm V 2 Bitfield 9 Order Category", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradecaptureconfirmv2bitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_capture_confirm_v_2_bitfield_9_target_party_id = ProtoField.new("Trade Capture Confirm V 2 Bitfield 9 Target Party Id", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradecaptureconfirmv2bitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_capture_confirm_v_2_trd_cap_ack_side_grp = ProtoField.new("Trade Capture Confirm V 2 Trd Cap Ack Side Grp", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradecaptureconfirmv2trdcapacksidegrp", ftypes.STRING, nil, nil, nil, "Repeating group stated NoSides times.")
+omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_capture_last_px = ProtoField.new("Trade Capture Last Px", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradecapturelastpx", ftypes.DOUBLE, nil, nil, nil, "Corresponds to LastPx (31) in Bats FIX. Price of this fill.")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_capture_report_acknowledgment_v_2_bitfield_1 = ProtoField.new("Trade Capture Report Acknowledgment V 2 Bitfield 1", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradecapturereportacknowledgmentv2bitfield1", ftypes.STRING, nil, nil, nil, "BitSet TradeCaptureReportAcknowledgmentV2 byte 1.")
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_capture_report_acknowledgment_v_2_bitfield_1_exec_inst = ProtoField.new("Trade Capture Report Acknowledgment V 2 Bitfield 1 Exec Inst", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradecapturereportacknowledgmentv2bitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_capture_report_acknowledgment_v_2_bitfield_1_max_remove_pct = ProtoField.new("Trade Capture Report Acknowledgment V 2 Bitfield 1 Max Remove Pct", "cboe.bxeequities.binaryorderentry.boe.v2.0.30.tradecapturereportacknowledgmentv2bitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -3548,60 +3548,31 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_mkt.dissect = function(buffer
   return offset + length, value
 end
 
--- Last Px Binary Price 8
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8 = {}
+-- Last Px
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px = {}
 
--- Size: Last Px Binary Price 8
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.size = 8
+-- Size: Last Px
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.size = 8
 
--- Display: Last Px Binary Price 8
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.display = function(value)
-  return "Last Px Binary Price 8: "..value
+-- Display: Last Px
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.display = function(value)
+  return "Last Px: "..value
 end
 
--- Translate: Last Px Binary Price 8
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.translate = function(raw)
+-- Translate: Last Px
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Last Px Binary Price 8
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.size
+-- Dissect: Last Px
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.translate(raw)
-  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.display(value, buffer, offset, packet, parent)
+  local value = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.translate(raw)
+  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.last_px_binary_price_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px Trade Price 8
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8 = {}
-
--- Size: Last Px Trade Price 8
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8.size = 8
-
--- Display: Last Px Trade Price 8
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8.display = function(value)
-  return "Last Px Trade Price 8: "..value
-end
-
--- Translate: Last Px Trade Price 8
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Last Px Trade Price 8
-cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8.translate(raw)
-  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.last_px_trade_price_8, range, value, display)
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -6074,6 +6045,35 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.tolerance.dissect = function(buffe
   return offset + length, value
 end
 
+-- Trade Capture Last Px
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px = {}
+
+-- Size: Trade Capture Last Px
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px.size = 8
+
+-- Display: Trade Capture Last Px
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px.display = function(value)
+  return "Trade Capture Last Px: "..value
+end
+
+-- Translate: Trade Capture Last Px
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Trade Capture Last Px
+cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px.translate(raw)
+  local display = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_bxeequities_binaryorderentry_boe_v2_0_30.fields.trade_capture_last_px, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trade Handling Instruction
 cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_handling_instruction = {}
 
@@ -8103,8 +8103,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_decline_v_2_m
   -- Last Shares: Binary
   index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Trade Price 8: TradePrice
-  index, last_px_trade_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8.dissect(buffer, index, packet, parent)
+  -- Trade Capture Last Px: TradePrice
+  index, trade_capture_last_px = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px.dissect(buffer, index, packet, parent)
 
   -- Contra Broker: Alphanumeric
   index, contra_broker = cboe_bxeequities_binaryorderentry_boe_v2_0_30.contra_broker.dissect(buffer, index, packet, parent)
@@ -9917,8 +9917,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_confirm_v_2_message.
   -- Last Shares: Binary
   index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Trade Price 8: TradePrice
-  index, last_px_trade_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8.dissect(buffer, index, packet, parent)
+  -- Trade Capture Last Px: TradePrice
+  index, trade_capture_last_px = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px.dissect(buffer, index, packet, parent)
 
   -- Contra Broker: Alphanumeric
   index, contra_broker = cboe_bxeequities_binaryorderentry_boe_v2_0_30.contra_broker.dissect(buffer, index, packet, parent)
@@ -15250,8 +15250,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_cancel_or_correct_v_2_messag
   -- Last Shares: Binary
   index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Binary Price 8: BinaryPrice
-  index, last_px_binary_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Last Px: BinaryPrice
+  index, last_px = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.dissect(buffer, index, packet, parent)
 
   -- Corrected Price: BinaryPrice
   index, corrected_price = cboe_bxeequities_binaryorderentry_boe_v2_0_30.corrected_price.dissect(buffer, index, packet, parent)
@@ -16971,8 +16971,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_execution_v_2_message.fields
   -- Last Shares: Binary
   index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Binary Price 8: BinaryPrice
-  index, last_px_binary_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Last Px: BinaryPrice
+  index, last_px = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: Binary
   index, leaves_qty = cboe_bxeequities_binaryorderentry_boe_v2_0_30.leaves_qty.dissect(buffer, index, packet, parent)
@@ -20922,13 +20922,13 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_cancelled_v_2_message.fields
     index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Last Px Binary Price 8
-  local last_px_binary_price_8 = nil
+  -- Runtime optional field: Last Px
+  local last_px = nil
 
-  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_cancelled_v_2_return_bitfield_5, 0x08), 3) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_cancelled_v_2_return_bitfield_5, 0x08), 3) > 0
 
-  if last_px_binary_price_8_exists then
-    index, last_px_binary_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  if last_px_exists then
+    index, last_px = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -24328,13 +24328,13 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_restated_v_2_message.fields 
     index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Last Px Binary Price 8
-  local last_px_binary_price_8 = nil
+  -- Runtime optional field: Last Px
+  local last_px = nil
 
-  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_restated_v_2_return_bitfield_5, 0x08), 3) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_restated_v_2_return_bitfield_5, 0x08), 3) > 0
 
-  if last_px_binary_price_8_exists then
-    index, last_px_binary_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  if last_px_exists then
+    index, last_px = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -26109,13 +26109,13 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_modified_v_2_message.fields 
     index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Last Px Binary Price 8
-  local last_px_binary_price_8 = nil
+  -- Runtime optional field: Last Px
+  local last_px = nil
 
-  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_modified_v_2_return_bitfield_5, 0x08), 3) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_modified_v_2_return_bitfield_5, 0x08), 3) > 0
 
-  if last_px_binary_price_8_exists then
-    index, last_px_binary_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  if last_px_exists then
+    index, last_px = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -29710,13 +29710,13 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.order_acknowledgment_v_2_message.f
     index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Last Px Binary Price 8
-  local last_px_binary_price_8 = nil
+  -- Runtime optional field: Last Px
+  local last_px = nil
 
-  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_acknowledgment_v_2_return_bitfield_5, 0x08), 3) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_acknowledgment_v_2_return_bitfield_5, 0x08), 3) > 0
 
-  if last_px_binary_price_8_exists then
-    index, last_px_binary_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  if last_px_exists then
+    index, last_px = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -30445,8 +30445,8 @@ cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_report_v_2_message.f
   -- Last Shares: Binary
   index, last_shares = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Trade Price 8: TradePrice
-  index, last_px_trade_price_8 = cboe_bxeequities_binaryorderentry_boe_v2_0_30.last_px_trade_price_8.dissect(buffer, index, packet, parent)
+  -- Trade Capture Last Px: TradePrice
+  index, trade_capture_last_px = cboe_bxeequities_binaryorderentry_boe_v2_0_30.trade_capture_last_px.dissect(buffer, index, packet, parent)
 
   -- Number Of Trade Capture Report V 2 Bitfields: Binary
   index, number_of_trade_capture_report_v_2_bitfields = cboe_bxeequities_binaryorderentry_boe_v2_0_30.number_of_trade_capture_report_v_2_bitfields.dissect(buffer, index, packet, parent)

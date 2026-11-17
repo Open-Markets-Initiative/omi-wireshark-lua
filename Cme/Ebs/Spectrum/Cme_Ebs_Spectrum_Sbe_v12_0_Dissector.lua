@@ -31,8 +31,6 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_px = ProtoField.new("Md Entry Px"
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.ebs.spectrum.sbe.v12.0.mdentrysize", ftypes.UINT64, nil, nil, nil, "Market Data entry size")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.ebs.spectrum.sbe.v12.0.mdentrytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the last market event that contributed to element calculation or publication")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_time_utc = ProtoField.new("Md Entry Time", "cme.ebs.spectrum.sbe.v12.0.mdentrytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the last market event that contributed to element calculation or publication")
-omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_type_spectrum_entry_type = ProtoField.new("Md Entry Type Spectrum Entry Type", "cme.ebs.spectrum.sbe.v12.0.mdentrytypespectrumentrytype", ftypes.STRING, nil, nil, nil, "Market Data entry type, identifies the element")
-omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_type_ticker_entry_type = ProtoField.new("Md Entry Type Ticker Entry Type", "cme.ebs.spectrum.sbe.v12.0.mdentrytypetickerentrytype", ftypes.STRING, nil, nil, nil, "Market Data entry type, identifies the element")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.ebs.spectrum.sbe.v12.0.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "Packet Sequence Number")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message_size = ProtoField.new("Message Size", "cme.ebs.spectrum.sbe.v12.0.messagesize", ftypes.UINT16)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.num_in_group = ProtoField.new("Num In Group", "cme.ebs.spectrum.sbe.v12.0.numingroup", ftypes.UINT8)
@@ -49,9 +47,11 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_group = ProtoFie
 omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_groups = ProtoField.new("Snapshot Refresh Spectrum Groups", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshspectrumgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_ticker_group = ProtoField.new("Snapshot Refresh Ticker Group", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshtickergroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_ticker_groups = ProtoField.new("Snapshot Refresh Ticker Groups", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshtickergroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_ebs_spectrum_sbe_v12_0.fields.spectrum_md_entry_type = ProtoField.new("Spectrum Md Entry Type", "cme.ebs.spectrum.sbe.v12.0.spectrummdentrytype", ftypes.STRING, nil, nil, nil, "Market Data entry type, identifies the element")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.symbol = ProtoField.new("Symbol", "cme.ebs.spectrum.sbe.v12.0.symbol", ftypes.STRING, nil, nil, nil, "Unique instrument symbol")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.ebs.spectrum.sbe.v12.0.tcpsendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.template_id = ProtoField.new("Template Id", "cme.ebs.spectrum.sbe.v12.0.templateid", ftypes.UINT16)
+omi_cme_ebs_spectrum_sbe_v12_0.fields.ticker_md_entry_type = ProtoField.new("Ticker Md Entry Type", "cme.ebs.spectrum.sbe.v12.0.tickermdentrytype", ftypes.STRING, nil, nil, nil, "Market Data entry type, identifies the element")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.ebs.spectrum.sbe.v12.0.tradingsessionid", ftypes.UINT8, nil, nil, nil, "The associated region market hours considered for the calculation of the element. The element is calculated from market events occurring during the region's open-close hours")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.ebs.spectrum.sbe.v12.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.ebs.spectrum.sbe.v12.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
@@ -403,122 +403,6 @@ cme_ebs_spectrum_sbe_v12_0.md_entry_time.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Md Entry Type Spectrum Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type = {}
-
--- Size: Md Entry Type Spectrum Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size = 1
-
--- Display: Md Entry Type Spectrum Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Md Entry Type Spectrum Entry Type: No Value"
-  end
-
-  if value == "9" then
-    return "Md Entry Type Spectrum Entry Type: Vwap (9)"
-  end
-  if value == "t" then
-    return "Md Entry Type Spectrum Entry Type: Twap (t)"
-  end
-
-  return "Md Entry Type Spectrum Entry Type: Unknown("..value..")"
-end
-
--- Dissect: Md Entry Type Spectrum Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_type_spectrum_entry_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Md Entry Type Ticker Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type = {}
-
--- Size: Md Entry Type Ticker Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.size = 1
-
--- Display: Md Entry Type Ticker Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.display = function(value)
-  -- Check if field has value
-  if value == nil or value == 0 then
-    return "Md Entry Type Ticker Entry Type: No Value"
-  end
-
-  if value == "k" then
-    return "Md Entry Type Ticker Entry Type: Touch High (k)"
-  end
-  if value == "l" then
-    return "Md Entry Type Ticker Entry Type: Touch Low (l)"
-  end
-  if value == "m" then
-    return "Md Entry Type Ticker Entry Type: Open Best Bid (m)"
-  end
-  if value == "n" then
-    return "Md Entry Type Ticker Entry Type: Open Best Offer (n)"
-  end
-  if value == "o" then
-    return "Md Entry Type Ticker Entry Type: Close Best Bid (o)"
-  end
-  if value == "p" then
-    return "Md Entry Type Ticker Entry Type: Close Best Offer (p)"
-  end
-  if value == "q" then
-    return "Md Entry Type Ticker Entry Type: Market High (q)"
-  end
-  if value == "r" then
-    return "Md Entry Type Ticker Entry Type: Market Low (r)"
-  end
-  if value == "w" then
-    return "Md Entry Type Ticker Entry Type: Market Best Offer (w)"
-  end
-  if value == "x" then
-    return "Md Entry Type Ticker Entry Type: Market Best Bid (x)"
-  end
-  if value == "y" then
-    return "Md Entry Type Ticker Entry Type: Paid (y)"
-  end
-  if value == "z" then
-    return "Md Entry Type Ticker Entry Type: Given (z)"
-  end
-
-  return "Md Entry Type Ticker Entry Type: Unknown("..value..")"
-end
-
--- Dissect: Md Entry Type Ticker Entry Type
-cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.dissect = function(buffer, offset, packet, parent)
-  local length = cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.size
-  local range = buffer(offset, length)
-
-  -- parse as byte
-  local value = range:uint()
-
-  -- check if value is non zero
-  if value ~= 0 then
-    value = range:string()
-  end
-
-  local display = cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_type_ticker_entry_type, range, value, display)
-
-  return offset + length, value
-end
-
 -- Message Sequence Number
 cme_ebs_spectrum_sbe_v12_0.message_sequence_number = {}
 
@@ -740,6 +624,49 @@ cme_ebs_spectrum_sbe_v12_0.sending_time.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Spectrum Md Entry Type
+cme_ebs_spectrum_sbe_v12_0.spectrum_md_entry_type = {}
+
+-- Size: Spectrum Md Entry Type
+cme_ebs_spectrum_sbe_v12_0.spectrum_md_entry_type.size = 1
+
+-- Display: Spectrum Md Entry Type
+cme_ebs_spectrum_sbe_v12_0.spectrum_md_entry_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Spectrum Md Entry Type: No Value"
+  end
+
+  if value == "9" then
+    return "Spectrum Md Entry Type: Vwap (9)"
+  end
+  if value == "t" then
+    return "Spectrum Md Entry Type: Twap (t)"
+  end
+
+  return "Spectrum Md Entry Type: Unknown("..value..")"
+end
+
+-- Dissect: Spectrum Md Entry Type
+cme_ebs_spectrum_sbe_v12_0.spectrum_md_entry_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.spectrum_md_entry_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_ebs_spectrum_sbe_v12_0.spectrum_md_entry_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.spectrum_md_entry_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Symbol
 cme_ebs_spectrum_sbe_v12_0.symbol = {}
 
@@ -830,6 +757,79 @@ cme_ebs_spectrum_sbe_v12_0.template_id.dissect = function(buffer, offset, packet
   local display = cme_ebs_spectrum_sbe_v12_0.template_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ticker Md Entry Type
+cme_ebs_spectrum_sbe_v12_0.ticker_md_entry_type = {}
+
+-- Size: Ticker Md Entry Type
+cme_ebs_spectrum_sbe_v12_0.ticker_md_entry_type.size = 1
+
+-- Display: Ticker Md Entry Type
+cme_ebs_spectrum_sbe_v12_0.ticker_md_entry_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Ticker Md Entry Type: No Value"
+  end
+
+  if value == "k" then
+    return "Ticker Md Entry Type: Touch High (k)"
+  end
+  if value == "l" then
+    return "Ticker Md Entry Type: Touch Low (l)"
+  end
+  if value == "m" then
+    return "Ticker Md Entry Type: Open Best Bid (m)"
+  end
+  if value == "n" then
+    return "Ticker Md Entry Type: Open Best Offer (n)"
+  end
+  if value == "o" then
+    return "Ticker Md Entry Type: Close Best Bid (o)"
+  end
+  if value == "p" then
+    return "Ticker Md Entry Type: Close Best Offer (p)"
+  end
+  if value == "q" then
+    return "Ticker Md Entry Type: Market High (q)"
+  end
+  if value == "r" then
+    return "Ticker Md Entry Type: Market Low (r)"
+  end
+  if value == "w" then
+    return "Ticker Md Entry Type: Market Best Offer (w)"
+  end
+  if value == "x" then
+    return "Ticker Md Entry Type: Market Best Bid (x)"
+  end
+  if value == "y" then
+    return "Ticker Md Entry Type: Paid (y)"
+  end
+  if value == "z" then
+    return "Ticker Md Entry Type: Given (z)"
+  end
+
+  return "Ticker Md Entry Type: Unknown("..value..")"
+end
+
+-- Dissect: Ticker Md Entry Type
+cme_ebs_spectrum_sbe_v12_0.ticker_md_entry_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_ebs_spectrum_sbe_v12_0.ticker_md_entry_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
+  local display = cme_ebs_spectrum_sbe_v12_0.ticker_md_entry_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.ticker_md_entry_type, range, value, display)
 
   return offset + length, value
 end
@@ -984,7 +984,7 @@ cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group = {}
 
 -- Size: Snapshot Refresh Ticker Group
 cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.size =
-  cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.size + 
+  cme_ebs_spectrum_sbe_v12_0.ticker_md_entry_type.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_px.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_size.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_time.size + 
@@ -1007,8 +1007,8 @@ cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_ticker_group.fields = function(buffe
     iteration:set_generated()
   end
 
-  -- Md Entry Type Ticker Entry Type: TickerEntryType
-  index, md_entry_type_ticker_entry_type = cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.dissect(buffer, index, packet, parent)
+  -- Ticker Md Entry Type: TickerEntryType
+  index, ticker_md_entry_type = cme_ebs_spectrum_sbe_v12_0.ticker_md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: PRICENULL9
   index, md_entry_px = cme_ebs_spectrum_sbe_v12_0.md_entry_px.dissect(buffer, index, packet, parent)
@@ -1280,7 +1280,7 @@ cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group = {}
 
 -- Size: Snapshot Refresh Spectrum Group
 cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.size =
-  cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size + 
+  cme_ebs_spectrum_sbe_v12_0.spectrum_md_entry_type.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_px.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_size.size + 
   cme_ebs_spectrum_sbe_v12_0.md_entry_time.size
@@ -1300,8 +1300,8 @@ cme_ebs_spectrum_sbe_v12_0.snapshot_refresh_spectrum_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Md Entry Type Spectrum Entry Type: SpectrumEntryType
-  index, md_entry_type_spectrum_entry_type = cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect(buffer, index, packet, parent)
+  -- Spectrum Md Entry Type: SpectrumEntryType
+  index, spectrum_md_entry_type = cme_ebs_spectrum_sbe_v12_0.spectrum_md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Px: PRICENULL9
   index, md_entry_px = cme_ebs_spectrum_sbe_v12_0.md_entry_px.dissect(buffer, index, packet, parent)
@@ -1470,7 +1470,7 @@ cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group = {}
 
 -- Size: Incremental Refresh Ticker Group
 cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.size =
-  cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.size + 
+  cme_ebs_spectrum_sbe_v12_0.ticker_md_entry_type.size + 
   cme_ebs_spectrum_sbe_v12_0.security_id.size + 
   cme_ebs_spectrum_sbe_v12_0.symbol.size + 
   cme_ebs_spectrum_sbe_v12_0.instrument_guid.size + 
@@ -1497,8 +1497,8 @@ cme_ebs_spectrum_sbe_v12_0.incremental_refresh_ticker_group.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Md Entry Type Ticker Entry Type: TickerEntryType
-  index, md_entry_type_ticker_entry_type = cme_ebs_spectrum_sbe_v12_0.md_entry_type_ticker_entry_type.dissect(buffer, index, packet, parent)
+  -- Ticker Md Entry Type: TickerEntryType
+  index, ticker_md_entry_type = cme_ebs_spectrum_sbe_v12_0.ticker_md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Security Id: Int32
   index, security_id = cme_ebs_spectrum_sbe_v12_0.security_id.dissect(buffer, index, packet, parent)
@@ -1668,7 +1668,7 @@ cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group = {}
 
 -- Size: Incremental Refresh Spectrum Group
 cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.size =
-  cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.size + 
+  cme_ebs_spectrum_sbe_v12_0.spectrum_md_entry_type.size + 
   cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.size + 
   cme_ebs_spectrum_sbe_v12_0.symbol.size + 
   cme_ebs_spectrum_sbe_v12_0.instrument_guid.size + 
@@ -1692,8 +1692,8 @@ cme_ebs_spectrum_sbe_v12_0.incremental_refresh_spectrum_group.fields = function(
     iteration:set_generated()
   end
 
-  -- Md Entry Type Spectrum Entry Type: SpectrumEntryType
-  index, md_entry_type_spectrum_entry_type = cme_ebs_spectrum_sbe_v12_0.md_entry_type_spectrum_entry_type.dissect(buffer, index, packet, parent)
+  -- Spectrum Md Entry Type: SpectrumEntryType
+  index, spectrum_md_entry_type = cme_ebs_spectrum_sbe_v12_0.spectrum_md_entry_type.dissect(buffer, index, packet, parent)
 
   -- Financial Instrument Full Name: LongName
   index, financial_instrument_full_name = cme_ebs_spectrum_sbe_v12_0.financial_instrument_full_name.dissect(buffer, index, packet, parent)

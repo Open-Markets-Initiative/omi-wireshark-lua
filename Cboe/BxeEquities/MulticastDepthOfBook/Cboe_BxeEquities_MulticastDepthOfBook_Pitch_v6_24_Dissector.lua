@@ -66,8 +66,8 @@ omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.side_indicator = Pr
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.special_dividend = ProtoField.new("Special Dividend", "cboe.bxeequities.multicastdepthofbook.pitch.v6.24.specialdividend", ftypes.STRING, nil, nil, nil, "MMT Level 3.6")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.statistic_type = ProtoField.new("Statistic Type", "cboe.bxeequities.multicastdepthofbook.pitch.v6.24.statistictype", ftypes.STRING, nil, nil, nil, "C = Closing Price H = High Price L = Low Price O = Opening Price P = Previous Closing Price")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.status = ProtoField.new("Status", "cboe.bxeequities.multicastdepthofbook.pitch.v6.24.status", ftypes.STRING, nil, nil, nil, "T = Trading R = Off-Book Reporting C = Closed S = Suspension N = No Reference Price V = Volatility Interruption O = Opening Auction E = Closing Auction H = Halt M = Market Order Imbalance Extension P = Price Monitoring Extension")
-omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.symbol_alphanumeric_6 = ProtoField.new("Symbol Alphanumeric 6", "cboe.bxeequities.multicastdepthofbook.pitch.v6.24.symbolalphanumeric6", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces")
-omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.bxeequities.multicastdepthofbook.pitch.v6.24.symbollong", ftypes.STRING, nil, nil, nil, "Symbol in ISIN")
+omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.bxeequities.multicastdepthofbook.pitch.v6.24.symbolextended", ftypes.STRING, nil, nil, nil, "Symbol in ISIN")
+omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.bxeequities.multicastdepthofbook.pitch.v6.24.symbollong", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.bxeequities.multicastdepthofbook.pitch.v6.24.symbolshort", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.time = ProtoField.new("Time", "cboe.bxeequities.multicastdepthofbook.pitch.v6.24.time", ftypes.UINT32, nil, nil, nil, "Number of whole seconds from midnight London time")
 omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.time_offset = ProtoField.new("Time Offset", "cboe.bxeequities.multicastdepthofbook.pitch.v6.24.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp")
@@ -1560,25 +1560,25 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.status.dissect = function(buff
   return offset + length, value
 end
 
--- Symbol Alphanumeric 6
-cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_alphanumeric_6 = {}
+-- Symbol Extended
+cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_extended = {}
 
--- Size: Symbol Alphanumeric 6
-cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_alphanumeric_6.size = 6
+-- Size: Symbol Extended
+cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_extended.size = 12
 
--- Display: Symbol Alphanumeric 6
-cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_alphanumeric_6.display = function(value)
-  return "Symbol Alphanumeric 6: "..value
+-- Display: Symbol Extended
+cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_extended.display = function(value)
+  return "Symbol Extended: "..value
 end
 
--- Dissect: Symbol Alphanumeric 6
-cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_alphanumeric_6.size
+-- Dissect: Symbol Extended
+cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_extended.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_extended.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_alphanumeric_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_extended.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.symbol_alphanumeric_6, range, value, display)
+  parent:add(omi_cboe_bxeequities_multicastdepthofbook_pitch_v6_24.fields.symbol_extended, range, value, display)
 
   return offset + length, value
 end
@@ -1587,7 +1587,7 @@ end
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long = {}
 
 -- Size: Symbol Long
-cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size = 12
+cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size = 8
 
 -- Display: Symbol Long
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.display = function(value)
@@ -1610,7 +1610,7 @@ end
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short = {}
 
 -- Size: Symbol Short
-cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size = 8
+cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size = 6
 
 -- Display: Symbol Short
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.display = function(value)
@@ -1901,7 +1901,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.auction_summary_message = {}
 -- Size: Auction Summary Message
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.auction_summary_message.size =
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.time_offset.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.auction_type.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.shares_long.size
@@ -1918,8 +1918,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.auction_summary_message.fields
   -- Time Offset: Binary
   index, time_offset = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Auction Type: Alphanumeric
   index, auction_type = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.auction_type.dissect(buffer, index, packet, parent)
@@ -1957,7 +1957,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.auction_update_message = {}
 -- Size: Auction Update Message
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.auction_update_message.size =
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.time_offset.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.auction_type.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.reference_price.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.indicative_price.size + 
@@ -1977,8 +1977,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.auction_update_message.fields 
   -- Time Offset: Binary
   index, time_offset = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Auction Type: Alphanumeric
   index, auction_type = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.auction_type.dissect(buffer, index, packet, parent)
@@ -2025,7 +2025,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.statistics_message = {}
 -- Size: Statistics Message
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.statistics_message.size =
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.time_offset.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.statistic_type.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_determination.size
@@ -2042,8 +2042,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.statistics_message.fields = fu
   -- Time Offset: Binary
   index, time_offset = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.dissect(buffer, index, packet, parent)
@@ -2081,7 +2081,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trading_status_message = {}
 -- Size: Trading Status Message
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trading_status_message.size =
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.time_offset.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.status.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.reserved_3.size
 
@@ -2097,8 +2097,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trading_status_message.fields 
   -- Time Offset: Binary
   index, time_offset = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Status: Alpha
   index, status = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.status.dissect(buffer, index, packet, parent)
@@ -2350,7 +2350,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_unknown_symbol_message =
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_unknown_symbol_message.size =
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.time_offset.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.shares_extended.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_extended.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_id.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_timestamp.size + 
@@ -2374,8 +2374,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_unknown_symbol_message.f
   -- Shares Extended: Binary
   index, shares_extended = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.shares_extended.dissect(buffer, index, packet, parent)
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alphanumeric
+  index, symbol_extended = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_extended.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.dissect(buffer, index, packet, parent)
@@ -2426,7 +2426,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_extended_message = {}
 cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_extended_message.size =
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.time_offset.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.shares_extended.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_id.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_timestamp.size + 
@@ -2450,8 +2450,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_extended_message.fields 
   -- Shares Extended: Binary
   index, shares_extended = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.shares_extended.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.dissect(buffer, index, packet, parent)
@@ -2560,7 +2560,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_short_message.size =
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.order_id.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.side_indicator.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.shares_short.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_alphanumeric_6.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_short.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.execution_id.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_flags.size
@@ -2586,8 +2586,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_short_message.fields = f
   -- Shares Short: Binary
   index, shares_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.shares_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Price Short: Binary Short Price
   index, price_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_short.dissect(buffer, index, packet, parent)
@@ -2628,7 +2628,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_long_message.size =
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.order_id.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.side_indicator.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.shares_long.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.execution_id.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_flags.size
@@ -2654,8 +2654,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.trade_long_message.fields = fu
   -- Shares Long: Binary
   index, shares_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.shares_long.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.dissect(buffer, index, packet, parent)
@@ -3158,7 +3158,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.add_order_expanded_message.siz
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.order_id.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.side_indicator.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.quantity_long.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.add_flags.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.participant_id.size
@@ -3184,8 +3184,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.add_order_expanded_message.fie
   -- Quantity Long: Binary
   index, quantity_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.dissect(buffer, index, packet, parent)
@@ -3226,7 +3226,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.add_order_short_message.size =
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.order_id.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.side_indicator.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.quantity_short.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_alphanumeric_6.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_short.size
 
 -- Display: Add Order Short Message
@@ -3250,8 +3250,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.add_order_short_message.fields
   -- Quantity Short: Binary
   index, quantity_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.quantity_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Price Short: Binary Short Price
   index, price_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_short.dissect(buffer, index, packet, parent)
@@ -3286,7 +3286,7 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.add_order_long_message.size =
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.order_id.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.side_indicator.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.quantity_long.size + 
-  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.size + 
+  cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.size + 
   cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.size
 
 -- Display: Add Order Long Message
@@ -3310,8 +3310,8 @@ cboe_bxeequities_multicastdepthofbook_pitch_v6_24.add_order_long_message.fields 
   -- Quantity Long: Binary
   index, quantity_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.quantity_long.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_bxeequities_multicastdepthofbook_pitch_v6_24.price_long.dissect(buffer, index, packet, parent)

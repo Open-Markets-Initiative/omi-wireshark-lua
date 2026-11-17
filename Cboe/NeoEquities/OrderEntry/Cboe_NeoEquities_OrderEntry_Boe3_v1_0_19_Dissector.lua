@@ -118,7 +118,7 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.side = ProtoField.new("Side"
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.start_of_message = ProtoField.new("Start Of Message", "cboe.neoequities.orderentry.boe3.v1.0.19.startofmessage", ftypes.UINT16, nil, nil, nil, "B0 E3 (58288)")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.stop_px = ProtoField.new("Stop Px", "cboe.neoequities.orderentry.boe3.v1.0.19.stoppx", ftypes.DOUBLE, nil, nil, nil, "The trigger price for Stop and Stop Limit orders")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.symbol = ProtoField.new("Symbol", "cboe.neoequities.orderentry.boe3.v1.0.19.symbol", ftypes.STRING, nil, nil, nil, "Symbol (upper case)")
-omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.symbol_8 = ProtoField.new("Symbol 8", "cboe.neoequities.orderentry.boe3.v1.0.19.symbol8", ftypes.STRING, nil, nil, nil, "Symbol (upper case)")
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.neoequities.orderentry.boe3.v1.0.19.symbolshort", ftypes.STRING, nil, nil, nil, "Symbol (upper case)")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.text = ProtoField.new("Text", "cboe.neoequities.orderentry.boe3.v1.0.19.text", ftypes.STRING, nil, nil, nil, "Free format text string")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.time_in_force = ProtoField.new("Time In Force", "cboe.neoequities.orderentry.boe3.v1.0.19.timeinforce", ftypes.STRING, nil, nil, nil, "Time in force for the order")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.trade_date = ProtoField.new("Trade Date", "cboe.neoequities.orderentry.boe3.v1.0.19.tradedate", ftypes.UINT32, nil, nil, nil, "Business date for the trade")
@@ -4103,25 +4103,25 @@ cboe_neoequities_orderentry_boe3_v1_0_19.symbol.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Symbol 8
-cboe_neoequities_orderentry_boe3_v1_0_19.symbol_8 = {}
+-- Symbol Short
+cboe_neoequities_orderentry_boe3_v1_0_19.symbol_short = {}
 
--- Size: Symbol 8
-cboe_neoequities_orderentry_boe3_v1_0_19.symbol_8.size = 8
+-- Size: Symbol Short
+cboe_neoequities_orderentry_boe3_v1_0_19.symbol_short.size = 8
 
--- Display: Symbol 8
-cboe_neoequities_orderentry_boe3_v1_0_19.symbol_8.display = function(value)
+-- Display: Symbol Short
+cboe_neoequities_orderentry_boe3_v1_0_19.symbol_short.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Symbol 8: No Value"
+    return "Symbol Short: No Value"
   end
 
-  return "Symbol 8: "..value
+  return "Symbol Short: "..value
 end
 
--- Dissect: Symbol 8
-cboe_neoequities_orderentry_boe3_v1_0_19.symbol_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_neoequities_orderentry_boe3_v1_0_19.symbol_8.size
+-- Dissect: Symbol Short
+cboe_neoequities_orderentry_boe3_v1_0_19.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_neoequities_orderentry_boe3_v1_0_19.symbol_short.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -4135,9 +4135,9 @@ cboe_neoequities_orderentry_boe3_v1_0_19.symbol_8.dissect = function(buffer, off
     value = range:string()
   end
 
-  local display = cboe_neoequities_orderentry_boe3_v1_0_19.symbol_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_neoequities_orderentry_boe3_v1_0_19.symbol_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.symbol_8, range, value, display)
+  parent:add(omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -4663,7 +4663,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.done_for_day_ca_equities_v_1.size =
   cboe_neoequities_orderentry_boe3_v1_0_19.transaction_time.size + 
   cboe_neoequities_orderentry_boe3_v1_0_19.cl_ord_id.size + 
   cboe_neoequities_orderentry_boe3_v1_0_19.broker_id.size + 
-  cboe_neoequities_orderentry_boe3_v1_0_19.symbol_8.size
+  cboe_neoequities_orderentry_boe3_v1_0_19.symbol_short.size
 
 -- Display: Done For Day Ca Equities V 1
 cboe_neoequities_orderentry_boe3_v1_0_19.done_for_day_ca_equities_v_1.display = function(packet, parent, length)
@@ -4683,8 +4683,8 @@ cboe_neoequities_orderentry_boe3_v1_0_19.done_for_day_ca_equities_v_1.fields = f
   -- Broker Id: Binary
   index, broker_id = cboe_neoequities_orderentry_boe3_v1_0_19.broker_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol 8: Text
-  index, symbol_8 = cboe_neoequities_orderentry_boe3_v1_0_19.symbol_8.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Text
+  index, symbol_short = cboe_neoequities_orderentry_boe3_v1_0_19.symbol_short.dissect(buffer, index, packet, parent)
 
   return index
 end

@@ -4099,7 +4099,7 @@ bme_bmefixedincome_retail5_bmegate_v1_6.security_code.size = 4
 bme_bmefixedincome_retail5_bmegate_v1_6.security_code.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Security Code: No Value"
+    return "Security Code: Not Specified"
   end
 
   return "Security Code: "..value

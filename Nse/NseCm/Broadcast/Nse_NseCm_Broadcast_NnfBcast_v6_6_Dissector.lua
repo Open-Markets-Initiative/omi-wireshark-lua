@@ -15,8 +15,8 @@ local nse_nsecm_broadcast_nnfbcast_v6_6 = {}
 -----------------------------------------------------------------------
 
 -- Nse NseCm Broadcast NnfBcast 6.6 Fields
-omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.action_code_char_3 = ProtoField.new("Action Code Char 3", "nse.nsecm.broadcast.nnfbcast.v6.6.actioncodechar3", ftypes.STRING, nil, nil, nil, "Indicates the action taken.")
-omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.action_code_short_2 = ProtoField.new("Action Code Short 2", "nse.nsecm.broadcast.nnfbcast.v6.6.actioncodeshort2", ftypes.INT16, nil, nil, nil, "Action code indicating the status the security moved to.")
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.action_code = ProtoField.new("Action Code", "nse.nsecm.broadcast.nnfbcast.v6.6.actioncode", ftypes.STRING, nil, nil, nil, "Indicates the action taken.")
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.action_code_short = ProtoField.new("Action Code Short", "nse.nsecm.broadcast.nnfbcast.v6.6.actioncodeshort", ftypes.INT16, nil, nil, nil, "Action code indicating the status the security moved to.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.agm = ProtoField.new("Agm", "nse.nsecm.broadcast.nnfbcast.v6.6.agm", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0800, "Annual General Meeting")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.alpha_char = ProtoField.new("Alpha Char", "nse.nsecm.broadcast.nnfbcast.v6.6.alphachar", ftypes.STRING, nil, nil, nil, "First two characters of Symbol when the message carries one")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.aon = ProtoField.new("Aon", "nse.nsecm.broadcast.nnfbcast.v6.6.aon", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000, "All Or None attribute is allowed in orders of this security")
@@ -24,8 +24,8 @@ omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_number = ProtoField.new("Au
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_price = ProtoField.new("Auction Price", "nse.nsecm.broadcast.nnfbcast.v6.6.auctionprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the auction trade has taken place.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_qty = ProtoField.new("Auction Qty", "nse.nsecm.broadcast.nnfbcast.v6.6.auctionqty", ftypes.INT32, nil, nil, nil, "Quantity of securities that have been auctioned.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_quantity = ProtoField.new("Auction Quantity", "nse.nsecm.broadcast.nnfbcast.v6.6.auctionquantity", ftypes.INT32, nil, nil, nil, "Quantity at which the auction in the security takes place, otherwise zero.")
-omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_status_char_1 = ProtoField.new("Auction Status Char 1", "nse.nsecm.broadcast.nnfbcast.v6.6.auctionstatuschar1", ftypes.STRING, nil, nil, nil, "Status of the auction.")
-omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_status_short_2 = ProtoField.new("Auction Status Short 2", "nse.nsecm.broadcast.nnfbcast.v6.6.auctionstatusshort2", ftypes.INT16, nil, nil, nil, "Status of the auction.")
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_status = ProtoField.new("Auction Status", "nse.nsecm.broadcast.nnfbcast.v6.6.auctionstatus", ftypes.INT16, nil, nil, nil, "Status of the auction.")
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_status_char = ProtoField.new("Auction Status Char", "nse.nsecm.broadcast.nnfbcast.v6.6.auctionstatuschar", ftypes.STRING, nil, nil, nil, "Status of the auction.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.average_trade_price = ProtoField.new("Average Trade Price", "nse.nsecm.broadcast.nnfbcast.v6.6.averagetradeprice", ftypes.DOUBLE, nil, nil, nil, "Average price of all the trades in the security.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.bb_buy_sell_flag = ProtoField.new("Bb Buy Sell Flag", "nse.nsecm.broadcast.nnfbcast.v6.6.bbbuysellflag", ftypes.INT16, nil, nil, nil, "Whether there is a buyback or market maker order on the buy or sell side at the price point.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.bb_total_buy_flag = ProtoField.new("Bb Total Buy Flag", "nse.nsecm.broadcast.nnfbcast.v6.6.bbtotalbuyflag", ftypes.INT16, nil, nil, nil, "Whether there is a buyback or market maker order on the buy side.")
@@ -85,9 +85,9 @@ omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.face_value = ProtoField.new("Face V
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.fifth_reserved_4 = ProtoField.new("Fifth Reserved 4", "nse.nsecm.broadcast.nnfbcast.v6.6.fifthreserved4", ftypes.BYTES, nil, nil, nil, "Reserved.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.fill_price = ProtoField.new("Fill Price", "nse.nsecm.broadcast.nnfbcast.v6.6.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the order has been traded.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.fill_volume = ProtoField.new("Fill Volume", "nse.nsecm.broadcast.nnfbcast.v6.6.fillvolume", ftypes.INT32, nil, nil, nil, "Quantity of security traded.")
-omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.filler_1 = ProtoField.new("Filler 1", "nse.nsecm.broadcast.nnfbcast.v6.6.filler1", ftypes.STRING, nil, nil, nil, "Filler.")
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.filler_1 = ProtoField.new("Filler 1", "nse.nsecm.broadcast.nnfbcast.v6.6.filler1", ftypes.BYTES, nil, nil, nil, "Filler.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.filler_2 = ProtoField.new("Filler 2", "nse.nsecm.broadcast.nnfbcast.v6.6.filler2", ftypes.BYTES, nil, nil, nil, "Padding, documented as Byte but eight bytes wide")
-omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.filler_4 = ProtoField.new("Filler 4", "nse.nsecm.broadcast.nnfbcast.v6.6.filler4", ftypes.STRING, nil, nil, nil, "Filler.")
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.filler_4 = ProtoField.new("Filler 4", "nse.nsecm.broadcast.nnfbcast.v6.6.filler4", ftypes.BYTES, nil, nil, nil, "Filler.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.final = ProtoField.new("Final", "nse.nsecm.broadcast.nnfbcast.v6.6.final", ftypes.STRING, nil, nil, nil, "Whether it is the final auction trade.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.first_open_price = ProtoField.new("First Open Price", "nse.nsecm.broadcast.nnfbcast.v6.6.firstopenprice", ftypes.DOUBLE, nil, nil, nil, "First open price.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.fourth_reserved_4 = ProtoField.new("Fourth Reserved 4", "nse.nsecm.broadcast.nnfbcast.v6.6.fourthreserved4", ftypes.BYTES, nil, nil, nil, "Reserved.")
@@ -233,10 +233,10 @@ omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.third_reserved_4 = ProtoField.new("
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.tick_size = ProtoField.new("Tick Size", "nse.nsecm.broadcast.nnfbcast.v6.6.ticksize", ftypes.INT32, nil, nil, nil, "Tick size or minimum spread size.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.ticker_index_information = ProtoField.new("Ticker Index Information", "nse.nsecm.broadcast.nnfbcast.v6.6.tickerindexinformation", ftypes.STRING)
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nsecm.broadcast.nnfbcast.v6.6.timestamp2", ftypes.STRING, nil, nil, nil, "Time the message reached the gateway")
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token = ProtoField.new("Token", "nse.nsecm.broadcast.nnfbcast.v6.6.token", ftypes.INT32, nil, nil, nil, "Token number of the security being updated.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token_and_eligibility = ProtoField.new("Token And Eligibility", "nse.nsecm.broadcast.nnfbcast.v6.6.tokenandeligibility", ftypes.STRING)
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token_and_refprice = ProtoField.new("Token And Refprice", "nse.nsecm.broadcast.nnfbcast.v6.6.tokenandrefprice", ftypes.STRING)
-omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token_long_4 = ProtoField.new("Token Long 4", "nse.nsecm.broadcast.nnfbcast.v6.6.tokenlong4", ftypes.INT32, nil, nil, nil, "Token number of the security being updated.")
-omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token_short_2 = ProtoField.new("Token Short 2", "nse.nsecm.broadcast.nnfbcast.v6.6.tokenshort2", ftypes.INT16, nil, nil, nil, "Unique number given to a particular symbol series combination.")
+omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token_short = ProtoField.new("Token Short", "nse.nsecm.broadcast.nnfbcast.v6.6.tokenshort", ftypes.INT16, nil, nil, nil, "Unique number given to a particular symbol series combination.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.total_buy_qty = ProtoField.new("Total Buy Qty", "nse.nsecm.broadcast.nnfbcast.v6.6.totalbuyqty", ftypes.INT32, nil, nil, nil, "Total buy quantity for the auction.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.total_buy_quantity = ProtoField.new("Total Buy Quantity", "nse.nsecm.broadcast.nnfbcast.v6.6.totalbuyquantity", ftypes.INT64, nil, nil, nil, "Total quantity of buy orders in the security.")
 omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.total_sell_qty = ProtoField.new("Total Sell Qty", "nse.nsecm.broadcast.nnfbcast.v6.6.totalsellqty", ftypes.INT32, nil, nil, nil, "Total sell quantity for the auction.")
@@ -576,62 +576,62 @@ end
 -- Nse NseCm Broadcast NnfBcast 6.6 Fields
 -----------------------------------------------------------------------
 
--- Action Code Char 3
-nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3 = {}
+-- Action Code
+nse_nsecm_broadcast_nnfbcast_v6_6.action_code = {}
 
--- Size: Action Code Char 3
-nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3.size = 3
+-- Size: Action Code
+nse_nsecm_broadcast_nnfbcast_v6_6.action_code.size = 3
 
--- Display: Action Code Char 3
-nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3.display = function(value)
-  return "Action Code Char 3: "..value
+-- Display: Action Code
+nse_nsecm_broadcast_nnfbcast_v6_6.action_code.display = function(value)
+  return "Action Code: "..value
 end
 
--- Dissect: Action Code Char 3
-nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3.size
+-- Dissect: Action Code
+nse_nsecm_broadcast_nnfbcast_v6_6.action_code.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_broadcast_nnfbcast_v6_6.action_code.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3.display(value, buffer, offset, packet, parent)
+  local display = nse_nsecm_broadcast_nnfbcast_v6_6.action_code.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.action_code_char_3, range, value, display)
+  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.action_code, range, value, display)
 
   return offset + length, value
 end
 
--- Action Code Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2 = {}
+-- Action Code Short
+nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short = {}
 
--- Size: Action Code Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2.size = 2
+-- Size: Action Code Short
+nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short.size = 2
 
--- Display: Action Code Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2.labels = {
-  [6531] = "Action Code Short 2: Security Preopened (6531)",
-  [6571] = "Action Code Short 2: Security Preopen Period Ended (6571)",
-  [6511] = "Action Code Short 2: Security Opened (6511)",
-  [6521] = "Action Code Short 2: Security Closed (6521)",
-  [6583] = "Action Code Short 2: Security Closing Session Opened (6583)",
-  [6584] = "Action Code Short 2: Security Closing Session Closed (6584)",
-  [6651] = "Action Code Short 2: Normal Market Closed For Securities Participating In The Closing Auction Session (6651)",
-  [6652] = "Action Code Short 2: Price Band Of Securities Revised For The Closing Auction Session (6652)",
-  [6653] = "Action Code Short 2: Closing Auction Session Started (6653)",
-  [6654] = "Action Code Short 2: Market Orders Restricted For The Closing Auction Session (6654)",
-  [6655] = "Action Code Short 2: Closing Auction Session Ended (6655)",
+-- Display: Action Code Short
+nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short.labels = {
+  [6531] = "Action Code Short: Security Preopened (6531)",
+  [6571] = "Action Code Short: Security Preopen Period Ended (6571)",
+  [6511] = "Action Code Short: Security Opened (6511)",
+  [6521] = "Action Code Short: Security Closed (6521)",
+  [6583] = "Action Code Short: Security Closing Session Opened (6583)",
+  [6584] = "Action Code Short: Security Closing Session Closed (6584)",
+  [6651] = "Action Code Short: Normal Market Closed For Securities Participating In The Closing Auction Session (6651)",
+  [6652] = "Action Code Short: Price Band Of Securities Revised For The Closing Auction Session (6652)",
+  [6653] = "Action Code Short: Closing Auction Session Started (6653)",
+  [6654] = "Action Code Short: Market Orders Restricted For The Closing Auction Session (6654)",
+  [6655] = "Action Code Short: Closing Auction Session Ended (6655)",
 }
 
-nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2.display = function(value)
-  return nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2.labels[value] or "Action Code Short 2: Unknown("..value..")"
+nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short.display = function(value)
+  return nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short.labels[value] or "Action Code Short: Unknown("..value..")"
 end
 
--- Dissect: Action Code Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2.size
+-- Dissect: Action Code Short
+nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2.display(value, buffer, offset, packet, parent)
+  local display = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.action_code_short_2, range, value, display)
+  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.action_code_short, range, value, display)
 
   return offset + length, value
 end
@@ -757,48 +757,48 @@ nse_nsecm_broadcast_nnfbcast_v6_6.auction_quantity.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Auction Status Char 1
-nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char_1 = {}
+-- Auction Status
+nse_nsecm_broadcast_nnfbcast_v6_6.auction_status = {}
 
--- Size: Auction Status Char 1
-nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char_1.size = 1
+-- Size: Auction Status
+nse_nsecm_broadcast_nnfbcast_v6_6.auction_status.size = 2
 
--- Display: Auction Status Char 1
-nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char_1.display = function(value)
-  return "Auction Status Char 1: "..value
+-- Display: Auction Status
+nse_nsecm_broadcast_nnfbcast_v6_6.auction_status.display = function(value)
+  return "Auction Status: "..value
 end
 
--- Dissect: Auction Status Char 1
-nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char_1.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char_1.size
+-- Dissect: Auction Status
+nse_nsecm_broadcast_nnfbcast_v6_6.auction_status.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char_1.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_status_char_1, range, value, display)
+  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_status, range, value, display)
 
   return offset + length, value
 end
 
--- Auction Status Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_short_2 = {}
+-- Auction Status Char
+nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char = {}
 
--- Size: Auction Status Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_short_2.size = 2
+-- Size: Auction Status Char
+nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char.size = 1
 
--- Display: Auction Status Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_short_2.display = function(value)
-  return "Auction Status Short 2: "..value
+-- Display: Auction Status Char
+nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char.display = function(value)
+  return "Auction Status Char: "..value
 end
 
--- Dissect: Auction Status Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_short_2.size
+-- Dissect: Auction Status Char
+nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char.size
   local range = buffer(offset, length)
-  local value = range:int()
-  local display = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_short_2.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_status_short_2, range, value, display)
+  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.auction_status_char, range, value, display)
 
   return offset + length, value
 end
@@ -1909,10 +1909,10 @@ end
 nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.filler_1, range, value, display)
+  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1955,10 +1955,10 @@ end
 nse_nsecm_broadcast_nnfbcast_v6_6.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_broadcast_nnfbcast_v6_6.filler_4.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecm_broadcast_nnfbcast_v6_6.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.filler_4, range, value, display)
+  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4477,48 +4477,48 @@ nse_nsecm_broadcast_nnfbcast_v6_6.time_stamp_2.dissect = function(buffer, offset
   return offset + length, value
 end
 
--- Token Long 4
-nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4 = {}
+-- Token
+nse_nsecm_broadcast_nnfbcast_v6_6.token = {}
 
--- Size: Token Long 4
-nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size = 4
+-- Size: Token
+nse_nsecm_broadcast_nnfbcast_v6_6.token.size = 4
 
--- Display: Token Long 4
-nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.display = function(value)
-  return "Token Long 4: "..value
+-- Display: Token
+nse_nsecm_broadcast_nnfbcast_v6_6.token.display = function(value)
+  return "Token: "..value
 end
 
--- Dissect: Token Long 4
-nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size
+-- Dissect: Token
+nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_broadcast_nnfbcast_v6_6.token.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.display(value, buffer, offset, packet, parent)
+  local display = nse_nsecm_broadcast_nnfbcast_v6_6.token.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token_long_4, range, value, display)
+  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token, range, value, display)
 
   return offset + length, value
 end
 
--- Token Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.token_short_2 = {}
+-- Token Short
+nse_nsecm_broadcast_nnfbcast_v6_6.token_short = {}
 
--- Size: Token Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.token_short_2.size = 2
+-- Size: Token Short
+nse_nsecm_broadcast_nnfbcast_v6_6.token_short.size = 2
 
--- Display: Token Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.token_short_2.display = function(value)
-  return "Token Short 2: "..value
+-- Display: Token Short
+nse_nsecm_broadcast_nnfbcast_v6_6.token_short.display = function(value)
+  return "Token Short: "..value
 end
 
--- Dissect: Token Short 2
-nse_nsecm_broadcast_nnfbcast_v6_6.token_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_broadcast_nnfbcast_v6_6.token_short_2.size
+-- Dissect: Token Short
+nse_nsecm_broadcast_nnfbcast_v6_6.token_short.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_broadcast_nnfbcast_v6_6.token_short.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_broadcast_nnfbcast_v6_6.token_short_2.display(value, buffer, offset, packet, parent)
+  local display = nse_nsecm_broadcast_nnfbcast_v6_6.token_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token_short_2, range, value, display)
+  parent:add(omi_nse_nsecm_broadcast_nnfbcast_v6_6.fields.token_short, range, value, display)
 
   return offset + length, value
 end
@@ -4959,7 +4959,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.token_and_refprice = {}
 -- Size: Token And Refprice
 nse_nsecm_broadcast_nnfbcast_v6_6.token_and_refprice.size =
   nse_nsecm_broadcast_nnfbcast_v6_6.sec_info.size + 
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.reference_price.size
 
 -- Display: Token And Refprice
@@ -4980,8 +4980,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.token_and_refprice.fields = function(buffer, o
   -- Sec Info: Struct of 2 fields
   index, sec_info = nse_nsecm_broadcast_nnfbcast_v6_6.sec_info.dissect(buffer, index, packet, parent)
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Reference Price: LONG
   index, reference_price = nse_nsecm_broadcast_nnfbcast_v6_6.reference_price.dissect(buffer, index, packet, parent)
@@ -5058,7 +5058,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_ord_cxl_details = {}
 
 -- Size: Interactive Ord Cxl Details
 nse_nsecm_broadcast_nnfbcast_v6_6.interactive_ord_cxl_details.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.filler_4.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.buy_ord_cxl_count.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.buy_ord_cxl_vol.size + 
@@ -5081,11 +5081,15 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_ord_cxl_details.fields = function(
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Filler 4: CHAR
-  index, filler_4 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.filler_4.size
+  end
 
   -- Buy Ord Cxl Count: LONG LONG
   index, buy_ord_cxl_count = nse_nsecm_broadcast_nnfbcast_v6_6.buy_ord_cxl_count.dissect(buffer, index, packet, parent)
@@ -5178,7 +5182,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.buybackdata = {}
 
 -- Size: Buybackdata
 nse_nsecm_broadcast_nnfbcast_v6_6.buybackdata.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.symbol.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.series.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.pday_cum_vol.size + 
@@ -5207,8 +5211,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.buybackdata.fields = function(buffer, offset, 
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Symbol: CHAR
   index, symbol = nse_nsecm_broadcast_nnfbcast_v6_6.symbol.dissect(buffer, index, packet, parent)
@@ -5484,7 +5488,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.indices.fields = function(buffer, offset, pack
   index, net_change_indicator = nse_nsecm_broadcast_nnfbcast_v6_6.net_change_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.size
+  end
 
   return index
 end
@@ -5652,7 +5660,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.indicative_indices.fields = function(buffer, o
   index, net_change_indicator = nse_nsecm_broadcast_nnfbcast_v6_6.net_change_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.size
+  end
 
   return index
 end
@@ -5790,7 +5802,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.security_open_price_message = {}
 -- Size: Security Open Price Message
 nse_nsecm_broadcast_nnfbcast_v6_6.security_open_price_message.size =
   nse_nsecm_broadcast_nnfbcast_v6_6.sec_info.size + 
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_short_2.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token_short.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.opening_price.size
 
 -- Display: Security Open Price Message
@@ -5805,8 +5817,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.security_open_price_message.fields = function(
   -- Sec Info: Struct of 2 fields
   index, sec_info = nse_nsecm_broadcast_nnfbcast_v6_6.sec_info.dissect(buffer, index, packet, parent)
 
-  -- Token Short 2: SHORT
-  index, token_short_2 = nse_nsecm_broadcast_nnfbcast_v6_6.token_short_2.dissect(buffer, index, packet, parent)
+  -- Token Short: SHORT
+  index, token_short = nse_nsecm_broadcast_nnfbcast_v6_6.token_short.dissect(buffer, index, packet, parent)
 
   -- Opening Price: LONG
   index, opening_price = nse_nsecm_broadcast_nnfbcast_v6_6.opening_price.dissect(buffer, index, packet, parent)
@@ -5901,7 +5913,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.ca_marketwatchbroadcast = {}
 
 -- Size: Ca Marketwatchbroadcast
 nse_nsecm_broadcast_nnfbcast_v6_6.ca_marketwatchbroadcast.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.mkt_type.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.mbo_mbp_indicator.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.buy_volume.size + 
@@ -5926,8 +5938,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.ca_marketwatchbroadcast.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Mkt Type: SHORT
   index, mkt_type = nse_nsecm_broadcast_nnfbcast_v6_6.mkt_type.dissect(buffer, index, packet, parent)
@@ -6147,7 +6159,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_call_auction_mbp_data = {}
 
 -- Size: Interactive Call Auction Mbp Data
 nse_nsecm_broadcast_nnfbcast_v6_6.interactive_call_auction_mbp_data.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.book_type.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.trading_status.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.volume_traded_today.size + 
@@ -6186,8 +6198,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_call_auction_mbp_data.fields = fun
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Book Type: SHORT
   index, book_type = nse_nsecm_broadcast_nnfbcast_v6_6.book_type.dissect(buffer, index, packet, parent)
@@ -6208,7 +6220,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_call_auction_mbp_data.fields = fun
   index, net_change_indicator = nse_nsecm_broadcast_nnfbcast_v6_6.net_change_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.size
+  end
 
   -- Net Price Change From Closing Price: LONG
   index, net_price_change_from_closing_price = nse_nsecm_broadcast_nnfbcast_v6_6.net_price_change_from_closing_price.dissect(buffer, index, packet, parent)
@@ -6399,7 +6415,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.marketwatchbroadcast = {}
 
 -- Size: Marketwatchbroadcast
 nse_nsecm_broadcast_nnfbcast_v6_6.marketwatchbroadcast.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   3 * nse_nsecm_broadcast_nnfbcast_v6_6.market_wise_information.size
 
 -- Display: Marketwatchbroadcast
@@ -6417,8 +6433,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.marketwatchbroadcast.fields = function(buffer,
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Array Of: Market Wise Information
   for market_wise_information_index = 1, 3 do
@@ -6497,7 +6513,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_only_mbp_data = {}
 
 -- Size: Interactive Only Mbp Data
 nse_nsecm_broadcast_nnfbcast_v6_6.interactive_only_mbp_data.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.book_type.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.trading_status.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.volume_traded_today.size + 
@@ -6537,8 +6553,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_only_mbp_data.fields = function(bu
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Book Type: SHORT
   index, book_type = nse_nsecm_broadcast_nnfbcast_v6_6.book_type.dissect(buffer, index, packet, parent)
@@ -6556,7 +6572,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_only_mbp_data.fields = function(bu
   index, net_change_indicator = nse_nsecm_broadcast_nnfbcast_v6_6.net_change_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.size
+  end
 
   -- Net Price Change From Closing Price: LONG
   index, net_price_change_from_closing_price = nse_nsecm_broadcast_nnfbcast_v6_6.net_price_change_from_closing_price.dissect(buffer, index, packet, parent)
@@ -6799,7 +6819,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_mbo_data = {}
 
 -- Size: Interactive Mbo Data
 nse_nsecm_broadcast_nnfbcast_v6_6.interactive_mbo_data.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.book_type.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.trading_status.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.volume_traded_today.size + 
@@ -6811,7 +6831,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_mbo_data.size =
   nse_nsecm_broadcast_nnfbcast_v6_6.last_trade_time.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.average_trade_price.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.auction_number.size + 
-  nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_short_2.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.auction_status.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.initiator_type.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.initiator_price.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.initiator_quantity.size + 
@@ -6828,8 +6848,8 @@ end
 nse_nsecm_broadcast_nnfbcast_v6_6.interactive_mbo_data.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Book Type: SHORT
   index, book_type = nse_nsecm_broadcast_nnfbcast_v6_6.book_type.dissect(buffer, index, packet, parent)
@@ -6847,7 +6867,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_mbo_data.fields = function(buffer,
   index, net_change_indicator = nse_nsecm_broadcast_nnfbcast_v6_6.net_change_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_broadcast_nnfbcast_v6_6.filler_1.size
+  end
 
   -- Net Price Change From Closing Price: LONG
   index, net_price_change_from_closing_price = nse_nsecm_broadcast_nnfbcast_v6_6.net_price_change_from_closing_price.dissect(buffer, index, packet, parent)
@@ -6864,8 +6888,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.interactive_mbo_data.fields = function(buffer,
   -- Auction Number: SHORT
   index, auction_number = nse_nsecm_broadcast_nnfbcast_v6_6.auction_number.dissect(buffer, index, packet, parent)
 
-  -- Auction Status Short 2: SHORT
-  index, auction_status_short_2 = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_short_2.dissect(buffer, index, packet, parent)
+  -- Auction Status: SHORT
+  index, auction_status = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status.dissect(buffer, index, packet, parent)
 
   -- Initiator Type: SHORT
   index, initiator_type = nse_nsecm_broadcast_nnfbcast_v6_6.initiator_type.dissect(buffer, index, packet, parent)
@@ -7003,7 +7027,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.ticker_index_information = {}
 
 -- Size: Ticker Index Information
 nse_nsecm_broadcast_nnfbcast_v6_6.ticker_index_information.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.market_type.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.fill_price.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.fill_volume.size + 
@@ -7024,8 +7048,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.ticker_index_information.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Market Type: SHORT
   index, market_type = nse_nsecm_broadcast_nnfbcast_v6_6.market_type.dissect(buffer, index, packet, parent)
@@ -7114,7 +7138,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.symbol_status_change_action_message.size =
   nse_nsecm_broadcast_nnfbcast_v6_6.sec_info.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.market_type.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.reserved_2.size + 
-  nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2.size
+  nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short.size
 
 -- Display: Symbol Status Change Action Message
 nse_nsecm_broadcast_nnfbcast_v6_6.symbol_status_change_action_message.display = function(packet, parent, length)
@@ -7138,8 +7162,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.symbol_status_change_action_message.fields = f
     index = index + nse_nsecm_broadcast_nnfbcast_v6_6.reserved_2.size
   end
 
-  -- Action Code Short 2: SHORT
-  index, action_code_short_2 = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short_2.dissect(buffer, index, packet, parent)
+  -- Action Code Short: SHORT
+  index, action_code_short = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_short.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7884,8 +7908,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_change_message = {}
 nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_change_message.size =
   nse_nsecm_broadcast_nnfbcast_v6_6.sec_info.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.auction_number.size + 
-  nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char_1.size + 
-  nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.action_code.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_destination.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_message_length.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_message.size
@@ -7905,11 +7929,11 @@ nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_change_message.fields = functio
   -- Auction Number: SHORT
   index, auction_number = nse_nsecm_broadcast_nnfbcast_v6_6.auction_number.dissect(buffer, index, packet, parent)
 
-  -- Auction Status Char 1: CHAR
-  index, auction_status_char_1 = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char_1.dissect(buffer, index, packet, parent)
+  -- Auction Status Char: CHAR
+  index, auction_status_char = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_char.dissect(buffer, index, packet, parent)
 
-  -- Action Code Char 3: CHAR
-  index, action_code_char_3 = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3.dissect(buffer, index, packet, parent)
+  -- Action Code: CHAR
+  index, action_code = nse_nsecm_broadcast_nnfbcast_v6_6.action_code.dissect(buffer, index, packet, parent)
 
   -- Broadcast Destination: Struct of 2 fields
   index, broadcast_destination = nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_destination.dissect(buffer, index, packet, parent)
@@ -7946,9 +7970,9 @@ nse_nsecm_broadcast_nnfbcast_v6_6.st_auction_inq_info = {}
 
 -- Size: St Auction Inq Info
 nse_nsecm_broadcast_nnfbcast_v6_6.st_auction_inq_info.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.auction_number.size + 
-  nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_short_2.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.auction_status.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.initiator_type.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.total_buy_qty.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.best_buy_price.size + 
@@ -7967,14 +7991,14 @@ end
 nse_nsecm_broadcast_nnfbcast_v6_6.st_auction_inq_info.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Auction Number: SHORT
   index, auction_number = nse_nsecm_broadcast_nnfbcast_v6_6.auction_number.dissect(buffer, index, packet, parent)
 
-  -- Auction Status Short 2: SHORT
-  index, auction_status_short_2 = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status_short_2.dissect(buffer, index, packet, parent)
+  -- Auction Status: SHORT
+  index, auction_status = nse_nsecm_broadcast_nnfbcast_v6_6.auction_status.dissect(buffer, index, packet, parent)
 
   -- Initiator Type: SHORT
   index, initiator_type = nse_nsecm_broadcast_nnfbcast_v6_6.initiator_type.dissect(buffer, index, packet, parent)
@@ -8248,7 +8272,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.token_and_eligibility = {}
 
 -- Size: Token And Eligibility
 nse_nsecm_broadcast_nnfbcast_v6_6.token_and_eligibility.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   6 * nse_nsecm_broadcast_nnfbcast_v6_6.security_status_per_market.size
 
 -- Display: Token And Eligibility
@@ -8266,8 +8290,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.token_and_eligibility.fields = function(buffer
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Array Of: Security Status Per Market
   for security_status_per_market_index = 1, 6 do
@@ -8692,7 +8716,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.security_master_change_message = {}
 
 -- Size: Security Master Change Message
 nse_nsecm_broadcast_nnfbcast_v6_6.security_master_change_message.size =
-  nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.token.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.sec_info.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.instrument_type.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.permitted_to_trade.size + 
@@ -8739,8 +8763,8 @@ end
 nse_nsecm_broadcast_nnfbcast_v6_6.security_master_change_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nsecm_broadcast_nnfbcast_v6_6.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nsecm_broadcast_nnfbcast_v6_6.token.dissect(buffer, index, packet, parent)
 
   -- Sec Info: Struct of 2 fields
   index, sec_info = nse_nsecm_broadcast_nnfbcast_v6_6.sec_info.dissect(buffer, index, packet, parent)
@@ -8888,7 +8912,7 @@ nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_journal_vct_message = {}
 nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_journal_vct_message.size =
   nse_nsecm_broadcast_nnfbcast_v6_6.branch_number.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.broker_number.size + 
-  nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3.size + 
+  nse_nsecm_broadcast_nnfbcast_v6_6.action_code.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.reserved_4.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_destination.size + 
   nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_message_length.size + 
@@ -8909,8 +8933,8 @@ nse_nsecm_broadcast_nnfbcast_v6_6.broadcast_journal_vct_message.fields = functio
   -- Broker Number: CHAR
   index, broker_number = nse_nsecm_broadcast_nnfbcast_v6_6.broker_number.dissect(buffer, index, packet, parent)
 
-  -- Action Code Char 3: CHAR
-  index, action_code_char_3 = nse_nsecm_broadcast_nnfbcast_v6_6.action_code_char_3.dissect(buffer, index, packet, parent)
+  -- Action Code: CHAR
+  index, action_code = nse_nsecm_broadcast_nnfbcast_v6_6.action_code.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: CHAR
   if show.padding then

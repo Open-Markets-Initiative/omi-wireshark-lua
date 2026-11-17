@@ -70,8 +70,8 @@ omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.si_quote = ProtoF
 omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.cboeeurope.multicasttradereporting.pitch.v6.68.sideindicator", ftypes.STRING, nil, nil, nil, "Order Side")
 omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.special_dividend = ProtoField.new("Special Dividend", "cboe.cboeeurope.multicasttradereporting.pitch.v6.68.specialdividend", ftypes.STRING, nil, nil, nil, "MMT Level 3.6")
 omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.statistic_type = ProtoField.new("Statistic Type", "cboe.cboeeurope.multicasttradereporting.pitch.v6.68.statistictype", ftypes.STRING)
-omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.symbol_alphanumeric_6 = ProtoField.new("Symbol Alphanumeric 6", "cboe.cboeeurope.multicasttradereporting.pitch.v6.68.symbolalphanumeric6", ftypes.STRING, nil, nil, nil, "Symbol")
-omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.cboeeurope.multicasttradereporting.pitch.v6.68.symbollong", ftypes.STRING, nil, nil, nil, "Symbol in ISIN")
+omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.cboeeurope.multicasttradereporting.pitch.v6.68.symbolextended", ftypes.STRING, nil, nil, nil, "Symbol in ISIN")
+omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.cboeeurope.multicasttradereporting.pitch.v6.68.symbollong", ftypes.STRING, nil, nil, nil, "Symbol")
 omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.cboeeurope.multicasttradereporting.pitch.v6.68.symbolshort", ftypes.STRING, nil, nil, nil, "Symbol")
 omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.time = ProtoField.new("Time", "cboe.cboeeurope.multicasttradereporting.pitch.v6.68.time", ftypes.UINT32, nil, nil, nil, "Number of whole seconds from midnight Eastern Time")
 omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.time_offset = ProtoField.new("Time Offset", "cboe.cboeeurope.multicasttradereporting.pitch.v6.68.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp")
@@ -1725,25 +1725,25 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.statistic_type.dissect = fun
   return offset + length, value
 end
 
--- Symbol Alphanumeric 6
-cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_alphanumeric_6 = {}
+-- Symbol Extended
+cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_extended = {}
 
--- Size: Symbol Alphanumeric 6
-cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_alphanumeric_6.size = 6
+-- Size: Symbol Extended
+cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_extended.size = 12
 
--- Display: Symbol Alphanumeric 6
-cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_alphanumeric_6.display = function(value)
-  return "Symbol Alphanumeric 6: "..value
+-- Display: Symbol Extended
+cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_extended.display = function(value)
+  return "Symbol Extended: "..value
 end
 
--- Dissect: Symbol Alphanumeric 6
-cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_alphanumeric_6.size
+-- Dissect: Symbol Extended
+cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_extended.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_extended.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_alphanumeric_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_extended.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.symbol_alphanumeric_6, range, value, display)
+  parent:add(omi_cboe_cboeeurope_multicasttradereporting_pitch_v6_68.fields.symbol_extended, range, value, display)
 
   return offset + length, value
 end
@@ -1752,7 +1752,7 @@ end
 cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long = {}
 
 -- Size: Symbol Long
-cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size = 12
+cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size = 8
 
 -- Display: Symbol Long
 cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.display = function(value)
@@ -2232,7 +2232,7 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.auction_summary_message = {}
 -- Size: Auction Summary Message
 cboe_cboeeurope_multicasttradereporting_pitch_v6_68.auction_summary_message.size =
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.time_offset.size + 
-  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.size + 
+  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.auction_type.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.shares_long.size
@@ -2249,8 +2249,8 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.auction_summary_message.fiel
   -- Time Offset: Binary
   index, time_offset = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Auction Type: Alphanumeric
   index, auction_type = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.auction_type.dissect(buffer, index, packet, parent)
@@ -2288,7 +2288,7 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.auction_update_message = {}
 -- Size: Auction Update Message
 cboe_cboeeurope_multicasttradereporting_pitch_v6_68.auction_update_message.size =
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.time_offset.size + 
-  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.size + 
+  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.auction_type.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.reference_price.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.indicative_price.size + 
@@ -2308,8 +2308,8 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.auction_update_message.field
   -- Time Offset: Binary
   index, time_offset = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Auction Type: Alphanumeric
   index, auction_type = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.auction_type.dissect(buffer, index, packet, parent)
@@ -2356,7 +2356,7 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.statistics_message = {}
 -- Size: Statistics Message
 cboe_cboeeurope_multicasttradereporting_pitch_v6_68.statistics_message.size =
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.time_offset.size + 
-  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.size + 
+  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.statistic_type.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_determination.size
@@ -2373,8 +2373,8 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.statistics_message.fields = 
   -- Time Offset: Binary
   index, time_offset = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.dissect(buffer, index, packet, parent)
@@ -2412,7 +2412,7 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trading_status_message = {}
 -- Size: Trading Status Message
 cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trading_status_message.size =
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.time_offset.size + 
-  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.size + 
+  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trading_status.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.reserved_3.size
 
@@ -2428,8 +2428,8 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trading_status_message.field
   -- Time Offset: Binary
   index, time_offset = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Trading Status: Alpha
   index, trading_status = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trading_status.dissect(buffer, index, packet, parent)
@@ -2681,7 +2681,7 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_unknown_symbol_message
 cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_unknown_symbol_message.size =
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.time_offset.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.shares_extended.size + 
-  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size + 
+  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_extended.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_id.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_timestamp.size + 
@@ -2705,8 +2705,8 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_unknown_symbol_message
   -- Shares Extended: Binary
   index, shares_extended = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.shares_extended.dissect(buffer, index, packet, parent)
 
-  -- Symbol Long: Alphanumeric
-  index, symbol_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.dissect(buffer, index, packet, parent)
+  -- Symbol Extended: Alphanumeric
+  index, symbol_extended = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_extended.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.dissect(buffer, index, packet, parent)
@@ -2757,7 +2757,7 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_extended_message = {}
 cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_extended_message.size =
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.time_offset.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.shares_extended.size + 
-  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.size + 
+  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_id.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_timestamp.size + 
@@ -2781,8 +2781,8 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_extended_message.field
   -- Shares Extended: Binary
   index, shares_extended = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.shares_extended.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.dissect(buffer, index, packet, parent)
@@ -2891,7 +2891,7 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_short_message.size =
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.order_id.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.side_indicator.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.contracts_short.size + 
-  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_alphanumeric_6.size + 
+  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_short.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.execution_id.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_flags.size
@@ -2917,8 +2917,8 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_short_message.fields =
   -- Contracts Short: Binary
   index, contracts_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.contracts_short.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Price Short: Binary Short Price
   index, price_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_short.dissect(buffer, index, packet, parent)
@@ -2959,7 +2959,7 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_long_message.size =
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.order_id.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.side_indicator.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.shares_long.size + 
-  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.size + 
+  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.execution_id.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_flags.size
@@ -2985,8 +2985,8 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.trade_long_message.fields = 
   -- Shares Long: Binary
   index, shares_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.shares_long.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.dissect(buffer, index, packet, parent)
@@ -3489,7 +3489,7 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.add_order_expanded_message.s
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.order_id.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.side_indicator.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.quantity.size + 
-  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.size + 
+  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.add_order_flags.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.participant_id.size
@@ -3515,8 +3515,8 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.add_order_expanded_message.f
   -- Quantity: Binary
   index, quantity = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.dissect(buffer, index, packet, parent)
@@ -3617,7 +3617,7 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.add_order_long_message.size 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.order_id.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.side_indicator.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.quantity.size + 
-  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.size + 
+  cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.size + 
   cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.size
 
 -- Display: Add Order Long Message
@@ -3641,8 +3641,8 @@ cboe_cboeeurope_multicasttradereporting_pitch_v6_68.add_order_long_message.field
   -- Quantity: Binary
   index, quantity = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.quantity.dissect(buffer, index, packet, parent)
 
-  -- Symbol Short: Alphanumeric
-  index, symbol_short = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_short.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Price Long: Binary Long Price
   index, price_long = cboe_cboeeurope_multicasttradereporting_pitch_v6_68.price_long.dissect(buffer, index, packet, parent)

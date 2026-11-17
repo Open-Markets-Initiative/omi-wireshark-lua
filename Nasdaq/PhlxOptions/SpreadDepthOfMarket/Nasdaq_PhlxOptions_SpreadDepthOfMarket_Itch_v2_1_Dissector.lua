@@ -393,7 +393,7 @@ nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.auction_duration.size = 4
 nasdaq_phlxoptions_spreaddepthofmarket_itch_v2_1.auction_duration.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Auction Duration: No Value"
+    return "Auction Duration: Not Applicable"
   end
 
   return "Auction Duration: "..value

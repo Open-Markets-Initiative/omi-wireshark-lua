@@ -49,8 +49,8 @@ omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.execution_id = 
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.execution_venue = ProtoField.new("Execution Venue", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.executionvenue", ftypes.STRING, nil, nil, nil, "Always CEDX.")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.expirationdate", ftypes.UINT32, nil, nil, nil, "Expiration Date of Instrument")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.extended_trade_flags = ProtoField.new("Extended Trade Flags", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.extendedtradeflags", ftypes.STRING)
+omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.high_price = ProtoField.new("High Price", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.highprice", ftypes.DOUBLE, nil, nil, nil, "Highest trade price for the day.")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.high_price_1 = ProtoField.new("High Price 1", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.highprice1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Set if High Price is valid")
-omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.high_price_binary_price_8 = ProtoField.new("High Price Binary Price 8", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.highpricebinaryprice8", ftypes.DOUBLE, nil, nil, nil, "Highest trade price for the day.")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Equal to Reference Price")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.issue = ProtoField.new("Issue", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.issue", ftypes.STRING, nil, nil, nil, "S = Initial Settlement R = Re-issued Settlement")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.leg_count = ProtoField.new("Leg Count", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.legcount", ftypes.UINT8, nil, nil, nil, "The number of legs in the complex instrument. The maximum number is 12.")
@@ -59,8 +59,8 @@ omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.leg_ratio = Pro
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.legsymbol", ftypes.STRING, nil, nil, nil, "Option or Future Symbol of leg, right padded with spaces")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.length = ProtoField.new("Length", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.listing_state = ProtoField.new("Listing State", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.listingstate", ftypes.STRING, nil, nil, nil, "A = Active I = Inactive T = Test")
+omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.low_price = ProtoField.new("Low Price", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.lowprice", ftypes.DOUBLE, nil, nil, nil, "Lowest trade price for the day.")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.low_price_1 = ProtoField.new("Low Price 1", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.lowprice1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Set if Low Price is valid")
-omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.low_price_binary_price_8 = ProtoField.new("Low Price Binary Price 8", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.lowpricebinaryprice8", ftypes.DOUBLE, nil, nil, nil, "Lowest trade price for the day.")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.market_mechanism = ProtoField.new("Market Mechanism", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.marketmechanism", ftypes.STRING, nil, nil, nil, "MMT Level 1")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.message_count = ProtoField.new("Message Count", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.message_length = ProtoField.new("Message Length", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.01.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
@@ -1111,31 +1111,31 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.expiration_date.dissect = 
   return offset + length, value
 end
 
--- High Price Binary Price 8
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price_binary_price_8 = {}
+-- High Price
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price = {}
 
--- Size: High Price Binary Price 8
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price_binary_price_8.size = 8
+-- Size: High Price
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price.size = 8
 
--- Display: High Price Binary Price 8
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price_binary_price_8.display = function(value)
-  return "High Price Binary Price 8: "..value
+-- Display: High Price
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price.display = function(value)
+  return "High Price: "..value
 end
 
--- Translate: High Price Binary Price 8
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price_binary_price_8.translate = function(raw)
+-- Translate: High Price
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: High Price Binary Price 8
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price_binary_price_8.size
+-- Dissect: High Price
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price_binary_price_8.translate(raw)
-  local display = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price_binary_price_8.display(value, buffer, offset, packet, parent)
+  local value = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price.translate(raw)
+  local display = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.high_price_binary_price_8, range, value, display)
+  parent:add(omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -1318,31 +1318,31 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.listing_state.dissect = fu
   return offset + length, value
 end
 
--- Low Price Binary Price 8
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price_binary_price_8 = {}
+-- Low Price
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price = {}
 
--- Size: Low Price Binary Price 8
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price_binary_price_8.size = 8
+-- Size: Low Price
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price.size = 8
 
--- Display: Low Price Binary Price 8
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price_binary_price_8.display = function(value)
-  return "Low Price Binary Price 8: "..value
+-- Display: Low Price
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price.display = function(value)
+  return "Low Price: "..value
 end
 
--- Translate: Low Price Binary Price 8
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price_binary_price_8.translate = function(raw)
+-- Translate: Low Price
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Low Price Binary Price 8
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price_binary_price_8.size
+-- Dissect: Low Price
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price.size
   local range = buffer(offset, length)
   local raw = range:le_uint64()
-  local value = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price_binary_price_8.translate(raw)
-  local display = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price_binary_price_8.display(value, buffer, offset, packet, parent)
+  local value = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price.translate(raw)
+  local display = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.low_price_binary_price_8, range, value, display)
+  parent:add(omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -2897,8 +2897,8 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.end_of_day_message.size =
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.symbol.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.trade_date.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.open_interest.size + 
-  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price_binary_price_8.size + 
-  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price_binary_price_8.size + 
+  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price.size + 
+  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.open_price.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.close_price.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.total_volume.size + 
@@ -2927,11 +2927,11 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.end_of_day_message.fields 
   -- Open Interest: Binary
   index, open_interest = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.open_interest.dissect(buffer, index, packet, parent)
 
-  -- High Price Binary Price 8: Binary Price
-  index, high_price_binary_price_8 = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- High Price: Binary Price
+  index, high_price = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.high_price.dissect(buffer, index, packet, parent)
 
-  -- Low Price Binary Price 8: Binary Price
-  index, low_price_binary_price_8 = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Low Price: Binary Price
+  index, low_price = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.low_price.dissect(buffer, index, packet, parent)
 
   -- Open Price: Binary Price
   index, open_price = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_01.open_price.dissect(buffer, index, packet, parent)

@@ -40,8 +40,7 @@ omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.opening_trade_indicator = Proto
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.packet_length = ProtoField.new("Packet Length", "gpw.bondspot.pricesandtrades.xdp.v6.8.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet including the 16 byte packet header")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "gpw.bondspot.pricesandtrades.xdp.v6.8.packetsequencenumber", ftypes.UINT32, nil, nil, nil, "The packet sequence number, unique for each broadcast stream and used for gap detection. It increases serially and monotonically and is reset to 1 at the beginning of each trading day. It is unique for packets containing market data only, and heartbeats inherit it from the last market data packet or packet sequence number reset packet")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.packet_type = ProtoField.new("Packet Type", "gpw.bondspot.pricesandtrades.xdp.v6.8.packettype", ftypes.UINT16, nil, nil, nil, "Identifier for the type of data contained in the packet. Section 1.1 states one value, 501 for Market Data messages, for every feed the document specifies")
-omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.price_ascii_ch_20 = ProtoField.new("Price Ascii Ch 20", "gpw.bondspot.pricesandtrades.xdp.v6.8.priceasciich20", ftypes.STRING, nil, nil, nil, "Traded price of the transaction excluding, where applicable, commission and accrued interest")
-omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.price_binary_int_4 = ProtoField.new("Price Binary Int 4", "gpw.bondspot.pricesandtrades.xdp.v6.8.pricebinaryint4", ftypes.UINT32, nil, nil, nil, "Last Price of the trading day (To be calculated with the ScaleCode)")
+omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.price = ProtoField.new("Price", "gpw.bondspot.pricesandtrades.xdp.v6.8.price", ftypes.UINT32, nil, nil, nil, "Last Price of the trading day (To be calculated with the ScaleCode)")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.price_currency = ProtoField.new("Price Currency", "gpw.bondspot.pricesandtrades.xdp.v6.8.pricecurrency", ftypes.STRING, nil, nil, nil, "Currency in which the price is expressed as defined by ISO 4217 (applicable if the price is expressed as monetary value)")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.price_notation = ProtoField.new("Price Notation", "gpw.bondspot.pricesandtrades.xdp.v6.8.pricenotation", ftypes.STRING, nil, nil, nil, "Indication as to whether the price is expressed in monetary value, in percentage or in yield")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.price_scale_code = ProtoField.new("Price Scale Code", "gpw.bondspot.pricesandtrades.xdp.v6.8.pricescalecode", ftypes.UINT8, nil, nil, nil, "Applicable to all prices in the message except for the field \"Price\"")
@@ -59,6 +58,7 @@ omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.system_id = ProtoField.new("Sys
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.tick_direction = ProtoField.new("Tick Direction", "gpw.bondspot.pricesandtrades.xdp.v6.8.tickdirection", ftypes.STRING, nil, nil, nil, "Symbol of the variation of the price versus the previous (traded or reference) price")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.trade_id_number = ProtoField.new("Trade Id Number", "gpw.bondspot.pricesandtrades.xdp.v6.8.tradeidnumber", ftypes.UINT32, nil, nil, nil, "Unique numeric and increasing Identifier of the trade, set by the trading engine")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.trade_origin = ProtoField.new("Trade Origin", "gpw.bondspot.pricesandtrades.xdp.v6.8.tradeorigin", ftypes.STRING, nil, nil, nil, "This field indicates the origin of the trade")
+omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.traded_price = ProtoField.new("Traded Price", "gpw.bondspot.pricesandtrades.xdp.v6.8.tradedprice", ftypes.STRING, nil, nil, nil, "Traded price of the transaction excluding, where applicable, commission and accrued interest")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.trading_date_time = ProtoField.new("Trading Date Time", "gpw.bondspot.pricesandtrades.xdp.v6.8.tradingdatetime", ftypes.STRING, nil, nil, nil, "Date and time when the transaction was executed")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.transaction_id_code = ProtoField.new("Transaction Id Code", "gpw.bondspot.pricesandtrades.xdp.v6.8.transactionidcode", ftypes.STRING, nil, nil, nil, "Alphanumerical code assigned by trading venue used in any subsequent reference to the specific trade")
 omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.transaction_to_be_cleared = ProtoField.new("Transaction To Be Cleared", "gpw.bondspot.pricesandtrades.xdp.v6.8.transactiontobecleared", ftypes.STRING, nil, nil, nil, "Code to identify whether the transaction will be cleared")
@@ -771,48 +771,25 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.packet_type.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Price Ascii Ch 20
-gpw_bondspot_pricesandtrades_xdp_v6_8.price_ascii_ch_20 = {}
+-- Price
+gpw_bondspot_pricesandtrades_xdp_v6_8.price = {}
 
--- Size: Price Ascii Ch 20
-gpw_bondspot_pricesandtrades_xdp_v6_8.price_ascii_ch_20.size = 20
+-- Size: Price
+gpw_bondspot_pricesandtrades_xdp_v6_8.price.size = 4
 
--- Display: Price Ascii Ch 20
-gpw_bondspot_pricesandtrades_xdp_v6_8.price_ascii_ch_20.display = function(value)
-  return "Price Ascii Ch 20: "..value
+-- Display: Price
+gpw_bondspot_pricesandtrades_xdp_v6_8.price.display = function(value)
+  return "Price: "..value
 end
 
--- Dissect: Price Ascii Ch 20
-gpw_bondspot_pricesandtrades_xdp_v6_8.price_ascii_ch_20.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_bondspot_pricesandtrades_xdp_v6_8.price_ascii_ch_20.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = gpw_bondspot_pricesandtrades_xdp_v6_8.price_ascii_ch_20.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.price_ascii_ch_20, range, value, display)
-
-  return offset + length, value
-end
-
--- Price Binary Int 4
-gpw_bondspot_pricesandtrades_xdp_v6_8.price_binary_int_4 = {}
-
--- Size: Price Binary Int 4
-gpw_bondspot_pricesandtrades_xdp_v6_8.price_binary_int_4.size = 4
-
--- Display: Price Binary Int 4
-gpw_bondspot_pricesandtrades_xdp_v6_8.price_binary_int_4.display = function(value)
-  return "Price Binary Int 4: "..value
-end
-
--- Dissect: Price Binary Int 4
-gpw_bondspot_pricesandtrades_xdp_v6_8.price_binary_int_4.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_bondspot_pricesandtrades_xdp_v6_8.price_binary_int_4.size
+-- Dissect: Price
+gpw_bondspot_pricesandtrades_xdp_v6_8.price.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_bondspot_pricesandtrades_xdp_v6_8.price.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = gpw_bondspot_pricesandtrades_xdp_v6_8.price_binary_int_4.display(value, buffer, offset, packet, parent)
+  local display = gpw_bondspot_pricesandtrades_xdp_v6_8.price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.price_binary_int_4, range, value, display)
+  parent:add(omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1253,6 +1230,29 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.trade_origin.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Traded Price
+gpw_bondspot_pricesandtrades_xdp_v6_8.traded_price = {}
+
+-- Size: Traded Price
+gpw_bondspot_pricesandtrades_xdp_v6_8.traded_price.size = 20
+
+-- Display: Traded Price
+gpw_bondspot_pricesandtrades_xdp_v6_8.traded_price.display = function(value)
+  return "Traded Price: "..value
+end
+
+-- Dissect: Traded Price
+gpw_bondspot_pricesandtrades_xdp_v6_8.traded_price.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_bondspot_pricesandtrades_xdp_v6_8.traded_price.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = gpw_bondspot_pricesandtrades_xdp_v6_8.traded_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_bondspot_pricesandtrades_xdp_v6_8.fields.traded_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Trading Date Time
 gpw_bondspot_pricesandtrades_xdp_v6_8.trading_date_time = {}
 
@@ -1473,7 +1473,7 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.price_update_message.size =
   gpw_bondspot_pricesandtrades_xdp_v6_8.symbol_index.size + 
   gpw_bondspot_pricesandtrades_xdp_v6_8.source_time.size + 
   gpw_bondspot_pricesandtrades_xdp_v6_8.source_seq_num.size + 
-  gpw_bondspot_pricesandtrades_xdp_v6_8.price_binary_int_4.size + 
+  gpw_bondspot_pricesandtrades_xdp_v6_8.price.size + 
   gpw_bondspot_pricesandtrades_xdp_v6_8.highest_price.size + 
   gpw_bondspot_pricesandtrades_xdp_v6_8.lowest_price.size + 
   gpw_bondspot_pricesandtrades_xdp_v6_8.variation_last_price.size + 
@@ -1502,8 +1502,8 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.price_update_message.fields = function(buf
   -- Source Seq Num: Binary Int.
   index, source_seq_num = gpw_bondspot_pricesandtrades_xdp_v6_8.source_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Int 4: Binary Int.
-  index, price_binary_int_4 = gpw_bondspot_pricesandtrades_xdp_v6_8.price_binary_int_4.dissect(buffer, index, packet, parent)
+  -- Price: Binary Int.
+  index, price = gpw_bondspot_pricesandtrades_xdp_v6_8.price.dissect(buffer, index, packet, parent)
 
   -- Highest Price: Binary Int.
   index, highest_price = gpw_bondspot_pricesandtrades_xdp_v6_8.highest_price.dissect(buffer, index, packet, parent)
@@ -1587,7 +1587,7 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.trade_full_information_message.size =
   gpw_bondspot_pricesandtrades_xdp_v6_8.publication_date_time.size + 
   gpw_bondspot_pricesandtrades_xdp_v6_8.instrument_id_code_type.size + 
   gpw_bondspot_pricesandtrades_xdp_v6_8.instrument_id_code.size + 
-  gpw_bondspot_pricesandtrades_xdp_v6_8.price_ascii_ch_20.size + 
+  gpw_bondspot_pricesandtrades_xdp_v6_8.traded_price.size + 
   gpw_bondspot_pricesandtrades_xdp_v6_8.quantity.size + 
   gpw_bondspot_pricesandtrades_xdp_v6_8.notional_amount.size + 
   gpw_bondspot_pricesandtrades_xdp_v6_8.notional_currency.size + 
@@ -1686,8 +1686,8 @@ gpw_bondspot_pricesandtrades_xdp_v6_8.trade_full_information_message.fields = fu
   -- Instrument Id Code: ASCII Ch.
   index, instrument_id_code = gpw_bondspot_pricesandtrades_xdp_v6_8.instrument_id_code.dissect(buffer, index, packet, parent)
 
-  -- Price Ascii Ch 20: ASCII Ch.
-  index, price_ascii_ch_20 = gpw_bondspot_pricesandtrades_xdp_v6_8.price_ascii_ch_20.dissect(buffer, index, packet, parent)
+  -- Traded Price: ASCII Ch.
+  index, traded_price = gpw_bondspot_pricesandtrades_xdp_v6_8.traded_price.dissect(buffer, index, packet, parent)
 
   -- Quantity: ASCII Ch.
   index, quantity = gpw_bondspot_pricesandtrades_xdp_v6_8.quantity.dissect(buffer, index, packet, parent)

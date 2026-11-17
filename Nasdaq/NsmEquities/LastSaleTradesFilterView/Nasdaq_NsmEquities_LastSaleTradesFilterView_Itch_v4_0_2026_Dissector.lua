@@ -61,8 +61,7 @@ omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.security_c
 omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nsmequities.lastsaletradesfilterview.itch.v4.0.2026.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.lastsaletradesfilterview.itch.v4.0.2026.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.nsmequities.lastsaletradesfilterview.itch.v4.0.2026.shortsalethresholdindicator", ftypes.STRING, nil, nil, nil, "Indicates if a security is subject to mandatory close-out of short sales under SEC Rule 203(b)(3).")
-omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.lastsaletradesfilterview.itch.v4.0.2026.stock", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in the Nasdaq execution system.")
-omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.stock_alpha_8 = ProtoField.new("Stock Alpha 8", "nasdaq.nsmequities.lastsaletradesfilterview.itch.v4.0.2026.stockalpha8", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in Nasdaq execution system.")
+omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.lastsaletradesfilterview.itch.v4.0.2026.stock", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in Nasdaq execution system.")
 omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.lastsaletradesfilterview.itch.v4.0.2026.timestamp", ftypes.UINT64)
 omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.nsmequities.lastsaletradesfilterview.itch.v4.0.2026.trackingnumber", ftypes.UINT16, nil, nil, nil, "Nasdaq internal tracking number")
 omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.trade_control_number = ProtoField.new("Trade Control Number", "nasdaq.nsmequities.lastsaletradesfilterview.itch.v4.0.2026.tradecontrolnumber", ftypes.STRING, nil, nil, nil, "Indicates the source's internal control number associated with the given trade transaction.")
@@ -1583,29 +1582,6 @@ nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock.dissect = funct
   return offset + length, value
 end
 
--- Stock Alpha 8
-nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock_alpha_8 = {}
-
--- Size: Stock Alpha 8
-nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock_alpha_8.size = 8
-
--- Display: Stock Alpha 8
-nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock_alpha_8.display = function(value)
-  return "Stock Alpha 8: "..value
-end
-
--- Dissect: Stock Alpha 8
-nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock_alpha_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock_alpha_8.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock_alpha_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.fields.stock_alpha_8, range, value, display)
-
-  return offset + length, value
-end
-
 -- Timestamp
 nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.timestamp = {}
 
@@ -1776,7 +1752,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.operational_halt_mess
 nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.operational_halt_message.size =
   nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.tracking_number.size + 
   nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.timestamp.size + 
-  nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock_alpha_8.size + 
+  nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock.size + 
   nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.market_code.size + 
   nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.operational_halt_action.size
 
@@ -1795,8 +1771,8 @@ nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.operational_halt_mess
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock Alpha 8: Alpha
-  index, stock_alpha_8 = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock_alpha_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock.dissect(buffer, index, packet, parent)
 
   -- Market Code: Alpha
   index, market_code = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.market_code.dissect(buffer, index, packet, parent)
@@ -1852,7 +1828,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.ipo_quoting_period_up
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: Alphanumeric
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock.dissect(buffer, index, packet, parent)
 
   -- Ipo Quotation Release Time: Integer
@@ -2083,7 +2059,7 @@ nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock_directory_messa
   -- Timestamp: Timestamp
   index, timestamp = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Stock: Alphanumeric
+  -- Stock: Alpha
   index, stock = nasdaq_nsmequities_lastsaletradesfilterview_itch_v4_0_2026.stock.dissect(buffer, index, packet, parent)
 
   -- Market Category: Alphanumeric

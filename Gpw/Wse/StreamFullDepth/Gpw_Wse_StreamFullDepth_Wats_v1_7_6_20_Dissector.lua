@@ -67,8 +67,7 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.encryption_key_id = ProtoField
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.encryption_offset = ProtoField.new("Encryption Offset", "gpw.wse.streamfulldepth.wats.v1.7.6.20.encryptionoffset", ftypes.UINT64, nil, nil, nil, "Encryption byte offset")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.end_trading_date = ProtoField.new("End Trading Date", "gpw.wse.streamfulldepth.wats.v1.7.6.20.endtradingdate", ftypes.UINT32, nil, nil, nil, "End of trading date")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.entry_number = ProtoField.new("Entry Number", "gpw.wse.streamfulldepth.wats.v1.7.6.20.entrynumber", ftypes.UINT8, nil, nil, nil, "News entry number")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.event_type_event_type = ProtoField.new("Event Type Event Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.eventtypeeventtype", ftypes.UINT8, nil, nil, nil, "Test event type")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.event_type_order_book_event_type = ProtoField.new("Event Type Order Book Event Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.eventtypeorderbookeventtype", ftypes.UINT8, nil, nil, nil, "Type/Kind of book event")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.event_type = ProtoField.new("Event Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.eventtype", ftypes.UINT8, nil, nil, nil, "Test event type")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.execution_price = ProtoField.new("Execution Price", "gpw.wse.streamfulldepth.wats.v1.7.6.20.executionprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the order was executed")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.execution_quantity = ProtoField.new("Execution Quantity", "gpw.wse.streamfulldepth.wats.v1.7.6.20.executionquantity", ftypes.UINT64, nil, nil, nil, "The order’s executed quantity")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.exercise_type = ProtoField.new("Exercise Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.exercisetype", ftypes.UINT8, nil, nil, nil, "Identifier of exercise style")
@@ -163,15 +162,13 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.mmt_post_trade_deferral_type =
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.mmt_special_dividend_indicator = ProtoField.new("Mmt Special Dividend Indicator", "gpw.wse.streamfulldepth.wats.v1.7.6.20.mmtspecialdividendindicator", ftypes.UINT8)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.mmt_trading_mode = ProtoField.new("Mmt Trading Mode", "gpw.wse.streamfulldepth.wats.v1.7.6.20.mmttradingmode", ftypes.UINT8)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.mmt_transaction_category = ProtoField.new("Mmt Transaction Category", "gpw.wse.streamfulldepth.wats.v1.7.6.20.mmttransactioncategory", ftypes.UINT8)
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.multiplier_multiplier = ProtoField.new("Multiplier Multiplier", "gpw.wse.streamfulldepth.wats.v1.7.6.20.multipliermultiplier", ftypes.DOUBLE, nil, nil, nil, "Product value multiplier")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.multiplier_number = ProtoField.new("Multiplier Number", "gpw.wse.streamfulldepth.wats.v1.7.6.20.multipliernumber", ftypes.DOUBLE, nil, nil, nil, "Instrument multiplier")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.multiplier = ProtoField.new("Multiplier", "gpw.wse.streamfulldepth.wats.v1.7.6.20.multiplier", ftypes.DOUBLE, nil, nil, nil, "Product value multiplier")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.name = ProtoField.new("Name", "gpw.wse.streamfulldepth.wats.v1.7.6.20.name", ftypes.STRING, nil, nil, nil, "Market structure name assigned by market operator")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.news_id = ProtoField.new("News Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.newsid", ftypes.UINT32, nil, nil, nil, "News id - The news id serves as a unique reference for tracking purposes within the WATS system")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.no_trades = ProtoField.new("No Trades", "gpw.wse.streamfulldepth.wats.v1.7.6.20.notrades", ftypes.UINT64, nil, nil, nil, "Total number of transactions")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.nominal_currency = ProtoField.new("Nominal Currency", "gpw.wse.streamfulldepth.wats.v1.7.6.20.nominalcurrency", ftypes.UINT16)
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.nominal_value_price = ProtoField.new("Nominal Value Price", "gpw.wse.streamfulldepth.wats.v1.7.6.20.nominalvalueprice", ftypes.DOUBLE, nil, nil, nil, "Nominal value of the financial instrument")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.nominal_value = ProtoField.new("Nominal Value", "gpw.wse.streamfulldepth.wats.v1.7.6.20.nominalvalue", ftypes.DOUBLE, nil, nil, nil, "Nominal value of the financial instrument")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.nominal_value_type = ProtoField.new("Nominal Value Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.nominalvaluetype", ftypes.UINT8, nil, nil, nil, "Type of the product's nominal value (no nominal, constant or unknown)")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.nominal_value_value = ProtoField.new("Nominal Value Value", "gpw.wse.streamfulldepth.wats.v1.7.6.20.nominalvaluevalue", ftypes.DOUBLE, nil, nil, nil, "Nominal value")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.num_of_active_instruments = ProtoField.new("Num Of Active Instruments", "gpw.wse.streamfulldepth.wats.v1.7.6.20.numofactiveinstruments", ftypes.UINT16, nil, nil, nil, "Number of instruments – participants of the index, for which the quotation was set during the session")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.num_of_components = ProtoField.new("Num Of Components", "gpw.wse.streamfulldepth.wats.v1.7.6.20.numofcomponents", ftypes.UINT16, nil, nil, nil, "Total number of instruments in the portfolio")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.number_of_dividends = ProtoField.new("Number Of Dividends", "gpw.wse.streamfulldepth.wats.v1.7.6.20.numberofdividends", ftypes.UINT16, nil, nil, nil, "Number of dividends included in the index calculation")
@@ -180,6 +177,7 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.opening_index_value = ProtoFie
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.opening_price = ProtoField.new("Opening Price", "gpw.wse.streamfulldepth.wats.v1.7.6.20.openingprice", ftypes.DOUBLE, nil, nil, nil, "The price of the first trade on the current trading day")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.option_type = ProtoField.new("Option Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.optiontype", ftypes.UINT8, nil, nil, nil, "Identifier of option type")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.options_strike_price = ProtoField.new("Options Strike Price", "gpw.wse.streamfulldepth.wats.v1.7.6.20.optionsstrikeprice", ftypes.DOUBLE, nil, nil, nil, "Option product strike price")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.order_book_event_type = ProtoField.new("Order Book Event Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.orderbookeventtype", ftypes.UINT8, nil, nil, nil, "Type/Kind of book event")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.order_count = ProtoField.new("Order Count", "gpw.wse.streamfulldepth.wats.v1.7.6.20.ordercount", ftypes.UINT16, nil, nil, nil, "Number of open orders at BBO level 1")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.order_dynamic_collar_table_id = ProtoField.new("Order Dynamic Collar Table Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.orderdynamiccollartableid", ftypes.UINT32, nil, nil, nil, "Collar table ID")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.order_static_collar_table_id = ProtoField.new("Order Static Collar Table Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.orderstaticcollartableid", ftypes.UINT32, nil, nil, nil, "Collar table ID")
@@ -208,11 +206,12 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.price_ytm_presence = ProtoFiel
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.priority_flag = ProtoField.new("Priority Flag", "gpw.wse.streamfulldepth.wats.v1.7.6.20.priorityflag", ftypes.UINT8, nil, nil, nil, "Priority loss flag")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_code = ProtoField.new("Product Code", "gpw.wse.streamfulldepth.wats.v1.7.6.20.productcode", ftypes.STRING)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_id = ProtoField.new("Product Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.productid", ftypes.UINT32, nil, nil, nil, "Reference to financial product definition")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_identification_product_identification = ProtoField.new("Product Identification Product Identification", "gpw.wse.streamfulldepth.wats.v1.7.6.20.productidentificationproductidentification", ftypes.STRING, nil, nil, nil, "Product identification")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_identification = ProtoField.new("Product Identification", "gpw.wse.streamfulldepth.wats.v1.7.6.20.productidentification", ftypes.STRING)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_identification_public_product_identification = ProtoField.new("Product Identification Public Product Identification", "gpw.wse.streamfulldepth.wats.v1.7.6.20.productidentificationpublicproductidentification", ftypes.STRING, nil, nil, nil, "PublicProductIdentification")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_identification_type = ProtoField.new("Product Identification Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.productidentificationtype", ftypes.UINT8)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_name = ProtoField.new("Product Name", "gpw.wse.streamfulldepth.wats.v1.7.6.20.productname", ftypes.STRING)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_subtype = ProtoField.new("Product Subtype", "gpw.wse.streamfulldepth.wats.v1.7.6.20.productsubtype", ftypes.UINT8, nil, nil, nil, "Subtype of the product")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_summary_multiplier = ProtoField.new("Product Summary Multiplier", "gpw.wse.streamfulldepth.wats.v1.7.6.20.productsummarymultiplier", ftypes.DOUBLE, nil, nil, nil, "Instrument multiplier")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_type = ProtoField.new("Product Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.producttype", ftypes.UINT8, nil, nil, nil, "Type of the product")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.public_order_id = ProtoField.new("Public Order Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.publicorderid", ftypes.UINT64, nil, nil, nil, "Order identifier (ID)")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.public_product_identification = ProtoField.new("Public Product Identification", "gpw.wse.streamfulldepth.wats.v1.7.6.20.publicproductidentification", ftypes.STRING, nil, nil, nil, "PublicProductIdentification")
@@ -242,8 +241,7 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_calendar_id = Proto
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_date = ProtoField.new("Settlement Date", "gpw.wse.streamfulldepth.wats.v1.7.6.20.settlementdate", ftypes.UINT32)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_price = ProtoField.new("Settlement Price", "gpw.wse.streamfulldepth.wats.v1.7.6.20.settlementprice", ftypes.DOUBLE)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_type = ProtoField.new("Settlement Type", "gpw.wse.streamfulldepth.wats.v1.7.6.20.settlementtype", ftypes.UINT8, nil, nil, nil, "Identifier of settlement type")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_value_price = ProtoField.new("Settlement Value Price", "gpw.wse.streamfulldepth.wats.v1.7.6.20.settlementvalueprice", ftypes.DOUBLE, nil, nil, nil, "Settlement value")
-omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_value_value = ProtoField.new("Settlement Value Value", "gpw.wse.streamfulldepth.wats.v1.7.6.20.settlementvaluevalue", ftypes.DOUBLE, nil, nil, nil, "Settlement value")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_value = ProtoField.new("Settlement Value", "gpw.wse.streamfulldepth.wats.v1.7.6.20.settlementvalue", ftypes.DOUBLE)
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.side = ProtoField.new("Side", "gpw.wse.streamfulldepth.wats.v1.7.6.20.side", ftypes.UINT8, nil, nil, nil, "Side (buy or sell)")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp = ProtoField.new("Source Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.sourcetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time the source system generated the event, in nanoseconds since the Unix epoch")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.source_timestamp_utc = ProtoField.new("Source Timestamp", "gpw.wse.streamfulldepth.wats.v1.7.6.20.sourcetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time the source system generated the event, in nanoseconds since the Unix epoch")
@@ -272,6 +270,8 @@ omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.total_value = ProtoField.new("
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.total_volume = ProtoField.new("Total Volume", "gpw.wse.streamfulldepth.wats.v1.7.6.20.totalvolume", ftypes.UINT64, nil, nil, nil, "Total transaction volume")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trade_dynamic_collar_table_id = ProtoField.new("Trade Dynamic Collar Table Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradedynamiccollartableid", ftypes.UINT32, nil, nil, nil, "Collar table ID")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trade_id = ProtoField.new("Trade Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradeid", ftypes.UINT32, nil, nil, nil, "ID of the trade")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trade_nominal_value = ProtoField.new("Trade Nominal Value", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradenominalvalue", ftypes.DOUBLE, nil, nil, nil, "Nominal value")
+omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trade_settlement_value = ProtoField.new("Trade Settlement Value", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradesettlementvalue", ftypes.DOUBLE, nil, nil, nil, "Settlement value")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trade_static_collar_table_id = ProtoField.new("Trade Static Collar Table Id", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradestaticcollartableid", ftypes.UINT32, nil, nil, nil, "Collar table ID")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trade_to_be_cleared = ProtoField.new("Trade To Be Cleared", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradetobecleared", ftypes.UINT8, nil, nil, nil, "Code to identify whether the transaction will be cleared")
 omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trading_currency = ProtoField.new("Trading Currency", "gpw.wse.streamfulldepth.wats.v1.7.6.20.tradingcurrency", ftypes.UINT16)
@@ -1901,60 +1901,31 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.entry_number.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Event Type Event Type
-gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_event_type = {}
+-- Event Type
+gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type = {}
 
--- Size: Event Type Event Type
-gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_event_type.size = 1
+-- Size: Event Type
+gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type.size = 1
 
--- Display: Event Type Event Type
-gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_event_type.labels = {
-  [1] = "Event Type Event Type: Flush (1)",
-  [2] = "Event Type Event Type: Scenario Start (2)",
-  [3] = "Event Type Event Type: Scenario End (3)",
+-- Display: Event Type
+gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type.labels = {
+  [1] = "Event Type: Flush (1)",
+  [2] = "Event Type: Scenario Start (2)",
+  [3] = "Event Type: Scenario End (3)",
 }
 
-gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_event_type.display = function(value)
-  return gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_event_type.labels[value] or "Event Type Event Type: Unknown("..value..")"
+gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type.display = function(value)
+  return gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type.labels[value] or "Event Type: Unknown("..value..")"
 end
 
--- Dissect: Event Type Event Type
-gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_event_type.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_event_type.size
+-- Dissect: Event Type
+gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_event_type.display(value, buffer, offset, packet, parent)
+  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.event_type_event_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Event Type Order Book Event Type
-gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_order_book_event_type = {}
-
--- Size: Event Type Order Book Event Type
-gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.size = 1
-
--- Display: Event Type Order Book Event Type
-gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.labels = {
-  [1] = "Event Type Order Book Event Type: Clear (1)",
-  [2] = "Event Type Order Book Event Type: Resend Start (2)",
-  [3] = "Event Type Order Book Event Type: Resend End (3)",
-}
-
-gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.display = function(value)
-  return gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.labels[value] or "Event Type Order Book Event Type: Unknown("..value..")"
-end
-
--- Dissect: Event Type Order Book Event Type
-gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.event_type_order_book_event_type, range, value, display)
+  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.event_type, range, value, display)
 
   return offset + length, value
 end
@@ -4419,60 +4390,31 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.mmt_transaction_category.dissect = functi
   return offset + length, value
 end
 
--- Multiplier Multiplier
-gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_multiplier = {}
+-- Multiplier
+gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier = {}
 
--- Size: Multiplier Multiplier
-gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_multiplier.size = 8
+-- Size: Multiplier
+gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier.size = 8
 
--- Display: Multiplier Multiplier
-gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_multiplier.display = function(value)
-  return "Multiplier Multiplier: "..value
+-- Display: Multiplier
+gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier.display = function(value)
+  return "Multiplier: "..value
 end
 
--- Translate: Multiplier Multiplier
-gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_multiplier.translate = function(raw)
+-- Translate: Multiplier
+gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Multiplier Multiplier
-gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_multiplier.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_multiplier.size
+-- Dissect: Multiplier
+gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_multiplier.translate(raw)
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_multiplier.display(value, buffer, offset, packet, parent)
+  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier.translate(raw)
+  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.multiplier_multiplier, range, value, display)
-
-  return offset + length, value
-end
-
--- Multiplier Number
-gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_number = {}
-
--- Size: Multiplier Number
-gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_number.size = 8
-
--- Display: Multiplier Number
-gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_number.display = function(value)
-  return "Multiplier Number: "..value
-end
-
--- Translate: Multiplier Number
-gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_number.translate = function(raw)
-  return raw:tonumber()/100000000
-end
-
--- Dissect: Multiplier Number
-gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_number.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_number.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_number.translate(raw)
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_number.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.multiplier_number, range, value, display)
+  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.multiplier, range, value, display)
 
   return offset + length, value
 end
@@ -4752,31 +4694,31 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_currency.dissect = function(buffe
   return offset + length, value
 end
 
--- Nominal Value Price
-gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_price = {}
+-- Nominal Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value = {}
 
--- Size: Nominal Value Price
-gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_price.size = 8
+-- Size: Nominal Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value.size = 8
 
--- Display: Nominal Value Price
-gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_price.display = function(value)
-  return "Nominal Value Price: "..value
+-- Display: Nominal Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value.display = function(value)
+  return "Nominal Value: "..value
 end
 
--- Translate: Nominal Value Price
-gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_price.translate = function(raw)
+-- Translate: Nominal Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Nominal Value Price
-gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_price.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_price.size
+-- Dissect: Nominal Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_price.translate(raw)
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_price.display(value, buffer, offset, packet, parent)
+  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value.translate(raw)
+  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.nominal_value_price, range, value, display)
+  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.nominal_value, range, value, display)
 
   return offset + length, value
 end
@@ -4805,35 +4747,6 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_type.dissect = function(buf
   local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.nominal_value_type, range, value, display)
-
-  return offset + length, value
-end
-
--- Nominal Value Value
-gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_value = {}
-
--- Size: Nominal Value Value
-gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_value.size = 8
-
--- Display: Nominal Value Value
-gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_value.display = function(value)
-  return "Nominal Value Value: "..value
-end
-
--- Translate: Nominal Value Value
-gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_value.translate = function(raw)
-  return raw:tonumber()/100
-end
-
--- Dissect: Nominal Value Value
-gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_value.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_value.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_value.translate(raw)
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.nominal_value_value, range, value, display)
 
   return offset + length, value
 end
@@ -5042,6 +4955,35 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.options_strike_price.dissect = function(b
   local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.options_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.options_strike_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Book Event Type
+gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event_type = {}
+
+-- Size: Order Book Event Type
+gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event_type.size = 1
+
+-- Display: Order Book Event Type
+gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event_type.labels = {
+  [1] = "Order Book Event Type: Clear (1)",
+  [2] = "Order Book Event Type: Resend Start (2)",
+  [3] = "Order Book Event Type: Resend End (3)",
+}
+
+gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event_type.display = function(value)
+  return gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event_type.labels[value] or "Order Book Event Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Book Event Type
+gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event_type.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.order_book_event_type, range, value, display)
 
   return offset + length, value
 end
@@ -5815,25 +5757,25 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.product_id.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Product Identification Product Identification
-gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification = {}
+-- Product Identification
+gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification = {}
 
--- Size: Product Identification Product Identification
-gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.size = 30
+-- Size: Product Identification
+gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.size = 30
 
--- Display: Product Identification Product Identification
-gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.display = function(value)
-  return "Product Identification Product Identification: "..value
+-- Display: Product Identification
+gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.display = function(value)
+  return "Product Identification: "..value
 end
 
--- Dissect: Product Identification Product Identification
-gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.size
+-- Dissect: Product Identification
+gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.size
   local range = buffer(offset, length)
   local value = range:string()
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.display(value, buffer, offset, packet, parent)
+  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_identification_product_identification, range, value, display)
+  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_identification, range, value, display)
 
   return offset + length, value
 end
@@ -5967,6 +5909,35 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.product_subtype.dissect = function(buffer
   local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_subtype.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_subtype, range, value, display)
+
+  return offset + length, value
+end
+
+-- Product Summary Multiplier
+gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary_multiplier = {}
+
+-- Size: Product Summary Multiplier
+gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary_multiplier.size = 8
+
+-- Display: Product Summary Multiplier
+gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary_multiplier.display = function(value)
+  return "Product Summary Multiplier: "..value
+end
+
+-- Translate: Product Summary Multiplier
+gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary_multiplier.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Product Summary Multiplier
+gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary_multiplier.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary_multiplier.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary_multiplier.translate(raw)
+  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary_multiplier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.product_summary_multiplier, range, value, display)
 
   return offset + length, value
 end
@@ -6521,60 +6492,31 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_type.dissect = function(buffer
   return offset + length, value
 end
 
--- Settlement Value Price
-gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price = {}
+-- Settlement Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value = {}
 
--- Size: Settlement Value Price
-gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.size = 8
+-- Size: Settlement Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.size = 8
 
--- Display: Settlement Value Price
-gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.display = function(value)
-  return "Settlement Value Price: "..value
+-- Display: Settlement Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.display = function(value)
+  return "Settlement Value: "..value
 end
 
--- Translate: Settlement Value Price
-gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.translate = function(raw)
+-- Translate: Settlement Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.translate = function(raw)
   return raw:tonumber()/100000000
 end
 
--- Dissect: Settlement Value Price
-gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.size
+-- Dissect: Settlement Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.translate(raw)
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.display(value, buffer, offset, packet, parent)
+  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.translate(raw)
+  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_value_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Settlement Value Value
-gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_value = {}
-
--- Size: Settlement Value Value
-gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_value.size = 8
-
--- Display: Settlement Value Value
-gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_value.display = function(value)
-  return "Settlement Value Value: "..value
-end
-
--- Translate: Settlement Value Value
-gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_value.translate = function(raw)
-  return raw:tonumber()/100
-end
-
--- Dissect: Settlement Value Value
-gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_value.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_value.size
-  local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_value.translate(raw)
-  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_value.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_value_value, range, value, display)
+  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.settlement_value, range, value, display)
 
   return offset + length, value
 end
@@ -7411,6 +7353,64 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_id.dissect = function(buffer, offse
   local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trade_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Nominal Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_nominal_value = {}
+
+-- Size: Trade Nominal Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_nominal_value.size = 8
+
+-- Display: Trade Nominal Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_nominal_value.display = function(value)
+  return "Trade Nominal Value: "..value
+end
+
+-- Translate: Trade Nominal Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_nominal_value.translate = function(raw)
+  return raw:tonumber()/100
+end
+
+-- Dissect: Trade Nominal Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_nominal_value.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_nominal_value.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_nominal_value.translate(raw)
+  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_nominal_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trade_nominal_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Settlement Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_settlement_value = {}
+
+-- Size: Trade Settlement Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_settlement_value.size = 8
+
+-- Display: Trade Settlement Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_settlement_value.display = function(value)
+  return "Trade Settlement Value: "..value
+end
+
+-- Translate: Trade Settlement Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_settlement_value.translate = function(raw)
+  return raw:tonumber()/100
+end
+
+-- Dissect: Trade Settlement Value
+gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_settlement_value.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_settlement_value.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_settlement_value.translate(raw)
+  local display = gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_settlement_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_streamfulldepth_wats_v1_7_6_20.fields.trade_settlement_value, range, value, display)
 
   return offset + length, value
 end
@@ -8367,7 +8367,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event = {}
 -- Size: Order Book Event
 gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.instrument_id.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.size
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event_type.size
 
 -- Display: Order Book Event
 gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event.display = function(packet, parent, length)
@@ -8381,8 +8381,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event.fields = function(buffer
   -- Instrument Id: ElementId
   index, instrument_id = gpw_wse_streamfulldepth_wats_v1_7_6_20.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Event Type Order Book Event Type: OrderBookEventType
-  index, event_type_order_book_event_type = gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_order_book_event_type.dissect(buffer, index, packet, parent)
+  -- Order Book Event Type: OrderBookEventType
+  index, order_book_event_type = gpw_wse_streamfulldepth_wats_v1_7_6_20.order_book_event_type.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8643,7 +8643,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.test_event = {}
 -- Size: Test Event
 gpw_wse_streamfulldepth_wats_v1_7_6_20.test_event.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.scenario_name.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_event_type.size
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type.size
 
 -- Display: Test Event
 gpw_wse_streamfulldepth_wats_v1_7_6_20.test_event.display = function(packet, parent, length)
@@ -8657,8 +8657,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.test_event.fields = function(buffer, offs
   -- Scenario Name: ScenarioName
   index, scenario_name = gpw_wse_streamfulldepth_wats_v1_7_6_20.scenario_name.dissect(buffer, index, packet, parent)
 
-  -- Event Type Event Type: EventType
-  index, event_type_event_type = gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type_event_type.dissect(buffer, index, packet, parent)
+  -- Event Type: EventType
+  index, event_type = gpw_wse_streamfulldepth_wats_v1_7_6_20.event_type.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9255,7 +9255,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.hybrid_instrument.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.max_price.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.min_price.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_price.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.end_trading_date.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.last_trade_date.size
 
@@ -9316,8 +9316,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.hybrid_instrument.fields = function(buffe
   -- Settlement Price: Price
   index, settlement_price = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Value Price: Price
-  index, settlement_value_price = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.dissect(buffer, index, packet, parent)
+  -- Settlement Value: Price
+  index, settlement_value = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.dissect(buffer, index, packet, parent)
 
   -- End Trading Date: Date
   index, end_trading_date = gpw_wse_streamfulldepth_wats_v1_7_6_20.end_trading_date.dissect(buffer, index, packet, parent)
@@ -9367,7 +9367,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.block_instrument.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.max_price.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.min_price.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_price.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.end_trading_date.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.last_trade_date.size
 
@@ -9428,8 +9428,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.block_instrument.fields = function(buffer
   -- Settlement Price: Price
   index, settlement_price = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Value Price: Price
-  index, settlement_value_price = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.dissect(buffer, index, packet, parent)
+  -- Settlement Value: Price
+  index, settlement_value = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.dissect(buffer, index, packet, parent)
 
   -- End Trading Date: Date
   index, end_trading_date = gpw_wse_streamfulldepth_wats_v1_7_6_20.end_trading_date.dissect(buffer, index, packet, parent)
@@ -9479,7 +9479,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.cross_instrument.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.max_price.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.min_price.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_price.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.end_trading_date.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.last_trade_date.size
 
@@ -9540,8 +9540,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.cross_instrument.fields = function(buffer
   -- Settlement Price: Price
   index, settlement_price = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Value Price: Price
-  index, settlement_value_price = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.dissect(buffer, index, packet, parent)
+  -- Settlement Value: Price
+  index, settlement_value = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.dissect(buffer, index, packet, parent)
 
   -- End Trading Date: Date
   index, end_trading_date = gpw_wse_streamfulldepth_wats_v1_7_6_20.end_trading_date.dissect(buffer, index, packet, parent)
@@ -9591,7 +9591,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.clob_instrument.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.max_price.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.min_price.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_price.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.end_trading_date.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.last_trade_date.size
 
@@ -9652,8 +9652,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.clob_instrument.fields = function(buffer,
   -- Settlement Price: Price
   index, settlement_price = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_price.dissect(buffer, index, packet, parent)
 
-  -- Settlement Value Price: Price
-  index, settlement_value_price = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_price.dissect(buffer, index, packet, parent)
+  -- Settlement Value: Price
+  index, settlement_value = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value.dissect(buffer, index, packet, parent)
 
   -- End Trading Date: Date
   index, end_trading_date = gpw_wse_streamfulldepth_wats_v1_7_6_20.end_trading_date.dissect(buffer, index, packet, parent)
@@ -9692,7 +9692,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.block_instrument.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.hybrid_instrument.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_type.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.product_id.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.mic.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.accumulated_interest.size + 
@@ -9705,7 +9705,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.market.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.marker_price_change.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.lower_liquidity.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_number.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary_multiplier.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.dividend_rate.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.delta.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.gamma.size + 
@@ -9745,8 +9745,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary.fields = function(buffer,
   -- Product Identification Type: ProductIdentificationType
   index, product_identification_type = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_type.dissect(buffer, index, packet, parent)
 
-  -- Product Identification Product Identification: ProductIdentification
-  index, product_identification_product_identification = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.dissect(buffer, index, packet, parent)
+  -- Product Identification: ProductIdentification
+  index, product_identification = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.dissect(buffer, index, packet, parent)
 
   -- Product Id: ElementId
   index, product_id = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_id.dissect(buffer, index, packet, parent)
@@ -9784,8 +9784,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary.fields = function(buffer,
   -- Lower Liquidity: bool
   index, lower_liquidity = gpw_wse_streamfulldepth_wats_v1_7_6_20.lower_liquidity.dissect(buffer, index, packet, parent)
 
-  -- Multiplier Number: Number
-  index, multiplier_number = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_number.dissect(buffer, index, packet, parent)
+  -- Product Summary Multiplier: Number
+  index, product_summary_multiplier = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_summary_multiplier.dissect(buffer, index, packet, parent)
 
   -- Dividend Rate: Number
   index, dividend_rate = gpw_wse_streamfulldepth_wats_v1_7_6_20.dividend_rate.dissect(buffer, index, packet, parent)
@@ -10127,7 +10127,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.public_product_identification = {}
 
 -- Size: Public Product Identification
 gpw_wse_streamfulldepth_wats_v1_7_6_20.public_product_identification.size =
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_type.size
 
 -- Display: Public Product Identification
@@ -10139,8 +10139,8 @@ end
 gpw_wse_streamfulldepth_wats_v1_7_6_20.public_product_identification.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Identification Product Identification: ProductIdentification
-  index, product_identification_product_identification = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.dissect(buffer, index, packet, parent)
+  -- Product Identification: ProductIdentification
+  index, product_identification = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.dissect(buffer, index, packet, parent)
 
   -- Product Identification Type: ProductIdentificationType
   index, product_identification_type = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_type.dissect(buffer, index, packet, parent)
@@ -10224,7 +10224,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.trade = {}
 -- Size: Trade
 gpw_wse_streamfulldepth_wats_v1_7_6_20.trade.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.instrument_id.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_value.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_settlement_value.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_date.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_timestamp.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.public_product_identification.size + 
@@ -10232,7 +10232,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.trade.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.price_currency.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.price_notation.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.quantity.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_value.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_nominal_value.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_currency.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.mic.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.publication_timestamp.size + 
@@ -10272,8 +10272,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.trade.fields = function(buffer, offset, p
   -- Instrument Id: ElementId
   index, instrument_id = gpw_wse_streamfulldepth_wats_v1_7_6_20.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Settlement Value Value: Value
-  index, settlement_value_value = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_value_value.dissect(buffer, index, packet, parent)
+  -- Trade Settlement Value: Value
+  index, trade_settlement_value = gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_settlement_value.dissect(buffer, index, packet, parent)
 
   -- Settlement Date: Date
   index, settlement_date = gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_date.dissect(buffer, index, packet, parent)
@@ -10296,8 +10296,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.trade.fields = function(buffer, offset, p
   -- Quantity: Quantity
   index, quantity = gpw_wse_streamfulldepth_wats_v1_7_6_20.quantity.dissect(buffer, index, packet, parent)
 
-  -- Nominal Value Value: Value
-  index, nominal_value_value = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_value.dissect(buffer, index, packet, parent)
+  -- Trade Nominal Value: Value
+  index, trade_nominal_value = gpw_wse_streamfulldepth_wats_v1_7_6_20.trade_nominal_value.dissect(buffer, index, packet, parent)
 
   -- Nominal Currency: Currency
   index, nominal_currency = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_currency.dissect(buffer, index, packet, parent)
@@ -10914,7 +10914,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_public_product_ide
 
 -- Size: Product Identification Public Product Identification
 gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_public_product_identification.size =
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_type.size
 
 -- Display: Product Identification Public Product Identification
@@ -10926,8 +10926,8 @@ end
 gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_public_product_identification.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Product Identification Product Identification: ProductIdentification
-  index, product_identification_product_identification = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.dissect(buffer, index, packet, parent)
+  -- Product Identification: ProductIdentification
+  index, product_identification = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.dissect(buffer, index, packet, parent)
 
   -- Product Identification Type: ProductIdentificationType
   index, product_identification_type = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_type.dissect(buffer, index, packet, parent)
@@ -11354,12 +11354,12 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.instrument.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.trading_schedule_id.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.description.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.mic.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_price.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_type.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_multiplier.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.strike_price.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.strike_price_currency.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_type.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.settlement_calendar_id.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.bond_coupon_type.size + 
@@ -11461,14 +11461,14 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.instrument.fields = function(buffer, offs
   -- Mic: MicCode
   index, mic = gpw_wse_streamfulldepth_wats_v1_7_6_20.mic.dissect(buffer, index, packet, parent)
 
-  -- Nominal Value Price: Price
-  index, nominal_value_price = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_price.dissect(buffer, index, packet, parent)
+  -- Nominal Value: Price
+  index, nominal_value = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value.dissect(buffer, index, packet, parent)
 
   -- Nominal Value Type: NominalValueType
   index, nominal_value_type = gpw_wse_streamfulldepth_wats_v1_7_6_20.nominal_value_type.dissect(buffer, index, packet, parent)
 
-  -- Multiplier Multiplier: Multiplier
-  index, multiplier_multiplier = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier_multiplier.dissect(buffer, index, packet, parent)
+  -- Multiplier: Multiplier
+  index, multiplier = gpw_wse_streamfulldepth_wats_v1_7_6_20.multiplier.dissect(buffer, index, packet, parent)
 
   -- Strike Price: Price
   index, strike_price = gpw_wse_streamfulldepth_wats_v1_7_6_20.strike_price.dissect(buffer, index, packet, parent)
@@ -11476,8 +11476,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.instrument.fields = function(buffer, offs
   -- Strike Price Currency: Currency
   index, strike_price_currency = gpw_wse_streamfulldepth_wats_v1_7_6_20.strike_price_currency.dissect(buffer, index, packet, parent)
 
-  -- Product Identification Product Identification: ProductIdentification
-  index, product_identification_product_identification = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.dissect(buffer, index, packet, parent)
+  -- Product Identification: ProductIdentification
+  index, product_identification = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.dissect(buffer, index, packet, parent)
 
   -- Product Identification Type: ProductIdentificationType
   index, product_identification_type = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_type.dissect(buffer, index, packet, parent)
@@ -11617,7 +11617,7 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.external_underlying = {}
 -- Size: External Underlying
 gpw_wse_streamfulldepth_wats_v1_7_6_20.external_underlying.size =
   gpw_wse_streamfulldepth_wats_v1_7_6_20.external_underlying_id.size + 
-  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.size + 
+  gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_type.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.product_code.size + 
   gpw_wse_streamfulldepth_wats_v1_7_6_20.product_name.size + 
@@ -11637,8 +11637,8 @@ gpw_wse_streamfulldepth_wats_v1_7_6_20.external_underlying.fields = function(buf
   -- External Underlying Id: ElementId
   index, external_underlying_id = gpw_wse_streamfulldepth_wats_v1_7_6_20.external_underlying_id.dissect(buffer, index, packet, parent)
 
-  -- Product Identification Product Identification: ProductIdentification
-  index, product_identification_product_identification = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_product_identification.dissect(buffer, index, packet, parent)
+  -- Product Identification: ProductIdentification
+  index, product_identification = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification.dissect(buffer, index, packet, parent)
 
   -- Product Identification Type: ProductIdentificationType
   index, product_identification_type = gpw_wse_streamfulldepth_wats_v1_7_6_20.product_identification_type.dissect(buffer, index, packet, parent)

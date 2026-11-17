@@ -52,8 +52,7 @@ omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.sequence_number = Prot
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.shares", ftypes.UINT32, nil, nil, nil, "The number of shares matched in the NASDAQ Cross.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.shortsalethresholdindicator", ftypes.STRING, nil, nil, nil, "Indicates if a security is subject to mandatory close-out of short sales under SEC Rule 203(b)(3).")
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_alpha_8 = ProtoField.new("Stock Alpha 8", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stockalpha8", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in the NASDAQ execution system.")
-omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_alphanumeric_8 = ProtoField.new("Stock Alphanumeric 8", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stockalphanumeric8", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in the NASDAQ execution system.")
+omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.stock", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in the NASDAQ execution system.")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.timestamp", ftypes.UINT32, nil, nil, nil, "Milliseconds past midnight Eastern the message was generated")
 omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.tracking_id = ProtoField.new("Tracking Id", "nasdaq.nsmequities.noiview.asciiitch.v3.0.2013.trackingid", ftypes.STRING, nil, nil, nil, "Tracking identifier for the trading action.")
 
@@ -1530,48 +1529,25 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.short_sale_threshold_indicator.di
   return offset + length, value
 end
 
--- Stock Alpha 8
-nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8 = {}
+-- Stock
+nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock = {}
 
--- Size: Stock Alpha 8
-nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.size = 8
+-- Size: Stock
+nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.size = 8
 
--- Display: Stock Alpha 8
-nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.display = function(value)
-  return "Stock Alpha 8: "..value
+-- Display: Stock
+nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.display = function(value)
+  return "Stock: "..value
 end
 
--- Dissect: Stock Alpha 8
-nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.size
+-- Dissect: Stock
+nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_alpha_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Stock Alphanumeric 8
-nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8 = {}
-
--- Size: Stock Alphanumeric 8
-nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.size = 8
-
--- Display: Stock Alphanumeric 8
-nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.display = function(value)
-  return "Stock Alphanumeric 8: "..value
-end
-
--- Dissect: Stock Alphanumeric 8
-nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock_alphanumeric_8, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.fields.stock, range, value, display)
 
   return offset + length, value
 end
@@ -1678,7 +1654,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_quoting_period_update_message
 
 -- Size: Ipo Quoting Period Update Message
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_quoting_period_update_message.size =
-  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.size + 
+  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_quotation_release_time.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_quotation_release_qualifier.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_price.size
@@ -1692,8 +1668,8 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_quoting_period_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Alphanumeric 8: Alphanumeric
-  index, stock_alphanumeric_8 = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.dissect(buffer, index, packet, parent)
 
   -- Ipo Quotation Release Time: Numeric
   index, ipo_quotation_release_time = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.ipo_quotation_release_time.dissect(buffer, index, packet, parent)
@@ -1731,7 +1707,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.cross_trade_message = {}
 -- Size: Cross Trade Message
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.cross_trade_message.size =
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.shares.size + 
-  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.size + 
+  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.cross_price.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.match_number.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.cross_type.size + 
@@ -1749,8 +1725,8 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.cross_trade_message.fields = func
   -- Shares: Numeric
   index, shares = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock Alpha 8: Alpha
-  index, stock_alpha_8 = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.dissect(buffer, index, packet, parent)
 
   -- Cross Price: Price
   index, cross_price = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.cross_price.dissect(buffer, index, packet, parent)
@@ -1793,7 +1769,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.noii_message.size =
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.paired_shares.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.imbalance_shares.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.imbalance_direction.size + 
-  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.size + 
+  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.far_price.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.near_price.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.current_reference_price.size + 
@@ -1818,8 +1794,8 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.noii_message.fields = function(bu
   -- Imbalance Direction: Alpha
   index, imbalance_direction = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.imbalance_direction.dissect(buffer, index, packet, parent)
 
-  -- Stock Alpha 8: Alpha
-  index, stock_alpha_8 = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.dissect(buffer, index, packet, parent)
 
   -- Far Price: Price
   index, far_price = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.far_price.dissect(buffer, index, packet, parent)
@@ -1862,7 +1838,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.reg_sho_restriction_message = {}
 
 -- Size: Reg Sho Restriction Message
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.reg_sho_restriction_message.size =
-  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.size + 
+  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.reg_sho_action.size
 
 -- Display: Reg Sho Restriction Message
@@ -1874,8 +1850,8 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.reg_sho_restriction_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Alpha 8: Alpha
-  index, stock_alpha_8 = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alpha_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.dissect(buffer, index, packet, parent)
 
   -- Reg Sho Action: Alpha
   index, reg_sho_action = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.reg_sho_action.dissect(buffer, index, packet, parent)
@@ -1906,7 +1882,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_trading_action_message = {}
 
 -- Size: Stock Trading Action Message
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_trading_action_message.size =
-  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.size + 
+  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.current_trading_state.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.reason.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.tracking_id.size
@@ -1920,8 +1896,8 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Alphanumeric 8: Alphanumeric
-  index, stock_alphanumeric_8 = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.dissect(buffer, index, packet, parent)
 
   -- Current Trading State: Alphabetic
   index, current_trading_state = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.current_trading_state.dissect(buffer, index, packet, parent)
@@ -1958,7 +1934,7 @@ nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_directory_message = {}
 
 -- Size: Stock Directory Message
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_directory_message.size =
-  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.size + 
+  nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.market_category.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.financial_status_indicator.size + 
   nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.round_lot_size.size + 
@@ -1982,8 +1958,8 @@ end
 nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Alphanumeric 8: Alphanumeric
-  index, stock_alphanumeric_8 = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Stock: Alpha
+  index, stock = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.stock.dissect(buffer, index, packet, parent)
 
   -- Market Category: Alphanumeric
   index, market_category = nasdaq_nsmequities_noiview_asciiitch_v3_0_2013.market_category.dissect(buffer, index, packet, parent)

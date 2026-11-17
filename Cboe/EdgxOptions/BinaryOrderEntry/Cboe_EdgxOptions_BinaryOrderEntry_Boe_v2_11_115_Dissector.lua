@@ -2315,8 +2315,8 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_modified_return
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_modified_return_bitfield_9_order_category = ProtoField.new("Order Modified Return Bitfield 9 Order Category", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.ordermodifiedreturnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_modified_return_bitfield_9_target_party_id = ProtoField.new("Order Modified Return Bitfield 9 Target Party Id", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.ordermodifiedreturnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_origin = ProtoField.new("Order Origin", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderorigin", ftypes.STRING)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_qty_binary_2 = ProtoField.new("Order Qty Binary 2", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderqtybinary2", ftypes.UINT16, nil, nil, nil, "Order quantity. System limit is 999,999 contracts. To cancel an existing quote, specify a size of 0.")
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_qty_binary_4 = ProtoField.new("Order Qty Binary 4", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderqtybinary4", ftypes.UINT32, nil, nil, nil, "Corresponds to OrderQty (38) in Cboe FIX. Order quantity. System limit is 999,999 contracts.")
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_qty_long = ProtoField.new("Order Qty Long", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderqtylong", ftypes.UINT32, nil, nil, nil, "Corresponds to OrderQty (38) in Cboe FIX. Order quantity. System limit is 999,999 contracts.")
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_qty_short = ProtoField.new("Order Qty Short", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderqtyshort", ftypes.UINT16, nil, nil, nil, "Order quantity. System limit is 999,999 contracts. To cancel an existing quote, specify a size of 0.")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderrejectreason", ftypes.STRING, nil, nil, nil, "Reason for an order rejection. See Order Reason Codes for a list of possible reasons.")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_rejected_return_bitfield_1 = ProtoField.new("Order Rejected Return Bitfield 1", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderrejectedreturnbitfield1", ftypes.STRING, nil, nil, nil, "BitSet OrderRejected byte 1.")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_rejected_return_bitfield_1_exec_inst = ProtoField.new("Order Rejected Return Bitfield 1 Exec Inst", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.orderrejectedreturnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -2688,8 +2688,8 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.param_group_type = Pr
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.password = ProtoField.new("Password", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.password", ftypes.STRING, nil, nil, nil, "Password supplied by Cboe.")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.posting_instruction = ProtoField.new("Posting Instruction", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.postinginstruction", ftypes.STRING, nil, nil, nil, "P=Post Only (do not remove liquidity) B=Book Only (allow removal of liquidity, available for Market Makers only) N=Book Only, No Slide R=Post Only, No Slide (do not remove liquidity) I=Book Only IOC")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.preventmatch", ftypes.STRING)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.price_binary_price_4 = ProtoField.new("Price Binary Price 4", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.pricebinaryprice4", ftypes.DOUBLE, nil, nil, nil, "Limit price. To cancel an existing quote, specify a size of 0.")
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.price_binary_price_8 = ProtoField.new("Price Binary Price 8", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.pricebinaryprice8", ftypes.DOUBLE)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.price_long = ProtoField.new("Price Long", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.pricelong", ftypes.DOUBLE)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.price_short = ProtoField.new("Price Short", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.priceshort", ftypes.DOUBLE, nil, nil, nil, "Limit price. To cancel an existing quote, specify a size of 0.")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.price_type = ProtoField.new("Price Type", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.pricetype", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.purge_notification_return_bitfield_1 = ProtoField.new("Purge Notification Return Bitfield 1", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.purgenotificationreturnbitfield1", ftypes.STRING, nil, nil, nil, "BitSet PurgeNotification byte 1.")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.purge_notification_return_bitfield_1_exec_inst = ProtoField.new("Purge Notification Return Bitfield 1 Exec Inst", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.purgenotificationreturnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
@@ -3115,8 +3115,8 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.strike_price = ProtoF
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.sub_liquidity_indicato = ProtoField.new("Sub Liquidity Indicato", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.subliquidityindicato", ftypes.STRING, nil, nil, nil, "Cboe may add additional values without notice. Members must gracefully ignore unknown values. ASCII NUL ( 0x00) = No additional information S = Execution from order that set the NBBO B = Step Up Mechanism (C1 and EDGX Only) U = Market Turner (C1 Only) b = AIM (C1 and EDGX Only) s = SAM (C1 and EDGX Only)")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.subliquidityindicator", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.subreason = ProtoField.new("Subreason", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.subreason", ftypes.STRING)
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.symbol_alphanumeric_6 = ProtoField.new("Symbol Alphanumeric 6", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.symbolalphanumeric6", ftypes.STRING, nil, nil, nil, "Cboe native identifier")
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.symbol_alphanumeric_8 = ProtoField.new("Symbol Alphanumeric 8", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.symbolalphanumeric8", ftypes.STRING)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.symbollong", ftypes.STRING)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.symbolshort", ftypes.STRING, nil, nil, nil, "Cboe native identifier")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.target_matching_unit = ProtoField.new("Target Matching Unit", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.targetmatchingunit", ftypes.UINT8, nil, nil, nil, "Direct the reset risk to a specific matching unit. A zero value will cause the reset risk to be sent to all matching units. Ignored for risk root level resets.")
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.target_party_id = ProtoField.new("Target Party Id", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.targetpartyid", ftypes.STRING)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.text = ProtoField.new("Text", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.text", ftypes.STRING, nil, nil, nil, "Human readable text with more information about the reject reason.")
@@ -3508,8 +3508,7 @@ omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.user_modify_rejected_
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.user_modify_rejected_return_bitfield_9_order_category = ProtoField.new("User Modify Rejected Return Bitfield 9 Order Category", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.usermodifyrejectedreturnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.user_modify_rejected_return_bitfield_9_target_party_id = ProtoField.new("User Modify Rejected Return Bitfield 9 Target Party Id", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.usermodifyrejectedreturnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.username = ProtoField.new("Username", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.username", ftypes.STRING, nil, nil, nil, "Username supplied by Cboe.")
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.working_price_binary_8 = ProtoField.new("Working Price Binary 8", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.workingpricebinary8", ftypes.UINT64, nil, nil, nil, "New working price")
-omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.working_price_binary_price_8 = ProtoField.new("Working Price Binary Price 8", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.workingpricebinaryprice8", ftypes.DOUBLE)
+omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.working_price = ProtoField.new("Working Price", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.workingprice", ftypes.DOUBLE)
 
 -- Cboe EdgxOptions BinaryOrderEntry Boe 2.11.115 Framing
 omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.message_header = ProtoField.new("Message Header", "cboe.edgxoptions.binaryorderentry.boe.v2.11.115.messageheader", ftypes.STRING, nil, nil, nil, "10-byte BOE v2 message header. Every message starts with StartOfMessage = 0xBA 0xBA.")
@@ -8361,48 +8360,48 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_origin.dissect = function(
   return offset + length, value
 end
 
--- Order Qty Binary 2
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_2 = {}
+-- Order Qty Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long = {}
 
--- Size: Order Qty Binary 2
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_2.size = 2
+-- Size: Order Qty Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.size = 4
 
--- Display: Order Qty Binary 2
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_2.display = function(value)
-  return "Order Qty Binary 2: "..value
+-- Display: Order Qty Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.display = function(value)
+  return "Order Qty Long: "..value
 end
 
--- Dissect: Order Qty Binary 2
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_2.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_2.size
+-- Dissect: Order Qty Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_2.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_qty_binary_2, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_qty_long, range, value, display)
 
   return offset + length, value
 end
 
--- Order Qty Binary 4
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4 = {}
+-- Order Qty Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_short = {}
 
--- Size: Order Qty Binary 4
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.size = 4
+-- Size: Order Qty Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_short.size = 2
 
--- Display: Order Qty Binary 4
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.display = function(value)
-  return "Order Qty Binary 4: "..value
+-- Display: Order Qty Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_short.display = function(value)
+  return "Order Qty Short: "..value
 end
 
--- Dissect: Order Qty Binary 4
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.size
+-- Dissect: Order Qty Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_short.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_qty_binary_4, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.order_qty_short, range, value, display)
 
   return offset + length, value
 end
@@ -8825,60 +8824,60 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.prevent_match.dissect = function
   return offset + length, value
 end
 
--- Price Binary Price 4
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4 = {}
+-- Price Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long = {}
 
--- Size: Price Binary Price 4
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.size = 4
+-- Size: Price Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.size = 8
 
--- Display: Price Binary Price 4
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.display = function(value)
-  return "Price Binary Price 4: "..value
+-- Display: Price Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.display = function(value)
+  return "Price Long: "..value
 end
 
--- Translate: Price Binary Price 4
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.translate = function(raw)
-  return raw/10000
+-- Translate: Price Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.translate = function(raw)
+  return raw:tonumber()/10000
 end
 
--- Dissect: Price Binary Price 4
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.size
+-- Dissect: Price Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.size
   local range = buffer(offset, length)
-  local raw = range:le_int()
-  local value = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.translate(raw)
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.translate(raw)
+  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.price_binary_price_4, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.price_long, range, value, display)
 
   return offset + length, value
 end
 
--- Price Binary Price 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8 = {}
+-- Price Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short = {}
 
--- Size: Price Binary Price 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.size = 8
+-- Size: Price Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.size = 4
 
--- Display: Price Binary Price 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.display = function(value)
-  return "Price Binary Price 8: "..value
+-- Display: Price Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.display = function(value)
+  return "Price Short: "..value
 end
 
--- Translate: Price Binary Price 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.translate = function(raw)
-  return raw:tonumber()/10000
+-- Translate: Price Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.translate = function(raw)
+  return raw/10000
 end
 
--- Dissect: Price Binary Price 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.size
+-- Dissect: Price Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.size
   local range = buffer(offset, length)
-  local raw = range:le_int64()
-  local value = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.translate(raw)
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.display(value, buffer, offset, packet, parent)
+  local raw = range:le_int()
+  local value = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.translate(raw)
+  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.price_binary_price_8, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.price_short, range, value, display)
 
   return offset + length, value
 end
@@ -10722,25 +10721,25 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.subreason.dissect = function(buf
   return offset + length, value
 end
 
--- Symbol Alphanumeric 6
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6 = {}
+-- Symbol Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long = {}
 
--- Size: Symbol Alphanumeric 6
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.size = 6
+-- Size: Symbol Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.size = 8
 
--- Display: Symbol Alphanumeric 6
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.display = function(value)
+-- Display: Symbol Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Symbol Alphanumeric 6: No Value"
+    return "Symbol Long: No Value"
   end
 
-  return "Symbol Alphanumeric 6: "..value
+  return "Symbol Long: "..value
 end
 
--- Dissect: Symbol Alphanumeric 6
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.size
+-- Dissect: Symbol Long
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -10754,32 +10753,32 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect = 
     value = range:string()
   end
 
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.symbol_alphanumeric_6, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.symbol_long, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Alphanumeric 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8 = {}
+-- Symbol Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short = {}
 
--- Size: Symbol Alphanumeric 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.size = 8
+-- Size: Symbol Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.size = 6
 
--- Display: Symbol Alphanumeric 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.display = function(value)
+-- Display: Symbol Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Symbol Alphanumeric 8: No Value"
+    return "Symbol Short: No Value"
   end
 
-  return "Symbol Alphanumeric 8: "..value
+  return "Symbol Short: "..value
 end
 
--- Dissect: Symbol Alphanumeric 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.size
+-- Dissect: Symbol Short
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -10793,9 +10792,9 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect = 
     value = range:string()
   end
 
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.symbol_alphanumeric_8, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -11192,54 +11191,31 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.username.dissect = function(buff
   return offset + length, value
 end
 
--- Working Price Binary 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_8 = {}
+-- Working Price
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price = {}
 
--- Size: Working Price Binary 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_8.size = 8
+-- Size: Working Price
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.size = 8
 
--- Display: Working Price Binary 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_8.display = function(value)
-  return "Working Price Binary 8: "..value
+-- Display: Working Price
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.display = function(value)
+  return "Working Price: "..value
 end
 
--- Dissect: Working Price Binary 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_8.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.working_price_binary_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Working Price Binary Price 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8 = {}
-
--- Size: Working Price Binary Price 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.size = 8
-
--- Display: Working Price Binary Price 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.display = function(value)
-  return "Working Price Binary Price 8: "..value
-end
-
--- Translate: Working Price Binary Price 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.translate = function(raw)
+-- Translate: Working Price
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Working Price Binary Price 8
-cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.size
+-- Dissect: Working Price
+cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.translate(raw)
-  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.display(value, buffer, offset, packet, parent)
+  local value = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.translate(raw)
+  local display = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.working_price_binary_price_8, range, value, display)
+  parent:add(omi_cboe_edgxoptions_binaryorderentry_boe_v2_11_115.fields.working_price, range, value, display)
 
   return offset + length, value
 end
@@ -11337,8 +11313,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.delete_floor_trade_rejected_mess
   -- Exec Id: Binary
   index, exec_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Put Or Call: Alphanumeric
   index, put_or_call = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.put_or_call.dissect(buffer, index, packet, parent)
@@ -11415,8 +11391,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.floor_trade_confirmation_rejecte
   -- Exec Id: Binary
   index, exec_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Put Or Call: Alphanumeric
   index, put_or_call = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.put_or_call.dissect(buffer, index, packet, parent)
@@ -11493,8 +11469,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.add_floor_trade_rejected_message
   -- Cl Ord Id: Text
   index, cl_ord_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Put Or Call: Alphanumeric
   index, put_or_call = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.put_or_call.dissect(buffer, index, packet, parent)
@@ -11529,11 +11505,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.add_floor_trade_rejected_message
   -- Side: Alphanumeric
   index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty Long: Binary
+  index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price Long: BinaryPrice
+  index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.transaction_time.dissect(buffer, index, packet, parent)
@@ -11607,8 +11583,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.floor_trade_notification_message
   -- Exec Id: Binary
   index, exec_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Put Or Call: Alphanumeric
   index, put_or_call = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.put_or_call.dissect(buffer, index, packet, parent)
@@ -11619,11 +11595,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.floor_trade_notification_message
   -- Maturity Date: Date
   index, maturity_date = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty Long: Binary
+  index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price Long: BinaryPrice
+  index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
@@ -15810,8 +15786,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.complex_instrument_accepted_mess
   -- Cl Ord Id: Text
   index, cl_ord_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Revised Legs: Alphanumeric
   index, revised_legs = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.revised_legs.dissect(buffer, index, packet, parent)
@@ -22569,13 +22545,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.trade_cancel_or_correct_message.
     index, trade_cancelor_correct_return_bitfield_21 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.trade_cancelor_correct_return_bitfield_21.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(trade_cancelor_correct_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(trade_cancelor_correct_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Capacity
@@ -22772,8 +22748,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.complex_quote_execution_message.
   -- Exec Id: Binary
   index, exec_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Clearing Firm: Alpha
   index, clearing_firm = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_firm.dissect(buffer, index, packet, parent)
@@ -22873,8 +22849,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_execution_message.fields =
   -- Exec Id: Binary
   index, exec_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Clearing Firm: Alpha
   index, clearing_firm = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_firm.dissect(buffer, index, packet, parent)
@@ -25102,13 +25078,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_execution_message.fields =
     index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_execution_return_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_execution_return_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -25147,13 +25123,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_execution_message.fields =
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_execution_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_execution_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Capacity
@@ -25219,13 +25195,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_execution_message.fields =
     index, max_floor = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_execution_return_bitfield_3, 0x40), 6) > 0
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_execution_return_bitfield_3, 0x40), 6) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -27692,13 +27668,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cancel_rejected_message.fields =
     index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(cancel_rejected_return_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(cancel_rejected_return_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -27737,13 +27713,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cancel_rejected_message.fields =
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(cancel_rejected_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(cancel_rejected_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Capacity
@@ -30215,13 +30191,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_message.fi
     index, cross_order_cancelled_order_allocations = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_order_allocations.dissect(buffer, index, packet, parent, cross_order_cancelled_order_allocations_index, number_of_return_bitfields, cross_order_cancelled_return_bitfield_1, cross_order_cancelled_return_bitfield_10, cross_order_cancelled_return_bitfield_2, cross_order_cancelled_return_bitfield_4, cross_order_cancelled_return_bitfield_3, cross_order_cancelled_return_bitfield_9)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(cross_order_cancelled_return_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(cross_order_cancelled_return_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -30233,13 +30209,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_message.fi
     index, exec_inst = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_cancelled_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_cancelled_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Clearing Firm
@@ -30251,13 +30227,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_cancelled_message.fi
     index, clearing_firm = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(cross_order_cancelled_return_bitfield_3, 0x40), 6) > 0
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(cross_order_cancelled_return_bitfield_3, 0x40), 6) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -30451,8 +30427,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_cancelled_message.fields =
   -- Order Id: Binary
   index, order_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
@@ -32638,13 +32614,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_cancelled_message.fields =
     index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_cancelled_return_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_cancelled_return_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -32683,13 +32659,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_cancelled_message.fields =
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_cancelled_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_cancelled_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Capacity
@@ -32746,13 +32722,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_cancelled_message.fields =
     index, max_floor = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_cancelled_return_bitfield_3, 0x40), 6) > 0
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_cancelled_return_bitfield_3, 0x40), 6) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -32854,13 +32830,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_cancelled_message.fields =
     index, display_price = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.display_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Working Price Binary Price 8
-  local working_price_binary_price_8 = nil
+  -- Runtime optional field: Working Price
+  local working_price = nil
 
-  local working_price_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_cancelled_return_bitfield_5, 0x20), 5) > 0
+  local working_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_cancelled_return_bitfield_5, 0x20), 5) > 0
 
-  if working_price_binary_price_8_exists then
-    index, working_price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.dissect(buffer, index, packet, parent)
+  if working_price_exists then
+    index, working_price = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Base Liquidity Indicator
@@ -35460,11 +35436,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_restated_message.fields = 
   -- Leaves Qty: Binary
   index, leaves_qty = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.leaves_qty.dissect(buffer, index, packet, parent)
 
-  -- Working Price Binary 8: Binary
-  index, working_price_binary_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_8.dissect(buffer, index, packet, parent)
+  -- Working Price: BinaryPrice
+  index, working_price = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
@@ -37450,13 +37426,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_restated_message.fields = 
     index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_restated_return_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_restated_return_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -37495,13 +37471,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_restated_message.fields = 
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_restated_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_restated_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Capacity
@@ -37558,13 +37534,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_restated_message.fields = 
     index, max_floor = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_restated_return_bitfield_3, 0x40), 6) > 0
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_restated_return_bitfield_3, 0x40), 6) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -37666,13 +37642,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_restated_message.fields = 
     index, display_price = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.display_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Working Price Binary Price 8
-  local working_price_binary_price_8 = nil
+  -- Runtime optional field: Working Price
+  local working_price = nil
 
-  local working_price_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_restated_return_bitfield_5, 0x20), 5) > 0
+  local working_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_restated_return_bitfield_5, 0x20), 5) > 0
 
-  if working_price_binary_price_8_exists then
-    index, working_price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.dissect(buffer, index, packet, parent)
+  if working_price_exists then
+    index, working_price = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Base Liquidity Indicator
@@ -40138,13 +40114,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_modified_message.fields = 
     index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_modified_return_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_modified_return_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -40183,13 +40159,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_modified_message.fields = 
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_modified_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_modified_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Account
@@ -40237,13 +40213,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_modified_message.fields = 
     index, max_floor = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_modified_return_bitfield_3, 0x40), 6) > 0
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_modified_return_bitfield_3, 0x40), 6) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -40300,13 +40276,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_modified_message.fields = 
     index, display_price = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.display_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Working Price Binary Price 8
-  local working_price_binary_price_8 = nil
+  -- Runtime optional field: Working Price
+  local working_price = nil
 
-  local working_price_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_modified_return_bitfield_5, 0x20), 5) > 0
+  local working_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_modified_return_bitfield_5, 0x20), 5) > 0
 
-  if working_price_binary_price_8_exists then
-    index, working_price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.dissect(buffer, index, packet, parent)
+  if working_price_exists then
+    index, working_price = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Base Liquidity Indicator
@@ -42820,13 +42796,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_rejected_message.fie
     index, cross_order_rejected_return_bitfield_21 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_rejected_return_bitfield_21.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(cross_order_rejected_return_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(cross_order_rejected_return_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -42838,22 +42814,22 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_rejected_message.fie
     index, exec_inst = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_rejected_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_rejected_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(cross_order_rejected_return_bitfield_3, 0x40), 6) > 0
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(cross_order_rejected_return_bitfield_3, 0x40), 6) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -45169,13 +45145,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_rejected_message.fields = 
     index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_rejected_return_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_rejected_return_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -45214,13 +45190,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_rejected_message.fields = 
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_rejected_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_rejected_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Capacity
@@ -45277,13 +45253,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_rejected_message.fields = 
     index, max_floor = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_rejected_return_bitfield_3, 0x40), 6) > 0
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_rejected_return_bitfield_3, 0x40), 6) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -47899,13 +47875,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_messa
     index, cross_order_acknowledgment_order_allocations = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_order_allocations.dissect(buffer, index, packet, parent, cross_order_acknowledgment_order_allocations_index, number_of_return_bitfields, cross_order_acknowledgment_return_bitfield_1, cross_order_acknowledgment_return_bitfield_10, cross_order_acknowledgment_return_bitfield_2, cross_order_acknowledgment_return_bitfield_4, cross_order_acknowledgment_return_bitfield_3, cross_order_acknowledgment_return_bitfield_9)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(cross_order_acknowledgment_return_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(cross_order_acknowledgment_return_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -47917,22 +47893,22 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_order_acknowledgment_messa
     index, exec_inst = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.exec_inst.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_acknowledgment_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_acknowledgment_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(cross_order_acknowledgment_return_bitfield_3, 0x40), 6) > 0
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(cross_order_acknowledgment_return_bitfield_3, 0x40), 6) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -50257,13 +50233,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_acknowledgment_message.fie
     index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_acknowledgment_return_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_return_bitfields >= 1 and bit.rshift(bit.band(order_acknowledgment_return_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -50302,13 +50278,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_acknowledgment_message.fie
     index, min_qty = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_acknowledgment_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_acknowledgment_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Capacity
@@ -50365,13 +50341,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_acknowledgment_message.fie
     index, max_floor = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  local order_qty_binary_4_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_acknowledgment_return_bitfield_3, 0x40), 6) > 0
+  local order_qty_long_exists = number_of_return_bitfields >= 3 and bit.rshift(bit.band(order_acknowledgment_return_bitfield_3, 0x40), 6) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Prevent Match
@@ -50473,13 +50449,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_acknowledgment_message.fie
     index, display_price = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.display_price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Working Price Binary Price 8
-  local working_price_binary_price_8 = nil
+  -- Runtime optional field: Working Price
+  local working_price = nil
 
-  local working_price_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_acknowledgment_return_bitfield_5, 0x20), 5) > 0
+  local working_price_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_acknowledgment_return_bitfield_5, 0x20), 5) > 0
 
-  if working_price_binary_price_8_exists then
-    index, working_price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price_binary_price_8.dissect(buffer, index, packet, parent)
+  if working_price_exists then
+    index, working_price = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.working_price.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Base Liquidity Indicator
@@ -50886,8 +50862,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.delete_floor_trade_message.field
   -- Exec Id: Binary
   index, exec_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Put Or Call: Alphanumeric
   index, put_or_call = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.put_or_call.dissect(buffer, index, packet, parent)
@@ -50961,8 +50937,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.floor_trade_confirmation_message
   -- Exec Id: Binary
   index, exec_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Put Or Call: Alphanumeric
   index, put_or_call = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.put_or_call.dissect(buffer, index, packet, parent)
@@ -51036,8 +51012,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.add_floor_trade_message.fields =
   -- Cl Ord Id: Text
   index, cl_ord_id = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Put Or Call: Alphanumeric
   index, put_or_call = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.put_or_call.dissect(buffer, index, packet, parent)
@@ -51072,11 +51048,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.add_floor_trade_message.fields =
   -- Side: Alphanumeric
   index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty Long: Binary
+  index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price Long: BinaryPrice
+  index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.transaction_time.dissect(buffer, index, packet, parent)
@@ -51770,11 +51746,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.complex_quote_update_short_quote
 
 -- Size: Complex Quote Update Short Quote
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.complex_quote_update_short_quote.size =
-  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.size + 
+  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.size + 
   cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.size + 
   cboe_edgxoptions_binaryorderentry_boe_v2_11_115.open_close.size + 
-  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.size + 
-  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_2.size + 
+  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.size + 
+  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_short.size + 
   cboe_edgxoptions_binaryorderentry_boe_v2_11_115.reserved_2.size
 
 -- Display: Complex Quote Update Short Quote
@@ -51792,8 +51768,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.complex_quote_update_short_quote
     iteration:set_generated()
   end
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
@@ -51801,11 +51777,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.complex_quote_update_short_quote
   -- Open Close: Alphanumeric
   index, open_close = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.open_close.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 4: BinaryPrice
-  index, price_binary_price_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.dissect(buffer, index, packet, parent)
+  -- Price Short: BinaryPrice
+  index, price_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 2: Binary
-  index, order_qty_binary_2 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_2.dissect(buffer, index, packet, parent)
+  -- Order Qty Short: Binary
+  index, order_qty_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_short.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Reserved
   if show.padding then
@@ -51926,11 +51902,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote = {}
 
 -- Size: Quote
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote.size =
-  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.size + 
+  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.size + 
   cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.size + 
   cboe_edgxoptions_binaryorderentry_boe_v2_11_115.open_close.size + 
-  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.size + 
-  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.size + 
+  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.size + 
+  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.size + 
   cboe_edgxoptions_binaryorderentry_boe_v2_11_115.reserved_12.size
 
 -- Display: Quote
@@ -51948,8 +51924,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
@@ -51957,11 +51933,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote.fields = function(buffer, 
   -- Open Close: Alphanumeric
   index, open_close = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.open_close.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price Long: BinaryPrice
+  index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty Long: Binary
+  index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
 
   -- Reserved 12: Reserved
   if show.padding then
@@ -52088,11 +52064,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_update_short_quote = {}
 
 -- Size: Quote Update Short Quote
 cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_update_short_quote.size =
-  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.size + 
+  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.size + 
   cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.size + 
   cboe_edgxoptions_binaryorderentry_boe_v2_11_115.open_close.size + 
-  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.size + 
-  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_2.size + 
+  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.size + 
+  cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_short.size + 
   cboe_edgxoptions_binaryorderentry_boe_v2_11_115.reserved_2.size
 
 -- Display: Quote Update Short Quote
@@ -52110,8 +52086,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_update_short_quote.fields 
     iteration:set_generated()
   end
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
@@ -52119,11 +52095,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_update_short_quote.fields 
   -- Open Close: Alphanumeric
   index, open_close = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.open_close.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 4: BinaryPrice
-  index, price_binary_price_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_4.dissect(buffer, index, packet, parent)
+  -- Price Short: BinaryPrice
+  index, price_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_short.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 2: Binary
-  index, order_qty_binary_2 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_2.dissect(buffer, index, packet, parent)
+  -- Order Qty Short: Binary
+  index, order_qty_short = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_short.dissect(buffer, index, packet, parent)
 
   -- Reserved 2: Reserved
   if show.padding then
@@ -52571,22 +52547,22 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.modify_order_message.fields = fu
     index, clearing_firm = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_firm.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Order Qty Binary 4
-  local order_qty_binary_4 = nil
+  -- Runtime optional field: Order Qty Long
+  local order_qty_long = nil
 
-  local order_qty_binary_4_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x04), 2) > 0
+  local order_qty_long_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x04), 2) > 0
 
-  if order_qty_binary_4_exists then
-    index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  if order_qty_long_exists then
+    index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x08), 3) > 0
+  local price_long_exists = number_of_modify_order_bitfields >= 1 and bit.rshift(bit.band(modify_order_bitfield_1, 0x08), 3) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Ord Type
@@ -53672,11 +53648,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_message
   -- Cross Prioritization: Alphanumeric
   index, cross_prioritization = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_prioritization.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price Long: BinaryPrice
+  index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty Long: Binary
+  index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
 
   -- Number Of New Order Cross Multileg Bitfields: Binary
   index, number_of_new_order_cross_multileg_bitfields = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_cross_multileg_bitfields.dissect(buffer, index, packet, parent)
@@ -53755,13 +53731,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_message
     index, new_order_cross_multileg_order_allocations = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_multileg_order_allocations.dissect(buffer, index, packet, parent, new_order_cross_multileg_order_allocations_index, number_of_new_order_cross_multileg_bitfields, new_order_cross_multileg_bitfield_2, new_order_cross_multileg_bitfield_4, new_order_cross_multileg_bitfield_5)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_new_order_cross_multileg_bitfields >= 1 and bit.band(new_order_cross_multileg_bitfield_1, 0x01) > 0
+  local symbol_long_exists = number_of_new_order_cross_multileg_bitfields >= 1 and bit.band(new_order_cross_multileg_bitfield_1, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -54862,8 +54838,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_complex_order_message.fields
   -- Side: Alphanumeric
   index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty Long: Binary
+  index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
 
   -- Number Of New Complex Order Bitfields: Binary
   index, number_of_new_complex_order_bitfields = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_complex_order_bitfields.dissect(buffer, index, packet, parent)
@@ -54993,13 +54969,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_complex_order_message.fields
     index, clearing_account = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_new_complex_order_bitfields >= 1 and bit.rshift(bit.band(new_complex_order_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_new_complex_order_bitfields >= 1 and bit.rshift(bit.band(new_complex_order_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Ord Type
@@ -55020,13 +54996,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_complex_order_message.fields
     index, time_in_force = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_new_complex_order_bitfields >= 1 and bit.rshift(bit.band(new_complex_order_bitfield_1, 0x20), 5) > 0
+  local symbol_long_exists = number_of_new_complex_order_bitfields >= 1 and bit.rshift(bit.band(new_complex_order_bitfield_1, 0x20), 5) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Capacity
@@ -55897,11 +55873,11 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_message.fields =
   -- Cross Prioritization: Alphanumeric
   index, cross_prioritization = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_prioritization.dissect(buffer, index, packet, parent)
 
-  -- Price Binary Price 8: BinaryPrice
-  index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Price Long: BinaryPrice
+  index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty Long: Binary
+  index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
 
   -- Number Of New Order Cross Bitfields: Binary
   index, number_of_new_order_cross_bitfields = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_cross_bitfields.dissect(buffer, index, packet, parent)
@@ -55958,13 +55934,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_cross_message.fields =
     index, order_allocations = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_allocations.dissect(buffer, index, packet, parent, order_allocations_index, number_of_new_order_cross_bitfields, new_order_cross_bitfield_2, new_order_cross_bitfield_4)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_new_order_cross_bitfields >= 1 and bit.band(new_order_cross_bitfield_1, 0x01) > 0
+  local symbol_long_exists = number_of_new_order_cross_bitfields >= 1 and bit.band(new_order_cross_bitfield_1, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Maturity Date
@@ -57188,8 +57164,8 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_message.fields = funct
   -- Side: Alphanumeric
   index, side = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.side.dissect(buffer, index, packet, parent)
 
-  -- Order Qty Binary 4: Binary
-  index, order_qty_binary_4 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_binary_4.dissect(buffer, index, packet, parent)
+  -- Order Qty Long: Binary
+  index, order_qty_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.order_qty_long.dissect(buffer, index, packet, parent)
 
   -- Number Of New Order Bitfields: Binary
   index, number_of_new_order_bitfields = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.number_of_new_order_bitfields.dissect(buffer, index, packet, parent)
@@ -57333,13 +57309,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_message.fields = funct
     index, clearing_account = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.clearing_account.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Price Binary Price 8
-  local price_binary_price_8 = nil
+  -- Runtime optional field: Price Long
+  local price_long = nil
 
-  local price_binary_price_8_exists = number_of_new_order_bitfields >= 1 and bit.rshift(bit.band(new_order_bitfield_1, 0x04), 2) > 0
+  local price_long_exists = number_of_new_order_bitfields >= 1 and bit.rshift(bit.band(new_order_bitfield_1, 0x04), 2) > 0
 
-  if price_binary_price_8_exists then
-    index, price_binary_price_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_binary_price_8.dissect(buffer, index, packet, parent)
+  if price_long_exists then
+    index, price_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.price_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Exec Inst
@@ -57387,13 +57363,13 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.new_order_message.fields = funct
     index, max_floor = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.max_floor.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_new_order_bitfields >= 2 and bit.band(new_order_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_new_order_bitfields >= 2 and bit.band(new_order_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_edgxoptions_binaryorderentry_boe_v2_11_115.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Capacity

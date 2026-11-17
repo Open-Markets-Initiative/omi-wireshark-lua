@@ -1012,7 +1012,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.price.size = 4
 sgx_titandt_depthofbook_glimpse_v1_4.price.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Price: No Value"
+    return "Price: Market Order"
   end
 
   return "Price: "..value
@@ -1040,7 +1040,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.price_from.size = 4
 sgx_titandt_depthofbook_glimpse_v1_4.price_from.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Price From: No Value"
+    return "Price From: No Price"
   end
 
   return "Price From: "..value
@@ -1068,7 +1068,7 @@ sgx_titandt_depthofbook_glimpse_v1_4.price_to.size = 4
 sgx_titandt_depthofbook_glimpse_v1_4.price_to.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Price To: No Value"
+    return "Price To: No Price"
   end
 
   return "Price To: "..value

@@ -27,8 +27,7 @@ omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.algo_id = ProtoField.new("Algo Id",
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.alpha_char = ProtoField.new("Alpha Char", "nse.nsecd.dropcopy.nnfdirect.v1.7.alphachar", ftypes.STRING, nil, nil, nil, "First two characters of Symbol when the message carries one")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.aon = ProtoField.new("Aon", "nse.nsecd.dropcopy.nnfdirect.v1.7.aon", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "All or none order")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.ato = ProtoField.new("Ato", "nse.nsecd.dropcopy.nnfdirect.v1.7.ato", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000, "At the opening order")
-omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.book_type_char_1 = ProtoField.new("Book Type Char 1", "nse.nsecd.dropcopy.nnfdirect.v1.7.booktypechar1", ftypes.STRING, nil, nil, nil, "Book the order belongs to")
-omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.book_type_short_2 = ProtoField.new("Book Type Short 2", "nse.nsecd.dropcopy.nnfdirect.v1.7.booktypeshort2", ftypes.INT16, nil, nil, nil, "Book the order belongs to")
+omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.book_type = ProtoField.new("Book Type", "nse.nsecd.dropcopy.nnfdirect.v1.7.booktype", ftypes.INT16, nil, nil, nil, "Book the order belongs to")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.broker_id = ProtoField.new("Broker Id", "nse.nsecd.dropcopy.nnfdirect.v1.7.brokerid", ftypes.STRING, nil, nil, nil, "Trading member Id")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.buy_sell = ProtoField.new("Buy Sell", "nse.nsecd.dropcopy.nnfdirect.v1.7.buysell", ftypes.INT16, nil, nil, nil, "Whether the order taking part is a buy or a sell")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.ca_level = ProtoField.new("Ca Level", "nse.nsecd.dropcopy.nnfdirect.v1.7.calevel", ftypes.INT16, nil, nil, nil, "Corporate action level")
@@ -47,7 +46,7 @@ omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fill_number = ProtoField.new("Fill 
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fill_price = ProtoField.new("Fill Price", "nse.nsecd.dropcopy.nnfdirect.v1.7.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the order traded, to be divided by 10000000 to get the price in rupees")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fill_qty = ProtoField.new("Fill Qty", "nse.nsecd.dropcopy.nnfdirect.v1.7.fillqty", ftypes.INT32, nil, nil, nil, "Traded volume")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fill_volume = ProtoField.new("Fill Volume", "nse.nsecd.dropcopy.nnfdirect.v1.7.fillvolume", ftypes.INT32, nil, nil, nil, "Traded volume")
-omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.filler = ProtoField.new("Filler", "nse.nsecd.dropcopy.nnfdirect.v1.7.filler", ftypes.STRING)
+omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.filler = ProtoField.new("Filler", "nse.nsecd.dropcopy.nnfdirect.v1.7.filler", ftypes.BYTES)
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fourth_reserved_1 = ProtoField.new("Fourth Reserved 1", "nse.nsecd.dropcopy.nnfdirect.v1.7.fourthreserved1", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.frozen = ProtoField.new("Frozen", "nse.nsecd.dropcopy.nnfdirect.v1.7.frozen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "Order is frozen for Nse Control to release")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.give_up_trade = ProtoField.new("Give Up Trade", "nse.nsecd.dropcopy.nnfdirect.v1.7.giveuptrade", ftypes.STRING, nil, nil, nil, "Whether the trade is a give up")
@@ -110,6 +109,7 @@ omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.third_reserved_16 = ProtoField.new(
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.time_stamp_1 = ProtoField.new("Time Stamp 1", "nse.nsecd.dropcopy.nnfdirect.v1.7.timestamp1", ftypes.STRING, nil, nil, nil, "Reserved for the host")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nsecd.dropcopy.nnfdirect.v1.7.timestamp2", ftypes.STRING, nil, nil, nil, "Time the message reached the gateway")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.token = ProtoField.new("Token", "nse.nsecd.dropcopy.nnfdirect.v1.7.token", ftypes.INT32, nil, nil, nil, "Token number of the contract")
+omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.trade_book_type = ProtoField.new("Trade Book Type", "nse.nsecd.dropcopy.nnfdirect.v1.7.tradebooktype", ftypes.STRING, nil, nil, nil, "Book the order belongs to")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.traded = ProtoField.new("Traded", "nse.nsecd.dropcopy.nnfdirect.v1.7.traded", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020, "Order has traded")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.trader_id = ProtoField.new("Trader Id", "nse.nsecd.dropcopy.nnfdirect.v1.7.traderid", ftypes.INT32, nil, nil, nil, "User Id of the trader")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.trader_num = ProtoField.new("Trader Num", "nse.nsecd.dropcopy.nnfdirect.v1.7.tradernum", ftypes.INT32, nil, nil, nil, "Trader or user Id")
@@ -408,58 +408,35 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.alpha_char.dissect = function(buffer, offset, 
   return offset + length, value
 end
 
--- Book Type Char 1
-nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1 = {}
+-- Book Type
+nse_nsecd_dropcopy_nnfdirect_v1_7.book_type = {}
 
--- Size: Book Type Char 1
-nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.size = 1
+-- Size: Book Type
+nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.size = 2
 
--- Display: Book Type Char 1
-nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.display = function(value)
-  return "Book Type Char 1: "..value
-end
-
--- Dissect: Book Type Char 1
-nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.book_type_char_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Book Type Short 2
-nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2 = {}
-
--- Size: Book Type Short 2
-nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.size = 2
-
--- Display: Book Type Short 2
-nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.labels = {
-  [1] = "Book Type Short 2: Regular Lot Order (1)",
-  [2] = "Book Type Short 2: Special Terms Order (2)",
-  [3] = "Book Type Short 2: Stop Loss Mit Order (3)",
-  [4] = "Book Type Short 2: Negotiated Order Not Used (4)",
-  [5] = "Book Type Short 2: Odd Lot Order Not Used (5)",
-  [6] = "Book Type Short 2: Spot Order Not Used (6)",
-  [7] = "Book Type Short 2: Auction Order Not Used (7)",
+-- Display: Book Type
+nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.labels = {
+  [1] = "Book Type: Regular Lot Order (1)",
+  [2] = "Book Type: Special Terms Order (2)",
+  [3] = "Book Type: Stop Loss Mit Order (3)",
+  [4] = "Book Type: Negotiated Order Not Used (4)",
+  [5] = "Book Type: Odd Lot Order Not Used (5)",
+  [6] = "Book Type: Spot Order Not Used (6)",
+  [7] = "Book Type: Auction Order Not Used (7)",
 }
 
-nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.display = function(value)
-  return nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.labels[value] or "Book Type Short 2: Unknown("..value..")"
+nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.display = function(value)
+  return nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.labels[value] or "Book Type: Unknown("..value..")"
 end
 
--- Dissect: Book Type Short 2
-nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.size
+-- Dissect: Book Type
+nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.display(value, buffer, offset, packet, parent)
+  local display = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.book_type_short_2, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.book_type, range, value, display)
 
   return offset + length, value
 end
@@ -638,6 +615,11 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.error_code.size = 2
 
 -- Display: Error Code
 nse_nsecd_dropcopy_nnfdirect_v1_7.error_code.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Error Code: No Error"
+  end
+
   return "Error Code: "..value
 end
 
@@ -822,10 +804,10 @@ end
 nse_nsecd_dropcopy_nnfdirect_v1_7.filler.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecd_dropcopy_nnfdirect_v1_7.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.filler, range, value, display)
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1063,6 +1045,13 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.log_time.dissect = function(buffer, offset, pa
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.log_time
   if nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format == 3 then field = omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.log_time_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Log Time: No Value")
+    return offset + length, value
+  end
 
   -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
@@ -1949,6 +1938,11 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.time_stamp_1.size = 8
 
 -- Display: Time Stamp 1
 nse_nsecd_dropcopy_nnfdirect_v1_7.time_stamp_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' or value == "00000000" then
+    return "Time Stamp 1: No Value"
+  end
+
   return "Time Stamp 1: "..value
 end
 
@@ -1972,6 +1966,11 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.time_stamp_2.size = 8
 
 -- Display: Time Stamp 2
 nse_nsecd_dropcopy_nnfdirect_v1_7.time_stamp_2.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' or value == "00000000" then
+    return "Time Stamp 2: No Value"
+  end
+
   return "Time Stamp 2: "..value
 end
 
@@ -2006,6 +2005,29 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.token.dissect = function(buffer, offset, packe
   local display = nse_nsecd_dropcopy_nnfdirect_v1_7.token.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.token, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Book Type
+nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type = {}
+
+-- Size: Trade Book Type
+nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.size = 1
+
+-- Display: Trade Book Type
+nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.display = function(value)
+  return "Trade Book Type: "..value
+end
+
+-- Dissect: Trade Book Type
+nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.trade_book_type, range, value, display)
 
   return offset + length, value
 end
@@ -2163,7 +2185,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.giveup_rej_confirm_tm_message.size =
   nse_nsecd_dropcopy_nnfdirect_v1_7.broker_id.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.filler.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.buy_sell.size + 
-  nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.size + 
+  nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.last_modified_date_time.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.initiated_by_control.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.open_close.size + 
@@ -2219,13 +2241,17 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.giveup_rej_confirm_tm_message.fields = functio
   index, broker_id = nse_nsecd_dropcopy_nnfdirect_v1_7.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecd_dropcopy_nnfdirect_v1_7.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecd_dropcopy_nnfdirect_v1_7.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecd_dropcopy_nnfdirect_v1_7.filler.size
+  end
 
   -- Buy Sell: SHORT
   index, buy_sell = nse_nsecd_dropcopy_nnfdirect_v1_7.buy_sell.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.dissect(buffer, index, packet, parent)
 
   -- Last Modified Date Time: LONG
   index, last_modified_date_time = nse_nsecd_dropcopy_nnfdirect_v1_7.last_modified_date_time.dissect(buffer, index, packet, parent)
@@ -2299,7 +2325,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.giveup_app_confirm_tm_message.size =
   nse_nsecd_dropcopy_nnfdirect_v1_7.broker_id.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.filler.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.buy_sell.size + 
-  nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.size + 
+  nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.last_modified_date_time.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.initiated_by_control.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.open_close.size + 
@@ -2355,13 +2381,17 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.giveup_app_confirm_tm_message.fields = functio
   index, broker_id = nse_nsecd_dropcopy_nnfdirect_v1_7.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecd_dropcopy_nnfdirect_v1_7.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecd_dropcopy_nnfdirect_v1_7.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecd_dropcopy_nnfdirect_v1_7.filler.size
+  end
 
   -- Buy Sell: SHORT
   index, buy_sell = nse_nsecd_dropcopy_nnfdirect_v1_7.buy_sell.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type.dissect(buffer, index, packet, parent)
 
   -- Last Modified Date Time: LONG
   index, last_modified_date_time = nse_nsecd_dropcopy_nnfdirect_v1_7.last_modified_date_time.dissect(buffer, index, packet, parent)
@@ -2680,7 +2710,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.trade_modify_reject_message.size =
   nse_nsecd_dropcopy_nnfdirect_v1_7.contract_desc.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.open_close.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.old_open_close.size + 
-  nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.size + 
+  nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.third_reserved_1.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.new_volume.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.old_account_number.size + 
@@ -2793,8 +2823,8 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.trade_modify_reject_message.fields = function(
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecd_dropcopy_nnfdirect_v1_7.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then
@@ -2912,7 +2942,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.trade_modify_confirm_message.size =
   nse_nsecd_dropcopy_nnfdirect_v1_7.contract_desc.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.open_close.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.old_open_close.size + 
-  nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.size + 
+  nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.third_reserved_1.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.new_volume.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.old_account_number.size + 
@@ -3025,8 +3055,8 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.trade_modify_confirm_message.fields = function
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecd_dropcopy_nnfdirect_v1_7.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then
@@ -3144,7 +3174,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.trade_cancel_reject_message.size =
   nse_nsecd_dropcopy_nnfdirect_v1_7.contract_desc.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.open_close.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.old_open_close.size + 
-  nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.size + 
+  nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.third_reserved_1.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.new_volume.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.old_account_number.size + 
@@ -3257,8 +3287,8 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.trade_cancel_reject_message.fields = function(
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecd_dropcopy_nnfdirect_v1_7.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then
@@ -3376,7 +3406,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.trade_cancel_confirm_message.size =
   nse_nsecd_dropcopy_nnfdirect_v1_7.contract_desc.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.open_close.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.old_open_close.size + 
-  nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.size + 
+  nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.third_reserved_1.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.new_volume.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.old_account_number.size + 
@@ -3489,8 +3519,8 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.trade_cancel_confirm_message.fields = function
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecd_dropcopy_nnfdirect_v1_7.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then
@@ -3608,7 +3638,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.trade_confirmation_message.size =
   nse_nsecd_dropcopy_nnfdirect_v1_7.contract_desc.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.open_close.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.old_open_close.size + 
-  nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.size + 
+  nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.third_reserved_1.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.new_volume.size + 
   nse_nsecd_dropcopy_nnfdirect_v1_7.old_account_number.size + 
@@ -3721,8 +3751,8 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.trade_confirmation_message.fields = function(b
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecd_dropcopy_nnfdirect_v1_7.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecd_dropcopy_nnfdirect_v1_7.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecd_dropcopy_nnfdirect_v1_7.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then

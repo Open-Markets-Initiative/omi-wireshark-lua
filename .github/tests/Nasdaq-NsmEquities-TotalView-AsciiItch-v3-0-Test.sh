@@ -12,8 +12,8 @@ runuser -u tester -- tshark \
 
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.orderreferencenumber" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.side" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderMessage.json
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.sharesnumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderMessage.json
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphanumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.shares" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stock" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.price" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Nasdaq/NsmEquities.TotalView.AsciiItch.v3.0/AddOrderWithMpidMessage.pcap" \
@@ -24,8 +24,8 @@ runuser -u tester -- tshark \
 
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.orderreferencenumber" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderWithMpidMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.side" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderWithMpidMessage.json
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.sharesnumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderWithMpidMessage.json
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphanumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderWithMpidMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.shares" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderWithMpidMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stock" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderWithMpidMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.price" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderWithMpidMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.attribution" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.AddOrderWithMpidMessage.json
 runuser -u tester -- tshark \
@@ -43,8 +43,8 @@ runuser -u tester -- tshark \
   > Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.CrossTradeMessage.json 2> Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.CrossTradeMessage.json.stderr \
   || { echo "--- tshark FAILED (CrossTradeMessage) ---"; cat Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.CrossTradeMessage.json.stderr; exit 1; }
 
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.sharesnumeric9" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.CrossTradeMessage.json
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphanumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.CrossTradeMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.crossshares" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.CrossTradeMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stock" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.CrossTradeMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.crossprice" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.CrossTradeMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.matchnumber" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.CrossTradeMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.crosstype" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.CrossTradeMessage.json
@@ -56,7 +56,7 @@ runuser -u tester -- tshark \
   || { echo "--- tshark FAILED (MarketParticipantPositionMessage) ---"; cat Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.MarketParticipantPositionMessage.json.stderr; exit 1; }
 
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.mpid" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.MarketParticipantPositionMessage.json
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphanumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.MarketParticipantPositionMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stock" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.MarketParticipantPositionMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.primarymarketmaker" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.MarketParticipantPositionMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.marketmakermode" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.MarketParticipantPositionMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.marketparticipantstate" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.MarketParticipantPositionMessage.json
@@ -78,7 +78,7 @@ runuser -u tester -- tshark \
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.pairedshares" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.NetOrderImbalanceIndicatorMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.imbalanceshares" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.NetOrderImbalanceIndicatorMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.imbalancedirection" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.NetOrderImbalanceIndicatorMessage.json
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphanumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.NetOrderImbalanceIndicatorMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stock" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.NetOrderImbalanceIndicatorMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.farprice" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.NetOrderImbalanceIndicatorMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.nearprice" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.NetOrderImbalanceIndicatorMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.currentreferenceprice" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.NetOrderImbalanceIndicatorMessage.json
@@ -138,7 +138,7 @@ runuser -u tester -- tshark \
   > Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockDirectoryMessage.json 2> Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockDirectoryMessage.json.stderr \
   || { echo "--- tshark FAILED (StockDirectoryMessage) ---"; cat Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockDirectoryMessage.json.stderr; exit 1; }
 
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphabetic6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockDirectoryMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stock" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockDirectoryMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.marketcategory" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockDirectoryMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.financialstatusindicator" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockDirectoryMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.roundlotsize" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockDirectoryMessage.json
@@ -150,7 +150,7 @@ runuser -u tester -- tshark \
   > Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockTradingActionMessage.json 2> Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockTradingActionMessage.json.stderr \
   || { echo "--- tshark FAILED (StockTradingActionMessage) ---"; cat Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockTradingActionMessage.json.stderr; exit 1; }
 
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphanumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockTradingActionMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stock" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockTradingActionMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.tradingstate" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockTradingActionMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.reserved1" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockTradingActionMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.reason" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.StockTradingActionMessage.json
@@ -171,8 +171,8 @@ runuser -u tester -- tshark \
 
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.orderreferencenumber" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.side" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.sharesnumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
-grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphanumeric6" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.shares" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
+grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.stock" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.price" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
 grep "nasdaq.nsmequities.totalview.asciiitch.v3.0.matchnumber" Nasdaq.NsmEquities.TotalView.AsciiItch.v3.0.TradeMessage.json
 runuser -u tester -- tshark \

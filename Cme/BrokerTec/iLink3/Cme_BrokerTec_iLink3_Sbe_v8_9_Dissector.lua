@@ -253,6 +253,7 @@ omi_cme_brokertec_ilink3_sbe_v8_9.fields.quote_reject_reason = ProtoField.new("Q
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.brokertec.ilink3.sbe.v8.9.quotereqid", ftypes.UINT64, nil, nil, nil, "Unique identifier for quote request message")
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.quote_req_id_optional = ProtoField.new("Quote Req Id Optional", "cme.brokertec.ilink3.sbe.v8.9.quotereqidoptional", ftypes.UINT64, nil, nil, nil, "Unique identifier for quote request being responded to")
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.quote_set_id = ProtoField.new("Quote Set Id", "cme.brokertec.ilink3.sbe.v8.9.quotesetid", ftypes.UINT16, nil, nil, nil, "Unique id for the Quote Set")
+omi_cme_brokertec_ilink3_sbe_v8_9.fields.quote_side = ProtoField.new("Quote Side", "cme.brokertec.ilink3.sbe.v8.9.quoteside", ftypes.UINT8)
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.quote_type = ProtoField.new("Quote Type", "cme.brokertec.ilink3.sbe.v8.9.quotetype", ftypes.UINT8, nil, nil, nil, "Type of quote requested")
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.reason = ProtoField.new("Reason", "cme.brokertec.ilink3.sbe.v8.9.reason", ftypes.STRING, nil, nil, nil, "Reject reason details")
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.ref_msg_type = ProtoField.new("Ref Msg Type", "cme.brokertec.ilink3.sbe.v8.9.refmsgtype", ftypes.STRING, nil, nil, nil, "The MsgType of the FIX message being referenced.")
@@ -300,7 +301,6 @@ omi_cme_brokertec_ilink3_sbe_v8_9.fields.settl_date = ProtoField.new("Settl Date
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.short_sale_type = ProtoField.new("Short Sale Type", "cme.brokertec.ilink3.sbe.v8.9.shortsaletype", ftypes.UINT8, nil, nil, nil, "Indicates the type of short sale. Will not be used for Buy orders but Sell orders should have this tag populated for MiFID")
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.side = ProtoField.new("Side", "cme.brokertec.ilink3.sbe.v8.9.side", ftypes.UINT8, nil, nil, nil, "Side of order")
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.side_optional = ProtoField.new("Side Optional", "cme.brokertec.ilink3.sbe.v8.9.sideoptional", ftypes.UINT8, nil, nil, nil, "If provided then only orders belonging to one side will be cancelled. If absent then orders belonging to both sides will be cancelled")
-omi_cme_brokertec_ilink3_sbe_v8_9.fields.side_side = ProtoField.new("Side Side", "cme.brokertec.ilink3.sbe.v8.9.sideside", ftypes.UINT8, nil, nil, nil, "Quote side")
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.side_time_in_force = ProtoField.new("Side Time In Force", "cme.brokertec.ilink3.sbe.v8.9.sidetimeinforce", ftypes.UINT8, nil, nil, nil, "Indicates how long the order as specified in the side stays in effect. SideTimeInForce allows a two-sided cross order to specify order behavior separately for each side. Defaults to Day if absent.")
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.side_trade_id = ProtoField.new("Side Trade Id", "cme.brokertec.ilink3.sbe.v8.9.sidetradeid", ftypes.UINT32, nil, nil, nil, "The unique ID assigned to the trade once it is received or matched by the exchange")
 omi_cme_brokertec_ilink3_sbe_v8_9.fields.sides_group = ProtoField.new("Sides Group", "cme.brokertec.ilink3.sbe.v8.9.sidesgroup", ftypes.STRING, nil, nil, nil, "Number of Side repeating group instances")
@@ -6069,6 +6069,34 @@ cme_brokertec_ilink3_sbe_v8_9.quote_set_id.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Quote Side
+cme_brokertec_ilink3_sbe_v8_9.quote_side = {}
+
+-- Size: Quote Side
+cme_brokertec_ilink3_sbe_v8_9.quote_side.size = 1
+
+-- Display: Quote Side
+cme_brokertec_ilink3_sbe_v8_9.quote_side.labels = {
+  [1] = "Quote Side: Buy (1)",
+  [2] = "Quote Side: Sell (2)",
+}
+
+cme_brokertec_ilink3_sbe_v8_9.quote_side.display = function(value)
+  return cme_brokertec_ilink3_sbe_v8_9.quote_side.labels[value] or "Quote Side: Unknown("..value..")"
+end
+
+-- Dissect: Quote Side
+cme_brokertec_ilink3_sbe_v8_9.quote_side.dissect = function(buffer, offset, packet, parent)
+  local length = cme_brokertec_ilink3_sbe_v8_9.quote_side.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cme_brokertec_ilink3_sbe_v8_9.quote_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_brokertec_ilink3_sbe_v8_9.fields.quote_side, range, value, display)
+
+  return offset + length, value
+end
+
 -- Quote Type
 cme_brokertec_ilink3_sbe_v8_9.quote_type = {}
 
@@ -7220,34 +7248,6 @@ cme_brokertec_ilink3_sbe_v8_9.side_optional.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Side Side
-cme_brokertec_ilink3_sbe_v8_9.side_side = {}
-
--- Size: Side Side
-cme_brokertec_ilink3_sbe_v8_9.side_side.size = 1
-
--- Display: Side Side
-cme_brokertec_ilink3_sbe_v8_9.side_side.labels = {
-  [1] = "Side Side: Buy (1)",
-  [2] = "Side Side: Sell (2)",
-}
-
-cme_brokertec_ilink3_sbe_v8_9.side_side.display = function(value)
-  return cme_brokertec_ilink3_sbe_v8_9.side_side.labels[value] or "Side Side: Unknown("..value..")"
-end
-
--- Dissect: Side Side
-cme_brokertec_ilink3_sbe_v8_9.side_side.dissect = function(buffer, offset, packet, parent)
-  local length = cme_brokertec_ilink3_sbe_v8_9.side_side.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = cme_brokertec_ilink3_sbe_v8_9.side_side.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_brokertec_ilink3_sbe_v8_9.fields.side_side, range, value, display)
-
-  return offset + length, value
-end
-
 -- Side Time In Force
 cme_brokertec_ilink3_sbe_v8_9.side_time_in_force = {}
 
@@ -8380,7 +8380,7 @@ cme_brokertec_ilink3_sbe_v8_9.mass_quote_response_entries_group.size =
   cme_brokertec_ilink3_sbe_v8_9.quote_entry_id.size + 
   cme_brokertec_ilink3_sbe_v8_9.quote_set_id.size + 
   cme_brokertec_ilink3_sbe_v8_9.security_id.size + 
-  cme_brokertec_ilink3_sbe_v8_9.side_side.size + 
+  cme_brokertec_ilink3_sbe_v8_9.quote_side.size + 
   cme_brokertec_ilink3_sbe_v8_9.quote_entry_reject_reason_optional.size
 
 -- Display: Mass Quote Response Entries Group
@@ -8410,8 +8410,8 @@ cme_brokertec_ilink3_sbe_v8_9.mass_quote_response_entries_group.fields = functio
   -- Security Id: Int32
   index, security_id = cme_brokertec_ilink3_sbe_v8_9.security_id.dissect(buffer, index, packet, parent)
 
-  -- Side Side: Side
-  index, side_side = cme_brokertec_ilink3_sbe_v8_9.side_side.dissect(buffer, index, packet, parent)
+  -- Quote Side: Side
+  index, quote_side = cme_brokertec_ilink3_sbe_v8_9.quote_side.dissect(buffer, index, packet, parent)
 
   -- Quote Entry Reject Reason Optional: uInt8NULL
   index, quote_entry_reject_reason_optional = cme_brokertec_ilink3_sbe_v8_9.quote_entry_reject_reason_optional.dissect(buffer, index, packet, parent)
@@ -16863,7 +16863,7 @@ cme_brokertec_ilink3_sbe_v8_9.mass_quote_request_entries_group.size =
   cme_brokertec_ilink3_sbe_v8_9.security_id.size + 
   cme_brokertec_ilink3_sbe_v8_9.price.size + 
   cme_brokertec_ilink3_sbe_v8_9.order_qty.size + 
-  cme_brokertec_ilink3_sbe_v8_9.side_side.size + 
+  cme_brokertec_ilink3_sbe_v8_9.quote_side.size + 
   cme_brokertec_ilink3_sbe_v8_9.quote_entry_id.size + 
   cme_brokertec_ilink3_sbe_v8_9.quote_set_id.size
 
@@ -16891,8 +16891,8 @@ cme_brokertec_ilink3_sbe_v8_9.mass_quote_request_entries_group.fields = function
   -- Order Qty: uInt32
   index, order_qty = cme_brokertec_ilink3_sbe_v8_9.order_qty.dissect(buffer, index, packet, parent)
 
-  -- Side Side: Side
-  index, side_side = cme_brokertec_ilink3_sbe_v8_9.side_side.dissect(buffer, index, packet, parent)
+  -- Quote Side: Side
+  index, quote_side = cme_brokertec_ilink3_sbe_v8_9.quote_side.dissect(buffer, index, packet, parent)
 
   -- Quote Entry Id: uInt32
   index, quote_entry_id = cme_brokertec_ilink3_sbe_v8_9.quote_entry_id.dissect(buffer, index, packet, parent)

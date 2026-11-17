@@ -13,9 +13,9 @@ runuser -u tester -- tshark \
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.timeoffset" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderLongMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.orderid" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderLongMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.sideindicator" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderLongMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantitybinary4" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderLongMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantitylong" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderLongMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.symbolshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderLongMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.pricebinarylongprice8" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderLongMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.pricelong" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderLongMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.addflags" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderLongMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4/AddOrderShortMessage.pcap" \
@@ -27,9 +27,9 @@ runuser -u tester -- tshark \
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.timeoffset" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.orderid" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.sideindicator" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderShortMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantitybinary2" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderShortMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantityshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.symbolshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderShortMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.pricebinaryshortprice2" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderShortMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.priceshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.addflags" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.AddOrderShortMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4/DeleteOrderMessage.pcap" \
@@ -49,8 +49,8 @@ runuser -u tester -- tshark \
 
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.timeoffset" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderLongMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.orderid" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderLongMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantitybinary4" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderLongMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.pricebinarylongprice8" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderLongMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantitylong" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderLongMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.pricelong" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderLongMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.modifyflags" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderLongMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4/ModifyOrderShortMessage.pcap" \
@@ -61,8 +61,8 @@ runuser -u tester -- tshark \
 
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.timeoffset" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.orderid" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderShortMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantitybinary2" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderShortMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.pricebinaryshortprice2" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderShortMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantityshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderShortMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.priceshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.modifyflags" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ModifyOrderShortMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4/OrderExecutedMessage.pcap" \
@@ -84,7 +84,7 @@ runuser -u tester -- tshark \
 
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.timeoffset" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ReduceSizeShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.orderid" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ReduceSizeShortMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.canceledquantitybinary2" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ReduceSizeShortMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.canceledquantityshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.ReduceSizeShortMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4/TimeMessage.pcap" \
   -X "lua_script:Cboe/BzxEquities/MulticastDepthOfBook/Cboe_BzxEquities_MulticastDepthOfBook_Pitch_v2_20_4_Dissector.lua" \
@@ -103,9 +103,9 @@ runuser -u tester -- tshark \
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.timeoffset" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeLongMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.orderid" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeLongMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.sideindicator" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeLongMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantitybinary4" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeLongMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantitylong" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeLongMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.symbolshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeLongMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.pricebinarylongprice8" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeLongMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.pricelong" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeLongMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.executionid" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeLongMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4/TradeShortMessage.pcap" \
@@ -117,9 +117,9 @@ runuser -u tester -- tshark \
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.timeoffset" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.orderid" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.sideindicator" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeShortMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantitybinary2" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeShortMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.quantityshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.symbolshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeShortMessage.json
-grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.pricebinaryshortprice2" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeShortMessage.json
+grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.priceshort" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeShortMessage.json
 grep "cboe.bzxequities.multicastdepthofbook.pitch.v2.20.4.executionid" Cboe.BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4.TradeShortMessage.json
 runuser -u tester -- tshark \
   -r "omi-data-packets/Cboe/BzxEquities.MulticastDepthOfBook.Pitch.v2.20.4/MultipleMessages.pcap" \

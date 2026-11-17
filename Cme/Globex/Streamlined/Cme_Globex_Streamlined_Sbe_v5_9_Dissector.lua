@@ -37,6 +37,7 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.eris_feed_types_group = ProtoField.ne
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_feed_types_groups = ProtoField.new("Eris Feed Types Groups", "cme.globex.streamlined.sbe.v5.9.erisfeedtypesgroups", ftypes.STRING, nil, nil, nil, "NoMDFeedTypes Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_group = ProtoField.new("Eris Group", "cme.globex.streamlined.sbe.v5.9.erisgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_groups = ProtoField.new("Eris Groups", "cme.globex.streamlined.sbe.v5.9.erisgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_streamlined_sbe_v5_9.fields.eris_leg_ratio_qty = ProtoField.new("Eris Leg Ratio Qty", "cme.globex.streamlined.sbe.v5.9.erislegratioqty", ftypes.INT32, nil, nil, nil, "The ratio of quantity for this individual leg relative to the entire multi-leg instrument.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_legs_group = ProtoField.new("Eris Legs Group", "cme.globex.streamlined.sbe.v5.9.erislegsgroup", ftypes.STRING, nil, nil, nil, "Number of legs (repeating groups)")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_legs_groups = ProtoField.new("Eris Legs Groups", "cme.globex.streamlined.sbe.v5.9.erislegsgroups", ftypes.STRING, nil, nil, nil, "NoLegs Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_original_group = ProtoField.new("Eris Original Group", "cme.globex.streamlined.sbe.v5.9.erisoriginalgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
@@ -90,8 +91,7 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.leg_maturity_month_year = ProtoField.
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_pay_frequencey = ProtoField.new("Leg Pay Frequencey", "cme.globex.streamlined.sbe.v5.9.legpayfrequencey", ftypes.STRING, nil, nil, nil, "Payment frequency of fixed and floating rates expresses as a period.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_purchase_rate = ProtoField.new("Leg Purchase Rate", "cme.globex.streamlined.sbe.v5.9.legpurchaserate", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_put_or_call = ProtoField.new("Leg Put Or Call", "cme.globex.streamlined.sbe.v5.9.legputorcall", ftypes.UINT8, nil, nil, nil, "Multileg instrument's individual security's leg option put or call")
-omi_cme_globex_streamlined_sbe_v5_9.fields.leg_ratio_qty_int_32_null = ProtoField.new("Leg Ratio Qty Int 32 Null", "cme.globex.streamlined.sbe.v5.9.legratioqtyint32null", ftypes.INT32, nil, nil, nil, "The ratio of quantity for this individual leg relative to the entire multi-leg instrument.")
-omi_cme_globex_streamlined_sbe_v5_9.fields.leg_ratio_qty_u_int_16_null = ProtoField.new("Leg Ratio Qty u Int 16 Null", "cme.globex.streamlined.sbe.v5.9.legratioqtyuint16null", ftypes.UINT16, nil, nil, nil, "The ratio of quantity for this individual leg relative to the entire multileg security")
+omi_cme_globex_streamlined_sbe_v5_9.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.globex.streamlined.sbe.v5.9.legratioqty", ftypes.UINT16, nil, nil, nil, "The ratio of quantity for this individual leg relative to the entire multileg security")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_ref_id = ProtoField.new("Leg Ref Id", "cme.globex.streamlined.sbe.v5.9.legrefid", ftypes.STRING, nil, nil, nil, "Used to correlate leg instrument definitions with their executions. Cross referenced to Tag 1788")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_exchange = ProtoField.new("Leg Security Exchange", "cme.globex.streamlined.sbe.v5.9.legsecurityexchange", ftypes.STRING, nil, nil, nil, "Multileg instrument's individual security's leg SecurityExchange")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_group = ProtoField.new("Leg Security Group", "cme.globex.streamlined.sbe.v5.9.legsecuritygroup", ftypes.STRING, nil, nil, nil, "Leg equivalent of body tag 1151-SecurityGroup (i.e. leg 'product code')")
@@ -99,13 +99,13 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_id = ProtoField.new("Leg
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_type = ProtoField.new("Leg Security Type", "cme.globex.streamlined.sbe.v5.9.legsecuritytype", ftypes.STRING, nil, nil, nil, "Identifies the type of leg instrument")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_type_4 = ProtoField.new("leg Security Type 4", "cme.globex.streamlined.sbe.v5.9.legsecuritytype4", ftypes.STRING, nil, nil, nil, "Identifies the type of instrument.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_side = ProtoField.new("Leg Side", "cme.globex.streamlined.sbe.v5.9.legside", ftypes.UINT8, nil, nil, nil, "The side of this individual leg (multileg security)")
+omi_cme_globex_streamlined_sbe_v5_9.fields.leg_strike_price = ProtoField.new("Leg Strike Price", "cme.globex.streamlined.sbe.v5.9.legstrikeprice", ftypes.DOUBLE, nil, nil, nil, "Multileg instrument's individual security's StrikePrice")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_strike_price_decimal_64_null = ProtoField.new("Leg Strike Price Decimal 64 Null", "cme.globex.streamlined.sbe.v5.9.legstrikepricedecimal64null", ftypes.STRING, nil, nil, nil, "Number of legs (repeating groups)")
-omi_cme_globex_streamlined_sbe_v5_9.fields.leg_strike_price_pricenull = ProtoField.new("Leg Strike Price Pricenull", "cme.globex.streamlined.sbe.v5.9.legstrikepricepricenull", ftypes.DOUBLE, nil, nil, nil, "Multileg instrument's individual security's StrikePrice")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_symbol = ProtoField.new("Leg Symbol", "cme.globex.streamlined.sbe.v5.9.legsymbol", ftypes.STRING, nil, nil, nil, "This tag contains the instrument group of the requested security definition. Must be present when tag 555-NoLegs is present. Also must be first tag in repeating group. Multileg instrument's individual security's Symbol.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_unit_of_measure = ProtoField.new("Leg Unit Of Measure", "cme.globex.streamlined.sbe.v5.9.legunitofmeasure", ftypes.STRING, nil, nil, nil, "Multileg instrument's individual security's leg UnitOfMeasure")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_unit_of_measure_currency = ProtoField.new("Leg Unit Of Measure Currency", "cme.globex.streamlined.sbe.v5.9.legunitofmeasurecurrency", ftypes.STRING, nil, nil, nil, "Indicates the currency of the unit of measure. Conditionally required when LegUnitOfMeasure(999) = Ccy")
+omi_cme_globex_streamlined_sbe_v5_9.fields.leg_unit_of_measure_qty = ProtoField.new("Leg Unit Of Measure Qty", "cme.globex.streamlined.sbe.v5.9.legunitofmeasureqty", ftypes.DOUBLE, nil, nil, nil, "Multileg instrument's individual security's leg UnitOfMeasureQty")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_unit_of_measure_qty_decimal_64_null = ProtoField.new("Leg Unit Of Measure Qty Decimal 64 Null", "cme.globex.streamlined.sbe.v5.9.legunitofmeasureqtydecimal64null", ftypes.STRING, nil, nil, nil, "Number of legs (repeating groups)")
-omi_cme_globex_streamlined_sbe_v5_9.fields.leg_unit_of_measure_qty_pricenull = ProtoField.new("Leg Unit Of Measure Qty Pricenull", "cme.globex.streamlined.sbe.v5.9.legunitofmeasureqtypricenull", ftypes.DOUBLE, nil, nil, nil, "Multileg instrument's individual security's leg UnitOfMeasureQty")
 omi_cme_globex_streamlined_sbe_v5_9.fields.lines_of_text_group = ProtoField.new("Lines Of Text Group", "cme.globex.streamlined.sbe.v5.9.linesoftextgroup", ftypes.STRING, nil, nil, nil, "Identifies number of lines of text body.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.lines_of_text_groups = ProtoField.new("Lines Of Text Groups", "cme.globex.streamlined.sbe.v5.9.linesoftextgroups", ftypes.STRING, nil, nil, nil, "NoLinesOfText Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.mantissa = ProtoField.new("Mantissa", "cme.globex.streamlined.sbe.v5.9.mantissa", ftypes.INT64)
@@ -199,7 +199,7 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.rpt_seq = ProtoField.new("Rpt Seq", "
 omi_cme_globex_streamlined_sbe_v5_9.fields.schema_id = ProtoField.new("Schema Id", "cme.globex.streamlined.sbe.v5.9.schemaid", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.sector_group = ProtoField.new("Sector Group", "cme.globex.streamlined.sbe.v5.9.sectorgroup", ftypes.STRING, nil, nil, nil, "Group of related products. For e.g. High Yield, Cheese")
 omi_cme_globex_streamlined_sbe_v5_9.fields.sector_sub_group = ProtoField.new("Sector Sub Group", "cme.globex.streamlined.sbe.v5.9.sectorsubgroup", ftypes.STRING, nil, nil, nil, "A further qualification of Sector Group For e.g. North American")
-omi_cme_globex_streamlined_sbe_v5_9.fields.security_alt_i_d_string_length_50 = ProtoField.new("Security Alt I D String Length 50", "cme.globex.streamlined.sbe.v5.9.securityaltidstringlength50", ftypes.STRING, nil, nil, nil, "Expanded instrument description.")
+omi_cme_globex_streamlined_sbe_v5_9.fields.security_alt_id = ProtoField.new("Security Alt Id", "cme.globex.streamlined.sbe.v5.9.securityaltid", ftypes.STRING, nil, nil, nil, "Expanded instrument description.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.security_alt_id_50 = ProtoField.new("Security Alt Id 50", "cme.globex.streamlined.sbe.v5.9.securityaltid50", ftypes.STRING, nil, nil, nil, "Expanded instrument description.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "cme.globex.streamlined.sbe.v5.9.securityaltidsource", ftypes.STRING, nil, nil, nil, "Identifies class or source of the SecurityAltID (455) value.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.security_alt_id_source_optional = ProtoField.new("Security Alt Id Source Optional", "cme.globex.streamlined.sbe.v5.9.securityaltidsourceoptional", ftypes.STRING, nil, nil, nil, "Identifies class or source of the SecurityAltID (455) value.")
@@ -252,8 +252,7 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.transact_time_optional = ProtoField.n
 omi_cme_globex_streamlined_sbe_v5_9.fields.transact_time_optional_utc = ProtoField.new("Transact Time Optional", "cme.globex.streamlined.sbe.v5.9.transacttimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Start of event processing time in number of nanoseconds since Unix epoch. Not present for EFP (828=2) and EFR (828=11) transactions")
 omi_cme_globex_streamlined_sbe_v5_9.fields.trd_type = ProtoField.new("Trd Type", "cme.globex.streamlined.sbe.v5.9.trdtype", ftypes.UINT8, nil, nil, nil, "Valid trade types for intraday trade")
 omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_maturity_month_year = ProtoField.new("Underlying Maturity Month Year", "cme.globex.streamlined.sbe.v5.9.underlyingmaturitymonthyear", ftypes.STRING, nil, nil, nil, "Number of underlying legs that make up the security")
-omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_security_exchange_security_exchange = ProtoField.new("Underlying Security Exchange Security Exchange", "cme.globex.streamlined.sbe.v5.9.underlyingsecurityexchangesecurityexchange", ftypes.STRING, nil, nil, nil, "Underlying Security's SecurityExchange and it can be used to identify the underlying security")
-omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_security_exchange_string_4 = ProtoField.new("Underlying Security Exchange String 4", "cme.globex.streamlined.sbe.v5.9.underlyingsecurityexchangestring4", ftypes.STRING, nil, nil, nil, "Underlying Security's SecurityExchange")
+omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "cme.globex.streamlined.sbe.v5.9.underlyingsecurityexchange", ftypes.STRING, nil, nil, nil, "Underlying Security's SecurityExchange")
 omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_security_type = ProtoField.new("Underlying Security Type", "cme.globex.streamlined.sbe.v5.9.underlyingsecuritytype", ftypes.STRING, nil, nil, nil, "Underlying Security's SecurityType")
 omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "cme.globex.streamlined.sbe.v5.9.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying Security's symbol")
 omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.globex.streamlined.sbe.v5.9.unitofmeasure", ftypes.STRING, nil, nil, nil, "Unit of measure for the products' original contract size")
@@ -705,6 +704,34 @@ cme_globex_streamlined_sbe_v5_9.encoding_type.dissect = function(buffer, offset,
   local display = cme_globex_streamlined_sbe_v5_9.encoding_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.encoding_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Eris Leg Ratio Qty
+cme_globex_streamlined_sbe_v5_9.eris_leg_ratio_qty = {}
+
+-- Size: Eris Leg Ratio Qty
+cme_globex_streamlined_sbe_v5_9.eris_leg_ratio_qty.size = 4
+
+-- Display: Eris Leg Ratio Qty
+cme_globex_streamlined_sbe_v5_9.eris_leg_ratio_qty.display = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Eris Leg Ratio Qty: No Value"
+  end
+
+  return "Eris Leg Ratio Qty: "..value
+end
+
+-- Dissect: Eris Leg Ratio Qty
+cme_globex_streamlined_sbe_v5_9.eris_leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.eris_leg_ratio_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cme_globex_streamlined_sbe_v5_9.eris_leg_ratio_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_leg_ratio_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1247,58 +1274,30 @@ cme_globex_streamlined_sbe_v5_9.leg_put_or_call.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Leg Ratio Qty Int 32 Null
-cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null = {}
+-- Leg Ratio Qty
+cme_globex_streamlined_sbe_v5_9.leg_ratio_qty = {}
 
--- Size: Leg Ratio Qty Int 32 Null
-cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.size = 4
+-- Size: Leg Ratio Qty
+cme_globex_streamlined_sbe_v5_9.leg_ratio_qty.size = 2
 
--- Display: Leg Ratio Qty Int 32 Null
-cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.display = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Leg Ratio Qty Int 32 Null: No Value"
-  end
-
-  return "Leg Ratio Qty Int 32 Null: "..value
-end
-
--- Dissect: Leg Ratio Qty Int 32 Null
-cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.size
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.leg_ratio_qty_int_32_null, range, value, display)
-
-  return offset + length, value
-end
-
--- Leg Ratio Qty u Int 16 Null
-cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null = {}
-
--- Size: Leg Ratio Qty u Int 16 Null
-cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.size = 2
-
--- Display: Leg Ratio Qty u Int 16 Null
-cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.display = function(value)
+-- Display: Leg Ratio Qty
+cme_globex_streamlined_sbe_v5_9.leg_ratio_qty.display = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Leg Ratio Qty u Int 16 Null: No Value"
+    return "Leg Ratio Qty: No Value"
   end
 
-  return "Leg Ratio Qty u Int 16 Null: "..value
+  return "Leg Ratio Qty: "..value
 end
 
--- Dissect: Leg Ratio Qty u Int 16 Null
-cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.size
+-- Dissect: Leg Ratio Qty
+cme_globex_streamlined_sbe_v5_9.leg_ratio_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.display(value, buffer, offset, packet, parent)
+  local display = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.leg_ratio_qty_u_int_16_null, range, value, display)
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.leg_ratio_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1554,24 +1553,24 @@ cme_globex_streamlined_sbe_v5_9.leg_side.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Leg Strike Price Pricenull
-cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull = {}
+-- Leg Strike Price
+cme_globex_streamlined_sbe_v5_9.leg_strike_price = {}
 
--- Size: Leg Strike Price Pricenull
-cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull.size = 8
+-- Size: Leg Strike Price
+cme_globex_streamlined_sbe_v5_9.leg_strike_price.size = 8
 
--- Display: Leg Strike Price Pricenull
-cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull.display = function(raw, value)
+-- Display: Leg Strike Price
+cme_globex_streamlined_sbe_v5_9.leg_strike_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Leg Strike Price Pricenull: No Value"
+    return "Leg Strike Price: No Value"
   end
 
-  return "Leg Strike Price Pricenull: "..value
+  return "Leg Strike Price: "..value
 end
 
--- Translate: Leg Strike Price Pricenull
-cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull.translate = function(raw)
+-- Translate: Leg Strike Price
+cme_globex_streamlined_sbe_v5_9.leg_strike_price.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -1580,15 +1579,15 @@ cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull.translate = function(
   return raw:tonumber()/10000000
 end
 
--- Dissect: Leg Strike Price Pricenull
-cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull.size
+-- Dissect: Leg Strike Price
+cme_globex_streamlined_sbe_v5_9.leg_strike_price.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.leg_strike_price.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull.translate(raw)
-  local display = cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull.display(raw, value, buffer, offset, packet, parent)
+  local value = cme_globex_streamlined_sbe_v5_9.leg_strike_price.translate(raw)
+  local display = cme_globex_streamlined_sbe_v5_9.leg_strike_price.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.leg_strike_price_pricenull, range, value, display)
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.leg_strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -1710,24 +1709,24 @@ cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_currency.dissect = function(
   return offset + length, value
 end
 
--- Leg Unit Of Measure Qty Pricenull
-cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull = {}
+-- Leg Unit Of Measure Qty
+cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty = {}
 
--- Size: Leg Unit Of Measure Qty Pricenull
-cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.size = 8
+-- Size: Leg Unit Of Measure Qty
+cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty.size = 8
 
--- Display: Leg Unit Of Measure Qty Pricenull
-cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.display = function(raw, value)
+-- Display: Leg Unit Of Measure Qty
+cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Leg Unit Of Measure Qty Pricenull: No Value"
+    return "Leg Unit Of Measure Qty: No Value"
   end
 
-  return "Leg Unit Of Measure Qty Pricenull: "..value
+  return "Leg Unit Of Measure Qty: "..value
 end
 
--- Translate: Leg Unit Of Measure Qty Pricenull
-cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.translate = function(raw)
+-- Translate: Leg Unit Of Measure Qty
+cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty.translate = function(raw)
   -- Check null sentinel value
   if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return 0/0
@@ -1736,15 +1735,15 @@ cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.translate = fu
   return raw:tonumber()/10000000
 end
 
--- Dissect: Leg Unit Of Measure Qty Pricenull
-cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.size
+-- Dissect: Leg Unit Of Measure Qty
+cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.translate(raw)
-  local display = cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.display(raw, value, buffer, offset, packet, parent)
+  local value = cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty.translate(raw)
+  local display = cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.leg_unit_of_measure_qty_pricenull, range, value, display)
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.leg_unit_of_measure_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3613,25 +3612,25 @@ cme_globex_streamlined_sbe_v5_9.sector_sub_group.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Security Alt I D String Length 50
-cme_globex_streamlined_sbe_v5_9.security_alt_i_d_string_length_50 = {}
+-- Security Alt Id
+cme_globex_streamlined_sbe_v5_9.security_alt_id = {}
 
--- Size: Security Alt I D String Length 50
-cme_globex_streamlined_sbe_v5_9.security_alt_i_d_string_length_50.size = 50
+-- Size: Security Alt Id
+cme_globex_streamlined_sbe_v5_9.security_alt_id.size = 26
 
--- Display: Security Alt I D String Length 50
-cme_globex_streamlined_sbe_v5_9.security_alt_i_d_string_length_50.display = function(value)
+-- Display: Security Alt Id
+cme_globex_streamlined_sbe_v5_9.security_alt_id.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Security Alt I D String Length 50: No Value"
+    return "Security Alt Id: No Value"
   end
 
-  return "Security Alt I D String Length 50: "..value
+  return "Security Alt Id: "..value
 end
 
--- Dissect: Security Alt I D String Length 50
-cme_globex_streamlined_sbe_v5_9.security_alt_i_d_string_length_50.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_streamlined_sbe_v5_9.security_alt_i_d_string_length_50.size
+-- Dissect: Security Alt Id
+cme_globex_streamlined_sbe_v5_9.security_alt_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.security_alt_id.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3645,9 +3644,9 @@ cme_globex_streamlined_sbe_v5_9.security_alt_i_d_string_length_50.dissect = func
     value = range:string()
   end
 
-  local display = cme_globex_streamlined_sbe_v5_9.security_alt_i_d_string_length_50.display(value, buffer, offset, packet, parent)
+  local display = cme_globex_streamlined_sbe_v5_9.security_alt_id.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.security_alt_i_d_string_length_50, range, value, display)
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.security_alt_id, range, value, display)
 
   return offset + length, value
 end
@@ -3656,7 +3655,7 @@ end
 cme_globex_streamlined_sbe_v5_9.security_alt_id_50 = {}
 
 -- Size: Security Alt Id 50
-cme_globex_streamlined_sbe_v5_9.security_alt_id_50.size = 26
+cme_globex_streamlined_sbe_v5_9.security_alt_id_50.size = 50
 
 -- Display: Security Alt Id 50
 cme_globex_streamlined_sbe_v5_9.security_alt_id_50.display = function(value)
@@ -4662,25 +4661,25 @@ cme_globex_streamlined_sbe_v5_9.trd_type.dissect = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Underlying Security Exchange Security Exchange
-cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange = {}
+-- Underlying Security Exchange
+cme_globex_streamlined_sbe_v5_9.underlying_security_exchange = {}
 
--- Size: Underlying Security Exchange Security Exchange
-cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.size = 4
+-- Size: Underlying Security Exchange
+cme_globex_streamlined_sbe_v5_9.underlying_security_exchange.size = 4
 
--- Display: Underlying Security Exchange Security Exchange
-cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.display = function(value)
+-- Display: Underlying Security Exchange
+cme_globex_streamlined_sbe_v5_9.underlying_security_exchange.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Underlying Security Exchange Security Exchange: No Value"
+    return "Underlying Security Exchange: No Value"
   end
 
-  return "Underlying Security Exchange Security Exchange: "..value
+  return "Underlying Security Exchange: "..value
 end
 
--- Dissect: Underlying Security Exchange Security Exchange
-cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.size
+-- Dissect: Underlying Security Exchange
+cme_globex_streamlined_sbe_v5_9.underlying_security_exchange.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.underlying_security_exchange.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -4694,48 +4693,9 @@ cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.d
     value = range:string()
   end
 
-  local display = cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.display(value, buffer, offset, packet, parent)
+  local display = cme_globex_streamlined_sbe_v5_9.underlying_security_exchange.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_security_exchange_security_exchange, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlying Security Exchange String 4
-cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_string_4 = {}
-
--- Size: Underlying Security Exchange String 4
-cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_string_4.size = 4
-
--- Display: Underlying Security Exchange String 4
-cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_string_4.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlying Security Exchange String 4: No Value"
-  end
-
-  return "Underlying Security Exchange String 4: "..value
-end
-
--- Dissect: Underlying Security Exchange String 4
-cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_string_4.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_string_4.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_string_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_security_exchange_string_4, range, value, display)
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_security_exchange, range, value, display)
 
   return offset + length, value
 end
@@ -5170,7 +5130,7 @@ cme_globex_streamlined_sbe_v5_9.otc_security_alt_id_group = {}
 
 -- Size: Otc Security Alt Id Group
 cme_globex_streamlined_sbe_v5_9.otc_security_alt_id_group.size =
-  cme_globex_streamlined_sbe_v5_9.security_alt_i_d_string_length_50.size + 
+  cme_globex_streamlined_sbe_v5_9.security_alt_id_50.size + 
   cme_globex_streamlined_sbe_v5_9.security_alt_id_source.size
 
 -- Display: Otc Security Alt Id Group
@@ -5188,8 +5148,8 @@ cme_globex_streamlined_sbe_v5_9.otc_security_alt_id_group.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Security Alt I D String Length 50: StringLength50
-  index, security_alt_i_d_string_length_50 = cme_globex_streamlined_sbe_v5_9.security_alt_i_d_string_length_50.dissect(buffer, index, packet, parent)
+  -- Security Alt Id 50: StringLength50
+  index, security_alt_id_50 = cme_globex_streamlined_sbe_v5_9.security_alt_id_50.dissect(buffer, index, packet, parent)
 
   -- Security Alt Id Source: CHAR
   index, security_alt_id_source = cme_globex_streamlined_sbe_v5_9.security_alt_id_source.dissect(buffer, index, packet, parent)
@@ -5376,7 +5336,7 @@ cme_globex_streamlined_sbe_v5_9.otc_underlyings_group.size =
   cme_globex_streamlined_sbe_v5_9.underlying_symbol.size + 
   cme_globex_streamlined_sbe_v5_9.underlying_maturity_month_year.size + 
   cme_globex_streamlined_sbe_v5_9.underlying_security_type.size + 
-  cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.size
+  cme_globex_streamlined_sbe_v5_9.underlying_security_exchange.size
 
 -- Display: Otc Underlyings Group
 cme_globex_streamlined_sbe_v5_9.otc_underlyings_group.display = function(packet, parent, length)
@@ -5402,8 +5362,8 @@ cme_globex_streamlined_sbe_v5_9.otc_underlyings_group.fields = function(buffer, 
   -- Underlying Security Type: StringLength9
   index, underlying_security_type = cme_globex_streamlined_sbe_v5_9.underlying_security_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Exchange Security Exchange: SecurityExchange
-  index, underlying_security_exchange_security_exchange = cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_security_exchange.dissect(buffer, index, packet, parent)
+  -- Underlying Security Exchange: String4
+  index, underlying_security_exchange = cme_globex_streamlined_sbe_v5_9.underlying_security_exchange.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -6301,7 +6261,7 @@ cme_globex_streamlined_sbe_v5_9.trade_blocks_legs_group.size =
   cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure.size + 
   cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_decimal_64_null.size + 
   cme_globex_streamlined_sbe_v5_9.leg_security_exchange.size + 
-  cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.size + 
+  cme_globex_streamlined_sbe_v5_9.leg_ratio_qty.size + 
   cme_globex_streamlined_sbe_v5_9.leg_side.size + 
   cme_globex_streamlined_sbe_v5_9.leg_put_or_call.size + 
   cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_currency.size
@@ -6354,8 +6314,8 @@ cme_globex_streamlined_sbe_v5_9.trade_blocks_legs_group.fields = function(buffer
   -- Leg Security Exchange: String4
   index, leg_security_exchange = cme_globex_streamlined_sbe_v5_9.leg_security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty u Int 16 Null: uInt16NULL
-  index, leg_ratio_qty_u_int_16_null = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.dissect(buffer, index, packet, parent)
+  -- Leg Ratio Qty: uInt16NULL
+  index, leg_ratio_qty = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty.dissect(buffer, index, packet, parent)
 
   -- Leg Side: uInt8NULL
   index, leg_side = cme_globex_streamlined_sbe_v5_9.leg_side.dissect(buffer, index, packet, parent)
@@ -6559,7 +6519,7 @@ cme_globex_streamlined_sbe_v5_9.trade_blocks_underlyings_group.size =
   cme_globex_streamlined_sbe_v5_9.underlying_symbol.size + 
   cme_globex_streamlined_sbe_v5_9.underlying_maturity_month_year.size + 
   cme_globex_streamlined_sbe_v5_9.underlying_security_type.size + 
-  cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_string_4.size
+  cme_globex_streamlined_sbe_v5_9.underlying_security_exchange.size
 
 -- Display: Trade Blocks Underlyings Group
 cme_globex_streamlined_sbe_v5_9.trade_blocks_underlyings_group.display = function(packet, parent, length)
@@ -6585,8 +6545,8 @@ cme_globex_streamlined_sbe_v5_9.trade_blocks_underlyings_group.fields = function
   -- Underlying Security Type: StringLength9
   index, underlying_security_type = cme_globex_streamlined_sbe_v5_9.underlying_security_type.dissect(buffer, index, packet, parent)
 
-  -- Underlying Security Exchange String 4: String4
-  index, underlying_security_exchange_string_4 = cme_globex_streamlined_sbe_v5_9.underlying_security_exchange_string_4.dissect(buffer, index, packet, parent)
+  -- Underlying Security Exchange: String4
+  index, underlying_security_exchange = cme_globex_streamlined_sbe_v5_9.underlying_security_exchange.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7000,7 +6960,7 @@ cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group = {}
 
 -- Size: Eris Security Alt Id Group
 cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.size =
-  cme_globex_streamlined_sbe_v5_9.security_alt_id_50.size + 
+  cme_globex_streamlined_sbe_v5_9.security_alt_id.size + 
   cme_globex_streamlined_sbe_v5_9.security_alt_id_source_optional.size
 
 -- Display: Eris Security Alt Id Group
@@ -7018,8 +6978,8 @@ cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.fields = function(buf
     iteration:set_generated()
   end
 
-  -- Security Alt Id 50: StringLength26
-  index, security_alt_id_50 = cme_globex_streamlined_sbe_v5_9.security_alt_id_50.dissect(buffer, index, packet, parent)
+  -- Security Alt Id: StringLength26
+  index, security_alt_id = cme_globex_streamlined_sbe_v5_9.security_alt_id.dissect(buffer, index, packet, parent)
 
   -- Security Alt Id Source Optional: charNULL
   index, security_alt_id_source_optional = cme_globex_streamlined_sbe_v5_9.security_alt_id_source_optional.dissect(buffer, index, packet, parent)
@@ -7229,7 +7189,7 @@ cme_globex_streamlined_sbe_v5_9.eris_legs_group.size = function(buffer, offset)
 
   index = index + cme_globex_streamlined_sbe_v5_9.leg_symbol.size
 
-  index = index + cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.size
+  index = index + cme_globex_streamlined_sbe_v5_9.eris_leg_ratio_qty.size
 
   index = index + cme_globex_streamlined_sbe_v5_9.leg_side.size
 
@@ -7281,8 +7241,8 @@ cme_globex_streamlined_sbe_v5_9.eris_legs_group.fields = function(buffer, offset
   -- Leg Symbol: StringLength50
   index, leg_symbol = cme_globex_streamlined_sbe_v5_9.leg_symbol.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty Int 32 Null: Int32NULL
-  index, leg_ratio_qty_int_32_null = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_int_32_null.dissect(buffer, index, packet, parent)
+  -- Eris Leg Ratio Qty: Int32NULL
+  index, eris_leg_ratio_qty = cme_globex_streamlined_sbe_v5_9.eris_leg_ratio_qty.dissect(buffer, index, packet, parent)
 
   -- Leg Side: uInt8NULL
   index, leg_side = cme_globex_streamlined_sbe_v5_9.leg_side.dissect(buffer, index, packet, parent)
@@ -8867,11 +8827,11 @@ cme_globex_streamlined_sbe_v5_9.trade_blocks_original_legs_group.size =
   cme_globex_streamlined_sbe_v5_9.leg_security_type.size + 
   cme_globex_streamlined_sbe_v5_9.leg_maturity_month_year.size + 
   cme_globex_streamlined_sbe_v5_9.leg_maturity_date.size + 
-  cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull.size + 
+  cme_globex_streamlined_sbe_v5_9.leg_strike_price.size + 
   cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure.size + 
-  cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.size + 
+  cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty.size + 
   cme_globex_streamlined_sbe_v5_9.leg_security_exchange.size + 
-  cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.size + 
+  cme_globex_streamlined_sbe_v5_9.leg_ratio_qty.size + 
   cme_globex_streamlined_sbe_v5_9.leg_side.size + 
   cme_globex_streamlined_sbe_v5_9.leg_put_or_call.size + 
   cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_currency.size
@@ -8912,20 +8872,20 @@ cme_globex_streamlined_sbe_v5_9.trade_blocks_original_legs_group.fields = functi
   -- Leg Maturity Date: LocalMktDate
   index, leg_maturity_date = cme_globex_streamlined_sbe_v5_9.leg_maturity_date.dissect(buffer, index, packet, parent)
 
-  -- Leg Strike Price Pricenull: PRICENULL
-  index, leg_strike_price_pricenull = cme_globex_streamlined_sbe_v5_9.leg_strike_price_pricenull.dissect(buffer, index, packet, parent)
+  -- Leg Strike Price: PRICENULL
+  index, leg_strike_price = cme_globex_streamlined_sbe_v5_9.leg_strike_price.dissect(buffer, index, packet, parent)
 
   -- Leg Unit Of Measure: String5
   index, leg_unit_of_measure = cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure.dissect(buffer, index, packet, parent)
 
-  -- Leg Unit Of Measure Qty Pricenull: PRICENULL
-  index, leg_unit_of_measure_qty_pricenull = cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty_pricenull.dissect(buffer, index, packet, parent)
+  -- Leg Unit Of Measure Qty: PRICENULL
+  index, leg_unit_of_measure_qty = cme_globex_streamlined_sbe_v5_9.leg_unit_of_measure_qty.dissect(buffer, index, packet, parent)
 
   -- Leg Security Exchange: String4
   index, leg_security_exchange = cme_globex_streamlined_sbe_v5_9.leg_security_exchange.dissect(buffer, index, packet, parent)
 
-  -- Leg Ratio Qty u Int 16 Null: uInt16NULL
-  index, leg_ratio_qty_u_int_16_null = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty_u_int_16_null.dissect(buffer, index, packet, parent)
+  -- Leg Ratio Qty: uInt16NULL
+  index, leg_ratio_qty = cme_globex_streamlined_sbe_v5_9.leg_ratio_qty.dissect(buffer, index, packet, parent)
 
   -- Leg Side: uInt8NULL
   index, leg_side = cme_globex_streamlined_sbe_v5_9.leg_side.dissect(buffer, index, packet, parent)

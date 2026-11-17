@@ -131,20 +131,20 @@ omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_number = ProtoField.new("Fi
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.orderentry.nnfdirect.v9.50.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price the trade occurred at")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_quantity = ProtoField.new("Fill Quantity", "nse.nsefo.orderentry.nnfdirect.v9.50.fillquantity", ftypes.INT32, nil, nil, nil, "Quantity traded")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fill_volume = ProtoField.new("Fill Volume", "nse.nsefo.orderentry.nnfdirect.v9.50.fillvolume", ftypes.INT32, nil, nil, nil, "Quantity traded")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler = ProtoField.new("Filler", "nse.nsefo.orderentry.nnfdirect.v9.50.filler", ftypes.STRING)
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_1 = ProtoField.new("Filler 1", "nse.nsefo.orderentry.nnfdirect.v9.50.filler1", ftypes.STRING, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_116 = ProtoField.new("Filler 116", "nse.nsefo.orderentry.nnfdirect.v9.50.filler116", ftypes.STRING, nil, nil, nil, "Sixteen filler bits carrying no meaning")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_17 = ProtoField.new("Filler 17", "nse.nsefo.orderentry.nnfdirect.v9.50.filler17", ftypes.STRING, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_18 = ProtoField.new("Filler 18", "nse.nsefo.orderentry.nnfdirect.v9.50.filler18", ftypes.STRING, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_2 = ProtoField.new("Filler 2", "nse.nsefo.orderentry.nnfdirect.v9.50.filler2", ftypes.INT32, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_3 = ProtoField.new("Filler 3", "nse.nsefo.orderentry.nnfdirect.v9.50.filler3", ftypes.INT32, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_4 = ProtoField.new("Filler 4", "nse.nsefo.orderentry.nnfdirect.v9.50.filler4", ftypes.INT32, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_9 = ProtoField.new("Filler 9", "nse.nsefo.orderentry.nnfdirect.v9.50.filler9", ftypes.STRING, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_options_1 = ProtoField.new("Filler Options 1", "nse.nsefo.orderentry.nnfdirect.v9.50.filleroptions1", ftypes.STRING, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_y = ProtoField.new("Filler Y", "nse.nsefo.orderentry.nnfdirect.v9.50.fillery", ftypes.STRING, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_1 = ProtoField.new("Fillerx 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fillerx1", ftypes.STRING, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_2 = ProtoField.new("Fillerx 2", "nse.nsefo.orderentry.nnfdirect.v9.50.fillerx2", ftypes.STRING, nil, nil, nil, "Filler")
-omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillery_1 = ProtoField.new("Fillery 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fillery1", ftypes.STRING, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler = ProtoField.new("Filler", "nse.nsefo.orderentry.nnfdirect.v9.50.filler", ftypes.BYTES)
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_1 = ProtoField.new("Filler 1", "nse.nsefo.orderentry.nnfdirect.v9.50.filler1", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_116 = ProtoField.new("Filler 116", "nse.nsefo.orderentry.nnfdirect.v9.50.filler116", ftypes.BYTES, nil, nil, nil, "Sixteen filler bits carrying no meaning")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_17 = ProtoField.new("Filler 17", "nse.nsefo.orderentry.nnfdirect.v9.50.filler17", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_18 = ProtoField.new("Filler 18", "nse.nsefo.orderentry.nnfdirect.v9.50.filler18", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_2 = ProtoField.new("Filler 2", "nse.nsefo.orderentry.nnfdirect.v9.50.filler2", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_3 = ProtoField.new("Filler 3", "nse.nsefo.orderentry.nnfdirect.v9.50.filler3", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_4 = ProtoField.new("Filler 4", "nse.nsefo.orderentry.nnfdirect.v9.50.filler4", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_9 = ProtoField.new("Filler 9", "nse.nsefo.orderentry.nnfdirect.v9.50.filler9", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_options_1 = ProtoField.new("Filler Options 1", "nse.nsefo.orderentry.nnfdirect.v9.50.filleroptions1", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_y = ProtoField.new("Filler Y", "nse.nsefo.orderentry.nnfdirect.v9.50.fillery", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_1 = ProtoField.new("Fillerx 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fillerx1", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_2 = ProtoField.new("Fillerx 2", "nse.nsefo.orderentry.nnfdirect.v9.50.fillerx2", ftypes.BYTES, nil, nil, nil, "Filler")
+omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillery_1 = ProtoField.new("Fillery 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fillery1", ftypes.BYTES, nil, nil, nil, "Filler")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.firm_name = ProtoField.new("Firm Name", "nse.nsefo.orderentry.nnfdirect.v9.50.firmname", ftypes.STRING, nil, nil, nil, "Name of the firm")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fourth_reserved_1 = ProtoField.new("Fourth Reserved 1", "nse.nsefo.orderentry.nnfdirect.v9.50.fourthreserved1", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.frozen = ProtoField.new("Frozen", "nse.nsefo.orderentry.nnfdirect.v9.50.frozen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "Order has resulted in a freeze awaiting approval")
@@ -2480,258 +2480,753 @@ nse_nsefo_orderentry_nnfdirect_v9_50.error_code = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.error_code.size = 2
 
 -- Display: Error Code
-nse_nsefo_orderentry_nnfdirect_v9_50.error_code.labels = {
-  [293] = "Error Code: Invalid Instrument Type (293)",
-  [509] = "Error Code: Order Number Invalid (509)",
-  [8049] = "Error Code: Ord Cxl Initiator Auc Not Allowed (8049)",
-  [8485] = "Error Code: Auction Number Invalid (8485)",
-  [16000] = "Error Code: Market Closed (16000)",
-  [16001] = "Error Code: E Invalid User (16001)",
-  [16003] = "Error Code: Error Bad Trans Code (16003)",
-  [16004] = "Error Code: E User Already Signed On (16004)",
-  [16005] = "Error Code: E Invalid Signoff (16005)",
-  [16006] = "Error Code: E Invalid Signon (16006)",
-  [16007] = "Error Code: E Signon Not Possible (16007)",
-  [16012] = "Error Code: Err Invalid Symbol (16012)",
-  [16013] = "Error Code: Err Invalid Order Number (16013)",
-  [16014] = "Error Code: E Not Your Order (16014)",
-  [16015] = "Error Code: E Not Your Fill (16015)",
-  [16016] = "Error Code: E Invalid Fill Number (16016)",
-  [16019] = "Error Code: E Stock Not Found (16019)",
-  [16020] = "Error Code: E Order Price Out Of Revised Price Ra (16020)",
-  [16035] = "Error Code: Security Not Available (16035)",
-  [16041] = "Error Code: Broker Not Found (16041)",
-  [16042] = "Error Code: User Not Found (16042)",
-  [16043] = "Error Code: Duplicate Record (16043)",
-  [16044] = "Error Code: E Order Modified (16044)",
-  [16049] = "Error Code: Stock Suspended (16049)",
-  [16052] = "Error Code: Err Function Not Available (16052)",
-  [16053] = "Error Code: E Change Password (16053)",
-  [16054] = "Error Code: Err Invalid Branch (16054)",
-  [16056] = "Error Code: Oe Program Error (16056)",
-  [16063] = "Error Code: Err Invalid Status (16063)",
-  [16070] = "Error Code: Err Data Not Changed (16070)",
-  [16086] = "Error Code: E Dup Trd Cxl Request (16086)",
-  [16098] = "Error Code: Err Invalid Buyer User Id (16098)",
-  [16099] = "Error Code: Err Invalid Seller User Id (16099)",
-  [16100] = "Error Code: E Invalid Version (16100)",
-  [16104] = "Error Code: Oe System Error (16104)",
-  [16134] = "Error Code: Err User Disabled (16134)",
-  [16145] = "Error Code: Oe Invalid Stock Status (16145)",
-  [16148] = "Error Code: Err Invalid User Id (16148)",
-  [16154] = "Error Code: Err Invalid Trader Id (16154)",
-  [16169] = "Error Code: Oe Ato In Open (16169)",
-  [16198] = "Error Code: E Dup Request (16198)",
-  [16227] = "Error Code: E Only Cp Allowed (16227)",
-  [16228] = "Error Code: E Sl Mit Nt Not Allowed Pclose (16228)",
-  [16229] = "Error Code: E Gtc Gtd Ord Not Allowed Pclose (16229)",
-  [16230] = "Error Code: Oe Cont Mod Not Allowed (16230)",
-  [16231] = "Error Code: Trd Cont Mod Not Allowed (16231)",
-  [16233] = "Error Code: Str Pro Partivipant Invalid (16233)",
-  [16247] = "Error Code: Error Invalid Price (16247)",
-  [16251] = "Error Code: Oe Diff Trd Mod Vol (16251)",
-  [16260] = "Error Code: Error User Not Exists In System (16260)",
-  [16264] = "Error Code: Err Already Deleted (16264)",
-  [16273] = "Error Code: Record Not Found (16273)",
-  [16278] = "Error Code: Oe Markets Closed (16278)",
-  [16279] = "Error Code: Oe Security Not Admitted (16279)",
-  [16280] = "Error Code: Oe Security Matured (16280)",
-  [16281] = "Error Code: Oe Security Expelled (16281)",
-  [16282] = "Error Code: Oe Issued Cap Exceeds (16282)",
-  [16283] = "Error Code: Oe Price Not Mult (16283)",
-  [16284] = "Error Code: Oe Price Exceeds Day Min Max (16284)",
-  [16285] = "Error Code: Oe Is Not Active (16285)",
-  [16300] = "Error Code: E System Wrong State (16300)",
-  [16303] = "Error Code: Oe Auction Pending (16303)",
-  [16307] = "Error Code: Oe Qty Freeze Can (16307)",
-  [16308] = "Error Code: Oe Price Freeze Can (16308)",
-  [16311] = "Error Code: Oe Sol Period Over (16311)",
-  [16312] = "Error Code: Oe Comp Period Over (16312)",
-  [16313] = "Error Code: Oe Auc Period Greater (16313)",
-  [16315] = "Error Code: Oe Limit Trigger (16315)",
-  [16316] = "Error Code: Oe Trigger Price Not Mult (16316)",
-  [16317] = "Error Code: Oe No Aon Attrib (16317)",
-  [16318] = "Error Code: Oe No Mf Attrib (16318)",
-  [16319] = "Error Code: Oe No Aon In Attrib 1 (16319)",
-  [16320] = "Error Code: Oe No Mf Attrib 1 (16320)",
-  [16321] = "Error Code: Oe Mf Greater Disc (16321)",
-  [16322] = "Error Code: Oe Mf Not Mult (16322)",
-  [16323] = "Error Code: Oe Mf Greater Original (16323)",
-  [16324] = "Error Code: Oe Disc Greater Original (16324)",
-  [16325] = "Error Code: Oe Disc Not Mult (16325)",
-  [16326] = "Error Code: Oe Gtd Greater (16326)",
-  [16327] = "Error Code: Oe Quantity Gerater Rl (16327)",
-  [16328] = "Error Code: Oe Quantity Not Mult Rl (16328)",
-  [16329] = "Error Code: Oe Broker Not Permitted (16329)",
-  [16330] = "Error Code: Oe Is Suspended (16330)",
-  [16333] = "Error Code: Oe Branch Li Mit Exceeded (16333)",
-  [16343] = "Error Code: Oe Ord Can Changed (16343)",
-  [16344] = "Error Code: Oe Ord Cannot Cancel (16344)",
-  [16345] = "Error Code: Oe Init Ord Cancel (16345)",
-  [16346] = "Error Code: Oe Ord Cannot Modify (16346)",
-  [16348] = "Error Code: Err Trading Not Allowed (16348)",
-  [16357] = "Error Code: Oe Nt Rejected (16357)",
-  [16363] = "Error Code: Chg St Exists (16363)",
-  [16369] = "Error Code: Oe Security In Preopen (16369)",
-  [16372] = "Error Code: Oe Inq Not Allowed (16372)",
-  [16387] = "Error Code: Oe Security Ineligible (16387)",
-  [16388] = "Error Code: E Fok Order Cancelled (16388)",
-  [16392] = "Error Code: Turnover Limit Not Provided (16392)",
-  [16397] = "Error Code: Err Cannot Mod Auc Order (16397)",
-  [16400] = "Error Code: Oe Max Dq Allowed (16400)",
-  [16404] = "Error Code: Oe Admin Susp Can (16404)",
-  [16405] = "Error Code: E Invalid Buy Sell Type (16405)",
-  [16406] = "Error Code: E Invalid Book Type (16406)",
-  [16408] = "Error Code: E Invalid Trigger Price (16408)",
-  [16414] = "Error Code: E Invalid Pro Client (16414)",
-  [16415] = "Error Code: E Invalid Instructions (16415)",
-  [16416] = "Error Code: E Invalid Order Parameters (16416)",
-  [16418] = "Error Code: E Nnf Req Exceeded (16418)",
-  [16419] = "Error Code: Invalid Order (16419)",
-  [16420] = "Error Code: Err Box Rate Exceeded At Millisecond Level (16420)",
-  [16440] = "Error Code: E Gtd Gt Maturity (16440)",
-  [16441] = "Error Code: Dq Not Allowed In Preopen (16441)",
-  [16442] = "Error Code: St Ord Not Allowed Popen (16442)",
-  [16443] = "Error Code: E Ord Lim Exceeds Ord Val Lim (16443)",
-  [16444] = "Error Code: Err Usr Ord Value Limit Exceeded (16444)",
-  [16445] = "Error Code: Sl Not Allowed (16445)",
-  [16446] = "Error Code: Mit Not Allowed (16446)",
-  [16447] = "Error Code: E Ord Not Allowed In Preopen (16447)",
-  [16448] = "Error Code: Error Sl Lmt Rsnblty Check (16448)",
-  [16514] = "Error Code: E Not Modifiable (16514)",
-  [16518] = "Error Code: E Tm Cm Does Not Exist (16518)",
-  [16521] = "Error Code: E Not Clg Mem (16521)",
-  [16523] = "Error Code: E User Not Corp Mgr (16523)",
-  [16532] = "Error Code: E Pm Cm Invalid (16532)",
-  [16533] = "Error Code: E Corp Mgr Vu Mod (16533)",
-  [16541] = "Error Code: E Invalid Participant (16541)",
-  [16550] = "Error Code: E Trade Approved By Cm (16550)",
-  [16552] = "Error Code: E Cm Stock Suspended (16552)",
-  [16554] = "Error Code: E Broker Not Permitted In Fut (16554)",
-  [16555] = "Error Code: E Broker Not Permitted In Opt (16555)",
-  [16556] = "Error Code: E Qty Less Than Min Lot (16556)",
-  [16557] = "Error Code: E Disc Qty Less Than Min Lot (16557)",
-  [16558] = "Error Code: E Mf Qty Less Than Min Lot (16558)",
-  [16560] = "Error Code: E Already Rejected (16560)",
-  [16561] = "Error Code: E Nt Orders Not Allowed (16561)",
-  [16562] = "Error Code: E Nt Trade Not Allowed (16562)",
-  [16566] = "Error Code: E Inconsistent Broker Branch (16566)",
-  [16570] = "Error Code: M Post Close Start (16570)",
-  [16571] = "Error Code: M Post Close Ended (16571)",
-  [16572] = "Error Code: M Post Close Trades (16572)",
-  [16573] = "Error Code: E Invalid Msg Length (16573)",
-  [16574] = "Error Code: E Invalid Open Close Type (16574)",
-  [16576] = "Error Code: E Nnf Inq Req Exceeded (16576)",
-  [16577] = "Error Code: E Participant And Volume Changed (16577)",
-  [16578] = "Error Code: E Invalid Cover Uncover Type (16578)",
-  [16580] = "Error Code: E Illegal Participant (16580)",
-  [16581] = "Error Code: E Invalid Fill Price (16581)",
-  [16583] = "Error Code: E Pro No Participant (16583)",
-  [16585] = "Error Code: E Invalid Account No (16585)",
-  [16586] = "Error Code: E Allow No Participant Order (16586)",
-  [16589] = "Error Code: M Delete All Orders (16589)",
-  [16597] = "Error Code: E Cum Ur Ord Val Limit Exceede (16597)",
-  [16598] = "Error Code: E Branch Ord Val Limit Exceeded (16598)",
-  [16600] = "Error Code: Err Ord Val Exceeded (16600)",
-  [16601] = "Error Code: Err Preopen Order Reject (16601)",
-  [16602] = "Error Code: E Dealer Value Limit Exceeds (16602)",
-  [16604] = "Error Code: E Participant Not Found (16604)",
-  [16605] = "Error Code: E Either Leg Failed (16605)",
-  [16606] = "Error Code: E Qty Greater Than Freeze Qty (16606)",
-  [16607] = "Error Code: E Spread Not Allowed (16607)",
-  [16609] = "Error Code: E Spread Allowed If Stock Open (16609)",
-  [16610] = "Error Code: E Qty Should Be Same (16610)",
-  [16611] = "Error Code: E Ord Mod Qty Frz Not Allowed (16611)",
-  [16612] = "Error Code: E Trade Rec Modified (16612)",
-  [16615] = "Error Code: E Tm Order Cant Be Modified (16615)",
-  [16616] = "Error Code: E Tm Order Cant Be Cancelled (16616)",
-  [16617] = "Error Code: E Tm Trade Cant Be Manipulated (16617)",
-  [16625] = "Error Code: E Cm Of Tm Suspended (16625)",
-  [16626] = "Error Code: E Expdate Not In Ascending Ord (16626)",
-  [16627] = "Error Code: E Invalid Contract Comb (16627)",
-  [16628] = "Error Code: E Bm Cannot Cancel Cm Orders (16628)",
-  [16629] = "Error Code: E Bm Cannot Cancel Bm Orders (16629)",
-  [16630] = "Error Code: E Cm Cannot Cancel Cm Orders (16630)",
-  [16631] = "Error Code: E Spread In Different Underlying (16631)",
-  [16632] = "Error Code: E Invalid Cli Ac (16632)",
-  [16636] = "Error Code: E Br Ord Limit Fut Buy Exceeded (16636)",
-  [16637] = "Error Code: E Br Ord Limit Fut Sell Exceeded (16637)",
-  [16638] = "Error Code: E Br Ord Limit Opt Buy Exceeded (16638)",
-  [16639] = "Error Code: E Br Ord Limit Opt Sell Exceeded (16639)",
-  [16640] = "Error Code: E Ur Ord Limit Fut Buy Exceeded (16640)",
-  [16641] = "Error Code: E Ur Ord Limit Fut Sell Exceeded (16641)",
-  [16642] = "Error Code: E Ur Ord Limit Opt Buy Exceeded (16642)",
-  [16643] = "Error Code: E Ur Ord Limit Opt Sell Exceeded (16643)",
-  [16645] = "Error Code: E Cant Appr Bhav Copy Generated (16645)",
-  [16646] = "Error Code: E Collateral Lmt Chk (16646)",
-  [16656] = "Error Code: E Address Not Found (16656)",
-  [16662] = "Error Code: E Stk In Popen (16662)",
-  [16666] = "Error Code: E Invalid Nnf Field (16666)",
-  [16667] = "Error Code: E Gtcgtd Not Allowed (16667)",
-  [16683] = "Error Code: Err User Already Signed Off (16683)",
-  [16684] = "Error Code: Err No Privilege (16684)",
-  [16686] = "Error Code: Closeout Order Reject (16686)",
-  [16687] = "Error Code: Closeout Frz Reject (16687)",
-  [16688] = "Error Code: Closeout Not Allowed (16688)",
-  [16690] = "Error Code: Closeout Trdmod Reject (16690)",
-  [16706] = "Error Code: Partial Order Reject (16706)",
-  [16708] = "Error Code: Partial Quick Order Cxl Rej (16708)",
-  [16711] = "Error Code: Error Invalid Sprd Combination (16711)",
-  [16713] = "Error Code: E Price Diff Out Of Range (16713)",
-  [16725] = "Error Code: Rms Rejected In Preopen (16725)",
-  [16730] = "Error Code: Error Algoid Nnfid Mismatch 1 (16730)",
-  [16731] = "Error Code: Error Algoid Nnfid Mismatch 2 (16731)",
-  [16732] = "Error Code: Error Algo Mkt Not Allowed (16732)",
-  [16733] = "Error Code: Error Invalid Nnf Id (16733)",
-  [16749] = "Error Code: Error Preopn Ato Mod Can Rej (16749)",
-  [16752] = "Error Code: Error Preopn Ato Not Allowed (16752)",
-  [16778] = "Error Code: Err Usr Not Found In Nnf File (16778)",
-  [16793] = "Error Code: E Vc Order Rejected (16793)",
-  [16794] = "Error Code: E Ssd Order Rejected (16794)",
-  [16795] = "Error Code: E Order Cancelled For Vc (16795)",
-  [16796] = "Error Code: E Order Cancelled For Ssd (16796)",
-  [16797] = "Error Code: Msg Code Voluntary Close Out Status (16797)",
-  [16798] = "Error Code: Msg Code Suspended Status (16798)",
-  [16803] = "Error Code: E Bo Price Out Of Range (16803)",
-  [16804] = "Error Code: E Bo Excess Quantity (16804)",
-  [16805] = "Error Code: E User Ineligible For Bulk Orders (16805)",
-  [16806] = "Error Code: E User Not Allowed For Regular (16806)",
-  [16807] = "Error Code: E Account Debarred (16807)",
-  [16816] = "Error Code: E Account Debarred By Pit (16816)",
-  [16810] = "Error Code: Err Usr Already Unlcked (16810)",
-  [16811] = "Error Code: Err Duplicate Unlck Alrt (16811)",
-  [17022] = "Error Code: Err Actv Num Of Usrs In Brnch Exceeded (17022)",
-  [17039] = "Error Code: Ec Trd Mod Rej Cli Cp Mod Not Allowed (17039)",
-  [17045] = "Error Code: Error Quantity Lim Exceeds Qty Val Lim (17045)",
-  [17046] = "Error Code: User Trd Mod Disabled (17046)",
-  [16055] = "Error Code: Preopen Trade Cancellation Not Allowed (16055)",
-  [17063] = "Error Code: Err Depndent Sessn Not Active (17063)",
-  [17070] = "Error Code: E Trd Price Out Of Stock Tpp (17070)",
-  [17071] = "Error Code: E Order Cancelled For Self Trade (17071)",
-  [17101] = "Error Code: E Invalid Packet (17101)",
-  [17102] = "Error Code: Sssssse Hearbeat Not Received (17102)",
-  [17104] = "Error Code: E Invalid Box Id (17104)",
-  [17105] = "Error Code: E Seq No Mismatch (17105)",
-  [17106] = "Error Code: E Box Rate Exceeded (17106)",
-  [17107] = "Error Code: Error Hb Rate Exceeded (17107)",
-  [17142] = "Error Code: E Max User Count Exceeded (17142)",
-  [16403] = "Error Code: E Invalid Box Ip Combination (16403)",
-  [17177] = "Error Code: Err Invalid Pan Id (17177)",
-  [17179] = "Error Code: Err Invalid Algo Id (17179)",
-  [17180] = "Error Code: Err Invalid Value In Reserved (17180)",
-  [17185] = "Error Code: Err Algo Id Disabled (17185)",
-  [17186] = "Error Code: Err Order Cancelled Algoid Disabled (17186)",
-  [19028] = "Error Code: Err Checksum Failed Gr (19028)",
-  [19029] = "Error Code: Err Multiple Gr Query Rcv (19029)",
-  [17181] = "Error Code: Err Mkt Order Not Allowed (17181)",
-  [17182] = "Error Code: Err Trade Beyond Markup Price (17182)",
-  [19030] = "Error Code: Err Encryption Flag Mismatch (19030)",
-  [19031] = "Error Code: Err Md 5 Checksum Failure (19031)",
-  [17184] = "Error Code: Err User Having Null Rights (17184)",
-}
-
 nse_nsefo_orderentry_nnfdirect_v9_50.error_code.display = function(value)
-  return nse_nsefo_orderentry_nnfdirect_v9_50.error_code.labels[value] or "Error Code: Unknown("..value..")"
+  if value == 293 then
+    return "Error Code: Invalid Instrument Type (293)"
+  end
+  if value == 509 then
+    return "Error Code: Order Number Invalid (509)"
+  end
+  if value == 8049 then
+    return "Error Code: Ord Cxl Initiator Auc Not Allowed (8049)"
+  end
+  if value == 8485 then
+    return "Error Code: Auction Number Invalid (8485)"
+  end
+  if value == 16000 then
+    return "Error Code: Market Closed (16000)"
+  end
+  if value == 16001 then
+    return "Error Code: E Invalid User (16001)"
+  end
+  if value == 16003 then
+    return "Error Code: Error Bad Trans Code (16003)"
+  end
+  if value == 16004 then
+    return "Error Code: E User Already Signed On (16004)"
+  end
+  if value == 16005 then
+    return "Error Code: E Invalid Signoff (16005)"
+  end
+  if value == 16006 then
+    return "Error Code: E Invalid Signon (16006)"
+  end
+  if value == 16007 then
+    return "Error Code: E Signon Not Possible (16007)"
+  end
+  if value == 16012 then
+    return "Error Code: Err Invalid Symbol (16012)"
+  end
+  if value == 16013 then
+    return "Error Code: Err Invalid Order Number (16013)"
+  end
+  if value == 16014 then
+    return "Error Code: E Not Your Order (16014)"
+  end
+  if value == 16015 then
+    return "Error Code: E Not Your Fill (16015)"
+  end
+  if value == 16016 then
+    return "Error Code: E Invalid Fill Number (16016)"
+  end
+  if value == 16019 then
+    return "Error Code: E Stock Not Found (16019)"
+  end
+  if value == 16020 then
+    return "Error Code: E Order Price Out Of Revised Price Ra (16020)"
+  end
+  if value == 16035 then
+    return "Error Code: Security Not Available (16035)"
+  end
+  if value == 16041 then
+    return "Error Code: Broker Not Found (16041)"
+  end
+  if value == 16042 then
+    return "Error Code: User Not Found (16042)"
+  end
+  if value == 16043 then
+    return "Error Code: Duplicate Record (16043)"
+  end
+  if value == 16044 then
+    return "Error Code: E Order Modified (16044)"
+  end
+  if value == 16049 then
+    return "Error Code: Stock Suspended (16049)"
+  end
+  if value == 16052 then
+    return "Error Code: Err Function Not Available (16052)"
+  end
+  if value == 16053 then
+    return "Error Code: E Change Password (16053)"
+  end
+  if value == 16054 then
+    return "Error Code: Err Invalid Branch (16054)"
+  end
+  if value == 16056 then
+    return "Error Code: Oe Program Error (16056)"
+  end
+  if value == 16063 then
+    return "Error Code: Err Invalid Status (16063)"
+  end
+  if value == 16070 then
+    return "Error Code: Err Data Not Changed (16070)"
+  end
+  if value == 16086 then
+    return "Error Code: E Dup Trd Cxl Request (16086)"
+  end
+  if value == 16098 then
+    return "Error Code: Err Invalid Buyer User Id (16098)"
+  end
+  if value == 16099 then
+    return "Error Code: Err Invalid Seller User Id (16099)"
+  end
+  if value == 16100 then
+    return "Error Code: E Invalid Version (16100)"
+  end
+  if value == 16104 then
+    return "Error Code: Oe System Error (16104)"
+  end
+  if value == 16134 then
+    return "Error Code: Err User Disabled (16134)"
+  end
+  if value == 16145 then
+    return "Error Code: Oe Invalid Stock Status (16145)"
+  end
+  if value == 16148 then
+    return "Error Code: Err Invalid User Id (16148)"
+  end
+  if value == 16154 then
+    return "Error Code: Err Invalid Trader Id (16154)"
+  end
+  if value == 16169 then
+    return "Error Code: Oe Ato In Open (16169)"
+  end
+  if value == 16198 then
+    return "Error Code: E Dup Request (16198)"
+  end
+  if value == 16227 then
+    return "Error Code: E Only Cp Allowed (16227)"
+  end
+  if value == 16228 then
+    return "Error Code: E Sl Mit Nt Not Allowed Pclose (16228)"
+  end
+  if value == 16229 then
+    return "Error Code: E Gtc Gtd Ord Not Allowed Pclose (16229)"
+  end
+  if value == 16230 then
+    return "Error Code: Oe Cont Mod Not Allowed (16230)"
+  end
+  if value == 16231 then
+    return "Error Code: Trd Cont Mod Not Allowed (16231)"
+  end
+  if value == 16233 then
+    return "Error Code: Str Pro Partivipant Invalid (16233)"
+  end
+  if value == 16247 then
+    return "Error Code: Error Invalid Price (16247)"
+  end
+  if value == 16251 then
+    return "Error Code: Oe Diff Trd Mod Vol (16251)"
+  end
+  if value == 16260 then
+    return "Error Code: Error User Not Exists In System (16260)"
+  end
+  if value == 16264 then
+    return "Error Code: Err Already Deleted (16264)"
+  end
+  if value == 16273 then
+    return "Error Code: Record Not Found (16273)"
+  end
+  if value == 16278 then
+    return "Error Code: Oe Markets Closed (16278)"
+  end
+  if value == 16279 then
+    return "Error Code: Oe Security Not Admitted (16279)"
+  end
+  if value == 16280 then
+    return "Error Code: Oe Security Matured (16280)"
+  end
+  if value == 16281 then
+    return "Error Code: Oe Security Expelled (16281)"
+  end
+  if value == 16282 then
+    return "Error Code: Oe Issued Cap Exceeds (16282)"
+  end
+  if value == 16283 then
+    return "Error Code: Oe Price Not Mult (16283)"
+  end
+  if value == 16284 then
+    return "Error Code: Oe Price Exceeds Day Min Max (16284)"
+  end
+  if value == 16285 then
+    return "Error Code: Oe Is Not Active (16285)"
+  end
+  if value == 16300 then
+    return "Error Code: E System Wrong State (16300)"
+  end
+  if value == 16303 then
+    return "Error Code: Oe Auction Pending (16303)"
+  end
+  if value == 16307 then
+    return "Error Code: Oe Qty Freeze Can (16307)"
+  end
+  if value == 16308 then
+    return "Error Code: Oe Price Freeze Can (16308)"
+  end
+  if value == 16311 then
+    return "Error Code: Oe Sol Period Over (16311)"
+  end
+  if value == 16312 then
+    return "Error Code: Oe Comp Period Over (16312)"
+  end
+  if value == 16313 then
+    return "Error Code: Oe Auc Period Greater (16313)"
+  end
+  if value == 16315 then
+    return "Error Code: Oe Limit Trigger (16315)"
+  end
+  if value == 16316 then
+    return "Error Code: Oe Trigger Price Not Mult (16316)"
+  end
+  if value == 16317 then
+    return "Error Code: Oe No Aon Attrib (16317)"
+  end
+  if value == 16318 then
+    return "Error Code: Oe No Mf Attrib (16318)"
+  end
+  if value == 16319 then
+    return "Error Code: Oe No Aon In Attrib 1 (16319)"
+  end
+  if value == 16320 then
+    return "Error Code: Oe No Mf Attrib 1 (16320)"
+  end
+  if value == 16321 then
+    return "Error Code: Oe Mf Greater Disc (16321)"
+  end
+  if value == 16322 then
+    return "Error Code: Oe Mf Not Mult (16322)"
+  end
+  if value == 16323 then
+    return "Error Code: Oe Mf Greater Original (16323)"
+  end
+  if value == 16324 then
+    return "Error Code: Oe Disc Greater Original (16324)"
+  end
+  if value == 16325 then
+    return "Error Code: Oe Disc Not Mult (16325)"
+  end
+  if value == 16326 then
+    return "Error Code: Oe Gtd Greater (16326)"
+  end
+  if value == 16327 then
+    return "Error Code: Oe Quantity Gerater Rl (16327)"
+  end
+  if value == 16328 then
+    return "Error Code: Oe Quantity Not Mult Rl (16328)"
+  end
+  if value == 16329 then
+    return "Error Code: Oe Broker Not Permitted (16329)"
+  end
+  if value == 16330 then
+    return "Error Code: Oe Is Suspended (16330)"
+  end
+  if value == 16333 then
+    return "Error Code: Oe Branch Li Mit Exceeded (16333)"
+  end
+  if value == 16343 then
+    return "Error Code: Oe Ord Can Changed (16343)"
+  end
+  if value == 16344 then
+    return "Error Code: Oe Ord Cannot Cancel (16344)"
+  end
+  if value == 16345 then
+    return "Error Code: Oe Init Ord Cancel (16345)"
+  end
+  if value == 16346 then
+    return "Error Code: Oe Ord Cannot Modify (16346)"
+  end
+  if value == 16348 then
+    return "Error Code: Err Trading Not Allowed (16348)"
+  end
+  if value == 16357 then
+    return "Error Code: Oe Nt Rejected (16357)"
+  end
+  if value == 16363 then
+    return "Error Code: Chg St Exists (16363)"
+  end
+  if value == 16369 then
+    return "Error Code: Oe Security In Preopen (16369)"
+  end
+  if value == 16372 then
+    return "Error Code: Oe Inq Not Allowed (16372)"
+  end
+  if value == 16387 then
+    return "Error Code: Oe Security Ineligible (16387)"
+  end
+  if value == 16388 then
+    return "Error Code: E Fok Order Cancelled (16388)"
+  end
+  if value == 16392 then
+    return "Error Code: Turnover Limit Not Provided (16392)"
+  end
+  if value == 16397 then
+    return "Error Code: Err Cannot Mod Auc Order (16397)"
+  end
+  if value == 16400 then
+    return "Error Code: Oe Max Dq Allowed (16400)"
+  end
+  if value == 16404 then
+    return "Error Code: Oe Admin Susp Can (16404)"
+  end
+  if value == 16405 then
+    return "Error Code: E Invalid Buy Sell Type (16405)"
+  end
+  if value == 16406 then
+    return "Error Code: E Invalid Book Type (16406)"
+  end
+  if value == 16408 then
+    return "Error Code: E Invalid Trigger Price (16408)"
+  end
+  if value == 16414 then
+    return "Error Code: E Invalid Pro Client (16414)"
+  end
+  if value == 16415 then
+    return "Error Code: E Invalid Instructions (16415)"
+  end
+  if value == 16416 then
+    return "Error Code: E Invalid Order Parameters (16416)"
+  end
+  if value == 16418 then
+    return "Error Code: E Nnf Req Exceeded (16418)"
+  end
+  if value == 16419 then
+    return "Error Code: Invalid Order (16419)"
+  end
+  if value == 16420 then
+    return "Error Code: Err Box Rate Exceeded At Millisecond Level (16420)"
+  end
+  if value == 16440 then
+    return "Error Code: E Gtd Gt Maturity (16440)"
+  end
+  if value == 16441 then
+    return "Error Code: Dq Not Allowed In Preopen (16441)"
+  end
+  if value == 16442 then
+    return "Error Code: St Ord Not Allowed Popen (16442)"
+  end
+  if value == 16443 then
+    return "Error Code: E Ord Lim Exceeds Ord Val Lim (16443)"
+  end
+  if value == 16444 then
+    return "Error Code: Err Usr Ord Value Limit Exceeded (16444)"
+  end
+  if value == 16445 then
+    return "Error Code: Sl Not Allowed (16445)"
+  end
+  if value == 16446 then
+    return "Error Code: Mit Not Allowed (16446)"
+  end
+  if value == 16447 then
+    return "Error Code: E Ord Not Allowed In Preopen (16447)"
+  end
+  if value == 16448 then
+    return "Error Code: Error Sl Lmt Rsnblty Check (16448)"
+  end
+  if value == 16514 then
+    return "Error Code: E Not Modifiable (16514)"
+  end
+  if value == 16518 then
+    return "Error Code: E Tm Cm Does Not Exist (16518)"
+  end
+  if value == 16521 then
+    return "Error Code: E Not Clg Mem (16521)"
+  end
+  if value == 16523 then
+    return "Error Code: E User Not Corp Mgr (16523)"
+  end
+  if value == 16532 then
+    return "Error Code: E Pm Cm Invalid (16532)"
+  end
+  if value == 16533 then
+    return "Error Code: E Corp Mgr Vu Mod (16533)"
+  end
+  if value == 16541 then
+    return "Error Code: E Invalid Participant (16541)"
+  end
+  if value == 16550 then
+    return "Error Code: E Trade Approved By Cm (16550)"
+  end
+  if value == 16552 then
+    return "Error Code: E Cm Stock Suspended (16552)"
+  end
+  if value == 16554 then
+    return "Error Code: E Broker Not Permitted In Fut (16554)"
+  end
+  if value == 16555 then
+    return "Error Code: E Broker Not Permitted In Opt (16555)"
+  end
+  if value == 16556 then
+    return "Error Code: E Qty Less Than Min Lot (16556)"
+  end
+  if value == 16557 then
+    return "Error Code: E Disc Qty Less Than Min Lot (16557)"
+  end
+  if value == 16558 then
+    return "Error Code: E Mf Qty Less Than Min Lot (16558)"
+  end
+  if value == 16560 then
+    return "Error Code: E Already Rejected (16560)"
+  end
+  if value == 16561 then
+    return "Error Code: E Nt Orders Not Allowed (16561)"
+  end
+  if value == 16562 then
+    return "Error Code: E Nt Trade Not Allowed (16562)"
+  end
+  if value == 16566 then
+    return "Error Code: E Inconsistent Broker Branch (16566)"
+  end
+  if value == 16570 then
+    return "Error Code: M Post Close Start (16570)"
+  end
+  if value == 16571 then
+    return "Error Code: M Post Close Ended (16571)"
+  end
+  if value == 16572 then
+    return "Error Code: M Post Close Trades (16572)"
+  end
+  if value == 16573 then
+    return "Error Code: E Invalid Msg Length (16573)"
+  end
+  if value == 16574 then
+    return "Error Code: E Invalid Open Close Type (16574)"
+  end
+  if value == 16576 then
+    return "Error Code: E Nnf Inq Req Exceeded (16576)"
+  end
+  if value == 16577 then
+    return "Error Code: E Participant And Volume Changed (16577)"
+  end
+  if value == 16578 then
+    return "Error Code: E Invalid Cover Uncover Type (16578)"
+  end
+  if value == 16580 then
+    return "Error Code: E Illegal Participant (16580)"
+  end
+  if value == 16581 then
+    return "Error Code: E Invalid Fill Price (16581)"
+  end
+  if value == 16583 then
+    return "Error Code: E Pro No Participant (16583)"
+  end
+  if value == 16585 then
+    return "Error Code: E Invalid Account No (16585)"
+  end
+  if value == 16586 then
+    return "Error Code: E Allow No Participant Order (16586)"
+  end
+  if value == 16589 then
+    return "Error Code: M Delete All Orders (16589)"
+  end
+  if value == 16597 then
+    return "Error Code: E Cum Ur Ord Val Limit Exceede (16597)"
+  end
+  if value == 16598 then
+    return "Error Code: E Branch Ord Val Limit Exceeded (16598)"
+  end
+  if value == 16600 then
+    return "Error Code: Err Ord Val Exceeded (16600)"
+  end
+  if value == 16601 then
+    return "Error Code: Err Preopen Order Reject (16601)"
+  end
+  if value == 16602 then
+    return "Error Code: E Dealer Value Limit Exceeds (16602)"
+  end
+  if value == 16604 then
+    return "Error Code: E Participant Not Found (16604)"
+  end
+  if value == 16605 then
+    return "Error Code: E Either Leg Failed (16605)"
+  end
+  if value == 16606 then
+    return "Error Code: E Qty Greater Than Freeze Qty (16606)"
+  end
+  if value == 16607 then
+    return "Error Code: E Spread Not Allowed (16607)"
+  end
+  if value == 16609 then
+    return "Error Code: E Spread Allowed If Stock Open (16609)"
+  end
+  if value == 16610 then
+    return "Error Code: E Qty Should Be Same (16610)"
+  end
+  if value == 16611 then
+    return "Error Code: E Ord Mod Qty Frz Not Allowed (16611)"
+  end
+  if value == 16612 then
+    return "Error Code: E Trade Rec Modified (16612)"
+  end
+  if value == 16615 then
+    return "Error Code: E Tm Order Cant Be Modified (16615)"
+  end
+  if value == 16616 then
+    return "Error Code: E Tm Order Cant Be Cancelled (16616)"
+  end
+  if value == 16617 then
+    return "Error Code: E Tm Trade Cant Be Manipulated (16617)"
+  end
+  if value == 16625 then
+    return "Error Code: E Cm Of Tm Suspended (16625)"
+  end
+  if value == 16626 then
+    return "Error Code: E Expdate Not In Ascending Ord (16626)"
+  end
+  if value == 16627 then
+    return "Error Code: E Invalid Contract Comb (16627)"
+  end
+  if value == 16628 then
+    return "Error Code: E Bm Cannot Cancel Cm Orders (16628)"
+  end
+  if value == 16629 then
+    return "Error Code: E Bm Cannot Cancel Bm Orders (16629)"
+  end
+  if value == 16630 then
+    return "Error Code: E Cm Cannot Cancel Cm Orders (16630)"
+  end
+  if value == 16631 then
+    return "Error Code: E Spread In Different Underlying (16631)"
+  end
+  if value == 16632 then
+    return "Error Code: E Invalid Cli Ac (16632)"
+  end
+  if value == 16636 then
+    return "Error Code: E Br Ord Limit Fut Buy Exceeded (16636)"
+  end
+  if value == 16637 then
+    return "Error Code: E Br Ord Limit Fut Sell Exceeded (16637)"
+  end
+  if value == 16638 then
+    return "Error Code: E Br Ord Limit Opt Buy Exceeded (16638)"
+  end
+  if value == 16639 then
+    return "Error Code: E Br Ord Limit Opt Sell Exceeded (16639)"
+  end
+  if value == 16640 then
+    return "Error Code: E Ur Ord Limit Fut Buy Exceeded (16640)"
+  end
+  if value == 16641 then
+    return "Error Code: E Ur Ord Limit Fut Sell Exceeded (16641)"
+  end
+  if value == 16642 then
+    return "Error Code: E Ur Ord Limit Opt Buy Exceeded (16642)"
+  end
+  if value == 16643 then
+    return "Error Code: E Ur Ord Limit Opt Sell Exceeded (16643)"
+  end
+  if value == 16645 then
+    return "Error Code: E Cant Appr Bhav Copy Generated (16645)"
+  end
+  if value == 16646 then
+    return "Error Code: E Collateral Lmt Chk (16646)"
+  end
+  if value == 16656 then
+    return "Error Code: E Address Not Found (16656)"
+  end
+  if value == 16662 then
+    return "Error Code: E Stk In Popen (16662)"
+  end
+  if value == 16666 then
+    return "Error Code: E Invalid Nnf Field (16666)"
+  end
+  if value == 16667 then
+    return "Error Code: E Gtcgtd Not Allowed (16667)"
+  end
+  if value == 16683 then
+    return "Error Code: Err User Already Signed Off (16683)"
+  end
+  if value == 16684 then
+    return "Error Code: Err No Privilege (16684)"
+  end
+  if value == 16686 then
+    return "Error Code: Closeout Order Reject (16686)"
+  end
+  if value == 16687 then
+    return "Error Code: Closeout Frz Reject (16687)"
+  end
+  if value == 16688 then
+    return "Error Code: Closeout Not Allowed (16688)"
+  end
+  if value == 16690 then
+    return "Error Code: Closeout Trdmod Reject (16690)"
+  end
+  if value == 16706 then
+    return "Error Code: Partial Order Reject (16706)"
+  end
+  if value == 16708 then
+    return "Error Code: Partial Quick Order Cxl Rej (16708)"
+  end
+  if value == 16711 then
+    return "Error Code: Error Invalid Sprd Combination (16711)"
+  end
+  if value == 16713 then
+    return "Error Code: E Price Diff Out Of Range (16713)"
+  end
+  if value == 16725 then
+    return "Error Code: Rms Rejected In Preopen (16725)"
+  end
+  if value == 16730 then
+    return "Error Code: Error Algoid Nnfid Mismatch 1 (16730)"
+  end
+  if value == 16731 then
+    return "Error Code: Error Algoid Nnfid Mismatch 2 (16731)"
+  end
+  if value == 16732 then
+    return "Error Code: Error Algo Mkt Not Allowed (16732)"
+  end
+  if value == 16733 then
+    return "Error Code: Error Invalid Nnf Id (16733)"
+  end
+  if value == 16749 then
+    return "Error Code: Error Preopn Ato Mod Can Rej (16749)"
+  end
+  if value == 16752 then
+    return "Error Code: Error Preopn Ato Not Allowed (16752)"
+  end
+  if value == 16778 then
+    return "Error Code: Err Usr Not Found In Nnf File (16778)"
+  end
+  if value == 16793 then
+    return "Error Code: E Vc Order Rejected (16793)"
+  end
+  if value == 16794 then
+    return "Error Code: E Ssd Order Rejected (16794)"
+  end
+  if value == 16795 then
+    return "Error Code: E Order Cancelled For Vc (16795)"
+  end
+  if value == 16796 then
+    return "Error Code: E Order Cancelled For Ssd (16796)"
+  end
+  if value == 16797 then
+    return "Error Code: Msg Code Voluntary Close Out Status (16797)"
+  end
+  if value == 16798 then
+    return "Error Code: Msg Code Suspended Status (16798)"
+  end
+  if value == 16803 then
+    return "Error Code: E Bo Price Out Of Range (16803)"
+  end
+  if value == 16804 then
+    return "Error Code: E Bo Excess Quantity (16804)"
+  end
+  if value == 16805 then
+    return "Error Code: E User Ineligible For Bulk Orders (16805)"
+  end
+  if value == 16806 then
+    return "Error Code: E User Not Allowed For Regular (16806)"
+  end
+  if value == 16807 then
+    return "Error Code: E Account Debarred (16807)"
+  end
+  if value == 16816 then
+    return "Error Code: E Account Debarred By Pit (16816)"
+  end
+  if value == 16810 then
+    return "Error Code: Err Usr Already Unlcked (16810)"
+  end
+  if value == 16811 then
+    return "Error Code: Err Duplicate Unlck Alrt (16811)"
+  end
+  if value == 17022 then
+    return "Error Code: Err Actv Num Of Usrs In Brnch Exceeded (17022)"
+  end
+  if value == 17039 then
+    return "Error Code: Ec Trd Mod Rej Cli Cp Mod Not Allowed (17039)"
+  end
+  if value == 17045 then
+    return "Error Code: Error Quantity Lim Exceeds Qty Val Lim (17045)"
+  end
+  if value == 17046 then
+    return "Error Code: User Trd Mod Disabled (17046)"
+  end
+  if value == 16055 then
+    return "Error Code: Preopen Trade Cancellation Not Allowed (16055)"
+  end
+  if value == 17063 then
+    return "Error Code: Err Depndent Sessn Not Active (17063)"
+  end
+  if value == 17070 then
+    return "Error Code: E Trd Price Out Of Stock Tpp (17070)"
+  end
+  if value == 17071 then
+    return "Error Code: E Order Cancelled For Self Trade (17071)"
+  end
+  if value == 17101 then
+    return "Error Code: E Invalid Packet (17101)"
+  end
+  if value == 17102 then
+    return "Error Code: Sssssse Hearbeat Not Received (17102)"
+  end
+  if value == 17104 then
+    return "Error Code: E Invalid Box Id (17104)"
+  end
+  if value == 17105 then
+    return "Error Code: E Seq No Mismatch (17105)"
+  end
+  if value == 17106 then
+    return "Error Code: E Box Rate Exceeded (17106)"
+  end
+  if value == 17107 then
+    return "Error Code: Error Hb Rate Exceeded (17107)"
+  end
+  if value == 17142 then
+    return "Error Code: E Max User Count Exceeded (17142)"
+  end
+  if value == 16403 then
+    return "Error Code: E Invalid Box Ip Combination (16403)"
+  end
+  if value == 17177 then
+    return "Error Code: Err Invalid Pan Id (17177)"
+  end
+  if value == 17179 then
+    return "Error Code: Err Invalid Algo Id (17179)"
+  end
+  if value == 17180 then
+    return "Error Code: Err Invalid Value In Reserved (17180)"
+  end
+  if value == 17185 then
+    return "Error Code: Err Algo Id Disabled (17185)"
+  end
+  if value == 17186 then
+    return "Error Code: Err Order Cancelled Algoid Disabled (17186)"
+  end
+  if value == 19028 then
+    return "Error Code: Err Checksum Failed Gr (19028)"
+  end
+  if value == 19029 then
+    return "Error Code: Err Multiple Gr Query Rcv (19029)"
+  end
+  if value == 17181 then
+    return "Error Code: Err Mkt Order Not Allowed (17181)"
+  end
+  if value == 17182 then
+    return "Error Code: Err Trade Beyond Markup Price (17182)"
+  end
+  if value == 19030 then
+    return "Error Code: Err Encryption Flag Mismatch (19030)"
+  end
+  if value == 19031 then
+    return "Error Code: Err Md 5 Checksum Failure (19031)"
+  end
+  if value == 17184 then
+    return "Error Code: Err User Having Null Rights (17184)"
+  end
+  if value == 0 then
+    return "Error Code: No Error"
+  end
+
+  return "Error Code: Unknown("..value..")"
 end
 
 -- Dissect: Error Code
@@ -3174,10 +3669,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3197,10 +3692,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3220,10 +3715,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_116, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_116, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3243,10 +3738,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_17, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_17, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3266,10 +3761,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_18, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_18, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3289,10 +3784,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_2, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3312,10 +3807,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_3, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_3, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3335,10 +3830,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_4, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_4, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3358,10 +3853,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_9.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_9.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_9.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_9, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_9, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3381,10 +3876,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_options_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_options_1.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_options_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_options_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_options_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3404,10 +3899,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_y, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.filler_y, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3427,10 +3922,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3450,10 +3945,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_2.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_2, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillerx_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3473,10 +3968,10 @@ end
 nse_nsefo_orderentry_nnfdirect_v9_50.fillery_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.fillery_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.fillery_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillery_1, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.fillery_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4595,6 +5090,13 @@ nse_nsefo_orderentry_nnfdirect_v9_50.log_time.dissect = function(buffer, offset,
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.log_time
   if nse_nsefo_orderentry_nnfdirect_v9_50.timestamp_format == 3 then field = omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.log_time_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Log Time: No Value")
+    return offset + length, value
+  end
 
   -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
@@ -6218,21 +6720,36 @@ nse_nsefo_orderentry_nnfdirect_v9_50.participant_type = {}
 nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.size = 1
 
 -- Display: Participant Type
-nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.labels = {
-  ["I"] = "Participant Type: Initiator (I)",
-  ["C"] = "Participant Type: Competitor (C)",
-  ["S"] = "Participant Type: Solicitor (S)",
-}
-
 nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.display = function(value)
-  return nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.labels[value] or "Participant Type: Unknown("..value..")"
+  if value == "I" then
+    return "Participant Type: Initiator (I)"
+  end
+  if value == "C" then
+    return "Participant Type: Competitor (C)"
+  end
+  if value == "S" then
+    return "Participant Type: Solicitor (S)"
+  end
+  if value == " " then
+    return "Participant Type: No Value (<whitespace>)"
+  end
+
+  return "Participant Type: Unknown("..value..")"
 end
 
 -- Dissect: Participant Type
 nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.size
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string()
+  end
+
   local display = nse_nsefo_orderentry_nnfdirect_v9_50.participant_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsefo_orderentry_nnfdirect_v9_50.fields.participant_type, range, value, display)
@@ -8179,6 +8696,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.time_stamp_1.size = 8
 
 -- Display: Time Stamp 1
 nse_nsefo_orderentry_nnfdirect_v9_50.time_stamp_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' or value == "00000000" then
+    return "Time Stamp 1: No Value"
+  end
+
   return "Time Stamp 1: "..value
 end
 
@@ -8202,6 +8724,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.time_stamp_2.size = 8
 
 -- Display: Time Stamp 2
 nse_nsefo_orderentry_nnfdirect_v9_50.time_stamp_2.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' or value == "00000000" then
+    return "Time Stamp 2: No Value"
+  end
+
   return "Time Stamp 2: "..value
 end
 
@@ -9540,7 +10067,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields = function(buffer, o
   index, op_broker_id_2 = nse_nsefo_orderentry_nnfdirect_v9_50.op_broker_id_2.dissect(buffer, index, packet, parent)
 
   -- Fillerx 2: CHAR
-  index, fillerx_2 = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_2 = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_2.size
+  end
 
   -- Order Type 2: SHORT
   index, order_type_2 = nse_nsefo_orderentry_nnfdirect_v9_50.order_type_2.dissect(buffer, index, packet, parent)
@@ -9589,7 +10120,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.ms_spd_leg_info.fields = function(buffer, o
   end
 
   -- Filler Y: CHAR
-  index, filler_y = nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_y = nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_y.size
+  end
 
   return index
 end
@@ -9685,7 +10220,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields = function(buffer,
   index, participant_type_1 = nse_nsefo_orderentry_nnfdirect_v9_50.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsefo_orderentry_nnfdirect_v9_50.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -9697,7 +10236,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields = function(buffer,
   index, mod_cxl_by_1 = nse_nsefo_orderentry_nnfdirect_v9_50.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsefo_orderentry_nnfdirect_v9_50.reason_code_1.dissect(buffer, index, packet, parent)
@@ -9718,13 +10261,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields = function(buffer,
   index, op_broker_id_1 = nse_nsefo_orderentry_nnfdirect_v9_50.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsefo_orderentry_nnfdirect_v9_50.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsefo_orderentry_nnfdirect_v9_50.order_type_1.dissect(buffer, index, packet, parent)
@@ -9812,13 +10367,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.spread_order_body.fields = function(buffer,
   end
 
   -- Filler 116: CHAR
-  index, filler_116 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_116 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.size
+  end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsefo_orderentry_nnfdirect_v9_50.nnf_field.dissect(buffer, index, packet, parent)
@@ -10100,13 +10667,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.order_entry_body.fields = function(buffer, 
   end
 
   -- Filler 116: CHAR
-  index, filler_116 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_116 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_116.size
+  end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsefo_orderentry_nnfdirect_v9_50.nnf_field.dissect(buffer, index, packet, parent)
@@ -10298,7 +10877,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.giveup.fields = function(buffer, offset, pa
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsefo_orderentry_nnfdirect_v9_50.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsefo_orderentry_nnfdirect_v9_50.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler.size
+  end
 
   -- Buy Sell: SHORT
   index, buy_sell = nse_nsefo_orderentry_nnfdirect_v9_50.buy_sell.dissect(buffer, index, packet, parent)
@@ -10820,13 +11403,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.contracts_details.fields = function(buffer,
   index, open_interest_double = nse_nsefo_orderentry_nnfdirect_v9_50.open_interest_double.dissect(buffer, index, packet, parent)
 
   -- Filler 4: LONG
-  index, filler_4 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.size
+  end
 
   -- Filler 2: LONG
-  index, filler_2 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.size
+  end
 
   -- Filler 3: LONG
-  index, filler_3 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.size
+  end
 
   return index
 end
@@ -10948,13 +11543,25 @@ nse_nsefo_orderentry_nnfdirect_v9_50.index_details.fields = function(buffer, off
   index, life_low = nse_nsefo_orderentry_nnfdirect_v9_50.life_low.dissect(buffer, index, packet, parent)
 
   -- Filler 4: LONG
-  index, filler_4 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_4 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_4.size
+  end
 
   -- Filler 2: LONG
-  index, filler_2 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_2 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_2.size
+  end
 
   -- Filler 3: LONG
-  index, filler_3 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_3 = nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler_3.size
+  end
 
   return index
 end
@@ -13495,7 +14102,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.gateway_router_response_message.fields = fu
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsefo_orderentry_nnfdirect_v9_50.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsefo_orderentry_nnfdirect_v9_50.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler.size
+  end
 
   -- Ip Address: CHAR
   index, ip_address = nse_nsefo_orderentry_nnfdirect_v9_50.ip_address.dissect(buffer, index, packet, parent)
@@ -15723,7 +16334,11 @@ nse_nsefo_orderentry_nnfdirect_v9_50.gateway_router_request_message.fields = fun
   index, broker_id = nse_nsefo_orderentry_nnfdirect_v9_50.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsefo_orderentry_nnfdirect_v9_50.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsefo_orderentry_nnfdirect_v9_50.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnfdirect_v9_50.filler.size
+  end
 
   return index
 end

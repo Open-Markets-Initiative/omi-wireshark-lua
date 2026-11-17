@@ -84,6 +84,7 @@ omi_cme_globex_mdp3_sbe_v1_13.fields.fx_benchmark_rate_fix = ProtoField.new("Fx 
 omi_cme_globex_mdp3_sbe_v1_13.fields.fx_currency_symbol = ProtoField.new("Fx Currency Symbol", "cme.globex.mdp3.sbe.v1.13.fxcurrencysymbol", ftypes.STRING, nil, nil, nil, "Base/Local. Denotes the currency pair in CCY1/CCY2 convention")
 omi_cme_globex_mdp3_sbe_v1_13.fields.fx_lot_type_rules_group = ProtoField.new("Fx Lot Type Rules Group", "cme.globex.mdp3.sbe.v1.13.fxlottyperulesgroup", ftypes.STRING, nil, nil, nil, "Number of LotTypeRules entries")
 omi_cme_globex_mdp3_sbe_v1_13.fields.fx_lot_type_rules_groups = ProtoField.new("Fx Lot Type Rules Groups", "cme.globex.mdp3.sbe.v1.13.fxlottyperulesgroups", ftypes.STRING, nil, nil, nil, "NoLotTypeRules Block")
+omi_cme_globex_mdp3_sbe_v1_13.fields.fx_min_lot_size = ProtoField.new("Fx Min Lot Size", "cme.globex.mdp3.sbe.v1.13.fxminlotsize", ftypes.UINT64, nil, nil, nil, "For FX instruments in the repeating group with Tag 1093-LotType=2, Tag 1231-MinLotSize provides a Regular Amount - a default order size on the Workstation screen. With tag 1093-LotType= 5, Tag 1231-MinLotSize value represents standard min order qty increment. With tag 1093-LotType=6 tag 1231-MinLotSize contains SizePriorityQty for instruments trading with Match Algorithm = P (Size Priority)")
 omi_cme_globex_mdp3_sbe_v1_13.fields.group_size = ProtoField.new("Group Size", "cme.globex.mdp3.sbe.v1.13.groupsize", ftypes.STRING, nil, nil, nil, "Repeating group dimensions")
 omi_cme_globex_mdp3_sbe_v1_13.fields.group_size_8_byte = ProtoField.new("Group Size 8 Byte", "cme.globex.mdp3.sbe.v1.13.groupsize8byte", ftypes.STRING, nil, nil, nil, "8 Byte aligned repeating group dimensions")
 omi_cme_globex_mdp3_sbe_v1_13.fields.gt_orders_eligibility = ProtoField.new("Gt Orders Eligibility", "cme.globex.mdp3.sbe.v1.13.gtorderseligibility", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00040000, "GTOrdersEligibility")
@@ -203,8 +204,7 @@ omi_cme_globex_mdp3_sbe_v1_13.fields.md_update_action = ProtoField.new("Md Updat
 omi_cme_globex_mdp3_sbe_v1_13.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.globex.mdp3.sbe.v1.13.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "Packet Sequence Number")
 omi_cme_globex_mdp3_sbe_v1_13.fields.message_size = ProtoField.new("Message Size", "cme.globex.mdp3.sbe.v1.13.messagesize", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_13.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.globex.mdp3.sbe.v1.13.mincabprice", ftypes.DOUBLE, nil, nil, nil, "Defines cabinet price for outright options products")
-omi_cme_globex_mdp3_sbe_v1_13.fields.min_lot_size_decimal_qty = ProtoField.new("Min Lot Size Decimal Qty", "cme.globex.mdp3.sbe.v1.13.minlotsizedecimalqty", ftypes.DOUBLE, nil, nil, nil, "Minimum quantity accepted for order entry. If tag 1093-LotType=4, this value is the minimum quantity for order entry expressed in the applicable units, specified in tag 996-UnitOfMeasure, e.g. megawatts")
-omi_cme_globex_mdp3_sbe_v1_13.fields.min_lot_size_u_int_64 = ProtoField.new("Min Lot Size u Int 64", "cme.globex.mdp3.sbe.v1.13.minlotsizeuint64", ftypes.UINT64, nil, nil, nil, "For FX instruments in the repeating group with Tag 1093-LotType=2, Tag 1231-MinLotSize provides a Regular Amount - a default order size on the Workstation screen. With tag 1093-LotType= 5, Tag 1231-MinLotSize value represents standard min order qty increment. With tag 1093-LotType=6 tag 1231-MinLotSize contains SizePriorityQty for instruments trading with Match Algorithm = P (Size Priority)")
+omi_cme_globex_mdp3_sbe_v1_13.fields.min_lot_size = ProtoField.new("Min Lot Size", "cme.globex.mdp3.sbe.v1.13.minlotsize", ftypes.DOUBLE, nil, nil, nil, "Minimum quantity accepted for order entry. If tag 1093-LotType=4, this value is the minimum quantity for order entry expressed in the applicable units, specified in tag 996-UnitOfMeasure, e.g. megawatts")
 omi_cme_globex_mdp3_sbe_v1_13.fields.min_price_increment_amount = ProtoField.new("Min Price Increment Amount", "cme.globex.mdp3.sbe.v1.13.minpriceincrementamount", ftypes.DOUBLE, nil, nil, nil, "Monetary value equivalent to the minimum price fluctuation")
 omi_cme_globex_mdp3_sbe_v1_13.fields.min_price_increment_ex = ProtoField.new("Min Price Increment Ex", "cme.globex.mdp3.sbe.v1.13.minpriceincrementex", ftypes.DOUBLE, nil, nil, nil, "Minimum constant tick for the instrument, sent only if instrument is non-VTT (Variable Tick table) eligible")
 omi_cme_globex_mdp3_sbe_v1_13.fields.min_price_increment_optional_ex = ProtoField.new("Min Price Increment Optional Ex", "cme.globex.mdp3.sbe.v1.13.minpriceincrementoptionalex", ftypes.DOUBLE, nil, nil, nil, "Minimum constant tick for the instrument")
@@ -1985,6 +1985,29 @@ cme_globex_mdp3_sbe_v1_13.fx_currency_symbol.dissect = function(buffer, offset, 
   local display = cme_globex_mdp3_sbe_v1_13.fx_currency_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_mdp3_sbe_v1_13.fields.fx_currency_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fx Min Lot Size
+cme_globex_mdp3_sbe_v1_13.fx_min_lot_size = {}
+
+-- Size: Fx Min Lot Size
+cme_globex_mdp3_sbe_v1_13.fx_min_lot_size.size = 8
+
+-- Display: Fx Min Lot Size
+cme_globex_mdp3_sbe_v1_13.fx_min_lot_size.display = function(value)
+  return "Fx Min Lot Size: "..value
+end
+
+-- Dissect: Fx Min Lot Size
+cme_globex_mdp3_sbe_v1_13.fx_min_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_13.fx_min_lot_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_globex_mdp3_sbe_v1_13.fx_min_lot_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_13.fields.fx_min_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -3926,24 +3949,24 @@ cme_globex_mdp3_sbe_v1_13.min_cab_price.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Min Lot Size Decimal Qty
-cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty = {}
+-- Min Lot Size
+cme_globex_mdp3_sbe_v1_13.min_lot_size = {}
 
--- Size: Min Lot Size Decimal Qty
-cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty.size = 4
+-- Size: Min Lot Size
+cme_globex_mdp3_sbe_v1_13.min_lot_size.size = 4
 
--- Display: Min Lot Size Decimal Qty
-cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty.display = function(raw, value)
+-- Display: Min Lot Size
+cme_globex_mdp3_sbe_v1_13.min_lot_size.display = function(raw, value)
   -- Check null sentinel value
   if raw == 2147483647 then
-    return "Min Lot Size Decimal Qty: No Value"
+    return "Min Lot Size: No Value"
   end
 
-  return "Min Lot Size Decimal Qty: "..value
+  return "Min Lot Size: "..value
 end
 
--- Translate: Min Lot Size Decimal Qty
-cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty.translate = function(raw)
+-- Translate: Min Lot Size
+cme_globex_mdp3_sbe_v1_13.min_lot_size.translate = function(raw)
   -- Check null sentinel value
   if raw == 2147483647 then
     return 0/0
@@ -3952,38 +3975,15 @@ cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty.translate = function(raw)
   return raw/10000
 end
 
--- Dissect: Min Lot Size Decimal Qty
-cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty.size
+-- Dissect: Min Lot Size
+cme_globex_mdp3_sbe_v1_13.min_lot_size.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_13.min_lot_size.size
   local range = buffer(offset, length)
   local raw = range:le_int()
-  local value = cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty.translate(raw)
-  local display = cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty.display(raw, value, buffer, offset, packet, parent)
+  local value = cme_globex_mdp3_sbe_v1_13.min_lot_size.translate(raw)
+  local display = cme_globex_mdp3_sbe_v1_13.min_lot_size.display(raw, value, buffer, offset, packet, parent)
 
-  parent:add(omi_cme_globex_mdp3_sbe_v1_13.fields.min_lot_size_decimal_qty, range, value, display)
-
-  return offset + length, value
-end
-
--- Min Lot Size u Int 64
-cme_globex_mdp3_sbe_v1_13.min_lot_size_u_int_64 = {}
-
--- Size: Min Lot Size u Int 64
-cme_globex_mdp3_sbe_v1_13.min_lot_size_u_int_64.size = 8
-
--- Display: Min Lot Size u Int 64
-cme_globex_mdp3_sbe_v1_13.min_lot_size_u_int_64.display = function(value)
-  return "Min Lot Size u Int 64: "..value
-end
-
--- Dissect: Min Lot Size u Int 64
-cme_globex_mdp3_sbe_v1_13.min_lot_size_u_int_64.dissect = function(buffer, offset, packet, parent)
-  local length = cme_globex_mdp3_sbe_v1_13.min_lot_size_u_int_64.size
-  local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = cme_globex_mdp3_sbe_v1_13.min_lot_size_u_int_64.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cme_globex_mdp3_sbe_v1_13.fields.min_lot_size_u_int_64, range, value, display)
+  parent:add(omi_cme_globex_mdp3_sbe_v1_13.fields.min_lot_size, range, value, display)
 
   return offset + length, value
 end
@@ -9769,7 +9769,7 @@ cme_globex_mdp3_sbe_v1_13.fx_lot_type_rules_group = {}
 -- Size: Fx Lot Type Rules Group
 cme_globex_mdp3_sbe_v1_13.fx_lot_type_rules_group.size =
   cme_globex_mdp3_sbe_v1_13.lot_type.size + 
-  cme_globex_mdp3_sbe_v1_13.min_lot_size_u_int_64.size
+  cme_globex_mdp3_sbe_v1_13.fx_min_lot_size.size
 
 -- Display: Fx Lot Type Rules Group
 cme_globex_mdp3_sbe_v1_13.fx_lot_type_rules_group.display = function(packet, parent, length)
@@ -9789,8 +9789,8 @@ cme_globex_mdp3_sbe_v1_13.fx_lot_type_rules_group.fields = function(buffer, offs
   -- Lot Type: Int8
   index, lot_type = cme_globex_mdp3_sbe_v1_13.lot_type.dissect(buffer, index, packet, parent)
 
-  -- Min Lot Size u Int 64: uInt64
-  index, min_lot_size_u_int_64 = cme_globex_mdp3_sbe_v1_13.min_lot_size_u_int_64.dissect(buffer, index, packet, parent)
+  -- Fx Min Lot Size: uInt64
+  index, fx_min_lot_size = cme_globex_mdp3_sbe_v1_13.fx_min_lot_size.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -12013,7 +12013,7 @@ cme_globex_mdp3_sbe_v1_13.lot_type_rules_group = {}
 -- Size: Lot Type Rules Group
 cme_globex_mdp3_sbe_v1_13.lot_type_rules_group.size =
   cme_globex_mdp3_sbe_v1_13.lot_type.size + 
-  cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty.size
+  cme_globex_mdp3_sbe_v1_13.min_lot_size.size
 
 -- Display: Lot Type Rules Group
 cme_globex_mdp3_sbe_v1_13.lot_type_rules_group.display = function(packet, parent, length)
@@ -12033,8 +12033,8 @@ cme_globex_mdp3_sbe_v1_13.lot_type_rules_group.fields = function(buffer, offset,
   -- Lot Type: Int8
   index, lot_type = cme_globex_mdp3_sbe_v1_13.lot_type.dissect(buffer, index, packet, parent)
 
-  -- Min Lot Size Decimal Qty: DecimalQty
-  index, min_lot_size_decimal_qty = cme_globex_mdp3_sbe_v1_13.min_lot_size_decimal_qty.dissect(buffer, index, packet, parent)
+  -- Min Lot Size: DecimalQty
+  index, min_lot_size = cme_globex_mdp3_sbe_v1_13.min_lot_size.dissect(buffer, index, packet, parent)
 
   return index
 end

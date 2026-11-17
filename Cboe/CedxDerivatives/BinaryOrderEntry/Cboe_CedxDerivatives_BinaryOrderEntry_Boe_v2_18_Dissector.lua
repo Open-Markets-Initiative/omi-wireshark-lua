@@ -1058,8 +1058,7 @@ omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.investor_id = ProtoFi
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.investor_qualified_role = ProtoField.new("Investor Qualified Role", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.investorqualifiedrole", ftypes.UINT8)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.last_mkt = ProtoField.new("Last Mkt", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.lastmkt", ftypes.STRING)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.last_priority = ProtoField.new("Last Priority", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.lastpriority", ftypes.STRING)
-omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.last_px_binary_price_8 = ProtoField.new("Last Px Binary Price 8", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.lastpxbinaryprice8", ftypes.DOUBLE)
-omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.last_px_trade_price_8 = ProtoField.new("Last Px Trade Price 8", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.lastpxtradeprice8", ftypes.DOUBLE, nil, nil, nil, "Corresponds to LastPx (31) in Cboe FIX. Price of this fill. Note the use of Binary Price to represent positive and negative prices, which can occur with complex/spread instruments.")
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.last_px = ProtoField.new("Last Px", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.lastpx", ftypes.DOUBLE)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.last_received_sequence_number = ProtoField.new("Last Received Sequence Number", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.lastreceivedsequencenumber", ftypes.UINT32, nil, nil, nil, "Last inbound (Participant to Cboe) message se- quence number processed by Cboe.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.last_shares = ProtoField.new("Last Shares", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.lastshares", ftypes.UINT32, nil, nil, nil, "Corresponds to LastShares (32) in Cboe FIX. Executed contract quantity. System limit is 999,999 contracts.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.leaves_qty = ProtoField.new("Leaves Qty", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.leavesqty", ftypes.UINT32)
@@ -2531,8 +2530,8 @@ omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.start_of_message = Pr
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.stop_px = ProtoField.new("Stop Px", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.stoppx", ftypes.DOUBLE)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.subliquidityindicator", ftypes.STRING)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.subreason = ProtoField.new("Subreason", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.subreason", ftypes.STRING)
-omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.symbol_alphanumeric_6 = ProtoField.new("Symbol Alphanumeric 6", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.symbolalphanumeric6", ftypes.STRING, nil, nil, nil, "Populate with Symbol for resets at the Product- Code level. Leave empty for resets at the Trading Firm level")
-omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.symbol_alphanumeric_8 = ProtoField.new("Symbol Alphanumeric 8", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.symbolalphanumeric8", ftypes.STRING)
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.symbol_long = ProtoField.new("Symbol Long", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.symbollong", ftypes.STRING)
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.symbol_short = ProtoField.new("Symbol Short", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.symbolshort", ftypes.STRING, nil, nil, nil, "Populate with Symbol for resets at the Product- Code level. Leave empty for resets at the Trading Firm level")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.text = ProtoField.new("Text", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.text", ftypes.STRING, nil, nil, nil, "Human readable text with more information about the reject reason.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.time_in_force = ProtoField.new("Time In Force", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.timeinforce", ftypes.STRING)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.tolerance = ProtoField.new("Tolerance", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.tolerance", ftypes.UINT16)
@@ -2861,6 +2860,7 @@ omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.trade_capture_confirm
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.trade_capture_confirm_v_2_return_bitfield_9_order_category = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 9 Order Category", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.tradecaptureconfirmv2returnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.trade_capture_confirm_v_2_return_bitfield_9_target_party_id = ProtoField.new("Trade Capture Confirm V 2 Return Bitfield 9 Target Party Id", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.tradecaptureconfirmv2returnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.trade_capture_confirm_v_2_trd_cap_ack_side_grp = ProtoField.new("Trade Capture Confirm V 2 Trd Cap Ack Side Grp", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.tradecaptureconfirmv2trdcapacksidegrp", ftypes.STRING, nil, nil, nil, "Repeating group stated NoSides times.")
+omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.trade_capture_last_px = ProtoField.new("Trade Capture Last Px", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.tradecapturelastpx", ftypes.DOUBLE, nil, nil, nil, "Corresponds to LastPx (31) in Cboe FIX. Price of this fill. Note the use of Binary Price to represent positive and negative prices, which can occur with complex/spread instruments.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.trade_capture_report_acknowledgment_v_2_return_bitfield_1 = ProtoField.new("Trade Capture Report Acknowledgment V 2 Return Bitfield 1", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.tradecapturereportacknowledgmentv2returnbitfield1", ftypes.STRING, nil, nil, nil, "BitSet TradeCaptureReportAcknowledgmentV2 byte 1.")
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.trade_capture_report_acknowledgment_v_2_return_bitfield_1_exec_inst = ProtoField.new("Trade Capture Report Acknowledgment V 2 Return Bitfield 1 Exec Inst", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.tradecapturereportacknowledgmentv2returnbitfield1execinst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.trade_capture_report_acknowledgment_v_2_return_bitfield_1_max_remove_pct = ProtoField.new("Trade Capture Report Acknowledgment V 2 Return Bitfield 1 Max Remove Pct", "cboe.cedxderivatives.binaryorderentry.boe.v2.18.tradecapturereportacknowledgmentv2returnbitfield1maxremovepct", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80)
@@ -5492,60 +5492,31 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_priority.dissect = function
   return offset + length, value
 end
 
--- Last Px Binary Price 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8 = {}
+-- Last Px
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px = {}
 
--- Size: Last Px Binary Price 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.size = 8
+-- Size: Last Px
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.size = 8
 
--- Display: Last Px Binary Price 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.display = function(value)
-  return "Last Px Binary Price 8: "..value
+-- Display: Last Px
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.display = function(value)
+  return "Last Px: "..value
 end
 
--- Translate: Last Px Binary Price 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.translate = function(raw)
+-- Translate: Last Px
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.translate = function(raw)
   return raw:tonumber()/10000
 end
 
--- Dissect: Last Px Binary Price 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.size
+-- Dissect: Last Px
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.size
   local range = buffer(offset, length)
   local raw = range:le_int64()
-  local value = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.translate(raw)
-  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.display(value, buffer, offset, packet, parent)
+  local value = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.translate(raw)
+  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.last_px_binary_price_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Last Px Trade Price 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8 = {}
-
--- Size: Last Px Trade Price 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8.size = 8
-
--- Display: Last Px Trade Price 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8.display = function(value)
-  return "Last Px Trade Price 8: "..value
-end
-
--- Translate: Last Px Trade Price 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8.translate = function(raw)
-  return raw:tonumber()/10000000
-end
-
--- Dissect: Last Px Trade Price 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8.size
-  local range = buffer(offset, length)
-  local raw = range:le_uint64()
-  local value = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8.translate(raw)
-  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.last_px_trade_price_8, range, value, display)
+  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.last_px, range, value, display)
 
   return offset + length, value
 end
@@ -8923,25 +8894,25 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.subreason.dissect = function(buf
   return offset + length, value
 end
 
--- Symbol Alphanumeric 6
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6 = {}
+-- Symbol Long
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long = {}
 
--- Size: Symbol Alphanumeric 6
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.size = 6
+-- Size: Symbol Long
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.size = 8
 
--- Display: Symbol Alphanumeric 6
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.display = function(value)
+-- Display: Symbol Long
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Symbol Alphanumeric 6: No Value"
+    return "Symbol Long: No Value"
   end
 
-  return "Symbol Alphanumeric 6: "..value
+  return "Symbol Long: "..value
 end
 
--- Dissect: Symbol Alphanumeric 6
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.size
+-- Dissect: Symbol Long
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8955,32 +8926,32 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.dissect = 
     value = range:string()
   end
 
-  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.symbol_alphanumeric_6, range, value, display)
+  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.symbol_long, range, value, display)
 
   return offset + length, value
 end
 
--- Symbol Alphanumeric 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8 = {}
+-- Symbol Short
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short = {}
 
--- Size: Symbol Alphanumeric 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.size = 8
+-- Size: Symbol Short
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.size = 6
 
--- Display: Symbol Alphanumeric 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.display = function(value)
+-- Display: Symbol Short
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Symbol Alphanumeric 8: No Value"
+    return "Symbol Short: No Value"
   end
 
-  return "Symbol Alphanumeric 8: "..value
+  return "Symbol Short: "..value
 end
 
--- Dissect: Symbol Alphanumeric 8
-cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.size
+-- Dissect: Symbol Short
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.size
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8994,9 +8965,9 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect = 
     value = range:string()
   end
 
-  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.symbol_alphanumeric_8, range, value, display)
+  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -9114,6 +9085,35 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.tolerance.dissect = function(buf
   local display = cboe_cedxderivatives_binaryorderentry_boe_v2_18.tolerance.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.tolerance, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Capture Last Px
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px = {}
+
+-- Size: Trade Capture Last Px
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px.size = 8
+
+-- Display: Trade Capture Last Px
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px.display = function(value)
+  return "Trade Capture Last Px: "..value
+end
+
+-- Translate: Trade Capture Last Px
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Trade Capture Last Px
+cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px.translate(raw)
+  local display = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cedxderivatives_binaryorderentry_boe_v2_18.fields.trade_capture_last_px, range, value, display)
 
   return offset + length, value
 end
@@ -11432,8 +11432,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_report_decline_v_2
   -- Last Shares: Binary
   index, last_shares = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Trade Price 8: TradePrice
-  index, last_px_trade_price_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8.dissect(buffer, index, packet, parent)
+  -- Trade Capture Last Px: TradePrice
+  index, trade_capture_last_px = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px.dissect(buffer, index, packet, parent)
 
   -- Contra Broker: Alphanumeric
   index, contra_broker = cboe_cedxderivatives_binaryorderentry_boe_v2_18.contra_broker.dissect(buffer, index, packet, parent)
@@ -11660,13 +11660,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_report_decline_v_2
     index, trade_capture_report_decline_v_2_trd_cap_ack_side_grp = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_report_decline_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_decline_v_2_return_bitfield_1, trade_capture_report_decline_v_2_return_bitfield_2, trade_capture_report_decline_v_2_return_bitfield_3, trade_capture_report_decline_v_2_return_bitfield_4, trade_capture_report_decline_v_2_return_bitfield_6, trade_capture_report_decline_v_2_return_bitfield_17, trade_capture_report_decline_v_2_return_bitfield_18)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_decline_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -13547,8 +13547,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_confirm_v_2_messag
   -- Last Shares: Binary
   index, last_shares = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Trade Price 8: TradePrice
-  index, last_px_trade_price_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8.dissect(buffer, index, packet, parent)
+  -- Trade Capture Last Px: TradePrice
+  index, trade_capture_last_px = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px.dissect(buffer, index, packet, parent)
 
   -- Contra Broker: Alphanumeric
   index, contra_broker = cboe_cedxderivatives_binaryorderentry_boe_v2_18.contra_broker.dissect(buffer, index, packet, parent)
@@ -13769,13 +13769,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_confirm_v_2_messag
     index, trade_capture_confirm_v_2_trd_cap_ack_side_grp = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_confirm_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_confirm_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_confirm_v_2_return_bitfield_1, trade_capture_confirm_v_2_return_bitfield_2, trade_capture_confirm_v_2_return_bitfield_3, trade_capture_confirm_v_2_return_bitfield_4, trade_capture_confirm_v_2_return_bitfield_6, trade_capture_confirm_v_2_return_bitfield_8, trade_capture_confirm_v_2_return_bitfield_17, trade_capture_confirm_v_2_return_bitfield_18)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_confirm_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -15896,13 +15896,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_report_reject_v_2_
     index, trade_capture_report_reject_v_2_trd_cap_ack_side_grp = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_report_reject_v_2_trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_reject_v_2_return_bitfield_1, trade_capture_report_reject_v_2_return_bitfield_2, trade_capture_report_reject_v_2_return_bitfield_3, trade_capture_report_reject_v_2_return_bitfield_4, trade_capture_report_reject_v_2_return_bitfield_6, trade_capture_report_reject_v_2_return_bitfield_17, trade_capture_report_reject_v_2_return_bitfield_18)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_reject_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -17972,13 +17972,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_report_acknowledgm
     index, trd_cap_ack_side_grp = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trd_cap_ack_side_grp.dissect(buffer, index, packet, parent, trd_cap_ack_side_grp_index, number_of_return_bitfields, trade_capture_report_acknowledgment_v_2_return_bitfield_1, trade_capture_report_acknowledgment_v_2_return_bitfield_2, trade_capture_report_acknowledgment_v_2_return_bitfield_3, trade_capture_report_acknowledgment_v_2_return_bitfield_4, trade_capture_report_acknowledgment_v_2_return_bitfield_6, trade_capture_report_acknowledgment_v_2_return_bitfield_17, trade_capture_report_acknowledgment_v_2_return_bitfield_18)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(trade_capture_report_acknowledgment_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -21656,8 +21656,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.complex_instrument_accepted_mess
   -- Cl Ord Id: Text
   index, cl_ord_id = cboe_cedxderivatives_binaryorderentry_boe_v2_18.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 8: Alphanumeric
-  index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  -- Symbol Long: Alphanumeric
+  index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
 
   -- Revised Legs: Alphanumeric
   index, revised_legs = cboe_cedxderivatives_binaryorderentry_boe_v2_18.revised_legs.dissect(buffer, index, packet, parent)
@@ -25557,8 +25557,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_cancel_or_correct_v_2_mess
   -- Last Shares: Binary
   index, last_shares = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Binary Price 8: BinaryPrice
-  index, last_px_binary_price_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Last Px: BinaryPrice
+  index, last_px = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.dissect(buffer, index, packet, parent)
 
   -- Corrected Price: BinaryPrice
   index, corrected_price = cboe_cedxderivatives_binaryorderentry_boe_v2_18.corrected_price.dissect(buffer, index, packet, parent)
@@ -25774,13 +25774,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_cancel_or_correct_v_2_mess
     index, trade_cancelor_correct_v_2_return_bitfield_18 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_cancelor_correct_v_2_return_bitfield_18.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(trade_cancelor_correct_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(trade_cancelor_correct_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -25905,8 +25905,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.quote_execution_message.fields =
   -- Exec Id: Binary
   index, exec_id = cboe_cedxderivatives_binaryorderentry_boe_v2_18.exec_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Clearing Firm: Alpha
   index, clearing_firm = cboe_cedxderivatives_binaryorderentry_boe_v2_18.clearing_firm.dissect(buffer, index, packet, parent)
@@ -25914,8 +25914,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.quote_execution_message.fields =
   -- Last Shares: Binary
   index, last_shares = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Binary Price 8: BinaryPrice
-  index, last_px_binary_price_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Last Px: BinaryPrice
+  index, last_px = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: Binary
   index, leaves_qty = cboe_cedxderivatives_binaryorderentry_boe_v2_18.leaves_qty.dissect(buffer, index, packet, parent)
@@ -27596,8 +27596,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_execution_v_2_message.fiel
   -- Last Shares: Binary
   index, last_shares = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Binary Price 8: BinaryPrice
-  index, last_px_binary_price_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  -- Last Px: BinaryPrice
+  index, last_px = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: Binary
   index, leaves_qty = cboe_cedxderivatives_binaryorderentry_boe_v2_18.leaves_qty.dissect(buffer, index, packet, parent)
@@ -27864,13 +27864,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_execution_v_2_message.fiel
     index, min_qty = cboe_cedxderivatives_binaryorderentry_boe_v2_18.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_execution_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_execution_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -30066,13 +30066,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.cancel_rejected_v_2_message.fiel
     index, min_qty = cboe_cedxderivatives_binaryorderentry_boe_v2_18.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(cancel_rejected_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(cancel_rejected_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -32313,13 +32313,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.cross_order_cancelled_message.fi
     index, price = cboe_cedxderivatives_binaryorderentry_boe_v2_18.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_cancelled_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_cancelled_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -32450,8 +32450,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.quote_cancelled_message.fields =
   -- Order Id: Binary
   index, order_id = cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_id.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_cedxderivatives_binaryorderentry_boe_v2_18.side.dissect(buffer, index, packet, parent)
@@ -34373,13 +34373,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_cancelled_v_2_message.fiel
     index, min_qty = cboe_cedxderivatives_binaryorderentry_boe_v2_18.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_cancelled_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_cancelled_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -34499,13 +34499,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_cancelled_v_2_message.fiel
     index, last_shares = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Last Px Binary Price 8
-  local last_px_binary_price_8 = nil
+  -- Runtime optional field: Last Px
+  local last_px = nil
 
-  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_cancelled_v_2_return_bitfield_5, 0x08), 3) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_cancelled_v_2_return_bitfield_5, 0x08), 3) > 0
 
-  if last_px_binary_price_8_exists then
-    index, last_px_binary_price_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  if last_px_exists then
+    index, last_px = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -36601,8 +36601,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.quote_restated_message.fields = 
   -- Working Price: BinaryPrice
   index, working_price = cboe_cedxderivatives_binaryorderentry_boe_v2_18.working_price.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_cedxderivatives_binaryorderentry_boe_v2_18.side.dissect(buffer, index, packet, parent)
@@ -38524,13 +38524,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_restated_message.fields = 
     index, min_qty = cboe_cedxderivatives_binaryorderentry_boe_v2_18.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_restated_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_restated_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -38650,13 +38650,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_restated_message.fields = 
     index, last_shares = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Last Px Binary Price 8
-  local last_px_binary_price_8 = nil
+  -- Runtime optional field: Last Px
+  local last_px = nil
 
-  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_restated_v_2_return_bitfield_5, 0x08), 3) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_restated_v_2_return_bitfield_5, 0x08), 3) > 0
 
-  if last_px_binary_price_8_exists then
-    index, last_px_binary_price_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  if last_px_exists then
+    index, last_px = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -40822,13 +40822,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_modified_v_2_message.field
     index, last_shares = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Last Px Binary Price 8
-  local last_px_binary_price_8 = nil
+  -- Runtime optional field: Last Px
+  local last_px = nil
 
-  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_modified_v_2_return_bitfield_5, 0x08), 3) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_modified_v_2_return_bitfield_5, 0x08), 3) > 0
 
-  if last_px_binary_price_8_exists then
-    index, last_px_binary_price_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  if last_px_exists then
+    index, last_px = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -42934,13 +42934,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.cross_order_rejected_message.fie
     index, price = cboe_cedxderivatives_binaryorderentry_boe_v2_18.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_rejected_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_rejected_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -44920,13 +44920,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_rejected_v_2_message.field
     index, min_qty = cboe_cedxderivatives_binaryorderentry_boe_v2_18.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_rejected_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_rejected_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -47376,13 +47376,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.cross_order_acknowledgment_messa
     index, price = cboe_cedxderivatives_binaryorderentry_boe_v2_18.price.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_acknowledgment_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(cross_order_acknowledgment_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -49368,13 +49368,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_acknowledgment_v_2_message
     index, min_qty = cboe_cedxderivatives_binaryorderentry_boe_v2_18.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_return_bitfields >= 2 and bit.band(order_acknowledgment_v_2_return_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_return_bitfields >= 2 and bit.band(order_acknowledgment_v_2_return_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -49494,13 +49494,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_acknowledgment_v_2_message
     index, last_shares = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_shares.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Last Px Binary Price 8
-  local last_px_binary_price_8 = nil
+  -- Runtime optional field: Last Px
+  local last_px = nil
 
-  local last_px_binary_price_8_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_acknowledgment_v_2_return_bitfield_5, 0x08), 3) > 0
+  local last_px_exists = number_of_return_bitfields >= 5 and bit.rshift(bit.band(order_acknowledgment_v_2_return_bitfield_5, 0x08), 3) > 0
 
-  if last_px_binary_price_8_exists then
-    index, last_px_binary_price_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_binary_price_8.dissect(buffer, index, packet, parent)
+  if last_px_exists then
+    index, last_px = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Display Price
@@ -50279,8 +50279,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_report_v_2_message
   -- Last Shares: Binary
   index, last_shares = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_shares.dissect(buffer, index, packet, parent)
 
-  -- Last Px Trade Price 8: TradePrice
-  index, last_px_trade_price_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.last_px_trade_price_8.dissect(buffer, index, packet, parent)
+  -- Trade Capture Last Px: TradePrice
+  index, trade_capture_last_px = cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_last_px.dissect(buffer, index, packet, parent)
 
   -- Number Of Trade Capture Report V 2 Bitfields: Binary
   index, number_of_trade_capture_report_v_2_bitfields = cboe_cedxderivatives_binaryorderentry_boe_v2_18.number_of_trade_capture_report_v_2_bitfields.dissect(buffer, index, packet, parent)
@@ -50354,13 +50354,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.trade_capture_report_v_2_message
   -- No Sides: Binary
   index, no_sides = cboe_cedxderivatives_binaryorderentry_boe_v2_18.no_sides.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.band(trade_capture_report_v_2_bitfield_1, 0x01) > 0
+  local symbol_long_exists = number_of_trade_capture_report_v_2_bitfields >= 1 and bit.band(trade_capture_report_v_2_bitfield_1, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -50830,8 +50830,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.reset_risk_message.fields = func
   -- Clearing Firm: Alpha
   index, clearing_firm = cboe_cedxderivatives_binaryorderentry_boe_v2_18.clearing_firm.dissect(buffer, index, packet, parent)
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Custom Group Id: Binary
   index, custom_group_id = cboe_cedxderivatives_binaryorderentry_boe_v2_18.custom_group_id.dissect(buffer, index, packet, parent)
@@ -51204,7 +51204,7 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.quote = {}
 
 -- Size: Quote
 cboe_cedxderivatives_binaryorderentry_boe_v2_18.quote.size =
-  cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.size + 
+  cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.size + 
   cboe_cedxderivatives_binaryorderentry_boe_v2_18.side.size + 
   cboe_cedxderivatives_binaryorderentry_boe_v2_18.open_close.size + 
   cboe_cedxderivatives_binaryorderentry_boe_v2_18.price.size + 
@@ -51225,8 +51225,8 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.quote.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Symbol Alphanumeric 6: Alphanumeric
-  index, symbol_alphanumeric_6 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_6.dissect(buffer, index, packet, parent)
+  -- Symbol Short: Alphanumeric
+  index, symbol_short = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_short.dissect(buffer, index, packet, parent)
 
   -- Side: Alphanumeric
   index, side = cboe_cedxderivatives_binaryorderentry_boe_v2_18.side.dissect(buffer, index, packet, parent)
@@ -52477,13 +52477,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.new_order_cross_multileg_message
     index, new_order_cross_multileg_order_allocations = cboe_cedxderivatives_binaryorderentry_boe_v2_18.new_order_cross_multileg_order_allocations.dissect(buffer, index, packet, parent, new_order_cross_multileg_order_allocations_index, number_of_new_order_cross_multileg_bitfields, new_order_cross_multileg_bitfield_2, new_order_cross_multileg_bitfield_3, new_order_cross_multileg_bitfield_1)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_new_order_cross_multileg_bitfields >= 1 and bit.band(new_order_cross_multileg_bitfield_1, 0x01) > 0
+  local symbol_long_exists = number_of_new_order_cross_multileg_bitfields >= 1 and bit.band(new_order_cross_multileg_bitfield_1, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Liquidity Provision
@@ -53389,13 +53389,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.new_complex_order_message.fields
     index, time_in_force = cboe_cedxderivatives_binaryorderentry_boe_v2_18.time_in_force.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_new_complex_order_bitfields >= 1 and bit.rshift(bit.band(new_complex_order_bitfield_1, 0x20), 5) > 0
+  local symbol_long_exists = number_of_new_complex_order_bitfields >= 1 and bit.rshift(bit.band(new_complex_order_bitfield_1, 0x20), 5) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Capacity
@@ -54129,13 +54129,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.new_order_cross_message.fields =
     index, order_allocations = cboe_cedxderivatives_binaryorderentry_boe_v2_18.order_allocations.dissect(buffer, index, packet, parent, order_allocations_index, number_of_new_order_cross_bitfields, new_order_cross_bitfield_2, new_order_cross_bitfield_3, new_order_cross_bitfield_1)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_new_order_cross_bitfields >= 1 and bit.band(new_order_cross_bitfield_1, 0x01) > 0
+  local symbol_long_exists = number_of_new_order_cross_bitfields >= 1 and bit.band(new_order_cross_bitfield_1, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source
@@ -55223,13 +55223,13 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.new_order_v_2_message.fields = f
     index, min_qty = cboe_cedxderivatives_binaryorderentry_boe_v2_18.min_qty.dissect(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field: Symbol Alphanumeric 8
-  local symbol_alphanumeric_8 = nil
+  -- Runtime optional field: Symbol Long
+  local symbol_long = nil
 
-  local symbol_alphanumeric_8_exists = number_of_new_order_v_2_bitfields >= 2 and bit.band(new_order_v_2_bitfield_2, 0x01) > 0
+  local symbol_long_exists = number_of_new_order_v_2_bitfields >= 2 and bit.band(new_order_v_2_bitfield_2, 0x01) > 0
 
-  if symbol_alphanumeric_8_exists then
-    index, symbol_alphanumeric_8 = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_alphanumeric_8.dissect(buffer, index, packet, parent)
+  if symbol_long_exists then
+    index, symbol_long = cboe_cedxderivatives_binaryorderentry_boe_v2_18.symbol_long.dissect(buffer, index, packet, parent)
   end
 
   -- Runtime optional field: Id Source

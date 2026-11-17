@@ -88,7 +88,7 @@ omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.expulsion_date = ProtoField.new("E
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.extrinsic_value = ProtoField.new("Extrinsic Value", "nse.nsefo.broadcast.nnfbcast.v9.50.extrinsicvalue", ftypes.INT32)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.broadcast.nnfbcast.v9.50.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price the trade occurred at")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.fill_volume = ProtoField.new("Fill Volume", "nse.nsefo.broadcast.nnfbcast.v9.50.fillvolume", ftypes.INT32, nil, nil, nil, "Quantity traded")
-omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.filler = ProtoField.new("Filler", "nse.nsefo.broadcast.nnfbcast.v9.50.filler", ftypes.STRING)
+omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.filler = ProtoField.new("Filler", "nse.nsefo.broadcast.nnfbcast.v9.50.filler", ftypes.BYTES)
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.filler_2 = ProtoField.new("Filler 2", "nse.nsefo.broadcast.nnfbcast.v9.50.filler2", ftypes.BYTES, nil, nil, nil, "Padding, documented as Byte but eight bytes wide")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.final = ProtoField.new("Final", "nse.nsefo.broadcast.nnfbcast.v9.50.final", ftypes.STRING, nil, nil, nil, "Whether this is the final message")
 omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.freeze_quantity = ProtoField.new("Freeze Quantity", "nse.nsefo.broadcast.nnfbcast.v9.50.freezequantity", ftypes.INT32, nil, nil, nil, "Quantity above which an order freezes")
@@ -1885,10 +1885,10 @@ end
 nse_nsefo_broadcast_nnfbcast_v9_50.filler.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_broadcast_nnfbcast_v9_50.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_broadcast_nnfbcast_v9_50.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.filler, range, value, display)
+  parent:add(omi_nse_nsefo_broadcast_nnfbcast_v9_50.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -5332,7 +5332,11 @@ nse_nsefo_broadcast_nnfbcast_v9_50.turnover_limit_exceeded_body.fields = functio
   index, final = nse_nsefo_broadcast_nnfbcast_v9_50.final.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsefo_broadcast_nnfbcast_v9_50.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsefo_broadcast_nnfbcast_v9_50.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_broadcast_nnfbcast_v9_50.filler.size
+  end
 
   return index
 end
@@ -8603,7 +8607,11 @@ nse_nsefo_broadcast_nnfbcast_v9_50.st_sec_eligibility_per_mkt.fields = function(
   index, security_eligibility_flags = nse_nsefo_broadcast_nnfbcast_v9_50.security_eligibility_flags.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsefo_broadcast_nnfbcast_v9_50.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsefo_broadcast_nnfbcast_v9_50.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_broadcast_nnfbcast_v9_50.filler.size
+  end
 
   -- Status: SHORT
   index, status = nse_nsefo_broadcast_nnfbcast_v9_50.status.dissect(buffer, index, packet, parent)

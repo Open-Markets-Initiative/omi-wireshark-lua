@@ -286,3 +286,19 @@ runuser -u tester -- tshark \
 
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.correlationid" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.UnlockTradingMessage.json
 grep "coinbase.coinbasederivatives.ordersapi.sbe.v1.8.currentsessiononly" Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.UnlockTradingMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.OrdersApi.Sbe.v1.8/MultipleMessages.pcap" \
+  -X "lua_script:Coinbase/CoinbaseDerivatives/OrdersApi/Coinbase_CoinbaseDerivatives_OrdersApi_Sbe_v1_8_Dissector.lua" \
+  -T json \
+  > Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Multiplemessages.json 2> Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Multiplemessages.json.stderr; exit 1; }
+
+fields=$(grep -c "coinbase.coinbasederivatives.ordersapi.sbe.v1.8." Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Multiplemessages.json) \
+  || { echo "--- no coinbase.coinbasederivatives.ordersapi.sbe.v1.8 fields (MultipleMessages) ---"; exit 1; }
+echo "  coinbase.coinbasederivatives.ordersapi.sbe.v1.8 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Multiplemessages.json | sort -u | head; exit 1; }
+
+[ "$(grep -c 'coinbase.coinbasederivatives.ordersapi.sbe.v1.8.' Coinbase.CoinbaseDerivatives.OrdersApi.Sbe.v1.8.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

@@ -48,8 +48,8 @@ omi_cboe_c1options_complextop_spin_v1_1_54.fields.instrument_definition_response
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_count = ProtoField.new("Leg Count", "cboe.c1options.complextop.spin.v1.1.54.legcount", ftypes.UINT8, nil, nil, nil, "The number of legs in the complex instrument. The maximum number of legs is 16.")
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_ratio = ProtoField.new("Leg Ratio", "cboe.c1options.complextop.spin.v1.1.54.legratio", ftypes.INT32, nil, nil, nil, "Leg ratio (positive for buy-side, negative for sell-side). For options this is the number of contracts, for equities this is the number of shares.")
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_security_type = ProtoField.new("Leg Security Type", "cboe.c1options.complextop.spin.v1.1.54.legsecuritytype", ftypes.STRING, nil, nil, nil, "O = Leg is an Option instrument, E = Leg is an Equity instrument.")
-omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_symbol_printable_ascii_6 = ProtoField.new("Leg Symbol Printable Ascii 6", "cboe.c1options.complextop.spin.v1.1.54.legsymbolprintableascii6", ftypes.STRING, nil, nil, nil, "Option symbol of leg, right padded with spaces.")
-omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_symbol_printable_ascii_8 = ProtoField.new("Leg Symbol Printable Ascii 8", "cboe.c1options.complextop.spin.v1.1.54.legsymbolprintableascii8", ftypes.STRING, nil, nil, nil, "Option or Equity Symbol of leg, right padded with spaces.")
+omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_symbol_long = ProtoField.new("Leg Symbol Long", "cboe.c1options.complextop.spin.v1.1.54.legsymbollong", ftypes.STRING, nil, nil, nil, "Option or Equity Symbol of leg, right padded with spaces.")
+omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_symbol_short = ProtoField.new("Leg Symbol Short", "cboe.c1options.complextop.spin.v1.1.54.legsymbolshort", ftypes.STRING, nil, nil, nil, "Option symbol of leg, right padded with spaces.")
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.length = ProtoField.new("Length", "cboe.c1options.complextop.spin.v1.1.54.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.login_response_status = ProtoField.new("Login Response Status", "cboe.c1options.complextop.spin.v1.1.54.loginresponsestatus", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject.")
 omi_cboe_c1options_complextop_spin_v1_1_54.fields.message_count = ProtoField.new("Message Count", "cboe.c1options.complextop.spin.v1.1.54.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
@@ -940,48 +940,48 @@ cboe_c1options_complextop_spin_v1_1_54.leg_security_type.dissect = function(buff
   return offset + length, value
 end
 
--- Leg Symbol Printable Ascii 6
-cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_6 = {}
+-- Leg Symbol Long
+cboe_c1options_complextop_spin_v1_1_54.leg_symbol_long = {}
 
--- Size: Leg Symbol Printable Ascii 6
-cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_6.size = 6
+-- Size: Leg Symbol Long
+cboe_c1options_complextop_spin_v1_1_54.leg_symbol_long.size = 8
 
--- Display: Leg Symbol Printable Ascii 6
-cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_6.display = function(value)
-  return "Leg Symbol Printable Ascii 6: "..value
+-- Display: Leg Symbol Long
+cboe_c1options_complextop_spin_v1_1_54.leg_symbol_long.display = function(value)
+  return "Leg Symbol Long: "..value
 end
 
--- Dissect: Leg Symbol Printable Ascii 6
-cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_6.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_6.size
+-- Dissect: Leg Symbol Long
+cboe_c1options_complextop_spin_v1_1_54.leg_symbol_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_long.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_6.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_symbol_printable_ascii_6, range, value, display)
+  parent:add(omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_symbol_long, range, value, display)
 
   return offset + length, value
 end
 
--- Leg Symbol Printable Ascii 8
-cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_8 = {}
+-- Leg Symbol Short
+cboe_c1options_complextop_spin_v1_1_54.leg_symbol_short = {}
 
--- Size: Leg Symbol Printable Ascii 8
-cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_8.size = 8
+-- Size: Leg Symbol Short
+cboe_c1options_complextop_spin_v1_1_54.leg_symbol_short.size = 6
 
--- Display: Leg Symbol Printable Ascii 8
-cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_8.display = function(value)
-  return "Leg Symbol Printable Ascii 8: "..value
+-- Display: Leg Symbol Short
+cboe_c1options_complextop_spin_v1_1_54.leg_symbol_short.display = function(value)
+  return "Leg Symbol Short: "..value
 end
 
--- Dissect: Leg Symbol Printable Ascii 8
-cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_8.dissect = function(buffer, offset, packet, parent)
-  local length = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_8.size
+-- Dissect: Leg Symbol Short
+cboe_c1options_complextop_spin_v1_1_54.leg_symbol_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_short.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_8.display(value, buffer, offset, packet, parent)
+  local display = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_short.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_symbol_printable_ascii_8, range, value, display)
+  parent:add(omi_cboe_c1options_complextop_spin_v1_1_54.fields.leg_symbol_short, range, value, display)
 
   return offset + length, value
 end
@@ -2281,7 +2281,7 @@ cboe_c1options_complextop_spin_v1_1_54.edcid_leg = {}
 
 -- Size: Edcid Leg
 cboe_c1options_complextop_spin_v1_1_54.edcid_leg.size =
-  cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_6.size + 
+  cboe_c1options_complextop_spin_v1_1_54.leg_symbol_short.size + 
   cboe_c1options_complextop_spin_v1_1_54.leg_ratio.size
 
 -- Display: Edcid Leg
@@ -2299,8 +2299,8 @@ cboe_c1options_complextop_spin_v1_1_54.edcid_leg.fields = function(buffer, offse
     iteration:set_generated()
   end
 
-  -- Leg Symbol Printable Ascii 6: Printable ASCII
-  index, leg_symbol_printable_ascii_6 = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_6.dissect(buffer, index, packet, parent)
+  -- Leg Symbol Short: Printable ASCII
+  index, leg_symbol_short = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_short.dissect(buffer, index, packet, parent)
 
   -- Leg Ratio: Signed Binary
   index, leg_ratio = cboe_c1options_complextop_spin_v1_1_54.leg_ratio.dissect(buffer, index, packet, parent)
@@ -2419,7 +2419,7 @@ cboe_c1options_complextop_spin_v1_1_54.complex_leg = {}
 
 -- Size: Complex Leg
 cboe_c1options_complextop_spin_v1_1_54.complex_leg.size =
-  cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_8.size + 
+  cboe_c1options_complextop_spin_v1_1_54.leg_symbol_long.size + 
   cboe_c1options_complextop_spin_v1_1_54.leg_ratio.size + 
   cboe_c1options_complextop_spin_v1_1_54.leg_security_type.size
 
@@ -2438,8 +2438,8 @@ cboe_c1options_complextop_spin_v1_1_54.complex_leg.fields = function(buffer, off
     iteration:set_generated()
   end
 
-  -- Leg Symbol Printable Ascii 8: Printable ASCII
-  index, leg_symbol_printable_ascii_8 = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_printable_ascii_8.dissect(buffer, index, packet, parent)
+  -- Leg Symbol Long: Printable ASCII
+  index, leg_symbol_long = cboe_c1options_complextop_spin_v1_1_54.leg_symbol_long.dissect(buffer, index, packet, parent)
 
   -- Leg Ratio: Signed Binary
   index, leg_ratio = cboe_c1options_complextop_spin_v1_1_54.leg_ratio.dissect(buffer, index, packet, parent)

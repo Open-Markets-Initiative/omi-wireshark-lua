@@ -315,7 +315,7 @@ nasdaq_nordicderivatives_depthofbook_itch_v1_06.equilibrium_price.size = 4
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.equilibrium_price.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Equilibrium Price: No Value"
+    return "Equilibrium Price: No Price"
   end
 
   return "Equilibrium Price: "..value
@@ -1221,7 +1221,7 @@ nasdaq_nordicderivatives_depthofbook_itch_v1_06.price.size = 4
 nasdaq_nordicderivatives_depthofbook_itch_v1_06.price.display = function(value)
   -- Check if field has value
   if value == -2147483648 then
-    return "Price: No Value"
+    return "Price: Market Order"
   end
 
   return "Price: "..value

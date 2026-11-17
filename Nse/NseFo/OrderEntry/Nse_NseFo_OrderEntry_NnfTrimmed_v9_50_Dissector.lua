@@ -42,7 +42,7 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.expiry_date_utc = ProtoField.ne
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.fill_number = ProtoField.new("Fill Number", "nse.nsefo.orderentry.nnftrimmed.v9.50.fillnumber", ftypes.INT32, nil, nil, nil, "Number of the trade")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.orderentry.nnftrimmed.v9.50.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price the trade occurred at")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.fill_quantity = ProtoField.new("Fill Quantity", "nse.nsefo.orderentry.nnftrimmed.v9.50.fillquantity", ftypes.INT32, nil, nil, nil, "Quantity traded")
-omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.filler = ProtoField.new("Filler", "nse.nsefo.orderentry.nnftrimmed.v9.50.filler", ftypes.INT32)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.filler = ProtoField.new("Filler", "nse.nsefo.orderentry.nnftrimmed.v9.50.filler", ftypes.BYTES)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.frozen = ProtoField.new("Frozen", "nse.nsefo.orderentry.nnftrimmed.v9.50.frozen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "Order has resulted in a freeze awaiting approval")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.good_till_date = ProtoField.new("Good Till Date", "nse.nsefo.orderentry.nnftrimmed.v9.50.goodtilldate", ftypes.INT32, nil, nil, nil, "Number of days a good till date order remains, from two to the maximum the market allows")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.gtc = ProtoField.new("Gtc", "nse.nsefo.orderentry.nnftrimmed.v9.50.gtc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Good till cancelled order")
@@ -657,10 +657,10 @@ end
 nse_nsefo_orderentry_nnftrimmed_v9_50.filler.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsefo_orderentry_nnftrimmed_v9_50.filler.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsefo_orderentry_nnftrimmed_v9_50.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.filler, range, value, display)
+  parent:add(omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2366,7 +2366,11 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_confirmation_trimmed_message.fields 
   end
 
   -- Filler: LONG
-  index, filler = nse_nsefo_orderentry_nnftrimmed_v9_50.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsefo_orderentry_nnftrimmed_v9_50.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnftrimmed_v9_50.filler.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsefo_orderentry_nnftrimmed_v9_50.nnf_field.dissect(buffer, index, packet, parent)
@@ -2557,7 +2561,11 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.order_modify_cancel_trimmed_message.fields
   end
 
   -- Filler: LONG
-  index, filler = nse_nsefo_orderentry_nnftrimmed_v9_50.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsefo_orderentry_nnftrimmed_v9_50.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnftrimmed_v9_50.filler.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsefo_orderentry_nnftrimmed_v9_50.nnf_field.dissect(buffer, index, packet, parent)
@@ -2712,7 +2720,11 @@ nse_nsefo_orderentry_nnftrimmed_v9_50.board_lot_in_trimmed_message.fields = func
   end
 
   -- Filler: LONG
-  index, filler = nse_nsefo_orderentry_nnftrimmed_v9_50.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsefo_orderentry_nnftrimmed_v9_50.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsefo_orderentry_nnftrimmed_v9_50.filler.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsefo_orderentry_nnftrimmed_v9_50.nnf_field.dissect(buffer, index, packet, parent)

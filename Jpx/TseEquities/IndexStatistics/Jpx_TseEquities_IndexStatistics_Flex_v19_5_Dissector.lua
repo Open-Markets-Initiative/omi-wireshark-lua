@@ -17,8 +17,8 @@ local jpx_tseequities_indexstatistics_flex_v19_5 = {}
 -- Jpx TseEquities IndexStatistics Flex 19.5 Fields
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.aggregate_trading_volume = ProtoField.new("Aggregate Trading Volume", "jpx.tseequities.indexstatistics.flex.v19.5.aggregatetradingvolume", ftypes.STRING, nil, nil, nil, "Indicates the aggregate of trading volume for transactions conducted on ToSTNeT.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.aggregate_turnover = ProtoField.new("Aggregate Turnover", "jpx.tseequities.indexstatistics.flex.v19.5.aggregateturnover", ftypes.STRING, nil, nil, nil, "Indicates the aggregate of turnovers for transactions conducted on the ToSTNeT.")
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.basket_transaction_c_14 = ProtoField.new("Basket Transaction C 14", "jpx.tseequities.indexstatistics.flex.v19.5.baskettransactionc14", ftypes.STRING, nil, nil, nil, "Indicates the total of trading volumes for basket transactions.")
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.basket_transaction_c_8 = ProtoField.new("Basket Transaction C 8", "jpx.tseequities.indexstatistics.flex.v19.5.baskettransactionc8", ftypes.STRING, nil, nil, nil, "Indicates the number of basket transactions.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.basket_transaction = ProtoField.new("Basket Transaction", "jpx.tseequities.indexstatistics.flex.v19.5.baskettransaction", ftypes.STRING, nil, nil, nil, "Indicates the total of trading volumes for basket transactions.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.basket_transaction_count = ProtoField.new("Basket Transaction Count", "jpx.tseequities.indexstatistics.flex.v19.5.baskettransactioncount", ftypes.STRING, nil, nil, nil, "Indicates the number of basket transactions.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.blank_issue_code = ProtoField.new("Blank Issue Code", "jpx.tseequities.indexstatistics.flex.v19.5.blankissuecode", ftypes.STRING, nil, nil, nil, "Issue Code layout for a Control, Index or Statistics Message, which 5.3.3 (7) sets to spaces. The twelve bytes are on the wire either way, so they are read rather than skipped.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.cb_issue_code = ProtoField.new("CB Issue Code", "jpx.tseequities.indexstatistics.flex.v19.5.cbissuecode", ftypes.STRING, nil, nil, nil, "Issue Code layout used when Issue Classification Large Classification is 02 CB-Related. The figure carries no label of its own in 5.3.3 (7). FLEX Issue Code is set with right-align.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.cb_proper_name_code = ProtoField.new("CB Proper Name Code", "jpx.tseequities.indexstatistics.flex.v19.5.cbpropernamecode", ftypes.STRING, nil, nil, nil, "Proper Name Code.")
@@ -28,17 +28,17 @@ omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.closing_price_transaction 
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.comparison_type = ProtoField.new("Comparison Type", "jpx.tseequities.indexstatistics.flex.v19.5.comparisontype", ftypes.STRING, nil, nil, nil, "Indicates comparison type.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.control_medium_classification = ProtoField.new("Control Medium Classification", "jpx.tseequities.indexstatistics.flex.v19.5.controlmediumclassification", ftypes.STRING, nil, nil, nil, "Medium Classification of a Control Message. Indicates details and other information.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.current_price = ProtoField.new("Current Price", "jpx.tseequities.indexstatistics.flex.v19.5.currentprice", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.current_price_c_14 = ProtoField.new("Current Price C 14", "jpx.tseequities.indexstatistics.flex.v19.5.currentpricec14", ftypes.DOUBLE, nil, nil, nil, "Indicates the current price.")
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison_c_14 = ProtoField.new("Day On Day Comparison C 14", "jpx.tseequities.indexstatistics.flex.v19.5.dayondaycomparisonc14", ftypes.DOUBLE, nil, nil, nil, "Indicates the change in the total market value (after adjustment) from the previous day.")
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison_c_8 = ProtoField.new("Day On Day Comparison C 8", "jpx.tseequities.indexstatistics.flex.v19.5.dayondaycomparisonc8", ftypes.DOUBLE, nil, nil, nil, "Indicates the change in the final yield from the previous day.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.current_price_value = ProtoField.new("Current Price Value", "jpx.tseequities.indexstatistics.flex.v19.5.currentpricevalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the current price.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison = ProtoField.new("Day On Day Comparison", "jpx.tseequities.indexstatistics.flex.v19.5.dayondaycomparison", ftypes.DOUBLE, nil, nil, nil, "Indicates the change in the total market value (after adjustment) from the previous day.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison_rate = ProtoField.new("Day On Day Comparison Rate", "jpx.tseequities.indexstatistics.flex.v19.5.dayondaycomparisonrate", ftypes.DOUBLE, nil, nil, nil, "Indicates the change in the final yield from the previous day.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.direct_yield_average = ProtoField.new("Direct Yield Average", "jpx.tseequities.indexstatistics.flex.v19.5.directyieldaverage", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.direct_yield_average_c_8 = ProtoField.new("Direct Yield Average C 8", "jpx.tseequities.indexstatistics.flex.v19.5.directyieldaveragec8", ftypes.DOUBLE, nil, nil, nil, "Indicates the direct yield. The unit is 1/100%.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.direct_yield_average_value = ProtoField.new("Direct Yield Average Value", "jpx.tseequities.indexstatistics.flex.v19.5.directyieldaveragevalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the direct yield. The unit is 1/100%.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.divergence_average = ProtoField.new("Divergence Average", "jpx.tseequities.indexstatistics.flex.v19.5.divergenceaverage", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.divergence_average_c_8 = ProtoField.new("Divergence Average C 8", "jpx.tseequities.indexstatistics.flex.v19.5.divergenceaveragec8", ftypes.DOUBLE, nil, nil, nil, "Indicates the divergence average. The unit is 1/100%.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.divergence_average_value = ProtoField.new("Divergence Average Value", "jpx.tseequities.indexstatistics.flex.v19.5.divergenceaveragevalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the divergence average. The unit is 1/100%.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_trading_volume = ProtoField.new("Estimated Total Trading Volume", "jpx.tseequities.indexstatistics.flex.v19.5.estimatedtotaltradingvolume", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_trading_volume_c_14 = ProtoField.new("Estimated Total Trading Volume C 14", "jpx.tseequities.indexstatistics.flex.v19.5.estimatedtotaltradingvolumec14", ftypes.STRING, nil, nil, nil, "Indicates the estimated total trading volume for each issue classification.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_trading_volume_value = ProtoField.new("Estimated Total Trading Volume Value", "jpx.tseequities.indexstatistics.flex.v19.5.estimatedtotaltradingvolumevalue", ftypes.STRING, nil, nil, nil, "Indicates the estimated total trading volume for each issue classification.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_turnover = ProtoField.new("Estimated Total Turnover", "jpx.tseequities.indexstatistics.flex.v19.5.estimatedtotalturnover", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_turnover_c_14 = ProtoField.new("Estimated Total Turnover C 14", "jpx.tseequities.indexstatistics.flex.v19.5.estimatedtotalturnoverc14", ftypes.STRING, nil, nil, nil, "Indicates the estimated total turnover.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_turnover_value = ProtoField.new("Estimated Total Turnover Value", "jpx.tseequities.indexstatistics.flex.v19.5.estimatedtotalturnovervalue", ftypes.STRING, nil, nil, nil, "Indicates the estimated total turnover.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.exchange_code = ProtoField.new("Exchange Code", "jpx.tseequities.indexstatistics.flex.v19.5.exchangecode", ftypes.STRING, nil, nil, nil, "Exchange the information belongs to. This section is a space in Control Message.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.flag = ProtoField.new("Flag", "jpx.tseequities.indexstatistics.flex.v19.5.flag", ftypes.STRING, nil, nil, nil, "Indicates the flag of the opening price.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.fourth_trading_volumeturnover_unit_flag = ProtoField.new("Fourth Trading Volume/Turnover Unit Flag", "jpx.tseequities.indexstatistics.flex.v19.5.fourthtradingvolumeturnoverunitflag", ftypes.STRING, nil, nil, nil, "Indicates the unit of the turnover.")
@@ -87,7 +87,7 @@ omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.overall_parity_average = P
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.overall_simple_average = ProtoField.new("Overall Simple Average", "jpx.tseequities.indexstatistics.flex.v19.5.overallsimpleaverage", ftypes.STRING)
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.parity_100_or_higher = ProtoField.new("Parity 100 Or Higher", "jpx.tseequities.indexstatistics.flex.v19.5.parity100orhigher", ftypes.STRING)
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.parity_average = ProtoField.new("Parity Average", "jpx.tseequities.indexstatistics.flex.v19.5.parityaverage", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.parity_average_c_14 = ProtoField.new("Parity Average C 14", "jpx.tseequities.indexstatistics.flex.v19.5.parityaveragec14", ftypes.DOUBLE, nil, nil, nil, "Indicates the parity average. The unit used for the computation is 1/100 points.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.parity_average_value = ProtoField.new("Parity Average Value", "jpx.tseequities.indexstatistics.flex.v19.5.parityaveragevalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the parity average. The unit used for the computation is 1/100 points.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.parity_less_than_100 = ProtoField.new("Parity Less Than 100", "jpx.tseequities.indexstatistics.flex.v19.5.paritylessthan100", ftypes.STRING)
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.rank = ProtoField.new("Rank", "jpx.tseequities.indexstatistics.flex.v19.5.rank", ftypes.STRING, nil, nil, nil, "Indicates the rank.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.ranked_issue_code = ProtoField.new("Ranked Issue Code", "jpx.tseequities.indexstatistics.flex.v19.5.rankedissuecode", ftypes.STRING, nil, nil, nil, "Indicates the issue code.")
@@ -103,13 +103,13 @@ omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.sequence_number = ProtoFie
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.session_distinction = ProtoField.new("Session Distinction", "jpx.tseequities.indexstatistics.flex.v19.5.sessiondistinction", ftypes.STRING, nil, nil, nil, "Indicates the session in which the new information is generated. Set in Issue Real-time Message (FLEX Standard, ToSTNeT) and Index Message; for Issue Basic Message, Statistics Message and Control Message, spaces is set.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.sign = ProtoField.new("Sign", "jpx.tseequities.indexstatistics.flex.v19.5.sign", ftypes.STRING, nil, nil, nil, "Indicates the sign of Day-on-day comparison.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_average = ProtoField.new("Simple Average", "jpx.tseequities.indexstatistics.flex.v19.5.simpleaverage", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_average_c_14 = ProtoField.new("Simple Average C 14", "jpx.tseequities.indexstatistics.flex.v19.5.simpleaveragec14", ftypes.DOUBLE, nil, nil, nil, "Indicates the simple average. The unit used for the computation is 1/100 yen (i.e., sen).")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_average_value = ProtoField.new("Simple Average Value", "jpx.tseequities.indexstatistics.flex.v19.5.simpleaveragevalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the simple average. The unit used for the computation is 1/100 yen (i.e., sen).")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_stock_price_average = ProtoField.new("Simple Stock Price Average", "jpx.tseequities.indexstatistics.flex.v19.5.simplestockpriceaverage", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_stock_price_average_c_14 = ProtoField.new("Simple Stock Price Average C 14", "jpx.tseequities.indexstatistics.flex.v19.5.simplestockpriceaveragec14", ftypes.DOUBLE, nil, nil, nil, "Indicates the simple stock price average. The unit used for the computation is 1/100 yen (i.e., sen).")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_stock_price_average_value = ProtoField.new("Simple Stock Price Average Value", "jpx.tseequities.indexstatistics.flex.v19.5.simplestockpriceaveragevalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the simple stock price average. The unit used for the computation is 1/100 yen (i.e., sen).")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_yield = ProtoField.new("Simple Yield", "jpx.tseequities.indexstatistics.flex.v19.5.simpleyield", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_yield_c_8 = ProtoField.new("Simple Yield C 8", "jpx.tseequities.indexstatistics.flex.v19.5.simpleyieldc8", ftypes.DOUBLE, nil, nil, nil, "Indicates the simple yield. Unit: 1/100%")
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.single_issue_transaction_c_14 = ProtoField.new("Single Issue Transaction C 14", "jpx.tseequities.indexstatistics.flex.v19.5.singleissuetransactionc14", ftypes.STRING, nil, nil, nil, "Indicates the total of trading volumes for single-issue transactions.")
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.single_issue_transaction_c_8 = ProtoField.new("Single Issue Transaction C 8", "jpx.tseequities.indexstatistics.flex.v19.5.singleissuetransactionc8", ftypes.STRING, nil, nil, nil, "Indicates the number of single-issue transactions. Unit: transaction")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_yield_value = ProtoField.new("Simple Yield Value", "jpx.tseequities.indexstatistics.flex.v19.5.simpleyieldvalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the simple yield. Unit: 1/100%")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.single_issue_transaction = ProtoField.new("Single Issue Transaction", "jpx.tseequities.indexstatistics.flex.v19.5.singleissuetransaction", ftypes.STRING, nil, nil, nil, "Indicates the total of trading volumes for single-issue transactions.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.single_issue_transaction_count = ProtoField.new("Single Issue Transaction Count", "jpx.tseequities.indexstatistics.flex.v19.5.singleissuetransactioncount", ftypes.STRING, nil, nil, nil, "Indicates the number of single-issue transactions. Unit: transaction")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.sq_type = ProtoField.new("Sq Type", "jpx.tseequities.indexstatistics.flex.v19.5.sqtype", ftypes.STRING, nil, nil, nil, "Indicates the type of S.Q.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.start_of_message = ProtoField.new("Start Of Message", "jpx.tseequities.indexstatistics.flex.v19.5.startofmessage", ftypes.UINT8, nil, nil, nil, "Control Code DC1 (0x11), Start of a message")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.startend_flag = ProtoField.new("Startend Flag", "jpx.tseequities.indexstatistics.flex.v19.5.startendflag", ftypes.STRING, nil, nil, nil, "Indicates the flag for identifying the distinction between start and end.")
@@ -132,19 +132,19 @@ omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.top_rank_by_net_change_rat
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.top_rank_by_trading_volume = ProtoField.new("Top Rank By Trading Volume", "jpx.tseequities.indexstatistics.flex.v19.5.toprankbytradingvolume", ftypes.STRING)
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.top_rank_by_turnover = ProtoField.new("Top Rank By Turnover", "jpx.tseequities.indexstatistics.flex.v19.5.toprankbyturnover", ftypes.STRING)
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.total_market_value = ProtoField.new("Total Market Value", "jpx.tseequities.indexstatistics.flex.v19.5.totalmarketvalue", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.total_market_value_c_14 = ProtoField.new("Total Market Value C 14", "jpx.tseequities.indexstatistics.flex.v19.5.totalmarketvaluec14", ftypes.DOUBLE, nil, nil, nil, "Indicates the total market value. The unit used for the computation is 1 million yen.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.total_market_value_amount = ProtoField.new("Total Market Value Amount", "jpx.tseequities.indexstatistics.flex.v19.5.totalmarketvalueamount", ftypes.DOUBLE, nil, nil, nil, "Indicates the total market value. The unit used for the computation is 1 million yen.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.trading_volume = ProtoField.new("Trading Volume", "jpx.tseequities.indexstatistics.flex.v19.5.tradingvolume", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.trading_volume_c_14 = ProtoField.new("Trading Volume C 14", "jpx.tseequities.indexstatistics.flex.v19.5.tradingvolumec14", ftypes.STRING, nil, nil, nil, "Indicates the trading volume.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.trading_volume_turnover_unit_flag = ProtoField.new("Trading Volume Turnover Unit Flag", "jpx.tseequities.indexstatistics.flex.v19.5.tradingvolumeturnoverunitflag", ftypes.STRING, nil, nil, nil, "Indicates the unit of the turnover.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.trading_volume_value = ProtoField.new("Trading Volume Value", "jpx.tseequities.indexstatistics.flex.v19.5.tradingvolumevalue", ftypes.STRING, nil, nil, nil, "Indicates the trading volume.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.turnover = ProtoField.new("Turnover", "jpx.tseequities.indexstatistics.flex.v19.5.turnover", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.turnover_c_14 = ProtoField.new("Turnover C 14", "jpx.tseequities.indexstatistics.flex.v19.5.turnoverc14", ftypes.STRING, nil, nil, nil, "Indicates the turnover.")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.turnover_value = ProtoField.new("Turnover Value", "jpx.tseequities.indexstatistics.flex.v19.5.turnovervalue", ftypes.STRING, nil, nil, nil, "Indicates the turnover.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.unit_flag = ProtoField.new("Unit Flag", "jpx.tseequities.indexstatistics.flex.v19.5.unitflag", ftypes.STRING, nil, nil, nil, "Indicates that this is the unit flag.")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.vwap_by_market = ProtoField.new("Vwap By Market", "jpx.tseequities.indexstatistics.flex.v19.5.vwapbymarket", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.vwap_by_market_c_14 = ProtoField.new("Vwap By Market C 14", "jpx.tseequities.indexstatistics.flex.v19.5.vwapbymarketc14", ftypes.DOUBLE, nil, nil, nil, "Indicates the VWAP by market. Unit used for computation: 1/100 yen")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.vwap_by_market_value = ProtoField.new("Vwap By Market Value", "jpx.tseequities.indexstatistics.flex.v19.5.vwapbymarketvalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the VWAP by market. Unit used for computation: 1/100 yen")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_stock_price_average = ProtoField.new("Weighted Stock Price Average", "jpx.tseequities.indexstatistics.flex.v19.5.weightedstockpriceaverage", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_stock_price_average_c_14 = ProtoField.new("Weighted Stock Price Average C 14", "jpx.tseequities.indexstatistics.flex.v19.5.weightedstockpriceaveragec14", ftypes.DOUBLE, nil, nil, nil, "Indicates the weighted stock price average. The unit used for the computation is 1/100 yen (i.e., sen).")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_stock_price_average_value = ProtoField.new("Weighted Stock Price Average Value", "jpx.tseequities.indexstatistics.flex.v19.5.weightedstockpriceaveragevalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the weighted stock price average. The unit used for the computation is 1/100 yen (i.e., sen).")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_yield = ProtoField.new("Weighted Yield", "jpx.tseequities.indexstatistics.flex.v19.5.weightedyield", ftypes.STRING)
-omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_yield_c_8 = ProtoField.new("Weighted Yield C 8", "jpx.tseequities.indexstatistics.flex.v19.5.weightedyieldc8", ftypes.DOUBLE, nil, nil, nil, "Indicates the weighted yield. Unit: 1/100%")
+omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_yield_value = ProtoField.new("Weighted Yield Value", "jpx.tseequities.indexstatistics.flex.v19.5.weightedyieldvalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the weighted yield. Unit: 1/100%")
 omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.yield_day_on_day_comparison = ProtoField.new("Yield Day On Day Comparison", "jpx.tseequities.indexstatistics.flex.v19.5.yielddayondaycomparison", ftypes.STRING, nil, nil, nil, "Yield Day-on-day comparison")
 
 -- Jpx TseEquities IndexStatistics Flex 19.5 Framing
@@ -349,48 +349,48 @@ jpx_tseequities_indexstatistics_flex_v19_5.aggregate_turnover.dissect = function
   return offset + length, value
 end
 
--- Basket Transaction C 14
-jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14 = {}
+-- Basket Transaction
+jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction = {}
 
--- Size: Basket Transaction C 14
-jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.size = 14
+-- Size: Basket Transaction
+jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction.size = 14
 
--- Display: Basket Transaction C 14
-jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.display = function(value)
-  return "Basket Transaction C 14: "..value
+-- Display: Basket Transaction
+jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction.display = function(value)
+  return "Basket Transaction: "..value
 end
 
--- Dissect: Basket Transaction C 14
-jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.size
+-- Dissect: Basket Transaction
+jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction.size
   local range = buffer(offset, length)
   local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.basket_transaction_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.basket_transaction, range, value, display)
 
   return offset + length, value
 end
 
--- Basket Transaction C 8
-jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8 = {}
+-- Basket Transaction Count
+jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_count = {}
 
--- Size: Basket Transaction C 8
-jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8.size = 8
+-- Size: Basket Transaction Count
+jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_count.size = 8
 
--- Display: Basket Transaction C 8
-jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8.display = function(value)
-  return "Basket Transaction C 8: "..value
+-- Display: Basket Transaction Count
+jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_count.display = function(value)
+  return "Basket Transaction Count: "..value
 end
 
--- Dissect: Basket Transaction C 8
-jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8.size
+-- Dissect: Basket Transaction Count
+jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_count.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_count.size
   local range = buffer(offset, length)
   local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_count.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.basket_transaction_c_8, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.basket_transaction_count, range, value, display)
 
   return offset + length, value
 end
@@ -588,238 +588,238 @@ jpx_tseequities_indexstatistics_flex_v19_5.control_medium_classification.dissect
   return offset + length, value
 end
 
--- Current Price C 14
-jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14 = {}
+-- Current Price Value
+jpx_tseequities_indexstatistics_flex_v19_5.current_price_value = {}
 
--- Size: Current Price C 14
-jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.size = 14
+-- Size: Current Price Value
+jpx_tseequities_indexstatistics_flex_v19_5.current_price_value.size = 14
 
--- Display: Current Price C 14
-jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.size):string(), 4)
+-- Display: Current Price Value
+jpx_tseequities_indexstatistics_flex_v19_5.current_price_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.current_price_value.size):string(), 4)
 
   if text == nil then
-    return "Current Price C 14: "..tostring(value)
+    return "Current Price Value: "..tostring(value)
   end
 
-  return "Current Price C 14: "..text
+  return "Current Price Value: "..text
 end
 
--- Dissect: Current Price C 14
-jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.size
+-- Dissect: Current Price Value
+jpx_tseequities_indexstatistics_flex_v19_5.current_price_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.current_price_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.current_price_c_14, range, value, "Current Price C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Current Price C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.current_price_value, range, value, "Current Price Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Current Price Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.current_price_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.current_price_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.current_price_value, range, value, display)
 
   return offset + length, value
 end
 
--- Day On Day Comparison C 14
-jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14 = {}
+-- Day On Day Comparison
+jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison = {}
 
--- Size: Day On Day Comparison C 14
-jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.size = 14
+-- Size: Day On Day Comparison
+jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.size = 14
 
--- Display: Day On Day Comparison C 14
-jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.size):string(), 4)
+-- Display: Day On Day Comparison
+jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.size):string(), 4)
 
   if text == nil then
-    return "Day On Day Comparison C 14: "..tostring(value)
+    return "Day On Day Comparison: "..tostring(value)
   end
 
-  return "Day On Day Comparison C 14: "..text
+  return "Day On Day Comparison: "..text
 end
 
--- Dissect: Day On Day Comparison C 14
-jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.size
+-- Dissect: Day On Day Comparison
+jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison_c_14, range, value, "Day On Day Comparison C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Day On Day Comparison C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison, range, value, "Day On Day Comparison: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Day On Day Comparison is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison, range, value, display)
 
   return offset + length, value
 end
 
--- Day On Day Comparison C 8
-jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8 = {}
+-- Day On Day Comparison Rate
+jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate = {}
 
--- Size: Day On Day Comparison C 8
-jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.size = 8
+-- Size: Day On Day Comparison Rate
+jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.size = 8
 
--- Display: Day On Day Comparison C 8
-jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.size):string(), 2)
+-- Display: Day On Day Comparison Rate
+jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.size):string(), 2)
 
   if text == nil then
-    return "Day On Day Comparison C 8: "..tostring(value)
+    return "Day On Day Comparison Rate: "..tostring(value)
   end
 
-  return "Day On Day Comparison C 8: "..text
+  return "Day On Day Comparison Rate: "..text
 end
 
--- Dissect: Day On Day Comparison C 8
-jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.size
+-- Dissect: Day On Day Comparison Rate
+jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison_c_8, range, value, "Day On Day Comparison C 8: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Day On Day Comparison C 8 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison_rate, range, value, "Day On Day Comparison Rate: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Day On Day Comparison Rate is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/100
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison_c_8, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.day_on_day_comparison_rate, range, value, display)
 
   return offset + length, value
 end
 
--- Direct Yield Average C 8
-jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8 = {}
+-- Direct Yield Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value = {}
 
--- Size: Direct Yield Average C 8
-jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.size = 8
+-- Size: Direct Yield Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value.size = 8
 
--- Display: Direct Yield Average C 8
-jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.size):string(), 2)
+-- Display: Direct Yield Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value.size):string(), 2)
 
   if text == nil then
-    return "Direct Yield Average C 8: "..tostring(value)
+    return "Direct Yield Average Value: "..tostring(value)
   end
 
-  return "Direct Yield Average C 8: "..text
+  return "Direct Yield Average Value: "..text
 end
 
--- Dissect: Direct Yield Average C 8
-jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.size
+-- Dissect: Direct Yield Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.direct_yield_average_c_8, range, value, "Direct Yield Average C 8: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Direct Yield Average C 8 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.direct_yield_average_value, range, value, "Direct Yield Average Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Direct Yield Average Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/100
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.direct_yield_average_c_8, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.direct_yield_average_value, range, value, display)
 
   return offset + length, value
 end
 
--- Divergence Average C 8
-jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8 = {}
+-- Divergence Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value = {}
 
--- Size: Divergence Average C 8
-jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.size = 8
+-- Size: Divergence Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value.size = 8
 
--- Display: Divergence Average C 8
-jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.size):string(), 2)
+-- Display: Divergence Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value.size):string(), 2)
 
   if text == nil then
-    return "Divergence Average C 8: "..tostring(value)
+    return "Divergence Average Value: "..tostring(value)
   end
 
-  return "Divergence Average C 8: "..text
+  return "Divergence Average Value: "..text
 end
 
--- Dissect: Divergence Average C 8
-jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.size
+-- Dissect: Divergence Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.divergence_average_c_8, range, value, "Divergence Average C 8: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Divergence Average C 8 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.divergence_average_value, range, value, "Divergence Average Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Divergence Average Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/100
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.divergence_average_c_8, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.divergence_average_value, range, value, display)
 
   return offset + length, value
 end
 
--- Estimated Total Trading Volume C 14
-jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14 = {}
+-- Estimated Total Trading Volume Value
+jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_value = {}
 
--- Size: Estimated Total Trading Volume C 14
-jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14.size = 14
+-- Size: Estimated Total Trading Volume Value
+jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_value.size = 14
 
--- Display: Estimated Total Trading Volume C 14
-jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14.display = function(value)
-  return "Estimated Total Trading Volume C 14: "..value
+-- Display: Estimated Total Trading Volume Value
+jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_value.display = function(value)
+  return "Estimated Total Trading Volume Value: "..value
 end
 
--- Dissect: Estimated Total Trading Volume C 14
-jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14.size
+-- Dissect: Estimated Total Trading Volume Value
+jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_value.size
   local range = buffer(offset, length)
   local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_trading_volume_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_trading_volume_value, range, value, display)
 
   return offset + length, value
 end
 
--- Estimated Total Turnover C 14
-jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14 = {}
+-- Estimated Total Turnover Value
+jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_value = {}
 
--- Size: Estimated Total Turnover C 14
-jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14.size = 14
+-- Size: Estimated Total Turnover Value
+jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_value.size = 14
 
--- Display: Estimated Total Turnover C 14
-jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14.display = function(value)
-  return "Estimated Total Turnover C 14: "..value
+-- Display: Estimated Total Turnover Value
+jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_value.display = function(value)
+  return "Estimated Total Turnover Value: "..value
 end
 
--- Dissect: Estimated Total Turnover C 14
-jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14.size
+-- Dissect: Estimated Total Turnover Value
+jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_value.size
   local range = buffer(offset, length)
   local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_turnover_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.estimated_total_turnover_value, range, value, display)
 
   return offset + length, value
 end
@@ -1739,40 +1739,40 @@ jpx_tseequities_indexstatistics_flex_v19_5.output_time.dissect = function(buffer
   return offset + length, value
 end
 
--- Parity Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14 = {}
+-- Parity Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value = {}
 
--- Size: Parity Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.size = 14
+-- Size: Parity Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value.size = 14
 
--- Display: Parity Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.size):string(), 4)
+-- Display: Parity Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value.size):string(), 4)
 
   if text == nil then
-    return "Parity Average C 14: "..tostring(value)
+    return "Parity Average Value: "..tostring(value)
   end
 
-  return "Parity Average C 14: "..text
+  return "Parity Average Value: "..text
 end
 
--- Dissect: Parity Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.size
+-- Dissect: Parity Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.parity_average_c_14, range, value, "Parity Average C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Parity Average C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.parity_average_value, range, value, "Parity Average Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Parity Average Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.parity_average_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.parity_average_value, range, value, display)
 
   return offset + length, value
 end
@@ -2190,162 +2190,162 @@ jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect = function(buffer, offse
   return offset + length, value
 end
 
--- Simple Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14 = {}
+-- Simple Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value = {}
 
--- Size: Simple Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.size = 14
+-- Size: Simple Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value.size = 14
 
--- Display: Simple Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.size):string(), 4)
+-- Display: Simple Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value.size):string(), 4)
 
   if text == nil then
-    return "Simple Average C 14: "..tostring(value)
+    return "Simple Average Value: "..tostring(value)
   end
 
-  return "Simple Average C 14: "..text
+  return "Simple Average Value: "..text
 end
 
--- Dissect: Simple Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.size
+-- Dissect: Simple Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_average_c_14, range, value, "Simple Average C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Simple Average C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_average_value, range, value, "Simple Average Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Simple Average Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_average_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_average_value, range, value, display)
 
   return offset + length, value
 end
 
--- Simple Stock Price Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_c_14 = {}
+-- Simple Stock Price Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_value = {}
 
--- Size: Simple Stock Price Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_c_14.size = 14
+-- Size: Simple Stock Price Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_value.size = 14
 
--- Display: Simple Stock Price Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_c_14.size):string(), 4)
+-- Display: Simple Stock Price Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_value.size):string(), 4)
 
   if text == nil then
-    return "Simple Stock Price Average C 14: "..tostring(value)
+    return "Simple Stock Price Average Value: "..tostring(value)
   end
 
-  return "Simple Stock Price Average C 14: "..text
+  return "Simple Stock Price Average Value: "..text
 end
 
--- Dissect: Simple Stock Price Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_c_14.size
+-- Dissect: Simple Stock Price Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_stock_price_average_c_14, range, value, "Simple Stock Price Average C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Simple Stock Price Average C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_stock_price_average_value, range, value, "Simple Stock Price Average Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Simple Stock Price Average Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_stock_price_average_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_stock_price_average_value, range, value, display)
 
   return offset + length, value
 end
 
--- Simple Yield C 8
-jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_c_8 = {}
+-- Simple Yield Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_value = {}
 
--- Size: Simple Yield C 8
-jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_c_8.size = 8
+-- Size: Simple Yield Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_value.size = 8
 
--- Display: Simple Yield C 8
-jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_c_8.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_c_8.size):string(), 2)
+-- Display: Simple Yield Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_value.size):string(), 2)
 
   if text == nil then
-    return "Simple Yield C 8: "..tostring(value)
+    return "Simple Yield Value: "..tostring(value)
   end
 
-  return "Simple Yield C 8: "..text
+  return "Simple Yield Value: "..text
 end
 
--- Dissect: Simple Yield C 8
-jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_c_8.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_c_8.size
+-- Dissect: Simple Yield Value
+jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_yield_c_8, range, value, "Simple Yield C 8: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Simple Yield C 8 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_yield_value, range, value, "Simple Yield Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Simple Yield Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/100
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_c_8.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_yield_c_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Single Issue Transaction C 14
-jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_14 = {}
-
--- Size: Single Issue Transaction C 14
-jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_14.size = 14
-
--- Display: Single Issue Transaction C 14
-jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_14.display = function(value)
-  return "Single Issue Transaction C 14: "..value
-end
-
--- Dissect: Single Issue Transaction C 14
-jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_14.size
-  local range = buffer(offset, length)
-  local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_14.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.single_issue_transaction_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.simple_yield_value, range, value, display)
 
   return offset + length, value
 end
 
--- Single Issue Transaction C 8
-jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_8 = {}
+-- Single Issue Transaction
+jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction = {}
 
--- Size: Single Issue Transaction C 8
-jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_8.size = 8
+-- Size: Single Issue Transaction
+jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction.size = 14
 
--- Display: Single Issue Transaction C 8
-jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_8.display = function(value)
-  return "Single Issue Transaction C 8: "..value
+-- Display: Single Issue Transaction
+jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction.display = function(value)
+  return "Single Issue Transaction: "..value
 end
 
--- Dissect: Single Issue Transaction C 8
-jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_8.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_8.size
+-- Dissect: Single Issue Transaction
+jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction.size
   local range = buffer(offset, length)
   local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_8.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.single_issue_transaction_c_8, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.single_issue_transaction, range, value, display)
+
+  return offset + length, value
+end
+
+-- Single Issue Transaction Count
+jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_count = {}
+
+-- Size: Single Issue Transaction Count
+jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_count.size = 8
+
+-- Display: Single Issue Transaction Count
+jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_count.display = function(value)
+  return "Single Issue Transaction Count: "..value
+end
+
+-- Dissect: Single Issue Transaction Count
+jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_count.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_count.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.single_issue_transaction_count, range, value, display)
 
   return offset + length, value
 end
@@ -2788,63 +2788,40 @@ jpx_tseequities_indexstatistics_flex_v19_5.time_symbol.dissect = function(buffer
   return offset + length, value
 end
 
--- Total Market Value C 14
-jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_c_14 = {}
+-- Total Market Value Amount
+jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_amount = {}
 
--- Size: Total Market Value C 14
-jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_c_14.size = 14
+-- Size: Total Market Value Amount
+jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_amount.size = 14
 
--- Display: Total Market Value C 14
-jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_c_14.size):string(), 4)
+-- Display: Total Market Value Amount
+jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_amount.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_amount.size):string(), 4)
 
   if text == nil then
-    return "Total Market Value C 14: "..tostring(value)
+    return "Total Market Value Amount: "..tostring(value)
   end
 
-  return "Total Market Value C 14: "..text
+  return "Total Market Value Amount: "..text
 end
 
--- Dissect: Total Market Value C 14
-jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_c_14.size
+-- Dissect: Total Market Value Amount
+jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_amount.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_amount.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.total_market_value_c_14, range, value, "Total Market Value C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Total Market Value C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.total_market_value_amount, range, value, "Total Market Value Amount: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Total Market Value Amount is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_amount.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.total_market_value_c_14, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Volume C 14
-jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14 = {}
-
--- Size: Trading Volume C 14
-jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14.size = 14
-
--- Display: Trading Volume C 14
-jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14.display = function(value)
-  return "Trading Volume C 14: "..value
-end
-
--- Dissect: Trading Volume C 14
-jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14.size
-  local range = buffer(offset, length)
-  local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.trading_volume_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.total_market_value_amount, range, value, display)
 
   return offset + length, value
 end
@@ -2906,25 +2883,48 @@ jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.dis
   return offset + length, value
 end
 
--- Turnover C 14
-jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14 = {}
+-- Trading Volume Value
+jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_value = {}
 
--- Size: Turnover C 14
-jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14.size = 14
+-- Size: Trading Volume Value
+jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_value.size = 14
 
--- Display: Turnover C 14
-jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14.display = function(value)
-  return "Turnover C 14: "..value
+-- Display: Trading Volume Value
+jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_value.display = function(value)
+  return "Trading Volume Value: "..value
 end
 
--- Dissect: Turnover C 14
-jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14.size
+-- Dissect: Trading Volume Value
+jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_value.size
   local range = buffer(offset, length)
   local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.turnover_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.trading_volume_value, range, value, display)
+
+  return offset + length, value
+end
+
+-- Turnover Value
+jpx_tseequities_indexstatistics_flex_v19_5.turnover_value = {}
+
+-- Size: Turnover Value
+jpx_tseequities_indexstatistics_flex_v19_5.turnover_value.size = 14
+
+-- Display: Turnover Value
+jpx_tseequities_indexstatistics_flex_v19_5.turnover_value.display = function(value)
+  return "Turnover Value: "..value
+end
+
+-- Dissect: Turnover Value
+jpx_tseequities_indexstatistics_flex_v19_5.turnover_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.turnover_value.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.turnover_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.turnover_value, range, value, display)
 
   return offset + length, value
 end
@@ -2971,116 +2971,116 @@ jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect = function(buffer, 
   return offset + length, value
 end
 
--- Vwap By Market C 14
-jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_c_14 = {}
+-- Vwap By Market Value
+jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_value = {}
 
--- Size: Vwap By Market C 14
-jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_c_14.size = 14
+-- Size: Vwap By Market Value
+jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_value.size = 14
 
--- Display: Vwap By Market C 14
-jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_c_14.size):string(), 4)
+-- Display: Vwap By Market Value
+jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_value.size):string(), 4)
 
   if text == nil then
-    return "Vwap By Market C 14: "..tostring(value)
+    return "Vwap By Market Value: "..tostring(value)
   end
 
-  return "Vwap By Market C 14: "..text
+  return "Vwap By Market Value: "..text
 end
 
--- Dissect: Vwap By Market C 14
-jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_c_14.size
+-- Dissect: Vwap By Market Value
+jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.vwap_by_market_c_14, range, value, "Vwap By Market C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Vwap By Market C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.vwap_by_market_value, range, value, "Vwap By Market Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Vwap By Market Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.vwap_by_market_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.vwap_by_market_value, range, value, display)
 
   return offset + length, value
 end
 
--- Weighted Stock Price Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_c_14 = {}
+-- Weighted Stock Price Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_value = {}
 
--- Size: Weighted Stock Price Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_c_14.size = 14
+-- Size: Weighted Stock Price Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_value.size = 14
 
--- Display: Weighted Stock Price Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_c_14.size):string(), 4)
+-- Display: Weighted Stock Price Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_value.size):string(), 4)
 
   if text == nil then
-    return "Weighted Stock Price Average C 14: "..tostring(value)
+    return "Weighted Stock Price Average Value: "..tostring(value)
   end
 
-  return "Weighted Stock Price Average C 14: "..text
+  return "Weighted Stock Price Average Value: "..text
 end
 
--- Dissect: Weighted Stock Price Average C 14
-jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_c_14.size
+-- Dissect: Weighted Stock Price Average Value
+jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_stock_price_average_c_14, range, value, "Weighted Stock Price Average C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Weighted Stock Price Average C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_stock_price_average_value, range, value, "Weighted Stock Price Average Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Weighted Stock Price Average Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_stock_price_average_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_stock_price_average_value, range, value, display)
 
   return offset + length, value
 end
 
--- Weighted Yield C 8
-jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_c_8 = {}
+-- Weighted Yield Value
+jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_value = {}
 
--- Size: Weighted Yield C 8
-jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_c_8.size = 8
+-- Size: Weighted Yield Value
+jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_value.size = 8
 
--- Display: Weighted Yield C 8
-jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_c_8.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_c_8.size):string(), 2)
+-- Display: Weighted Yield Value
+jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_value.size):string(), 2)
 
   if text == nil then
-    return "Weighted Yield C 8: "..tostring(value)
+    return "Weighted Yield Value: "..tostring(value)
   end
 
-  return "Weighted Yield C 8: "..text
+  return "Weighted Yield Value: "..text
 end
 
--- Dissect: Weighted Yield C 8
-jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_c_8.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_c_8.size
+-- Dissect: Weighted Yield Value
+jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_yield_c_8, range, value, "Weighted Yield C 8: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Weighted Yield C 8 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_yield_value, range, value, "Weighted Yield Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_indexstatistics_flex_v19_5.experts.not_a_number, "Weighted Yield Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/100
 
-  local display = jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_c_8.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_yield_c_8, range, value, display)
+  parent:add(omi_jpx_tseequities_indexstatistics_flex_v19_5.fields.weighted_yield_value, range, value, display)
 
   return offset + length, value
 end
@@ -3595,8 +3595,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.number_of_transactions = {}
 
 -- Size: Number Of Transactions
 jpx_tseequities_indexstatistics_flex_v19_5.number_of_transactions.size =
-  jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_8.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8.size
+  jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_count.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_count.size
 
 -- Display: Number Of Transactions
 jpx_tseequities_indexstatistics_flex_v19_5.number_of_transactions.display = function(packet, parent, length)
@@ -3607,11 +3607,11 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.number_of_transactions.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Single Issue Transaction C 8: C
-  index, single_issue_transaction_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_8.dissect(buffer, index, packet, parent)
+  -- Single Issue Transaction Count: C
+  index, single_issue_transaction_count = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_count.dissect(buffer, index, packet, parent)
 
-  -- Basket Transaction C 8: C
-  index, basket_transaction_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_8.dissect(buffer, index, packet, parent)
+  -- Basket Transaction Count: C
+  index, basket_transaction_count = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_count.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3640,11 +3640,11 @@ jpx_tseequities_indexstatistics_flex_v19_5.turnover = {}
 -- Size: Turnover
 jpx_tseequities_indexstatistics_flex_v19_5.turnover.size =
   jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_trading_volumeturnover_unit_flag.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.closing_price_transaction.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.third_trading_volumeturnover_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.fourth_trading_volumeturnover_unit_flag.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.aggregate_turnover.size
 
@@ -3660,8 +3660,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.turnover.fields = function(buffer, of
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Single Issue Transaction C 14: C
-  index, single_issue_transaction_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_14.dissect(buffer, index, packet, parent)
+  -- Single Issue Transaction: C
+  index, single_issue_transaction = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction.dissect(buffer, index, packet, parent)
 
   -- Second Trading Volume/Turnover Unit Flag: C
   index, second_trading_volumeturnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.second_trading_volumeturnover_unit_flag.dissect(buffer, index, packet, parent)
@@ -3672,8 +3672,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.turnover.fields = function(buffer, of
   -- Third Trading Volume/Turnover Unit Flag: C
   index, third_trading_volumeturnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.third_trading_volumeturnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Basket Transaction C 14: C
-  index, basket_transaction_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.dissect(buffer, index, packet, parent)
+  -- Basket Transaction: C
+  index, basket_transaction = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction.dissect(buffer, index, packet, parent)
 
   -- Fourth Trading Volume/Turnover Unit Flag: C
   index, fourth_trading_volumeturnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.fourth_trading_volumeturnover_unit_flag.dissect(buffer, index, packet, parent)
@@ -3708,11 +3708,11 @@ jpx_tseequities_indexstatistics_flex_v19_5.trading_volume = {}
 -- Size: Trading Volume
 jpx_tseequities_indexstatistics_flex_v19_5.trading_volume.size =
   jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_trading_volumeturnover_unit_flag.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.closing_price_transaction.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.third_trading_volumeturnover_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.fourth_trading_volumeturnover_unit_flag.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.aggregate_trading_volume.size
 
@@ -3728,8 +3728,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.trading_volume.fields = function(buff
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Single Issue Transaction C 14: C
-  index, single_issue_transaction_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction_c_14.dissect(buffer, index, packet, parent)
+  -- Single Issue Transaction: C
+  index, single_issue_transaction = jpx_tseequities_indexstatistics_flex_v19_5.single_issue_transaction.dissect(buffer, index, packet, parent)
 
   -- Second Trading Volume/Turnover Unit Flag: C
   index, second_trading_volumeturnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.second_trading_volumeturnover_unit_flag.dissect(buffer, index, packet, parent)
@@ -3740,8 +3740,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.trading_volume.fields = function(buff
   -- Third Trading Volume/Turnover Unit Flag: C
   index, third_trading_volumeturnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.third_trading_volumeturnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Basket Transaction C 14: C
-  index, basket_transaction_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction_c_14.dissect(buffer, index, packet, parent)
+  -- Basket Transaction: C
+  index, basket_transaction = jpx_tseequities_indexstatistics_flex_v19_5.basket_transaction.dissect(buffer, index, packet, parent)
 
   -- Fourth Trading Volume/Turnover Unit Flag: C
   index, fourth_trading_volumeturnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.fourth_trading_volumeturnover_unit_flag.dissect(buffer, index, packet, parent)
@@ -3839,7 +3839,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.top_rank_by_net_change_rate.size =
   jpx_tseequities_indexstatistics_flex_v19_5.ranked_issue_code.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.state_sign.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.current_price_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.comparison_type.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.net_change_rate.size + 
@@ -3872,8 +3872,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.top_rank_by_net_change_rate.fields = 
   -- Unit Flag: C
   index, unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Current Price C 14: C
-  index, current_price_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.dissect(buffer, index, packet, parent)
+  -- Current Price Value: C
+  index, current_price_value = jpx_tseequities_indexstatistics_flex_v19_5.current_price_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -3975,7 +3975,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.top_rank_by_net_change.size =
   jpx_tseequities_indexstatistics_flex_v19_5.ranked_issue_code.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.state_sign.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.current_price_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.comparison_type.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_unit_flag.size + 
@@ -4009,8 +4009,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.top_rank_by_net_change.fields = funct
   -- Unit Flag: C
   index, unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Current Price C 14: C
-  index, current_price_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.current_price_c_14.dissect(buffer, index, packet, parent)
+  -- Current Price Value: C
+  index, current_price_value = jpx_tseequities_indexstatistics_flex_v19_5.current_price_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -4115,7 +4115,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.top_rank_by_turnover.size =
   jpx_tseequities_indexstatistics_flex_v19_5.ranked_issue_code.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.reserved_1.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14.size
+  jpx_tseequities_indexstatistics_flex_v19_5.turnover_value.size
 
 -- Display: Top Rank By Turnover
 jpx_tseequities_indexstatistics_flex_v19_5.top_rank_by_turnover.display = function(packet, parent, length)
@@ -4144,8 +4144,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.top_rank_by_turnover.fields = functio
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Turnover C 14: C
-  index, turnover_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.turnover_c_14.dissect(buffer, index, packet, parent)
+  -- Turnover Value: C
+  index, turnover_value = jpx_tseequities_indexstatistics_flex_v19_5.turnover_value.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4231,7 +4231,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.top_rank_by_trading_volume.size =
   jpx_tseequities_indexstatistics_flex_v19_5.ranked_issue_code.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.reserved_1.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14.size
+  jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_value.size
 
 -- Display: Top Rank By Trading Volume
 jpx_tseequities_indexstatistics_flex_v19_5.top_rank_by_trading_volume.display = function(packet, parent, length)
@@ -4260,8 +4260,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.top_rank_by_trading_volume.fields = f
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Trading Volume C 14: C
-  index, trading_volume_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_c_14.dissect(buffer, index, packet, parent)
+  -- Trading Volume Value: C
+  index, trading_volume_value = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_value.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4344,11 +4344,11 @@ jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market = {}
 -- Size: Vwap By Market
 jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market.size =
   jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.reserved_1.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_sign.size
 
 -- Display: Vwap By Market
@@ -4363,8 +4363,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market.fields = function(buff
   -- Unit Flag: C
   index, unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Vwap By Market C 14: C
-  index, vwap_by_market_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_c_14.dissect(buffer, index, packet, parent)
+  -- Vwap By Market Value: C
+  index, vwap_by_market_value = jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -4375,8 +4375,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.vwap_by_market.fields = function(buff
   -- Second Unit Flag: C
   index, second_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.second_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Day On Day Comparison C 14: C
-  index, day_on_day_comparison_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.dissect(buffer, index, packet, parent)
+  -- Day On Day Comparison: C
+  index, day_on_day_comparison = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.dissect(buffer, index, packet, parent)
 
   -- Second Sign: C
   index, second_sign = jpx_tseequities_indexstatistics_flex_v19_5.second_sign.dissect(buffer, index, packet, parent)
@@ -4460,7 +4460,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover = {}
 -- Size: Estimated Total Turnover
 jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover.size =
   jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.reserved_1.size
 
 -- Display: Estimated Total Turnover
@@ -4475,8 +4475,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover.fields = fun
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Estimated Total Turnover C 14: C
-  index, estimated_total_turnover_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_c_14.dissect(buffer, index, packet, parent)
+  -- Estimated Total Turnover Value: C
+  index, estimated_total_turnover_value = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_turnover_value.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: C
   index, reserved_1 = jpx_tseequities_indexstatistics_flex_v19_5.reserved_1.dissect(buffer, index, packet, parent)
@@ -4564,7 +4564,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume = {}
 -- Size: Estimated Total Trading Volume
 jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume.size =
   jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14.size
+  jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_value.size
 
 -- Display: Estimated Total Trading Volume
 jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume.display = function(packet, parent, length)
@@ -4578,8 +4578,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume.fields
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Estimated Total Trading Volume C 14: C
-  index, estimated_total_trading_volume_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_c_14.dissect(buffer, index, packet, parent)
+  -- Estimated Total Trading Volume Value: C
+  index, estimated_total_trading_volume_value = jpx_tseequities_indexstatistics_flex_v19_5.estimated_total_trading_volume_value.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5007,7 +5007,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average = {}
 
 -- Size: Direct Yield Average
 jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average.size =
-  jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Direct Yield Average
@@ -5019,8 +5019,8 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Direct Yield Average C 8: C
-  index, direct_yield_average_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.dissect(buffer, index, packet, parent)
+  -- Direct Yield Average Value: C
+  index, direct_yield_average_value = jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -5052,7 +5052,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.parity_average = {}
 -- Size: Parity Average
 jpx_tseequities_indexstatistics_flex_v19_5.parity_average.size =
   jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Parity Average
@@ -5067,8 +5067,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.parity_average.fields = function(buff
   -- Unit Flag: C
   index, unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Parity Average C 14: C
-  index, parity_average_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.dissect(buffer, index, packet, parent)
+  -- Parity Average Value: C
+  index, parity_average_value = jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -5099,7 +5099,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.divergence_average = {}
 
 -- Size: Divergence Average
 jpx_tseequities_indexstatistics_flex_v19_5.divergence_average.size =
-  jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Divergence Average
@@ -5111,8 +5111,8 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.divergence_average.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Divergence Average C 8: C
-  index, divergence_average_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.dissect(buffer, index, packet, parent)
+  -- Divergence Average Value: C
+  index, divergence_average_value = jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -5144,7 +5144,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.simple_average = {}
 -- Size: Simple Average
 jpx_tseequities_indexstatistics_flex_v19_5.simple_average.size =
   jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Simple Average
@@ -5159,8 +5159,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.simple_average.fields = function(buff
   -- Unit Flag: C
   index, unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Simple Average C 14: C
-  index, simple_average_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.dissect(buffer, index, packet, parent)
+  -- Simple Average Value: C
+  index, simple_average_value = jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -5295,9 +5295,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.overall_direct_yield_average = {}
 
 -- Size: Overall Direct Yield Average
 jpx_tseequities_indexstatistics_flex_v19_5.overall_direct_yield_average.size =
-  jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_sign.size
 
 -- Display: Overall Direct Yield Average
@@ -5309,14 +5309,14 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.overall_direct_yield_average.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Direct Yield Average C 8: C
-  index, direct_yield_average_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_c_8.dissect(buffer, index, packet, parent)
+  -- Direct Yield Average Value: C
+  index, direct_yield_average_value = jpx_tseequities_indexstatistics_flex_v19_5.direct_yield_average_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
 
-  -- Day On Day Comparison C 8: C
-  index, day_on_day_comparison_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.dissect(buffer, index, packet, parent)
+  -- Day On Day Comparison Rate: C
+  index, day_on_day_comparison_rate = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.dissect(buffer, index, packet, parent)
 
   -- Second Sign: C
   index, second_sign = jpx_tseequities_indexstatistics_flex_v19_5.second_sign.dissect(buffer, index, packet, parent)
@@ -5348,10 +5348,10 @@ jpx_tseequities_indexstatistics_flex_v19_5.overall_parity_average = {}
 -- Size: Overall Parity Average
 jpx_tseequities_indexstatistics_flex_v19_5.overall_parity_average.size =
   jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_sign.size
 
 -- Display: Overall Parity Average
@@ -5366,8 +5366,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.overall_parity_average.fields = funct
   -- Unit Flag: C
   index, unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Parity Average C 14: C
-  index, parity_average_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.parity_average_c_14.dissect(buffer, index, packet, parent)
+  -- Parity Average Value: C
+  index, parity_average_value = jpx_tseequities_indexstatistics_flex_v19_5.parity_average_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -5375,8 +5375,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.overall_parity_average.fields = funct
   -- Second Unit Flag: C
   index, second_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.second_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Day On Day Comparison C 14: C
-  index, day_on_day_comparison_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.dissect(buffer, index, packet, parent)
+  -- Day On Day Comparison: C
+  index, day_on_day_comparison = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.dissect(buffer, index, packet, parent)
 
   -- Second Sign: C
   index, second_sign = jpx_tseequities_indexstatistics_flex_v19_5.second_sign.dissect(buffer, index, packet, parent)
@@ -5407,9 +5407,9 @@ jpx_tseequities_indexstatistics_flex_v19_5.overall_divergence_average = {}
 
 -- Size: Overall Divergence Average
 jpx_tseequities_indexstatistics_flex_v19_5.overall_divergence_average.size =
-  jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_sign.size
 
 -- Display: Overall Divergence Average
@@ -5421,14 +5421,14 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.overall_divergence_average.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Divergence Average C 8: C
-  index, divergence_average_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_c_8.dissect(buffer, index, packet, parent)
+  -- Divergence Average Value: C
+  index, divergence_average_value = jpx_tseequities_indexstatistics_flex_v19_5.divergence_average_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
 
-  -- Day On Day Comparison C 8: C
-  index, day_on_day_comparison_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.dissect(buffer, index, packet, parent)
+  -- Day On Day Comparison Rate: C
+  index, day_on_day_comparison_rate = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.dissect(buffer, index, packet, parent)
 
   -- Second Sign: C
   index, second_sign = jpx_tseequities_indexstatistics_flex_v19_5.second_sign.dissect(buffer, index, packet, parent)
@@ -5460,10 +5460,10 @@ jpx_tseequities_indexstatistics_flex_v19_5.overall_simple_average = {}
 -- Size: Overall Simple Average
 jpx_tseequities_indexstatistics_flex_v19_5.overall_simple_average.size =
   jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.second_sign.size
 
 -- Display: Overall Simple Average
@@ -5478,8 +5478,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.overall_simple_average.fields = funct
   -- Unit Flag: C
   index, unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Simple Average C 14: C
-  index, simple_average_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.simple_average_c_14.dissect(buffer, index, packet, parent)
+  -- Simple Average Value: C
+  index, simple_average_value = jpx_tseequities_indexstatistics_flex_v19_5.simple_average_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -5487,8 +5487,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.overall_simple_average.fields = funct
   -- Second Unit Flag: C
   index, second_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.second_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Day On Day Comparison C 14: C
-  index, day_on_day_comparison_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.dissect(buffer, index, packet, parent)
+  -- Day On Day Comparison: C
+  index, day_on_day_comparison = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.dissect(buffer, index, packet, parent)
 
   -- Second Sign: C
   index, second_sign = jpx_tseequities_indexstatistics_flex_v19_5.second_sign.dissect(buffer, index, packet, parent)
@@ -5628,7 +5628,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.stock_price_average_day_on_day_compar
 -- Size: Stock Price Average Day On Day Comparison
 jpx_tseequities_indexstatistics_flex_v19_5.stock_price_average_day_on_day_comparison.size =
   jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Stock Price Average Day On Day Comparison
@@ -5643,8 +5643,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.stock_price_average_day_on_day_compar
   -- Unit Flag: C
   index, unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Day On Day Comparison C 14: C
-  index, day_on_day_comparison_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.dissect(buffer, index, packet, parent)
+  -- Day On Day Comparison: C
+  index, day_on_day_comparison = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -5676,7 +5676,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average = {}
 -- Size: Simple Stock Price Average
 jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average.size =
   jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Simple Stock Price Average
@@ -5691,8 +5691,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average.fields = f
   -- Unit Flag: C
   index, unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Simple Stock Price Average C 14: C
-  index, simple_stock_price_average_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_c_14.dissect(buffer, index, packet, parent)
+  -- Simple Stock Price Average Value: C
+  index, simple_stock_price_average_value = jpx_tseequities_indexstatistics_flex_v19_5.simple_stock_price_average_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -5780,7 +5780,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average = {}
 -- Size: Weighted Stock Price Average
 jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average.size =
   jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Weighted Stock Price Average
@@ -5795,8 +5795,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average.fields =
   -- Unit Flag: C
   index, unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Weighted Stock Price Average C 14: C
-  index, weighted_stock_price_average_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_c_14.dissect(buffer, index, packet, parent)
+  -- Weighted Stock Price Average Value: C
+  index, weighted_stock_price_average_value = jpx_tseequities_indexstatistics_flex_v19_5.weighted_stock_price_average_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -5939,7 +5939,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.yield_day_on_day_comparison = {}
 
 -- Size: Yield Day On Day Comparison
 jpx_tseequities_indexstatistics_flex_v19_5.yield_day_on_day_comparison.size =
-  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Yield Day On Day Comparison
@@ -5951,8 +5951,8 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.yield_day_on_day_comparison.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Day On Day Comparison C 8: C
-  index, day_on_day_comparison_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_8.dissect(buffer, index, packet, parent)
+  -- Day On Day Comparison Rate: C
+  index, day_on_day_comparison_rate = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_rate.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -5983,7 +5983,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield = {}
 
 -- Size: Weighted Yield
 jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield.size =
-  jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_c_8.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Weighted Yield
@@ -5995,8 +5995,8 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Weighted Yield C 8: C
-  index, weighted_yield_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_c_8.dissect(buffer, index, packet, parent)
+  -- Weighted Yield Value: C
+  index, weighted_yield_value = jpx_tseequities_indexstatistics_flex_v19_5.weighted_yield_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -6083,7 +6083,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.simple_yield = {}
 
 -- Size: Simple Yield
 jpx_tseequities_indexstatistics_flex_v19_5.simple_yield.size =
-  jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_c_8.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_value.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Simple Yield
@@ -6095,8 +6095,8 @@ end
 jpx_tseequities_indexstatistics_flex_v19_5.simple_yield.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Simple Yield C 8: C
-  index, simple_yield_c_8 = jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_c_8.dissect(buffer, index, packet, parent)
+  -- Simple Yield Value: C
+  index, simple_yield_value = jpx_tseequities_indexstatistics_flex_v19_5.simple_yield_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -6184,7 +6184,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.market_value_day_on_day_comparison = 
 -- Size: Market Value Day On Day Comparison
 jpx_tseequities_indexstatistics_flex_v19_5.market_value_day_on_day_comparison.size =
   jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.size + 
+  jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.size + 
   jpx_tseequities_indexstatistics_flex_v19_5.sign.size
 
 -- Display: Market Value Day On Day Comparison
@@ -6199,8 +6199,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.market_value_day_on_day_comparison.fi
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Day On Day Comparison C 14: C
-  index, day_on_day_comparison_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison_c_14.dissect(buffer, index, packet, parent)
+  -- Day On Day Comparison: C
+  index, day_on_day_comparison = jpx_tseequities_indexstatistics_flex_v19_5.day_on_day_comparison.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_indexstatistics_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -6232,7 +6232,7 @@ jpx_tseequities_indexstatistics_flex_v19_5.total_market_value = {}
 -- Size: Total Market Value
 jpx_tseequities_indexstatistics_flex_v19_5.total_market_value.size =
   jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_c_14.size
+  jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_amount.size
 
 -- Display: Total Market Value
 jpx_tseequities_indexstatistics_flex_v19_5.total_market_value.display = function(packet, parent, length)
@@ -6246,8 +6246,8 @@ jpx_tseequities_indexstatistics_flex_v19_5.total_market_value.fields = function(
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_tseequities_indexstatistics_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Total Market Value C 14: C
-  index, total_market_value_c_14 = jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_c_14.dissect(buffer, index, packet, parent)
+  -- Total Market Value Amount: C
+  index, total_market_value_amount = jpx_tseequities_indexstatistics_flex_v19_5.total_market_value_amount.dissect(buffer, index, packet, parent)
 
   return index
 end

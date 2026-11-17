@@ -90,7 +90,7 @@ omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.expulsion_date_utc = ProtoField.n
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.face_value = ProtoField.new("Face Value", "nse.nseslbm.broadcast.nnfbcast.v2.7.facevalue", ftypes.INT32, nil, nil, nil, "Face value of the security")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.fill_price = ProtoField.new("Fill Price", "nse.nseslbm.broadcast.nnfbcast.v2.7.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the order traded")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.fill_volume = ProtoField.new("Fill Volume", "nse.nseslbm.broadcast.nnfbcast.v2.7.fillvolume", ftypes.INT32, nil, nil, nil, "Quantity of the security traded")
-omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.filler = ProtoField.new("Filler", "nse.nseslbm.broadcast.nnfbcast.v2.7.filler", ftypes.STRING)
+omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.filler = ProtoField.new("Filler", "nse.nseslbm.broadcast.nnfbcast.v2.7.filler", ftypes.BYTES)
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.filler_2 = ProtoField.new("Filler 2", "nse.nseslbm.broadcast.nnfbcast.v2.7.filler2", ftypes.BYTES, nil, nil, nil, "Padding, documented as Byte but eight bytes wide")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.final = ProtoField.new("Final", "nse.nseslbm.broadcast.nnfbcast.v2.7.final", ftypes.STRING, nil, nil, nil, "Whether it is the final auction trade")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.freeze_percent = ProtoField.new("Freeze Percent", "nse.nseslbm.broadcast.nnfbcast.v2.7.freezepercent", ftypes.INT16, nil, nil, nil, "Volume freeze percent")
@@ -166,8 +166,8 @@ omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.no_of_upmoves = ProtoField.new("N
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.normal = ProtoField.new("Normal", "nse.nseslbm.broadcast.nnfbcast.v2.7.normal", ftypes.INT16, nil, nil, nil, "Market status of the normal market")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.number_of_orders = ProtoField.new("Number Of Orders", "nse.nseslbm.broadcast.nnfbcast.v2.7.numberoforders", ftypes.INT16, nil, nil, nil, "Number of orders at the price")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.number_of_packets = ProtoField.new("Number Of Packets", "nse.nseslbm.broadcast.nnfbcast.v2.7.numberofpackets", ftypes.INT16, nil, nil, nil, "Number of packets sequentially packed in this datagram")
-omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.number_of_records_long_4 = ProtoField.new("Number Of Records Long 4", "nse.nseslbm.broadcast.nnfbcast.v2.7.numberofrecordslong4", ftypes.INT32, nil, nil, nil, "Number of data packets sent in the bhav copy")
-omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.number_of_records_short_2 = ProtoField.new("Number Of Records Short 2", "nse.nseslbm.broadcast.nnfbcast.v2.7.numberofrecordsshort2", ftypes.INT16, nil, nil, nil, "Number of records of the structure TOKEN AND ELIGIBILITY")
+omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.number_of_records = ProtoField.new("Number Of Records", "nse.nseslbm.broadcast.nnfbcast.v2.7.numberofrecords", ftypes.INT16, nil, nil, nil, "Number of records of the structure TOKEN AND ELIGIBILITY")
+omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.number_of_records_long = ProtoField.new("Number Of Records Long", "nse.nseslbm.broadcast.nnfbcast.v2.7.numberofrecordslong", ftypes.INT32, nil, nil, nil, "Number of data packets sent in the bhav copy")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.oddlot = ProtoField.new("Oddlot", "nse.nseslbm.broadcast.nnfbcast.v2.7.oddlot", ftypes.INT16, nil, nil, nil, "Market status of the odd lot market")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.open_price = ProtoField.new("Open Price", "nse.nseslbm.broadcast.nnfbcast.v2.7.openprice", ftypes.DOUBLE, nil, nil, nil, "Open price of the security")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.opening_index = ProtoField.new("Opening Index", "nse.nseslbm.broadcast.nnfbcast.v2.7.openingindex", ftypes.INT32, nil, nil, nil, "Opening index value at market open")
@@ -239,9 +239,8 @@ omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.terminal_idle_time = ProtoField.n
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.tick_size = ProtoField.new("Tick Size", "nse.nseslbm.broadcast.nnfbcast.v2.7.ticksize", ftypes.DOUBLE, nil, nil, nil, "Tick size; order and trigger prices must be a multiple of it")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.ticker_index_information = ProtoField.new("Ticker Index Information", "nse.nseslbm.broadcast.nnfbcast.v2.7.tickerindexinformation", ftypes.STRING)
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nseslbm.broadcast.nnfbcast.v2.7.timestamp2", ftypes.STRING, nil, nil, nil, "Time the message reached the gateway")
+omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.token = ProtoField.new("Token", "nse.nseslbm.broadcast.nnfbcast.v2.7.token", ftypes.INT32, nil, nil, nil, "Token of the security being updated, unique to a symbol and series")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.token_and_eligibility = ProtoField.new("Token And Eligibility", "nse.nseslbm.broadcast.nnfbcast.v2.7.tokenandeligibility", ftypes.STRING)
-omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.token_long_4 = ProtoField.new("Token Long 4", "nse.nseslbm.broadcast.nnfbcast.v2.7.tokenlong4", ftypes.INT32, nil, nil, nil, "Token of the security being updated, unique to a symbol and series")
-omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.token_short_4 = ProtoField.new("Token Short 4", "nse.nseslbm.broadcast.nnfbcast.v2.7.tokenshort4", ftypes.INT32, nil, nil, nil, "Token of the symbol and series")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.total_buy_qty = ProtoField.new("Total Buy Qty", "nse.nseslbm.broadcast.nnfbcast.v2.7.totalbuyqty", ftypes.INT32, nil, nil, nil, "Total buy quantity for the auction")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.total_buy_quantity = ProtoField.new("Total Buy Quantity", "nse.nseslbm.broadcast.nnfbcast.v2.7.totalbuyquantity", ftypes.DOUBLE, nil, nil, nil, "Total quantity of buy orders in the security")
 omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.total_quantity_traded = ProtoField.new("Total Quantity Traded", "nse.nseslbm.broadcast.nnfbcast.v2.7.totalquantitytraded", ftypes.INT32, nil, nil, nil, "Total quantity of the security traded today")
@@ -1983,10 +1982,10 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.filler.dissect = function(buffer, offset, packet, parent)
   local length = nse_nseslbm_broadcast_nnfbcast_v2_7.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nseslbm_broadcast_nnfbcast_v2_7.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.filler, range, value, display)
+  parent:add(omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -3272,48 +3271,48 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_packets.dissect = function(buffer,
   return offset + length, value
 end
 
--- Number Of Records Long 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long_4 = {}
+-- Number Of Records
+nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records = {}
 
--- Size: Number Of Records Long 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long_4.size = 4
+-- Size: Number Of Records
+nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.size = 2
 
--- Display: Number Of Records Long 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long_4.display = function(value)
-  return "Number Of Records Long 4: "..value
+-- Display: Number Of Records
+nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.display = function(value)
+  return "Number Of Records: "..value
 end
 
--- Dissect: Number Of Records Long 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long_4.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long_4.size
+-- Dissect: Number Of Records
+nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long_4.display(value, buffer, offset, packet, parent)
+  local display = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.number_of_records_long_4, range, value, display)
+  parent:add(omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.number_of_records, range, value, display)
 
   return offset + length, value
 end
 
--- Number Of Records Short 2
-nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2 = {}
+-- Number Of Records Long
+nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long = {}
 
--- Size: Number Of Records Short 2
-nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.size = 2
+-- Size: Number Of Records Long
+nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long.size = 4
 
--- Display: Number Of Records Short 2
-nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.display = function(value)
-  return "Number Of Records Short 2: "..value
+-- Display: Number Of Records Long
+nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long.display = function(value)
+  return "Number Of Records Long: "..value
 end
 
--- Dissect: Number Of Records Short 2
-nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.size
+-- Dissect: Number Of Records Long
+nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.display(value, buffer, offset, packet, parent)
+  local display = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.number_of_records_short_2, range, value, display)
+  parent:add(omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.number_of_records_long, range, value, display)
 
   return offset + length, value
 end
@@ -4480,48 +4479,25 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.time_stamp_2.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Token Long 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4 = {}
+-- Token
+nse_nseslbm_broadcast_nnfbcast_v2_7.token = {}
 
--- Size: Token Long 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.size = 4
+-- Size: Token
+nse_nseslbm_broadcast_nnfbcast_v2_7.token.size = 4
 
--- Display: Token Long 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.display = function(value)
-  return "Token Long 4: "..value
+-- Display: Token
+nse_nseslbm_broadcast_nnfbcast_v2_7.token.display = function(value)
+  return "Token: "..value
 end
 
--- Dissect: Token Long 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.size
+-- Dissect: Token
+nse_nseslbm_broadcast_nnfbcast_v2_7.token.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nseslbm_broadcast_nnfbcast_v2_7.token.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.display(value, buffer, offset, packet, parent)
+  local display = nse_nseslbm_broadcast_nnfbcast_v2_7.token.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.token_long_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Token Short 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.token_short_4 = {}
-
--- Size: Token Short 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.token_short_4.size = 4
-
--- Display: Token Short 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.token_short_4.display = function(value)
-  return "Token Short 4: "..value
-end
-
--- Dissect: Token Short 4
-nse_nseslbm_broadcast_nnfbcast_v2_7.token_short_4.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nseslbm_broadcast_nnfbcast_v2_7.token_short_4.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nse_nseslbm_broadcast_nnfbcast_v2_7.token_short_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.token_short_4, range, value, display)
+  parent:add(omi_nse_nseslbm_broadcast_nnfbcast_v2_7.fields.token, range, value, display)
 
   return offset + length, value
 end
@@ -5117,7 +5093,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.report_trailer_body = {}
 
 -- Size: Report Trailer Body
 nse_nseslbm_broadcast_nnfbcast_v2_7.report_trailer_body.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long_4.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.reserved_1.size
 
 -- Display: Report Trailer Body
@@ -5129,8 +5105,8 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.report_trailer_body.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Records Long 4: LONG
-  index, number_of_records_long_4 = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long_4.dissect(buffer, index, packet, parent)
+  -- Number Of Records Long: LONG
+  index, number_of_records_long = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_long.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: CHAR
   if show.padding then
@@ -5304,7 +5280,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.report_statistics_body = {}
 -- Size: Report Statistics Body
 nse_nseslbm_broadcast_nnfbcast_v2_7.report_statistics_body.size =
   nse_nseslbm_broadcast_nnfbcast_v2_7.reserved_1.size + 
-  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.size + 
   7 * nse_nseslbm_broadcast_nnfbcast_v2_7.market_statistics_data.size
 
 -- Display: Report Statistics Body
@@ -5323,8 +5299,8 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.report_statistics_body.fields = function(buf
     index = index + nse_nseslbm_broadcast_nnfbcast_v2_7.reserved_1.size
   end
 
-  -- Number Of Records Short 2: SHORT
-  index, number_of_records_short_2 = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.dissect(buffer, index, packet, parent)
+  -- Number Of Records: SHORT
+  index, number_of_records = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.dissect(buffer, index, packet, parent)
 
   -- Array Of: Market Statistics Data
   for market_statistics_data_index = 1, 7 do
@@ -5499,7 +5475,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.buybackdata = {}
 
 -- Size: Buybackdata
 nse_nseslbm_broadcast_nnfbcast_v2_7.buybackdata.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.token.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.symbol.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.series.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.pday_cum_vol.size + 
@@ -5528,8 +5504,8 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.buybackdata.fields = function(buffer, offset
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nseslbm_broadcast_nnfbcast_v2_7.token.dissect(buffer, index, packet, parent)
 
   -- Symbol: CHAR
   index, symbol = nse_nseslbm_broadcast_nnfbcast_v2_7.symbol.dissect(buffer, index, packet, parent)
@@ -5593,7 +5569,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.broadcast_buy_back_information_message = {}
 
 -- Size: Broadcast Buy Back Information Message
 nse_nseslbm_broadcast_nnfbcast_v2_7.broadcast_buy_back_information_message.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.size + 
   6 * nse_nseslbm_broadcast_nnfbcast_v2_7.buybackdata.size
 
 -- Display: Broadcast Buy Back Information Message
@@ -5605,8 +5581,8 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.broadcast_buy_back_information_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Records Short 2: SHORT
-  index, number_of_records_short_2 = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.dissect(buffer, index, packet, parent)
+  -- Number Of Records: SHORT
+  index, number_of_records = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.dissect(buffer, index, packet, parent)
 
   -- Array Of: Buybackdata
   for buybackdata_index = 1, 6 do
@@ -5689,7 +5665,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.broadcast_industry_index_message = {}
 
 -- Size: Broadcast Industry Index Message
 nse_nseslbm_broadcast_nnfbcast_v2_7.broadcast_industry_index_message.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.size + 
   17 * nse_nseslbm_broadcast_nnfbcast_v2_7.industry_indices.size
 
 -- Display: Broadcast Industry Index Message
@@ -5701,8 +5677,8 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.broadcast_industry_index_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Records Short 2: SHORT
-  index, number_of_records_short_2 = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.dissect(buffer, index, packet, parent)
+  -- Number Of Records: SHORT
+  index, number_of_records = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.dissect(buffer, index, packet, parent)
 
   -- Array Of: Industry Indices
   for industry_indices_index = 1, 17 do
@@ -5805,7 +5781,11 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.indices.fields = function(buffer, offset, pa
   index, net_change_indicator = nse_nseslbm_broadcast_nnfbcast_v2_7.net_change_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nseslbm_broadcast_nnfbcast_v2_7.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nseslbm_broadcast_nnfbcast_v2_7.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nseslbm_broadcast_nnfbcast_v2_7.filler.size
+  end
 
   return index
 end
@@ -5833,7 +5813,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.multiple_index_broadcast_message = {}
 
 -- Size: Multiple Index Broadcast Message
 nse_nseslbm_broadcast_nnfbcast_v2_7.multiple_index_broadcast_message.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.size + 
   6 * nse_nseslbm_broadcast_nnfbcast_v2_7.indices.size
 
 -- Display: Multiple Index Broadcast Message
@@ -5845,8 +5825,8 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.multiple_index_broadcast_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Records Short 2: SHORT
-  index, number_of_records_short_2 = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.dissect(buffer, index, packet, parent)
+  -- Number Of Records: SHORT
+  index, number_of_records = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.dissect(buffer, index, packet, parent)
 
   -- Array Of: Indices
   for indices_index = 1, 6 do
@@ -5897,7 +5877,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.security_open_message = {}
 -- Size: Security Open Message
 nse_nseslbm_broadcast_nnfbcast_v2_7.security_open_message.size =
   nse_nseslbm_broadcast_nnfbcast_v2_7.sec_info.size + 
-  nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.token.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.opening_price.size
 
 -- Display: Security Open Message
@@ -5912,8 +5892,8 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.security_open_message.fields = function(buff
   -- Sec Info: Struct of 2 fields
   index, sec_info = nse_nseslbm_broadcast_nnfbcast_v2_7.sec_info.dissect(buffer, index, packet, parent)
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nseslbm_broadcast_nnfbcast_v2_7.token.dissect(buffer, index, packet, parent)
 
   -- Opening Price: LONG
   index, opening_price = nse_nseslbm_broadcast_nnfbcast_v2_7.opening_price.dissect(buffer, index, packet, parent)
@@ -6078,7 +6058,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.marketwatchbroadcast = {}
 
 -- Size: Marketwatchbroadcast
 nse_nseslbm_broadcast_nnfbcast_v2_7.marketwatchbroadcast.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.token_short_4.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.token.size + 
   3 * nse_nseslbm_broadcast_nnfbcast_v2_7.market_wise_information.size
 
 -- Display: Marketwatchbroadcast
@@ -6096,8 +6076,8 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.marketwatchbroadcast.fields = function(buffe
     iteration:set_generated()
   end
 
-  -- Token Short 4: SHORT
-  index, token_short_4 = nse_nseslbm_broadcast_nnfbcast_v2_7.token_short_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nseslbm_broadcast_nnfbcast_v2_7.token.dissect(buffer, index, packet, parent)
 
   -- Array Of: Market Wise Information
   for market_wise_information_index = 1, 3 do
@@ -6298,7 +6278,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.interactive_only_mbp_data = {}
 
 -- Size: Interactive Only Mbp Data
 nse_nseslbm_broadcast_nnfbcast_v2_7.interactive_only_mbp_data.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.token.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.book_type.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.trading_status.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.volume_traded_today.size + 
@@ -6341,8 +6321,8 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.interactive_only_mbp_data.fields = function(
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nseslbm_broadcast_nnfbcast_v2_7.token.dissect(buffer, index, packet, parent)
 
   -- Book Type: SHORT
   index, book_type = nse_nseslbm_broadcast_nnfbcast_v2_7.book_type.dissect(buffer, index, packet, parent)
@@ -6608,7 +6588,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.interactive_mbo_data = {}
 
 -- Size: Interactive Mbo Data
 nse_nseslbm_broadcast_nnfbcast_v2_7.interactive_mbo_data.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.token.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.book_type.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.trading_status.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.volume_traded_today.size + 
@@ -6637,8 +6617,8 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.interactive_mbo_data.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nseslbm_broadcast_nnfbcast_v2_7.token.dissect(buffer, index, packet, parent)
 
   -- Book Type: SHORT
   index, book_type = nse_nseslbm_broadcast_nnfbcast_v2_7.book_type.dissect(buffer, index, packet, parent)
@@ -6808,7 +6788,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.ticker_index_information = {}
 
 -- Size: Ticker Index Information
 nse_nseslbm_broadcast_nnfbcast_v2_7.ticker_index_information.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.token.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.market_type.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.fill_price.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.fill_volume.size + 
@@ -6829,8 +6809,8 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.ticker_index_information.fields = function(b
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nseslbm_broadcast_nnfbcast_v2_7.token.dissect(buffer, index, packet, parent)
 
   -- Market Type: SHORT
   index, market_type = nse_nseslbm_broadcast_nnfbcast_v2_7.market_type.dissect(buffer, index, packet, parent)
@@ -6870,7 +6850,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.ticker_and_market_index_message = {}
 
 -- Size: Ticker And Market Index Message
 nse_nseslbm_broadcast_nnfbcast_v2_7.ticker_and_market_index_message.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.size + 
   25 * nse_nseslbm_broadcast_nnfbcast_v2_7.ticker_index_information.size
 
 -- Display: Ticker And Market Index Message
@@ -6882,8 +6862,8 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.ticker_and_market_index_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Records Short 2: SHORT
-  index, number_of_records_short_2 = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.dissect(buffer, index, packet, parent)
+  -- Number Of Records: SHORT
+  index, number_of_records = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.dissect(buffer, index, packet, parent)
 
   -- Array Of: Ticker Index Information
   for ticker_index_information_index = 1, 25 do
@@ -7247,7 +7227,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.st_auction_inq_info = {}
 
 -- Size: St Auction Inq Info
 nse_nseslbm_broadcast_nnfbcast_v2_7.st_auction_inq_info.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.token.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.auction_number.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.auction_status.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.initiator_type.size + 
@@ -7268,8 +7248,8 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.st_auction_inq_info.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nseslbm_broadcast_nnfbcast_v2_7.token.dissect(buffer, index, packet, parent)
 
   -- Auction Number: SHORT
   index, auction_number = nse_nseslbm_broadcast_nnfbcast_v2_7.auction_number.dissect(buffer, index, packet, parent)
@@ -7549,7 +7529,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.token_and_eligibility = {}
 
 -- Size: Token And Eligibility
 nse_nseslbm_broadcast_nnfbcast_v2_7.token_and_eligibility.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.token.size + 
   4 * nse_nseslbm_broadcast_nnfbcast_v2_7.security_status_per_market.size
 
 -- Display: Token And Eligibility
@@ -7567,8 +7547,8 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.token_and_eligibility.fields = function(buff
     iteration:set_generated()
   end
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nseslbm_broadcast_nnfbcast_v2_7.token.dissect(buffer, index, packet, parent)
 
   -- Array Of: Security Status Per Market
   for security_status_per_market_index = 1, 4 do
@@ -7601,7 +7581,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.change_of_security_status_preopen_message = 
 
 -- Size: Change Of Security Status Preopen Message
 nse_nseslbm_broadcast_nnfbcast_v2_7.change_of_security_status_preopen_message.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.size + 
   35 * nse_nseslbm_broadcast_nnfbcast_v2_7.token_and_eligibility.size
 
 -- Display: Change Of Security Status Preopen Message
@@ -7613,8 +7593,8 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.change_of_security_status_preopen_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Records Short 2: SHORT
-  index, number_of_records_short_2 = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.dissect(buffer, index, packet, parent)
+  -- Number Of Records: SHORT
+  index, number_of_records = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.dissect(buffer, index, packet, parent)
 
   -- Array Of: Token And Eligibility
   for token_and_eligibility_index = 1, 35 do
@@ -7647,7 +7627,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.change_of_security_status_message = {}
 
 -- Size: Change Of Security Status Message
 nse_nseslbm_broadcast_nnfbcast_v2_7.change_of_security_status_message.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.size + 
   35 * nse_nseslbm_broadcast_nnfbcast_v2_7.token_and_eligibility.size
 
 -- Display: Change Of Security Status Message
@@ -7659,8 +7639,8 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.change_of_security_status_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Number Of Records Short 2: SHORT
-  index, number_of_records_short_2 = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records_short_2.dissect(buffer, index, packet, parent)
+  -- Number Of Records: SHORT
+  index, number_of_records = nse_nseslbm_broadcast_nnfbcast_v2_7.number_of_records.dissect(buffer, index, packet, parent)
 
   -- Array Of: Token And Eligibility
   for token_and_eligibility_index = 1, 35 do
@@ -7994,7 +7974,7 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.change_in_security_master_message = {}
 
 -- Size: Change In Security Master Message
 nse_nseslbm_broadcast_nnfbcast_v2_7.change_in_security_master_message.size =
-  nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.size + 
+  nse_nseslbm_broadcast_nnfbcast_v2_7.token.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.sec_info.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.instrument_type.size + 
   nse_nseslbm_broadcast_nnfbcast_v2_7.permitted_to_trade.size + 
@@ -8037,8 +8017,8 @@ end
 nse_nseslbm_broadcast_nnfbcast_v2_7.change_in_security_master_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Token Long 4: LONG
-  index, token_long_4 = nse_nseslbm_broadcast_nnfbcast_v2_7.token_long_4.dissect(buffer, index, packet, parent)
+  -- Token: LONG
+  index, token = nse_nseslbm_broadcast_nnfbcast_v2_7.token.dissect(buffer, index, packet, parent)
 
   -- Sec Info: Struct of 2 fields
   index, sec_info = nse_nseslbm_broadcast_nnfbcast_v2_7.sec_info.dissect(buffer, index, packet, parent)

@@ -79,8 +79,8 @@ omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.st_order_flags = ProtoField.new(
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.stpc = ProtoField.new("Stpc", "nse.nsecm.orderentry.nnftrimmed.v6.6.stpc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Self trade prevention check")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.suspended = ProtoField.new("Suspended", "nse.nsecm.orderentry.nnftrimmed.v6.6.suspended", ftypes.STRING, nil, nil, nil, "Whether the security is suspended")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.symbol = ProtoField.new("Symbol", "nse.nsecm.orderentry.nnftrimmed.v6.6.symbol", ftypes.STRING, nil, nil, nil, "Symbol of the security")
-omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1_char_8 = ProtoField.new("Time Stamp 1 Char 8", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp1char8", ftypes.STRING, nil, nil, nil, "Time the message arrives at the trading system host")
-omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1_long_long_8 = ProtoField.new("Time Stamp 1 Long Long 8", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp1longlong8", ftypes.INT64, nil, nil, nil, "Time the message arrives at the trading system host")
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1 = ProtoField.new("Time Stamp 1", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp1", ftypes.INT64, nil, nil, nil, "Time the message arrives at the trading system host")
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1_char = ProtoField.new("Time Stamp 1 Char", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp1char", ftypes.STRING, nil, nil, nil, "Time the message arrives at the trading system host")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp2", ftypes.STRING, nil, nil, nil, "Reserved for the host")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamped at the matching engine, in nanoseconds from January 1 1980 for the transaction codes the appendix lists")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp_utc = ProtoField.new("Timestamp", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time stamped at the matching engine, in nanoseconds from January 1 1980 for the transaction codes the appendix lists")
@@ -1224,48 +1224,48 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.symbol.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Time Stamp 1 Char 8
-nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char_8 = {}
+-- Time Stamp 1
+nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1 = {}
 
--- Size: Time Stamp 1 Char 8
-nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char_8.size = 8
+-- Size: Time Stamp 1
+nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1.size = 8
 
--- Display: Time Stamp 1 Char 8
-nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char_8.display = function(value)
-  return "Time Stamp 1 Char 8: "..value
+-- Display: Time Stamp 1
+nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1.display = function(value)
+  return "Time Stamp 1: "..value
 end
 
--- Dissect: Time Stamp 1 Char 8
-nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char_8.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char_8.size
+-- Dissect: Time Stamp 1
+nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char_8.display(value, buffer, offset, packet, parent)
+  local value = range:int64()
+  local display = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1_char_8, range, value, display)
+  parent:add(omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1, range, value, display)
 
   return offset + length, value
 end
 
--- Time Stamp 1 Long Long 8
-nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_long_long_8 = {}
+-- Time Stamp 1 Char
+nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char = {}
 
--- Size: Time Stamp 1 Long Long 8
-nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_long_long_8.size = 8
+-- Size: Time Stamp 1 Char
+nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char.size = 8
 
--- Display: Time Stamp 1 Long Long 8
-nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_long_long_8.display = function(value)
-  return "Time Stamp 1 Long Long 8: "..value
+-- Display: Time Stamp 1 Char
+nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char.display = function(value)
+  return "Time Stamp 1 Char: "..value
 end
 
--- Dissect: Time Stamp 1 Long Long 8
-nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_long_long_8.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_long_long_8.size
+-- Dissect: Time Stamp 1 Char
+nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char.size
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_long_long_8.display(value, buffer, offset, packet, parent)
+  local value = trim_right_spaces(range:string())
+  local display = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1_long_long_8, range, value, display)
+  parent:add(omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1_char, range, value, display)
 
   return offset + length, value
 end
@@ -1832,7 +1832,7 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.trade_confirmation_trimmed_message.size =
   nse_nsecm_orderentry_nnftrimmed_v6_6.log_time.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.user_id.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp.size + 
-  nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char_8.size + 
+  nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.response_order_number.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_2.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.broker_id.size + 
@@ -1881,8 +1881,8 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.trade_confirmation_trimmed_message.fields =
   -- Timestamp: LONG LONG
   index, timestamp = nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Time Stamp 1 Char 8: CHAR
-  index, time_stamp_1_char_8 = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char_8.dissect(buffer, index, packet, parent)
+  -- Time Stamp 1 Char: CHAR
+  index, time_stamp_1_char = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_char.dissect(buffer, index, packet, parent)
 
   -- Response Order Number: DOUBLE
   index, response_order_number = nse_nsecm_orderentry_nnftrimmed_v6_6.response_order_number.dissect(buffer, index, packet, parent)
@@ -2000,7 +2000,7 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.order_modify_cancel_response_trimmed_messag
   nse_nsecm_orderentry_nnftrimmed_v6_6.log_time.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.user_id.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.error_code.size + 
-  nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_long_long_8.size + 
+  nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_2.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.modified_cancelled_by.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.reason_code.size + 
@@ -2055,8 +2055,8 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.order_modify_cancel_response_trimmed_messag
   -- Error Code: SHORT
   index, error_code = nse_nsecm_orderentry_nnftrimmed_v6_6.error_code.dissect(buffer, index, packet, parent)
 
-  -- Time Stamp 1 Long Long 8: LONG LONG
-  index, time_stamp_1_long_long_8 = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_long_long_8.dissect(buffer, index, packet, parent)
+  -- Time Stamp 1: LONG LONG
+  index, time_stamp_1 = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1.dissect(buffer, index, packet, parent)
 
   -- Time Stamp 2: CHAR
   index, time_stamp_2 = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_2.dissect(buffer, index, packet, parent)
@@ -2192,7 +2192,7 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.order_modify_cancel_request_trimmed_message
   nse_nsecm_orderentry_nnftrimmed_v6_6.log_time.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.user_id.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.error_code.size + 
-  nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_long_long_8.size + 
+  nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_2.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.modified_cancelled_by.size + 
   nse_nsecm_orderentry_nnftrimmed_v6_6.reason_code.size + 
@@ -2246,8 +2246,8 @@ nse_nsecm_orderentry_nnftrimmed_v6_6.order_modify_cancel_request_trimmed_message
   -- Error Code: SHORT
   index, error_code = nse_nsecm_orderentry_nnftrimmed_v6_6.error_code.dissect(buffer, index, packet, parent)
 
-  -- Time Stamp 1 Long Long 8: LONG LONG
-  index, time_stamp_1_long_long_8 = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1_long_long_8.dissect(buffer, index, packet, parent)
+  -- Time Stamp 1: LONG LONG
+  index, time_stamp_1 = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_1.dissect(buffer, index, packet, parent)
 
   -- Time Stamp 2: CHAR
   index, time_stamp_2 = nse_nsecm_orderentry_nnftrimmed_v6_6.time_stamp_2.dissect(buffer, index, packet, parent)

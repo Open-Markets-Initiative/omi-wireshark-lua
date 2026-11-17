@@ -34,7 +34,8 @@ omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.complex_instrum
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.compositemarketbidprice", ftypes.DOUBLE, nil, nil, nil, "Bid Price of the prevailing Composite Market")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.compositemarketofferprice", ftypes.DOUBLE, nil, nil, nil, "Offer Price of the prevailing Composite Market")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.contract_size = ProtoField.new("Contract Size", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.contractsize", ftypes.UINT16, nil, nil, nil, "Contract size of Instrument")
-omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.contracts_long = ProtoField.new("Contracts Long", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.contractslong", ftypes.UINT64, nil, nil, nil, "Number of contracts executed")
+omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.contracts_extended = ProtoField.new("Contracts Extended", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.contractsextended", ftypes.UINT64, nil, nil, nil, "Number of contracts executed")
+omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.contracts_long = ProtoField.new("Contracts Long", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.contractslong", ftypes.UINT32, nil, nil, nil, "Number of contracts associated with this order after this modify")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.contracts_short = ProtoField.new("Contracts Short", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.contractsshort", ftypes.UINT16, nil, nil, nil, "Number of contracts associated with this order after this modify")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.crossing_trade = ProtoField.new("Crossing Trade", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.crossingtrade", ftypes.STRING, nil, nil, nil, "MMT Level 3.3")
 omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.currency = ProtoField.new("Currency", "cboe.cedxderivatives.multicastdepthofbook.pitch.v1.11.currency", ftypes.STRING, nil, nil, nil, "Traded currency.")
@@ -781,11 +782,34 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contract_size.dissect = fu
   return offset + length, value
 end
 
+-- Contracts Extended
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_extended = {}
+
+-- Size: Contracts Extended
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_extended.size = 8
+
+-- Display: Contracts Extended
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_extended.display = function(value)
+  return "Contracts Extended: "..value
+end
+
+-- Dissect: Contracts Extended
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_extended.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_extended.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_extended.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.contracts_extended, range, value, display)
+
+  return offset + length, value
+end
+
 -- Contracts Long
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long = {}
 
 -- Size: Contracts Long
-cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.size = 8
+cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.size = 4
 
 -- Display: Contracts Long
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.display = function(value)
@@ -796,7 +820,7 @@ end
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:le_uint()
   local display = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.fields.contracts_long, range, value, display)
@@ -3634,7 +3658,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_trade_message.size
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_id.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.execution_id.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price.size + 
-  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_short.size + 
+  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.execution_flags.size
 
 -- Display: Auction Trade Message
@@ -3658,8 +3682,8 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_trade_message.fiel
   -- Price: Binary Long Price
   index, price = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price.dissect(buffer, index, packet, parent)
 
-  -- Contracts Short: Binary
-  index, contracts_short = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_short.dissect(buffer, index, packet, parent)
+  -- Contracts Long: Binary
+  index, contracts_long = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.dissect(buffer, index, packet, parent)
 
   -- Execution Flags: Struct of 4 fields
   index, execution_flags = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.execution_flags.dissect(buffer, index, packet, parent)
@@ -3740,7 +3764,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_notification_messa
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_type.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.side.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price.size + 
-  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_short.size + 
+  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.customer_indicator.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.participant_id.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_end_offset.size
@@ -3772,8 +3796,8 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_notification_messa
   -- Price: Binary Long Price
   index, price = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price.dissect(buffer, index, packet, parent)
 
-  -- Contracts Short: Binary
-  index, contracts_short = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_short.dissect(buffer, index, packet, parent)
+  -- Contracts Long: Binary
+  index, contracts_long = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.dissect(buffer, index, packet, parent)
 
   -- Customer Indicator: Alphanumeric
   index, customer_indicator = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.customer_indicator.dissect(buffer, index, packet, parent)
@@ -3894,7 +3918,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_summary_message.si
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.symbol_long.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_opening_type.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price.size + 
-  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_short.size
+  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.size
 
 -- Display: Auction Summary Message
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_summary_message.display = function(packet, parent, length)
@@ -3917,8 +3941,8 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.auction_summary_message.fi
   -- Price: Binary Long Price
   index, price = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price.dissect(buffer, index, packet, parent)
 
-  -- Contracts Short: Binary
-  index, contracts_short = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_short.dissect(buffer, index, packet, parent)
+  -- Contracts Long: Binary
+  index, contracts_long = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4263,7 +4287,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_extended_message = {
 -- Size: Trade Extended Message
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_extended_message.size =
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.time_offset.size + 
-  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.size + 
+  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_extended.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.symbol_long.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_id.size + 
@@ -4285,8 +4309,8 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_extended_message.fie
   -- Time Offset: Binary
   index, time_offset = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Contracts Long: Binary
-  index, contracts_long = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.dissect(buffer, index, packet, parent)
+  -- Contracts Extended: Binary
+  index, contracts_extended = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_extended.dissect(buffer, index, packet, parent)
 
   -- Symbol Long: Alphanumeric
   index, symbol_long = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.symbol_long.dissect(buffer, index, packet, parent)
@@ -4465,7 +4489,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_long_message.size =
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.time_offset.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_id.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.side_indicator.size + 
-  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_short.size + 
+  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.symbol_long.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.execution_id.size + 
@@ -4489,8 +4513,8 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.trade_long_message.fields 
   -- Side Indicator: Alphanumeric
   index, side_indicator = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.side_indicator.dissect(buffer, index, packet, parent)
 
-  -- Contracts Short: Binary
-  index, contracts_short = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_short.dissect(buffer, index, packet, parent)
+  -- Contracts Long: Binary
+  index, contracts_long = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.dissect(buffer, index, packet, parent)
 
   -- Symbol Long: Alphanumeric
   index, symbol_long = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.symbol_long.dissect(buffer, index, packet, parent)
@@ -4628,7 +4652,7 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_long_message 
 cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_long_message.size =
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.time_offset.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_id.size + 
-  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_short.size + 
+  cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.size + 
   cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price.size
 
 -- Display: Modify Order Long Message
@@ -4646,8 +4670,8 @@ cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.modify_order_long_message.
   -- Order Id: Binary
   index, order_id = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.order_id.dissect(buffer, index, packet, parent)
 
-  -- Contracts Short: Binary
-  index, contracts_short = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_short.dissect(buffer, index, packet, parent)
+  -- Contracts Long: Binary
+  index, contracts_long = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.contracts_long.dissect(buffer, index, packet, parent)
 
   -- Price: Binary Long Price
   index, price = cboe_cedxderivatives_multicastdepthofbook_pitch_v1_11.price.dissect(buffer, index, packet, parent)

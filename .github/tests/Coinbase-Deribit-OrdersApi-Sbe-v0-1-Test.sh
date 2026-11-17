@@ -207,3 +207,19 @@ grep "coinbase.deribit.ordersapi.sbe.v0.1.blocklength" Coinbase.Deribit.OrdersAp
 grep "coinbase.deribit.ordersapi.sbe.v0.1.numingroup" Coinbase.Deribit.OrdersApi.Sbe.v0.1.OrderFilledMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.blocklength" Coinbase.Deribit.OrdersApi.Sbe.v0.1.OrderFilledMessage.json
 grep "coinbase.deribit.ordersapi.sbe.v0.1.numingroup" Coinbase.Deribit.OrdersApi.Sbe.v0.1.OrderFilledMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/Deribit.OrdersApi.Sbe.v0.1/MultipleMessages.pcap" \
+  -X "lua_script:Coinbase/Deribit/OrdersApi/Coinbase_Deribit_OrdersApi_Sbe_v0_1_Dissector.lua" \
+  -T json \
+  > Coinbase.Deribit.OrdersApi.Sbe.v0.1.Multiplemessages.json 2> Coinbase.Deribit.OrdersApi.Sbe.v0.1.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Coinbase.Deribit.OrdersApi.Sbe.v0.1.Multiplemessages.json.stderr; exit 1; }
+
+fields=$(grep -c "coinbase.deribit.ordersapi.sbe.v0.1." Coinbase.Deribit.OrdersApi.Sbe.v0.1.Multiplemessages.json) \
+  || { echo "--- no coinbase.deribit.ordersapi.sbe.v0.1 fields (MultipleMessages) ---"; exit 1; }
+echo "  coinbase.deribit.ordersapi.sbe.v0.1 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Coinbase.Deribit.OrdersApi.Sbe.v0.1.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Coinbase.Deribit.OrdersApi.Sbe.v0.1.Multiplemessages.json | sort -u | head; exit 1; }
+
+[ "$(grep -c 'coinbase.deribit.ordersapi.sbe.v0.1.' Coinbase.Deribit.OrdersApi.Sbe.v0.1.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

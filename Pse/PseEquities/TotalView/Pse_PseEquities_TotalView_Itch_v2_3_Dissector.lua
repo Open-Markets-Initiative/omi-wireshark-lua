@@ -444,7 +444,7 @@ pse_pseequities_totalview_itch_v2_3.cb_limit_down.size = 4
 pse_pseequities_totalview_itch_v2_3.cb_limit_down.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Cb Limit Down: No Value"
+    return "Cb Limit Down: No Limit"
   end
 
   return "Cb Limit Down: "..value
@@ -472,7 +472,7 @@ pse_pseequities_totalview_itch_v2_3.cb_limit_up.size = 4
 pse_pseequities_totalview_itch_v2_3.cb_limit_up.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Cb Limit Up: No Value"
+    return "Cb Limit Up: No Limit"
   end
 
   return "Cb Limit Up: "..value
@@ -717,7 +717,7 @@ pse_pseequities_totalview_itch_v2_3.high_collar.size = 4
 pse_pseequities_totalview_itch_v2_3.high_collar.display = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "High Collar: No Value"
+    return "High Collar: No Limit"
   end
 
   return "High Collar: "..value
@@ -823,7 +823,7 @@ pse_pseequities_totalview_itch_v2_3.low_collar.size = 4
 pse_pseequities_totalview_itch_v2_3.low_collar.display = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Low Collar: No Value"
+    return "Low Collar: No Limit"
   end
 
   return "Low Collar: "..value
@@ -1204,7 +1204,7 @@ pse_pseequities_totalview_itch_v2_3.price.size = 4
 pse_pseequities_totalview_itch_v2_3.price.display = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Price: No Value"
+    return "Price: Market Order"
   end
 
   return "Price: "..value
@@ -1525,7 +1525,7 @@ pse_pseequities_totalview_itch_v2_3.replace_price.size = 4
 pse_pseequities_totalview_itch_v2_3.replace_price.display = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Replace Price: No Value"
+    return "Replace Price: Market Order"
   end
 
   return "Replace Price: "..value

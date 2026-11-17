@@ -2715,7 +2715,7 @@ box_boxoptions_solaorderentry_sail_v2_25.order_id_error_notice.size = 20
 -- Display: Order Id Error Notice
 box_boxoptions_solaorderentry_sail_v2_25.order_id_error_notice.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == '' or value == "0" then
     return "Order Id Error Notice: No Value"
   end
 

@@ -37,9 +37,10 @@ omi_jpx_tseequities_tostnet_flex_v19_5.fields.message_type = ProtoField.new("Mes
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.message_type_large_classification = ProtoField.new("Message Type Large Classification", "jpx.tseequities.tostnet.flex.v19.5.messagetypelargeclassification", ftypes.STRING, nil, nil, nil, "Large Classification indicates Message Type.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.multicast_group_number = ProtoField.new("Multicast Group Number", "jpx.tseequities.tostnet.flex.v19.5.multicastgroupnumber", ftypes.UINT16, nil, nil, nil, "Multicast group number, set in the first to third byte of the Message Serial No.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.other_medium_classification = ProtoField.new("Other Medium Classification", "jpx.tseequities.tostnet.flex.v19.5.othermediumclassification", ftypes.STRING, nil, nil, nil, "Medium Classification of a Message Type whose Large Classification 5.3.3 (3) does not list. The two bytes are on the wire either way, so they are read rather than skipped.")
+omi_jpx_tseequities_tostnet_flex_v19_5.fields.precise_time = ProtoField.new("Precise Time", "jpx.tseequities.tostnet.flex.v19.5.precisetime", ftypes.STRING, nil, nil, nil, "Indicates the time at which the trade was established.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.price = ProtoField.new("Price", "jpx.tseequities.tostnet.flex.v19.5.price", ftypes.STRING)
-omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_c_14 = ProtoField.new("Price C 14", "jpx.tseequities.tostnet.flex.v19.5.pricec14", ftypes.DOUBLE, nil, nil, nil, "Indicates that this is the trade price.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_code = ProtoField.new("Price Code", "jpx.tseequities.tostnet.flex.v19.5.pricecode", ftypes.STRING, nil, nil, nil, "Indicates the price code for the transaction.")
+omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_value = ProtoField.new("Price Value", "jpx.tseequities.tostnet.flex.v19.5.pricevalue", ftypes.DOUBLE, nil, nil, nil, "Indicates that this is the trade price.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.reserved_2 = ProtoField.new("Reserved 2", "jpx.tseequities.tostnet.flex.v19.5.reserved2", ftypes.STRING, nil, nil, nil, "This item is reserved.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.separation_between_service_header_and_data_section = ProtoField.new("Separation Between Service Header And Data Section", "jpx.tseequities.tostnet.flex.v19.5.separationbetweenserviceheaderanddatasection", ftypes.UINT8, nil, nil, nil, "Control Code DC2 (0x12), Separation between Service Header and Data Section")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.separation_of_tag = ProtoField.new("Separation Of Tag", "jpx.tseequities.tostnet.flex.v19.5.separationoftag", ftypes.UINT8, nil, nil, nil, "Control Code DC3 (0x13) between tags, or DC1 (0x11) on the tag that ends the message")
@@ -58,16 +59,15 @@ omi_jpx_tseequities_tostnet_flex_v19_5.fields.stock_space = ProtoField.new("Stoc
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.tag_id = ProtoField.new("Tag ID", "jpx.tseequities.tostnet.flex.v19.5.tagid", ftypes.STRING, nil, nil, nil, "Tag ID is numbered using 1 to 9 and A to Z. Different tags are used for different information classifications.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.tag_information = ProtoField.new("Tag Information", "jpx.tseequities.tostnet.flex.v19.5.taginformation", ftypes.STRING, nil, nil, nil, "One tag: its two character Tag ID, its data, and the control code that closes it (DC3 between tags, DC1 at the end of the message)")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.test_mode_flag = ProtoField.new("Test Mode Flag", "jpx.tseequities.tostnet.flex.v19.5.testmodeflag", ftypes.STRING, nil, nil, nil, "Indicates the flag for identifying the distinction between real and test operation.")
-omi_jpx_tseequities_tostnet_flex_v19_5.fields.time_c_12 = ProtoField.new("Time C 12", "jpx.tseequities.tostnet.flex.v19.5.timec12", ftypes.STRING, nil, nil, nil, "Indicates the time at which the trade was established.")
-omi_jpx_tseequities_tostnet_flex_v19_5.fields.time_c_6 = ProtoField.new("Time C 6", "jpx.tseequities.tostnet.flex.v19.5.timec6", ftypes.STRING, nil, nil, nil, "Indicates time.")
+omi_jpx_tseequities_tostnet_flex_v19_5.fields.time = ProtoField.new("Time", "jpx.tseequities.tostnet.flex.v19.5.time", ftypes.STRING, nil, nil, nil, "Indicates time.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.time_symbol = ProtoField.new("Time Symbol", "jpx.tseequities.tostnet.flex.v19.5.timesymbol", ftypes.STRING, nil, nil, nil, "Time Symbol.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.trading_halt = ProtoField.new("Trading Halt", "jpx.tseequities.tostnet.flex.v19.5.tradinghalt", ftypes.STRING)
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.trading_volume = ProtoField.new("Trading Volume", "jpx.tseequities.tostnet.flex.v19.5.tradingvolume", ftypes.STRING)
-omi_jpx_tseequities_tostnet_flex_v19_5.fields.trading_volume_c_14 = ProtoField.new("Trading Volume C 14", "jpx.tseequities.tostnet.flex.v19.5.tradingvolumec14", ftypes.STRING, nil, nil, nil, "Indicatds the trading volume.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.trading_volume_turnover_unit_flag = ProtoField.new("Trading Volume Turnover Unit Flag", "jpx.tseequities.tostnet.flex.v19.5.tradingvolumeturnoverunitflag", ftypes.STRING, nil, nil, nil, "Indicates the trading volume/turnover unit flag.")
+omi_jpx_tseequities_tostnet_flex_v19_5.fields.trading_volume_value = ProtoField.new("Trading Volume Value", "jpx.tseequities.tostnet.flex.v19.5.tradingvolumevalue", ftypes.STRING, nil, nil, nil, "Indicatds the trading volume.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.transaction_identification_flag = ProtoField.new("Transaction Identification Flag", "jpx.tseequities.tostnet.flex.v19.5.transactionidentificationflag", ftypes.STRING, nil, nil, nil, "Indicates the identification of the transaction.")
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.turnover = ProtoField.new("Turnover", "jpx.tseequities.tostnet.flex.v19.5.turnover", ftypes.STRING)
-omi_jpx_tseequities_tostnet_flex_v19_5.fields.turnover_c_14 = ProtoField.new("Turnover C 14", "jpx.tseequities.tostnet.flex.v19.5.turnoverc14", ftypes.STRING, nil, nil, nil, "Indiactes the turnover.")
+omi_jpx_tseequities_tostnet_flex_v19_5.fields.turnover_value = ProtoField.new("Turnover Value", "jpx.tseequities.tostnet.flex.v19.5.turnovervalue", ftypes.STRING, nil, nil, nil, "Indiactes the turnover.")
 
 -- Jpx TseEquities ToSTNeT Flex 19.5 Framing
 omi_jpx_tseequities_tostnet_flex_v19_5.fields.service_header = ProtoField.new("Service Header", "jpx.tseequities.tostnet.flex.v19.5.serviceheader", ftypes.STRING, nil, nil, nil, "Jpx Flex 39 byte service header, common to all message types")
@@ -730,40 +730,29 @@ jpx_tseequities_tostnet_flex_v19_5.other_medium_classification.dissect = functio
   return offset + length, value
 end
 
--- Price C 14
-jpx_tseequities_tostnet_flex_v19_5.price_c_14 = {}
+-- Precise Time
+jpx_tseequities_tostnet_flex_v19_5.precise_time = {}
 
--- Size: Price C 14
-jpx_tseequities_tostnet_flex_v19_5.price_c_14.size = 14
+-- Size: Precise Time
+jpx_tseequities_tostnet_flex_v19_5.precise_time.size = 12
 
--- Display: Price C 14
-jpx_tseequities_tostnet_flex_v19_5.price_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_tostnet_flex_v19_5.price_c_14.size):string(), 4)
-
-  if text == nil then
-    return "Price C 14: "..tostring(value)
+-- Display: Precise Time
+jpx_tseequities_tostnet_flex_v19_5.precise_time.display = function(value)
+  if #value < 8 then
+    return "Precise Time: "..value
   end
 
-  return "Price C 14: "..text
+  return "Precise Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 8)
 end
 
--- Dissect: Price C 14
-jpx_tseequities_tostnet_flex_v19_5.price_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_tostnet_flex_v19_5.price_c_14.size
+-- Dissect: Precise Time
+jpx_tseequities_tostnet_flex_v19_5.precise_time.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_tostnet_flex_v19_5.precise_time.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local value = trim_right_spaces(range:string())
+  local display = jpx_tseequities_tostnet_flex_v19_5.precise_time.display(value, buffer, offset, packet, parent)
 
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_c_14, range, value, "Price C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_tseequities_tostnet_flex_v19_5.experts.not_a_number, "Price C 14 is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-  value = value/10000
-
-  local display = jpx_tseequities_tostnet_flex_v19_5.price_c_14.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.precise_time, range, value, display)
 
   return offset + length, value
 end
@@ -812,6 +801,44 @@ jpx_tseequities_tostnet_flex_v19_5.price_code.dissect = function(buffer, offset,
   local display = jpx_tseequities_tostnet_flex_v19_5.price_code.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Value
+jpx_tseequities_tostnet_flex_v19_5.price_value = {}
+
+-- Size: Price Value
+jpx_tseequities_tostnet_flex_v19_5.price_value.size = 14
+
+-- Display: Price Value
+jpx_tseequities_tostnet_flex_v19_5.price_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_tseequities_tostnet_flex_v19_5.price_value.size):string(), 4)
+
+  if text == nil then
+    return "Price Value: "..tostring(value)
+  end
+
+  return "Price Value: "..text
+end
+
+-- Dissect: Price Value
+jpx_tseequities_tostnet_flex_v19_5.price_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_tostnet_flex_v19_5.price_value.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_value, range, value, "Price Value: Not Applicable")
+    item:add_proto_expert_info(jpx_tseequities_tostnet_flex_v19_5.experts.not_a_number, "Price Value is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+  value = value/10000
+
+  local display = jpx_tseequities_tostnet_flex_v19_5.price_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.price_value, range, value, display)
 
   return offset + length, value
 end
@@ -1229,63 +1256,36 @@ jpx_tseequities_tostnet_flex_v19_5.test_mode_flag.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Time C 12
-jpx_tseequities_tostnet_flex_v19_5.time_c_12 = {}
+-- Time
+jpx_tseequities_tostnet_flex_v19_5.time = {}
 
--- Size: Time C 12
-jpx_tseequities_tostnet_flex_v19_5.time_c_12.size = 12
+-- Size: Time
+jpx_tseequities_tostnet_flex_v19_5.time.size = 6
 
--- Display: Time C 12
-jpx_tseequities_tostnet_flex_v19_5.time_c_12.display = function(value)
-  if #value < 8 then
-    return "Time C 12: "..value
-  end
-
-  return "Time C 12: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 8)
-end
-
--- Dissect: Time C 12
-jpx_tseequities_tostnet_flex_v19_5.time_c_12.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_tostnet_flex_v19_5.time_c_12.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_tseequities_tostnet_flex_v19_5.time_c_12.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.time_c_12, range, value, display)
-
-  return offset + length, value
-end
-
--- Time C 6
-jpx_tseequities_tostnet_flex_v19_5.time_c_6 = {}
-
--- Size: Time C 6
-jpx_tseequities_tostnet_flex_v19_5.time_c_6.size = 6
-
--- Display: Time C 6
-jpx_tseequities_tostnet_flex_v19_5.time_c_6.display = function(value)
+-- Display: Time
+jpx_tseequities_tostnet_flex_v19_5.time.display = function(value)
   if #value < 4 then
-    return "Time C 6: "..value
+    return "Time: "..value
   end
 
   local hour = value:sub(1, 2)
   local minute = value:sub(3, 4)
 
   if minute:match("^%s*$") then
-    return "Time C 6: "..hour
+    return "Time: "..hour
   end
 
-  return "Time C 6: "..hour..":"..minute
+  return "Time: "..hour..":"..minute
 end
 
--- Dissect: Time C 6
-jpx_tseequities_tostnet_flex_v19_5.time_c_6.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_tostnet_flex_v19_5.time_c_6.size
+-- Dissect: Time
+jpx_tseequities_tostnet_flex_v19_5.time.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_tostnet_flex_v19_5.time.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = jpx_tseequities_tostnet_flex_v19_5.time_c_6.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_tostnet_flex_v19_5.time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.time_c_6, range, value, display)
+  parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.time, range, value, display)
 
   return offset + length, value
 end
@@ -1309,29 +1309,6 @@ jpx_tseequities_tostnet_flex_v19_5.time_symbol.dissect = function(buffer, offset
   local display = jpx_tseequities_tostnet_flex_v19_5.time_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.time_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Volume C 14
-jpx_tseequities_tostnet_flex_v19_5.trading_volume_c_14 = {}
-
--- Size: Trading Volume C 14
-jpx_tseequities_tostnet_flex_v19_5.trading_volume_c_14.size = 14
-
--- Display: Trading Volume C 14
-jpx_tseequities_tostnet_flex_v19_5.trading_volume_c_14.display = function(value)
-  return "Trading Volume C 14: "..value
-end
-
--- Dissect: Trading Volume C 14
-jpx_tseequities_tostnet_flex_v19_5.trading_volume_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_tostnet_flex_v19_5.trading_volume_c_14.size
-  local range = buffer(offset, length)
-  local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_tostnet_flex_v19_5.trading_volume_c_14.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.trading_volume_c_14, range, value, display)
 
   return offset + length, value
 end
@@ -1389,6 +1366,29 @@ jpx_tseequities_tostnet_flex_v19_5.trading_volume_turnover_unit_flag.dissect = f
   local display = jpx_tseequities_tostnet_flex_v19_5.trading_volume_turnover_unit_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.trading_volume_turnover_unit_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Volume Value
+jpx_tseequities_tostnet_flex_v19_5.trading_volume_value = {}
+
+-- Size: Trading Volume Value
+jpx_tseequities_tostnet_flex_v19_5.trading_volume_value.size = 14
+
+-- Display: Trading Volume Value
+jpx_tseequities_tostnet_flex_v19_5.trading_volume_value.display = function(value)
+  return "Trading Volume Value: "..value
+end
+
+-- Dissect: Trading Volume Value
+jpx_tseequities_tostnet_flex_v19_5.trading_volume_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_tostnet_flex_v19_5.trading_volume_value.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = jpx_tseequities_tostnet_flex_v19_5.trading_volume_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.trading_volume_value, range, value, display)
 
   return offset + length, value
 end
@@ -1477,25 +1477,25 @@ jpx_tseequities_tostnet_flex_v19_5.transaction_identification_flag.dissect = fun
   return offset + length, value
 end
 
--- Turnover C 14
-jpx_tseequities_tostnet_flex_v19_5.turnover_c_14 = {}
+-- Turnover Value
+jpx_tseequities_tostnet_flex_v19_5.turnover_value = {}
 
--- Size: Turnover C 14
-jpx_tseequities_tostnet_flex_v19_5.turnover_c_14.size = 14
+-- Size: Turnover Value
+jpx_tseequities_tostnet_flex_v19_5.turnover_value.size = 14
 
--- Display: Turnover C 14
-jpx_tseequities_tostnet_flex_v19_5.turnover_c_14.display = function(value)
-  return "Turnover C 14: "..value
+-- Display: Turnover Value
+jpx_tseequities_tostnet_flex_v19_5.turnover_value.display = function(value)
+  return "Turnover Value: "..value
 end
 
--- Dissect: Turnover C 14
-jpx_tseequities_tostnet_flex_v19_5.turnover_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_tseequities_tostnet_flex_v19_5.turnover_c_14.size
+-- Dissect: Turnover Value
+jpx_tseequities_tostnet_flex_v19_5.turnover_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_tseequities_tostnet_flex_v19_5.turnover_value.size
   local range = buffer(offset, length)
   local value = trim_left_spaces(range:string())
-  local display = jpx_tseequities_tostnet_flex_v19_5.turnover_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_tseequities_tostnet_flex_v19_5.turnover_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.turnover_c_14, range, value, display)
+  parent:add(omi_jpx_tseequities_tostnet_flex_v19_5.fields.turnover_value, range, value, display)
 
   return offset + length, value
 end
@@ -1513,7 +1513,7 @@ jpx_tseequities_tostnet_flex_v19_5.control_message.size =
   jpx_tseequities_tostnet_flex_v19_5.reserved_2.size + 
   jpx_tseequities_tostnet_flex_v19_5.test_mode_flag.size + 
   jpx_tseequities_tostnet_flex_v19_5.start_end_flag.size + 
-  jpx_tseequities_tostnet_flex_v19_5.time_c_6.size
+  jpx_tseequities_tostnet_flex_v19_5.time.size
 
 -- Display: Control Message
 jpx_tseequities_tostnet_flex_v19_5.control_message.display = function(packet, parent, length)
@@ -1533,8 +1533,8 @@ jpx_tseequities_tostnet_flex_v19_5.control_message.fields = function(buffer, off
   -- Start End Flag: C
   index, start_end_flag = jpx_tseequities_tostnet_flex_v19_5.start_end_flag.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_tseequities_tostnet_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_tseequities_tostnet_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1563,7 +1563,7 @@ jpx_tseequities_tostnet_flex_v19_5.state = {}
 -- Size: State
 jpx_tseequities_tostnet_flex_v19_5.state.size =
   jpx_tseequities_tostnet_flex_v19_5.market_state_flag.size + 
-  jpx_tseequities_tostnet_flex_v19_5.time_c_6.size
+  jpx_tseequities_tostnet_flex_v19_5.time.size
 
 -- Display: State
 jpx_tseequities_tostnet_flex_v19_5.state.display = function(packet, parent, length)
@@ -1577,8 +1577,8 @@ jpx_tseequities_tostnet_flex_v19_5.state.fields = function(buffer, offset, packe
   -- Market State Flag: C
   index, market_state_flag = jpx_tseequities_tostnet_flex_v19_5.market_state_flag.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_tseequities_tostnet_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_tseequities_tostnet_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1655,7 +1655,7 @@ jpx_tseequities_tostnet_flex_v19_5.turnover = {}
 -- Size: Turnover
 jpx_tseequities_tostnet_flex_v19_5.turnover.size =
   jpx_tseequities_tostnet_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_tseequities_tostnet_flex_v19_5.turnover_c_14.size
+  jpx_tseequities_tostnet_flex_v19_5.turnover_value.size
 
 -- Display: Turnover
 jpx_tseequities_tostnet_flex_v19_5.turnover.display = function(packet, parent, length)
@@ -1669,8 +1669,8 @@ jpx_tseequities_tostnet_flex_v19_5.turnover.fields = function(buffer, offset, pa
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_tseequities_tostnet_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Turnover C 14: C
-  index, turnover_c_14 = jpx_tseequities_tostnet_flex_v19_5.turnover_c_14.dissect(buffer, index, packet, parent)
+  -- Turnover Value: C
+  index, turnover_value = jpx_tseequities_tostnet_flex_v19_5.turnover_value.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1699,7 +1699,7 @@ jpx_tseequities_tostnet_flex_v19_5.trading_volume = {}
 -- Size: Trading Volume
 jpx_tseequities_tostnet_flex_v19_5.trading_volume.size =
   jpx_tseequities_tostnet_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_tseequities_tostnet_flex_v19_5.trading_volume_c_14.size
+  jpx_tseequities_tostnet_flex_v19_5.trading_volume_value.size
 
 -- Display: Trading Volume
 jpx_tseequities_tostnet_flex_v19_5.trading_volume.display = function(packet, parent, length)
@@ -1713,8 +1713,8 @@ jpx_tseequities_tostnet_flex_v19_5.trading_volume.fields = function(buffer, offs
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_tseequities_tostnet_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Trading Volume C 14: C
-  index, trading_volume_c_14 = jpx_tseequities_tostnet_flex_v19_5.trading_volume_c_14.dissect(buffer, index, packet, parent)
+  -- Trading Volume Value: C
+  index, trading_volume_value = jpx_tseequities_tostnet_flex_v19_5.trading_volume_value.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1744,9 +1744,9 @@ jpx_tseequities_tostnet_flex_v19_5.price = {}
 jpx_tseequities_tostnet_flex_v19_5.price.size =
   jpx_tseequities_tostnet_flex_v19_5.price_code.size + 
   jpx_tseequities_tostnet_flex_v19_5.lot_size_unit_flag.size + 
-  jpx_tseequities_tostnet_flex_v19_5.price_c_14.size + 
+  jpx_tseequities_tostnet_flex_v19_5.price_value.size + 
   jpx_tseequities_tostnet_flex_v19_5.sign.size + 
-  jpx_tseequities_tostnet_flex_v19_5.time_c_12.size
+  jpx_tseequities_tostnet_flex_v19_5.precise_time.size
 
 -- Display: Price
 jpx_tseequities_tostnet_flex_v19_5.price.display = function(packet, parent, length)
@@ -1763,14 +1763,14 @@ jpx_tseequities_tostnet_flex_v19_5.price.fields = function(buffer, offset, packe
   -- Lot Size Unit Flag: C
   index, lot_size_unit_flag = jpx_tseequities_tostnet_flex_v19_5.lot_size_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Price C 14: C
-  index, price_c_14 = jpx_tseequities_tostnet_flex_v19_5.price_c_14.dissect(buffer, index, packet, parent)
+  -- Price Value: C
+  index, price_value = jpx_tseequities_tostnet_flex_v19_5.price_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_tseequities_tostnet_flex_v19_5.sign.dissect(buffer, index, packet, parent)
 
-  -- Time C 12: C
-  index, time_c_12 = jpx_tseequities_tostnet_flex_v19_5.time_c_12.dissect(buffer, index, packet, parent)
+  -- Precise Time: C
+  index, precise_time = jpx_tseequities_tostnet_flex_v19_5.precise_time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -1799,7 +1799,7 @@ jpx_tseequities_tostnet_flex_v19_5.trading_halt = {}
 -- Size: Trading Halt
 jpx_tseequities_tostnet_flex_v19_5.trading_halt.size =
   jpx_tseequities_tostnet_flex_v19_5.state_flag.size + 
-  jpx_tseequities_tostnet_flex_v19_5.time_c_6.size
+  jpx_tseequities_tostnet_flex_v19_5.time.size
 
 -- Display: Trading Halt
 jpx_tseequities_tostnet_flex_v19_5.trading_halt.display = function(packet, parent, length)
@@ -1813,8 +1813,8 @@ jpx_tseequities_tostnet_flex_v19_5.trading_halt.fields = function(buffer, offset
   -- State Flag: C
   index, state_flag = jpx_tseequities_tostnet_flex_v19_5.state_flag.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_tseequities_tostnet_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_tseequities_tostnet_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   return index
 end

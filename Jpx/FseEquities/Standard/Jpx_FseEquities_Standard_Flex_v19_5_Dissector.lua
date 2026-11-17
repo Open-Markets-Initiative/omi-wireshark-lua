@@ -16,7 +16,7 @@ local jpx_fseequities_standard_flex_v19_5 = {}
 
 -- Jpx FseEquities Standard Flex 19.5 Fields
 omi_jpx_fseequities_standard_flex_v19_5.fields.all_day_vwap = ProtoField.new("All Day Vwap", "jpx.fseequities.standard.flex.v19.5.alldayvwap", ftypes.STRING, nil, nil, nil, "All-Day VWAP")
-omi_jpx_fseequities_standard_flex_v19_5.fields.all_day_vwap_c_14 = ProtoField.new("All Day Vwap C 14", "jpx.fseequities.standard.flex.v19.5.alldayvwapc14", ftypes.DOUBLE, nil, nil, nil, "Indicates the All-Day VWAP.")
+omi_jpx_fseequities_standard_flex_v19_5.fields.all_day_vwap_value = ProtoField.new("All Day Vwap Value", "jpx.fseequities.standard.flex.v19.5.alldayvwapvalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the All-Day VWAP.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.ask_quote = ProtoField.new("Ask Quote", "jpx.fseequities.standard.flex.v19.5.askquote", ftypes.STRING)
 omi_jpx_fseequities_standard_flex_v19_5.fields.bid_quote = ProtoField.new("Bid Quote", "jpx.fseequities.standard.flex.v19.5.bidquote", ftypes.STRING)
 omi_jpx_fseequities_standard_flex_v19_5.fields.blank_issue_code = ProtoField.new("Blank Issue Code", "jpx.fseequities.standard.flex.v19.5.blankissuecode", ftypes.STRING, nil, nil, nil, "Issue Code layout for a Control, Index or Statistics Message, which 5.3.3 (7) sets to spaces. The twelve bytes are on the wire either way, so they are read rather than skipped.")
@@ -31,12 +31,12 @@ omi_jpx_fseequities_standard_flex_v19_5.fields.control_medium_classification = P
 omi_jpx_fseequities_standard_flex_v19_5.fields.current = ProtoField.new("Current", "jpx.fseequities.standard.flex.v19.5.current", ftypes.STRING)
 omi_jpx_fseequities_standard_flex_v19_5.fields.current_change_flag = ProtoField.new("Current Change Flag", "jpx.fseequities.standard.flex.v19.5.currentchangeflag", ftypes.STRING, nil, nil, nil, "Indicates whether this has changed or not.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.current_session_vwap = ProtoField.new("Current Session Vwap", "jpx.fseequities.standard.flex.v19.5.currentsessionvwap", ftypes.STRING, nil, nil, nil, "Current-Session VWAP")
-omi_jpx_fseequities_standard_flex_v19_5.fields.current_session_vwap_c_14 = ProtoField.new("Current Session Vwap C 14", "jpx.fseequities.standard.flex.v19.5.currentsessionvwapc14", ftypes.DOUBLE, nil, nil, nil, "Indicates the Current-Session VWAP.")
+omi_jpx_fseequities_standard_flex_v19_5.fields.current_session_vwap_value = ProtoField.new("Current Session Vwap Value", "jpx.fseequities.standard.flex.v19.5.currentsessionvwapvalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the Current-Session VWAP.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.direct_yield = ProtoField.new("Direct Yield", "jpx.fseequities.standard.flex.v19.5.directyield", ftypes.STRING)
-omi_jpx_fseequities_standard_flex_v19_5.fields.direct_yield_c_8 = ProtoField.new("Direct Yield C 8", "jpx.fseequities.standard.flex.v19.5.directyieldc8", ftypes.DOUBLE, nil, nil, nil, "Indicates the Direct Yield. The unit is 1/100%.")
+omi_jpx_fseequities_standard_flex_v19_5.fields.direct_yield_value = ProtoField.new("Direct Yield Value", "jpx.fseequities.standard.flex.v19.5.directyieldvalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the Direct Yield. The unit is 1/100%.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.exchange_code = ProtoField.new("Exchange Code", "jpx.fseequities.standard.flex.v19.5.exchangecode", ftypes.STRING, nil, nil, nil, "Exchange the information belongs to. This section is a space in Control Message.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.final_yield = ProtoField.new("Final Yield", "jpx.fseequities.standard.flex.v19.5.finalyield", ftypes.STRING)
-omi_jpx_fseequities_standard_flex_v19_5.fields.final_yield_c_8 = ProtoField.new("Final Yield C 8", "jpx.fseequities.standard.flex.v19.5.finalyieldc8", ftypes.DOUBLE, nil, nil, nil, "Indicates the final yield. The unit is 1/1000%.")
+omi_jpx_fseequities_standard_flex_v19_5.fields.final_yield_value = ProtoField.new("Final Yield Value", "jpx.fseequities.standard.flex.v19.5.finalyieldvalue", ftypes.DOUBLE, nil, nil, nil, "Indicates the final yield. The unit is 1/1000%.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.high = ProtoField.new("High", "jpx.fseequities.standard.flex.v19.5.high", ftypes.STRING)
 omi_jpx_fseequities_standard_flex_v19_5.fields.index_medium_classification = ProtoField.new("Index Medium Classification", "jpx.fseequities.standard.flex.v19.5.indexmediumclassification", ftypes.STRING, nil, nil, nil, "Medium Classification of a Index Message. Indicates details and other information.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.issue_basic_medium_classification = ProtoField.new("Issue Basic Medium Classification", "jpx.fseequities.standard.flex.v19.5.issuebasicmediumclassification", ftypes.STRING, nil, nil, nil, "Medium Classification of a Issue Basic Message. Indicates details and other information.")
@@ -58,9 +58,10 @@ omi_jpx_fseequities_standard_flex_v19_5.fields.open = ProtoField.new("Open", "jp
 omi_jpx_fseequities_standard_flex_v19_5.fields.other_medium_classification = ProtoField.new("Other Medium Classification", "jpx.fseequities.standard.flex.v19.5.othermediumclassification", ftypes.STRING, nil, nil, nil, "Medium Classification of a Message Type whose Large Classification 5.3.3 (3) does not list. The two bytes are on the wire either way, so they are read rather than skipped.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.over_quote = ProtoField.new("Over Quote", "jpx.fseequities.standard.flex.v19.5.overquote", ftypes.STRING)
 omi_jpx_fseequities_standard_flex_v19_5.fields.parity_estimated_price = ProtoField.new("Parity Estimated Price", "jpx.fseequities.standard.flex.v19.5.parityestimatedprice", ftypes.STRING, nil, nil, nil, "Parity/Estimated Price")
-omi_jpx_fseequities_standard_flex_v19_5.fields.parity_estimated_price_c_14 = ProtoField.new("Parity Estimated Price C 14", "jpx.fseequities.standard.flex.v19.5.parityestimatedpricec14", ftypes.DOUBLE, nil, nil, nil, "Indicates Parity.")
+omi_jpx_fseequities_standard_flex_v19_5.fields.parity_estimated_price_value = ProtoField.new("Parity Estimated Price Value", "jpx.fseequities.standard.flex.v19.5.parityestimatedpricevalue", ftypes.DOUBLE, nil, nil, nil, "Indicates Parity.")
+omi_jpx_fseequities_standard_flex_v19_5.fields.precise_time = ProtoField.new("Precise Time", "jpx.fseequities.standard.flex.v19.5.precisetime", ftypes.STRING, nil, nil, nil, "Indicates the changed time of Status Change Information.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.price = ProtoField.new("Price", "jpx.fseequities.standard.flex.v19.5.price", ftypes.STRING)
-omi_jpx_fseequities_standard_flex_v19_5.fields.price_c_14 = ProtoField.new("Price C 14", "jpx.fseequities.standard.flex.v19.5.pricec14", ftypes.DOUBLE, nil, nil, nil, "Numerical part: a 10 digit integral part and a 4 digit decimal part.")
+omi_jpx_fseequities_standard_flex_v19_5.fields.price_value = ProtoField.new("Price Value", "jpx.fseequities.standard.flex.v19.5.pricevalue", ftypes.DOUBLE, nil, nil, nil, "Numerical part: a 10 digit integral part and a 4 digit decimal part.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.quantity = ProtoField.new("Quantity", "jpx.fseequities.standard.flex.v19.5.quantity", ftypes.STRING, nil, nil, nil, "Numerical part: the 14 digits of an integer.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.quote_flag = ProtoField.new("Quote Flag", "jpx.fseequities.standard.flex.v19.5.quoteflag", ftypes.STRING, nil, nil, nil, "Indicates the type of the quote.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.quote_quantity = ProtoField.new("Quote Quantity", "jpx.fseequities.standard.flex.v19.5.quotequantity", ftypes.STRING)
@@ -88,12 +89,11 @@ omi_jpx_fseequities_standard_flex_v19_5.fields.stq_reference_point_flag = ProtoF
 omi_jpx_fseequities_standard_flex_v19_5.fields.tag_id = ProtoField.new("Tag ID", "jpx.fseequities.standard.flex.v19.5.tagid", ftypes.STRING, nil, nil, nil, "Tag ID is numbered using 1 to 9 and A to Z. Different tags are used for different information classifications.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.tag_information = ProtoField.new("Tag Information", "jpx.fseequities.standard.flex.v19.5.taginformation", ftypes.STRING, nil, nil, nil, "One tag: its two character Tag ID, its data, and the control code that closes it (DC3 between tags, DC1 at the end of the message)")
 omi_jpx_fseequities_standard_flex_v19_5.fields.test_mode_flag = ProtoField.new("Test Mode Flag", "jpx.fseequities.standard.flex.v19.5.testmodeflag", ftypes.STRING, nil, nil, nil, "Indicates the flag for identifying the distinction between Production and Test Operation.")
-omi_jpx_fseequities_standard_flex_v19_5.fields.time_c_12 = ProtoField.new("Time C 12", "jpx.fseequities.standard.flex.v19.5.timec12", ftypes.STRING, nil, nil, nil, "Indicates the changed time of Status Change Information.")
-omi_jpx_fseequities_standard_flex_v19_5.fields.time_c_6 = ProtoField.new("Time C 6", "jpx.fseequities.standard.flex.v19.5.timec6", ftypes.STRING, nil, nil, nil, "Indicates the time at which the current price, Special Quote price or Sequential Trade Quote price of the relevant issue, which is subject to computation of Direct and Final yield, occurred or changed.")
+omi_jpx_fseequities_standard_flex_v19_5.fields.time = ProtoField.new("Time", "jpx.fseequities.standard.flex.v19.5.time", ftypes.STRING, nil, nil, nil, "Indicates the time at which the current price, Special Quote price or Sequential Trade Quote price of the relevant issue, which is subject to computation of Direct and Final yield, occurred or changed.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.time_symbol = ProtoField.new("Time Symbol", "jpx.fseequities.standard.flex.v19.5.timesymbol", ftypes.STRING, nil, nil, nil, "Time Symbol.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.trading_volume = ProtoField.new("Trading Volume", "jpx.fseequities.standard.flex.v19.5.tradingvolume", ftypes.STRING)
-omi_jpx_fseequities_standard_flex_v19_5.fields.trading_volume_c_14 = ProtoField.new("Trading Volume C 14", "jpx.fseequities.standard.flex.v19.5.tradingvolumec14", ftypes.STRING, nil, nil, nil, "This item shows the cumulative Trading Volume for the morning and afternoon sessions.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.trading_volume_turnover_unit_flag = ProtoField.new("Trading Volume Turnover Unit Flag", "jpx.fseequities.standard.flex.v19.5.tradingvolumeturnoverunitflag", ftypes.STRING, nil, nil, nil, "The unit of the numerical value to be set in the integral part.")
+omi_jpx_fseequities_standard_flex_v19_5.fields.trading_volume_value = ProtoField.new("Trading Volume Value", "jpx.fseequities.standard.flex.v19.5.tradingvolumevalue", ftypes.STRING, nil, nil, nil, "This item shows the cumulative Trading Volume for the morning and afternoon sessions.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.turnover_in_yen_value = ProtoField.new("Turnover In Yen Value", "jpx.fseequities.standard.flex.v19.5.turnoverinyenvalue", ftypes.STRING)
 omi_jpx_fseequities_standard_flex_v19_5.fields.turnover_value = ProtoField.new("Turnover Value", "jpx.fseequities.standard.flex.v19.5.turnovervalue", ftypes.STRING, nil, nil, nil, "This item shows the cumulative turnover for the morning and afternoon sessions.")
 omi_jpx_fseequities_standard_flex_v19_5.fields.under_quote = ProtoField.new("Under Quote", "jpx.fseequities.standard.flex.v19.5.underquote", ftypes.STRING)
@@ -247,40 +247,40 @@ end
 -- Jpx FseEquities Standard Flex 19.5 Fields
 -----------------------------------------------------------------------
 
--- All Day Vwap C 14
-jpx_fseequities_standard_flex_v19_5.all_day_vwap_c_14 = {}
+-- All Day Vwap Value
+jpx_fseequities_standard_flex_v19_5.all_day_vwap_value = {}
 
--- Size: All Day Vwap C 14
-jpx_fseequities_standard_flex_v19_5.all_day_vwap_c_14.size = 14
+-- Size: All Day Vwap Value
+jpx_fseequities_standard_flex_v19_5.all_day_vwap_value.size = 14
 
--- Display: All Day Vwap C 14
-jpx_fseequities_standard_flex_v19_5.all_day_vwap_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.all_day_vwap_c_14.size):string(), 4)
+-- Display: All Day Vwap Value
+jpx_fseequities_standard_flex_v19_5.all_day_vwap_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.all_day_vwap_value.size):string(), 4)
 
   if text == nil then
-    return "All Day Vwap C 14: "..tostring(value)
+    return "All Day Vwap Value: "..tostring(value)
   end
 
-  return "All Day Vwap C 14: "..text
+  return "All Day Vwap Value: "..text
 end
 
--- Dissect: All Day Vwap C 14
-jpx_fseequities_standard_flex_v19_5.all_day_vwap_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_fseequities_standard_flex_v19_5.all_day_vwap_c_14.size
+-- Dissect: All Day Vwap Value
+jpx_fseequities_standard_flex_v19_5.all_day_vwap_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_fseequities_standard_flex_v19_5.all_day_vwap_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.all_day_vwap_c_14, range, value, "All Day Vwap C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "All Day Vwap C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.all_day_vwap_value, range, value, "All Day Vwap Value: Not Applicable")
+    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "All Day Vwap Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_fseequities_standard_flex_v19_5.all_day_vwap_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_fseequities_standard_flex_v19_5.all_day_vwap_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.all_day_vwap_c_14, range, value, display)
+  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.all_day_vwap_value, range, value, display)
 
   return offset + length, value
 end
@@ -527,78 +527,78 @@ jpx_fseequities_standard_flex_v19_5.current_change_flag.dissect = function(buffe
   return offset + length, value
 end
 
--- Current Session Vwap C 14
-jpx_fseequities_standard_flex_v19_5.current_session_vwap_c_14 = {}
+-- Current Session Vwap Value
+jpx_fseequities_standard_flex_v19_5.current_session_vwap_value = {}
 
--- Size: Current Session Vwap C 14
-jpx_fseequities_standard_flex_v19_5.current_session_vwap_c_14.size = 14
+-- Size: Current Session Vwap Value
+jpx_fseequities_standard_flex_v19_5.current_session_vwap_value.size = 14
 
--- Display: Current Session Vwap C 14
-jpx_fseequities_standard_flex_v19_5.current_session_vwap_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.current_session_vwap_c_14.size):string(), 4)
+-- Display: Current Session Vwap Value
+jpx_fseequities_standard_flex_v19_5.current_session_vwap_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.current_session_vwap_value.size):string(), 4)
 
   if text == nil then
-    return "Current Session Vwap C 14: "..tostring(value)
+    return "Current Session Vwap Value: "..tostring(value)
   end
 
-  return "Current Session Vwap C 14: "..text
+  return "Current Session Vwap Value: "..text
 end
 
--- Dissect: Current Session Vwap C 14
-jpx_fseequities_standard_flex_v19_5.current_session_vwap_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_fseequities_standard_flex_v19_5.current_session_vwap_c_14.size
+-- Dissect: Current Session Vwap Value
+jpx_fseequities_standard_flex_v19_5.current_session_vwap_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_fseequities_standard_flex_v19_5.current_session_vwap_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.current_session_vwap_c_14, range, value, "Current Session Vwap C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "Current Session Vwap C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.current_session_vwap_value, range, value, "Current Session Vwap Value: Not Applicable")
+    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "Current Session Vwap Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_fseequities_standard_flex_v19_5.current_session_vwap_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_fseequities_standard_flex_v19_5.current_session_vwap_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.current_session_vwap_c_14, range, value, display)
+  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.current_session_vwap_value, range, value, display)
 
   return offset + length, value
 end
 
--- Direct Yield C 8
-jpx_fseequities_standard_flex_v19_5.direct_yield_c_8 = {}
+-- Direct Yield Value
+jpx_fseequities_standard_flex_v19_5.direct_yield_value = {}
 
--- Size: Direct Yield C 8
-jpx_fseequities_standard_flex_v19_5.direct_yield_c_8.size = 8
+-- Size: Direct Yield Value
+jpx_fseequities_standard_flex_v19_5.direct_yield_value.size = 8
 
--- Display: Direct Yield C 8
-jpx_fseequities_standard_flex_v19_5.direct_yield_c_8.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.direct_yield_c_8.size):string(), 2)
+-- Display: Direct Yield Value
+jpx_fseequities_standard_flex_v19_5.direct_yield_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.direct_yield_value.size):string(), 2)
 
   if text == nil then
-    return "Direct Yield C 8: "..tostring(value)
+    return "Direct Yield Value: "..tostring(value)
   end
 
-  return "Direct Yield C 8: "..text
+  return "Direct Yield Value: "..text
 end
 
--- Dissect: Direct Yield C 8
-jpx_fseequities_standard_flex_v19_5.direct_yield_c_8.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_fseequities_standard_flex_v19_5.direct_yield_c_8.size
+-- Dissect: Direct Yield Value
+jpx_fseequities_standard_flex_v19_5.direct_yield_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_fseequities_standard_flex_v19_5.direct_yield_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.direct_yield_c_8, range, value, "Direct Yield C 8: Not Applicable")
-    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "Direct Yield C 8 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.direct_yield_value, range, value, "Direct Yield Value: Not Applicable")
+    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "Direct Yield Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/100
 
-  local display = jpx_fseequities_standard_flex_v19_5.direct_yield_c_8.display(value, buffer, offset, packet, parent)
+  local display = jpx_fseequities_standard_flex_v19_5.direct_yield_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.direct_yield_c_8, range, value, display)
+  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.direct_yield_value, range, value, display)
 
   return offset + length, value
 end
@@ -645,40 +645,40 @@ jpx_fseequities_standard_flex_v19_5.exchange_code.dissect = function(buffer, off
   return offset + length, value
 end
 
--- Final Yield C 8
-jpx_fseequities_standard_flex_v19_5.final_yield_c_8 = {}
+-- Final Yield Value
+jpx_fseequities_standard_flex_v19_5.final_yield_value = {}
 
--- Size: Final Yield C 8
-jpx_fseequities_standard_flex_v19_5.final_yield_c_8.size = 8
+-- Size: Final Yield Value
+jpx_fseequities_standard_flex_v19_5.final_yield_value.size = 8
 
--- Display: Final Yield C 8
-jpx_fseequities_standard_flex_v19_5.final_yield_c_8.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.final_yield_c_8.size):string(), 3)
+-- Display: Final Yield Value
+jpx_fseequities_standard_flex_v19_5.final_yield_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.final_yield_value.size):string(), 3)
 
   if text == nil then
-    return "Final Yield C 8: "..tostring(value)
+    return "Final Yield Value: "..tostring(value)
   end
 
-  return "Final Yield C 8: "..text
+  return "Final Yield Value: "..text
 end
 
--- Dissect: Final Yield C 8
-jpx_fseequities_standard_flex_v19_5.final_yield_c_8.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_fseequities_standard_flex_v19_5.final_yield_c_8.size
+-- Dissect: Final Yield Value
+jpx_fseequities_standard_flex_v19_5.final_yield_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_fseequities_standard_flex_v19_5.final_yield_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.final_yield_c_8, range, value, "Final Yield C 8: Not Applicable")
-    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "Final Yield C 8 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.final_yield_value, range, value, "Final Yield Value: Not Applicable")
+    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "Final Yield Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/1000
 
-  local display = jpx_fseequities_standard_flex_v19_5.final_yield_c_8.display(value, buffer, offset, packet, parent)
+  local display = jpx_fseequities_standard_flex_v19_5.final_yield_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.final_yield_c_8, range, value, display)
+  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.final_yield_value, range, value, display)
 
   return offset + length, value
 end
@@ -1068,78 +1068,105 @@ jpx_fseequities_standard_flex_v19_5.other_medium_classification.dissect = functi
   return offset + length, value
 end
 
--- Parity Estimated Price C 14
-jpx_fseequities_standard_flex_v19_5.parity_estimated_price_c_14 = {}
+-- Parity Estimated Price Value
+jpx_fseequities_standard_flex_v19_5.parity_estimated_price_value = {}
 
--- Size: Parity Estimated Price C 14
-jpx_fseequities_standard_flex_v19_5.parity_estimated_price_c_14.size = 14
+-- Size: Parity Estimated Price Value
+jpx_fseequities_standard_flex_v19_5.parity_estimated_price_value.size = 14
 
--- Display: Parity Estimated Price C 14
-jpx_fseequities_standard_flex_v19_5.parity_estimated_price_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.parity_estimated_price_c_14.size):string(), 4)
+-- Display: Parity Estimated Price Value
+jpx_fseequities_standard_flex_v19_5.parity_estimated_price_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.parity_estimated_price_value.size):string(), 4)
 
   if text == nil then
-    return "Parity Estimated Price C 14: "..tostring(value)
+    return "Parity Estimated Price Value: "..tostring(value)
   end
 
-  return "Parity Estimated Price C 14: "..text
+  return "Parity Estimated Price Value: "..text
 end
 
--- Dissect: Parity Estimated Price C 14
-jpx_fseequities_standard_flex_v19_5.parity_estimated_price_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_fseequities_standard_flex_v19_5.parity_estimated_price_c_14.size
+-- Dissect: Parity Estimated Price Value
+jpx_fseequities_standard_flex_v19_5.parity_estimated_price_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_fseequities_standard_flex_v19_5.parity_estimated_price_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.parity_estimated_price_c_14, range, value, "Parity Estimated Price C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "Parity Estimated Price C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.parity_estimated_price_value, range, value, "Parity Estimated Price Value: Not Applicable")
+    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "Parity Estimated Price Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_fseequities_standard_flex_v19_5.parity_estimated_price_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_fseequities_standard_flex_v19_5.parity_estimated_price_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.parity_estimated_price_c_14, range, value, display)
+  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.parity_estimated_price_value, range, value, display)
 
   return offset + length, value
 end
 
--- Price C 14
-jpx_fseequities_standard_flex_v19_5.price_c_14 = {}
+-- Precise Time
+jpx_fseequities_standard_flex_v19_5.precise_time = {}
 
--- Size: Price C 14
-jpx_fseequities_standard_flex_v19_5.price_c_14.size = 14
+-- Size: Precise Time
+jpx_fseequities_standard_flex_v19_5.precise_time.size = 12
 
--- Display: Price C 14
-jpx_fseequities_standard_flex_v19_5.price_c_14.display = function(value, buffer, offset, packet, parent)
-  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.price_c_14.size):string(), 4)
-
-  if text == nil then
-    return "Price C 14: "..tostring(value)
+-- Display: Precise Time
+jpx_fseequities_standard_flex_v19_5.precise_time.display = function(value)
+  if #value < 12 then
+    return "Precise Time: "..value
   end
 
-  return "Price C 14: "..text
+  return "Precise Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12)
 end
 
--- Dissect: Price C 14
-jpx_fseequities_standard_flex_v19_5.price_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_fseequities_standard_flex_v19_5.price_c_14.size
+-- Dissect: Precise Time
+jpx_fseequities_standard_flex_v19_5.precise_time.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_fseequities_standard_flex_v19_5.precise_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = jpx_fseequities_standard_flex_v19_5.precise_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.precise_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Value
+jpx_fseequities_standard_flex_v19_5.price_value = {}
+
+-- Size: Price Value
+jpx_fseequities_standard_flex_v19_5.price_value.size = 14
+
+-- Display: Price Value
+jpx_fseequities_standard_flex_v19_5.price_value.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, jpx_fseequities_standard_flex_v19_5.price_value.size):string(), 4)
+
+  if text == nil then
+    return "Price Value: "..tostring(value)
+  end
+
+  return "Price Value: "..text
+end
+
+-- Dissect: Price Value
+jpx_fseequities_standard_flex_v19_5.price_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_fseequities_standard_flex_v19_5.price_value.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.price_c_14, range, value, "Price C 14: Not Applicable")
-    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "Price C 14 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.price_value, range, value, "Price Value: Not Applicable")
+    item:add_proto_expert_info(jpx_fseequities_standard_flex_v19_5.experts.not_a_number, "Price Value is not a number: '"..range:string().."'")
     return offset + length, value
   end
   value = value/10000
 
-  local display = jpx_fseequities_standard_flex_v19_5.price_c_14.display(value, buffer, offset, packet, parent)
+  local display = jpx_fseequities_standard_flex_v19_5.price_value.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.price_c_14, range, value, display)
+  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.price_value, range, value, display)
 
   return offset + length, value
 end
@@ -1794,56 +1821,29 @@ jpx_fseequities_standard_flex_v19_5.test_mode_flag.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Time C 12
-jpx_fseequities_standard_flex_v19_5.time_c_12 = {}
+-- Time
+jpx_fseequities_standard_flex_v19_5.time = {}
 
--- Size: Time C 12
-jpx_fseequities_standard_flex_v19_5.time_c_12.size = 12
+-- Size: Time
+jpx_fseequities_standard_flex_v19_5.time.size = 6
 
--- Display: Time C 12
-jpx_fseequities_standard_flex_v19_5.time_c_12.display = function(value)
-  if #value < 12 then
-    return "Time C 12: "..value
-  end
-
-  return "Time C 12: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 12)
-end
-
--- Dissect: Time C 12
-jpx_fseequities_standard_flex_v19_5.time_c_12.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_fseequities_standard_flex_v19_5.time_c_12.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = jpx_fseequities_standard_flex_v19_5.time_c_12.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.time_c_12, range, value, display)
-
-  return offset + length, value
-end
-
--- Time C 6
-jpx_fseequities_standard_flex_v19_5.time_c_6 = {}
-
--- Size: Time C 6
-jpx_fseequities_standard_flex_v19_5.time_c_6.size = 6
-
--- Display: Time C 6
-jpx_fseequities_standard_flex_v19_5.time_c_6.display = function(value)
+-- Display: Time
+jpx_fseequities_standard_flex_v19_5.time.display = function(value)
   if #value < 6 then
-    return "Time C 6: "..value
+    return "Time: "..value
   end
 
-  return "Time C 6: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+  return "Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
 end
 
--- Dissect: Time C 6
-jpx_fseequities_standard_flex_v19_5.time_c_6.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_fseequities_standard_flex_v19_5.time_c_6.size
+-- Dissect: Time
+jpx_fseequities_standard_flex_v19_5.time.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_fseequities_standard_flex_v19_5.time.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = jpx_fseequities_standard_flex_v19_5.time_c_6.display(value, buffer, offset, packet, parent)
+  local display = jpx_fseequities_standard_flex_v19_5.time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.time_c_6, range, value, display)
+  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.time, range, value, display)
 
   return offset + length, value
 end
@@ -1867,29 +1867,6 @@ jpx_fseequities_standard_flex_v19_5.time_symbol.dissect = function(buffer, offse
   local display = jpx_fseequities_standard_flex_v19_5.time_symbol.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.time_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Trading Volume C 14
-jpx_fseequities_standard_flex_v19_5.trading_volume_c_14 = {}
-
--- Size: Trading Volume C 14
-jpx_fseequities_standard_flex_v19_5.trading_volume_c_14.size = 14
-
--- Display: Trading Volume C 14
-jpx_fseequities_standard_flex_v19_5.trading_volume_c_14.display = function(value)
-  return "Trading Volume C 14: "..value
-end
-
--- Dissect: Trading Volume C 14
-jpx_fseequities_standard_flex_v19_5.trading_volume_c_14.dissect = function(buffer, offset, packet, parent)
-  local length = jpx_fseequities_standard_flex_v19_5.trading_volume_c_14.size
-  local range = buffer(offset, length)
-  local value = trim_left_spaces(range:string())
-  local display = jpx_fseequities_standard_flex_v19_5.trading_volume_c_14.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.trading_volume_c_14, range, value, display)
 
   return offset + length, value
 end
@@ -1947,6 +1924,29 @@ jpx_fseequities_standard_flex_v19_5.trading_volume_turnover_unit_flag.dissect = 
   local display = jpx_fseequities_standard_flex_v19_5.trading_volume_turnover_unit_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.trading_volume_turnover_unit_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Volume Value
+jpx_fseequities_standard_flex_v19_5.trading_volume_value = {}
+
+-- Size: Trading Volume Value
+jpx_fseequities_standard_flex_v19_5.trading_volume_value.size = 14
+
+-- Display: Trading Volume Value
+jpx_fseequities_standard_flex_v19_5.trading_volume_value.display = function(value)
+  return "Trading Volume Value: "..value
+end
+
+-- Dissect: Trading Volume Value
+jpx_fseequities_standard_flex_v19_5.trading_volume_value.dissect = function(buffer, offset, packet, parent)
+  local length = jpx_fseequities_standard_flex_v19_5.trading_volume_value.size
+  local range = buffer(offset, length)
+  local value = trim_left_spaces(range:string())
+  local display = jpx_fseequities_standard_flex_v19_5.trading_volume_value.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_jpx_fseequities_standard_flex_v19_5.fields.trading_volume_value, range, value, display)
 
   return offset + length, value
 end
@@ -2052,7 +2052,7 @@ jpx_fseequities_standard_flex_v19_5.control_message.size =
   jpx_fseequities_standard_flex_v19_5.reserved_2.size + 
   jpx_fseequities_standard_flex_v19_5.test_mode_flag.size + 
   jpx_fseequities_standard_flex_v19_5.start_end_flag.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_6.size
+  jpx_fseequities_standard_flex_v19_5.time.size
 
 -- Display: Control Message
 jpx_fseequities_standard_flex_v19_5.control_message.display = function(packet, parent, length)
@@ -2072,8 +2072,8 @@ jpx_fseequities_standard_flex_v19_5.control_message.fields = function(buffer, of
   -- Start End Flag: C
   index, start_end_flag = jpx_fseequities_standard_flex_v19_5.start_end_flag.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_fseequities_standard_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_fseequities_standard_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -2101,7 +2101,7 @@ jpx_fseequities_standard_flex_v19_5.final_yield = {}
 
 -- Size: Final Yield
 jpx_fseequities_standard_flex_v19_5.final_yield.size =
-  jpx_fseequities_standard_flex_v19_5.final_yield_c_8.size + 
+  jpx_fseequities_standard_flex_v19_5.final_yield_value.size + 
   jpx_fseequities_standard_flex_v19_5.sign.size
 
 -- Display: Final Yield
@@ -2113,8 +2113,8 @@ end
 jpx_fseequities_standard_flex_v19_5.final_yield.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Final Yield C 8: C
-  index, final_yield_c_8 = jpx_fseequities_standard_flex_v19_5.final_yield_c_8.dissect(buffer, index, packet, parent)
+  -- Final Yield Value: C
+  index, final_yield_value = jpx_fseequities_standard_flex_v19_5.final_yield_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_fseequities_standard_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -2145,7 +2145,7 @@ jpx_fseequities_standard_flex_v19_5.direct_yield = {}
 
 -- Size: Direct Yield
 jpx_fseequities_standard_flex_v19_5.direct_yield.size =
-  jpx_fseequities_standard_flex_v19_5.direct_yield_c_8.size + 
+  jpx_fseequities_standard_flex_v19_5.direct_yield_value.size + 
   jpx_fseequities_standard_flex_v19_5.sign.size
 
 -- Display: Direct Yield
@@ -2157,8 +2157,8 @@ end
 jpx_fseequities_standard_flex_v19_5.direct_yield.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Direct Yield C 8: C
-  index, direct_yield_c_8 = jpx_fseequities_standard_flex_v19_5.direct_yield_c_8.dissect(buffer, index, packet, parent)
+  -- Direct Yield Value: C
+  index, direct_yield_value = jpx_fseequities_standard_flex_v19_5.direct_yield_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_fseequities_standard_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -2192,7 +2192,7 @@ jpx_fseequities_standard_flex_v19_5.yield_message.size =
   jpx_fseequities_standard_flex_v19_5.reserved_2.size + 
   jpx_fseequities_standard_flex_v19_5.direct_yield.size + 
   jpx_fseequities_standard_flex_v19_5.final_yield.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_6.size + 
+  jpx_fseequities_standard_flex_v19_5.time.size + 
   jpx_fseequities_standard_flex_v19_5.reserved_1.size
 
 -- Display: Yield Message
@@ -2213,8 +2213,8 @@ jpx_fseequities_standard_flex_v19_5.yield_message.fields = function(buffer, offs
   -- Final Yield: Struct of 2 fields
   index, final_yield = jpx_fseequities_standard_flex_v19_5.final_yield.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_fseequities_standard_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_fseequities_standard_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: C
   index, reserved_1 = jpx_fseequities_standard_flex_v19_5.reserved_1.dissect(buffer, index, packet, parent)
@@ -2246,9 +2246,9 @@ jpx_fseequities_standard_flex_v19_5.parity_estimated_price = {}
 -- Size: Parity Estimated Price
 jpx_fseequities_standard_flex_v19_5.parity_estimated_price.size =
   jpx_fseequities_standard_flex_v19_5.unit_flag.size + 
-  jpx_fseequities_standard_flex_v19_5.parity_estimated_price_c_14.size + 
+  jpx_fseequities_standard_flex_v19_5.parity_estimated_price_value.size + 
   jpx_fseequities_standard_flex_v19_5.sign.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_6.size + 
+  jpx_fseequities_standard_flex_v19_5.time.size + 
   jpx_fseequities_standard_flex_v19_5.reserved_1.size
 
 -- Display: Parity Estimated Price
@@ -2263,14 +2263,14 @@ jpx_fseequities_standard_flex_v19_5.parity_estimated_price.fields = function(buf
   -- Unit Flag: C
   index, unit_flag = jpx_fseequities_standard_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Parity Estimated Price C 14: C
-  index, parity_estimated_price_c_14 = jpx_fseequities_standard_flex_v19_5.parity_estimated_price_c_14.dissect(buffer, index, packet, parent)
+  -- Parity Estimated Price Value: C
+  index, parity_estimated_price_value = jpx_fseequities_standard_flex_v19_5.parity_estimated_price_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_fseequities_standard_flex_v19_5.sign.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_fseequities_standard_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_fseequities_standard_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   -- Reserved 1: C
   index, reserved_1 = jpx_fseequities_standard_flex_v19_5.reserved_1.dissect(buffer, index, packet, parent)
@@ -2347,9 +2347,9 @@ jpx_fseequities_standard_flex_v19_5.current_session_vwap = {}
 jpx_fseequities_standard_flex_v19_5.current_session_vwap.size =
   jpx_fseequities_standard_flex_v19_5.reserved_1.size + 
   jpx_fseequities_standard_flex_v19_5.lot_size_unit_flag.size + 
-  jpx_fseequities_standard_flex_v19_5.current_session_vwap_c_14.size + 
+  jpx_fseequities_standard_flex_v19_5.current_session_vwap_value.size + 
   jpx_fseequities_standard_flex_v19_5.sign.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_6.size + 
+  jpx_fseequities_standard_flex_v19_5.time.size + 
   jpx_fseequities_standard_flex_v19_5.second_reserved_1.size
 
 -- Display: Current Session Vwap
@@ -2367,14 +2367,14 @@ jpx_fseequities_standard_flex_v19_5.current_session_vwap.fields = function(buffe
   -- Lot Size Unit Flag: C
   index, lot_size_unit_flag = jpx_fseequities_standard_flex_v19_5.lot_size_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Current Session Vwap C 14: C
-  index, current_session_vwap_c_14 = jpx_fseequities_standard_flex_v19_5.current_session_vwap_c_14.dissect(buffer, index, packet, parent)
+  -- Current Session Vwap Value: C
+  index, current_session_vwap_value = jpx_fseequities_standard_flex_v19_5.current_session_vwap_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_fseequities_standard_flex_v19_5.sign.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_fseequities_standard_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_fseequities_standard_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: C
   index, second_reserved_1 = jpx_fseequities_standard_flex_v19_5.second_reserved_1.dissect(buffer, index, packet, parent)
@@ -2407,9 +2407,9 @@ jpx_fseequities_standard_flex_v19_5.all_day_vwap = {}
 jpx_fseequities_standard_flex_v19_5.all_day_vwap.size =
   jpx_fseequities_standard_flex_v19_5.reserved_1.size + 
   jpx_fseequities_standard_flex_v19_5.lot_size_unit_flag.size + 
-  jpx_fseequities_standard_flex_v19_5.all_day_vwap_c_14.size + 
+  jpx_fseequities_standard_flex_v19_5.all_day_vwap_value.size + 
   jpx_fseequities_standard_flex_v19_5.sign.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_6.size + 
+  jpx_fseequities_standard_flex_v19_5.time.size + 
   jpx_fseequities_standard_flex_v19_5.second_reserved_1.size
 
 -- Display: All Day Vwap
@@ -2427,14 +2427,14 @@ jpx_fseequities_standard_flex_v19_5.all_day_vwap.fields = function(buffer, offse
   -- Lot Size Unit Flag: C
   index, lot_size_unit_flag = jpx_fseequities_standard_flex_v19_5.lot_size_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- All Day Vwap C 14: C
-  index, all_day_vwap_c_14 = jpx_fseequities_standard_flex_v19_5.all_day_vwap_c_14.dissect(buffer, index, packet, parent)
+  -- All Day Vwap Value: C
+  index, all_day_vwap_value = jpx_fseequities_standard_flex_v19_5.all_day_vwap_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_fseequities_standard_flex_v19_5.sign.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_fseequities_standard_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_fseequities_standard_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: C
   index, second_reserved_1 = jpx_fseequities_standard_flex_v19_5.second_reserved_1.dissect(buffer, index, packet, parent)
@@ -2516,7 +2516,7 @@ jpx_fseequities_standard_flex_v19_5.turnover_in_yen_value.size =
   jpx_fseequities_standard_flex_v19_5.reserved_1.size + 
   jpx_fseequities_standard_flex_v19_5.trading_volume_turnover_unit_flag.size + 
   jpx_fseequities_standard_flex_v19_5.turnover_value.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_6.size + 
+  jpx_fseequities_standard_flex_v19_5.time.size + 
   jpx_fseequities_standard_flex_v19_5.second_reserved_1.size
 
 -- Display: Turnover In Yen Value
@@ -2537,8 +2537,8 @@ jpx_fseequities_standard_flex_v19_5.turnover_in_yen_value.fields = function(buff
   -- Turnover Value: C
   index, turnover_value = jpx_fseequities_standard_flex_v19_5.turnover_value.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_fseequities_standard_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_fseequities_standard_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: C
   index, second_reserved_1 = jpx_fseequities_standard_flex_v19_5.second_reserved_1.dissect(buffer, index, packet, parent)
@@ -2615,8 +2615,8 @@ jpx_fseequities_standard_flex_v19_5.trading_volume = {}
 jpx_fseequities_standard_flex_v19_5.trading_volume.size =
   jpx_fseequities_standard_flex_v19_5.reserved_1.size + 
   jpx_fseequities_standard_flex_v19_5.trading_volume_turnover_unit_flag.size + 
-  jpx_fseequities_standard_flex_v19_5.trading_volume_c_14.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_6.size + 
+  jpx_fseequities_standard_flex_v19_5.trading_volume_value.size + 
+  jpx_fseequities_standard_flex_v19_5.time.size + 
   jpx_fseequities_standard_flex_v19_5.second_reserved_1.size
 
 -- Display: Trading Volume
@@ -2634,11 +2634,11 @@ jpx_fseequities_standard_flex_v19_5.trading_volume.fields = function(buffer, off
   -- Trading Volume Turnover Unit Flag: C
   index, trading_volume_turnover_unit_flag = jpx_fseequities_standard_flex_v19_5.trading_volume_turnover_unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Trading Volume C 14: C
-  index, trading_volume_c_14 = jpx_fseequities_standard_flex_v19_5.trading_volume_c_14.dissect(buffer, index, packet, parent)
+  -- Trading Volume Value: C
+  index, trading_volume_value = jpx_fseequities_standard_flex_v19_5.trading_volume_value.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_fseequities_standard_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_fseequities_standard_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   -- Second Reserved 1: C
   index, second_reserved_1 = jpx_fseequities_standard_flex_v19_5.second_reserved_1.dissect(buffer, index, packet, parent)
@@ -2762,7 +2762,7 @@ jpx_fseequities_standard_flex_v19_5.under_quote = {}
 -- Size: Under Quote
 jpx_fseequities_standard_flex_v19_5.under_quote.size =
   jpx_fseequities_standard_flex_v19_5.change_flag.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_12.size + 
+  jpx_fseequities_standard_flex_v19_5.precise_time.size + 
   jpx_fseequities_standard_flex_v19_5.quote_quantity.size
 
 -- Display: Under Quote
@@ -2777,8 +2777,8 @@ jpx_fseequities_standard_flex_v19_5.under_quote.fields = function(buffer, offset
   -- Change Flag: C
   index, change_flag = jpx_fseequities_standard_flex_v19_5.change_flag.dissect(buffer, index, packet, parent)
 
-  -- Time C 12: C
-  index, time_c_12 = jpx_fseequities_standard_flex_v19_5.time_c_12.dissect(buffer, index, packet, parent)
+  -- Precise Time: C
+  index, precise_time = jpx_fseequities_standard_flex_v19_5.precise_time.dissect(buffer, index, packet, parent)
 
   -- Quote Quantity: Struct of 3 fields
   index, quote_quantity = jpx_fseequities_standard_flex_v19_5.quote_quantity.dissect(buffer, index, packet, parent)
@@ -2810,7 +2810,7 @@ jpx_fseequities_standard_flex_v19_5.over_quote = {}
 -- Size: Over Quote
 jpx_fseequities_standard_flex_v19_5.over_quote.size =
   jpx_fseequities_standard_flex_v19_5.change_flag.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_12.size + 
+  jpx_fseequities_standard_flex_v19_5.precise_time.size + 
   jpx_fseequities_standard_flex_v19_5.quote_quantity.size
 
 -- Display: Over Quote
@@ -2825,8 +2825,8 @@ jpx_fseequities_standard_flex_v19_5.over_quote.fields = function(buffer, offset,
   -- Change Flag: C
   index, change_flag = jpx_fseequities_standard_flex_v19_5.change_flag.dissect(buffer, index, packet, parent)
 
-  -- Time C 12: C
-  index, time_c_12 = jpx_fseequities_standard_flex_v19_5.time_c_12.dissect(buffer, index, packet, parent)
+  -- Precise Time: C
+  index, precise_time = jpx_fseequities_standard_flex_v19_5.precise_time.dissect(buffer, index, packet, parent)
 
   -- Quote Quantity: Struct of 3 fields
   index, quote_quantity = jpx_fseequities_standard_flex_v19_5.quote_quantity.dissect(buffer, index, packet, parent)
@@ -2906,7 +2906,7 @@ jpx_fseequities_standard_flex_v19_5.buy_order = {}
 -- Size: Buy Order
 jpx_fseequities_standard_flex_v19_5.buy_order.size =
   jpx_fseequities_standard_flex_v19_5.change_flag.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_12.size + 
+  jpx_fseequities_standard_flex_v19_5.precise_time.size + 
   jpx_fseequities_standard_flex_v19_5.quote_quantity.size
 
 -- Display: Buy Order
@@ -2921,8 +2921,8 @@ jpx_fseequities_standard_flex_v19_5.buy_order.fields = function(buffer, offset, 
   -- Change Flag: C
   index, change_flag = jpx_fseequities_standard_flex_v19_5.change_flag.dissect(buffer, index, packet, parent)
 
-  -- Time C 12: C
-  index, time_c_12 = jpx_fseequities_standard_flex_v19_5.time_c_12.dissect(buffer, index, packet, parent)
+  -- Precise Time: C
+  index, precise_time = jpx_fseequities_standard_flex_v19_5.precise_time.dissect(buffer, index, packet, parent)
 
   -- Quote Quantity: Struct of 3 fields
   index, quote_quantity = jpx_fseequities_standard_flex_v19_5.quote_quantity.dissect(buffer, index, packet, parent)
@@ -2954,7 +2954,7 @@ jpx_fseequities_standard_flex_v19_5.sell_order = {}
 -- Size: Sell Order
 jpx_fseequities_standard_flex_v19_5.sell_order.size =
   jpx_fseequities_standard_flex_v19_5.change_flag.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_12.size + 
+  jpx_fseequities_standard_flex_v19_5.precise_time.size + 
   jpx_fseequities_standard_flex_v19_5.quote_quantity.size
 
 -- Display: Sell Order
@@ -2969,8 +2969,8 @@ jpx_fseequities_standard_flex_v19_5.sell_order.fields = function(buffer, offset,
   -- Change Flag: C
   index, change_flag = jpx_fseequities_standard_flex_v19_5.change_flag.dissect(buffer, index, packet, parent)
 
-  -- Time C 12: C
-  index, time_c_12 = jpx_fseequities_standard_flex_v19_5.time_c_12.dissect(buffer, index, packet, parent)
+  -- Precise Time: C
+  index, precise_time = jpx_fseequities_standard_flex_v19_5.precise_time.dissect(buffer, index, packet, parent)
 
   -- Quote Quantity: Struct of 3 fields
   index, quote_quantity = jpx_fseequities_standard_flex_v19_5.quote_quantity.dissect(buffer, index, packet, parent)
@@ -3050,7 +3050,7 @@ jpx_fseequities_standard_flex_v19_5.price = {}
 -- Size: Price
 jpx_fseequities_standard_flex_v19_5.price.size =
   jpx_fseequities_standard_flex_v19_5.unit_flag.size + 
-  jpx_fseequities_standard_flex_v19_5.price_c_14.size + 
+  jpx_fseequities_standard_flex_v19_5.price_value.size + 
   jpx_fseequities_standard_flex_v19_5.sign.size
 
 -- Display: Price
@@ -3065,8 +3065,8 @@ jpx_fseequities_standard_flex_v19_5.price.fields = function(buffer, offset, pack
   -- Unit Flag: C
   index, unit_flag = jpx_fseequities_standard_flex_v19_5.unit_flag.dissect(buffer, index, packet, parent)
 
-  -- Price C 14: C
-  index, price_c_14 = jpx_fseequities_standard_flex_v19_5.price_c_14.dissect(buffer, index, packet, parent)
+  -- Price Value: C
+  index, price_value = jpx_fseequities_standard_flex_v19_5.price_value.dissect(buffer, index, packet, parent)
 
   -- Sign: C
   index, sign = jpx_fseequities_standard_flex_v19_5.sign.dissect(buffer, index, packet, parent)
@@ -3099,7 +3099,7 @@ jpx_fseequities_standard_flex_v19_5.bid_quote = {}
 jpx_fseequities_standard_flex_v19_5.bid_quote.size =
   jpx_fseequities_standard_flex_v19_5.change_flag.size + 
   jpx_fseequities_standard_flex_v19_5.price.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_12.size + 
+  jpx_fseequities_standard_flex_v19_5.precise_time.size + 
   jpx_fseequities_standard_flex_v19_5.quote_flag.size + 
   jpx_fseequities_standard_flex_v19_5.quote_quantity.size
 
@@ -3118,8 +3118,8 @@ jpx_fseequities_standard_flex_v19_5.bid_quote.fields = function(buffer, offset, 
   -- Price: Struct of 3 fields
   index, price = jpx_fseequities_standard_flex_v19_5.price.dissect(buffer, index, packet, parent)
 
-  -- Time C 12: C
-  index, time_c_12 = jpx_fseequities_standard_flex_v19_5.time_c_12.dissect(buffer, index, packet, parent)
+  -- Precise Time: C
+  index, precise_time = jpx_fseequities_standard_flex_v19_5.precise_time.dissect(buffer, index, packet, parent)
 
   -- Quote Flag: C
   index, quote_flag = jpx_fseequities_standard_flex_v19_5.quote_flag.dissect(buffer, index, packet, parent)
@@ -3155,7 +3155,7 @@ jpx_fseequities_standard_flex_v19_5.ask_quote = {}
 jpx_fseequities_standard_flex_v19_5.ask_quote.size =
   jpx_fseequities_standard_flex_v19_5.change_flag.size + 
   jpx_fseequities_standard_flex_v19_5.price.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_12.size + 
+  jpx_fseequities_standard_flex_v19_5.precise_time.size + 
   jpx_fseequities_standard_flex_v19_5.quote_flag.size + 
   jpx_fseequities_standard_flex_v19_5.quote_quantity.size
 
@@ -3174,8 +3174,8 @@ jpx_fseequities_standard_flex_v19_5.ask_quote.fields = function(buffer, offset, 
   -- Price: Struct of 3 fields
   index, price = jpx_fseequities_standard_flex_v19_5.price.dissect(buffer, index, packet, parent)
 
-  -- Time C 12: C
-  index, time_c_12 = jpx_fseequities_standard_flex_v19_5.time_c_12.dissect(buffer, index, packet, parent)
+  -- Precise Time: C
+  index, precise_time = jpx_fseequities_standard_flex_v19_5.precise_time.dissect(buffer, index, packet, parent)
 
   -- Quote Flag: C
   index, quote_flag = jpx_fseequities_standard_flex_v19_5.quote_flag.dissect(buffer, index, packet, parent)
@@ -3690,7 +3690,7 @@ jpx_fseequities_standard_flex_v19_5.current = {}
 -- Size: Current
 jpx_fseequities_standard_flex_v19_5.current.size =
   jpx_fseequities_standard_flex_v19_5.price.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_12.size + 
+  jpx_fseequities_standard_flex_v19_5.precise_time.size + 
   jpx_fseequities_standard_flex_v19_5.current_change_flag.size + 
   jpx_fseequities_standard_flex_v19_5.stq_reference_point_flag.size + 
   jpx_fseequities_standard_flex_v19_5.reserved_1.size + 
@@ -3708,8 +3708,8 @@ jpx_fseequities_standard_flex_v19_5.current.fields = function(buffer, offset, pa
   -- Price: Struct of 3 fields
   index, price = jpx_fseequities_standard_flex_v19_5.price.dissect(buffer, index, packet, parent)
 
-  -- Time C 12: C
-  index, time_c_12 = jpx_fseequities_standard_flex_v19_5.time_c_12.dissect(buffer, index, packet, parent)
+  -- Precise Time: C
+  index, precise_time = jpx_fseequities_standard_flex_v19_5.precise_time.dissect(buffer, index, packet, parent)
 
   -- Current Change Flag: C
   index, current_change_flag = jpx_fseequities_standard_flex_v19_5.current_change_flag.dissect(buffer, index, packet, parent)
@@ -3751,7 +3751,7 @@ jpx_fseequities_standard_flex_v19_5.low = {}
 jpx_fseequities_standard_flex_v19_5.low.size =
   jpx_fseequities_standard_flex_v19_5.limit_down_flag.size + 
   jpx_fseequities_standard_flex_v19_5.price.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_6.size + 
+  jpx_fseequities_standard_flex_v19_5.time.size + 
   jpx_fseequities_standard_flex_v19_5.change_flag.size
 
 -- Display: Low
@@ -3769,8 +3769,8 @@ jpx_fseequities_standard_flex_v19_5.low.fields = function(buffer, offset, packet
   -- Price: Struct of 3 fields
   index, price = jpx_fseequities_standard_flex_v19_5.price.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_fseequities_standard_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_fseequities_standard_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   -- Change Flag: C
   index, change_flag = jpx_fseequities_standard_flex_v19_5.change_flag.dissect(buffer, index, packet, parent)
@@ -3803,7 +3803,7 @@ jpx_fseequities_standard_flex_v19_5.high = {}
 jpx_fseequities_standard_flex_v19_5.high.size =
   jpx_fseequities_standard_flex_v19_5.limit_up_flag.size + 
   jpx_fseequities_standard_flex_v19_5.price.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_6.size + 
+  jpx_fseequities_standard_flex_v19_5.time.size + 
   jpx_fseequities_standard_flex_v19_5.change_flag.size
 
 -- Display: High
@@ -3821,8 +3821,8 @@ jpx_fseequities_standard_flex_v19_5.high.fields = function(buffer, offset, packe
   -- Price: Struct of 3 fields
   index, price = jpx_fseequities_standard_flex_v19_5.price.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_fseequities_standard_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_fseequities_standard_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   -- Change Flag: C
   index, change_flag = jpx_fseequities_standard_flex_v19_5.change_flag.dissect(buffer, index, packet, parent)
@@ -3854,7 +3854,7 @@ jpx_fseequities_standard_flex_v19_5.open = {}
 -- Size: Open
 jpx_fseequities_standard_flex_v19_5.open.size =
   jpx_fseequities_standard_flex_v19_5.price.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_6.size + 
+  jpx_fseequities_standard_flex_v19_5.time.size + 
   jpx_fseequities_standard_flex_v19_5.change_flag.size
 
 -- Display: Open
@@ -3869,8 +3869,8 @@ jpx_fseequities_standard_flex_v19_5.open.fields = function(buffer, offset, packe
   -- Price: Struct of 3 fields
   index, price = jpx_fseequities_standard_flex_v19_5.price.dissect(buffer, index, packet, parent)
 
-  -- Time C 6: C
-  index, time_c_6 = jpx_fseequities_standard_flex_v19_5.time_c_6.dissect(buffer, index, packet, parent)
+  -- Time: C
+  index, time = jpx_fseequities_standard_flex_v19_5.time.dissect(buffer, index, packet, parent)
 
   -- Change Flag: C
   index, change_flag = jpx_fseequities_standard_flex_v19_5.change_flag.dissect(buffer, index, packet, parent)
@@ -4008,7 +4008,7 @@ jpx_fseequities_standard_flex_v19_5.status_information_message.size =
   jpx_fseequities_standard_flex_v19_5.reserved_2.size + 
   jpx_fseequities_standard_flex_v19_5.change_flag.size + 
   jpx_fseequities_standard_flex_v19_5.status_information.size + 
-  jpx_fseequities_standard_flex_v19_5.time_c_12.size + 
+  jpx_fseequities_standard_flex_v19_5.precise_time.size + 
   jpx_fseequities_standard_flex_v19_5.reserved_4.size
 
 -- Display: Status Information Message
@@ -4029,8 +4029,8 @@ jpx_fseequities_standard_flex_v19_5.status_information_message.fields = function
   -- Status Information: Struct of 3 fields
   index, status_information = jpx_fseequities_standard_flex_v19_5.status_information.dissect(buffer, index, packet, parent)
 
-  -- Time C 12: C
-  index, time_c_12 = jpx_fseequities_standard_flex_v19_5.time_c_12.dissect(buffer, index, packet, parent)
+  -- Precise Time: C
+  index, precise_time = jpx_fseequities_standard_flex_v19_5.precise_time.dissect(buffer, index, packet, parent)
 
   -- Reserved 4: C
   index, reserved_4 = jpx_fseequities_standard_flex_v19_5.reserved_4.dissect(buffer, index, packet, parent)

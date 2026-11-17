@@ -234,7 +234,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.best_bid_price.size = 4
 pse_pseequities_basicwithlastsale_itch_v2_3.best_bid_price.display = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Best Bid Price: No Value"
+    return "Best Bid Price: No Bid Depth"
   end
 
   return "Best Bid Price: "..value
@@ -262,7 +262,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.best_bid_size.size = 8
 pse_pseequities_basicwithlastsale_itch_v2_3.best_bid_size.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Best Bid Size: No Value"
+    return "Best Bid Size: Reference Price Update"
   end
 
   return "Best Bid Size: "..value
@@ -290,7 +290,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.best_offer_price.size = 4
 pse_pseequities_basicwithlastsale_itch_v2_3.best_offer_price.display = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Best Offer Price: No Value"
+    return "Best Offer Price: No Offer Depth"
   end
 
   return "Best Offer Price: "..value
@@ -318,7 +318,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.best_offer_size.size = 8
 pse_pseequities_basicwithlastsale_itch_v2_3.best_offer_size.display = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0x7FFFFFFF) then
-    return "Best Offer Size: No Value"
+    return "Best Offer Size: Reference Price Update"
   end
 
   return "Best Offer Size: "..value
@@ -405,7 +405,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.cb_limit_down.size = 4
 pse_pseequities_basicwithlastsale_itch_v2_3.cb_limit_down.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Cb Limit Down: No Value"
+    return "Cb Limit Down: No Limit"
   end
 
   return "Cb Limit Down: "..value
@@ -433,7 +433,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.cb_limit_up.size = 4
 pse_pseequities_basicwithlastsale_itch_v2_3.cb_limit_up.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Cb Limit Up: No Value"
+    return "Cb Limit Up: No Limit"
   end
 
   return "Cb Limit Up: "..value
@@ -655,7 +655,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.high_collar.size = 4
 pse_pseequities_basicwithlastsale_itch_v2_3.high_collar.display = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "High Collar: No Value"
+    return "High Collar: No Limit"
   end
 
   return "High Collar: "..value
@@ -761,7 +761,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.low_collar.size = 4
 pse_pseequities_basicwithlastsale_itch_v2_3.low_collar.display = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Low Collar: No Value"
+    return "Low Collar: No Limit"
   end
 
   return "Low Collar: "..value

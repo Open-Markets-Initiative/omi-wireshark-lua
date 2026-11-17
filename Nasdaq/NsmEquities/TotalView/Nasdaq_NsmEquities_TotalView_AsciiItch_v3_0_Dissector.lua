@@ -21,6 +21,7 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.attribution = ProtoField.
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.nsmequities.totalview.asciiitch.v3.0.canceledshares", ftypes.UINT24, nil, nil, nil, "The number of shares being removed from the display size of the order as the result of a cancellation.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.client_packet_type = ProtoField.new("Client Packet Type", "nasdaq.nsmequities.totalview.asciiitch.v3.0.clientpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.nsmequities.totalview.asciiitch.v3.0.crossprice", ftypes.DOUBLE, nil, nil, nil, "The price at which the cross occurred. Refer to Data Types for field processing notes.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.cross_shares = ProtoField.new("Cross Shares", "nasdaq.nsmequities.totalview.asciiitch.v3.0.crossshares", ftypes.UINT32, nil, nil, nil, "The number of shares matched in the NASDAQ Cross.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.nsmequities.totalview.asciiitch.v3.0.crosstype", ftypes.STRING, nil, nil, nil, "The NASDAQ cross session for which the message is being generated.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.nsmequities.totalview.asciiitch.v3.0.currentreferenceprice", ftypes.DOUBLE, nil, nil, nil, "The price at which the NOII shares are being calculated.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.nsmequities.totalview.asciiitch.v3.0.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes.")
@@ -60,12 +61,10 @@ omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.sequence_number = ProtoFi
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.nsmequities.totalview.asciiitch.v3.0.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The Sequenced Data Packets act as an envelope to carry the actual sequenced data messages that are transferred from the server to the client. Each Sequenced Data Packet carries one message from the higher-lever protocol.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.server_packet_type = ProtoField.new("Server Packet Type", "nasdaq.nsmequities.totalview.asciiitch.v3.0.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.session = ProtoField.new("Session", "nasdaq.nsmequities.totalview.asciiitch.v3.0.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session the payload relates to")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.shares_numeric_6 = ProtoField.new("Shares Numeric 6", "nasdaq.nsmequities.totalview.asciiitch.v3.0.sharesnumeric6", ftypes.UINT24, nil, nil, nil, "The total number of shares associated with the order being added to the book.")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.shares_numeric_9 = ProtoField.new("Shares Numeric 9", "nasdaq.nsmequities.totalview.asciiitch.v3.0.sharesnumeric9", ftypes.UINT32, nil, nil, nil, "The number of shares matched in the NASDAQ Cross.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.shares = ProtoField.new("Shares", "nasdaq.nsmequities.totalview.asciiitch.v3.0.shares", ftypes.UINT24, nil, nil, nil, "The total number of shares associated with the order being added to the book.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.side = ProtoField.new("Side", "nasdaq.nsmequities.totalview.asciiitch.v3.0.side", ftypes.STRING, nil, nil, nil, "The type of order being added.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.soup_lf = ProtoField.new("Soup Lf", "nasdaq.nsmequities.totalview.asciiitch.v3.0.souplf", ftypes.UINT8, nil, nil, nil, "Terminating line feed character")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock_alphabetic_6 = ProtoField.new("Stock Alphabetic 6", "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphabetic6", ftypes.STRING, nil, nil, nil, "Denotes the security symbol for the issue in NASDAQ Single Book.")
-omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock_alphanumeric_6 = ProtoField.new("Stock Alphanumeric 6", "nasdaq.nsmequities.totalview.asciiitch.v3.0.stockalphanumeric6", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
+omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock = ProtoField.new("Stock", "nasdaq.nsmequities.totalview.asciiitch.v3.0.stock", ftypes.STRING, nil, nil, nil, "Stock symbol right padded with spaces.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.text = ProtoField.new("Text", "nasdaq.nsmequities.totalview.asciiitch.v3.0.text", ftypes.STRING, nil, nil, nil, "Free form human readable text")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.nsmequities.totalview.asciiitch.v3.0.tradingstate", ftypes.STRING, nil, nil, nil, "Indicates the current trading state for the stock.")
 omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.nsmequities.totalview.asciiitch.v3.0.unsequencedmessage", ftypes.BYTES, nil, nil, nil, "Raw unsequenced message bytes")
@@ -520,6 +519,37 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_price.dissect = function(buffe
   local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.cross_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Cross Shares
+nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_shares = {}
+
+-- Size: Cross Shares
+nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_shares.size = 9
+
+-- Display: Cross Shares
+nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_shares.display = function(value)
+  return "Cross Shares: "..value
+end
+
+-- Dissect: Cross Shares
+nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_shares.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.cross_shares, range, value, "Cross Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_0.experts.not_a_number, "Cross Shares is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_shares.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.cross_shares, range, value, display)
 
   return offset + length, value
 end
@@ -1806,64 +1836,33 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.session.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Shares Numeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6 = {}
+-- Shares
+nasdaq_nsmequities_totalview_asciiitch_v3_0.shares = {}
 
--- Size: Shares Numeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.size = 6
+-- Size: Shares
+nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.size = 6
 
--- Display: Shares Numeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.display = function(value)
-  return "Shares Numeric 6: "..value
+-- Display: Shares
+nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.display = function(value)
+  return "Shares: "..value
 end
 
--- Dissect: Shares Numeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.size
+-- Dissect: Shares
+nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
   if value == nil then
     value = 0
-    local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.shares_numeric_6, range, value, "Shares Numeric 6: Not Applicable")
-    item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_0.experts.not_a_number, "Shares Numeric 6 is not a number: '"..range:string().."'")
+    local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.shares, range, value, "Shares: Not Applicable")
+    item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_0.experts.not_a_number, "Shares is not a number: '"..range:string().."'")
     return offset + length, value
   end
 
-  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.shares_numeric_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Shares Numeric 9
-nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_9 = {}
-
--- Size: Shares Numeric 9
-nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_9.size = 9
-
--- Display: Shares Numeric 9
-nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_9.display = function(value)
-  return "Shares Numeric 9: "..value
-end
-
--- Dissect: Shares Numeric 9
-nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_9.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_9.size
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.shares_numeric_9, range, value, "Shares Numeric 9: Not Applicable")
-    item:add_proto_expert_info(nasdaq_nsmequities_totalview_asciiitch_v3_0.experts.not_a_number, "Shares Numeric 9 is not a number: '"..range:string().."'")
-    return offset + length, value
-  end
-
-  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_9.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.shares_numeric_9, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.shares, range, value, display)
 
   return offset + length, value
 end
@@ -1923,45 +1922,22 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.soup_lf.dissect = function(buffer, o
   return offset + length, value
 end
 
--- Stock Alphabetic 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphabetic_6 = {}
+-- Stock
+nasdaq_nsmequities_totalview_asciiitch_v3_0.stock = {}
 
--- Size: Stock Alphabetic 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphabetic_6.size = 6
+-- Size: Stock
+nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size = 6
 
--- Display: Stock Alphabetic 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphabetic_6.display = function(value)
-  return "Stock Alphabetic 6: "..value
-end
-
--- Dissect: Stock Alphabetic 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphabetic_6.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphabetic_6.size
+-- Lookup: Stock
+nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.lookup = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphabetic_6.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock_alphabetic_6, range, value, display)
-
-  return offset + length, value
-end
-
--- Stock Alphanumeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6 = {}
-
--- Size: Stock Alphanumeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size = 6
-
--- Lookup: Stock Alphanumeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.display(value, buffer, offset, packet, parent)
 
   if not show.records then
     nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_directory_message.current = nil
-    parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock_alphanumeric_6, range, value, display)
+    parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock, range, value, display)
 
     return offset + length, value
   end
@@ -1977,10 +1953,10 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup = functi
   -- A key with no record clears the last one, so nothing reads another key's values
   nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_directory_message.current = record
   if record ~= nil and record.market_category ~= nil then
-    display = "Stock Alphanumeric 6: " .. tostring(record.market_category) .. " (" .. tostring(value) .. ")"
+    display = "Stock: " .. tostring(record.market_category) .. " (" .. tostring(value) .. ")"
   end
 
-  local field_tree = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock_alphanumeric_6, range, value, display)
+  local field_tree = parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock, range, value, display)
 
   if record ~= nil then
     if record.market_category ~= nil then
@@ -2004,19 +1980,19 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup = functi
   return offset + length, value, record
 end
 
--- Display: Stock Alphanumeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.display = function(value)
-  return "Stock Alphanumeric 6: "..value
+-- Display: Stock
+nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.display = function(value)
+  return "Stock: "..value
 end
 
--- Dissect: Stock Alphanumeric 6
-nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.dissect = function(buffer, offset, packet, parent)
-  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size
+-- Dissect: Stock
+nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.dissect = function(buffer, offset, packet, parent)
+  local length = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.display(value, buffer, offset, packet, parent)
+  local display = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock_alphanumeric_6, range, value, display)
+  parent:add(omi_nasdaq_nsmequities_totalview_asciiitch_v3_0.fields.stock, range, value, display)
 
   return offset + length, value
 end
@@ -2191,7 +2167,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.net_order_imbalance_indicator_messag
   nasdaq_nsmequities_totalview_asciiitch_v3_0.paired_shares.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.imbalance_shares.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.imbalance_direction.size + 
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.far_price.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.near_price.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.current_reference_price.size + 
@@ -2216,8 +2192,8 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.net_order_imbalance_indicator_messag
   -- Imbalance Direction: Alphabetic
   index, imbalance_direction = nasdaq_nsmequities_totalview_asciiitch_v3_0.imbalance_direction.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 6: Alphanumeric (record lookup)
-  index, stock_alphanumeric_6, stock_alphanumeric_6_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup(buffer, index, packet, parent)
+  -- Stock: Alphanumeric (record lookup)
+  index, stock, stock_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.lookup(buffer, index, packet, parent)
 
   -- Far Price: Numeric
   index, far_price = nasdaq_nsmequities_totalview_asciiitch_v3_0.far_price.dissect(buffer, index, packet, parent)
@@ -2300,8 +2276,8 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_trade_message = {}
 
 -- Size: Cross Trade Message
 nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_trade_message.size =
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_9.size + 
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_shares.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_price.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.match_number.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_type.size
@@ -2315,11 +2291,11 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_trade_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Shares Numeric 9: Numeric
-  index, shares_numeric_9 = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_9.dissect(buffer, index, packet, parent)
+  -- Cross Shares: Numeric
+  index, cross_shares = nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_shares.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 6: Alphanumeric (record lookup)
-  index, stock_alphanumeric_6, stock_alphanumeric_6_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup(buffer, index, packet, parent)
+  -- Stock: Alphanumeric (record lookup)
+  index, stock, stock_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.lookup(buffer, index, packet, parent)
 
   -- Cross Price: Numeric
   index, cross_price = nasdaq_nsmequities_totalview_asciiitch_v3_0.cross_price.dissect(buffer, index, packet, parent)
@@ -2358,8 +2334,8 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.trade_message = {}
 nasdaq_nsmequities_totalview_asciiitch_v3_0.trade_message.size =
   nasdaq_nsmequities_totalview_asciiitch_v3_0.order_reference_number.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.side.size + 
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.size + 
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.price.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.match_number.size
 
@@ -2378,11 +2354,11 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.trade_message.fields = function(buff
   -- Side: Alphabetic
   index, side = nasdaq_nsmequities_totalview_asciiitch_v3_0.side.dissect(buffer, index, packet, parent)
 
-  -- Shares Numeric 6: Numeric
-  index, shares_numeric_6 = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.dissect(buffer, index, packet, parent)
+  -- Shares: Numeric
+  index, shares = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 6: Alphanumeric (record lookup)
-  index, stock_alphanumeric_6, stock_alphanumeric_6_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup(buffer, index, packet, parent)
+  -- Stock: Alphanumeric (record lookup)
+  index, stock, stock_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.lookup(buffer, index, packet, parent)
 
   -- Price: Numeric
   index, price = nasdaq_nsmequities_totalview_asciiitch_v3_0.price.dissect(buffer, index, packet, parent)
@@ -2606,8 +2582,8 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.add_order_with_mpid_message = {}
 nasdaq_nsmequities_totalview_asciiitch_v3_0.add_order_with_mpid_message.size =
   nasdaq_nsmequities_totalview_asciiitch_v3_0.order_reference_number.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.side.size + 
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.size + 
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.price.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.attribution.size
 
@@ -2626,11 +2602,11 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.add_order_with_mpid_message.fields =
   -- Side: Alphabetic
   index, side = nasdaq_nsmequities_totalview_asciiitch_v3_0.side.dissect(buffer, index, packet, parent)
 
-  -- Shares Numeric 6: Numeric
-  index, shares_numeric_6 = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.dissect(buffer, index, packet, parent)
+  -- Shares: Numeric
+  index, shares = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 6: Alphanumeric (record lookup)
-  index, stock_alphanumeric_6, stock_alphanumeric_6_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup(buffer, index, packet, parent)
+  -- Stock: Alphanumeric (record lookup)
+  index, stock, stock_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.lookup(buffer, index, packet, parent)
 
   -- Price: Numeric
   index, price = nasdaq_nsmequities_totalview_asciiitch_v3_0.price.dissect(buffer, index, packet, parent)
@@ -2666,8 +2642,8 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.add_order_message = {}
 nasdaq_nsmequities_totalview_asciiitch_v3_0.add_order_message.size =
   nasdaq_nsmequities_totalview_asciiitch_v3_0.order_reference_number.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.side.size + 
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.size + 
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.price.size
 
 -- Display: Add Order Message
@@ -2685,11 +2661,11 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.add_order_message.fields = function(
   -- Side: Alphabetic
   index, side = nasdaq_nsmequities_totalview_asciiitch_v3_0.side.dissect(buffer, index, packet, parent)
 
-  -- Shares Numeric 6: Numeric
-  index, shares_numeric_6 = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares_numeric_6.dissect(buffer, index, packet, parent)
+  -- Shares: Numeric
+  index, shares = nasdaq_nsmequities_totalview_asciiitch_v3_0.shares.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 6: Alphanumeric (record lookup)
-  index, stock_alphanumeric_6, stock_alphanumeric_6_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup(buffer, index, packet, parent)
+  -- Stock: Alphanumeric (record lookup)
+  index, stock, stock_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.lookup(buffer, index, packet, parent)
 
   -- Price: Numeric
   index, price = nasdaq_nsmequities_totalview_asciiitch_v3_0.price.dissect(buffer, index, packet, parent)
@@ -2721,7 +2697,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.market_participant_position_message 
 -- Size: Market Participant Position Message
 nasdaq_nsmequities_totalview_asciiitch_v3_0.market_participant_position_message.size =
   nasdaq_nsmequities_totalview_asciiitch_v3_0.mpid.size + 
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.primary_market_maker.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.market_maker_mode.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.market_participant_state.size
@@ -2738,8 +2714,8 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.market_participant_position_message.
   -- Mpid: Alphabetic
   index, mpid = nasdaq_nsmequities_totalview_asciiitch_v3_0.mpid.dissect(buffer, index, packet, parent)
 
-  -- Stock Alphanumeric 6: Alphanumeric (record lookup)
-  index, stock_alphanumeric_6, stock_alphanumeric_6_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup(buffer, index, packet, parent)
+  -- Stock: Alphanumeric (record lookup)
+  index, stock, stock_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.lookup(buffer, index, packet, parent)
 
   -- Primary Market Maker: Alphanumeric
   index, primary_market_maker = nasdaq_nsmequities_totalview_asciiitch_v3_0.primary_market_maker.dissect(buffer, index, packet, parent)
@@ -2776,7 +2752,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_trading_action_message = {}
 
 -- Size: Stock Trading Action Message
 nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_trading_action_message.size =
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.trading_state.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.reserved_1.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.reason.size
@@ -2790,8 +2766,8 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_trading_action_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Alphanumeric 6: Alphanumeric (record lookup)
-  index, stock_alphanumeric_6, stock_alphanumeric_6_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphanumeric_6.lookup(buffer, index, packet, parent)
+  -- Stock: Alphanumeric (record lookup)
+  index, stock, stock_record = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.lookup(buffer, index, packet, parent)
 
   -- Trading State: Alphabetic
   index, trading_state = nasdaq_nsmequities_totalview_asciiitch_v3_0.trading_state.dissect(buffer, index, packet, parent)
@@ -2828,7 +2804,7 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_directory_message = {}
 
 -- Size: Stock Directory Message
 nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_directory_message.size =
-  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphabetic_6.size + 
+  nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.market_category.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.financial_status_indicator.size + 
   nasdaq_nsmequities_totalview_asciiitch_v3_0.round_lot_size.size + 
@@ -2843,8 +2819,8 @@ end
 nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_directory_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stock Alphabetic 6: Alphabetic
-  index, stock_alphabetic_6 = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_alphabetic_6.dissect(buffer, index, packet, parent)
+  -- Stock: Alphanumeric
+  index, stock = nasdaq_nsmequities_totalview_asciiitch_v3_0.stock.dissect(buffer, index, packet, parent)
 
   -- Market Category: Alphanumeric
   index, market_category = nasdaq_nsmequities_totalview_asciiitch_v3_0.market_category.dissect(buffer, index, packet, parent)
@@ -2858,12 +2834,12 @@ nasdaq_nsmequities_totalview_asciiitch_v3_0.stock_directory_message.fields = fun
   -- Round Lots Only: Alphabetic
   index, round_lots_only = nasdaq_nsmequities_totalview_asciiitch_v3_0.round_lots_only.dissect(buffer, index, packet, parent)
 
-  -- Cache Stock Directory Message record by stock_alphabetic_6
+  -- Cache Stock Directory Message record by stock
   if show.records and not packet.visited then
-    nasdaq_nsmequities_totalview_asciiitch_v3_0.conversation.current.stock_directory_message[stock_alphabetic_6] = {
+    nasdaq_nsmequities_totalview_asciiitch_v3_0.conversation.current.stock_directory_message[stock] = {
       record_frame = packet.number,
-      record_previous = nasdaq_nsmequities_totalview_asciiitch_v3_0.conversation.current.stock_directory_message[stock_alphabetic_6],
-      stock_alphabetic_6 = stock_alphabetic_6,
+      record_previous = nasdaq_nsmequities_totalview_asciiitch_v3_0.conversation.current.stock_directory_message[stock],
+      stock = stock,
       market_category = market_category,
       financial_status_indicator = financial_status_indicator,
       round_lot_size = round_lot_size,

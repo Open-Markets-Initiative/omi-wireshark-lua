@@ -43,8 +43,7 @@ omi_gpw_wse_marketinformation_xdp_v6_8.fields.currency_coef = ProtoField.new("Cu
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.currency_coef_scale_code = ProtoField.new("Currency Coef Scale Code", "gpw.wse.marketinformation.xdp.v6.8.currencycoefscalecode", ftypes.UINT8, nil, nil, nil, "To be combined with CurrencyCoef Not used")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.currency_price = ProtoField.new("Currency Price", "gpw.wse.marketinformation.xdp.v6.8.currencyprice", ftypes.UINT32, nil, nil, nil, "The field contains the currency price from the Stock Exchange trading session day")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.currency_price_scale_code = ProtoField.new("Currency Price Scale Code", "gpw.wse.marketinformation.xdp.v6.8.currencypricescalecode", ftypes.UINT8, nil, nil, nil, "Applicable to the currency price")
-omi_gpw_wse_marketinformation_xdp_v6_8.fields.date_ascii_str_8 = ProtoField.new("Date Ascii Str 8", "gpw.wse.marketinformation.xdp.v6.8.dateasciistr8", ftypes.STRING, nil, nil, nil, "Start date")
-omi_gpw_wse_marketinformation_xdp_v6_8.fields.date_binary_int_4 = ProtoField.new("Date Binary Int 4", "gpw.wse.marketinformation.xdp.v6.8.datebinaryint4", ftypes.UINT32, nil, nil, nil, "Stock Exchange date (YYYYMMDD)")
+omi_gpw_wse_marketinformation_xdp_v6_8.fields.date = ProtoField.new("Date", "gpw.wse.marketinformation.xdp.v6.8.date", ftypes.UINT32, nil, nil, nil, "Stock Exchange date (YYYYMMDD)")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.date_of_first_quotation = ProtoField.new("Date Of First Quotation", "gpw.wse.marketinformation.xdp.v6.8.dateoffirstquotation", ftypes.STRING, nil, nil, nil, "Date of first quotation of given futures indicated in field ISIN Code")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.date_of_last_trade = ProtoField.new("Date Of Last Trade", "gpw.wse.marketinformation.xdp.v6.8.dateoflasttrade", ftypes.STRING, nil, nil, nil, "Not Available")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.delivery_flag = ProtoField.new("Delivery Flag", "gpw.wse.marketinformation.xdp.v6.8.deliveryflag", ftypes.UINT8, nil, nil, nil, "Indicates delivery method, and a client reads it to determine whether the packet is ZliB compressed")
@@ -98,6 +97,7 @@ omi_gpw_wse_marketinformation_xdp_v6_8.fields.isin_code = ProtoField.new("Isin C
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.issuing_country_code = ProtoField.new("Issuing Country Code", "gpw.wse.marketinformation.xdp.v6.8.issuingcountrycode", ftypes.STRING, nil, nil, nil, "Country code of location for the corporate headquarters of the company that issued the instrument")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.kid = ProtoField.new("Kid", "gpw.wse.marketinformation.xdp.v6.8.kid", ftypes.STRING, nil, nil, nil, "Body Message for InternalMsgType field = 03, which informs about the selected values for PRIIPs key information for the given trading day and includes the link to the issuer's website")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.kid_issue_date = ProtoField.new("Kid Issue Date", "gpw.wse.marketinformation.xdp.v6.8.kidissuedate", ftypes.STRING, nil, nil, nil, "Date of creation and first publication of KID for given instrument / Issue date")
+omi_gpw_wse_marketinformation_xdp_v6_8.fields.kid_type_of_instrument = ProtoField.new("Kid Type Of Instrument", "gpw.wse.marketinformation.xdp.v6.8.kidtypeofinstrument", ftypes.STRING, nil, nil, nil, "Type of instrument / Categorization code")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.kid_version = ProtoField.new("Kid Version", "gpw.wse.marketinformation.xdp.v6.8.kidversion", ftypes.STRING, nil, nil, nil, "Specifies the version of KID")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.language_version = ProtoField.new("Language Version", "gpw.wse.marketinformation.xdp.v6.8.languageversion", ftypes.STRING, nil, nil, nil, "Field defines the language of the contents of the message")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.last_adj_price = ProtoField.new("Last Adj Price", "gpw.wse.marketinformation.xdp.v6.8.lastadjprice", ftypes.UINT32, nil, nil, nil, "Last traded price of the previous trading day after application of the adjustment coefficient (To be calculated with the LastAdjPriceScaleCode)")
@@ -112,6 +112,7 @@ omi_gpw_wse_marketinformation_xdp_v6_8.fields.lot_size_scale_code = ProtoField.n
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.low_collar = ProtoField.new("Low Collar", "gpw.wse.marketinformation.xdp.v6.8.lowcollar", ftypes.UINT32, nil, nil, nil, "Lower bound of the collar price range (To be calculated with the LowScaleCode)")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.low_scale_code = ProtoField.new("Low Scale Code", "gpw.wse.marketinformation.xdp.v6.8.lowscalecode", ftypes.UINT8, nil, nil, nil, "To be combined with LowCollar")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.lower_liquidity = ProtoField.new("Lower Liquidity", "gpw.wse.marketinformation.xdp.v6.8.lowerliquidity", ftypes.STRING, nil, nil, nil, "The field informs if the company was qualified to Lower Liquidity Space")
+omi_gpw_wse_marketinformation_xdp_v6_8.fields.mail_text = ProtoField.new("Mail Text", "gpw.wse.marketinformation.xdp.v6.8.mailtext", ftypes.STRING, nil, nil, nil, "Text")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.main_depositary = ProtoField.new("Main Depositary", "gpw.wse.marketinformation.xdp.v6.8.maindepositary", ftypes.STRING, nil, nil, nil, "Identifies the default (or main) depository organisation of the instrument used by priority for the settlement (e.g.: multi-listed instruments which have several depositories)")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.marker_pct_change_price = ProtoField.new("Marker Pct Change Price", "gpw.wse.marketinformation.xdp.v6.8.markerpctchangeprice", ftypes.STRING, nil, nil, nil, "The field contains the market of the percentage change of the instrument closing price from the current session in relation to the reference price")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.market = ProtoField.new("Market", "gpw.wse.marketinformation.xdp.v6.8.market", ftypes.STRING, nil, nil, nil, "Defines the market the instrument belongs to")
@@ -208,6 +209,7 @@ omi_gpw_wse_marketinformation_xdp_v6_8.fields.source_time_micro_secs = ProtoFiel
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.split = ProtoField.new("Split", "gpw.wse.marketinformation.xdp.v6.8.split", ftypes.STRING, nil, nil, nil, "This field informs that the securities are traded the first time after the change of the nominal value of shares")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.ss_market_maker = ProtoField.new("Ss Market Maker", "gpw.wse.marketinformation.xdp.v6.8.ssmarketmaker", ftypes.STRING, nil, nil, nil, "Field should be ignored Short sale eligibility for a capacity of a market maker")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.ss_non_market_maker = ProtoField.new("Ss Non Market Maker", "gpw.wse.marketinformation.xdp.v6.8.ssnonmarketmaker", ftypes.STRING, nil, nil, nil, "Field should be ignored Short sale eligibility for a capacity different from market maker")
+omi_gpw_wse_marketinformation_xdp_v6_8.fields.start_date = ProtoField.new("Start Date", "gpw.wse.marketinformation.xdp.v6.8.startdate", ftypes.STRING)
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.start_date_halting = ProtoField.new("Start Date Halting", "gpw.wse.marketinformation.xdp.v6.8.startdatehalting", ftypes.STRING, nil, nil, nil, "Date when suspension of trading started for an instrument")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.start_time_halting = ProtoField.new("Start Time Halting", "gpw.wse.marketinformation.xdp.v6.8.starttimehalting", ftypes.STRING, nil, nil, nil, "Time when suspension of trading started for an instrument")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.status_indicator = ProtoField.new("Status Indicator", "gpw.wse.marketinformation.xdp.v6.8.statusindicator", ftypes.STRING, nil, nil, nil, "Defines the status of the instrument at the end of the stock exchange session")
@@ -226,8 +228,7 @@ omi_gpw_wse_marketinformation_xdp_v6_8.fields.symbol_theta = ProtoField.new("Sym
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.symbol_vega = ProtoField.new("Symbol Vega", "gpw.wse.marketinformation.xdp.v6.8.symbolvega", ftypes.STRING, nil, nil, nil, "The field contains a symbol of Vega indicator from the current session")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.system_id = ProtoField.new("System Id", "gpw.wse.marketinformation.xdp.v6.8.systemid", ftypes.UINT32, nil, nil, nil, "The ID of the originating Exchange/System of the message")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.tax_code = ProtoField.new("Tax Code", "gpw.wse.marketinformation.xdp.v6.8.taxcode", ftypes.UINT8, nil, nil, nil, "Not used")
-omi_gpw_wse_marketinformation_xdp_v6_8.fields.text_ascii_ch_100 = ProtoField.new("Text Ascii Ch 100", "gpw.wse.marketinformation.xdp.v6.8.textasciich100", ftypes.STRING, nil, nil, nil, "Free text")
-omi_gpw_wse_marketinformation_xdp_v6_8.fields.text_ascii_str_1000 = ProtoField.new("Text Ascii Str 1000", "gpw.wse.marketinformation.xdp.v6.8.textasciistr1000", ftypes.STRING, nil, nil, nil, "Text")
+omi_gpw_wse_marketinformation_xdp_v6_8.fields.text = ProtoField.new("Text", "gpw.wse.marketinformation.xdp.v6.8.text", ftypes.STRING, nil, nil, nil, "Free text")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.theta = ProtoField.new("Theta", "gpw.wse.marketinformation.xdp.v6.8.theta", ftypes.UINT32, nil, nil, nil, "Value of theta indicator from the current session")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.theta_scale_code = ProtoField.new("Theta Scale Code", "gpw.wse.marketinformation.xdp.v6.8.thetascalecode", ftypes.UINT8, nil, nil, nil, "Applicable to the theta")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "gpw.wse.marketinformation.xdp.v6.8.thirdreserved1", ftypes.BYTES, nil, nil, nil, "For future use")
@@ -254,8 +255,7 @@ omi_gpw_wse_marketinformation_xdp_v6_8.fields.treasury_bond_5_isin_code = ProtoF
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.treasury_bond_futures_data = ProtoField.new("Treasury Bond Futures Data", "gpw.wse.marketinformation.xdp.v6.8.treasurybondfuturesdata", ftypes.STRING, nil, nil, nil, "Body Message for InternalMsgType = 02, which informs about the structure of the basket of treasury bonds for a given bond future for the next trading day")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.type_of_corporate_event = ProtoField.new("Type Of Corporate Event", "gpw.wse.marketinformation.xdp.v6.8.typeofcorporateevent", ftypes.STRING, nil, nil, nil, "Indicates the last type of corporate event that has occurred on an instrument, such as detachment of rights, or of coupons")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.type_of_derivatives = ProtoField.new("Type Of Derivatives", "gpw.wse.marketinformation.xdp.v6.8.typeofderivatives", ftypes.STRING, nil, nil, nil, "Type of derivative instrument associated to the security")
-omi_gpw_wse_marketinformation_xdp_v6_8.fields.type_of_instrument_ascii_str_4 = ProtoField.new("Type Of Instrument Ascii Str 4", "gpw.wse.marketinformation.xdp.v6.8.typeofinstrumentasciistr4", ftypes.STRING, nil, nil, nil, "Type of instrument / Categorization code")
-omi_gpw_wse_marketinformation_xdp_v6_8.fields.type_of_instrument_binary_int_2 = ProtoField.new("Type Of Instrument Binary Int 2", "gpw.wse.marketinformation.xdp.v6.8.typeofinstrumentbinaryint2", ftypes.UINT16, nil, nil, nil, "Type of instrument")
+omi_gpw_wse_marketinformation_xdp_v6_8.fields.type_of_instrument = ProtoField.new("Type Of Instrument", "gpw.wse.marketinformation.xdp.v6.8.typeofinstrument", ftypes.UINT16)
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.type_of_market_admission = ProtoField.new("Type Of Market Admission", "gpw.wse.marketinformation.xdp.v6.8.typeofmarketadmission", ftypes.STRING, nil, nil, nil, "Not used")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.type_off_recipient = ProtoField.new("Type Off Recipient", "gpw.wse.marketinformation.xdp.v6.8.typeoffrecipient", ftypes.STRING, nil, nil, nil, "This field defines the class of the recipient of a message being sent This field assumes one of the below specified values: 'D' – distributors of information 'M' – exchange members")
 omi_gpw_wse_marketinformation_xdp_v6_8.fields.underlying_isin_code = ProtoField.new("Underlying Isin Code", "gpw.wse.marketinformation.xdp.v6.8.underlyingisincode", ftypes.STRING, nil, nil, nil, "Gives the ISIN Code of a warrant or a derivatives instrument")
@@ -1118,55 +1118,28 @@ gpw_wse_marketinformation_xdp_v6_8.currency_price_scale_code.dissect = function(
   return offset + length, value
 end
 
--- Date Ascii Str 8
-gpw_wse_marketinformation_xdp_v6_8.date_ascii_str_8 = {}
+-- Date
+gpw_wse_marketinformation_xdp_v6_8.date = {}
 
--- Size: Date Ascii Str 8
-gpw_wse_marketinformation_xdp_v6_8.date_ascii_str_8.size = 8
+-- Size: Date
+gpw_wse_marketinformation_xdp_v6_8.date.size = 4
 
--- Display: Date Ascii Str 8
-gpw_wse_marketinformation_xdp_v6_8.date_ascii_str_8.display = function(value)
-  if #value < 8 then
-    return "Date Ascii Str 8: "..value
-  end
-
-  return "Date Ascii Str 8: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
-end
-
--- Dissect: Date Ascii Str 8
-gpw_wse_marketinformation_xdp_v6_8.date_ascii_str_8.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_marketinformation_xdp_v6_8.date_ascii_str_8.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = gpw_wse_marketinformation_xdp_v6_8.date_ascii_str_8.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.date_ascii_str_8, range, value, display)
-
-  return offset + length, value
-end
-
--- Date Binary Int 4
-gpw_wse_marketinformation_xdp_v6_8.date_binary_int_4 = {}
-
--- Size: Date Binary Int 4
-gpw_wse_marketinformation_xdp_v6_8.date_binary_int_4.size = 4
-
--- Display: Date Binary Int 4
-gpw_wse_marketinformation_xdp_v6_8.date_binary_int_4.display = function(value)
+-- Display: Date
+gpw_wse_marketinformation_xdp_v6_8.date.display = function(value)
   local year = math.floor(value / 10000)
   local month = math.floor(value / 100) % 100
   local day = value % 100
-  return string.format("Date Binary Int 4: %04d-%02d-%02d", year, month, day)
+  return string.format("Date: %04d-%02d-%02d", year, month, day)
 end
 
--- Dissect: Date Binary Int 4
-gpw_wse_marketinformation_xdp_v6_8.date_binary_int_4.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_marketinformation_xdp_v6_8.date_binary_int_4.size
+-- Dissect: Date
+gpw_wse_marketinformation_xdp_v6_8.date.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_marketinformation_xdp_v6_8.date.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = gpw_wse_marketinformation_xdp_v6_8.date_binary_int_4.display(value, buffer, offset, packet, parent)
+  local display = gpw_wse_marketinformation_xdp_v6_8.date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.date_binary_int_4, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.date, range, value, display)
 
   return offset + length, value
 end
@@ -2439,6 +2412,29 @@ gpw_wse_marketinformation_xdp_v6_8.kid_issue_date.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Kid Type Of Instrument
+gpw_wse_marketinformation_xdp_v6_8.kid_type_of_instrument = {}
+
+-- Size: Kid Type Of Instrument
+gpw_wse_marketinformation_xdp_v6_8.kid_type_of_instrument.size = 4
+
+-- Display: Kid Type Of Instrument
+gpw_wse_marketinformation_xdp_v6_8.kid_type_of_instrument.display = function(value)
+  return "Kid Type Of Instrument: "..value
+end
+
+-- Dissect: Kid Type Of Instrument
+gpw_wse_marketinformation_xdp_v6_8.kid_type_of_instrument.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_marketinformation_xdp_v6_8.kid_type_of_instrument.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = gpw_wse_marketinformation_xdp_v6_8.kid_type_of_instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.kid_type_of_instrument, range, value, display)
+
+  return offset + length, value
+end
+
 -- Kid Version
 gpw_wse_marketinformation_xdp_v6_8.kid_version = {}
 
@@ -2770,6 +2766,29 @@ gpw_wse_marketinformation_xdp_v6_8.lower_liquidity.dissect = function(buffer, of
   local display = gpw_wse_marketinformation_xdp_v6_8.lower_liquidity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.lower_liquidity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mail Text
+gpw_wse_marketinformation_xdp_v6_8.mail_text = {}
+
+-- Size: Mail Text
+gpw_wse_marketinformation_xdp_v6_8.mail_text.size = 1000
+
+-- Display: Mail Text
+gpw_wse_marketinformation_xdp_v6_8.mail_text.display = function(value)
+  return "Mail Text: "..value
+end
+
+-- Dissect: Mail Text
+gpw_wse_marketinformation_xdp_v6_8.mail_text.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_marketinformation_xdp_v6_8.mail_text.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = gpw_wse_marketinformation_xdp_v6_8.mail_text.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.mail_text, range, value, display)
 
   return offset + length, value
 end
@@ -5255,6 +5274,33 @@ gpw_wse_marketinformation_xdp_v6_8.ss_non_market_maker.dissect = function(buffer
   return offset + length, value
 end
 
+-- Start Date
+gpw_wse_marketinformation_xdp_v6_8.start_date = {}
+
+-- Size: Start Date
+gpw_wse_marketinformation_xdp_v6_8.start_date.size = 8
+
+-- Display: Start Date
+gpw_wse_marketinformation_xdp_v6_8.start_date.display = function(value)
+  if #value < 8 then
+    return "Start Date: "..value
+  end
+
+  return "Start Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
+end
+
+-- Dissect: Start Date
+gpw_wse_marketinformation_xdp_v6_8.start_date.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_marketinformation_xdp_v6_8.start_date.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = gpw_wse_marketinformation_xdp_v6_8.start_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.start_date, range, value, display)
+
+  return offset + length, value
+end
+
 -- Start Date Halting
 gpw_wse_marketinformation_xdp_v6_8.start_date_halting = {}
 
@@ -5747,48 +5793,25 @@ gpw_wse_marketinformation_xdp_v6_8.tax_code.dissect = function(buffer, offset, p
   return offset + length, value
 end
 
--- Text Ascii Ch 100
-gpw_wse_marketinformation_xdp_v6_8.text_ascii_ch_100 = {}
+-- Text
+gpw_wse_marketinformation_xdp_v6_8.text = {}
 
--- Size: Text Ascii Ch 100
-gpw_wse_marketinformation_xdp_v6_8.text_ascii_ch_100.size = 100
+-- Size: Text
+gpw_wse_marketinformation_xdp_v6_8.text.size = 100
 
--- Display: Text Ascii Ch 100
-gpw_wse_marketinformation_xdp_v6_8.text_ascii_ch_100.display = function(value)
-  return "Text Ascii Ch 100: "..value
+-- Display: Text
+gpw_wse_marketinformation_xdp_v6_8.text.display = function(value)
+  return "Text: "..value
 end
 
--- Dissect: Text Ascii Ch 100
-gpw_wse_marketinformation_xdp_v6_8.text_ascii_ch_100.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_marketinformation_xdp_v6_8.text_ascii_ch_100.size
+-- Dissect: Text
+gpw_wse_marketinformation_xdp_v6_8.text.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_marketinformation_xdp_v6_8.text.size
   local range = buffer(offset, length)
   local value = trim_right_spaces(range:string())
-  local display = gpw_wse_marketinformation_xdp_v6_8.text_ascii_ch_100.display(value, buffer, offset, packet, parent)
+  local display = gpw_wse_marketinformation_xdp_v6_8.text.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.text_ascii_ch_100, range, value, display)
-
-  return offset + length, value
-end
-
--- Text Ascii Str 1000
-gpw_wse_marketinformation_xdp_v6_8.text_ascii_str_1000 = {}
-
--- Size: Text Ascii Str 1000
-gpw_wse_marketinformation_xdp_v6_8.text_ascii_str_1000.size = 1000
-
--- Display: Text Ascii Str 1000
-gpw_wse_marketinformation_xdp_v6_8.text_ascii_str_1000.display = function(value)
-  return "Text Ascii Str 1000: "..value
-end
-
--- Dissect: Text Ascii Str 1000
-gpw_wse_marketinformation_xdp_v6_8.text_ascii_str_1000.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_marketinformation_xdp_v6_8.text_ascii_str_1000.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = gpw_wse_marketinformation_xdp_v6_8.text_ascii_str_1000.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.text_ascii_str_1000, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.text, range, value, display)
 
   return offset + length, value
 end
@@ -6395,48 +6418,67 @@ gpw_wse_marketinformation_xdp_v6_8.type_of_derivatives.dissect = function(buffer
   return offset + length, value
 end
 
--- Type Of Instrument Ascii Str 4
-gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_ascii_str_4 = {}
+-- Type Of Instrument
+gpw_wse_marketinformation_xdp_v6_8.type_of_instrument = {}
 
--- Size: Type Of Instrument Ascii Str 4
-gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_ascii_str_4.size = 4
+-- Size: Type Of Instrument
+gpw_wse_marketinformation_xdp_v6_8.type_of_instrument.size = 2
 
--- Display: Type Of Instrument Ascii Str 4
-gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_ascii_str_4.display = function(value)
-  return "Type Of Instrument Ascii Str 4: "..value
+-- Display: Type Of Instrument
+gpw_wse_marketinformation_xdp_v6_8.type_of_instrument.labels = {
+  [0] = "Type Of Instrument: Index (0)",
+  [100] = "Type Of Instrument: Equity Ordinary Shares (100)",
+  [101] = "Type Of Instrument: Equity Preferred Shares (101)",
+  [102] = "Type Of Instrument: Equity Preference Shares (102)",
+  [103] = "Type Of Instrument: Equity Convertible Shares (103)",
+  [104] = "Type Of Instrument: Equity Depositary Receipts (104)",
+  [105] = "Type Of Instrument: Equity Unit Trust Units (105)",
+  [106] = "Type Of Instrument: Equity Investment Trust Shares (106)",
+  [107] = "Type Of Instrument: Equity National Fund Certificates (107)",
+  [108] = "Type Of Instrument: Equity Linked Allotment Rights (108)",
+  [109] = "Type Of Instrument: Equity Linked Subscription Rights (109)",
+  [110] = "Type Of Instrument: Equity Linked Issue Rights (110)",
+  [111] = "Type Of Instrument: Structured Product Cash Certificates (111)",
+  [112] = "Type Of Instrument: Equity Linked Subscription Warrants (112)",
+  [200] = "Type Of Instrument: Bond Bonds (200)",
+  [201] = "Type Of Instrument: Bond Treasury Bonds (201)",
+  [202] = "Type Of Instrument: Bond Treasury Notes (202)",
+  [203] = "Type Of Instrument: Bond Treasury Bills (203)",
+  [204] = "Type Of Instrument: Bond Municipal Bond (204)",
+  [205] = "Type Of Instrument: Bond Corporate Bonds (205)",
+  [206] = "Type Of Instrument: Bond Commercial Papers (206)",
+  [207] = "Type Of Instrument: Bond Convertible Bonds (207)",
+  [208] = "Type Of Instrument: Bond Mortgage Backed Bonds (208)",
+  [209] = "Type Of Instrument: Bond Public Mortgage Bonds (209)",
+  [210] = "Type Of Instrument: Structured Product Cash Structured Bonds (210)",
+  [300] = "Type Of Instrument: Tracker Etf (300)",
+  [301] = "Type Of Instrument: Tracker Etn (301)",
+  [302] = "Type Of Instrument: Tracker Etc (302)",
+  [303] = "Type Of Instrument: Tracker Etv (303)",
+  [400] = "Type Of Instrument: Structured Product Warrants (400)",
+  [401] = "Type Of Instrument: Structured Product Warrants With Knock Out (401)",
+  [402] = "Type Of Instrument: Structured Product Certificates With Knock Out (402)",
+  [403] = "Type Of Instrument: Structured Product Leveraged Structured Certificates (403)",
+  [404] = "Type Of Instrument: Structured Product Certificates (404)",
+  [410] = "Type Of Instrument: Structured Product Structured Bonds (410)",
+  [500] = "Type Of Instrument: Futures Futures (500)",
+  [600] = "Type Of Instrument: Options Vanilla Options (600)",
+  [601] = "Type Of Instrument: Options Binary Options (601)",
+  [700] = "Type Of Instrument: Participation Unit Index Participation Units (700)",
+}
+
+gpw_wse_marketinformation_xdp_v6_8.type_of_instrument.display = function(value)
+  return gpw_wse_marketinformation_xdp_v6_8.type_of_instrument.labels[value] or "Type Of Instrument: Unknown("..value..")"
 end
 
--- Dissect: Type Of Instrument Ascii Str 4
-gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_ascii_str_4.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_ascii_str_4.size
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_ascii_str_4.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.type_of_instrument_ascii_str_4, range, value, display)
-
-  return offset + length, value
-end
-
--- Type Of Instrument Binary Int 2
-gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_binary_int_2 = {}
-
--- Size: Type Of Instrument Binary Int 2
-gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_binary_int_2.size = 2
-
--- Display: Type Of Instrument Binary Int 2
-gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_binary_int_2.display = function(value)
-  return "Type Of Instrument Binary Int 2: "..value
-end
-
--- Dissect: Type Of Instrument Binary Int 2
-gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_binary_int_2.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_binary_int_2.size
+-- Dissect: Type Of Instrument
+gpw_wse_marketinformation_xdp_v6_8.type_of_instrument.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_marketinformation_xdp_v6_8.type_of_instrument.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_binary_int_2.display(value, buffer, offset, packet, parent)
+  local display = gpw_wse_marketinformation_xdp_v6_8.type_of_instrument.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.type_of_instrument_binary_int_2, range, value, display)
+  parent:add(omi_gpw_wse_marketinformation_xdp_v6_8.fields.type_of_instrument, range, value, display)
 
   return offset + length, value
 end
@@ -7140,7 +7182,7 @@ gpw_wse_marketinformation_xdp_v6_8.kid = {}
 -- Size: Kid
 gpw_wse_marketinformation_xdp_v6_8.kid.size =
   gpw_wse_marketinformation_xdp_v6_8.isin_code.size + 
-  gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_ascii_str_4.size + 
+  gpw_wse_marketinformation_xdp_v6_8.kid_type_of_instrument.size + 
   gpw_wse_marketinformation_xdp_v6_8.kid_version.size + 
   gpw_wse_marketinformation_xdp_v6_8.kid_issue_date.size + 
   gpw_wse_marketinformation_xdp_v6_8.value_at_risk.size + 
@@ -7159,8 +7201,8 @@ gpw_wse_marketinformation_xdp_v6_8.kid.fields = function(buffer, offset, packet,
   -- Isin Code: ASCII Str.
   index, isin_code = gpw_wse_marketinformation_xdp_v6_8.isin_code.dissect(buffer, index, packet, parent)
 
-  -- Type Of Instrument Ascii Str 4: ASCII Str.
-  index, type_of_instrument_ascii_str_4 = gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_ascii_str_4.dissect(buffer, index, packet, parent)
+  -- Kid Type Of Instrument: ASCII Str.
+  index, kid_type_of_instrument = gpw_wse_marketinformation_xdp_v6_8.kid_type_of_instrument.dissect(buffer, index, packet, parent)
 
   -- Kid Version: ASCII Str.
   index, kid_version = gpw_wse_marketinformation_xdp_v6_8.kid_version.dissect(buffer, index, packet, parent)
@@ -7206,7 +7248,7 @@ gpw_wse_marketinformation_xdp_v6_8.treasury_bond_futures_data.size =
   gpw_wse_marketinformation_xdp_v6_8.isin_code.size + 
   gpw_wse_marketinformation_xdp_v6_8.date_of_first_quotation.size + 
   gpw_wse_marketinformation_xdp_v6_8.short_name.size + 
-  gpw_wse_marketinformation_xdp_v6_8.date_ascii_str_8.size + 
+  gpw_wse_marketinformation_xdp_v6_8.start_date.size + 
   gpw_wse_marketinformation_xdp_v6_8.underlying_isin_code.size + 
   gpw_wse_marketinformation_xdp_v6_8.treasury_bond_1_isin_code.size + 
   gpw_wse_marketinformation_xdp_v6_8.conversion_coefficient_factor_1.size + 
@@ -7238,8 +7280,8 @@ gpw_wse_marketinformation_xdp_v6_8.treasury_bond_futures_data.fields = function(
   -- Short Name: ASCII Str.
   index, short_name = gpw_wse_marketinformation_xdp_v6_8.short_name.dissect(buffer, index, packet, parent)
 
-  -- Date Ascii Str 8: ASCII Str.
-  index, date_ascii_str_8 = gpw_wse_marketinformation_xdp_v6_8.date_ascii_str_8.dissect(buffer, index, packet, parent)
+  -- Start Date: ASCII Str.
+  index, start_date = gpw_wse_marketinformation_xdp_v6_8.start_date.dissect(buffer, index, packet, parent)
 
   -- Underlying Isin Code: ASCII Str.
   index, underlying_isin_code = gpw_wse_marketinformation_xdp_v6_8.underlying_isin_code.dissect(buffer, index, packet, parent)
@@ -7446,7 +7488,7 @@ gpw_wse_marketinformation_xdp_v6_8.short_sale_change_message.size =
   gpw_wse_marketinformation_xdp_v6_8.source_time.size + 
   gpw_wse_marketinformation_xdp_v6_8.system_id.size + 
   gpw_wse_marketinformation_xdp_v6_8.source_time_micro_secs.size + 
-  gpw_wse_marketinformation_xdp_v6_8.text_ascii_ch_100.size + 
+  gpw_wse_marketinformation_xdp_v6_8.text.size + 
   gpw_wse_marketinformation_xdp_v6_8.authority.size + 
   gpw_wse_marketinformation_xdp_v6_8.ss_market_maker.size + 
   gpw_wse_marketinformation_xdp_v6_8.ss_non_market_maker.size + 
@@ -7476,8 +7518,8 @@ gpw_wse_marketinformation_xdp_v6_8.short_sale_change_message.fields = function(b
   -- Source Time Micro Secs: Binary Int.
   index, source_time_micro_secs = gpw_wse_marketinformation_xdp_v6_8.source_time_micro_secs.dissect(buffer, index, packet, parent)
 
-  -- Text Ascii Ch 100: ASCII Ch.
-  index, text_ascii_ch_100 = gpw_wse_marketinformation_xdp_v6_8.text_ascii_ch_100.dissect(buffer, index, packet, parent)
+  -- Text: ASCII Ch.
+  index, text = gpw_wse_marketinformation_xdp_v6_8.text.dissect(buffer, index, packet, parent)
 
   -- Authority: ASCII Ch.
   index, authority = gpw_wse_marketinformation_xdp_v6_8.authority.dissect(buffer, index, packet, parent)
@@ -7712,7 +7754,7 @@ gpw_wse_marketinformation_xdp_v6_8.session_summary_message.size =
   gpw_wse_marketinformation_xdp_v6_8.symbol_index.size + 
   gpw_wse_marketinformation_xdp_v6_8.source_time.size + 
   gpw_wse_marketinformation_xdp_v6_8.source_seq_num.size + 
-  gpw_wse_marketinformation_xdp_v6_8.date_binary_int_4.size + 
+  gpw_wse_marketinformation_xdp_v6_8.date.size + 
   gpw_wse_marketinformation_xdp_v6_8.multiplier.size + 
   gpw_wse_marketinformation_xdp_v6_8.accumulated_interest.size + 
   gpw_wse_marketinformation_xdp_v6_8.opening_price.size + 
@@ -7832,8 +7874,8 @@ gpw_wse_marketinformation_xdp_v6_8.session_summary_message.fields = function(buf
   -- Source Seq Num: Binary Int.
   index, source_seq_num = gpw_wse_marketinformation_xdp_v6_8.source_seq_num.dissect(buffer, index, packet, parent)
 
-  -- Date Binary Int 4: Binary Int.
-  index, date_binary_int_4 = gpw_wse_marketinformation_xdp_v6_8.date_binary_int_4.dissect(buffer, index, packet, parent)
+  -- Date: Binary Int.
+  index, date = gpw_wse_marketinformation_xdp_v6_8.date.dissect(buffer, index, packet, parent)
 
   -- Multiplier: Binary Int.
   index, multiplier = gpw_wse_marketinformation_xdp_v6_8.multiplier.dissect(buffer, index, packet, parent)
@@ -8256,7 +8298,7 @@ gpw_wse_marketinformation_xdp_v6_8.referential_message.size =
   gpw_wse_marketinformation_xdp_v6_8.reserved_4.size + 
   gpw_wse_marketinformation_xdp_v6_8.source_time_micro_secs.size + 
   gpw_wse_marketinformation_xdp_v6_8.stock_exchange_code.size + 
-  gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_binary_int_2.size + 
+  gpw_wse_marketinformation_xdp_v6_8.type_of_instrument.size + 
   gpw_wse_marketinformation_xdp_v6_8.event_date.size + 
   gpw_wse_marketinformation_xdp_v6_8.instrument_name.size + 
   gpw_wse_marketinformation_xdp_v6_8.period_indicator.size + 
@@ -8378,8 +8420,8 @@ gpw_wse_marketinformation_xdp_v6_8.referential_message.fields = function(buffer,
   -- Stock Exchange Code: Binary Int.
   index, stock_exchange_code = gpw_wse_marketinformation_xdp_v6_8.stock_exchange_code.dissect(buffer, index, packet, parent)
 
-  -- Type Of Instrument Binary Int 2: Binary Int.
-  index, type_of_instrument_binary_int_2 = gpw_wse_marketinformation_xdp_v6_8.type_of_instrument_binary_int_2.dissect(buffer, index, packet, parent)
+  -- Type Of Instrument: Binary Int.
+  index, type_of_instrument = gpw_wse_marketinformation_xdp_v6_8.type_of_instrument.dissect(buffer, index, packet, parent)
 
   -- Event Date: ASCII Str.
   index, event_date = gpw_wse_marketinformation_xdp_v6_8.event_date.dissect(buffer, index, packet, parent)
@@ -8987,7 +9029,7 @@ gpw_wse_marketinformation_xdp_v6_8.mail_message.size =
   gpw_wse_marketinformation_xdp_v6_8.source_time_micro_secs.size + 
   gpw_wse_marketinformation_xdp_v6_8.scope.size + 
   gpw_wse_marketinformation_xdp_v6_8.title.size + 
-  gpw_wse_marketinformation_xdp_v6_8.text_ascii_str_1000.size + 
+  gpw_wse_marketinformation_xdp_v6_8.mail_text.size + 
   gpw_wse_marketinformation_xdp_v6_8.reserved_3.size
 
 -- Display: Mail Message
@@ -9017,8 +9059,8 @@ gpw_wse_marketinformation_xdp_v6_8.mail_message.fields = function(buffer, offset
   -- Title: ASCII Ch.
   index, title = gpw_wse_marketinformation_xdp_v6_8.title.dissect(buffer, index, packet, parent)
 
-  -- Text Ascii Str 1000: ASCII Str.
-  index, text_ascii_str_1000 = gpw_wse_marketinformation_xdp_v6_8.text_ascii_str_1000.dissect(buffer, index, packet, parent)
+  -- Mail Text: ASCII Str.
+  index, mail_text = gpw_wse_marketinformation_xdp_v6_8.mail_text.dissect(buffer, index, packet, parent)
 
   -- Reserved 3: Binary Int.
   if show.padding then

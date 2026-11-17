@@ -101,6 +101,16 @@ grep "coinbase.deribit.marketdataapi.sbe.v0.1.type" Coinbase.Deribit.MarketDataA
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.status" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.quantityexponent" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.InstrumentMessage.json
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/SnapshotHeaderMessage.pcap" \
+  -X "lua_script:Coinbase/Deribit/MarketDataApi/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
+  -T json \
+  > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotHeaderMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotHeaderMessage.json.stderr \
+  || { echo "--- tshark FAILED (SnapshotHeaderMessage) ---"; cat Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotHeaderMessage.json.stderr; exit 1; }
+
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotHeaderMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.incrementaltimestamp" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotHeaderMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.incrementalseqnum" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotHeaderMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/SnapshotTrailerMessage.pcap" \
   -X "lua_script:Coinbase/Deribit/MarketDataApi/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
   -T json \
@@ -110,3 +120,47 @@ runuser -u tester -- tshark \
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotTrailerMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.timestamp" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotTrailerMessage.json
 grep "coinbase.deribit.marketdataapi.sbe.v0.1.incrementseqnum" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.SnapshotTrailerMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/TradeMessage.pcap" \
+  -X "lua_script:Coinbase/Deribit/MarketDataApi/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
+  -T json \
+  > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeMessage.json.stderr \
+  || { echo "--- tshark FAILED (TradeMessage) ---"; cat Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeMessage.json.stderr; exit 1; }
+
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.matchid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.makerorderid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.fillqtymantissa" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.fillprice" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.makerflags" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/TradeSummaryMessage.pcap" \
+  -X "lua_script:Coinbase/Deribit/MarketDataApi/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
+  -T json \
+  > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json.stderr \
+  || { echo "--- tshark FAILED (TradeSummaryMessage) ---"; cat Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json.stderr; exit 1; }
+
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.instrumentid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.takerorderid" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.totalfilledmantissa" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.deepestprice" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.markprice" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.indexprice" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.impliedvolatility" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json
+grep "coinbase.deribit.marketdataapi.sbe.v0.1.takerflags" Coinbase.Deribit.MarketDataApi.Sbe.v0.1.TradeSummaryMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/Deribit.MarketDataApi.Sbe.v0.1/MultipleMessages.pcap" \
+  -X "lua_script:Coinbase/Deribit/MarketDataApi/Coinbase_Deribit_MarketDataApi_Sbe_v0_1_Dissector.lua" \
+  -T json \
+  > Coinbase.Deribit.MarketDataApi.Sbe.v0.1.Multiplemessages.json 2> Coinbase.Deribit.MarketDataApi.Sbe.v0.1.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Coinbase.Deribit.MarketDataApi.Sbe.v0.1.Multiplemessages.json.stderr; exit 1; }
+
+fields=$(grep -c "coinbase.deribit.marketdataapi.sbe.v0.1." Coinbase.Deribit.MarketDataApi.Sbe.v0.1.Multiplemessages.json) \
+  || { echo "--- no coinbase.deribit.marketdataapi.sbe.v0.1 fields (MultipleMessages) ---"; exit 1; }
+echo "  coinbase.deribit.marketdataapi.sbe.v0.1 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Coinbase.Deribit.MarketDataApi.Sbe.v0.1.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Coinbase.Deribit.MarketDataApi.Sbe.v0.1.Multiplemessages.json | sort -u | head; exit 1; }
+
+[ "$(grep -c 'coinbase.deribit.marketdataapi.sbe.v0.1.' Coinbase.Deribit.MarketDataApi.Sbe.v0.1.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

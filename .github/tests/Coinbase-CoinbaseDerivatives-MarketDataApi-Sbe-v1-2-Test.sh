@@ -4,6 +4,38 @@ set -o pipefail
 chown -R tester:tester .
 
 runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.Sbe.v1.2/EndOfSnapshotMessage.pcap" \
+  -X "lua_script:Coinbase/CoinbaseDerivatives/MarketDataApi/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
+  -T json \
+  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json.stderr \
+  || { echo "--- tshark FAILED (EndOfSnapshotMessage) ---"; cat Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json.stderr; exit 1; }
+
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshotseqnum" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradevolume" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.indicativeopenprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.dayopenprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.closeprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lowprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.highprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwappriceoptional" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.settlementprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradeprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradetime" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestbidimpliedprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestaskimpliedprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextbidimpliedprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextaskimpliedprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.limitdownprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.limitupprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradeqty" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.openinterest" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestbidimpliedqty" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestaskimpliedqty" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextbidimpliedqty" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.nextaskimpliedqty" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.priorsettlementprice" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.definitionflags" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.EndOfSnapshotMessage.json
+runuser -u tester -- tshark \
   -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.Sbe.v1.2/OrderDeleteMessage.pcap" \
   -X "lua_script:Coinbase/CoinbaseDerivatives/MarketDataApi/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
   -T json \
@@ -96,3 +128,19 @@ grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingstatus" Coinbas
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.leg1instrumentid" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.leg2instrumentid" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json
 grep "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.spreadbuyconvention" Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.StartOfSpreadInstrumentSnapshotMessage.json
+runuser -u tester -- tshark \
+  -r "omi-data-packets/Coinbase/CoinbaseDerivatives.MarketDataApi.Sbe.v1.2/MultipleMessages.pcap" \
+  -X "lua_script:Coinbase/CoinbaseDerivatives/MarketDataApi/Coinbase_CoinbaseDerivatives_MarketDataApi_Sbe_v1_2_Dissector.lua" \
+  -T json \
+  > Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.Multiplemessages.json 2> Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.Multiplemessages.json.stderr \
+  || { echo "--- tshark FAILED (MultipleMessages) ---"; cat Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.Multiplemessages.json.stderr; exit 1; }
+
+fields=$(grep -c "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2." Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.Multiplemessages.json) \
+  || { echo "--- no coinbase.coinbasederivatives.marketdataapi.sbe.v1.2 fields (MultipleMessages) ---"; exit 1; }
+echo "  coinbase.coinbasederivatives.marketdataapi.sbe.v1.2 fields: $fields"
+
+errors=$(grep -c '"_ws.expert.severity": "8388608"' Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.Multiplemessages.json || true)
+[ "$errors" -eq 0 ] \
+  || { echo "--- $errors expert errors (MultipleMessages) ---"; grep -o '"Lua Error[^"]*"' Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.Multiplemessages.json | sort -u | head; exit 1; }
+
+[ "$(grep -c 'coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.' Coinbase.CoinbaseDerivatives.MarketDataApi.Sbe.v1.2.Multiplemessages.json)" -gt 1 ] || { echo "--- only one message decoded (MultipleMessages) ---"; exit 1; }

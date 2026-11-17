@@ -3510,7 +3510,7 @@ koscom_mdcsrealtime_koscom_exture_v1_20.isin_nullable.size = 12
 -- Display: Isin Nullable
 koscom_mdcsrealtime_koscom_exture_v1_20.isin_nullable.display = function(value)
   -- Check if field has value
-  if value == nil or value == '' then
+  if value == nil or value == '' or value == "0" then
     return "Isin Nullable: No Value"
   end
 

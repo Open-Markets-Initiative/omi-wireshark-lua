@@ -31,6 +31,8 @@ omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.clearing_member_clearing_identifier
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.clearing_member_code = ProtoField.new("Clearing Member Code", "gpw.wse.orderentry.wats.v1.7.6.20.clearingmembercode", ftypes.STRING, nil, nil, nil, "Clearing member code. Optional: Never required, if unused filled with 0x0")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.client = ProtoField.new("Client", "gpw.wse.orderentry.wats.v1.7.6.20.client", ftypes.STRING, nil, nil, nil, "MifidField")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.client_order_id = ProtoField.new("Client Order Id", "gpw.wse.orderentry.wats.v1.7.6.20.clientorderid", ftypes.STRING, nil, nil, nil, "Arbitrary user provided value associated with the order. Optional: Never required, if unused filled with 0x0")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.command_result = ProtoField.new("Command Result", "gpw.wse.orderentry.wats.v1.7.6.20.commandresult", ftypes.UINT8, nil, nil, nil, "Confirmation of achieving the intended action. If the action (e.g., Buy Only state) has already been achieved before the command, the result will be positive")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.connection_close_reason = ProtoField.new("Connection Close Reason", "gpw.wse.orderentry.wats.v1.7.6.20.connectionclosereason", ftypes.UINT8)
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.connection_id = ProtoField.new("Connection Id", "gpw.wse.orderentry.wats.v1.7.6.20.connectionid", ftypes.UINT16, nil, nil, nil, "ID of the connection")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.connection_id_order_id = ProtoField.new("Connection Id Order Id", "gpw.wse.orderentry.wats.v1.7.6.20.connectionidorderid", ftypes.UINT64, nil, base.DEC, UInt64(0x00000000, 0xFFFC0000), "A connection number, a connectivity parameter provided by GPW")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.count = ProtoField.new("Count", "gpw.wse.orderentry.wats.v1.7.6.20.count", ftypes.UINT8, nil, nil, nil, "How many quotes this message contains")
@@ -61,12 +63,16 @@ omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.last_sent_seq_num = ProtoField.new(
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.leaves_qty = ProtoField.new("Leaves Qty", "gpw.wse.orderentry.wats.v1.7.6.20.leavesqty", ftypes.UINT64, nil, nil, nil, "How much of the given security is left on the market after the trade is concluded")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.liquidity_indicator = ProtoField.new("Liquidity Indicator", "gpw.wse.orderentry.wats.v1.7.6.20.liquidityindicator", ftypes.UINT8)
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.liquidity_provision_activity = ProtoField.new("Liquidity Provision Activity", "gpw.wse.orderentry.wats.v1.7.6.20.liquidityprovisionactivity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Order submitted by any firm providing liquidity to the market")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.login_result = ProtoField.new("Login Result", "gpw.wse.orderentry.wats.v1.7.6.20.loginresult", ftypes.UINT8, nil, nil, nil, "Login response status code")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.market_id = ProtoField.new("Market Id", "gpw.wse.orderentry.wats.v1.7.6.20.marketid", ftypes.STRING, nil, nil, nil, "Market structure's Market Identifier Code (MIC) as specified in ISO 10383")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.market_maker_or_specialist = ProtoField.new("Market Maker Or Specialist", "gpw.wse.orderentry.wats.v1.7.6.20.marketmakerorspecialist", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Order submitted as part of Liquidity Provision Activity by firm which have an agreement with Market")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.market_segment_id = ProtoField.new("Market Segment Id", "gpw.wse.orderentry.wats.v1.7.6.20.marketsegmentid", ftypes.UINT32, nil, nil, nil, "Identifies the market segment for request type CancelOrdersForMarketSegment. Optional: Required for MassCancelRequestType::CancelOrdersForMarketSegment, otherwise 0")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_cancel_id = ProtoField.new("Mass Cancel Id", "gpw.wse.orderentry.wats.v1.7.6.20.masscancelid", ftypes.STRING, nil, nil, nil, "Unique for each trading day order identifier based on the sequence number of order message, bulk sequence number, session ID and connection ID")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_cancel_rejection_reason = ProtoField.new("Mass Cancel Rejection Reason", "gpw.wse.orderentry.wats.v1.7.6.20.masscancelrejectionreason", ftypes.UINT16, nil, nil, nil, "Reason for rejecting the given mass order cancel request")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_cancel_request_type = ProtoField.new("Mass Cancel Request Type", "gpw.wse.orderentry.wats.v1.7.6.20.masscancelrequesttype", ftypes.UINT8)
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_quote_id = ProtoField.new("Mass Quote Id", "gpw.wse.orderentry.wats.v1.7.6.20.massquoteid", ftypes.STRING, nil, nil, nil, "Unique for each trading day order identifier based on the sequence number of order message, bulk sequence number, session ID and connection ID")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_quote_rejection_reason = ProtoField.new("Mass Quote Rejection Reason", "gpw.wse.orderentry.wats.v1.7.6.20.massquoterejectionreason", ftypes.UINT16, nil, nil, nil, "Reason for rejecting the given mass quote order")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_quote_status = ProtoField.new("Mass Quote Status", "gpw.wse.orderentry.wats.v1.7.6.20.massquotestatus", ftypes.UINT8, nil, nil, nil, "Status of the given mass quote order")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.memo = ProtoField.new("Memo", "gpw.wse.orderentry.wats.v1.7.6.20.memo", ftypes.STRING, nil, nil, nil, "Free text. Optional: Never required, if unused filled with 0x0")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.message_length = ProtoField.new("Message Length", "gpw.wse.orderentry.wats.v1.7.6.20.messagelength", ftypes.UINT16, nil, nil, nil, "Total length of the message, which the message index of section 7 shows includes the 24 byte header: Heartbeat and Logout carry no body and state length 24")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.message_type = ProtoField.new("Message Type", "gpw.wse.orderentry.wats.v1.7.6.20.messagetype", ftypes.UINT16, nil, nil, nil, "Type of the message, for example Login")
@@ -75,6 +81,8 @@ omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.next_expected_seq_num = ProtoField.
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.offer_orders = ProtoField.new("Offer Orders", "gpw.wse.orderentry.wats.v1.7.6.20.offerorders", ftypes.UINT32, nil, nil, nil, "Number of offer orders")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.order_capacity = ProtoField.new("Order Capacity", "gpw.wse.orderentry.wats.v1.7.6.20.ordercapacity", ftypes.UINT8, nil, nil, nil, "Designates the capacity of the firm placing the order")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.order_id = ProtoField.new("Order Id", "gpw.wse.orderentry.wats.v1.7.6.20.orderid", ftypes.STRING, nil, nil, nil, "Unique for each trading day order identifier based on the sequence number of order message, bulk sequence number, session ID and connection ID")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.order_rejection_reason = ProtoField.new("Order Rejection Reason", "gpw.wse.orderentry.wats.v1.7.6.20.orderrejectionreason", ftypes.UINT16, nil, nil, nil, "Reason for rejecting the given order")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.order_status = ProtoField.new("Order Status", "gpw.wse.orderentry.wats.v1.7.6.20.orderstatus", ftypes.UINT8, nil, nil, nil, "Status of the given order")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.order_type = ProtoField.new("Order Type", "gpw.wse.orderentry.wats.v1.7.6.20.ordertype", ftypes.UINT8, nil, nil, nil, "Indicates the order type")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.price = ProtoField.new("Price", "gpw.wse.orderentry.wats.v1.7.6.20.price", ftypes.DOUBLE, nil, nil, nil, "Indicates the price of the order")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.priority_flag = ProtoField.new("Priority Flag", "gpw.wse.orderentry.wats.v1.7.6.20.priorityflag", ftypes.UINT8, nil, nil, nil, "Indicates whether the priority flag is lost or retained after modification")
@@ -85,21 +93,14 @@ omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.quote = ProtoField.new("Quote", "gp
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.quote_id = ProtoField.new("Quote Id", "gpw.wse.orderentry.wats.v1.7.6.20.quoteid", ftypes.STRING, nil, nil, nil, "Arbitrary user provided value associated with the mass quote. Optional: Never required, if unused filled with 0x0")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.quote_order_response = ProtoField.new("Quote Order Response", "gpw.wse.orderentry.wats.v1.7.6.20.quoteorderresponse", ftypes.STRING, nil, nil, nil, "QuoteOrderResponse")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.quotes = ProtoField.new("Quotes", "gpw.wse.orderentry.wats.v1.7.6.20.quotes", ftypes.STRING)
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_connection_close_reason = ProtoField.new("Reason Connection Close Reason", "gpw.wse.orderentry.wats.v1.7.6.20.reasonconnectionclosereason", ftypes.UINT8, nil, nil, nil, "Connection close reason")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_mass_cancel_rejection_reason = ProtoField.new("Reason Mass Cancel Rejection Reason", "gpw.wse.orderentry.wats.v1.7.6.20.reasonmasscancelrejectionreason", ftypes.UINT16, nil, nil, nil, "Reason for rejecting the given mass order cancel request")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_mass_quote_rejection_reason = ProtoField.new("Reason Mass Quote Rejection Reason", "gpw.wse.orderentry.wats.v1.7.6.20.reasonmassquoterejectionreason", ftypes.UINT16, nil, nil, nil, "Reason for rejecting the given mass quote order")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_order_rejection_reason = ProtoField.new("Reason Order Rejection Reason", "gpw.wse.orderentry.wats.v1.7.6.20.reasonorderrejectionreason", ftypes.UINT16, nil, nil, nil, "Reason for rejecting the given order")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_request_for_execution_reason = ProtoField.new("Reason Request For Execution Reason", "gpw.wse.orderentry.wats.v1.7.6.20.reasonrequestforexecutionreason", ftypes.UINT8, nil, nil, nil, "The reason for this RFE")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_tcr_rejection_reason = ProtoField.new("Reason Tcr Rejection Reason", "gpw.wse.orderentry.wats.v1.7.6.20.reasontcrrejectionreason", ftypes.UINT16, nil, nil, nil, "Reason for rejecting the given TCR")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.ref_id = ProtoField.new("Ref Id", "gpw.wse.orderentry.wats.v1.7.6.20.refid", ftypes.UINT32, nil, nil, nil, "A reference id to the Market Maker command request message")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.ref_seq_num = ProtoField.new("Ref Seq Num", "gpw.wse.orderentry.wats.v1.7.6.20.refseqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the rejected message")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reject_reason = ProtoField.new("Reject Reason", "gpw.wse.orderentry.wats.v1.7.6.20.rejectreason", ftypes.UINT8)
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.rejection_code = ProtoField.new("Rejection Code", "gpw.wse.orderentry.wats.v1.7.6.20.rejectioncode", ftypes.UINT16, nil, nil, nil, "Reason for rejecting the Market Maker command")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.request_for_execution_reason = ProtoField.new("Request For Execution Reason", "gpw.wse.orderentry.wats.v1.7.6.20.requestforexecutionreason", ftypes.UINT8, nil, nil, nil, "The reason for this RFE")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reserved_1_to_7 = ProtoField.new("Reserved 1 To 7", "gpw.wse.orderentry.wats.v1.7.6.20.reserved1to7", ftypes.UINT8, nil, base.DEC, 0xFE, "Bits the schema assigns no meaning to")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reserved_3_to_7 = ProtoField.new("Reserved 3 To 7", "gpw.wse.orderentry.wats.v1.7.6.20.reserved3to7", ftypes.UINT8, nil, base.DEC, 0xF8, "Bits the schema assigns no meaning to")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.responses = ProtoField.new("Responses", "gpw.wse.orderentry.wats.v1.7.6.20.responses", ftypes.STRING, nil, nil, nil, "QuoteOrderResponses")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.result_command_result = ProtoField.new("Result Command Result", "gpw.wse.orderentry.wats.v1.7.6.20.resultcommandresult", ftypes.UINT8, nil, nil, nil, "Confirmation of achieving the intended action. If the action (e.g., Buy Only state) has already been achieved before the command, the result will be positive")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.result_login_result = ProtoField.new("Result Login Result", "gpw.wse.orderentry.wats.v1.7.6.20.resultloginresult", ftypes.UINT8, nil, nil, nil, "Login response status code")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.scenario_name = ProtoField.new("Scenario Name", "gpw.wse.orderentry.wats.v1.7.6.20.scenarioname", ftypes.STRING, nil, nil, nil, "Test scenario name")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.secondary_trade_report_id = ProtoField.new("Secondary Trade Report Id", "gpw.wse.orderentry.wats.v1.7.6.20.secondarytradereportid", ftypes.STRING, nil, nil, nil, "Unique for each trading day order identifier based on the sequence number of order message, bulk sequence number, session ID and connection ID")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.seq_num = ProtoField.new("Seq Num", "gpw.wse.orderentry.wats.v1.7.6.20.seqnum", ftypes.UINT64, nil, base.DEC, 0x000000000FFFFFFF, "A sequence number of the OrderAdd message")
@@ -111,9 +112,6 @@ omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.short_code = ProtoField.new("Short 
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.side = ProtoField.new("Side", "gpw.wse.orderentry.wats.v1.7.6.20.side", ftypes.UINT8, nil, nil, nil, "Indicates the order's side (buy or sell)")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.source_timestamp = ProtoField.new("Source Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.sourcetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the business event that triggered or generated the message, in nanoseconds since the Unix epoch")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.source_timestamp_utc = ProtoField.new("Source Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.sourcetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the business event that triggered or generated the message, in nanoseconds since the Unix epoch")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.status_mass_quote_status = ProtoField.new("Status Mass Quote Status", "gpw.wse.orderentry.wats.v1.7.6.20.statusmassquotestatus", ftypes.UINT8, nil, nil, nil, "Status of the given mass quote order")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.status_order_status = ProtoField.new("Status Order Status", "gpw.wse.orderentry.wats.v1.7.6.20.statusorderstatus", ftypes.UINT8, nil, nil, nil, "Status of the given order")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.status_tcr_status = ProtoField.new("Status Tcr Status", "gpw.wse.orderentry.wats.v1.7.6.20.statustcrstatus", ftypes.UINT8, nil, nil, nil, "Status of the given order")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.stp_id = ProtoField.new("Stp Id", "gpw.wse.orderentry.wats.v1.7.6.20.stpid", ftypes.UINT8, nil, nil, nil, "ID assigned by the client used in the Self Trade Prevention mechanism. Optional: Never required, can be 0 to disable stp")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.target_party_id = ProtoField.new("Target Party Id", "gpw.wse.orderentry.wats.v1.7.6.20.targetpartyid", ftypes.UINT32, nil, nil, nil, "Used to identify the party targeted for the action specified in the message. Optional: Required for TargetPartyRole::SenderLocation/ClientID/ExecutingTrader/InvestmentDecisionMaker, otherwise 0")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.target_party_role = ProtoField.new("Target Party Role", "gpw.wse.orderentry.wats.v1.7.6.20.targetpartyrole", ftypes.UINT8, nil, nil, nil, "Target party role filter selection field")
@@ -122,6 +120,8 @@ omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.target_timestamp_utc = ProtoField.n
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_party = ProtoField.new("Tcr Party", "gpw.wse.orderentry.wats.v1.7.6.20.tcrparty", ftypes.STRING, nil, nil, nil, "TcrParty")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_party_buy = ProtoField.new("Tcr Party Buy", "gpw.wse.orderentry.wats.v1.7.6.20.tcrpartybuy", ftypes.STRING, nil, nil, nil, "TcrParty")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_party_sell = ProtoField.new("Tcr Party Sell", "gpw.wse.orderentry.wats.v1.7.6.20.tcrpartysell", ftypes.STRING, nil, nil, nil, "TcrParty")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_rejection_reason = ProtoField.new("Tcr Rejection Reason", "gpw.wse.orderentry.wats.v1.7.6.20.tcrrejectionreason", ftypes.UINT16, nil, nil, nil, "Reason for rejecting the given TCR")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_status = ProtoField.new("Tcr Status", "gpw.wse.orderentry.wats.v1.7.6.20.tcrstatus", ftypes.UINT8, nil, nil, nil, "Status of the given order")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.time_in_force = ProtoField.new("Time In Force", "gpw.wse.orderentry.wats.v1.7.6.20.timeinforce", ftypes.UINT8, nil, nil, nil, "Indicates the order's time in force (e.g. GTC)")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.timestamp = ProtoField.new("Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Sending time, in nanoseconds since the Unix epoch. Section 4.12 states the type and the unit, a 64 bit unsigned integer given within nanosecond accuracy, and section 4.6.3.4 the zone, an expiry time being a UTC timestamp")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.timestamp_utc = ProtoField.new("Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Sending time, in nanoseconds since the Unix epoch. Section 4.12 states the type and the unit, a 64 bit unsigned integer given within nanosecond accuracy, and section 4.6.3.4 the zone, an expiry time being a UTC timestamp")
@@ -479,6 +479,68 @@ gpw_wse_orderentry_wats_v1_7_6_20.client_order_id.dissect = function(buffer, off
   local display = gpw_wse_orderentry_wats_v1_7_6_20.client_order_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.client_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Command Result
+gpw_wse_orderentry_wats_v1_7_6_20.command_result = {}
+
+-- Size: Command Result
+gpw_wse_orderentry_wats_v1_7_6_20.command_result.size = 1
+
+-- Display: Command Result
+gpw_wse_orderentry_wats_v1_7_6_20.command_result.labels = {
+  [1] = "Command Result: Success (1)",
+  [2] = "Command Result: Failure (2)",
+}
+
+gpw_wse_orderentry_wats_v1_7_6_20.command_result.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.command_result.labels[value] or "Command Result: Unknown("..value..")"
+end
+
+-- Dissect: Command Result
+gpw_wse_orderentry_wats_v1_7_6_20.command_result.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.command_result.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.command_result.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.command_result, range, value, display)
+
+  return offset + length, value
+end
+
+-- Connection Close Reason
+gpw_wse_orderentry_wats_v1_7_6_20.connection_close_reason = {}
+
+-- Size: Connection Close Reason
+gpw_wse_orderentry_wats_v1_7_6_20.connection_close_reason.size = 1
+
+-- Display: Connection Close Reason
+gpw_wse_orderentry_wats_v1_7_6_20.connection_close_reason.labels = {
+  [1] = "Connection Close Reason: Protocol Error (1)",
+  [2] = "Connection Close Reason: Invalid Seq Num (2)",
+  [3] = "Connection Close Reason: End Of Day (3)",
+  [4] = "Connection Close Reason: Sync Fail (4)",
+  [5] = "Connection Close Reason: Anti Flooding Threshold Exceeded (5)",
+  [6] = "Connection Close Reason: Connection Config Changed (6)",
+  [7] = "Connection Close Reason: Close Ops (7)",
+  [8] = "Connection Close Reason: Disconnect (8)",
+}
+
+gpw_wse_orderentry_wats_v1_7_6_20.connection_close_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.connection_close_reason.labels[value] or "Connection Close Reason: Unknown("..value..")"
+end
+
+-- Dissect: Connection Close Reason
+gpw_wse_orderentry_wats_v1_7_6_20.connection_close_reason.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.connection_close_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.connection_close_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.connection_close_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1182,6 +1244,41 @@ gpw_wse_orderentry_wats_v1_7_6_20.liquidity_indicator.dissect = function(buffer,
   return offset + length, value
 end
 
+-- Login Result
+gpw_wse_orderentry_wats_v1_7_6_20.login_result = {}
+
+-- Size: Login Result
+gpw_wse_orderentry_wats_v1_7_6_20.login_result.size = 1
+
+-- Display: Login Result
+gpw_wse_orderentry_wats_v1_7_6_20.login_result.labels = {
+  [1] = "Login Result: Ok (1)",
+  [2] = "Login Result: Not Found (2)",
+  [3] = "Login Result: Invalid Token (3)",
+  [4] = "Login Result: Already Logged In (4)",
+  [5] = "Login Result: Account Locked (5)",
+  [6] = "Login Result: Login Not Allowed (6)",
+  [7] = "Login Result: Invalid Login Parameters (7)",
+  [8] = "Login Result: Throttling Temporary Lock (8)",
+  [9] = "Login Result: Other (9)",
+}
+
+gpw_wse_orderentry_wats_v1_7_6_20.login_result.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.login_result.labels[value] or "Login Result: Unknown("..value..")"
+end
+
+-- Dissect: Login Result
+gpw_wse_orderentry_wats_v1_7_6_20.login_result.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.login_result.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.login_result.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.login_result, range, value, display)
+
+  return offset + length, value
+end
+
 -- Market Id
 gpw_wse_orderentry_wats_v1_7_6_20.market_id = {}
 
@@ -1228,6 +1325,42 @@ gpw_wse_orderentry_wats_v1_7_6_20.market_segment_id.dissect = function(buffer, o
   return offset + length, value
 end
 
+-- Mass Cancel Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_rejection_reason = {}
+
+-- Size: Mass Cancel Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_rejection_reason.size = 2
+
+-- Display: Mass Cancel Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_rejection_reason.labels = {
+  [99] = "Mass Cancel Rejection Reason: Other (99)",
+  [101] = "Mass Cancel Rejection Reason: Na (101)",
+  [1001] = "Mass Cancel Rejection Reason: Unknown Instrument (1001)",
+  [1005] = "Mass Cancel Rejection Reason: Invalid Execution Trader (1005)",
+  [1016] = "Mass Cancel Rejection Reason: Unknown Market Segment Id (1016)",
+  [1017] = "Mass Cancel Rejection Reason: Unknown Connection Id (1017)",
+  [1053] = "Mass Cancel Rejection Reason: Instrument Forbidden (1053)",
+  [1054] = "Mass Cancel Rejection Reason: Market Segment Id Forbidden (1054)",
+  [1056] = "Mass Cancel Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)",
+  [2025] = "Mass Cancel Rejection Reason: Request Not Allowed On Sponsored Connection (2025)",
+}
+
+gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_rejection_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_rejection_reason.labels[value] or "Mass Cancel Rejection Reason: Unknown("..value..")"
+end
+
+-- Dissect: Mass Cancel Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_rejection_reason.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_rejection_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_rejection_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_cancel_rejection_reason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Mass Cancel Request Type
 gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type = {}
 
@@ -1253,6 +1386,85 @@ gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type.dissect = function(bu
   local display = gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_request_type.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_cancel_request_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Quote Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_rejection_reason = {}
+
+-- Size: Mass Quote Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_rejection_reason.size = 2
+
+-- Display: Mass Quote Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_rejection_reason.labels = {
+  [1] = "Mass Quote Rejection Reason: Na (1)",
+  [2] = "Mass Quote Rejection Reason: Exchange Closed (2)",
+  [99] = "Mass Quote Rejection Reason: Other (99)",
+  [1005] = "Mass Quote Rejection Reason: Invalid Execution Trader (1005)",
+  [1006] = "Mass Quote Rejection Reason: Invalid Decision Maker (1006)",
+  [1007] = "Mass Quote Rejection Reason: Invalid Client Id (1007)",
+  [1008] = "Mass Quote Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)",
+  [1009] = "Mass Quote Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)",
+  [1010] = "Mass Quote Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)",
+  [1055] = "Mass Quote Rejection Reason: Missing Order Origination For Sponsored Access Connection (1055)",
+  [1061] = "Mass Quote Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)",
+  [1070] = "Mass Quote Rejection Reason: Invalid Party Id For Client Id (1070)",
+  [1071] = "Mass Quote Rejection Reason: Invalid Party Id For Executing Trader (1071)",
+  [1072] = "Mass Quote Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)",
+  [1075] = "Mass Quote Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)",
+  [1076] = "Mass Quote Rejection Reason: Missing Clearing Member Code (1076)",
+  [1077] = "Mass Quote Rejection Reason: Forbidden Clearing Member Code (1077)",
+  [1078] = "Mass Quote Rejection Reason: Invalid Client Id For Sponsored Connection (1078)",
+  [1080] = "Mass Quote Rejection Reason: Forbidden Order Capacity Value For Sponsored Connection (1080)",
+  [1081] = "Mass Quote Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)",
+  [1085] = "Mass Quote Rejection Reason: Invalid Clearing Member Code Length (1085)",
+  [1202] = "Mass Quote Rejection Reason: Duplicate Instrument (1202)",
+  [1204] = "Mass Quote Rejection Reason: Invalid Quotes Count (1204)",
+  [1210] = "Mass Quote Rejection Reason: Forbidden Order Capacity Value (1210)",
+  [1212] = "Mass Quote Rejection Reason: Liquidity Provision Activity Flag Not Set For Mass Quote (1212)",
+}
+
+gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_rejection_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_rejection_reason.labels[value] or "Mass Quote Rejection Reason: Unknown("..value..")"
+end
+
+-- Dissect: Mass Quote Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_rejection_reason.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_rejection_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_rejection_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_quote_rejection_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Quote Status
+gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_status = {}
+
+-- Size: Mass Quote Status
+gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_status.size = 1
+
+-- Display: Mass Quote Status
+gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_status.labels = {
+  [1] = "Mass Quote Status: Accepted (1)",
+  [2] = "Mass Quote Status: Rejected (2)",
+}
+
+gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_status.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_status.labels[value] or "Mass Quote Status: Unknown("..value..")"
+end
+
+-- Dissect: Mass Quote Status
+gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_status.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.mass_quote_status, range, value, display)
 
   return offset + length, value
 end
@@ -1430,6 +1642,168 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_capacity.dissect = function(buffer, offs
   local display = gpw_wse_orderentry_wats_v1_7_6_20.order_capacity.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.order_capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason = {}
+
+-- Size: Order Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.size = 2
+
+-- Display: Order Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.labels = {
+  [0] = "Order Rejection Reason: Na (0)",
+  [1] = "Order Rejection Reason: Unknown Order (1)",
+  [2] = "Order Rejection Reason: Exchange Closed (2)",
+  [18] = "Order Rejection Reason: Invalid Price Increment (18)",
+  [99] = "Order Rejection Reason: Other (99)",
+  [106] = "Order Rejection Reason: Instrument Phase No Trading (106)",
+  [1001] = "Order Rejection Reason: Unknown Instrument (1001)",
+  [1005] = "Order Rejection Reason: Invalid Execution Trader (1005)",
+  [1006] = "Order Rejection Reason: Invalid Decision Maker (1006)",
+  [1007] = "Order Rejection Reason: Invalid Client Id (1007)",
+  [1008] = "Order Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)",
+  [1009] = "Order Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)",
+  [1010] = "Order Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)",
+  [1012] = "Order Rejection Reason: Cannot Modify Mifid Flags (1012)",
+  [1013] = "Order Rejection Reason: Wrong Display Qty Value (1013)",
+  [1014] = "Order Rejection Reason: Invalid Display Qty (1014)",
+  [1015] = "Order Rejection Reason: Iceberg Order Value Less Than Required (1015)",
+  [1019] = "Order Rejection Reason: Cod Disabled For The Connection Id (1019)",
+  [1025] = "Order Rejection Reason: Order Quantity Must Be Greater Than Minimum Quantity (1025)",
+  [1026] = "Order Rejection Reason: Order Quantity Must Be Lower Than Maximum Quantity (1026)",
+  [1027] = "Order Rejection Reason: Order Price Must Be Greater Than Minimum Price (1027)",
+  [1028] = "Order Rejection Reason: Order Price Must Be Lower Than Maximum Price (1028)",
+  [1029] = "Order Rejection Reason: Order Price Must Be Nonzero (1029)",
+  [1030] = "Order Rejection Reason: Order Value Must Be Greater Than Minimum Value (1030)",
+  [1031] = "Order Rejection Reason: Order Value Must Be Lower Than Maximum Value (1031)",
+  [1032] = "Order Rejection Reason: Invalid Ord Type For Selected Market Model (1032)",
+  [1034] = "Order Rejection Reason: Leaves Quantity Must Be Greater Than Zero After Modification (1034)",
+  [1035] = "Order Rejection Reason: Price Not Allowed (1035)",
+  [1039] = "Order Rejection Reason: Invalid Time In Force For Order Type (1039)",
+  [1040] = "Order Rejection Reason: Invalid Time In Force For Current Market Phase (1040)",
+  [1041] = "Order Rejection Reason: Invalid Time In Force For Selected Market Model (1041)",
+  [1042] = "Order Rejection Reason: Forbidden Ord Type And Time In Force Combination For Market Segment (1042)",
+  [1043] = "Order Rejection Reason: Expire Time Cannot Be Modified (1043)",
+  [1044] = "Order Rejection Reason: Obsolete Expire Date (1044)",
+  [1045] = "Order Rejection Reason: Expire Date In Past (1045)",
+  [1046] = "Order Rejection Reason: Obsolete Expire Time (1046)",
+  [1047] = "Order Rejection Reason: Expire Time In Past (1047)",
+  [1048] = "Order Rejection Reason: Ambigous Expire (1048)",
+  [1049] = "Order Rejection Reason: Expire Date Exceeds Limit (1049)",
+  [1037] = "Order Rejection Reason: Price Below Low Collar (1037)",
+  [1038] = "Order Rejection Reason: Price Above High Collar (1038)",
+  [1050] = "Order Rejection Reason: Firm Is Not A Market Maker (1050)",
+  [1055] = "Order Rejection Reason: Missing Order Origination For Sponsored Access Connection (1055)",
+  [1056] = "Order Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)",
+  [1057] = "Order Rejection Reason: Firm Not Authorized To Buy And Sell The Instrument (1057)",
+  [1058] = "Order Rejection Reason: Firm Not Authorized To Buy The Instrument (1058)",
+  [1059] = "Order Rejection Reason: Firm Not Authorized To Sell The Instrument (1059)",
+  [1060] = "Order Rejection Reason: Operations On Orders And Quotes Forbidden During Uncrossing (1060)",
+  [1061] = "Order Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)",
+  [1062] = "Order Rejection Reason: Operations On Orders And Quotes Forbidden Due To Drop Copy Disconnection (1062)",
+  [1063] = "Order Rejection Reason: Trigger Price Not Allowed (1063)",
+  [1064] = "Order Rejection Reason: Trigger Price Not Higher Than Ltp (1064)",
+  [1065] = "Order Rejection Reason: Trigger Price Not Lower Than Ltp (1065)",
+  [1066] = "Order Rejection Reason: Trigger Price Lower Than Price (1066)",
+  [1067] = "Order Rejection Reason: Trigger Price Higher Than Price (1067)",
+  [1068] = "Order Rejection Reason: Trigger Price Modified For Activated Order (1068)",
+  [1069] = "Order Rejection Reason: Trigger Price Must Be Greater Than Zero (1069)",
+  [1070] = "Order Rejection Reason: Invalid Party Id For Client Id (1070)",
+  [1071] = "Order Rejection Reason: Invalid Party Id For Executing Trader (1071)",
+  [1072] = "Order Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)",
+  [1075] = "Order Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)",
+  [1076] = "Order Rejection Reason: Missing Clearing Member Code (1076)",
+  [1077] = "Order Rejection Reason: Forbidden Clearing Member Code (1077)",
+  [1078] = "Order Rejection Reason: Invalid Client Id For Sponsored Connection (1078)",
+  [1079] = "Order Rejection Reason: Invalid Ord Type For Sponsored Connection (1079)",
+  [1080] = "Order Rejection Reason: Forbidden Order Capacity Value For Sponsored Connection (1080)",
+  [1081] = "Order Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)",
+  [1083] = "Order Rejection Reason: Invalid Time In Force For Sponsored Connection (1083)",
+  [1084] = "Order Rejection Reason: Operation Forbidden During Early Late Monitoring (1084)",
+  [1085] = "Order Rejection Reason: Invalid Clearing Member Code Length (1085)",
+  [1086] = "Order Rejection Reason: Operation Unsuccessful Retry Needed (1086)",
+  [1201] = "Order Rejection Reason: Mass Quote Not Allowed For Selected Market Model (1201)",
+  [1203] = "Order Rejection Reason: Instrument Closed (1203)",
+  [1208] = "Order Rejection Reason: Invalid Bid Ask Spread (1208)",
+  [1209] = "Order Rejection Reason: Not Authorized To Quote Instrument (1209)",
+  [1301] = "Order Rejection Reason: Buy Order Not Allowed (1301)",
+  [1307] = "Order Rejection Reason: Stop Orders Not Allowed (1307)",
+  [1308] = "Order Rejection Reason: Trigger Price Must Be Higher Than Lp Sell Quote (1308)",
+  [1309] = "Order Rejection Reason: Trigger Price Must Be Lower Than Lp Buy Quote (1309)",
+  [1310] = "Order Rejection Reason: Market Making Via Mass Quote Only On Hybrid Market (1310)",
+  [1311] = "Order Rejection Reason: Sell Quotes Not Allowed During Buy Only State (1311)",
+  [1312] = "Order Rejection Reason: Instrument Knocked Out (1312)",
+  [1401] = "Order Rejection Reason: Only One Sell Order Is Allowed For Ipo (1401)",
+  [1402] = "Order Rejection Reason: Only One Buy Order Is Allowed For Tender (1402)",
+  [2026] = "Order Rejection Reason: Request Not Allowed For Block Instrument (2026)",
+  [2028] = "Order Rejection Reason: Request Not Allowed For Cross Instrument (2028)",
+  [7000] = "Order Rejection Reason: Risk Limit Not Defined (7000)",
+  [7001] = "Order Rejection Reason: Risk Maximum Order Volume Exceeded (7001)",
+  [7002] = "Order Rejection Reason: Risk Maximum Order Value Exceeded (7002)",
+  [7003] = "Order Rejection Reason: Risk Order Price Collar Exceeded (7003)",
+  [7004] = "Order Rejection Reason: Dynamic Order Price Collar Not Defined (7004)",
+  [7005] = "Order Rejection Reason: Static Order Price Collar Not Defined (7005)",
+  [7011] = "Order Rejection Reason: Total Traded Value Exceeded (7011)",
+  [7012] = "Order Rejection Reason: Total Traded Buy Value Exceeded (7012)",
+  [7013] = "Order Rejection Reason: Total Traded Sell Value Exceeded (7013)",
+  [7014] = "Order Rejection Reason: Total Open Value Exceeded (7014)",
+  [7015] = "Order Rejection Reason: Total Open Buy Value Exceeded (7015)",
+  [7016] = "Order Rejection Reason: Total Open Sell Value Exceeded (7016)",
+  [7017] = "Order Rejection Reason: Total Risk Value Exceeded (7017)",
+  [7018] = "Order Rejection Reason: Total Buy Risk Value Exceeded (7018)",
+  [7019] = "Order Rejection Reason: Total Sell Risk Value Exceeded (7019)",
+  [7020] = "Order Rejection Reason: Total Net Risk Value Exceeded (7020)",
+  [7021] = "Order Rejection Reason: Max Order Count Exceeded (7021)",
+  [7022] = "Order Rejection Reason: Rejected Due To Kill Switch Activation (7022)",
+}
+
+gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.labels[value] or "Order Rejection Reason: Unknown("..value..")"
+end
+
+-- Dissect: Order Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.order_rejection_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Status
+gpw_wse_orderentry_wats_v1_7_6_20.order_status = {}
+
+-- Size: Order Status
+gpw_wse_orderentry_wats_v1_7_6_20.order_status.size = 1
+
+-- Display: Order Status
+gpw_wse_orderentry_wats_v1_7_6_20.order_status.labels = {
+  [1] = "Order Status: New (1)",
+  [2] = "Order Status: Cancelled (2)",
+  [3] = "Order Status: Rejected (3)",
+  [4] = "Order Status: Filled (4)",
+  [5] = "Order Status: Partially Filled (5)",
+  [6] = "Order Status: Expired (6)",
+}
+
+gpw_wse_orderentry_wats_v1_7_6_20.order_status.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.order_status.labels[value] or "Order Status: Unknown("..value..")"
+end
+
+-- Dissect: Order Status
+gpw_wse_orderentry_wats_v1_7_6_20.order_status.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.order_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.order_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.order_status, range, value, display)
 
   return offset + length, value
 end
@@ -1622,367 +1996,6 @@ gpw_wse_orderentry_wats_v1_7_6_20.quote_id.dissect = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Reason Connection Close Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason = {}
-
--- Size: Reason Connection Close Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.size = 1
-
--- Display: Reason Connection Close Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.labels = {
-  [1] = "Reason Connection Close Reason: Protocol Error (1)",
-  [2] = "Reason Connection Close Reason: Invalid Seq Num (2)",
-  [3] = "Reason Connection Close Reason: End Of Day (3)",
-  [4] = "Reason Connection Close Reason: Sync Fail (4)",
-  [5] = "Reason Connection Close Reason: Anti Flooding Threshold Exceeded (5)",
-  [6] = "Reason Connection Close Reason: Connection Config Changed (6)",
-  [7] = "Reason Connection Close Reason: Close Ops (7)",
-  [8] = "Reason Connection Close Reason: Disconnect (8)",
-}
-
-gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.labels[value] or "Reason Connection Close Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Connection Close Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_connection_close_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Mass Cancel Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason = {}
-
--- Size: Reason Mass Cancel Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.size = 2
-
--- Display: Reason Mass Cancel Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.labels = {
-  [99] = "Reason Mass Cancel Rejection Reason: Other (99)",
-  [101] = "Reason Mass Cancel Rejection Reason: Na (101)",
-  [1001] = "Reason Mass Cancel Rejection Reason: Unknown Instrument (1001)",
-  [1005] = "Reason Mass Cancel Rejection Reason: Invalid Execution Trader (1005)",
-  [1016] = "Reason Mass Cancel Rejection Reason: Unknown Market Segment Id (1016)",
-  [1017] = "Reason Mass Cancel Rejection Reason: Unknown Connection Id (1017)",
-  [1053] = "Reason Mass Cancel Rejection Reason: Instrument Forbidden (1053)",
-  [1054] = "Reason Mass Cancel Rejection Reason: Market Segment Id Forbidden (1054)",
-  [1056] = "Reason Mass Cancel Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)",
-  [2025] = "Reason Mass Cancel Rejection Reason: Request Not Allowed On Sponsored Connection (2025)",
-}
-
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.labels[value] or "Reason Mass Cancel Rejection Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Mass Cancel Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_mass_cancel_rejection_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Mass Quote Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason = {}
-
--- Size: Reason Mass Quote Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.size = 2
-
--- Display: Reason Mass Quote Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.labels = {
-  [1] = "Reason Mass Quote Rejection Reason: Na (1)",
-  [2] = "Reason Mass Quote Rejection Reason: Exchange Closed (2)",
-  [99] = "Reason Mass Quote Rejection Reason: Other (99)",
-  [1005] = "Reason Mass Quote Rejection Reason: Invalid Execution Trader (1005)",
-  [1006] = "Reason Mass Quote Rejection Reason: Invalid Decision Maker (1006)",
-  [1007] = "Reason Mass Quote Rejection Reason: Invalid Client Id (1007)",
-  [1008] = "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)",
-  [1009] = "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)",
-  [1010] = "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)",
-  [1055] = "Reason Mass Quote Rejection Reason: Missing Order Origination For Sponsored Access Connection (1055)",
-  [1061] = "Reason Mass Quote Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)",
-  [1070] = "Reason Mass Quote Rejection Reason: Invalid Party Id For Client Id (1070)",
-  [1071] = "Reason Mass Quote Rejection Reason: Invalid Party Id For Executing Trader (1071)",
-  [1072] = "Reason Mass Quote Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)",
-  [1075] = "Reason Mass Quote Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)",
-  [1076] = "Reason Mass Quote Rejection Reason: Missing Clearing Member Code (1076)",
-  [1077] = "Reason Mass Quote Rejection Reason: Forbidden Clearing Member Code (1077)",
-  [1078] = "Reason Mass Quote Rejection Reason: Invalid Client Id For Sponsored Connection (1078)",
-  [1080] = "Reason Mass Quote Rejection Reason: Forbidden Order Capacity Value For Sponsored Connection (1080)",
-  [1081] = "Reason Mass Quote Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)",
-  [1085] = "Reason Mass Quote Rejection Reason: Invalid Clearing Member Code Length (1085)",
-  [1202] = "Reason Mass Quote Rejection Reason: Duplicate Instrument (1202)",
-  [1204] = "Reason Mass Quote Rejection Reason: Invalid Quotes Count (1204)",
-  [1210] = "Reason Mass Quote Rejection Reason: Forbidden Order Capacity Value (1210)",
-  [1212] = "Reason Mass Quote Rejection Reason: Liquidity Provision Activity Flag Not Set For Mass Quote (1212)",
-}
-
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.labels[value] or "Reason Mass Quote Rejection Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Mass Quote Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_mass_quote_rejection_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Order Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason = {}
-
--- Size: Reason Order Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.size = 2
-
--- Display: Reason Order Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.labels = {
-  [0] = "Reason Order Rejection Reason: Na (0)",
-  [1] = "Reason Order Rejection Reason: Unknown Order (1)",
-  [2] = "Reason Order Rejection Reason: Exchange Closed (2)",
-  [18] = "Reason Order Rejection Reason: Invalid Price Increment (18)",
-  [99] = "Reason Order Rejection Reason: Other (99)",
-  [106] = "Reason Order Rejection Reason: Instrument Phase No Trading (106)",
-  [1001] = "Reason Order Rejection Reason: Unknown Instrument (1001)",
-  [1005] = "Reason Order Rejection Reason: Invalid Execution Trader (1005)",
-  [1006] = "Reason Order Rejection Reason: Invalid Decision Maker (1006)",
-  [1007] = "Reason Order Rejection Reason: Invalid Client Id (1007)",
-  [1008] = "Reason Order Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)",
-  [1009] = "Reason Order Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)",
-  [1010] = "Reason Order Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)",
-  [1012] = "Reason Order Rejection Reason: Cannot Modify Mifid Flags (1012)",
-  [1013] = "Reason Order Rejection Reason: Wrong Display Qty Value (1013)",
-  [1014] = "Reason Order Rejection Reason: Invalid Display Qty (1014)",
-  [1015] = "Reason Order Rejection Reason: Iceberg Order Value Less Than Required (1015)",
-  [1019] = "Reason Order Rejection Reason: Cod Disabled For The Connection Id (1019)",
-  [1025] = "Reason Order Rejection Reason: Order Quantity Must Be Greater Than Minimum Quantity (1025)",
-  [1026] = "Reason Order Rejection Reason: Order Quantity Must Be Lower Than Maximum Quantity (1026)",
-  [1027] = "Reason Order Rejection Reason: Order Price Must Be Greater Than Minimum Price (1027)",
-  [1028] = "Reason Order Rejection Reason: Order Price Must Be Lower Than Maximum Price (1028)",
-  [1029] = "Reason Order Rejection Reason: Order Price Must Be Nonzero (1029)",
-  [1030] = "Reason Order Rejection Reason: Order Value Must Be Greater Than Minimum Value (1030)",
-  [1031] = "Reason Order Rejection Reason: Order Value Must Be Lower Than Maximum Value (1031)",
-  [1032] = "Reason Order Rejection Reason: Invalid Ord Type For Selected Market Model (1032)",
-  [1034] = "Reason Order Rejection Reason: Leaves Quantity Must Be Greater Than Zero After Modification (1034)",
-  [1035] = "Reason Order Rejection Reason: Price Not Allowed (1035)",
-  [1039] = "Reason Order Rejection Reason: Invalid Time In Force For Order Type (1039)",
-  [1040] = "Reason Order Rejection Reason: Invalid Time In Force For Current Market Phase (1040)",
-  [1041] = "Reason Order Rejection Reason: Invalid Time In Force For Selected Market Model (1041)",
-  [1042] = "Reason Order Rejection Reason: Forbidden Ord Type And Time In Force Combination For Market Segment (1042)",
-  [1043] = "Reason Order Rejection Reason: Expire Time Cannot Be Modified (1043)",
-  [1044] = "Reason Order Rejection Reason: Obsolete Expire Date (1044)",
-  [1045] = "Reason Order Rejection Reason: Expire Date In Past (1045)",
-  [1046] = "Reason Order Rejection Reason: Obsolete Expire Time (1046)",
-  [1047] = "Reason Order Rejection Reason: Expire Time In Past (1047)",
-  [1048] = "Reason Order Rejection Reason: Ambigous Expire (1048)",
-  [1049] = "Reason Order Rejection Reason: Expire Date Exceeds Limit (1049)",
-  [1037] = "Reason Order Rejection Reason: Price Below Low Collar (1037)",
-  [1038] = "Reason Order Rejection Reason: Price Above High Collar (1038)",
-  [1050] = "Reason Order Rejection Reason: Firm Is Not A Market Maker (1050)",
-  [1055] = "Reason Order Rejection Reason: Missing Order Origination For Sponsored Access Connection (1055)",
-  [1056] = "Reason Order Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)",
-  [1057] = "Reason Order Rejection Reason: Firm Not Authorized To Buy And Sell The Instrument (1057)",
-  [1058] = "Reason Order Rejection Reason: Firm Not Authorized To Buy The Instrument (1058)",
-  [1059] = "Reason Order Rejection Reason: Firm Not Authorized To Sell The Instrument (1059)",
-  [1060] = "Reason Order Rejection Reason: Operations On Orders And Quotes Forbidden During Uncrossing (1060)",
-  [1061] = "Reason Order Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)",
-  [1062] = "Reason Order Rejection Reason: Operations On Orders And Quotes Forbidden Due To Drop Copy Disconnection (1062)",
-  [1063] = "Reason Order Rejection Reason: Trigger Price Not Allowed (1063)",
-  [1064] = "Reason Order Rejection Reason: Trigger Price Not Higher Than Ltp (1064)",
-  [1065] = "Reason Order Rejection Reason: Trigger Price Not Lower Than Ltp (1065)",
-  [1066] = "Reason Order Rejection Reason: Trigger Price Lower Than Price (1066)",
-  [1067] = "Reason Order Rejection Reason: Trigger Price Higher Than Price (1067)",
-  [1068] = "Reason Order Rejection Reason: Trigger Price Modified For Activated Order (1068)",
-  [1069] = "Reason Order Rejection Reason: Trigger Price Must Be Greater Than Zero (1069)",
-  [1070] = "Reason Order Rejection Reason: Invalid Party Id For Client Id (1070)",
-  [1071] = "Reason Order Rejection Reason: Invalid Party Id For Executing Trader (1071)",
-  [1072] = "Reason Order Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)",
-  [1075] = "Reason Order Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)",
-  [1076] = "Reason Order Rejection Reason: Missing Clearing Member Code (1076)",
-  [1077] = "Reason Order Rejection Reason: Forbidden Clearing Member Code (1077)",
-  [1078] = "Reason Order Rejection Reason: Invalid Client Id For Sponsored Connection (1078)",
-  [1079] = "Reason Order Rejection Reason: Invalid Ord Type For Sponsored Connection (1079)",
-  [1080] = "Reason Order Rejection Reason: Forbidden Order Capacity Value For Sponsored Connection (1080)",
-  [1081] = "Reason Order Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)",
-  [1083] = "Reason Order Rejection Reason: Invalid Time In Force For Sponsored Connection (1083)",
-  [1084] = "Reason Order Rejection Reason: Operation Forbidden During Early Late Monitoring (1084)",
-  [1085] = "Reason Order Rejection Reason: Invalid Clearing Member Code Length (1085)",
-  [1086] = "Reason Order Rejection Reason: Operation Unsuccessful Retry Needed (1086)",
-  [1201] = "Reason Order Rejection Reason: Mass Quote Not Allowed For Selected Market Model (1201)",
-  [1203] = "Reason Order Rejection Reason: Instrument Closed (1203)",
-  [1208] = "Reason Order Rejection Reason: Invalid Bid Ask Spread (1208)",
-  [1209] = "Reason Order Rejection Reason: Not Authorized To Quote Instrument (1209)",
-  [1301] = "Reason Order Rejection Reason: Buy Order Not Allowed (1301)",
-  [1307] = "Reason Order Rejection Reason: Stop Orders Not Allowed (1307)",
-  [1308] = "Reason Order Rejection Reason: Trigger Price Must Be Higher Than Lp Sell Quote (1308)",
-  [1309] = "Reason Order Rejection Reason: Trigger Price Must Be Lower Than Lp Buy Quote (1309)",
-  [1310] = "Reason Order Rejection Reason: Market Making Via Mass Quote Only On Hybrid Market (1310)",
-  [1311] = "Reason Order Rejection Reason: Sell Quotes Not Allowed During Buy Only State (1311)",
-  [1312] = "Reason Order Rejection Reason: Instrument Knocked Out (1312)",
-  [1401] = "Reason Order Rejection Reason: Only One Sell Order Is Allowed For Ipo (1401)",
-  [1402] = "Reason Order Rejection Reason: Only One Buy Order Is Allowed For Tender (1402)",
-  [2026] = "Reason Order Rejection Reason: Request Not Allowed For Block Instrument (2026)",
-  [2028] = "Reason Order Rejection Reason: Request Not Allowed For Cross Instrument (2028)",
-  [7000] = "Reason Order Rejection Reason: Risk Limit Not Defined (7000)",
-  [7001] = "Reason Order Rejection Reason: Risk Maximum Order Volume Exceeded (7001)",
-  [7002] = "Reason Order Rejection Reason: Risk Maximum Order Value Exceeded (7002)",
-  [7003] = "Reason Order Rejection Reason: Risk Order Price Collar Exceeded (7003)",
-  [7004] = "Reason Order Rejection Reason: Dynamic Order Price Collar Not Defined (7004)",
-  [7005] = "Reason Order Rejection Reason: Static Order Price Collar Not Defined (7005)",
-  [7011] = "Reason Order Rejection Reason: Total Traded Value Exceeded (7011)",
-  [7012] = "Reason Order Rejection Reason: Total Traded Buy Value Exceeded (7012)",
-  [7013] = "Reason Order Rejection Reason: Total Traded Sell Value Exceeded (7013)",
-  [7014] = "Reason Order Rejection Reason: Total Open Value Exceeded (7014)",
-  [7015] = "Reason Order Rejection Reason: Total Open Buy Value Exceeded (7015)",
-  [7016] = "Reason Order Rejection Reason: Total Open Sell Value Exceeded (7016)",
-  [7017] = "Reason Order Rejection Reason: Total Risk Value Exceeded (7017)",
-  [7018] = "Reason Order Rejection Reason: Total Buy Risk Value Exceeded (7018)",
-  [7019] = "Reason Order Rejection Reason: Total Sell Risk Value Exceeded (7019)",
-  [7020] = "Reason Order Rejection Reason: Total Net Risk Value Exceeded (7020)",
-  [7021] = "Reason Order Rejection Reason: Max Order Count Exceeded (7021)",
-  [7022] = "Reason Order Rejection Reason: Rejected Due To Kill Switch Activation (7022)",
-}
-
-gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.labels[value] or "Reason Order Rejection Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Order Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_order_rejection_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Request For Execution Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason = {}
-
--- Size: Reason Request For Execution Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.size = 1
-
--- Display: Reason Request For Execution Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.labels = {
-  [1] = "Reason Request For Execution Reason: Passive Quote (1)",
-  [2] = "Reason Request For Execution Reason: Aggressive Quote (2)",
-}
-
-gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.labels[value] or "Reason Request For Execution Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Request For Execution Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_request_for_execution_reason, range, value, display)
-
-  return offset + length, value
-end
-
--- Reason Tcr Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason = {}
-
--- Size: Reason Tcr Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.size = 2
-
--- Display: Reason Tcr Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.labels = {
-  [1] = "Reason Tcr Rejection Reason: Na (1)",
-  [2] = "Reason Tcr Rejection Reason: Exchange Closed (2)",
-  [18] = "Reason Tcr Rejection Reason: Invalid Price Increment (18)",
-  [99] = "Reason Tcr Rejection Reason: Other (99)",
-  [106] = "Reason Tcr Rejection Reason: Instrument Phase No Trading (106)",
-  [1001] = "Reason Tcr Rejection Reason: Unknown Instrument (1001)",
-  [1005] = "Reason Tcr Rejection Reason: Invalid Execution Trader (1005)",
-  [1006] = "Reason Tcr Rejection Reason: Invalid Decision Maker (1006)",
-  [1007] = "Reason Tcr Rejection Reason: Invalid Client Id (1007)",
-  [1008] = "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)",
-  [1009] = "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)",
-  [1010] = "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)",
-  [1025] = "Reason Tcr Rejection Reason: Order Quantity Must Be Greater Than Minimum Quantity (1025)",
-  [1026] = "Reason Tcr Rejection Reason: Order Quantity Must Be Lower Than Maximum Quantity (1026)",
-  [1027] = "Reason Tcr Rejection Reason: Order Price Must Be Greater Than Minimum Price (1027)",
-  [1028] = "Reason Tcr Rejection Reason: Order Price Must Be Lower Than Maximum Price (1028)",
-  [1029] = "Reason Tcr Rejection Reason: Order Price Must Be Nonzero (1029)",
-  [1030] = "Reason Tcr Rejection Reason: Order Value Must Be Greater Than Minimum Value (1030)",
-  [1031] = "Reason Tcr Rejection Reason: Order Value Must Be Lower Than Maximum Value (1031)",
-  [1037] = "Reason Tcr Rejection Reason: Price Below Low Collar (1037)",
-  [1038] = "Reason Tcr Rejection Reason: Price Above High Collar (1038)",
-  [1050] = "Reason Tcr Rejection Reason: Firm Is Not A Market Maker (1050)",
-  [1056] = "Reason Tcr Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)",
-  [1057] = "Reason Tcr Rejection Reason: Firm Not Authorized To Buy And Sell The Instrument (1057)",
-  [1058] = "Reason Tcr Rejection Reason: Firm Not Authorized To Buy The Instrument (1058)",
-  [1059] = "Reason Tcr Rejection Reason: Firm Not Authorized To Sell The Instrument (1059)",
-  [1061] = "Reason Tcr Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)",
-  [1070] = "Reason Tcr Rejection Reason: Invalid Party Id For Client Id (1070)",
-  [1071] = "Reason Tcr Rejection Reason: Invalid Party Id For Executing Trader (1071)",
-  [1072] = "Reason Tcr Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)",
-  [1075] = "Reason Tcr Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)",
-  [1076] = "Reason Tcr Rejection Reason: Missing Clearing Member Code (1076)",
-  [1077] = "Reason Tcr Rejection Reason: Forbidden Clearing Member Code (1077)",
-  [1081] = "Reason Tcr Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)",
-  [1084] = "Reason Tcr Rejection Reason: Operation Forbidden During Early Late Monitoring (1084)",
-  [1085] = "Reason Tcr Rejection Reason: Invalid Clearing Member Code Length (1085)",
-  [1209] = "Reason Tcr Rejection Reason: Not Authorized To Quote Instrument (1209)",
-  [2001] = "Reason Tcr Rejection Reason: Unknown Trade Report (2001)",
-  [2002] = "Reason Tcr Rejection Reason: Duplicate Trade Report Id (2002)",
-  [2005] = "Reason Tcr Rejection Reason: Trade Report Type Not Compatible With Trade Report Trans Type (2005)",
-  [2008] = "Reason Tcr Rejection Reason: Invalid Exec Type (2008)",
-  [2009] = "Reason Tcr Rejection Reason: Trade Report Ref Id Not Allowed (2009)",
-  [2015] = "Reason Tcr Rejection Reason: Settlement Date Cannot Be Earlier Than Minimum Settlement Date (2015)",
-  [2016] = "Reason Tcr Rejection Reason: Settlement Date Cannot Be Later Than Maximum Settlement Date (2016)",
-  [2017] = "Reason Tcr Rejection Reason: Settlement Date Must Be A Settlement Day (2017)",
-  [2022] = "Reason Tcr Rejection Reason: Unknown Contra Firm (2022)",
-  [2024] = "Reason Tcr Rejection Reason: Sent Attribute Does Not Match Original Value (2024)",
-  [2026] = "Reason Tcr Rejection Reason: Request Not Allowed For Block Instrument (2026)",
-  [2027] = "Reason Tcr Rejection Reason: Request Not Allowed For Clob Instrument (2027)",
-  [2028] = "Reason Tcr Rejection Reason: Request Not Allowed For Cross Instrument (2028)",
-  [2030] = "Reason Tcr Rejection Reason: Cross Not Allowed Outside Of Clob Instrument Spread (2030)",
-  [2031] = "Reason Tcr Rejection Reason: Cross Price Not Equal To The Reference Price (2031)",
-  [2032] = "Reason Tcr Rejection Reason: Cross Not Allowed During Clob Instrument Auction Or Suspension (2032)",
-  [2033] = "Reason Tcr Rejection Reason: Forbidden Secondary Tradereport Id (2033)",
-  [2034] = "Reason Tcr Rejection Reason: Unknown Secondary Tradereport Id (2034)",
-  [2035] = "Reason Tcr Rejection Reason: No Trade For Clob Reference Instrument (2035)",
-}
-
-gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.labels[value] or "Reason Tcr Rejection Reason: Unknown("..value..")"
-end
-
--- Dissect: Reason Tcr Rejection Reason
-gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.size
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.reason_tcr_rejection_reason, range, value, display)
-
-  return offset + length, value
-end
-
 -- Ref Id
 gpw_wse_orderentry_wats_v1_7_6_20.ref_id = {}
 
@@ -2108,65 +2121,30 @@ gpw_wse_orderentry_wats_v1_7_6_20.rejection_code.dissect = function(buffer, offs
   return offset + length, value
 end
 
--- Result Command Result
-gpw_wse_orderentry_wats_v1_7_6_20.result_command_result = {}
+-- Request For Execution Reason
+gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution_reason = {}
 
--- Size: Result Command Result
-gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.size = 1
+-- Size: Request For Execution Reason
+gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution_reason.size = 1
 
--- Display: Result Command Result
-gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.labels = {
-  [1] = "Result Command Result: Success (1)",
-  [2] = "Result Command Result: Failure (2)",
+-- Display: Request For Execution Reason
+gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution_reason.labels = {
+  [1] = "Request For Execution Reason: Passive Quote (1)",
+  [2] = "Request For Execution Reason: Aggressive Quote (2)",
 }
 
-gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.labels[value] or "Result Command Result: Unknown("..value..")"
+gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution_reason.labels[value] or "Request For Execution Reason: Unknown("..value..")"
 end
 
--- Dissect: Result Command Result
-gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.size
+-- Dissect: Request For Execution Reason
+gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution_reason.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution_reason.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.display(value, buffer, offset, packet, parent)
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution_reason.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.result_command_result, range, value, display)
-
-  return offset + length, value
-end
-
--- Result Login Result
-gpw_wse_orderentry_wats_v1_7_6_20.result_login_result = {}
-
--- Size: Result Login Result
-gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.size = 1
-
--- Display: Result Login Result
-gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.labels = {
-  [1] = "Result Login Result: Ok (1)",
-  [2] = "Result Login Result: Not Found (2)",
-  [3] = "Result Login Result: Invalid Token (3)",
-  [4] = "Result Login Result: Already Logged In (4)",
-  [5] = "Result Login Result: Account Locked (5)",
-  [6] = "Result Login Result: Login Not Allowed (6)",
-  [7] = "Result Login Result: Invalid Login Parameters (7)",
-  [8] = "Result Login Result: Throttling Temporary Lock (8)",
-  [9] = "Result Login Result: Other (9)",
-}
-
-gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.labels[value] or "Result Login Result: Unknown("..value..")"
-end
-
--- Dissect: Result Login Result
-gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.result_login_result, range, value, display)
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.request_for_execution_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2341,96 +2319,6 @@ gpw_wse_orderentry_wats_v1_7_6_20.source_timestamp.dissect = function(buffer, of
   return offset + length, value
 end
 
--- Status Mass Quote Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status = {}
-
--- Size: Status Mass Quote Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.size = 1
-
--- Display: Status Mass Quote Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.labels = {
-  [1] = "Status Mass Quote Status: Accepted (1)",
-  [2] = "Status Mass Quote Status: Rejected (2)",
-}
-
-gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.labels[value] or "Status Mass Quote Status: Unknown("..value..")"
-end
-
--- Dissect: Status Mass Quote Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.status_mass_quote_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Status Order Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_order_status = {}
-
--- Size: Status Order Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.size = 1
-
--- Display: Status Order Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.labels = {
-  [1] = "Status Order Status: New (1)",
-  [2] = "Status Order Status: Cancelled (2)",
-  [3] = "Status Order Status: Rejected (3)",
-  [4] = "Status Order Status: Filled (4)",
-  [5] = "Status Order Status: Partially Filled (5)",
-  [6] = "Status Order Status: Expired (6)",
-}
-
-gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.labels[value] or "Status Order Status: Unknown("..value..")"
-end
-
--- Dissect: Status Order Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.status_order_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Status Tcr Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status = {}
-
--- Size: Status Tcr Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.size = 1
-
--- Display: Status Tcr Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.labels = {
-  [1] = "Status Tcr Status: New (1)",
-  [2] = "Status Tcr Status: Accepted (2)",
-  [3] = "Status Tcr Status: Rejected (3)",
-  [4] = "Status Tcr Status: Cancelled (4)",
-}
-
-gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.display = function(value)
-  return gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.labels[value] or "Status Tcr Status: Unknown("..value..")"
-end
-
--- Dissect: Status Tcr Status
-gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.dissect = function(buffer, offset, packet, parent)
-  local length = gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.status_tcr_status, range, value, display)
-
-  return offset + length, value
-end
-
 -- Stp Id
 gpw_wse_orderentry_wats_v1_7_6_20.stp_id = {}
 
@@ -2530,6 +2418,118 @@ gpw_wse_orderentry_wats_v1_7_6_20.target_timestamp.dissect = function(buffer, of
   local seconds = (value / UInt64(1000000000)):tonumber()
   local nanos = (value % UInt64(1000000000)):tonumber()
   parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Tcr Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.tcr_rejection_reason = {}
+
+-- Size: Tcr Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.tcr_rejection_reason.size = 2
+
+-- Display: Tcr Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.tcr_rejection_reason.labels = {
+  [1] = "Tcr Rejection Reason: Na (1)",
+  [2] = "Tcr Rejection Reason: Exchange Closed (2)",
+  [18] = "Tcr Rejection Reason: Invalid Price Increment (18)",
+  [99] = "Tcr Rejection Reason: Other (99)",
+  [106] = "Tcr Rejection Reason: Instrument Phase No Trading (106)",
+  [1001] = "Tcr Rejection Reason: Unknown Instrument (1001)",
+  [1005] = "Tcr Rejection Reason: Invalid Execution Trader (1005)",
+  [1006] = "Tcr Rejection Reason: Invalid Decision Maker (1006)",
+  [1007] = "Tcr Rejection Reason: Invalid Client Id (1007)",
+  [1008] = "Tcr Rejection Reason: Invalid Party Role Qualifier For Client Id (1008)",
+  [1009] = "Tcr Rejection Reason: Invalid Party Role Qualifier For Executing Trader (1009)",
+  [1010] = "Tcr Rejection Reason: Invalid Party Role Qualifier For Investment Decision Maker (1010)",
+  [1025] = "Tcr Rejection Reason: Order Quantity Must Be Greater Than Minimum Quantity (1025)",
+  [1026] = "Tcr Rejection Reason: Order Quantity Must Be Lower Than Maximum Quantity (1026)",
+  [1027] = "Tcr Rejection Reason: Order Price Must Be Greater Than Minimum Price (1027)",
+  [1028] = "Tcr Rejection Reason: Order Price Must Be Lower Than Maximum Price (1028)",
+  [1029] = "Tcr Rejection Reason: Order Price Must Be Nonzero (1029)",
+  [1030] = "Tcr Rejection Reason: Order Value Must Be Greater Than Minimum Value (1030)",
+  [1031] = "Tcr Rejection Reason: Order Value Must Be Lower Than Maximum Value (1031)",
+  [1037] = "Tcr Rejection Reason: Price Below Low Collar (1037)",
+  [1038] = "Tcr Rejection Reason: Price Above High Collar (1038)",
+  [1050] = "Tcr Rejection Reason: Firm Is Not A Market Maker (1050)",
+  [1056] = "Tcr Rejection Reason: Operation On Redistributed Instruments Forbidden (1056)",
+  [1057] = "Tcr Rejection Reason: Firm Not Authorized To Buy And Sell The Instrument (1057)",
+  [1058] = "Tcr Rejection Reason: Firm Not Authorized To Buy The Instrument (1058)",
+  [1059] = "Tcr Rejection Reason: Firm Not Authorized To Sell The Instrument (1059)",
+  [1061] = "Tcr Rejection Reason: Operations On Orders And Quotes Forbidden During Instrument Suspension (1061)",
+  [1070] = "Tcr Rejection Reason: Invalid Party Id For Client Id (1070)",
+  [1071] = "Tcr Rejection Reason: Invalid Party Id For Executing Trader (1071)",
+  [1072] = "Tcr Rejection Reason: Invalid Party Id For Investment Decision Maker (1072)",
+  [1075] = "Tcr Rejection Reason: Invalid Party Role Qualifier For Party Id (1075)",
+  [1076] = "Tcr Rejection Reason: Missing Clearing Member Code (1076)",
+  [1077] = "Tcr Rejection Reason: Forbidden Clearing Member Code (1077)",
+  [1081] = "Tcr Rejection Reason: Market Model Not Supported On Sponsored Connection (1081)",
+  [1084] = "Tcr Rejection Reason: Operation Forbidden During Early Late Monitoring (1084)",
+  [1085] = "Tcr Rejection Reason: Invalid Clearing Member Code Length (1085)",
+  [1209] = "Tcr Rejection Reason: Not Authorized To Quote Instrument (1209)",
+  [2001] = "Tcr Rejection Reason: Unknown Trade Report (2001)",
+  [2002] = "Tcr Rejection Reason: Duplicate Trade Report Id (2002)",
+  [2005] = "Tcr Rejection Reason: Trade Report Type Not Compatible With Trade Report Trans Type (2005)",
+  [2008] = "Tcr Rejection Reason: Invalid Exec Type (2008)",
+  [2009] = "Tcr Rejection Reason: Trade Report Ref Id Not Allowed (2009)",
+  [2015] = "Tcr Rejection Reason: Settlement Date Cannot Be Earlier Than Minimum Settlement Date (2015)",
+  [2016] = "Tcr Rejection Reason: Settlement Date Cannot Be Later Than Maximum Settlement Date (2016)",
+  [2017] = "Tcr Rejection Reason: Settlement Date Must Be A Settlement Day (2017)",
+  [2022] = "Tcr Rejection Reason: Unknown Contra Firm (2022)",
+  [2024] = "Tcr Rejection Reason: Sent Attribute Does Not Match Original Value (2024)",
+  [2026] = "Tcr Rejection Reason: Request Not Allowed For Block Instrument (2026)",
+  [2027] = "Tcr Rejection Reason: Request Not Allowed For Clob Instrument (2027)",
+  [2028] = "Tcr Rejection Reason: Request Not Allowed For Cross Instrument (2028)",
+  [2030] = "Tcr Rejection Reason: Cross Not Allowed Outside Of Clob Instrument Spread (2030)",
+  [2031] = "Tcr Rejection Reason: Cross Price Not Equal To The Reference Price (2031)",
+  [2032] = "Tcr Rejection Reason: Cross Not Allowed During Clob Instrument Auction Or Suspension (2032)",
+  [2033] = "Tcr Rejection Reason: Forbidden Secondary Tradereport Id (2033)",
+  [2034] = "Tcr Rejection Reason: Unknown Secondary Tradereport Id (2034)",
+  [2035] = "Tcr Rejection Reason: No Trade For Clob Reference Instrument (2035)",
+}
+
+gpw_wse_orderentry_wats_v1_7_6_20.tcr_rejection_reason.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.tcr_rejection_reason.labels[value] or "Tcr Rejection Reason: Unknown("..value..")"
+end
+
+-- Dissect: Tcr Rejection Reason
+gpw_wse_orderentry_wats_v1_7_6_20.tcr_rejection_reason.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.tcr_rejection_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.tcr_rejection_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_rejection_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Tcr Status
+gpw_wse_orderentry_wats_v1_7_6_20.tcr_status = {}
+
+-- Size: Tcr Status
+gpw_wse_orderentry_wats_v1_7_6_20.tcr_status.size = 1
+
+-- Display: Tcr Status
+gpw_wse_orderentry_wats_v1_7_6_20.tcr_status.labels = {
+  [1] = "Tcr Status: New (1)",
+  [2] = "Tcr Status: Accepted (2)",
+  [3] = "Tcr Status: Rejected (3)",
+  [4] = "Tcr Status: Cancelled (4)",
+}
+
+gpw_wse_orderentry_wats_v1_7_6_20.tcr_status.display = function(value)
+  return gpw_wse_orderentry_wats_v1_7_6_20.tcr_status.labels[value] or "Tcr Status: Unknown("..value..")"
+end
+
+-- Dissect: Tcr Status
+gpw_wse_orderentry_wats_v1_7_6_20.tcr_status.dissect = function(buffer, offset, packet, parent)
+  local length = gpw_wse_orderentry_wats_v1_7_6_20.tcr_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = gpw_wse_orderentry_wats_v1_7_6_20.tcr_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_status, range, value, display)
 
   return offset + length, value
 end
@@ -3059,8 +3059,8 @@ gpw_wse_orderentry_wats_v1_7_6_20.trade_capture_report_response.size =
   gpw_wse_orderentry_wats_v1_7_6_20.trade_id.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.trade_report_id.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.secondary_trade_report_id.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.size
+  gpw_wse_orderentry_wats_v1_7_6_20.tcr_status.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.tcr_rejection_reason.size
 
 -- Display: Trade Capture Report Response
 gpw_wse_orderentry_wats_v1_7_6_20.trade_capture_report_response.display = function(packet, parent, length)
@@ -3083,11 +3083,11 @@ gpw_wse_orderentry_wats_v1_7_6_20.trade_capture_report_response.fields = functio
   -- Secondary Trade Report Id: Struct of 4 fields
   index, secondary_trade_report_id = gpw_wse_orderentry_wats_v1_7_6_20.secondary_trade_report_id.dissect(buffer, index, packet, parent)
 
-  -- Status Tcr Status: TcrStatus
-  index, status_tcr_status = gpw_wse_orderentry_wats_v1_7_6_20.status_tcr_status.dissect(buffer, index, packet, parent)
+  -- Tcr Status: TcrStatus
+  index, tcr_status = gpw_wse_orderentry_wats_v1_7_6_20.tcr_status.dissect(buffer, index, packet, parent)
 
-  -- Reason Tcr Rejection Reason: TcrRejectionReason
-  index, reason_tcr_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.reason_tcr_rejection_reason.dissect(buffer, index, packet, parent)
+  -- Tcr Rejection Reason: TcrRejectionReason
+  index, tcr_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.tcr_rejection_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3837,7 +3837,7 @@ gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution = {}
 -- Size: Request For Execution
 gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution.size =
   gpw_wse_orderentry_wats_v1_7_6_20.instrument_id.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.size
+  gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution_reason.size
 
 -- Display: Request For Execution
 gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution.display = function(packet, parent, length)
@@ -3851,8 +3851,8 @@ gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution.fields = function(buffer
   -- Instrument Id: ElementId
   index, instrument_id = gpw_wse_orderentry_wats_v1_7_6_20.instrument_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Request For Execution Reason: RequestForExecutionReason
-  index, reason_request_for_execution_reason = gpw_wse_orderentry_wats_v1_7_6_20.reason_request_for_execution_reason.dissect(buffer, index, packet, parent)
+  -- Request For Execution Reason: RequestForExecutionReason
+  index, request_for_execution_reason = gpw_wse_orderentry_wats_v1_7_6_20.request_for_execution_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -3881,7 +3881,7 @@ gpw_wse_orderentry_wats_v1_7_6_20.market_maker_command_response = {}
 -- Size: Market Maker Command Response
 gpw_wse_orderentry_wats_v1_7_6_20.market_maker_command_response.size =
   gpw_wse_orderentry_wats_v1_7_6_20.ref_id.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.command_result.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.rejection_code.size
 
 -- Display: Market Maker Command Response
@@ -3896,8 +3896,8 @@ gpw_wse_orderentry_wats_v1_7_6_20.market_maker_command_response.fields = functio
   -- Ref Id: u32
   index, ref_id = gpw_wse_orderentry_wats_v1_7_6_20.ref_id.dissect(buffer, index, packet, parent)
 
-  -- Result Command Result: CommandResult
-  index, result_command_result = gpw_wse_orderentry_wats_v1_7_6_20.result_command_result.dissect(buffer, index, packet, parent)
+  -- Command Result: CommandResult
+  index, command_result = gpw_wse_orderentry_wats_v1_7_6_20.command_result.dissect(buffer, index, packet, parent)
 
   -- Rejection Code: CommandRejectionCode
   index, rejection_code = gpw_wse_orderentry_wats_v1_7_6_20.rejection_code.dissect(buffer, index, packet, parent)
@@ -4081,8 +4081,8 @@ gpw_wse_orderentry_wats_v1_7_6_20.quote_order_response.size =
   gpw_wse_orderentry_wats_v1_7_6_20.instrument_id.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.bid_order_id.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.ask_order_id.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.size
+  gpw_wse_orderentry_wats_v1_7_6_20.order_status.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.size
 
 -- Display: Quote Order Response
 gpw_wse_orderentry_wats_v1_7_6_20.quote_order_response.display = function(packet, parent, length)
@@ -4102,11 +4102,11 @@ gpw_wse_orderentry_wats_v1_7_6_20.quote_order_response.fields = function(buffer,
   -- Ask Order Id: Struct of 4 fields
   index, ask_order_id = gpw_wse_orderentry_wats_v1_7_6_20.ask_order_id.dissect(buffer, index, packet, parent)
 
-  -- Status Order Status: OrderStatus
-  index, status_order_status = gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.dissect(buffer, index, packet, parent)
+  -- Order Status: OrderStatus
+  index, order_status = gpw_wse_orderentry_wats_v1_7_6_20.order_status.dissect(buffer, index, packet, parent)
 
-  -- Reason Order Rejection Reason: OrderRejectionReason
-  index, reason_order_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.dissect(buffer, index, packet, parent)
+  -- Order Rejection Reason: OrderRejectionReason
+  index, order_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4281,8 +4281,8 @@ gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_response = {}
 gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_response.size =
   gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_id.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.responses.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_status.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_rejection_reason.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.fee_structure_id.size
 
 -- Display: Mass Quote Response
@@ -4300,11 +4300,11 @@ gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_response.fields = function(buffer, 
   -- Responses: Struct of 2 fields
   index, responses = gpw_wse_orderentry_wats_v1_7_6_20.responses.dissect(buffer, index, packet, parent)
 
-  -- Status Mass Quote Status: MassQuoteStatus
-  index, status_mass_quote_status = gpw_wse_orderentry_wats_v1_7_6_20.status_mass_quote_status.dissect(buffer, index, packet, parent)
+  -- Mass Quote Status: MassQuoteStatus
+  index, mass_quote_status = gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_status.dissect(buffer, index, packet, parent)
 
-  -- Reason Mass Quote Rejection Reason: MassQuoteRejectionReason
-  index, reason_mass_quote_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_quote_rejection_reason.dissect(buffer, index, packet, parent)
+  -- Mass Quote Rejection Reason: MassQuoteRejectionReason
+  index, mass_quote_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.mass_quote_rejection_reason.dissect(buffer, index, packet, parent)
 
   -- Fee Structure Id: u8
   index, fee_structure_id = gpw_wse_orderentry_wats_v1_7_6_20.fee_structure_id.dissect(buffer, index, packet, parent)
@@ -4839,7 +4839,7 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_mass_cancel_response.size =
   gpw_wse_orderentry_wats_v1_7_6_20.target_party_role.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.target_party_id.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.market_segment_id.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_rejection_reason.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.client_order_id.size
 
 -- Display: Order Mass Cancel Response
@@ -4869,8 +4869,8 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_mass_cancel_response.fields = function(b
   -- Market Segment Id: ElementId
   index, market_segment_id = gpw_wse_orderentry_wats_v1_7_6_20.market_segment_id.dissect(buffer, index, packet, parent)
 
-  -- Reason Mass Cancel Rejection Reason: MassCancelRejectionReason
-  index, reason_mass_cancel_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.reason_mass_cancel_rejection_reason.dissect(buffer, index, packet, parent)
+  -- Mass Cancel Rejection Reason: MassCancelRejectionReason
+  index, mass_cancel_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.mass_cancel_rejection_reason.dissect(buffer, index, packet, parent)
 
   -- Client Order Id: ClientOrderId
   index, client_order_id = gpw_wse_orderentry_wats_v1_7_6_20.client_order_id.dissect(buffer, index, packet, parent)
@@ -4967,9 +4967,9 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_modify_response = {}
 gpw_wse_orderentry_wats_v1_7_6_20.order_modify_response.size =
   gpw_wse_orderentry_wats_v1_7_6_20.order_id.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.filled.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.order_status.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.priority_flag.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.client_order_id.size
 
 -- Display: Order Modify Response
@@ -4987,14 +4987,14 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_modify_response.fields = function(buffer
   -- Filled: Quantity
   index, filled = gpw_wse_orderentry_wats_v1_7_6_20.filled.dissect(buffer, index, packet, parent)
 
-  -- Status Order Status: OrderStatus
-  index, status_order_status = gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.dissect(buffer, index, packet, parent)
+  -- Order Status: OrderStatus
+  index, order_status = gpw_wse_orderentry_wats_v1_7_6_20.order_status.dissect(buffer, index, packet, parent)
 
   -- Priority Flag: PriorityFlag
   index, priority_flag = gpw_wse_orderentry_wats_v1_7_6_20.priority_flag.dissect(buffer, index, packet, parent)
 
-  -- Reason Order Rejection Reason: OrderRejectionReason
-  index, reason_order_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.dissect(buffer, index, packet, parent)
+  -- Order Rejection Reason: OrderRejectionReason
+  index, order_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.dissect(buffer, index, packet, parent)
 
   -- Client Order Id: ClientOrderId
   index, client_order_id = gpw_wse_orderentry_wats_v1_7_6_20.client_order_id.dissect(buffer, index, packet, parent)
@@ -5094,8 +5094,8 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_cancel_response = {}
 -- Size: Order Cancel Response
 gpw_wse_orderentry_wats_v1_7_6_20.order_cancel_response.size =
   gpw_wse_orderentry_wats_v1_7_6_20.order_id.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.order_status.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.client_order_id.size
 
@@ -5111,11 +5111,11 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_cancel_response.fields = function(buffer
   -- Order Id: Struct of 4 fields
   index, order_id = gpw_wse_orderentry_wats_v1_7_6_20.order_id.dissect(buffer, index, packet, parent)
 
-  -- Status Order Status: OrderStatus
-  index, status_order_status = gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.dissect(buffer, index, packet, parent)
+  -- Order Status: OrderStatus
+  index, order_status = gpw_wse_orderentry_wats_v1_7_6_20.order_status.dissect(buffer, index, packet, parent)
 
-  -- Reason Order Rejection Reason: OrderRejectionReason
-  index, reason_order_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.dissect(buffer, index, packet, parent)
+  -- Order Rejection Reason: OrderRejectionReason
+  index, order_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.dissect(buffer, index, packet, parent)
 
   -- Exec Type Reason: ExecTypeReason
   index, exec_type_reason = gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.dissect(buffer, index, packet, parent)
@@ -5201,8 +5201,8 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_add_response.size =
   gpw_wse_orderentry_wats_v1_7_6_20.public_order_id.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.display_qty.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.filled.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.size + 
-  gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.order_status.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.client_order_id.size
 
@@ -5227,11 +5227,11 @@ gpw_wse_orderentry_wats_v1_7_6_20.order_add_response.fields = function(buffer, o
   -- Filled: Quantity
   index, filled = gpw_wse_orderentry_wats_v1_7_6_20.filled.dissect(buffer, index, packet, parent)
 
-  -- Status Order Status: OrderStatus
-  index, status_order_status = gpw_wse_orderentry_wats_v1_7_6_20.status_order_status.dissect(buffer, index, packet, parent)
+  -- Order Status: OrderStatus
+  index, order_status = gpw_wse_orderentry_wats_v1_7_6_20.order_status.dissect(buffer, index, packet, parent)
 
-  -- Reason Order Rejection Reason: OrderRejectionReason
-  index, reason_order_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.reason_order_rejection_reason.dissect(buffer, index, packet, parent)
+  -- Order Rejection Reason: OrderRejectionReason
+  index, order_rejection_reason = gpw_wse_orderentry_wats_v1_7_6_20.order_rejection_reason.dissect(buffer, index, packet, parent)
 
   -- Exec Type Reason: ExecTypeReason
   index, exec_type_reason = gpw_wse_orderentry_wats_v1_7_6_20.exec_type_reason.dissect(buffer, index, packet, parent)
@@ -5642,7 +5642,7 @@ gpw_wse_orderentry_wats_v1_7_6_20.connection_close = {}
 
 -- Size: Connection Close
 gpw_wse_orderentry_wats_v1_7_6_20.connection_close.size =
-  gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.size
+  gpw_wse_orderentry_wats_v1_7_6_20.connection_close_reason.size
 
 -- Display: Connection Close
 gpw_wse_orderentry_wats_v1_7_6_20.connection_close.display = function(packet, parent, length)
@@ -5653,8 +5653,8 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.connection_close.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Reason Connection Close Reason: ConnectionCloseReason
-  index, reason_connection_close_reason = gpw_wse_orderentry_wats_v1_7_6_20.reason_connection_close_reason.dissect(buffer, index, packet, parent)
+  -- Connection Close Reason: ConnectionCloseReason
+  index, connection_close_reason = gpw_wse_orderentry_wats_v1_7_6_20.connection_close_reason.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -5716,7 +5716,7 @@ gpw_wse_orderentry_wats_v1_7_6_20.login_response = {}
 
 -- Size: Login Response
 gpw_wse_orderentry_wats_v1_7_6_20.login_response.size =
-  gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.size + 
+  gpw_wse_orderentry_wats_v1_7_6_20.login_result.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.next_expected_seq_num.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.last_replay_seq_num.size + 
   gpw_wse_orderentry_wats_v1_7_6_20.session_id.size
@@ -5730,8 +5730,8 @@ end
 gpw_wse_orderentry_wats_v1_7_6_20.login_response.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Result Login Result: LoginResult
-  index, result_login_result = gpw_wse_orderentry_wats_v1_7_6_20.result_login_result.dissect(buffer, index, packet, parent)
+  -- Login Result: LoginResult
+  index, login_result = gpw_wse_orderentry_wats_v1_7_6_20.login_result.dissect(buffer, index, packet, parent)
 
   -- Next Expected Seq Num: SeqNum
   index, next_expected_seq_num = gpw_wse_orderentry_wats_v1_7_6_20.next_expected_seq_num.dissect(buffer, index, packet, parent)

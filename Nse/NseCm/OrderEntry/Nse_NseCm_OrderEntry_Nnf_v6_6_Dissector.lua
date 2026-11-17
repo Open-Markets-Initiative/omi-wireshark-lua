@@ -60,13 +60,13 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.buy_account_number = ProtoField.new("Bu
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.buy_broker_id = ProtoField.new("Buy Broker Id", "nse.nsecm.orderentry.nnf.v6.6.buybrokerid", ftypes.STRING)
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.buy_pan = ProtoField.new("Buy Pan", "nse.nsecm.orderentry.nnf.v6.6.buypan", ftypes.STRING, nil, nil, nil, "This field shall contain the PAN (Permanent Account Number/PAN_EXEMPT)")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.buy_sell = ProtoField.new("Buy Sell", "nse.nsecm.orderentry.nnf.v6.6.buysell", ftypes.INT16, nil, nil, nil, "This field should specify whether the order is a buy or sell")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_1 = ProtoField.new("Call Auction 1", "nse.nsecm.orderentry.nnf.v6.6.callauction1", ftypes.INT16, nil, nil, nil, "11 Call auction1 market 219")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_1_flag = ProtoField.new("Call Auction 1 Flag", "nse.nsecm.orderentry.nnf.v6.6.callauction1flag", ftypes.INT16, nil, nil, nil, "Call Auction1 Flag")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_1_market = ProtoField.new("Call Auction 1 Market", "nse.nsecm.orderentry.nnf.v6.6.callauction1market", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0800, "Broker is eligible to trade in the first call auction market")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_1_market_status = ProtoField.new("Call Auction 1 Market Status", "nse.nsecm.orderentry.nnf.v6.6.callauction1marketstatus", ftypes.INT16, nil, nil, nil, "Call Auction1 Market Status")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_1_short_2 = ProtoField.new("Call Auction 1 Short 2", "nse.nsecm.orderentry.nnf.v6.6.callauction1short2", ftypes.INT16, nil, nil, nil, "11 Call auction1 market 219")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_11 = ProtoField.new("Call Auction 11", "nse.nsecm.orderentry.nnf.v6.6.callauction11", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0800, "Broker is eligible to trade in the first call auction market")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_2 = ProtoField.new("Call Auction 2", "nse.nsecm.orderentry.nnf.v6.6.callauction2", ftypes.INT16, nil, nil, nil, "12 Call auction2 market")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_2_market = ProtoField.new("Call Auction 2 Market", "nse.nsecm.orderentry.nnf.v6.6.callauction2market", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Broker is eligible to trade in the second call auction market")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_2_market_status = ProtoField.new("Call Auction 2 Market Status", "nse.nsecm.orderentry.nnf.v6.6.callauction2marketstatus", ftypes.INT16, nil, nil, nil, "Call Auction2 Market Status")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_2_short_2 = ProtoField.new("Call Auction 2 Short 2", "nse.nsecm.orderentry.nnf.v6.6.callauction2short2", ftypes.INT16, nil, nil, nil, "12 Call auction2 market")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_21 = ProtoField.new("Call Auction 21", "nse.nsecm.orderentry.nnf.v6.6.callauction21", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Broker is eligible to trade in the second call auction market")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.colo_user_bit = ProtoField.new("Colo User Bit", "nse.nsecm.orderentry.nnf.v6.6.colouserbit", ftypes.STRING, nil, nil, nil, "This field should contain user’s COL status to be set")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.competitor_period = ProtoField.new("Competitor Period", "nse.nsecm.orderentry.nnf.v6.6.competitorperiod", ftypes.INT16, nil, nil, nil, "This field contains the default competitor period for auction")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.credit_rating = ProtoField.new("Credit Rating", "nse.nsecm.orderentry.nnf.v6.6.creditrating", ftypes.STRING, nil, nil, nil, "This field contains daily price range of the security")
@@ -104,8 +104,8 @@ omi_nse_nsecm_orderentry_nnf_v6_6.fields.face_value = ProtoField.new("Face Value
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.fill_number = ProtoField.new("Fill Number", "nse.nsecm.orderentry.nnf.v6.6.fillnumber", ftypes.INT32, nil, nil, nil, "This field should contain the trade number of the trade to be modified")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.fill_price = ProtoField.new("Fill Price", "nse.nsecm.orderentry.nnf.v6.6.fillprice", ftypes.DOUBLE, nil, nil, nil, "This field should contain the price at which the trade took place")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.fill_qty = ProtoField.new("Fill Qty", "nse.nsecm.orderentry.nnf.v6.6.fillqty", ftypes.INT32, nil, nil, nil, "This field contains the traded volume")
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.filler = ProtoField.new("Filler", "nse.nsecm.orderentry.nnf.v6.6.filler", ftypes.STRING)
-omi_nse_nsecm_orderentry_nnf_v6_6.fields.filler_9 = ProtoField.new("Filler 9", "nse.nsecm.orderentry.nnf.v6.6.filler9", ftypes.STRING, nil, nil, nil, "Filler")
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.filler = ProtoField.new("Filler", "nse.nsecm.orderentry.nnf.v6.6.filler", ftypes.BYTES)
+omi_nse_nsecm_orderentry_nnf_v6_6.fields.filler_9 = ProtoField.new("Filler 9", "nse.nsecm.orderentry.nnf.v6.6.filler9", ftypes.BYTES, nil, nil, nil, "Filler")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.freeze_percent = ProtoField.new("Freeze Percent", "nse.nsecm.orderentry.nnf.v6.6.freezepercent", ftypes.INT16, nil, nil, nil, "This field contains the volume freeze percent w.r.t")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.frozen = ProtoField.new("Frozen", "nse.nsecm.orderentry.nnf.v6.6.frozen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "Order has resulted in a freeze awaiting approval")
 omi_nse_nsecm_orderentry_nnf_v6_6.fields.good_till_date = ProtoField.new("Good Till Date", "nse.nsecm.orderentry.nnf.v6.6.goodtilldate", ftypes.INT32, nil, nil, nil, "This field should contain the number of days for a GTD order")
@@ -1303,6 +1303,29 @@ nse_nsecm_orderentry_nnf_v6_6.buy_sell.dissect = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Call Auction 1
+nse_nsecm_orderentry_nnf_v6_6.call_auction_1 = {}
+
+-- Size: Call Auction 1
+nse_nsecm_orderentry_nnf_v6_6.call_auction_1.size = 2
+
+-- Display: Call Auction 1
+nse_nsecm_orderentry_nnf_v6_6.call_auction_1.display = function(value)
+  return "Call Auction 1: "..value
+end
+
+-- Dissect: Call Auction 1
+nse_nsecm_orderentry_nnf_v6_6.call_auction_1.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_orderentry_nnf_v6_6.call_auction_1.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nse_nsecm_orderentry_nnf_v6_6.call_auction_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Call Auction 1 Flag
 nse_nsecm_orderentry_nnf_v6_6.call_auction_1_flag = {}
 
@@ -1349,25 +1372,25 @@ nse_nsecm_orderentry_nnf_v6_6.call_auction_1_market_status.dissect = function(bu
   return offset + length, value
 end
 
--- Call Auction 1 Short 2
-nse_nsecm_orderentry_nnf_v6_6.call_auction_1_short_2 = {}
+-- Call Auction 2
+nse_nsecm_orderentry_nnf_v6_6.call_auction_2 = {}
 
--- Size: Call Auction 1 Short 2
-nse_nsecm_orderentry_nnf_v6_6.call_auction_1_short_2.size = 2
+-- Size: Call Auction 2
+nse_nsecm_orderentry_nnf_v6_6.call_auction_2.size = 2
 
--- Display: Call Auction 1 Short 2
-nse_nsecm_orderentry_nnf_v6_6.call_auction_1_short_2.display = function(value)
-  return "Call Auction 1 Short 2: "..value
+-- Display: Call Auction 2
+nse_nsecm_orderentry_nnf_v6_6.call_auction_2.display = function(value)
+  return "Call Auction 2: "..value
 end
 
--- Dissect: Call Auction 1 Short 2
-nse_nsecm_orderentry_nnf_v6_6.call_auction_1_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_orderentry_nnf_v6_6.call_auction_1_short_2.size
+-- Dissect: Call Auction 2
+nse_nsecm_orderentry_nnf_v6_6.call_auction_2.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_orderentry_nnf_v6_6.call_auction_2.size
   local range = buffer(offset, length)
   local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.call_auction_1_short_2.display(value, buffer, offset, packet, parent)
+  local display = nse_nsecm_orderentry_nnf_v6_6.call_auction_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_1_short_2, range, value, display)
+  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_2, range, value, display)
 
   return offset + length, value
 end
@@ -1391,29 +1414,6 @@ nse_nsecm_orderentry_nnf_v6_6.call_auction_2_market_status.dissect = function(bu
   local display = nse_nsecm_orderentry_nnf_v6_6.call_auction_2_market_status.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_2_market_status, range, value, display)
-
-  return offset + length, value
-end
-
--- Call Auction 2 Short 2
-nse_nsecm_orderentry_nnf_v6_6.call_auction_2_short_2 = {}
-
--- Size: Call Auction 2 Short 2
-nse_nsecm_orderentry_nnf_v6_6.call_auction_2_short_2.size = 2
-
--- Display: Call Auction 2 Short 2
-nse_nsecm_orderentry_nnf_v6_6.call_auction_2_short_2.display = function(value)
-  return "Call Auction 2 Short 2: "..value
-end
-
--- Dissect: Call Auction 2 Short 2
-nse_nsecm_orderentry_nnf_v6_6.call_auction_2_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_orderentry_nnf_v6_6.call_auction_2_short_2.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nse_nsecm_orderentry_nnf_v6_6.call_auction_2_short_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_2_short_2, range, value, display)
 
   return offset + length, value
 end
@@ -1787,6 +1787,11 @@ nse_nsecm_orderentry_nnf_v6_6.error_code.size = 2
 
 -- Display: Error Code
 nse_nsecm_orderentry_nnf_v6_6.error_code.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Error Code: No Error"
+  end
+
   return "Error Code: "..value
 end
 
@@ -2027,10 +2032,10 @@ end
 nse_nsecm_orderentry_nnf_v6_6.filler.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecm_orderentry_nnf_v6_6.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.filler, range, value, display)
+  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2050,10 +2055,10 @@ end
 nse_nsecm_orderentry_nnf_v6_6.filler_9.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_orderentry_nnf_v6_6.filler_9.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecm_orderentry_nnf_v6_6.filler_9.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.filler_9, range, value, display)
+  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.filler_9, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2862,6 +2867,13 @@ nse_nsecm_orderentry_nnf_v6_6.log_time.dissect = function(buffer, offset, packet
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.log_time
   if nse_nsecm_orderentry_nnf_v6_6.timestamp_format == 3 then field = omi_nse_nsecm_orderentry_nnf_v6_6.fields.log_time_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Log Time: No Value")
+    return offset + length, value
+  end
 
   -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
@@ -4951,6 +4963,11 @@ nse_nsecm_orderentry_nnf_v6_6.time_stamp_1.size = 8
 
 -- Display: Time Stamp 1
 nse_nsecm_orderentry_nnf_v6_6.time_stamp_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' or value == "00000000" then
+    return "Time Stamp 1: No Value"
+  end
+
   return "Time Stamp 1: "..value
 end
 
@@ -4974,6 +4991,11 @@ nse_nsecm_orderentry_nnf_v6_6.time_stamp_2.size = 8
 
 -- Display: Time Stamp 2
 nse_nsecm_orderentry_nnf_v6_6.time_stamp_2.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' or value == "00000000" then
+    return "Time Stamp 2: No Value"
+  end
+
   return "Time Stamp 2: "..value
 end
 
@@ -6445,8 +6467,8 @@ nse_nsecm_orderentry_nnf_v6_6.system_information_message.size =
   nse_nsecm_orderentry_nnf_v6_6.oddlot.size + 
   nse_nsecm_orderentry_nnf_v6_6.spot.size + 
   nse_nsecm_orderentry_nnf_v6_6.auction.size + 
-  nse_nsecm_orderentry_nnf_v6_6.call_auction_1_short_2.size + 
-  nse_nsecm_orderentry_nnf_v6_6.call_auction_2_short_2.size + 
+  nse_nsecm_orderentry_nnf_v6_6.call_auction_1.size + 
+  nse_nsecm_orderentry_nnf_v6_6.call_auction_2.size + 
   nse_nsecm_orderentry_nnf_v6_6.market_index.size + 
   nse_nsecm_orderentry_nnf_v6_6.default_settlement_period.size + 
   nse_nsecm_orderentry_nnf_v6_6.second_default_settlement_period.size + 
@@ -6485,11 +6507,11 @@ nse_nsecm_orderentry_nnf_v6_6.system_information_message.fields = function(buffe
   -- Auction: SHORT
   index, auction = nse_nsecm_orderentry_nnf_v6_6.auction.dissect(buffer, index, packet, parent)
 
-  -- Call Auction 1 Short 2: SHORT
-  index, call_auction_1_short_2 = nse_nsecm_orderentry_nnf_v6_6.call_auction_1_short_2.dissect(buffer, index, packet, parent)
+  -- Call Auction 1: SHORT
+  index, call_auction_1 = nse_nsecm_orderentry_nnf_v6_6.call_auction_1.dissect(buffer, index, packet, parent)
 
-  -- Call Auction 2 Short 2: SHORT
-  index, call_auction_2_short_2 = nse_nsecm_orderentry_nnf_v6_6.call_auction_2_short_2.dissect(buffer, index, packet, parent)
+  -- Call Auction 2: SHORT
+  index, call_auction_2 = nse_nsecm_orderentry_nnf_v6_6.call_auction_2.dissect(buffer, index, packet, parent)
 
   -- Market Index: LONG
   index, market_index = nse_nsecm_orderentry_nnf_v6_6.market_index.dissect(buffer, index, packet, parent)
@@ -6582,13 +6604,13 @@ nse_nsecm_orderentry_nnf_v6_6.broker_eligibility_per_market.display = function(r
   if bit.band(value, 0x0001) ~= 0 then
     flags[#flags + 1] = "Preopen"
   end
-  -- Is Call Auction 21 flag set?
+  -- Is Call Auction 2 Market flag set?
   if bit.band(value, 0x0400) ~= 0 then
-    flags[#flags + 1] = "Call Auction 21"
+    flags[#flags + 1] = "Call Auction 2 Market"
   end
-  -- Is Call Auction 11 flag set?
+  -- Is Call Auction 1 Market flag set?
   if bit.band(value, 0x0800) ~= 0 then
-    flags[#flags + 1] = "Call Auction 11"
+    flags[#flags + 1] = "Call Auction 1 Market"
   end
   -- Is Auction Market flag set?
   if bit.band(value, 0x1000) ~= 0 then
@@ -6622,11 +6644,11 @@ nse_nsecm_orderentry_nnf_v6_6.broker_eligibility_per_market.bits = function(rang
   -- Broker Eligibility Reserved Lower: 2 Bit
   parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.broker_eligibility_reserved_lower, range, value)
 
-  -- Call Auction 21: 1 Bit
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_21, range, value)
+  -- Call Auction 2 Market: 1 Bit
+  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_2_market, range, value)
 
-  -- Call Auction 11: 1 Bit
-  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_11, range, value)
+  -- Call Auction 1 Market: 1 Bit
+  parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.call_auction_1_market, range, value)
 
   -- Auction Market: 1 Bit
   parent:add(omi_nse_nsecm_orderentry_nnf_v6_6.fields.auction_market, range, value)
@@ -7968,7 +7990,11 @@ nse_nsecm_orderentry_nnf_v6_6.order_entry_short_message.fields = function(buffer
   index, mod_cxl_by = nse_nsecm_orderentry_nnf_v6_6.mod_cxl_by.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecm_orderentry_nnf_v6_6.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecm_orderentry_nnf_v6_6.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnf_v6_6.filler_9.size
+  end
 
   -- Reason Code: SHORT
   index, reason_code = nse_nsecm_orderentry_nnf_v6_6.reason_code.dissect(buffer, index, packet, parent)
@@ -8173,7 +8199,11 @@ nse_nsecm_orderentry_nnf_v6_6.order_entry_out_message.fields = function(buffer, 
   index, mod_cxl_by = nse_nsecm_orderentry_nnf_v6_6.mod_cxl_by.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecm_orderentry_nnf_v6_6.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecm_orderentry_nnf_v6_6.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnf_v6_6.filler_9.size
+  end
 
   -- Reason Code: SHORT
   index, reason_code = nse_nsecm_orderentry_nnf_v6_6.reason_code.dissect(buffer, index, packet, parent)
@@ -8759,7 +8789,11 @@ nse_nsecm_orderentry_nnf_v6_6.gateway_router_response_message.fields = function(
   index, broker_id = nse_nsecm_orderentry_nnf_v6_6.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_orderentry_nnf_v6_6.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_orderentry_nnf_v6_6.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnf_v6_6.filler.size
+  end
 
   -- Ip Address: CHAR
   index, ip_address = nse_nsecm_orderentry_nnf_v6_6.ip_address.dissect(buffer, index, packet, parent)
@@ -10199,7 +10233,11 @@ nse_nsecm_orderentry_nnf_v6_6.order_entry_in_message.fields = function(buffer, o
   index, mod_cxl_by = nse_nsecm_orderentry_nnf_v6_6.mod_cxl_by.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecm_orderentry_nnf_v6_6.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecm_orderentry_nnf_v6_6.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnf_v6_6.filler_9.size
+  end
 
   -- Reason Code: SHORT
   index, reason_code = nse_nsecm_orderentry_nnf_v6_6.reason_code.dissect(buffer, index, packet, parent)
@@ -10374,7 +10412,11 @@ nse_nsecm_orderentry_nnf_v6_6.gateway_router_request_message.fields = function(b
   index, broker_id = nse_nsecm_orderentry_nnf_v6_6.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_orderentry_nnf_v6_6.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_orderentry_nnf_v6_6.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnf_v6_6.filler.size
+  end
 
   return index
 end
@@ -10522,7 +10564,11 @@ nse_nsecm_orderentry_nnf_v6_6.auction_inquiry_request_message.fields = function(
   index, page_indicator = nse_nsecm_orderentry_nnf_v6_6.page_indicator.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_orderentry_nnf_v6_6.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_orderentry_nnf_v6_6.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_orderentry_nnf_v6_6.filler.size
+  end
 
   return index
 end

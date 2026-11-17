@@ -40,7 +40,7 @@ omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.error_message = ProtoField.new("Error M
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.fill_number = ProtoField.new("Fill Number", "nse.nsecm.dropcopy.nnfdc.v3.0.fillnumber", ftypes.INT32, nil, nil, nil, "Trade number")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.fill_price = ProtoField.new("Fill Price", "nse.nsecm.dropcopy.nnfdc.v3.0.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the order traded")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.fill_qty = ProtoField.new("Fill Qty", "nse.nsecm.dropcopy.nnfdc.v3.0.fillqty", ftypes.INT32, nil, nil, nil, "Traded volume")
-omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.filler = ProtoField.new("Filler", "nse.nsecm.dropcopy.nnfdc.v3.0.filler", ftypes.STRING)
+omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.filler = ProtoField.new("Filler", "nse.nsecm.dropcopy.nnfdc.v3.0.filler", ftypes.BYTES)
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.frozen = ProtoField.new("Frozen", "nse.nsecm.dropcopy.nnfdc.v3.0.frozen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "Order is frozen for Nse Control to release")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.func_indc = ProtoField.new("Func Indc", "nse.nsecm.dropcopy.nnfdc.v3.0.funcindc", ftypes.STRING, nil, nil, nil, "Functionality the connection is for, which on this service is always D for drop copy")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.gtc = ProtoField.new("Gtc", "nse.nsecm.dropcopy.nnfdc.v3.0.gtc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000, "Good till cancelled order")
@@ -70,14 +70,14 @@ omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.password = ProtoField.new("Password", "
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.port = ProtoField.new("Port", "nse.nsecm.dropcopy.nnfdc.v3.0.port", ftypes.INT32, nil, nil, nil, "Port of the drop copy gateway")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.preopen = ProtoField.new("Preopen", "nse.nsecm.dropcopy.nnfdc.v3.0.preopen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010, "Set for a trade in the call auction 2 market, and zero for a normal market trade or a pre open carried forward order")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.price = ProtoField.new("Price", "nse.nsecm.dropcopy.nnfdc.v3.0.price", ftypes.DOUBLE, nil, nil, nil, "Order price")
-omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.pro_client_char_1 = ProtoField.new("Pro Client Char 1", "nse.nsecm.dropcopy.nnfdc.v3.0.proclientchar1", ftypes.STRING, nil, nil, nil, "Whether the order is a client, broker or warehousing order")
-omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.pro_client_short_2 = ProtoField.new("Pro Client Short 2", "nse.nsecm.dropcopy.nnfdc.v3.0.proclientshort2", ftypes.INT16, nil, nil, nil, "Whether the order is a client, broker or warehousing order")
+omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.pro_client = ProtoField.new("Pro Client", "nse.nsecm.dropcopy.nnfdc.v3.0.proclient", ftypes.INT16, nil, nil, nil, "Whether the order is a client, broker or warehousing order")
+omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.pro_client_char = ProtoField.new("Pro Client Char", "nse.nsecm.dropcopy.nnfdc.v3.0.proclientchar", ftypes.STRING, nil, nil, nil, "Whether the order is a client, broker or warehousing order")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.reason_code = ProtoField.new("Reason Code", "nse.nsecm.dropcopy.nnfdc.v3.0.reasoncode", ftypes.INT16, nil, nil, nil, "Reason code for the order request rejection or the order being frozen")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.remaining_volume = ProtoField.new("Remaining Volume", "nse.nsecm.dropcopy.nnfdc.v3.0.remainingvolume", ftypes.INT32, nil, nil, nil, "Volume remaining after the trade")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.request_sequence_number = ProtoField.new("Request Sequence Number", "nse.nsecm.dropcopy.nnfdc.v3.0.requestsequencenumber", ftypes.INT64, nil, nil, nil, "Sequence number of the messages the member sends")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.reserve = ProtoField.new("Reserve", "nse.nsecm.dropcopy.nnfdc.v3.0.reserve", ftypes.BYTES, nil, nil, nil, "Reserved, blank filled as chapter 2 directs for every reserved field")
-omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.segment_char_1 = ProtoField.new("Segment Char 1", "nse.nsecm.dropcopy.nnfdc.v3.0.segmentchar1", ftypes.STRING, nil, nil, nil, "Business segment the order belongs to")
-omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.segment_short_2 = ProtoField.new("Segment Short 2", "nse.nsecm.dropcopy.nnfdc.v3.0.segmentshort2", ftypes.INT16, nil, nil, nil, "Business segment the trade belongs to")
+omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.segment = ProtoField.new("Segment", "nse.nsecm.dropcopy.nnfdc.v3.0.segment", ftypes.INT16, nil, nil, nil, "Business segment the trade belongs to")
+omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.segment_char = ProtoField.new("Segment Char", "nse.nsecm.dropcopy.nnfdc.v3.0.segmentchar", ftypes.STRING, nil, nil, nil, "Business segment the order belongs to")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.sequence_number = ProtoField.new("Sequence Number", "nse.nsecm.dropcopy.nnfdc.v3.0.sequencenumber", ftypes.INT64, nil, nil, nil, "Last sequence number received by the user, zero to retrieve from the beginning of the trading day")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.server_drop_copy_packet = ProtoField.new("Server Drop Copy Packet", "nse.nsecm.dropcopy.nnfdc.v3.0.serverdropcopypacket", ftypes.STRING, nil, nil, nil, "One drop copy packet sent by the host, carrying a packed buffer of messages")
 omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.session_key = ProtoField.new("Session Key", "nse.nsecm.dropcopy.nnfdc.v3.0.sessionkey", ftypes.STRING, nil, nil, nil, "Session Key for the validated session")
@@ -862,10 +862,10 @@ end
 nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecm_dropcopy_nnfdc_v3_0.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.filler, range, value, display)
+  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -1255,54 +1255,54 @@ nse_nsecm_dropcopy_nnfdc_v3_0.price.dissect = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Pro Client Char 1
-nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1 = {}
+-- Pro Client
+nse_nsecm_dropcopy_nnfdc_v3_0.pro_client = {}
 
--- Size: Pro Client Char 1
-nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size = 1
+-- Size: Pro Client
+nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.size = 2
 
--- Display: Pro Client Char 1
-nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.display = function(value)
-  return "Pro Client Char 1: "..value
+-- Display: Pro Client
+nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.labels = {
+  [1] = "Pro Client: Clients Order (1)",
+  [2] = "Pro Client: Brokers Order (2)",
+  [4] = "Pro Client: Warehousing Order (4)",
+}
+
+nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.display = function(value)
+  return nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.labels[value] or "Pro Client: Unknown("..value..")"
 end
 
--- Dissect: Pro Client Char 1
-nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size
+-- Dissect: Pro Client
+nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.pro_client_char_1, range, value, display)
+  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.pro_client, range, value, display)
 
   return offset + length, value
 end
 
--- Pro Client Short 2
-nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2 = {}
+-- Pro Client Char
+nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char = {}
 
--- Size: Pro Client Short 2
-nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.size = 2
+-- Size: Pro Client Char
+nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size = 1
 
--- Display: Pro Client Short 2
-nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.labels = {
-  [1] = "Pro Client Short 2: Clients Order (1)",
-  [2] = "Pro Client Short 2: Brokers Order (2)",
-  [4] = "Pro Client Short 2: Warehousing Order (4)",
-}
-
-nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.display = function(value)
-  return nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.labels[value] or "Pro Client Short 2: Unknown("..value..")"
+-- Display: Pro Client Char
+nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.display = function(value)
+  return "Pro Client Char: "..value
 end
 
--- Dissect: Pro Client Short 2
-nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.size
+-- Dissect: Pro Client Char
+nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size
   local range = buffer(offset, length)
-  local value = range:int()
-  local display = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.pro_client_short_2, range, value, display)
+  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.pro_client_char, range, value, display)
 
   return offset + length, value
 end
@@ -1399,56 +1399,56 @@ nse_nsecm_dropcopy_nnfdc_v3_0.reserve.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Segment Char 1
-nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1 = {}
+-- Segment
+nse_nsecm_dropcopy_nnfdc_v3_0.segment = {}
 
--- Size: Segment Char 1
-nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size = 1
+-- Size: Segment
+nse_nsecm_dropcopy_nnfdc_v3_0.segment.size = 2
 
--- Display: Segment Char 1
-nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.display = function(value)
-  return "Segment Char 1: "..value
+-- Display: Segment
+nse_nsecm_dropcopy_nnfdc_v3_0.segment.labels = {
+  [1] = "Segment: Equity Derivatives Fo (1)",
+  [2] = "Segment: Currency Derivatives (2)",
+  [3] = "Segment: Capital Markets Cash Equity (3)",
+  [4] = "Segment: Slbm Markets (4)",
+  [5] = "Segment: Commodity Derivatives (5)",
+}
+
+nse_nsecm_dropcopy_nnfdc_v3_0.segment.display = function(value)
+  return nse_nsecm_dropcopy_nnfdc_v3_0.segment.labels[value] or "Segment: Unknown("..value..")"
 end
 
--- Dissect: Segment Char 1
-nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size
+-- Dissect: Segment
+nse_nsecm_dropcopy_nnfdc_v3_0.segment.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_dropcopy_nnfdc_v3_0.segment.size
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.display(value, buffer, offset, packet, parent)
+  local value = range:int()
+  local display = nse_nsecm_dropcopy_nnfdc_v3_0.segment.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.segment_char_1, range, value, display)
+  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.segment, range, value, display)
 
   return offset + length, value
 end
 
--- Segment Short 2
-nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2 = {}
+-- Segment Char
+nse_nsecm_dropcopy_nnfdc_v3_0.segment_char = {}
 
--- Size: Segment Short 2
-nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.size = 2
+-- Size: Segment Char
+nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size = 1
 
--- Display: Segment Short 2
-nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.labels = {
-  [1] = "Segment Short 2: Equity Derivatives Fo (1)",
-  [2] = "Segment Short 2: Currency Derivatives (2)",
-  [3] = "Segment Short 2: Capital Markets Cash Equity (3)",
-  [4] = "Segment Short 2: Slbm Markets (4)",
-  [5] = "Segment Short 2: Commodity Derivatives (5)",
-}
-
-nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.display = function(value)
-  return nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.labels[value] or "Segment Short 2: Unknown("..value..")"
+-- Display: Segment Char
+nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.display = function(value)
+  return "Segment Char: "..value
 end
 
--- Dissect: Segment Short 2
-nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.size
+-- Dissect: Segment Char
+nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size
   local range = buffer(offset, length)
-  local value = range:int()
-  local display = nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.display(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.segment_short_2, range, value, display)
+  parent:add(omi_nse_nsecm_dropcopy_nnfdc_v3_0.fields.segment_char, range, value, display)
 
   return offset + length, value
 end
@@ -1984,10 +1984,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.batch_order_cancel_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.suspended.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.account_number.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlor.size
 
@@ -2061,13 +2061,17 @@ nse_nsecm_dropcopy_nnfdc_v3_0.batch_order_cancel_message.fields = function(buffe
   index, suspended = nse_nsecm_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
 
-  -- Segment Char 1: CHAR
-  index, segment_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect(buffer, index, packet, parent)
+  -- Segment Char: CHAR
+  index, segment_char = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect(buffer, index, packet, parent)
 
   -- Participant Type: CHAR
   index, participant_type = nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.dissect(buffer, index, packet, parent)
@@ -2075,8 +2079,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.batch_order_cancel_message.fields = function(buffe
   -- Account Number: CHAR
   index, account_number = nse_nsecm_dropcopy_nnfdc_v3_0.account_number.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Char 1: CHAR
-  index, pro_client_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
+  -- Pro Client Char: CHAR
+  index, pro_client_char = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect(buffer, index, packet, parent)
 
   -- Settlement Type: CHAR
   index, settlement_type = nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.dissect(buffer, index, packet, parent)
@@ -2132,10 +2136,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_error_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.suspended.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.account_number.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlor.size
 
@@ -2209,13 +2213,17 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_error_message.fields = function(buffer, offs
   index, suspended = nse_nsecm_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
 
-  -- Segment Char 1: CHAR
-  index, segment_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect(buffer, index, packet, parent)
+  -- Segment Char: CHAR
+  index, segment_char = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect(buffer, index, packet, parent)
 
   -- Participant Type: CHAR
   index, participant_type = nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.dissect(buffer, index, packet, parent)
@@ -2223,8 +2231,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_error_message.fields = function(buffer, offs
   -- Account Number: CHAR
   index, account_number = nse_nsecm_dropcopy_nnfdc_v3_0.account_number.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Char 1: CHAR
-  index, pro_client_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
+  -- Pro Client Char: CHAR
+  index, pro_client_char = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect(buffer, index, packet, parent)
 
   -- Settlement Type: CHAR
   index, settlement_type = nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.dissect(buffer, index, packet, parent)
@@ -2280,10 +2288,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.on_stop_notification_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.suspended.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.account_number.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlor.size
 
@@ -2357,13 +2365,17 @@ nse_nsecm_dropcopy_nnfdc_v3_0.on_stop_notification_message.fields = function(buf
   index, suspended = nse_nsecm_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
 
-  -- Segment Char 1: CHAR
-  index, segment_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect(buffer, index, packet, parent)
+  -- Segment Char: CHAR
+  index, segment_char = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect(buffer, index, packet, parent)
 
   -- Participant Type: CHAR
   index, participant_type = nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.dissect(buffer, index, packet, parent)
@@ -2371,8 +2383,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.on_stop_notification_message.fields = function(buf
   -- Account Number: CHAR
   index, account_number = nse_nsecm_dropcopy_nnfdc_v3_0.account_number.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Char 1: CHAR
-  index, pro_client_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
+  -- Pro Client Char: CHAR
+  index, pro_client_char = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect(buffer, index, packet, parent)
 
   -- Settlement Type: CHAR
   index, settlement_type = nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.dissect(buffer, index, packet, parent)
@@ -2428,10 +2440,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.freeze_to_control_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.suspended.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.account_number.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlor.size
 
@@ -2505,13 +2517,17 @@ nse_nsecm_dropcopy_nnfdc_v3_0.freeze_to_control_message.fields = function(buffer
   index, suspended = nse_nsecm_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
 
-  -- Segment Char 1: CHAR
-  index, segment_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect(buffer, index, packet, parent)
+  -- Segment Char: CHAR
+  index, segment_char = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect(buffer, index, packet, parent)
 
   -- Participant Type: CHAR
   index, participant_type = nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.dissect(buffer, index, packet, parent)
@@ -2519,8 +2535,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.freeze_to_control_message.fields = function(buffer
   -- Account Number: CHAR
   index, account_number = nse_nsecm_dropcopy_nnfdc_v3_0.account_number.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Char 1: CHAR
-  index, pro_client_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
+  -- Pro Client Char: CHAR
+  index, pro_client_char = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect(buffer, index, packet, parent)
 
   -- Settlement Type: CHAR
   index, settlement_type = nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.dissect(buffer, index, packet, parent)
@@ -2576,10 +2592,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_cancel_confirmation_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.suspended.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.account_number.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlor.size
 
@@ -2653,13 +2669,17 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_cancel_confirmation_message.fields = functio
   index, suspended = nse_nsecm_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
 
-  -- Segment Char 1: CHAR
-  index, segment_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect(buffer, index, packet, parent)
+  -- Segment Char: CHAR
+  index, segment_char = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect(buffer, index, packet, parent)
 
   -- Participant Type: CHAR
   index, participant_type = nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.dissect(buffer, index, packet, parent)
@@ -2667,8 +2687,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_cancel_confirmation_message.fields = functio
   -- Account Number: CHAR
   index, account_number = nse_nsecm_dropcopy_nnfdc_v3_0.account_number.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Char 1: CHAR
-  index, pro_client_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
+  -- Pro Client Char: CHAR
+  index, pro_client_char = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect(buffer, index, packet, parent)
 
   -- Settlement Type: CHAR
   index, settlement_type = nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.dissect(buffer, index, packet, parent)
@@ -2724,10 +2744,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_mod_confirmation_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.suspended.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.account_number.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlor.size
 
@@ -2801,13 +2821,17 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_mod_confirmation_message.fields = function(b
   index, suspended = nse_nsecm_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
 
-  -- Segment Char 1: CHAR
-  index, segment_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect(buffer, index, packet, parent)
+  -- Segment Char: CHAR
+  index, segment_char = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect(buffer, index, packet, parent)
 
   -- Participant Type: CHAR
   index, participant_type = nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.dissect(buffer, index, packet, parent)
@@ -2815,8 +2839,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_mod_confirmation_message.fields = function(b
   -- Account Number: CHAR
   index, account_number = nse_nsecm_dropcopy_nnfdc_v3_0.account_number.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Char 1: CHAR
-  index, pro_client_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
+  -- Pro Client Char: CHAR
+  index, pro_client_char = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect(buffer, index, packet, parent)
 
   -- Settlement Type: CHAR
   index, settlement_type = nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.dissect(buffer, index, packet, parent)
@@ -2872,10 +2896,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_confirmation_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.suspended.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.account_number.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlor.size
 
@@ -2949,13 +2973,17 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_confirmation_message.fields = function(buffe
   index, suspended = nse_nsecm_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
 
-  -- Segment Char 1: CHAR
-  index, segment_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect(buffer, index, packet, parent)
+  -- Segment Char: CHAR
+  index, segment_char = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect(buffer, index, packet, parent)
 
   -- Participant Type: CHAR
   index, participant_type = nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.dissect(buffer, index, packet, parent)
@@ -2963,8 +2991,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_confirmation_message.fields = function(buffe
   -- Account Number: CHAR
   index, account_number = nse_nsecm_dropcopy_nnfdc_v3_0.account_number.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Char 1: CHAR
-  index, pro_client_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
+  -- Pro Client Char: CHAR
+  index, pro_client_char = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect(buffer, index, packet, parent)
 
   -- Settlement Type: CHAR
   index, settlement_type = nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.dissect(buffer, index, packet, parent)
@@ -3020,10 +3048,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_cancel_reject_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.suspended.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.account_number.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlor.size
 
@@ -3097,13 +3125,17 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_cancel_reject_message.fields = function(buff
   index, suspended = nse_nsecm_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
 
-  -- Segment Char 1: CHAR
-  index, segment_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect(buffer, index, packet, parent)
+  -- Segment Char: CHAR
+  index, segment_char = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect(buffer, index, packet, parent)
 
   -- Participant Type: CHAR
   index, participant_type = nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.dissect(buffer, index, packet, parent)
@@ -3111,8 +3143,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_cancel_reject_message.fields = function(buff
   -- Account Number: CHAR
   index, account_number = nse_nsecm_dropcopy_nnfdc_v3_0.account_number.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Char 1: CHAR
-  index, pro_client_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
+  -- Pro Client Char: CHAR
+  index, pro_client_char = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect(buffer, index, packet, parent)
 
   -- Settlement Type: CHAR
   index, settlement_type = nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.dissect(buffer, index, packet, parent)
@@ -3168,10 +3200,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_mod_reject_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.suspended.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.account_number.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlor.size
 
@@ -3245,13 +3277,17 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_mod_reject_message.fields = function(buffer,
   index, suspended = nse_nsecm_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
 
-  -- Segment Char 1: CHAR
-  index, segment_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect(buffer, index, packet, parent)
+  -- Segment Char: CHAR
+  index, segment_char = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect(buffer, index, packet, parent)
 
   -- Participant Type: CHAR
   index, participant_type = nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.dissect(buffer, index, packet, parent)
@@ -3259,8 +3295,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.order_mod_reject_message.fields = function(buffer,
   -- Account Number: CHAR
   index, account_number = nse_nsecm_dropcopy_nnfdc_v3_0.account_number.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Char 1: CHAR
-  index, pro_client_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
+  -- Pro Client Char: CHAR
+  index, pro_client_char = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect(buffer, index, packet, parent)
 
   -- Settlement Type: CHAR
   index, settlement_type = nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.dissect(buffer, index, packet, parent)
@@ -3316,10 +3352,10 @@ nse_nsecm_dropcopy_nnfdc_v3_0.price_confirmation_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.suspended.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.account_number.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.settlor.size
 
@@ -3393,13 +3429,17 @@ nse_nsecm_dropcopy_nnfdc_v3_0.price_confirmation_message.fields = function(buffe
   index, suspended = nse_nsecm_dropcopy_nnfdc_v3_0.suspended.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
 
-  -- Segment Char 1: CHAR
-  index, segment_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char_1.dissect(buffer, index, packet, parent)
+  -- Segment Char: CHAR
+  index, segment_char = nse_nsecm_dropcopy_nnfdc_v3_0.segment_char.dissect(buffer, index, packet, parent)
 
   -- Participant Type: CHAR
   index, participant_type = nse_nsecm_dropcopy_nnfdc_v3_0.participant_type.dissect(buffer, index, packet, parent)
@@ -3407,8 +3447,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.price_confirmation_message.fields = function(buffe
   -- Account Number: CHAR
   index, account_number = nse_nsecm_dropcopy_nnfdc_v3_0.account_number.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Char 1: CHAR
-  index, pro_client_char_1 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char_1.dissect(buffer, index, packet, parent)
+  -- Pro Client Char: CHAR
+  index, pro_client_char = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_char.dissect(buffer, index, packet, parent)
 
   -- Settlement Type: CHAR
   index, settlement_type = nse_nsecm_dropcopy_nnfdc_v3_0.settlement_type.dissect(buffer, index, packet, parent)
@@ -3456,11 +3496,11 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_modify_confirm_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.fill_price.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.token.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.book_type.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.algo_id.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.activity_time_in_nanos.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.nnf_field.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.broker_id.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
@@ -3518,8 +3558,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_modify_confirm_message.fields = function(buf
   -- Book Type: SHORT
   index, book_type = nse_nsecm_dropcopy_nnfdc_v3_0.book_type.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Short 2: SHORT
-  index, pro_client_short_2 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.dissect(buffer, index, packet, parent)
+  -- Pro Client: SHORT
+  index, pro_client = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.dissect(buffer, index, packet, parent)
 
   -- Algo Id: INT
   index, algo_id = nse_nsecm_dropcopy_nnfdc_v3_0.algo_id.dissect(buffer, index, packet, parent)
@@ -3530,14 +3570,18 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_modify_confirm_message.fields = function(buf
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecm_dropcopy_nnfdc_v3_0.nnf_field.dissect(buffer, index, packet, parent)
 
-  -- Segment Short 2: SHORT
-  index, segment_short_2 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.dissect(buffer, index, packet, parent)
+  -- Segment: SHORT
+  index, segment = nse_nsecm_dropcopy_nnfdc_v3_0.segment.dissect(buffer, index, packet, parent)
 
   -- Broker Id: CHAR
   index, broker_id = nse_nsecm_dropcopy_nnfdc_v3_0.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
@@ -3588,11 +3632,11 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_cancel_reject_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.fill_price.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.token.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.book_type.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.algo_id.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.activity_time_in_nanos.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.nnf_field.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.broker_id.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
@@ -3650,8 +3694,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_cancel_reject_message.fields = function(buff
   -- Book Type: SHORT
   index, book_type = nse_nsecm_dropcopy_nnfdc_v3_0.book_type.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Short 2: SHORT
-  index, pro_client_short_2 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.dissect(buffer, index, packet, parent)
+  -- Pro Client: SHORT
+  index, pro_client = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.dissect(buffer, index, packet, parent)
 
   -- Algo Id: INT
   index, algo_id = nse_nsecm_dropcopy_nnfdc_v3_0.algo_id.dissect(buffer, index, packet, parent)
@@ -3662,14 +3706,18 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_cancel_reject_message.fields = function(buff
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecm_dropcopy_nnfdc_v3_0.nnf_field.dissect(buffer, index, packet, parent)
 
-  -- Segment Short 2: SHORT
-  index, segment_short_2 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.dissect(buffer, index, packet, parent)
+  -- Segment: SHORT
+  index, segment = nse_nsecm_dropcopy_nnfdc_v3_0.segment.dissect(buffer, index, packet, parent)
 
   -- Broker Id: CHAR
   index, broker_id = nse_nsecm_dropcopy_nnfdc_v3_0.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
@@ -3720,11 +3768,11 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_cancel_confirm_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.fill_price.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.token.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.book_type.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.algo_id.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.activity_time_in_nanos.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.nnf_field.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.broker_id.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
@@ -3782,8 +3830,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_cancel_confirm_message.fields = function(buf
   -- Book Type: SHORT
   index, book_type = nse_nsecm_dropcopy_nnfdc_v3_0.book_type.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Short 2: SHORT
-  index, pro_client_short_2 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.dissect(buffer, index, packet, parent)
+  -- Pro Client: SHORT
+  index, pro_client = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.dissect(buffer, index, packet, parent)
 
   -- Algo Id: INT
   index, algo_id = nse_nsecm_dropcopy_nnfdc_v3_0.algo_id.dissect(buffer, index, packet, parent)
@@ -3794,14 +3842,18 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_cancel_confirm_message.fields = function(buf
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecm_dropcopy_nnfdc_v3_0.nnf_field.dissect(buffer, index, packet, parent)
 
-  -- Segment Short 2: SHORT
-  index, segment_short_2 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.dissect(buffer, index, packet, parent)
+  -- Segment: SHORT
+  index, segment = nse_nsecm_dropcopy_nnfdc_v3_0.segment.dissect(buffer, index, packet, parent)
 
   -- Broker Id: CHAR
   index, broker_id = nse_nsecm_dropcopy_nnfdc_v3_0.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)
@@ -3852,11 +3904,11 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_confirmation_message.size =
   nse_nsecm_dropcopy_nnfdc_v3_0.fill_price.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.token.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.book_type.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.algo_id.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.activity_time_in_nanos.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.nnf_field.size + 
-  nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.size + 
+  nse_nsecm_dropcopy_nnfdc_v3_0.segment.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.broker_id.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.filler.size + 
   nse_nsecm_dropcopy_nnfdc_v3_0.pan.size + 
@@ -3914,8 +3966,8 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_confirmation_message.fields = function(buffe
   -- Book Type: SHORT
   index, book_type = nse_nsecm_dropcopy_nnfdc_v3_0.book_type.dissect(buffer, index, packet, parent)
 
-  -- Pro Client Short 2: SHORT
-  index, pro_client_short_2 = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client_short_2.dissect(buffer, index, packet, parent)
+  -- Pro Client: SHORT
+  index, pro_client = nse_nsecm_dropcopy_nnfdc_v3_0.pro_client.dissect(buffer, index, packet, parent)
 
   -- Algo Id: INT
   index, algo_id = nse_nsecm_dropcopy_nnfdc_v3_0.algo_id.dissect(buffer, index, packet, parent)
@@ -3926,14 +3978,18 @@ nse_nsecm_dropcopy_nnfdc_v3_0.trade_confirmation_message.fields = function(buffe
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecm_dropcopy_nnfdc_v3_0.nnf_field.dissect(buffer, index, packet, parent)
 
-  -- Segment Short 2: SHORT
-  index, segment_short_2 = nse_nsecm_dropcopy_nnfdc_v3_0.segment_short_2.dissect(buffer, index, packet, parent)
+  -- Segment: SHORT
+  index, segment = nse_nsecm_dropcopy_nnfdc_v3_0.segment.dissect(buffer, index, packet, parent)
 
   -- Broker Id: CHAR
   index, broker_id = nse_nsecm_dropcopy_nnfdc_v3_0.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecm_dropcopy_nnfdc_v3_0.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecm_dropcopy_nnfdc_v3_0.filler.size
+  end
 
   -- Pan: CHAR
   index, pan = nse_nsecm_dropcopy_nnfdc_v3_0.pan.dissect(buffer, index, packet, parent)

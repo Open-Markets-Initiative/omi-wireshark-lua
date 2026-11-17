@@ -25,8 +25,6 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.clordid = ProtoField.new("ClOrd
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.clordid_optional = ProtoField.new("ClOrdId Optional", "memx.memxoptions.riskcontrol.sbe.v1.3.clordidoptional", ftypes.STRING, nil, nil, nil, "ClOrdID")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.count = ProtoField.new("Count", "memx.memxoptions.riskcontrol.sbe.v1.3.count", ftypes.UINT32)
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.efid = ProtoField.new("Efid", "memx.memxoptions.riskcontrol.sbe.v1.3.efid", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.efid_active_risk_threshold_change_rej_efid = ProtoField.new("Efid Active Risk Threshold Change Rej Efid", "memx.memxoptions.riskcontrol.sbe.v1.3.efidactiveriskthresholdchangerejefid", ftypes.STRING, nil, nil, nil, "EFID")
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.efid_active_risk_threshold_change_req_efid = ProtoField.new("Efid Active Risk Threshold Change Req Efid", "memx.memxoptions.riskcontrol.sbe.v1.3.efidactiveriskthresholdchangereqefid", ftypes.STRING, nil, nil, nil, "EFID")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.efid_optional = ProtoField.new("Efid Optional", "memx.memxoptions.riskcontrol.sbe.v1.3.efidoptional", ftypes.STRING, nil, nil, nil, "EFID")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.last_px = ProtoField.new("Last Px", "memx.memxoptions.riskcontrol.sbe.v1.3.lastpx", ftypes.DOUBLE, nil, nil, nil, "LastPx")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.last_qty = ProtoField.new("Last Qty", "memx.memxoptions.riskcontrol.sbe.v1.3.lastqty", ftypes.UINT32, nil, nil, nil, "LastQty")
@@ -75,8 +73,6 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.transact_time_utc = ProtoField.
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.memxoptions.riskcontrol.sbe.v1.3.trdmatchid", ftypes.UINT64, nil, nil, nil, "TrdMatchID")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.un_acked_quantity = ProtoField.new("Un Acked Quantity", "memx.memxoptions.riskcontrol.sbe.v1.3.unackedquantity", ftypes.UINT32, nil, nil, nil, "UnAckedQuantity")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier = ProtoField.new("Underlier", "memx.memxoptions.riskcontrol.sbe.v1.3.underlier", ftypes.STRING)
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_change_rej_underlier = ProtoField.new("Underlier Active Risk Threshold Change Rej Underlier", "memx.memxoptions.riskcontrol.sbe.v1.3.underlieractiveriskthresholdchangerejunderlier", ftypes.STRING, nil, nil, nil, "Underlier")
-omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_change_req_underlier = ProtoField.new("Underlier Active Risk Threshold Change Req Underlier", "memx.memxoptions.riskcontrol.sbe.v1.3.underlieractiveriskthresholdchangerequnderlier", ftypes.STRING, nil, nil, nil, "Underlier")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier_optional = ProtoField.new("Underlier Optional", "memx.memxoptions.riskcontrol.sbe.v1.3.underlieroptional", ftypes.STRING, nil, nil, nil, "Underlier")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.use_order_price_in_dup_check = ProtoField.new("Use Order Price In Dup Check", "memx.memxoptions.riskcontrol.sbe.v1.3.useorderpriceindupcheck", ftypes.UINT8, nil, nil, nil, "UseOrderPriceInDupCheck")
 omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.use_order_price_in_dup_check_optional = ProtoField.new("Use Order Price In Dup Check Optional", "memx.memxoptions.riskcontrol.sbe.v1.3.useorderpriceindupcheckoptional", ftypes.UINT8, nil, nil, nil, "UseOrderPriceInDupCheck")
@@ -493,84 +489,6 @@ memx_memxoptions_riskcontrol_sbe_v1_3.efid.dissect = function(buffer, offset, pa
   local display = memx_memxoptions_riskcontrol_sbe_v1_3.efid.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Efid Active Risk Threshold Change Rej Efid
-memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_rej_efid = {}
-
--- Size: Efid Active Risk Threshold Change Rej Efid
-memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_rej_efid.size = 4
-
--- Display: Efid Active Risk Threshold Change Rej Efid
-memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_rej_efid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efid Active Risk Threshold Change Rej Efid: No Value"
-  end
-
-  return "Efid Active Risk Threshold Change Rej Efid: "..value
-end
-
--- Dissect: Efid Active Risk Threshold Change Rej Efid
-memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_rej_efid.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_rej_efid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_rej_efid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.efid_active_risk_threshold_change_rej_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Efid Active Risk Threshold Change Req Efid
-memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_req_efid = {}
-
--- Size: Efid Active Risk Threshold Change Req Efid
-memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_req_efid.size = 4
-
--- Display: Efid Active Risk Threshold Change Req Efid
-memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_req_efid.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efid Active Risk Threshold Change Req Efid: No Value"
-  end
-
-  return "Efid Active Risk Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efid Active Risk Threshold Change Req Efid
-memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_req_efid.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_req_efid.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_req_efid.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.efid_active_risk_threshold_change_req_efid, range, value, display)
 
   return offset + length, value
 end
@@ -1888,84 +1806,6 @@ memx_memxoptions_riskcontrol_sbe_v1_3.underlier.dissect = function(buffer, offse
   local display = memx_memxoptions_riskcontrol_sbe_v1_3.underlier.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlier Active Risk Threshold Change Rej Underlier
-memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_rej_underlier = {}
-
--- Size: Underlier Active Risk Threshold Change Rej Underlier
-memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_rej_underlier.size = 6
-
--- Display: Underlier Active Risk Threshold Change Rej Underlier
-memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_rej_underlier.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Active Risk Threshold Change Rej Underlier: No Value"
-  end
-
-  return "Underlier Active Risk Threshold Change Rej Underlier: "..value
-end
-
--- Dissect: Underlier Active Risk Threshold Change Rej Underlier
-memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_rej_underlier.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_rej_underlier.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_rej_underlier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_change_rej_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Underlier Active Risk Threshold Change Req Underlier
-memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_req_underlier = {}
-
--- Size: Underlier Active Risk Threshold Change Req Underlier
-memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_req_underlier.size = 6
-
--- Display: Underlier Active Risk Threshold Change Req Underlier
-memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_req_underlier.display = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Active Risk Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Active Risk Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Active Risk Threshold Change Req Underlier
-memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_req_underlier.dissect = function(buffer, offset, packet, parent)
-  local length = memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_req_underlier.size
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_req_underlier.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_memx_memxoptions_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_change_req_underlier, range, value, display)
 
   return offset + length, value
 end
@@ -3655,8 +3495,8 @@ memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_change_rej_message =
 -- Size: Active Risk Threshold Change Rej Message
 memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_change_rej_message.size =
   memx_memxoptions_riskcontrol_sbe_v1_3.clordid.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_rej_underlier.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_rej_efid.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_3.underlier.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_3.efid.size + 
   memx_memxoptions_riskcontrol_sbe_v1_3.threshold_quantity.size + 
   memx_memxoptions_riskcontrol_sbe_v1_3.reject_reason.size
 
@@ -3672,11 +3512,11 @@ memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_change_rej_message.f
   -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_memxoptions_riskcontrol_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Active Risk Threshold Change Rej Underlier: ActiveRiskThresholdChangeRejUnderlier
-  index, underlier_active_risk_threshold_change_rej_underlier = memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_rej_underlier.dissect(buffer, index, packet, parent)
+  -- Underlier: ActiveRiskAcknowledgeRejUnderlier
+  index, underlier = memx_memxoptions_riskcontrol_sbe_v1_3.underlier.dissect(buffer, index, packet, parent)
 
-  -- Efid Active Risk Threshold Change Rej Efid: ActiveRiskThresholdChangeRejEFID
-  index, efid_active_risk_threshold_change_rej_efid = memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_rej_efid.dissect(buffer, index, packet, parent)
+  -- Efid: ActiveRiskAcknowledgeRejEFID
+  index, efid = memx_memxoptions_riskcontrol_sbe_v1_3.efid.dissect(buffer, index, packet, parent)
 
   -- Threshold Quantity: uint32
   index, threshold_quantity = memx_memxoptions_riskcontrol_sbe_v1_3.threshold_quantity.dissect(buffer, index, packet, parent)
@@ -5445,8 +5285,8 @@ memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_change_req_message =
 -- Size: Active Risk Threshold Change Req Message
 memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_change_req_message.size =
   memx_memxoptions_riskcontrol_sbe_v1_3.clordid.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_req_underlier.size + 
-  memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_req_efid.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_3.underlier.size + 
+  memx_memxoptions_riskcontrol_sbe_v1_3.efid.size + 
   memx_memxoptions_riskcontrol_sbe_v1_3.threshold_quantity.size
 
 -- Display: Active Risk Threshold Change Req Message
@@ -5461,11 +5301,11 @@ memx_memxoptions_riskcontrol_sbe_v1_3.active_risk_threshold_change_req_message.f
   -- ClOrdId: ActiveRiskAcknowledgeRejClOrdID
   index, clordid = memx_memxoptions_riskcontrol_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
 
-  -- Underlier Active Risk Threshold Change Req Underlier: ActiveRiskThresholdChangeReqUnderlier
-  index, underlier_active_risk_threshold_change_req_underlier = memx_memxoptions_riskcontrol_sbe_v1_3.underlier_active_risk_threshold_change_req_underlier.dissect(buffer, index, packet, parent)
+  -- Underlier: ActiveRiskAcknowledgeRejUnderlier
+  index, underlier = memx_memxoptions_riskcontrol_sbe_v1_3.underlier.dissect(buffer, index, packet, parent)
 
-  -- Efid Active Risk Threshold Change Req Efid: ActiveRiskThresholdChangeReqEFID
-  index, efid_active_risk_threshold_change_req_efid = memx_memxoptions_riskcontrol_sbe_v1_3.efid_active_risk_threshold_change_req_efid.dissect(buffer, index, packet, parent)
+  -- Efid: ActiveRiskAcknowledgeRejEFID
+  index, efid = memx_memxoptions_riskcontrol_sbe_v1_3.efid.dissect(buffer, index, packet, parent)
 
   -- Threshold Quantity: uint32
   index, threshold_quantity = memx_memxoptions_riskcontrol_sbe_v1_3.threshold_quantity.dissect(buffer, index, packet, parent)

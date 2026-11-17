@@ -34,9 +34,8 @@ omi_nse_nsecom_orderentry_nnf_v3_5.fields.batch_2_start_time = ProtoField.new("B
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.batch_2_start_time_utc = ProtoField.new("Batch 2 Start Time", "nse.nsecom.orderentry.nnf.v3.5.batch2starttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field should be set to numerical zero")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.board_lot_quantity = ProtoField.new("Board Lot Quantity", "nse.nsecom.orderentry.nnf.v3.5.boardlotquantity", ftypes.INT32, nil, nil, nil, "This field contains the board lot quantity")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.boc = ProtoField.new("Boc", "nse.nsecom.orderentry.nnf.v3.5.boc", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.book_type = ProtoField.new("Book Type", "nse.nsecom.orderentry.nnf.v3.5.booktype", ftypes.INT16, nil, nil, nil, "This field should contain the type of order")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.book_type_1 = ProtoField.new("Book Type 1", "nse.nsecom.orderentry.nnf.v3.5.booktype1", ftypes.INT16, nil, nil, nil, "This field should contain one of the following two book types. ‘1’ – Regular lot order ‘2’ – Special terms order")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.book_type_char_1 = ProtoField.new("Book Type Char 1", "nse.nsecom.orderentry.nnf.v3.5.booktypechar1", ftypes.STRING, nil, nil, nil, "This field should contain the type of order")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.book_type_short_2 = ProtoField.new("Book Type Short 2", "nse.nsecom.orderentry.nnf.v3.5.booktypeshort2", ftypes.INT16, nil, nil, nil, "This field should contain the type of order")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.books_merged = ProtoField.new("Books Merged", "nse.nsecom.orderentry.nnf.v3.5.booksmerged", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000, "BooksMerged")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.box_id = ProtoField.new("Box Id", "nse.nsecom.orderentry.nnf.v3.5.boxid", ftypes.INT16, nil, nil, nil, "Exchange provided Box ID to be used for this connection")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.branch_buy_value_limit = ProtoField.new("Branch Buy Value Limit", "nse.nsecom.orderentry.nnf.v3.5.branchbuyvaluelimit", ftypes.DOUBLE, nil, nil, nil, "This field contains the total Buy order limit for the branch to which the user belongs")
@@ -101,16 +100,16 @@ omi_nse_nsecom_orderentry_nnf_v3_5.fields.fifth_reserved_1 = ProtoField.new("Fif
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.fill_number = ProtoField.new("Fill Number", "nse.nsecom.orderentry.nnf.v3.5.fillnumber", ftypes.INT32, nil, nil, nil, "This field should contain the trade number of the trade to be modified")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.fill_price = ProtoField.new("Fill Price", "nse.nsecom.orderentry.nnf.v3.5.fillprice", ftypes.INT32, nil, nil, nil, "This field should contain the price at which the trade took place")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.fill_quantity = ProtoField.new("Fill Quantity", "nse.nsecom.orderentry.nnf.v3.5.fillquantity", ftypes.INT32, nil, nil, nil, "This field should contain the quantity that has been traded")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler = ProtoField.new("Filler", "nse.nsecom.orderentry.nnf.v3.5.filler", ftypes.STRING, nil, nil, nil, "Reserved")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_1 = ProtoField.new("Filler 1", "nse.nsecom.orderentry.nnf.v3.5.filler1", ftypes.STRING, nil, nil, nil, "Filler1")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_17 = ProtoField.new("Filler 17", "nse.nsecom.orderentry.nnf.v3.5.filler17", ftypes.STRING, nil, nil, nil, "Filler17")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_18 = ProtoField.new("Filler 18", "nse.nsecom.orderentry.nnf.v3.5.filler18", ftypes.STRING, nil, nil, nil, "Filler18")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_9 = ProtoField.new("Filler 9", "nse.nsecom.orderentry.nnf.v3.5.filler9", ftypes.STRING, nil, nil, nil, "Filler9")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_options_1 = ProtoField.new("Filler Options 1", "nse.nsecom.orderentry.nnf.v3.5.filleroptions1", ftypes.STRING, nil, nil, nil, "FillerOptions1")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_y = ProtoField.new("Filler Y", "nse.nsecom.orderentry.nnf.v3.5.fillery", ftypes.STRING, nil, nil, nil, "FillerY")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillerx_1 = ProtoField.new("Fillerx 1", "nse.nsecom.orderentry.nnf.v3.5.fillerx1", ftypes.STRING, nil, nil, nil, "Fillerx1")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillerx_2 = ProtoField.new("Fillerx 2", "nse.nsecom.orderentry.nnf.v3.5.fillerx2", ftypes.STRING, nil, nil, nil, "Fillerx2")
-omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillery_1 = ProtoField.new("Fillery 1", "nse.nsecom.orderentry.nnf.v3.5.fillery1", ftypes.STRING, nil, nil, nil, "Fillery1")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler = ProtoField.new("Filler", "nse.nsecom.orderentry.nnf.v3.5.filler", ftypes.BYTES, nil, nil, nil, "Reserved")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_1 = ProtoField.new("Filler 1", "nse.nsecom.orderentry.nnf.v3.5.filler1", ftypes.BYTES, nil, nil, nil, "Filler1")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_17 = ProtoField.new("Filler 17", "nse.nsecom.orderentry.nnf.v3.5.filler17", ftypes.BYTES, nil, nil, nil, "Filler17")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_18 = ProtoField.new("Filler 18", "nse.nsecom.orderentry.nnf.v3.5.filler18", ftypes.BYTES, nil, nil, nil, "Filler18")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_9 = ProtoField.new("Filler 9", "nse.nsecom.orderentry.nnf.v3.5.filler9", ftypes.BYTES, nil, nil, nil, "Filler9")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_options_1 = ProtoField.new("Filler Options 1", "nse.nsecom.orderentry.nnf.v3.5.filleroptions1", ftypes.BYTES, nil, nil, nil, "FillerOptions1")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_y = ProtoField.new("Filler Y", "nse.nsecom.orderentry.nnf.v3.5.fillery", ftypes.BYTES, nil, nil, nil, "FillerY")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillerx_1 = ProtoField.new("Fillerx 1", "nse.nsecom.orderentry.nnf.v3.5.fillerx1", ftypes.BYTES, nil, nil, nil, "Fillerx1")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillerx_2 = ProtoField.new("Fillerx 2", "nse.nsecom.orderentry.nnf.v3.5.fillerx2", ftypes.BYTES, nil, nil, nil, "Fillerx2")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillery_1 = ProtoField.new("Fillery 1", "nse.nsecom.orderentry.nnf.v3.5.fillery1", ftypes.BYTES, nil, nil, nil, "Fillery1")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.firm_name = ProtoField.new("Firm Name", "nse.nsecom.orderentry.nnf.v3.5.firmname", ftypes.STRING, nil, nil, nil, "FirmName")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.fourth_reserved_1 = ProtoField.new("Fourth Reserved 1", "nse.nsecom.orderentry.nnf.v3.5.fourthreserved1", ftypes.BYTES, nil, nil, nil, "Padding to the declared packet length")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.frozen = ProtoField.new("Frozen", "nse.nsecom.orderentry.nnf.v3.5.frozen", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "1 The order has gone for a freeze")
@@ -285,6 +284,7 @@ omi_nse_nsecom_orderentry_nnf_v3_5.fields.token_no = ProtoField.new("Token No", 
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.total_vol_remaining_1 = ProtoField.new("Total Vol Remaining 1", "nse.nsecom.orderentry.nnf.v3.5.totalvolremaining1", ftypes.INT32, nil, nil, nil, "TotalVolRemaining1")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.total_vol_remaining_2 = ProtoField.new("Total Vol Remaining 2", "nse.nsecom.orderentry.nnf.v3.5.totalvolremaining2", ftypes.INT32, nil, nil, nil, "TotalVolRemaining2")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.total_volume_remaining = ProtoField.new("Total Volume Remaining", "nse.nsecom.orderentry.nnf.v3.5.totalvolumeremaining", ftypes.INT32, nil, nil, nil, "TotalVolumeRemaining")
+omi_nse_nsecom_orderentry_nnf_v3_5.fields.trade_book_type = ProtoField.new("Trade Book Type", "nse.nsecom.orderentry.nnf.v3.5.tradebooktype", ftypes.STRING, nil, nil, nil, "This field should contain the type of order")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.traded = ProtoField.new("Traded", "nse.nsecom.orderentry.nnf.v3.5.traded", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020, "1 The order has been traded partially or fully")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.trader_id = ProtoField.new("Trader Id", "nse.nsecom.orderentry.nnf.v3.5.traderid", ftypes.INT32, nil, nil, nil, "This field should contain the trader ID")
 omi_nse_nsecom_orderentry_nnf_v3_5.fields.trader_id_1 = ProtoField.new("Trader Id 1", "nse.nsecom.orderentry.nnf.v3.5.traderid1", ftypes.INT32, nil, nil, nil, "This field should contain the user ID")
@@ -758,6 +758,29 @@ nse_nsecom_orderentry_nnf_v3_5.board_lot_quantity.dissect = function(buffer, off
   return offset + length, value
 end
 
+-- Book Type
+nse_nsecom_orderentry_nnf_v3_5.book_type = {}
+
+-- Size: Book Type
+nse_nsecom_orderentry_nnf_v3_5.book_type.size = 2
+
+-- Display: Book Type
+nse_nsecom_orderentry_nnf_v3_5.book_type.display = function(value)
+  return "Book Type: "..value
+end
+
+-- Dissect: Book Type
+nse_nsecom_orderentry_nnf_v3_5.book_type.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecom_orderentry_nnf_v3_5.book_type.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = nse_nsecom_orderentry_nnf_v3_5.book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.book_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Book Type 1
 nse_nsecom_orderentry_nnf_v3_5.book_type_1 = {}
 
@@ -777,52 +800,6 @@ nse_nsecom_orderentry_nnf_v3_5.book_type_1.dissect = function(buffer, offset, pa
   local display = nse_nsecom_orderentry_nnf_v3_5.book_type_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.book_type_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Book Type Char 1
-nse_nsecom_orderentry_nnf_v3_5.book_type_char_1 = {}
-
--- Size: Book Type Char 1
-nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.size = 1
-
--- Display: Book Type Char 1
-nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.display = function(value)
-  return "Book Type Char 1: "..value
-end
-
--- Dissect: Book Type Char 1
-nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.size
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.book_type_char_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Book Type Short 2
-nse_nsecom_orderentry_nnf_v3_5.book_type_short_2 = {}
-
--- Size: Book Type Short 2
-nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size = 2
-
--- Display: Book Type Short 2
-nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.display = function(value)
-  return "Book Type Short 2: "..value
-end
-
--- Dissect: Book Type Short 2
-nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect = function(buffer, offset, packet, parent)
-  local length = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.book_type_short_2, range, value, display)
 
   return offset + length, value
 end
@@ -1959,6 +1936,11 @@ nse_nsecom_orderentry_nnf_v3_5.error_code.size = 2
 
 -- Display: Error Code
 nse_nsecom_orderentry_nnf_v3_5.error_code.display = function(value)
+  -- Check if field has value
+  if value == 0 then
+    return "Error Code: No Error"
+  end
+
   return "Error Code: "..value
 end
 
@@ -2137,10 +2119,10 @@ end
 nse_nsecom_orderentry_nnf_v3_5.filler.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecom_orderentry_nnf_v3_5.filler.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecom_orderentry_nnf_v3_5.filler.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler, range, value, display)
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2160,10 +2142,10 @@ end
 nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecom_orderentry_nnf_v3_5.filler_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecom_orderentry_nnf_v3_5.filler_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_1, range, value, display)
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2183,10 +2165,10 @@ end
 nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecom_orderentry_nnf_v3_5.filler_17.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecom_orderentry_nnf_v3_5.filler_17.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_17, range, value, display)
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_17, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2206,10 +2188,10 @@ end
 nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecom_orderentry_nnf_v3_5.filler_18.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecom_orderentry_nnf_v3_5.filler_18.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_18, range, value, display)
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_18, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2229,10 +2211,10 @@ end
 nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecom_orderentry_nnf_v3_5.filler_9.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecom_orderentry_nnf_v3_5.filler_9.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_9, range, value, display)
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_9, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2252,10 +2234,10 @@ end
 nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
   local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_options_1, range, value, display)
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_options_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2275,10 +2257,10 @@ end
 nse_nsecom_orderentry_nnf_v3_5.filler_y.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecom_orderentry_nnf_v3_5.filler_y.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecom_orderentry_nnf_v3_5.filler_y.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_y, range, value, display)
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.filler_y, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2298,10 +2280,10 @@ end
 nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillerx_1, range, value, display)
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillerx_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2321,10 +2303,10 @@ end
 nse_nsecom_orderentry_nnf_v3_5.fillerx_2.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecom_orderentry_nnf_v3_5.fillerx_2.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecom_orderentry_nnf_v3_5.fillerx_2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillerx_2, range, value, display)
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillerx_2, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2344,10 +2326,10 @@ end
 nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect = function(buffer, offset, packet, parent)
   local length = nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = nse_nsecom_orderentry_nnf_v3_5.fillery_1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillery_1, range, value, display)
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.fillery_1, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -2944,6 +2926,13 @@ nse_nsecom_orderentry_nnf_v3_5.log_time.dissect = function(buffer, offset, packe
   -- protocol declares one per base and the preference picks between them
   local field = omi_nse_nsecom_orderentry_nnf_v3_5.fields.log_time
   if nse_nsecom_orderentry_nnf_v3_5.timestamp_format == 3 then field = omi_nse_nsecom_orderentry_nnf_v3_5.fields.log_time_utc end
+
+  if value == 0 then
+    -- Null: the field keeps its type, and the line says so instead
+    local item = parent:add(field, range, NSTime.new(0, 0))
+    item:set_text("Log Time: No Value")
+    return offset + length, value
+  end
 
   -- The Dos epoch is the first of January 1980, moved here onto the unix one
   local seconds = value + 315532800
@@ -5440,6 +5429,11 @@ nse_nsecom_orderentry_nnf_v3_5.time_stamp_1.size = 8
 
 -- Display: Time Stamp 1
 nse_nsecom_orderentry_nnf_v3_5.time_stamp_1.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' or value == "00000000" then
+    return "Time Stamp 1: No Value"
+  end
+
   return "Time Stamp 1: "..value
 end
 
@@ -5463,6 +5457,11 @@ nse_nsecom_orderentry_nnf_v3_5.time_stamp_2.size = 8
 
 -- Display: Time Stamp 2
 nse_nsecom_orderentry_nnf_v3_5.time_stamp_2.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' or value == "00000000" then
+    return "Time Stamp 2: No Value"
+  end
+
   return "Time Stamp 2: "..value
 end
 
@@ -5635,6 +5634,29 @@ nse_nsecom_orderentry_nnf_v3_5.total_volume_remaining.dissect = function(buffer,
   local display = nse_nsecom_orderentry_nnf_v3_5.total_volume_remaining.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.total_volume_remaining, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Book Type
+nse_nsecom_orderentry_nnf_v3_5.trade_book_type = {}
+
+-- Size: Trade Book Type
+nse_nsecom_orderentry_nnf_v3_5.trade_book_type.size = 1
+
+-- Display: Trade Book Type
+nse_nsecom_orderentry_nnf_v3_5.trade_book_type.display = function(value)
+  return "Trade Book Type: "..value
+end
+
+-- Dissect: Trade Book Type
+nse_nsecom_orderentry_nnf_v3_5.trade_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nsecom_orderentry_nnf_v3_5.trade_book_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nse_nsecom_orderentry_nnf_v3_5.trade_book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_nse_nsecom_orderentry_nnf_v3_5.fields.trade_book_type, range, value, display)
 
   return offset + length, value
 end
@@ -7321,7 +7343,11 @@ nse_nsecom_orderentry_nnf_v3_5.gr_response_message.fields = function(buffer, off
   index, broker_id = nse_nsecom_orderentry_nnf_v3_5.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecom_orderentry_nnf_v3_5.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecom_orderentry_nnf_v3_5.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler.size
+  end
 
   -- Ip Address: CHAR
   index, ip_address = nse_nsecom_orderentry_nnf_v3_5.ip_address.dissect(buffer, index, packet, parent)
@@ -8092,7 +8118,7 @@ nse_nsecom_orderentry_nnf_v3_5.trade_modify_confirm_message.size =
   nse_nsecom_orderentry_nnf_v3_5.contract_desc.size + 
   nse_nsecom_orderentry_nnf_v3_5.open_close.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_open_close.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.size + 
+  nse_nsecom_orderentry_nnf_v3_5.trade_book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.third_reserved_1.size + 
   nse_nsecom_orderentry_nnf_v3_5.new_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_account_number.size + 
@@ -8204,8 +8230,8 @@ nse_nsecom_orderentry_nnf_v3_5.trade_modify_confirm_message.fields = function(bu
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecom_orderentry_nnf_v3_5.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecom_orderentry_nnf_v3_5.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then
@@ -8596,7 +8622,7 @@ nse_nsecom_orderentry_nnf_v3_5.trade_modify_reject_message.size =
   nse_nsecom_orderentry_nnf_v3_5.contract_desc.size + 
   nse_nsecom_orderentry_nnf_v3_5.open_close.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_open_close.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.size + 
+  nse_nsecom_orderentry_nnf_v3_5.trade_book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.third_reserved_1.size + 
   nse_nsecom_orderentry_nnf_v3_5.new_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_account_number.size + 
@@ -8708,8 +8734,8 @@ nse_nsecom_orderentry_nnf_v3_5.trade_modify_reject_message.fields = function(buf
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecom_orderentry_nnf_v3_5.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecom_orderentry_nnf_v3_5.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then
@@ -8828,7 +8854,7 @@ nse_nsecom_orderentry_nnf_v3_5.trade_cancel_reject_message.size =
   nse_nsecom_orderentry_nnf_v3_5.contract_desc.size + 
   nse_nsecom_orderentry_nnf_v3_5.open_close.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_open_close.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.size + 
+  nse_nsecom_orderentry_nnf_v3_5.trade_book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.third_reserved_1.size + 
   nse_nsecom_orderentry_nnf_v3_5.new_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_account_number.size + 
@@ -8940,8 +8966,8 @@ nse_nsecom_orderentry_nnf_v3_5.trade_cancel_reject_message.fields = function(buf
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecom_orderentry_nnf_v3_5.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecom_orderentry_nnf_v3_5.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then
@@ -9060,7 +9086,7 @@ nse_nsecom_orderentry_nnf_v3_5.trade_cancel_confirm_message.size =
   nse_nsecom_orderentry_nnf_v3_5.contract_desc.size + 
   nse_nsecom_orderentry_nnf_v3_5.open_close.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_open_close.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.size + 
+  nse_nsecom_orderentry_nnf_v3_5.trade_book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.third_reserved_1.size + 
   nse_nsecom_orderentry_nnf_v3_5.new_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_account_number.size + 
@@ -9172,8 +9198,8 @@ nse_nsecom_orderentry_nnf_v3_5.trade_cancel_confirm_message.fields = function(bu
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecom_orderentry_nnf_v3_5.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecom_orderentry_nnf_v3_5.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then
@@ -9292,7 +9318,7 @@ nse_nsecom_orderentry_nnf_v3_5.trade_confirmation_message.size =
   nse_nsecom_orderentry_nnf_v3_5.contract_desc.size + 
   nse_nsecom_orderentry_nnf_v3_5.open_close.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_open_close.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.size + 
+  nse_nsecom_orderentry_nnf_v3_5.trade_book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.third_reserved_1.size + 
   nse_nsecom_orderentry_nnf_v3_5.new_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_account_number.size + 
@@ -9404,8 +9430,8 @@ nse_nsecom_orderentry_nnf_v3_5.trade_confirmation_message.fields = function(buff
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecom_orderentry_nnf_v3_5.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecom_orderentry_nnf_v3_5.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then
@@ -9524,7 +9550,7 @@ nse_nsecom_orderentry_nnf_v3_5.on_stop_notification_message.size =
   nse_nsecom_orderentry_nnf_v3_5.contract_desc.size + 
   nse_nsecom_orderentry_nnf_v3_5.open_close.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_open_close.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.size + 
+  nse_nsecom_orderentry_nnf_v3_5.trade_book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.third_reserved_1.size + 
   nse_nsecom_orderentry_nnf_v3_5.new_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.old_account_number.size + 
@@ -9636,8 +9662,8 @@ nse_nsecom_orderentry_nnf_v3_5.on_stop_notification_message.fields = function(bu
   -- Old Open Close: CHAR
   index, old_open_close = nse_nsecom_orderentry_nnf_v3_5.old_open_close.dissect(buffer, index, packet, parent)
 
-  -- Book Type Char 1: CHAR
-  index, book_type_char_1 = nse_nsecom_orderentry_nnf_v3_5.book_type_char_1.dissect(buffer, index, packet, parent)
+  -- Trade Book Type: CHAR
+  index, trade_book_type = nse_nsecom_orderentry_nnf_v3_5.trade_book_type.dissect(buffer, index, packet, parent)
 
   -- Third Reserved 1: CHAR
   if show.padding then
@@ -9769,7 +9795,11 @@ nse_nsecom_orderentry_nnf_v3_5.ms_spd_leg_info_leg_3.fields = function(buffer, o
   index, op_broker_id_2 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_2.dissect(buffer, index, packet, parent)
 
   -- Fillerx 2: CHAR
-  index, fillerx_2 = nse_nsecom_orderentry_nnf_v3_5.fillerx_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_2 = nse_nsecom_orderentry_nnf_v3_5.fillerx_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_2.size
+  end
 
   -- Order Type 2: SHORT
   index, order_type_2 = nse_nsecom_orderentry_nnf_v3_5.order_type_2.dissect(buffer, index, packet, parent)
@@ -9814,7 +9844,11 @@ nse_nsecom_orderentry_nnf_v3_5.ms_spd_leg_info_leg_3.fields = function(buffer, o
   index, giveup_flag_2 = nse_nsecom_orderentry_nnf_v3_5.giveup_flag_2.dissect(buffer, index, packet, parent)
 
   -- Filler Y: CHAR
-  index, filler_y = nse_nsecom_orderentry_nnf_v3_5.filler_y.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_y = nse_nsecom_orderentry_nnf_v3_5.filler_y.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_y.size
+  end
 
   return index
 end
@@ -9881,7 +9915,11 @@ nse_nsecom_orderentry_nnf_v3_5.ms_spd_leg_info_leg_2.fields = function(buffer, o
   index, op_broker_id_2 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_2.dissect(buffer, index, packet, parent)
 
   -- Fillerx 2: CHAR
-  index, fillerx_2 = nse_nsecom_orderentry_nnf_v3_5.fillerx_2.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_2 = nse_nsecom_orderentry_nnf_v3_5.fillerx_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_2.size
+  end
 
   -- Order Type 2: SHORT
   index, order_type_2 = nse_nsecom_orderentry_nnf_v3_5.order_type_2.dissect(buffer, index, packet, parent)
@@ -9926,7 +9964,11 @@ nse_nsecom_orderentry_nnf_v3_5.ms_spd_leg_info_leg_2.fields = function(buffer, o
   index, giveup_flag_2 = nse_nsecom_orderentry_nnf_v3_5.giveup_flag_2.dissect(buffer, index, packet, parent)
 
   -- Filler Y: CHAR
-  index, filler_y = nse_nsecom_orderentry_nnf_v3_5.filler_y.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_y = nse_nsecom_orderentry_nnf_v3_5.filler_y.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_y.size
+  end
 
   return index
 end
@@ -10023,7 +10065,11 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_error_message.fields = function(buffer
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -10035,7 +10081,11 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_error_message.fields = function(buffer
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -10056,13 +10106,25 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_error_message.fields = function(buffer
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -10153,10 +10215,18 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_error_message.fields = function(buffer
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -10291,7 +10361,11 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_error_message.fields = function(buffer
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -10303,7 +10377,11 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_error_message.fields = function(buffer
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -10324,13 +10402,25 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_error_message.fields = function(buffer
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -10421,10 +10511,18 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_error_message.fields = function(buffer
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -10559,7 +10657,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_con_out_message.fields = function(bu
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -10571,7 +10673,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_con_out_message.fields = function(bu
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -10592,13 +10698,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_con_out_message.fields = function(bu
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -10689,10 +10807,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_con_out_message.fields = function(bu
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -10827,7 +10953,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_rej_out_message.fields = function(bu
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -10839,7 +10969,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_rej_out_message.fields = function(bu
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -10860,13 +10994,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_rej_out_message.fields = function(bu
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -10957,10 +11103,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_rej_out_message.fields = function(bu
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -11095,7 +11249,11 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_cxl_confirmation_message.fields = func
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -11107,7 +11265,11 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_cxl_confirmation_message.fields = func
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -11128,13 +11290,25 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_cxl_confirmation_message.fields = func
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -11225,10 +11399,18 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_cxl_confirmation_message.fields = func
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -11363,7 +11545,11 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_cxl_confirmation_message.fields = func
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -11375,7 +11561,11 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_cxl_confirmation_message.fields = func
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -11396,13 +11586,25 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_cxl_confirmation_message.fields = func
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -11493,10 +11695,18 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_cxl_confirmation_message.fields = func
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -11631,7 +11841,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cxl_confirmation_message.fields = functi
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -11643,7 +11857,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cxl_confirmation_message.fields = functi
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -11664,13 +11882,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cxl_confirmation_message.fields = functi
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -11761,10 +11991,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cxl_confirmation_message.fields = functi
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -11899,7 +12137,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cxl_rej_out_message.fields = function(bu
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -11911,7 +12153,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cxl_rej_out_message.fields = function(bu
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -11932,13 +12178,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cxl_rej_out_message.fields = function(bu
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -12029,10 +12287,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cxl_rej_out_message.fields = function(bu
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -12167,7 +12433,11 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_confirmation_message.fields = function
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -12179,7 +12449,11 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_confirmation_message.fields = function
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -12200,13 +12474,25 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_confirmation_message.fields = function
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -12297,10 +12583,18 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_order_confirmation_message.fields = function
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -12435,7 +12729,11 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_confirmation_message.fields = function
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -12447,7 +12745,11 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_confirmation_message.fields = function
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -12468,13 +12770,25 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_confirmation_message.fields = function
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -12565,10 +12879,18 @@ nse_nsecom_orderentry_nnf_v3_5.twol_order_confirmation_message.fields = function
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -12703,7 +13025,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_confirmation_message.fields = function(b
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -12715,7 +13041,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_confirmation_message.fields = function(b
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -12736,13 +13066,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_confirmation_message.fields = function(b
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -12833,10 +13175,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_confirmation_message.fields = function(b
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -12971,7 +13321,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_out_message.fields = function(buffer
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -12983,7 +13337,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_out_message.fields = function(buffer
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -13004,13 +13362,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_out_message.fields = function(buffer
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -13101,10 +13471,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_out_message.fields = function(buffer
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -13239,7 +13617,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cancel_out_message.fields = function(buf
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -13251,7 +13633,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cancel_out_message.fields = function(buf
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -13272,13 +13658,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cancel_out_message.fields = function(buf
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -13369,10 +13767,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cancel_out_message.fields = function(buf
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -13507,7 +13913,11 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_board_lot_out_message.fields = function(buff
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -13519,7 +13929,11 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_board_lot_out_message.fields = function(buff
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -13540,13 +13954,25 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_board_lot_out_message.fields = function(buff
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -13637,10 +14063,18 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_board_lot_out_message.fields = function(buff
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -13775,7 +14209,11 @@ nse_nsecom_orderentry_nnf_v3_5.twol_board_lot_out_message.fields = function(buff
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -13787,7 +14225,11 @@ nse_nsecom_orderentry_nnf_v3_5.twol_board_lot_out_message.fields = function(buff
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -13808,13 +14250,25 @@ nse_nsecom_orderentry_nnf_v3_5.twol_board_lot_out_message.fields = function(buff
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -13905,10 +14359,18 @@ nse_nsecom_orderentry_nnf_v3_5.twol_board_lot_out_message.fields = function(buff
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -14043,7 +14505,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_board_lot_out_message.fields = function(buffer
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -14055,7 +14521,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_board_lot_out_message.fields = function(buffer
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -14076,13 +14546,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_board_lot_out_message.fields = function(buffer
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -14173,10 +14655,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_board_lot_out_message.fields = function(buffer
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -14260,7 +14750,7 @@ nse_nsecom_orderentry_nnf_v3_5.batch_order_cancel_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -14380,8 +14870,8 @@ nse_nsecom_orderentry_nnf_v3_5.batch_order_cancel_message.fields = function(buff
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -14528,7 +15018,7 @@ nse_nsecom_orderentry_nnf_v3_5.order_error_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -14648,8 +15138,8 @@ nse_nsecom_orderentry_nnf_v3_5.order_error_message.fields = function(buffer, off
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -14796,7 +15286,7 @@ nse_nsecom_orderentry_nnf_v3_5.freeze_to_control_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -14916,8 +15406,8 @@ nse_nsecom_orderentry_nnf_v3_5.freeze_to_control_message.fields = function(buffe
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -15064,7 +15554,7 @@ nse_nsecom_orderentry_nnf_v3_5.cancel_neg_order_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -15184,8 +15674,8 @@ nse_nsecom_orderentry_nnf_v3_5.cancel_neg_order_message.fields = function(buffer
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -15332,7 +15822,7 @@ nse_nsecom_orderentry_nnf_v3_5.order_cancel_confirmation_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -15452,8 +15942,8 @@ nse_nsecom_orderentry_nnf_v3_5.order_cancel_confirmation_message.fields = functi
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -15600,7 +16090,7 @@ nse_nsecom_orderentry_nnf_v3_5.order_mod_confirmation_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -15720,8 +16210,8 @@ nse_nsecom_orderentry_nnf_v3_5.order_mod_confirmation_message.fields = function(
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -15868,7 +16358,7 @@ nse_nsecom_orderentry_nnf_v3_5.order_confirmation_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -15988,8 +16478,8 @@ nse_nsecom_orderentry_nnf_v3_5.order_confirmation_message.fields = function(buff
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -16136,7 +16626,7 @@ nse_nsecom_orderentry_nnf_v3_5.order_cancel_reject_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -16256,8 +16746,8 @@ nse_nsecom_orderentry_nnf_v3_5.order_cancel_reject_message.fields = function(buf
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -16404,7 +16894,7 @@ nse_nsecom_orderentry_nnf_v3_5.order_cancel_out_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -16524,8 +17014,8 @@ nse_nsecom_orderentry_nnf_v3_5.order_cancel_out_message.fields = function(buffer
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -16672,7 +17162,7 @@ nse_nsecom_orderentry_nnf_v3_5.order_mod_reject_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -16792,8 +17282,8 @@ nse_nsecom_orderentry_nnf_v3_5.order_mod_reject_message.fields = function(buffer
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -16940,7 +17430,7 @@ nse_nsecom_orderentry_nnf_v3_5.order_mod_out_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -17060,8 +17550,8 @@ nse_nsecom_orderentry_nnf_v3_5.order_mod_out_message.fields = function(buffer, o
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -17208,7 +17698,7 @@ nse_nsecom_orderentry_nnf_v3_5.neg_order_to_bl_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -17328,8 +17818,8 @@ nse_nsecom_orderentry_nnf_v3_5.neg_order_to_bl_message.fields = function(buffer,
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -17476,7 +17966,7 @@ nse_nsecom_orderentry_nnf_v3_5.board_lot_out_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -17596,8 +18086,8 @@ nse_nsecom_orderentry_nnf_v3_5.board_lot_out_message.fields = function(buffer, o
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -19425,7 +19915,11 @@ nse_nsecom_orderentry_nnf_v3_5.gr_request_message.fields = function(buffer, offs
   index, broker_id = nse_nsecom_orderentry_nnf_v3_5.broker_id.dissect(buffer, index, packet, parent)
 
   -- Filler: CHAR
-  index, filler = nse_nsecom_orderentry_nnf_v3_5.filler.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler = nse_nsecom_orderentry_nnf_v3_5.filler.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler.size
+  end
 
   return index
 end
@@ -20138,7 +20632,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_in_message.fields = function(buffer,
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -20150,7 +20648,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_in_message.fields = function(buffer,
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -20171,13 +20673,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_in_message.fields = function(buffer,
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -20268,10 +20782,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_mod_in_message.fields = function(buffer,
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -20406,7 +20928,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cancel_in_message.fields = function(buff
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -20418,7 +20944,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cancel_in_message.fields = function(buff
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -20439,13 +20969,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cancel_in_message.fields = function(buff
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -20536,10 +21078,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_order_cancel_in_message.fields = function(buff
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -20674,7 +21224,11 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_board_lot_in_message.fields = function(buffe
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -20686,7 +21240,11 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_board_lot_in_message.fields = function(buffe
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -20707,13 +21265,25 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_board_lot_in_message.fields = function(buffe
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -20804,10 +21374,18 @@ nse_nsecom_orderentry_nnf_v3_5.thrl_board_lot_in_message.fields = function(buffe
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -20942,7 +21520,11 @@ nse_nsecom_orderentry_nnf_v3_5.twol_board_lot_in_message.fields = function(buffe
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -20954,7 +21536,11 @@ nse_nsecom_orderentry_nnf_v3_5.twol_board_lot_in_message.fields = function(buffe
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -20975,13 +21561,25 @@ nse_nsecom_orderentry_nnf_v3_5.twol_board_lot_in_message.fields = function(buffe
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -21072,10 +21670,18 @@ nse_nsecom_orderentry_nnf_v3_5.twol_board_lot_in_message.fields = function(buffe
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -21210,7 +21816,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_board_lot_in_message.fields = function(buffer,
   index, participant_type_1 = nse_nsecom_orderentry_nnf_v3_5.participant_type_1.dissect(buffer, index, packet, parent)
 
   -- Filler 1: CHAR
-  index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_1 = nse_nsecom_orderentry_nnf_v3_5.filler_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_1.size
+  end
 
   -- Competitor Period 1: SHORT
   index, competitor_period_1 = nse_nsecom_orderentry_nnf_v3_5.competitor_period_1.dissect(buffer, index, packet, parent)
@@ -21222,7 +21832,11 @@ nse_nsecom_orderentry_nnf_v3_5.sp_board_lot_in_message.fields = function(buffer,
   index, mod_cxl_by_1 = nse_nsecom_orderentry_nnf_v3_5.mod_cxl_by_1.dissect(buffer, index, packet, parent)
 
   -- Filler 9: CHAR
-  index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_9 = nse_nsecom_orderentry_nnf_v3_5.filler_9.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_9.size
+  end
 
   -- Reason Code 1: SHORT
   index, reason_code_1 = nse_nsecom_orderentry_nnf_v3_5.reason_code_1.dissect(buffer, index, packet, parent)
@@ -21243,13 +21857,25 @@ nse_nsecom_orderentry_nnf_v3_5.sp_board_lot_in_message.fields = function(buffer,
   index, op_broker_id_1 = nse_nsecom_orderentry_nnf_v3_5.op_broker_id_1.dissect(buffer, index, packet, parent)
 
   -- Fillerx 1: CHAR
-  index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillerx_1 = nse_nsecom_orderentry_nnf_v3_5.fillerx_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillerx_1.size
+  end
 
   -- Filler Options 1: CHAR
-  index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_options_1 = nse_nsecom_orderentry_nnf_v3_5.filler_options_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_options_1.size
+  end
 
   -- Fillery 1: CHAR
-  index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, fillery_1 = nse_nsecom_orderentry_nnf_v3_5.fillery_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.fillery_1.size
+  end
 
   -- Order Type 1: SHORT
   index, order_type_1 = nse_nsecom_orderentry_nnf_v3_5.order_type_1.dissect(buffer, index, packet, parent)
@@ -21340,10 +21966,18 @@ nse_nsecom_orderentry_nnf_v3_5.sp_board_lot_in_message.fields = function(buffer,
   end
 
   -- Filler 17: CHAR
-  index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_17 = nse_nsecom_orderentry_nnf_v3_5.filler_17.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_17.size
+  end
 
   -- Filler 18: CHAR
-  index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  if show.padding then
+    index, filler_18 = nse_nsecom_orderentry_nnf_v3_5.filler_18.dissect(buffer, index, packet, parent)
+  else
+    index = index + nse_nsecom_orderentry_nnf_v3_5.filler_18.size
+  end
 
   -- Nnf Field: DOUBLE
   index, nnf_field = nse_nsecom_orderentry_nnf_v3_5.nnf_field.dissect(buffer, index, packet, parent)
@@ -21507,7 +22141,7 @@ nse_nsecom_orderentry_nnf_v3_5.order_cancel_in_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -21627,8 +22261,8 @@ nse_nsecom_orderentry_nnf_v3_5.order_cancel_in_message.fields = function(buffer,
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -21775,7 +22409,7 @@ nse_nsecom_orderentry_nnf_v3_5.order_mod_in_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -21895,8 +22529,8 @@ nse_nsecom_orderentry_nnf_v3_5.order_mod_in_message.fields = function(buffer, of
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
@@ -22043,7 +22677,7 @@ nse_nsecom_orderentry_nnf_v3_5.board_lot_in_message.size =
   nse_nsecom_orderentry_nnf_v3_5.order_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.order_number.size + 
   nse_nsecom_orderentry_nnf_v3_5.account_number.size + 
-  nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.size + 
+  nse_nsecom_orderentry_nnf_v3_5.book_type.size + 
   nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume.size + 
   nse_nsecom_orderentry_nnf_v3_5.disclosed_volume_remaining.size + 
@@ -22163,8 +22797,8 @@ nse_nsecom_orderentry_nnf_v3_5.board_lot_in_message.fields = function(buffer, of
   -- Account Number: CHAR
   index, account_number = nse_nsecom_orderentry_nnf_v3_5.account_number.dissect(buffer, index, packet, parent)
 
-  -- Book Type Short 2: SHORT
-  index, book_type_short_2 = nse_nsecom_orderentry_nnf_v3_5.book_type_short_2.dissect(buffer, index, packet, parent)
+  -- Book Type: SHORT
+  index, book_type = nse_nsecom_orderentry_nnf_v3_5.book_type.dissect(buffer, index, packet, parent)
 
   -- Buy Sell Indicator: SHORT
   index, buy_sell_indicator = nse_nsecom_orderentry_nnf_v3_5.buy_sell_indicator.dissect(buffer, index, packet, parent)
