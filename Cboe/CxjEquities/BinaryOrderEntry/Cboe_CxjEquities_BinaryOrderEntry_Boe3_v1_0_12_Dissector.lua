@@ -242,7 +242,7 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.base_liquidity_indicator.size = 1
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.base_liquidity_indicator.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Base Liquidity Indicator: No Value"
+    return "Base Liquidity Indicator: N/A"
   end
 
   if value == "A" then
@@ -288,7 +288,7 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.cancel_orig_on_reject.size = 1
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.cancel_orig_on_reject.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Cancel Orig On Reject: No Value"
+    return "Cancel Orig On Reject: Apply Port Default"
   end
 
   if value == "Y" then
@@ -1096,7 +1096,7 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.margin_transaction_type.size = 1
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.margin_transaction_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Margin Transaction Type: No Value"
+    return "Margin Transaction Type: None"
   end
 
   if value == "1" then
@@ -1348,7 +1348,7 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.no_trade_feat.size = 1
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.no_trade_feat.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "No Trade Feat: No Value"
+    return "No Trade Feat: Apply The Port Default"
   end
 
   if value == "U" then
@@ -1511,7 +1511,7 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_classification.size = 1
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.order_classification.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Order Classification: No Value"
+    return "Order Classification: Not Specified"
   end
 
   if value == "1" then
@@ -1775,7 +1775,7 @@ cboe_cxjequities_binaryorderentry_boe3_v1_0_12.posting_instruction.size = 1
 cboe_cxjequities_binaryorderentry_boe3_v1_0_12.posting_instruction.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Posting Instruction: No Value"
+    return "Posting Instruction: Allow Taking"
   end
 
   if value == "P" then

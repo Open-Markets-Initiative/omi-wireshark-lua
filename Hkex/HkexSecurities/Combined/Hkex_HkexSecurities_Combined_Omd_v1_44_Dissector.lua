@@ -1070,7 +1070,7 @@ hkex_hkexsecurities_combined_omd_v1_44.delisting_date.size = 4
 hkex_hkexsecurities_combined_omd_v1_44.delisting_date.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Delisting Date: No Value"
+    return "Delisting Date: No Date"
   end
 
   local year = math.floor(value / 10000)
@@ -2166,7 +2166,7 @@ hkex_hkexsecurities_combined_omd_v1_44.listing_date.size = 4
 hkex_hkexsecurities_combined_omd_v1_44.listing_date.display = function(value)
   -- Check if field has value
   if value == 19000101 then
-    return "Listing Date: No Value"
+    return "Listing Date: Unknown"
   end
 
   local year = math.floor(value / 10000)

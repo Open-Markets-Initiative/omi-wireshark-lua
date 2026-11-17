@@ -278,7 +278,7 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.base_liquidity_indicator.size = 1
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.base_liquidity_indicator.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Base Liquidity Indicator: No Value"
+    return "Base Liquidity Indicator: N/A"
   end
 
   if value == "A" then
@@ -327,7 +327,7 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.broker_preferencing.size = 1
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.broker_preferencing.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Broker Preferencing: No Value"
+    return "Broker Preferencing: Apply Port Default"
   end
 
   if value == "Y" then
@@ -373,7 +373,7 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.cancel_orig_on_reject.size = 1
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.cancel_orig_on_reject.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Cancel Orig On Reject: No Value"
+    return "Cancel Orig On Reject: Apply Port Default"
   end
 
   if value == "Y" then
@@ -1913,7 +1913,7 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.no_trade_feat.size = 1
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.no_trade_feat.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "No Trade Feat: No Value"
+    return "No Trade Feat: Apply The Port Default"
   end
 
   if value == "U" then
@@ -2039,7 +2039,7 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.on_market_cross_type.size = 1
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.on_market_cross_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "On Market Cross Type: No Value"
+    return "On Market Cross Type: Other"
   end
 
   if value == "B" then
@@ -3035,7 +3035,7 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.sub_liquidity_indicator.size = 1
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.sub_liquidity_indicator.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Sub Liquidity Indicator: No Value"
+    return "Sub Liquidity Indicator: No Additional Information"
   end
 
   if value == "I" then
@@ -3249,7 +3249,7 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.trade_report_type.size = 1
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.trade_report_type.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Trade Report Type: No Value"
+    return "Trade Report Type: Normal Trade"
   end
 
   if value == "X" then

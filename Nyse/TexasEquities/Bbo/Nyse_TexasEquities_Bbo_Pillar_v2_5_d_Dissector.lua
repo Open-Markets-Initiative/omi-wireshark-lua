@@ -2091,7 +2091,7 @@ nyse_texasequities_bbo_pillar_v2_5_d.time.size = 4
 nyse_texasequities_bbo_pillar_v2_5_d.time.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Time: No Value"
+    return "Time: Not Applicable"
   end
 
   local hour = math.floor(value / 10000000)

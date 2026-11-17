@@ -953,7 +953,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.cancel_orig_on_reject.size = 1
 cboe_neoequities_orderentry_boe3_v1_0_19.cancel_orig_on_reject.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Cancel Orig On Reject: No Value"
+    return "Cancel Orig On Reject: Apply Port Default"
   end
 
   if value == "N" then
@@ -1673,7 +1673,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.exec_inst.size = 1
 cboe_neoequities_orderentry_boe3_v1_0_19.exec_inst.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Exec Inst: No Value"
+    return "Exec Inst: No ExecInst"
   end
 
   if value == "M" then
@@ -3924,7 +3924,7 @@ cboe_neoequities_orderentry_boe3_v1_0_19.short_marking_exempt.size = 1
 cboe_neoequities_orderentry_boe3_v1_0_19.short_marking_exempt.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Short Marking Exempt: No Value"
+    return "Short Marking Exempt: Not Short Marking Exempt"
   end
 
   if value == "0" then

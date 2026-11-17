@@ -251,7 +251,7 @@ jpx_fseequities_marketbyorder_flex_v1_3.best_bid.size = 8
 jpx_fseequities_marketbyorder_flex_v1_3.best_bid.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x00000000) then
-    return "Best Bid: No Value"
+    return "Best Bid: No Best Bid"
   end
 
   return "Best Bid: "..value
@@ -290,7 +290,7 @@ jpx_fseequities_marketbyorder_flex_v1_3.best_offer.size = 8
 jpx_fseequities_marketbyorder_flex_v1_3.best_offer.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x00000000) then
-    return "Best Offer: No Value"
+    return "Best Offer: No Best Offer"
   end
 
   return "Best Offer: "..value
@@ -857,7 +857,7 @@ jpx_fseequities_marketbyorder_flex_v1_3.price.size = 8
 jpx_fseequities_marketbyorder_flex_v1_3.price.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Price: No Value"
+    return "Price: Market Order"
   end
 
   return "Price: "..value
@@ -1193,7 +1193,7 @@ jpx_fseequities_marketbyorder_flex_v1_3.stq_reference_price.size = 8
 jpx_fseequities_marketbyorder_flex_v1_3.stq_reference_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x00000000) then
-    return "Stq Reference Price: No Value"
+    return "Stq Reference Price: No Stq Reference Price"
   end
 
   return "Stq Reference Price: "..value

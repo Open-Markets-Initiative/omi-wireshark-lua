@@ -521,7 +521,7 @@ bme_bmeequities_retail_bmegate_v1_6.ask_px_1.size = 8
 bme_bmeequities_retail_bmegate_v1_6.ask_px_1.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Ask Px 1: No Value"
+    return "Ask Px 1: Market Orders"
   end
 
   return "Ask Px 1: "..value
@@ -918,7 +918,7 @@ bme_bmeequities_retail_bmegate_v1_6.bid_px_1.size = 8
 bme_bmeequities_retail_bmegate_v1_6.bid_px_1.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Bid Px 1: No Value"
+    return "Bid Px 1: Market Orders"
   end
 
   return "Bid Px 1: "..value
@@ -2224,7 +2224,7 @@ bme_bmeequities_retail_bmegate_v1_6.issuer.size = 12
 bme_bmeequities_retail_bmegate_v1_6.issuer.display = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Issuer: No Value"
+    return "Issuer: Not Specified"
   end
 
   return "Issuer: "..value

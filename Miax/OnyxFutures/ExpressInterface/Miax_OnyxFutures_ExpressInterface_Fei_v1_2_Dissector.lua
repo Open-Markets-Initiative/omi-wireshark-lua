@@ -1373,7 +1373,7 @@ miax_onyxfutures_expressinterface_fei_v1_2.order_expiry_date.size = 2
 miax_onyxfutures_expressinterface_fei_v1_2.order_expiry_date.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Order Expiry Date: No Value"
+    return "Order Expiry Date: Not Applicable"
   end
 
   return string.format("Order Expiry Date: %s", os.date("!%Y-%m-%d", value * 86400))

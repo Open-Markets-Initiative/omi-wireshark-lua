@@ -2816,7 +2816,7 @@ nyse_amexequities_integratedfeed_xdp_v2_1_g.time.size = 4
 nyse_amexequities_integratedfeed_xdp_v2_1_g.time.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Time: No Value"
+    return "Time: Not Applicable"
   end
 
   local hour = math.floor(value / 10000000)

@@ -216,7 +216,7 @@ pse_pseequities_news_itch_v2_3.delisting_date.size = 4
 pse_pseequities_news_itch_v2_3.delisting_date.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Delisting Date: No Value"
+    return "Delisting Date: No Delisting Date"
   end
 
   local year = math.floor(value / 10000)

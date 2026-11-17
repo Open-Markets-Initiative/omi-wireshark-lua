@@ -2788,7 +2788,7 @@ nyse_arcaoptions_complexfeed_pillar_v1_0_d.time.size = 4
 nyse_arcaoptions_complexfeed_pillar_v1_0_d.time.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Time: No Value"
+    return "Time: Not Applicable"
   end
 
   local hour = math.floor(value / 10000000)

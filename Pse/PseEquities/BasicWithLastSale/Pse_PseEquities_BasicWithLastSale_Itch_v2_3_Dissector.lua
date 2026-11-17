@@ -484,7 +484,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.delisting_date.size = 4
 pse_pseequities_basicwithlastsale_itch_v2_3.delisting_date.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Delisting Date: No Value"
+    return "Delisting Date: No Delisting Date"
   end
 
   local year = math.floor(value / 10000)
@@ -1562,7 +1562,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.scaled_best_bid_price.composite = fu
   local mantissa = range:uint()
 
   if mantissa == 2147483647 then
-    local field_tree = parent:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.scaled_best_bid_price, range, 0/0, "Scaled Best Bid Price: No Value")
+    local field_tree = parent:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.scaled_best_bid_price, range, 0/0, "Scaled Best Bid Price: No Bid Depth")
     local mantissa_display = pse_pseequities_basicwithlastsale_itch_v2_3.best_bid_price.display(mantissa)
 
     field_tree:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.best_bid_price, range, mantissa, mantissa_display)
@@ -1610,7 +1610,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.scaled_best_offer_price.composite = 
   local mantissa = range:uint()
 
   if mantissa == 2147483647 then
-    local field_tree = parent:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.scaled_best_offer_price, range, 0/0, "Scaled Best Offer Price: No Value")
+    local field_tree = parent:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.scaled_best_offer_price, range, 0/0, "Scaled Best Offer Price: No Offer Depth")
     local mantissa_display = pse_pseequities_basicwithlastsale_itch_v2_3.best_offer_price.display(mantissa)
 
     field_tree:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.best_offer_price, range, mantissa, mantissa_display)
@@ -1732,7 +1732,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.scaled_cb_limit_up.dissect = functio
   local cb_limit_decimals = buffer(offset + length + pse_pseequities_basicwithlastsale_itch_v2_3.cb_limit_down.size, pse_pseequities_basicwithlastsale_itch_v2_3.cb_limit_decimals.size):uint()
 
   if mantissa == 0 then
-    local field_tree = parent:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.scaled_cb_limit_up, range, 0/0, "Scaled CB Limit Up: No Value")
+    local field_tree = parent:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.scaled_cb_limit_up, range, 0/0, "Scaled CB Limit Up: No Limit")
     field_tree:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.cb_limit_up, range, mantissa, pse_pseequities_basicwithlastsale_itch_v2_3.cb_limit_up.display(mantissa))
 
     return offset + length, 0/0
@@ -1839,7 +1839,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.scaled_high_collar.composite = funct
   local mantissa = range:uint()
 
   if mantissa == 2147483647 then
-    local field_tree = parent:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.scaled_high_collar, range, 0/0, "Scaled High Collar: No Value")
+    local field_tree = parent:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.scaled_high_collar, range, 0/0, "Scaled High Collar: No Limit")
     local mantissa_display = pse_pseequities_basicwithlastsale_itch_v2_3.high_collar.display(mantissa)
 
     field_tree:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.high_collar, range, mantissa, mantissa_display)
@@ -1887,7 +1887,7 @@ pse_pseequities_basicwithlastsale_itch_v2_3.scaled_low_collar.composite = functi
   local mantissa = range:uint()
 
   if mantissa == 2147483647 then
-    local field_tree = parent:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.scaled_low_collar, range, 0/0, "Scaled Low Collar: No Value")
+    local field_tree = parent:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.scaled_low_collar, range, 0/0, "Scaled Low Collar: No Limit")
     local mantissa_display = pse_pseequities_basicwithlastsale_itch_v2_3.low_collar.display(mantissa)
 
     field_tree:add(omi_pse_pseequities_basicwithlastsale_itch_v2_3.fields.low_collar, range, mantissa, mantissa_display)

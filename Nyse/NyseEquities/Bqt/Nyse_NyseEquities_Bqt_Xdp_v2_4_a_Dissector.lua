@@ -2898,7 +2898,7 @@ nyse_nyseequities_bqt_xdp_v2_4_a.time.size = 4
 nyse_nyseequities_bqt_xdp_v2_4_a.time.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Time: No Value"
+    return "Time: Not Applicable"
   end
 
   local hour = math.floor(value / 10000000)

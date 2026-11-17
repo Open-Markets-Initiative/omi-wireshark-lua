@@ -1707,7 +1707,7 @@ koscom_mdcsrealtime_derivativesa_exture_v2_018.bis_yield_ratio.display = functio
   local text = format_decimal_text(raw)
 
   if text == nil then
-    return "Bis Yield Ratio: No Value"
+    return "Bis Yield Ratio: Not Announced"
   end
 
   local point = text:find(".", 1, true)

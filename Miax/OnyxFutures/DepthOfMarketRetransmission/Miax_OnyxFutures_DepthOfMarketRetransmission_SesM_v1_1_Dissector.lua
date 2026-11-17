@@ -275,7 +275,7 @@ miax_onyxfutures_depthofmarketretransmission_sesm_v1_1.anticipated_opening_price
 miax_onyxfutures_depthofmarketretransmission_sesm_v1_1.anticipated_opening_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
-    return "Anticipated Opening Price: No Value"
+    return "Anticipated Opening Price: No Opening Price"
   end
 
   return "Anticipated Opening Price: "..value
@@ -1276,7 +1276,7 @@ miax_onyxfutures_depthofmarketretransmission_sesm_v1_1.option_strike_price.size 
 miax_onyxfutures_depthofmarketretransmission_sesm_v1_1.option_strike_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
-    return "Option Strike Price: No Value"
+    return "Option Strike Price: Not An Option"
   end
 
   return "Option Strike Price: "..value

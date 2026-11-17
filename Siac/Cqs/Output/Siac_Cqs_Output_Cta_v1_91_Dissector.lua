@@ -267,7 +267,7 @@ siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.size = 8
 siac_cqs_output_cta_v1_91.auction_collar_lower_threshold_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x00000000) then
-    return "Auction Collar Lower Threshold Price: No Value"
+    return "Auction Collar Lower Threshold Price: Not Populated"
   end
 
   return "Auction Collar Lower Threshold Price: "..value
@@ -306,7 +306,7 @@ siac_cqs_output_cta_v1_91.auction_collar_reference_price.size = 8
 siac_cqs_output_cta_v1_91.auction_collar_reference_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x00000000) then
-    return "Auction Collar Reference Price: No Value"
+    return "Auction Collar Reference Price: Not Populated"
   end
 
   return "Auction Collar Reference Price: "..value
@@ -345,7 +345,7 @@ siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.size = 8
 siac_cqs_output_cta_v1_91.auction_collar_upper_threshold_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == UInt64(0x00000000, 0x00000000) then
-    return "Auction Collar Upper Threshold Price: No Value"
+    return "Auction Collar Upper Threshold Price: Not Populated"
   end
 
   return "Auction Collar Upper Threshold Price: "..value

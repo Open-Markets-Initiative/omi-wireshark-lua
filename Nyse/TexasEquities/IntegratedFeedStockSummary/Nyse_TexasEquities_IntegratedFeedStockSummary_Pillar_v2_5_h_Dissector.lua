@@ -1772,7 +1772,7 @@ nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_h.time.size = 4
 nyse_texasequities_integratedfeedstocksummary_pillar_v2_5_h.time.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Time: No Value"
+    return "Time: Not Applicable"
   end
 
   local hour = math.floor(value / 10000000)

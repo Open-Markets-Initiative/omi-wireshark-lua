@@ -3721,7 +3721,7 @@ cboe_edgaequities_binaryorderentry_boe3_v1_0_14.sub_liquidity_indicator.size = 1
 cboe_edgaequities_binaryorderentry_boe3_v1_0_14.sub_liquidity_indicator.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Sub Liquidity Indicator: No Value"
+    return "Sub Liquidity Indicator: No Additional Information"
   end
 
   if value == "E" then

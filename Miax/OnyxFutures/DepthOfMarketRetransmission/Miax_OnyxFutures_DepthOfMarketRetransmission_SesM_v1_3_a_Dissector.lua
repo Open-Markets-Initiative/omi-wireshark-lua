@@ -284,7 +284,7 @@ miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.anticipated_opening_pri
 miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.anticipated_opening_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
-    return "Anticipated Opening Price: No Value"
+    return "Anticipated Opening Price: No Opening Price"
   end
 
   return "Anticipated Opening Price: "..value
@@ -626,7 +626,7 @@ miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.high_limit_price.size =
 miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.high_limit_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
-    return "High Limit Price: No Value"
+    return "High Limit Price: No Limit"
   end
 
   return "High Limit Price: "..value
@@ -1011,7 +1011,7 @@ miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.low_limit_price.size = 
 miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.low_limit_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x589C0001, 0xF21F494C) then
-    return "Low Limit Price: No Value"
+    return "Low Limit Price: No Limit"
   end
 
   return "Low Limit Price: "..value
@@ -1336,7 +1336,7 @@ miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.option_strike_price.siz
 miax_onyxfutures_depthofmarketretransmission_sesm_v1_3_a.option_strike_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
-    return "Option Strike Price: No Value"
+    return "Option Strike Price: Not An Option"
   end
 
   return "Option Strike Price: "..value

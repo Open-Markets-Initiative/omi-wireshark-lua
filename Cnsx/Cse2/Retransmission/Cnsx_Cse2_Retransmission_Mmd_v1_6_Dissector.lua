@@ -728,7 +728,7 @@ cnsx_cse2_retransmission_mmd_v1_6.expiry.size = 8
 cnsx_cse2_retransmission_mmd_v1_6.expiry.display = function(value)
   -- Check if field has value
   if value == UInt64(0x00000000, 0x00000000) then
-    return "Expiry: No Value"
+    return "Expiry: None"
   end
 
   local year = math.floor(value / 10000)
@@ -879,7 +879,7 @@ cnsx_cse2_retransmission_mmd_v1_6.listing.size = 8
 cnsx_cse2_retransmission_mmd_v1_6.listing.display = function(value)
   -- Check if field has value
   if value == UInt64(0x00000000, 0x00000000) then
-    return "Listing: No Value"
+    return "Listing: None"
   end
 
   local year = math.floor(value / 10000)

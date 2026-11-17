@@ -243,7 +243,7 @@ miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price.size = 8
 miax_onyxfutures_depthofmarket_mach_v1_0_b.anticipated_opening_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
-    return "Anticipated Opening Price: No Value"
+    return "Anticipated Opening Price: No Opening Price"
   end
 
   return "Anticipated Opening Price: "..value

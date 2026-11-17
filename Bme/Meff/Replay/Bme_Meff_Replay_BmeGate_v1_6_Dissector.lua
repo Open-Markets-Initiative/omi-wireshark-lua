@@ -616,7 +616,7 @@ bme_meff_replay_bmegate_v1_6.ask_px_1.size = 8
 bme_meff_replay_bmegate_v1_6.ask_px_1.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Ask Px 1: No Value"
+    return "Ask Px 1: Market Orders"
   end
 
   return "Ask Px 1: "..value
@@ -655,7 +655,7 @@ bme_meff_replay_bmegate_v1_6.ask_px_2.size = 8
 bme_meff_replay_bmegate_v1_6.ask_px_2.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Ask Px 2: No Value"
+    return "Ask Px 2: Market Orders"
   end
 
   return "Ask Px 2: "..value
@@ -694,7 +694,7 @@ bme_meff_replay_bmegate_v1_6.ask_px_3.size = 8
 bme_meff_replay_bmegate_v1_6.ask_px_3.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Ask Px 3: No Value"
+    return "Ask Px 3: Market Orders"
   end
 
   return "Ask Px 3: "..value
@@ -733,7 +733,7 @@ bme_meff_replay_bmegate_v1_6.ask_px_4.size = 8
 bme_meff_replay_bmegate_v1_6.ask_px_4.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Ask Px 4: No Value"
+    return "Ask Px 4: Market Orders"
   end
 
   return "Ask Px 4: "..value
@@ -772,7 +772,7 @@ bme_meff_replay_bmegate_v1_6.ask_px_5.size = 8
 bme_meff_replay_bmegate_v1_6.ask_px_5.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Ask Px 5: No Value"
+    return "Ask Px 5: Market Orders"
   end
 
   return "Ask Px 5: "..value
@@ -1149,7 +1149,7 @@ bme_meff_replay_bmegate_v1_6.bid_px_1.size = 8
 bme_meff_replay_bmegate_v1_6.bid_px_1.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Bid Px 1: No Value"
+    return "Bid Px 1: Market Orders"
   end
 
   return "Bid Px 1: "..value
@@ -1188,7 +1188,7 @@ bme_meff_replay_bmegate_v1_6.bid_px_2.size = 8
 bme_meff_replay_bmegate_v1_6.bid_px_2.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Bid Px 2: No Value"
+    return "Bid Px 2: Market Orders"
   end
 
   return "Bid Px 2: "..value
@@ -1227,7 +1227,7 @@ bme_meff_replay_bmegate_v1_6.bid_px_3.size = 8
 bme_meff_replay_bmegate_v1_6.bid_px_3.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Bid Px 3: No Value"
+    return "Bid Px 3: Market Orders"
   end
 
   return "Bid Px 3: "..value
@@ -1266,7 +1266,7 @@ bme_meff_replay_bmegate_v1_6.bid_px_4.size = 8
 bme_meff_replay_bmegate_v1_6.bid_px_4.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Bid Px 4: No Value"
+    return "Bid Px 4: Market Orders"
   end
 
   return "Bid Px 4: "..value
@@ -1305,7 +1305,7 @@ bme_meff_replay_bmegate_v1_6.bid_px_5.size = 8
 bme_meff_replay_bmegate_v1_6.bid_px_5.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x00000000, 0x80000000) then
-    return "Bid Px 5: No Value"
+    return "Bid Px 5: Market Orders"
   end
 
   return "Bid Px 5: "..value

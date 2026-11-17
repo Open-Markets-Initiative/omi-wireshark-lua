@@ -753,7 +753,7 @@ hkex_hkexderivatives_standardrefresh_omd_v2_0.effective_last_trading_date.size =
 hkex_hkexderivatives_standardrefresh_omd_v2_0.effective_last_trading_date.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Effective Last Trading Date: No Value"
+    return "Effective Last Trading Date: Not Available"
   end
 
   local year = math.floor(value / 10000)
@@ -996,7 +996,7 @@ hkex_hkexderivatives_standardrefresh_omd_v2_0.first_trading_date.size = 4
 hkex_hkexderivatives_standardrefresh_omd_v2_0.first_trading_date.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "First Trading Date: No Value"
+    return "First Trading Date: Not Available"
   end
 
   local year = math.floor(value / 10000)

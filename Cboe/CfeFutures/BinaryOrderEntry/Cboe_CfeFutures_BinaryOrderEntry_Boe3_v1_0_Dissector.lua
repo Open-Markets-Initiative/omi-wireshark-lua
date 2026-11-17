@@ -1118,7 +1118,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.cust_order_handling_inst.size = 1
 cboe_cfefutures_binaryorderentry_boe3_v1_0.cust_order_handling_inst.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Cust Order Handling Inst: No Value"
+    return "Cust Order Handling Inst: Apply Default"
   end
 
   if value == "W" then
@@ -2394,7 +2394,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.open_close.size = 1
 cboe_cfefutures_binaryorderentry_boe3_v1_0.open_close.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Open Close: No Value"
+    return "Open Close: None"
   end
 
   if value == "O" then
@@ -3708,7 +3708,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.size_modifier.size = 1
 cboe_cfefutures_binaryorderentry_boe3_v1_0.size_modifier.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Size Modifier: No Value"
+    return "Size Modifier: New Quote Size"
   end
 
   if value == "R" then
@@ -3803,7 +3803,7 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.sub_liquidity_indicator.size = 1
 cboe_cfefutures_binaryorderentry_boe3_v1_0.sub_liquidity_indicator.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Sub Liquidity Indicator: No Value"
+    return "Sub Liquidity Indicator: No Additional Information"
   end
 
   if value == "C" then

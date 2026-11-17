@@ -538,7 +538,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.size = 8
 miax_onyxfutures_topofmarket_mach_v1_0_b.mbb_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x589C0001, 0xF21F494C) then
-    return "Mbb Price: No Value"
+    return "Mbb Price: No Interest"
   end
 
   return "Mbb Price: "..value
@@ -600,7 +600,7 @@ miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.size = 8
 miax_onyxfutures_topofmarket_mach_v1_0_b.mbo_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
-    return "Mbo Price: No Value"
+    return "Mbo Price: No Interest"
   end
 
   return "Mbo Price: "..value

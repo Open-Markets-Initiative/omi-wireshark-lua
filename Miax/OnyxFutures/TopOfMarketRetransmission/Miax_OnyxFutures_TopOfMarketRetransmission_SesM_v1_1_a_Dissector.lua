@@ -960,7 +960,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.mbb_price.size = 8
 miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.mbb_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0x589C0001, 0xF21F494C) then
-    return "Mbb Price: No Value"
+    return "Mbb Price: No Interest"
   end
 
   return "Mbb Price: "..value
@@ -1022,7 +1022,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.mbo_price.size = 8
 miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.mbo_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
-    return "Mbo Price: No Value"
+    return "Mbo Price: No Interest"
   end
 
   return "Mbo Price: "..value
@@ -1243,7 +1243,7 @@ miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.option_strike_price.size 
 miax_onyxfutures_topofmarketretransmission_sesm_v1_1_a.option_strike_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == Int64(0xA763FFFF, 0x0DE0B6B3) then
-    return "Option Strike Price: No Value"
+    return "Option Strike Price: Not An Option"
   end
 
   return "Option Strike Price: "..value

@@ -1594,7 +1594,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.quote_condition.size = 1
 nyse_nyseequities_bqt_xdp_v2_1_a.quote_condition.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Quote Condition: No Value"
+    return "Quote Condition: Empty Quote"
   end
 
   if value == "C" then
@@ -2664,7 +2664,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.time.size = 4
 nyse_nyseequities_bqt_xdp_v2_1_a.time.display = function(value)
   -- Check if field has value
   if value == 0 then
-    return "Time: No Value"
+    return "Time: Not Applicable"
   end
 
   local hour = math.floor(value / 10000000)

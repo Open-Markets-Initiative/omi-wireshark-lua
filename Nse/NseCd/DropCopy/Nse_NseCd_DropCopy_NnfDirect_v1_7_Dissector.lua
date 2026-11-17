@@ -1832,7 +1832,7 @@ nse_nsecd_dropcopy_nnfdirect_v1_7.strike_price.size = 4
 nse_nsecd_dropcopy_nnfdirect_v1_7.strike_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == -1 then
-    return "Strike Price: No Value"
+    return "Strike Price: Futures Contract"
   end
 
   return "Strike Price: "..value

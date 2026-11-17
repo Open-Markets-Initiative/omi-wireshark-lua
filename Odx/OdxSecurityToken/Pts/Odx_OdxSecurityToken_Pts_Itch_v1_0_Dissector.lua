@@ -439,7 +439,7 @@ odx_odxsecuritytoken_pts_itch_v1_0.equilibrium_price.size = 4
 odx_odxsecuritytoken_pts_itch_v1_0.equilibrium_price.display = function(raw, value)
   -- Check null sentinel value
   if raw == 2147483647 then
-    return "Equilibrium Price: No Value"
+    return "Equilibrium Price: No Price Available"
   end
 
   return "Equilibrium Price: "..value
@@ -810,7 +810,7 @@ odx_odxsecuritytoken_pts_itch_v1_0.price.size = 4
 odx_odxsecuritytoken_pts_itch_v1_0.price.display = function(raw, value)
   -- Check null sentinel value
   if raw == 2147483647 then
-    return "Price: No Value"
+    return "Price: Market Order"
   end
 
   return "Price: "..value

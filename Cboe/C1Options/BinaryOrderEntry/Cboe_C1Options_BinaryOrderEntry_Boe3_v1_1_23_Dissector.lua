@@ -5868,7 +5868,7 @@ cboe_c1options_binaryorderentry_boe3_v1_1_23.size_modifier.size = 1
 cboe_c1options_binaryorderentry_boe3_v1_1_23.size_modifier.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Size Modifier: No Value"
+    return "Size Modifier: New Quote Size"
   end
 
   if value == "R" then
@@ -6122,7 +6122,7 @@ cboe_c1options_binaryorderentry_boe3_v1_1_23.sub_liquidity_indicator.size = 1
 cboe_c1options_binaryorderentry_boe3_v1_1_23.sub_liquidity_indicator.display = function(value)
   -- Check if field has value
   if value == nil or value == 0 then
-    return "Sub Liquidity Indicator: No Value"
+    return "Sub Liquidity Indicator: No Additional Information"
   end
 
   if value == "S" then
