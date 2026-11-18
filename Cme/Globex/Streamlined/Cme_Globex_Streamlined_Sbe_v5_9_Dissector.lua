@@ -261,7 +261,7 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_currency_3 = ProtoFie
 omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_qty_decimal = ProtoField.new("Unit Of Measure Qty Decimal", "cme.globex.streamlined.sbe.v5.9.unitofmeasureqtydecimal", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_qty_decimal_optional = ProtoField.new("Unit Of Measure Qty Decimal Optional", "cme.globex.streamlined.sbe.v5.9.unitofmeasureqtydecimaloptional", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_qty_optional = ProtoField.new("Unit Of Measure Qty Optional", "cme.globex.streamlined.sbe.v5.9.unitofmeasureqtyoptional", ftypes.DOUBLE, nil, nil, nil, "This field contains the notional value for each instrument. The notional value is equivalent to the corresponding premium-quoted contract")
-omi_cme_globex_streamlined_sbe_v5_9.fields.unused_3 = ProtoField.new("Unused 3", "cme.globex.streamlined.sbe.v5.9.unused3", ftypes.UINT8, nil, base.DEC, 0x70, "3 unused bits")
+omi_cme_globex_streamlined_sbe_v5_9.fields.unused_bits_4_to_6 = ProtoField.new("Unused Bits 4 To 6", "cme.globex.streamlined.sbe.v5.9.unusedbits4to6", ftypes.UINT8, nil, base.DEC, 0x70, "3 unused bits")
 omi_cme_globex_streamlined_sbe_v5_9.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.globex.streamlined.sbe.v5.9.userdefinedinstrument", ftypes.STRING, nil, nil, nil, "Identifies user-defined instruments. If the tag is not present, the instrument is not user-defined.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.version = ProtoField.new("Version", "cme.globex.streamlined.sbe.v5.9.version", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.vol_type = ProtoField.new("Vol Type", "cme.globex.streamlined.sbe.v5.9.voltype", ftypes.UINT16, nil, nil, nil, "Volume types for end of day volume")
@@ -12136,8 +12136,8 @@ cme_globex_streamlined_sbe_v5_9.settl_price_type.bits = function(range, value, p
   -- Reserved Bits: 1 Bit
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.reserved_bits, range, value)
 
-  -- Unused 3: 3 Bit
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.unused_3, range, value)
+  -- Unused Bits 4 To 6: 3 Bit
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.unused_bits_4_to_6, range, value)
 
   -- Null Value: 1 Bit
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.null_value, range, value)

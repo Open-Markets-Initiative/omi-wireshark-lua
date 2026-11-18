@@ -6592,7 +6592,7 @@ end
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet_body = {}
 
 -- Dissect: Packet Body
-szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet_body.dissect = function(buffer, offset, packet, parent, channel, msg_count, flag, msg_count)
+szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet_body.dissect = function(buffer, offset, packet, parent, channel, msg_count, flag)
   -- Dissect Multicast Heartbeat
   if channel == 0 then
     return szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.multicast_heartbeat.dissect(buffer, offset, packet, parent)
@@ -6834,11 +6834,15 @@ end
 -- Dissect Packet
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet.dissect = function(buffer, packet, parent)
   local index = 0
-  local flag = buffer(18, 2):uint()
-  local msg_count = buffer(16, 2):uint()
 
   -- Packet Header: Struct of 13 fields
   index, packet_header = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Flag
+  local flag = buffer(18, 2):uint()
+
+  -- Dependency element: Msg Count
+  local msg_count = buffer(16, 2):uint()
 
   -- Dependency element: Channel
   local channel = buffer(offset + 6, 2):uint()
@@ -6847,7 +6851,7 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet.dissect = functi
   local msg_count = buffer(offset + 16, 2):uint()
 
   -- Packet Body: Runtime Type with 4 branches
-  index = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet_body.dissect(buffer, index, packet, parent, channel, msg_count, flag, msg_count)
+  index = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet_body.dissect(buffer, index, packet, parent, channel, msg_count, flag)
 
   -- Packet Trailer: Struct of 1 fields
   index, packet_trailer = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet_trailer.dissect(buffer, index, packet, parent)

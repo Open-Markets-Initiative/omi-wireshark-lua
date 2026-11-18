@@ -162,7 +162,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.to_sequence_number = ProtoField.n
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.total_filled = ProtoField.new("Total Filled", "coinbase.deribit.ordersapi.sbe.v1.4.totalfilled", ftypes.STRING, nil, nil, nil, "NewOrderResponseMessage")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.total_order_count = ProtoField.new("Total Order Count", "coinbase.deribit.ordersapi.sbe.v1.4.totalordercount", ftypes.INT32, nil, nil, nil, "totalOrderCount")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.trigger = ProtoField.new("Trigger", "coinbase.deribit.ordersapi.sbe.v1.4.trigger", ftypes.INT8)
-omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.unused_1 = ProtoField.new("Unused 1", "coinbase.deribit.ordersapi.sbe.v1.4.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "1 unused bit")
+omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.unused_bit_0 = ProtoField.new("Unused Bit 0", "coinbase.deribit.ordersapi.sbe.v1.4.unusedbit0", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "1 unused bit")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.vega_level = ProtoField.new("Vega Level", "coinbase.deribit.ordersapi.sbe.v1.4.vegalevel", ftypes.DOUBLE, nil, nil, nil, "vegaLevel")
 omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.visible_qty = ProtoField.new("Visible Qty", "coinbase.deribit.ordersapi.sbe.v1.4.visibleqty", ftypes.STRING, nil, nil, nil, "NewOrderResponseMessage")
 
@@ -7343,8 +7343,8 @@ end
 -- Dissect Bit Fields: Flags Replace Order Flags
 coinbase_deribit_ordersapi_sbe_v1_4.flags_replace_order_flags.bits = function(range, value, packet, parent)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.unused_1, range, value)
+  -- Unused Bit 0: 1 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.unused_bit_0, range, value)
 
   -- Post Only: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_4.fields.post_only, range, value)

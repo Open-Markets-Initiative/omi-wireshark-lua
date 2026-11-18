@@ -1868,7 +1868,7 @@ otcmarkets_linknqb_topofbook_link_v1_18.message_block.dispatch = {
 }
 
 -- Dissect: Message Block
-otcmarkets_linknqb_topofbook_link_v1_18.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
+otcmarkets_linknqb_topofbook_link_v1_18.message_block.dissect = function(buffer, offset, packet, parent, packet_flag)
   local dissect = otcmarkets_linknqb_topofbook_link_v1_18.message_block.dispatch[bit.band(packet_flag, 0x01)]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -2024,7 +2024,7 @@ otcmarkets_linknqb_topofbook_link_v1_18.packet.dissect = function(buffer, packet
   index, packet_header = otcmarkets_linknqb_topofbook_link_v1_18.packet_header.dissect(buffer, index, packet, parent)
 
   -- Message Block: Runtime Type with 2 branches
-  index = otcmarkets_linknqb_topofbook_link_v1_18.message_block.dissect(buffer, index, packet, parent, heartbeat)
+  index = otcmarkets_linknqb_topofbook_link_v1_18.message_block.dissect(buffer, index, packet, parent, packet_flag)
 
   return index
 end

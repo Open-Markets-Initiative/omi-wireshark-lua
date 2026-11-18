@@ -68,8 +68,6 @@ omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.rfs = ProtoField.new("
 omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.rpt_seq = ProtoField.new("Rpt Seq", "moex.spectra.orderslogincremental.simba.v1.0.4.rptseq", ftypes.UINT32, nil, nil, nil, "RptSeq")
 omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.schema_id = ProtoField.new("Schema Id", "moex.spectra.orderslogincremental.simba.v1.0.4.schemaid", ftypes.UINT16, nil, nil, nil, "Message schema identifier")
 omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.second_leg = ProtoField.new("Second Leg", "moex.spectra.orderslogincremental.simba.v1.0.4.secondleg", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000004000, "SecondLeg")
-omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.second_unused_1 = ProtoField.new("Second Unused 1", "moex.spectra.orderslogincremental.simba.v1.0.4.secondunused1", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000010000000, "1 unused bit")
-omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.second_unused_2 = ProtoField.new("Second Unused 2", "moex.spectra.orderslogincremental.simba.v1.0.4.secondunused2", ftypes.UINT64, nil, base.DEC, 0x0000180000000000, "2 unused bits")
 omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.security_id = ProtoField.new("Security Id", "moex.spectra.orderslogincremental.simba.v1.0.4.securityid", ftypes.INT32, nil, nil, nil, "SecurityID")
 omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.sending_time = ProtoField.new("Sending Time", "moex.spectra.orderslogincremental.simba.v1.0.4.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.sending_time_utc = ProtoField.new("Sending Time", "moex.spectra.orderslogincremental.simba.v1.0.4.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "SendingTime")
@@ -79,12 +77,14 @@ omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.template_id = ProtoFie
 omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.trade_id = ProtoField.new("Trade Id", "moex.spectra.orderslogincremental.simba.v1.0.4.tradeid", ftypes.INT64, nil, nil, nil, "TradeID")
 omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.transact_time = ProtoField.new("Transact Time", "moex.spectra.orderslogincremental.simba.v1.0.4.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.transact_time_utc = ProtoField.new("Transact Time", "moex.spectra.orderslogincremental.simba.v1.0.4.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TransactTime")
-omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_1 = ProtoField.new("Unused 1", "moex.spectra.orderslogincremental.simba.v1.0.4.unused1", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000002000, "1 unused bit")
-omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_2 = ProtoField.new("Unused 2", "moex.spectra.orderslogincremental.simba.v1.0.4.unused2", ftypes.UINT64, nil, base.DEC, 0x00000000C0000000, "2 unused bits")
-omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_3 = ProtoField.new("Unused 3", "moex.spectra.orderslogincremental.simba.v1.0.4.unused3", ftypes.UINT64, nil, base.DEC, 0x0000000003800000, "3 unused bits")
-omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_4 = ProtoField.new("Unused 4", "moex.spectra.orderslogincremental.simba.v1.0.4.unused4", ftypes.UINT64, nil, base.DEC, 0x0000000000078000, "4 unused bits")
-omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_8 = ProtoField.new("Unused 8", "moex.spectra.orderslogincremental.simba.v1.0.4.unused8", ftypes.UINT64, nil, base.DEC, 0x000001FE00000000, "8 unused bits")
-omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_9 = ProtoField.new("Unused 9", "moex.spectra.orderslogincremental.simba.v1.0.4.unused9", ftypes.UINT64, nil, base.DEC, 0x0000000000000FF8, "9 unused bits")
+omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bit_13 = ProtoField.new("Unused Bit 13", "moex.spectra.orderslogincremental.simba.v1.0.4.unusedbit13", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000002000, "1 unused bit")
+omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bit_28 = ProtoField.new("Unused Bit 28", "moex.spectra.orderslogincremental.simba.v1.0.4.unusedbit28", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000010000000, "1 unused bit")
+omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_15_to_18 = ProtoField.new("Unused Bits 15 To 18", "moex.spectra.orderslogincremental.simba.v1.0.4.unusedbits15to18", ftypes.UINT64, nil, base.DEC, 0x0000000000078000, "4 unused bits")
+omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_23_to_25 = ProtoField.new("Unused Bits 23 To 25", "moex.spectra.orderslogincremental.simba.v1.0.4.unusedbits23to25", ftypes.UINT64, nil, base.DEC, 0x0000000003800000, "3 unused bits")
+omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_3_to_11 = ProtoField.new("Unused Bits 3 To 11", "moex.spectra.orderslogincremental.simba.v1.0.4.unusedbits3to11", ftypes.UINT64, nil, base.DEC, 0x0000000000000FF8, "9 unused bits")
+omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_30_to_31 = ProtoField.new("Unused Bits 30 To 31", "moex.spectra.orderslogincremental.simba.v1.0.4.unusedbits30to31", ftypes.UINT64, nil, base.DEC, 0x00000000C0000000, "2 unused bits")
+omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_33_to_40 = ProtoField.new("Unused Bits 33 To 40", "moex.spectra.orderslogincremental.simba.v1.0.4.unusedbits33to40", ftypes.UINT64, nil, base.DEC, 0x000001FE00000000, "8 unused bits")
+omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_43_to_44 = ProtoField.new("Unused Bits 43 To 44", "moex.spectra.orderslogincremental.simba.v1.0.4.unusedbits43to44", ftypes.UINT64, nil, base.DEC, 0x0000180000000000, "2 unused bits")
 omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.version = ProtoField.new("Version", "moex.spectra.orderslogincremental.simba.v1.0.4.version", ftypes.UINT16, nil, nil, nil, "Message schema version")
 
 -- Moex Spectra OrdersLogIncremental Simba 1.0.4 Framing
@@ -1006,20 +1006,20 @@ moex_spectra_orderslogincremental_simba_v1_0_4.md_flags.bits = function(range, v
   -- Non Quote: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.non_quote, range, value)
 
-  -- Unused 9: 9 Bit
-  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_9, range, value)
+  -- Unused Bits 3 To 11: 9 Bit
+  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_3_to_11, range, value)
 
   -- End Of Transaction: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.end_of_transaction, range, value)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_1, range, value)
+  -- Unused Bit 13: 1 Bit
+  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bit_13, range, value)
 
   -- Second Leg: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.second_leg, range, value)
 
-  -- Unused 4: 4 Bit
-  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_4, range, value)
+  -- Unused Bits 15 To 18: 4 Bit
+  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_15_to_18, range, value)
 
   -- Fok: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.fok, range, value)
@@ -1033,8 +1033,8 @@ moex_spectra_orderslogincremental_simba_v1_0_4.md_flags.bits = function(range, v
   -- Mass Cancel: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.mass_cancel, range, value)
 
-  -- Unused 3: 3 Bit
-  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_3, range, value)
+  -- Unused Bits 23 To 25: 3 Bit
+  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_23_to_25, range, value)
 
   -- Negotiated: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.negotiated, range, value)
@@ -1042,20 +1042,20 @@ moex_spectra_orderslogincremental_simba_v1_0_4.md_flags.bits = function(range, v
   -- Multi Leg: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.multi_leg, range, value)
 
-  -- Second Unused 1: 1 Bit
-  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.second_unused_1, range, value)
+  -- Unused Bit 28: 1 Bit
+  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bit_28, range, value)
 
   -- Cross Trade: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.cross_trade, range, value)
 
-  -- Unused 2: 2 Bit
-  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_2, range, value)
+  -- Unused Bits 30 To 31: 2 Bit
+  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_30_to_31, range, value)
 
   -- Cod: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.cod, range, value)
 
-  -- Unused 8: 8 Bit
-  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_8, range, value)
+  -- Unused Bits 33 To 40: 8 Bit
+  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_33_to_40, range, value)
 
   -- Active Side: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.active_side, range, value)
@@ -1063,8 +1063,8 @@ moex_spectra_orderslogincremental_simba_v1_0_4.md_flags.bits = function(range, v
   -- Passive Side: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.passive_side, range, value)
 
-  -- Second Unused 2: 2 Bit
-  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.second_unused_2, range, value)
+  -- Unused Bits 43 To 44: 2 Bit
+  parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.unused_bits_43_to_44, range, value)
 
   -- Synthetic: 1 Bit
   parent:add(omi_moex_spectra_orderslogincremental_simba_v1_0_4.fields.synthetic, range, value)

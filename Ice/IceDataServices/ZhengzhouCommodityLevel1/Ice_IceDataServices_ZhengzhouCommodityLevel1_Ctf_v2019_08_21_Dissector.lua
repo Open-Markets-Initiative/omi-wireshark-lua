@@ -2894,6 +2894,7 @@ register_filehandler(omi_ice_icedataservices_zhengzhoucommoditylevel1_ctf_v2019_
 --   Date: Wednesday, August 21, 2019
 --   Specification: Zhengzhou_Commodity_Exchange_2019-08-21.pdf
 --   Specification: CTF_Wire_Protocol_2017-10-10.pdf
+--   Specification: CTF_Command_Reference_for_the_CSP_v.6.10-6.14_2019-05-28.pdf
 --
 -- Script:
 --   Compiler: 2.0

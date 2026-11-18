@@ -55,7 +55,7 @@ omi_cme_globex_derived_sbe_v12_0.fields.ticker_md_entry_type = ProtoField.new("T
 omi_cme_globex_derived_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.globex.derived.sbe.v12.0.tradingsessionid", ftypes.UINT8, nil, nil, nil, "The associated region market hours considered for the calculation of the element. The element is calculated from market events occurring during the region's open-close hours")
 omi_cme_globex_derived_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.derived.sbe.v12.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
 omi_cme_globex_derived_sbe_v12_0.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.globex.derived.sbe.v12.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
-omi_cme_globex_derived_sbe_v12_0.fields.unused_6 = ProtoField.new("Unused 6", "cme.globex.derived.sbe.v12.0.unused6", ftypes.UINT8, nil, base.DEC, 0x3F, "6 unused bits")
+omi_cme_globex_derived_sbe_v12_0.fields.unused_bits_0_to_5 = ProtoField.new("Unused Bits 0 To 5", "cme.globex.derived.sbe.v12.0.unusedbits0to5", ftypes.UINT8, nil, base.DEC, 0x3F, "6 unused bits")
 omi_cme_globex_derived_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.globex.derived.sbe.v12.0.version", ftypes.UINT16)
 
 -- Cme Globex Derived Sbe 12.0 Framing
@@ -1165,8 +1165,8 @@ end
 -- Dissect Bit Fields: Match Event Indicator
 cme_globex_derived_sbe_v12_0.match_event_indicator.bits = function(range, value, packet, parent)
 
-  -- Unused 6: 6 Bit
-  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.unused_6, range, value)
+  -- Unused Bits 0 To 5: 6 Bit
+  parent:add(omi_cme_globex_derived_sbe_v12_0.fields.unused_bits_0_to_5, range, value)
 
   -- Recovery Message: 1 Bit
   parent:add(omi_cme_globex_derived_sbe_v12_0.fields.recovery_message, range, value)

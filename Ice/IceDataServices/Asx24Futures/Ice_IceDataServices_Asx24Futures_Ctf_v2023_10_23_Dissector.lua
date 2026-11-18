@@ -3281,6 +3281,7 @@ register_filehandler(omi_ice_icedataservices_asx24futures_ctf_v2023_10_23_lines_
 --   Date: Monday, October 23, 2023
 --   Specification: ASX_24_and_New_Zealand_Futures_and_Options_2023-10-23.pdf
 --   Specification: CTF_Wire_Protocol_2017-10-10.pdf
+--   Specification: CTF_Command_Reference_for_the_CSP_v.6.10-6.14_2019-05-28.pdf
 --
 -- Script:
 --   Compiler: 2.0

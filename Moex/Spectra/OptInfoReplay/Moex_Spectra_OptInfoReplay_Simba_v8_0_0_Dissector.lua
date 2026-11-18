@@ -141,9 +141,9 @@ omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.underlying_future_id = ProtoF
 omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.underlying_qty = ProtoField.new("Underlying Qty", "moex.spectra.optinforeplay.simba.v8.0.0.underlyingqty", ftypes.DOUBLE, nil, nil, nil, "UnderlyingQty")
 omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "moex.spectra.optinforeplay.simba.v8.0.0.underlyingsecurityid", ftypes.INT32, nil, nil, nil, "Futures instrument ID")
 omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "moex.spectra.optinforeplay.simba.v8.0.0.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying asset code")
-omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_2 = ProtoField.new("Unused 2", "moex.spectra.optinforeplay.simba.v8.0.0.unused2", ftypes.UINT64, nil, base.DEC, 0x00000000000000C0, "2 unused bits")
-omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_4 = ProtoField.new("Unused 4", "moex.spectra.optinforeplay.simba.v8.0.0.unused4", ftypes.UINT64, nil, base.DEC, 0x000000000000000F, "4 unused bits")
-omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_9 = ProtoField.new("Unused 9", "moex.spectra.optinforeplay.simba.v8.0.0.unused9", ftypes.UINT64, nil, base.DEC, 0x000000000003FE00, "9 unused bits")
+omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_bits_0_to_3 = ProtoField.new("Unused Bits 0 To 3", "moex.spectra.optinforeplay.simba.v8.0.0.unusedbits0to3", ftypes.UINT64, nil, base.DEC, 0x000000000000000F, "4 unused bits")
+omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_bits_6_to_7 = ProtoField.new("Unused Bits 6 To 7", "moex.spectra.optinforeplay.simba.v8.0.0.unusedbits6to7", ftypes.UINT64, nil, base.DEC, 0x00000000000000C0, "2 unused bits")
+omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_bits_9_to_17 = ProtoField.new("Unused Bits 9 To 17", "moex.spectra.optinforeplay.simba.v8.0.0.unusedbits9to17", ftypes.UINT64, nil, base.DEC, 0x000000000003FE00, "9 unused bits")
 omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.valuation_method = ProtoField.new("Valuation Method", "moex.spectra.optinforeplay.simba.v8.0.0.valuationmethod", ftypes.STRING, nil, nil, nil, "ValuationMethod")
 omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.version = ProtoField.new("Version", "moex.spectra.optinforeplay.simba.v8.0.0.version", ftypes.UINT16, nil, nil, nil, "Message schema version")
 omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.volatility = ProtoField.new("Volatility", "moex.spectra.optinforeplay.simba.v8.0.0.volatility", ftypes.DOUBLE)
@@ -4043,8 +4043,8 @@ end
 -- Dissect Bit Fields: Flags
 moex_spectra_optinforeplay_simba_v8_0_0.flags.bits = function(range, value, packet, parent)
 
-  -- Unused 4: 4 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_4, range, value)
+  -- Unused Bits 0 To 3: 4 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_bits_0_to_3, range, value)
 
   -- Anonymous Trading: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.anonymous_trading, range, value)
@@ -4052,14 +4052,14 @@ moex_spectra_optinforeplay_simba_v8_0_0.flags.bits = function(range, value, pack
   -- Private Trading: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.private_trading, range, value)
 
-  -- Unused 2: 2 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_2, range, value)
+  -- Unused Bits 6 To 7: 2 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_bits_6_to_7, range, value)
 
   -- Multi Leg: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.multi_leg, range, value)
 
-  -- Unused 9: 9 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_9, range, value)
+  -- Unused Bits 9 To 17: 9 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.unused_bits_9_to_17, range, value)
 
   -- Collateral: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v8_0_0.fields.collateral, range, value)

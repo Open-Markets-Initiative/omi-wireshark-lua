@@ -7844,11 +7844,8 @@ nse_nsefo_dropcopy_nnfdc_v3_0.server_drop_copy_packet.fields = function(buffer, 
     index = 0
   end
 
-  -- Runtime Size Of: Message Buffer
-  local size_of_message_buffer = offset + size_of_server_drop_copy_packet - index
-
   -- Message Buffer: Struct of 1 fields
-  index, message_buffer = nse_nsefo_dropcopy_nnfdc_v3_0.message_buffer.dissect(buffer, index, packet, parent, size_of_message_buffer)
+  index, message_buffer = nse_nsefo_dropcopy_nnfdc_v3_0.message_buffer.dissect(buffer, index, packet, parent)
 
   return index
 end

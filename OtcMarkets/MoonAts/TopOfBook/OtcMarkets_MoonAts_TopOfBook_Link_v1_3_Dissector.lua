@@ -1858,7 +1858,7 @@ otcmarkets_moonats_topofbook_link_v1_3.message_block.dispatch = {
 }
 
 -- Dissect: Message Block
-otcmarkets_moonats_topofbook_link_v1_3.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
+otcmarkets_moonats_topofbook_link_v1_3.message_block.dissect = function(buffer, offset, packet, parent, packet_flag)
   local dissect = otcmarkets_moonats_topofbook_link_v1_3.message_block.dispatch[bit.band(packet_flag, 0x01)]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -2014,7 +2014,7 @@ otcmarkets_moonats_topofbook_link_v1_3.packet.dissect = function(buffer, packet,
   index, packet_header = otcmarkets_moonats_topofbook_link_v1_3.packet_header.dissect(buffer, index, packet, parent)
 
   -- Message Block: Runtime Type with 2 branches
-  index = otcmarkets_moonats_topofbook_link_v1_3.message_block.dissect(buffer, index, packet, parent, heartbeat)
+  index = otcmarkets_moonats_topofbook_link_v1_3.message_block.dissect(buffer, index, packet, parent, packet_flag)
 
   return index
 end

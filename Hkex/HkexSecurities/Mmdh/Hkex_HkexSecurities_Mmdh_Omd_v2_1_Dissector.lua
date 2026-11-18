@@ -6988,7 +6988,6 @@ end
 -- Dissect Fields: News Message
 hkex_hkexsecurities_mmdh_omd_v2_1.news_message.fields = function(buffer, offset, packet, parent)
   local index = offset
-  local news_type = buffer(offset, 3):string()
 
   -- News Type: String
   index, news_type = hkex_hkexsecurities_mmdh_omd_v2_1.news_type.dissect(buffer, index, packet, parent)

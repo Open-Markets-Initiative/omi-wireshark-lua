@@ -315,7 +315,7 @@ omi_cme_globex_mdp3_sbe_v1_11.fields.underlying_security_type = ProtoField.new("
 omi_cme_globex_mdp3_sbe_v1_11.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "cme.globex.mdp3.sbe.v1.11.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying Instrument Symbol (Contract Name)")
 omi_cme_globex_mdp3_sbe_v1_11.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.globex.mdp3.sbe.v1.11.unitofmeasure", ftypes.STRING, nil, nil, nil, "Unit of measure for the products' original contract size. This will be populated for all products listed on CME Globex")
 omi_cme_globex_mdp3_sbe_v1_11.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.globex.mdp3.sbe.v1.11.unitofmeasureqty", ftypes.DOUBLE, nil, nil, nil, "This field contains the contract size for each instrument. Used in combination with tag 996-UnitofMeasure")
-omi_cme_globex_mdp3_sbe_v1_11.fields.unused_2 = ProtoField.new("Unused 2", "cme.globex.mdp3.sbe.v1.11.unused2", ftypes.UINT8, nil, base.DEC, 0x60, "2 unused bits")
+omi_cme_globex_mdp3_sbe_v1_11.fields.unused_bits_5_to_6 = ProtoField.new("Unused Bits 5 To 6", "cme.globex.mdp3.sbe.v1.11.unusedbits5to6", ftypes.UINT8, nil, base.DEC, 0x60, "2 unused bits")
 omi_cme_globex_mdp3_sbe_v1_11.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.globex.mdp3.sbe.v1.11.userdefinedinstrument", ftypes.STRING, nil, nil, nil, "User-defined instruments flag")
 omi_cme_globex_mdp3_sbe_v1_11.fields.uuid = ProtoField.new("Uuid", "cme.globex.mdp3.sbe.v1.11.uuid", ftypes.UINT64, nil, nil, nil, "Session Identifier defined as type long uInt64, recommended to use timestamp as number of microseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_11.fields.variable_cab_eligible = ProtoField.new("Variable Cab Eligible", "cme.globex.mdp3.sbe.v1.11.variablecabeligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00200000, "VariableCabEligible")
@@ -7453,8 +7453,8 @@ cme_globex_mdp3_sbe_v1_11.settl_price_type.bits = function(range, value, packet,
   -- Reserved Bits: 1 Bit
   parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.reserved_bits, range, value)
 
-  -- Unused 2: 2 Bit
-  parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.unused_2, range, value)
+  -- Unused Bits 5 To 6: 2 Bit
+  parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.unused_bits_5_to_6, range, value)
 
   -- Null Value: 1 Bit
   parent:add(omi_cme_globex_mdp3_sbe_v1_11.fields.null_value, range, value)

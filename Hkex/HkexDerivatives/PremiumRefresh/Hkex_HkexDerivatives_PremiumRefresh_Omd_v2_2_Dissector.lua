@@ -4481,15 +4481,7 @@ end
 -- Message Buffer
 hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer = {}
 
--- Calculate size of: Message Buffer
-hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.size = function(buffer, offset)
-  local index = 0
-
-  -- Parse runtime size of: Message
-  index = index + buffer(offset + index - 0, 2):le_uint()
-
-  return index
-end
+-- Size of Message Buffer: not written, it needs Msg Count passed down from Packet
 
 -- Display: Message Buffer
 hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.display = function(packet, parent, length)
@@ -4497,11 +4489,8 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.display = function(p
 end
 
 -- Dissect Fields: Message Buffer
-hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.fields = function(buffer, offset, packet, parent)
+hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.fields = function(buffer, offset, packet, parent, msg_count)
   local index = offset
-
-  -- Dependency element: Msg Count
-  local msg_count = buffer(offset - 14, 1):uint()
 
   -- Repeating: Message
   for message_index = 1, msg_count do
@@ -4517,11 +4506,11 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.fields = function(bu
 end
 
 -- Dissect: Message Buffer
-hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.dissect = function(buffer, offset, packet, parent)
+hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.dissect = function(buffer, offset, packet, parent, msg_count)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_hkex_hkexderivatives_premiumrefresh_omd_v2_2.fields.message_buffer, buffer(offset, 0))
-    local index = hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.fields(buffer, offset, packet, parent)
+    local index = hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.fields(buffer, offset, packet, parent, msg_count)
     local length = index - offset
     parent:set_len(length)
     local display = hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.display(packet, parent, length)
@@ -4530,7 +4519,7 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.dissect = function(b
     return index, parent
   else
     -- Skip element, add fields directly
-    return hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.fields(buffer, offset, packet, parent)
+    return hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.fields(buffer, offset, packet, parent, msg_count)
   end
 end
 
@@ -4605,6 +4594,9 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_2.packet.dissect = function(buffer, p
   -- Packet Header: Struct of 5 fields
   index, packet_header = hkex_hkexderivatives_premiumrefresh_omd_v2_2.packet_header.dissect(buffer, index, packet, parent)
 
+  -- Dependency element: Msg Count
+  local msg_count = buffer(2, 1):uint()
+
   -- Dependency element: Compression Mode
   local compression_mode = buffer(index - 13, 1):uint()
 
@@ -4615,11 +4607,8 @@ hkex_hkexderivatives_premiumrefresh_omd_v2_2.packet.dissect = function(buffer, p
     index = 0
   end
 
-  -- Runtime Size Of: Message Buffer
-  local size_of_message_buffer = buffer:len() - index
-
   -- Message Buffer: Struct of 1 fields
-  index, message_buffer = hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.dissect(buffer, index, packet, parent, size_of_message_buffer)
+  index, message_buffer = hkex_hkexderivatives_premiumrefresh_omd_v2_2.message_buffer.dissect(buffer, index, packet, parent, msg_count)
 
   return index
 end

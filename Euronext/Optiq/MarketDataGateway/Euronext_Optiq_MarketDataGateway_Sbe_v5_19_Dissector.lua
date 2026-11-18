@@ -450,7 +450,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.underlying_mic = ProtoFiel
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.underlying_subtype = ProtoField.new("Underlying Subtype", "euronext.optiq.marketdatagateway.sbe.v5.19.underlyingsubtype", ftypes.UINT8, nil, nil, nil, "underlyingSubtype")
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.underlying_symbol_index = ProtoField.new("Underlying Symbol Index", "euronext.optiq.marketdatagateway.sbe.v5.19.underlyingsymbolindex", ftypes.UINT32, nil, nil, nil, "underlyingSymbolIndex")
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.underlying_type = ProtoField.new("Underlying Type", "euronext.optiq.marketdatagateway.sbe.v5.19.underlyingtype", ftypes.STRING, nil, nil, nil, "underlyingType")
-omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.unused_1 = ProtoField.new("Unused 1", "euronext.optiq.marketdatagateway.sbe.v5.19.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "1 unused bit")
+omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.unused_bit_8 = ProtoField.new("Unused Bit 8", "euronext.optiq.marketdatagateway.sbe.v5.19.unusedbit8", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "1 unused bit")
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.update_type = ProtoField.new("Update Type", "euronext.optiq.marketdatagateway.sbe.v5.19.updatetype", ftypes.UINT8, nil, nil, nil, "updateType")
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.venue = ProtoField.new("Venue", "euronext.optiq.marketdatagateway.sbe.v5.19.venue", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.version = ProtoField.new("Version", "euronext.optiq.marketdatagateway.sbe.v5.19.version", ftypes.UINT16, nil, nil, nil, "Schema version")
@@ -15892,8 +15892,8 @@ euronext_optiq_marketdatagateway_sbe_v5_19.phase_qualifier.bits = function(range
   -- Exceptional Market Conditions: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.exceptional_market_conditions, range, value)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.unused_1, range, value)
+  -- Unused Bit 8: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.unused_bit_8, range, value)
 
   -- Quoting Period: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_19.fields.quoting_period, range, value)

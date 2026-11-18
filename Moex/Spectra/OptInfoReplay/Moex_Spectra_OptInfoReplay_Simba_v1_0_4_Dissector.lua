@@ -110,9 +110,9 @@ omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.underlying_future_id = ProtoF
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.underlying_qty = ProtoField.new("Underlying Qty", "moex.spectra.optinforeplay.simba.v1.0.4.underlyingqty", ftypes.DOUBLE, nil, nil, nil, "UnderlyingQty")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "moex.spectra.optinforeplay.simba.v1.0.4.underlyingsecurityid", ftypes.INT32, nil, nil, nil, "Futures instrument ID")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "moex.spectra.optinforeplay.simba.v1.0.4.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying asset code")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_1 = ProtoField.new("Unused 1", "moex.spectra.optinforeplay.simba.v1.0.4.unused1", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000080, "1 unused bit")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_3 = ProtoField.new("Unused 3", "moex.spectra.optinforeplay.simba.v1.0.4.unused3", ftypes.UINT64, nil, base.DEC, 0x000000000000000E, "3 unused bits")
-omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_9 = ProtoField.new("Unused 9", "moex.spectra.optinforeplay.simba.v1.0.4.unused9", ftypes.UINT64, nil, base.DEC, 0x000000000003FE00, "9 unused bits")
+omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_bit_7 = ProtoField.new("Unused Bit 7", "moex.spectra.optinforeplay.simba.v1.0.4.unusedbit7", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000080, "1 unused bit")
+omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_bits_1_to_3 = ProtoField.new("Unused Bits 1 To 3", "moex.spectra.optinforeplay.simba.v1.0.4.unusedbits1to3", ftypes.UINT64, nil, base.DEC, 0x000000000000000E, "3 unused bits")
+omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_bits_9_to_17 = ProtoField.new("Unused Bits 9 To 17", "moex.spectra.optinforeplay.simba.v1.0.4.unusedbits9to17", ftypes.UINT64, nil, base.DEC, 0x000000000003FE00, "9 unused bits")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.version = ProtoField.new("Version", "moex.spectra.optinforeplay.simba.v1.0.4.version", ftypes.UINT16, nil, nil, nil, "Message schema version")
 omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.volatility = ProtoField.new("Volatility", "moex.spectra.optinforeplay.simba.v1.0.4.volatility", ftypes.DOUBLE)
 
@@ -3104,8 +3104,8 @@ moex_spectra_optinforeplay_simba_v1_0_4.flags.bits = function(range, value, pack
   -- Evening Or Morning Session: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.evening_or_morning_session, range, value)
 
-  -- Unused 3: 3 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_3, range, value)
+  -- Unused Bits 1 To 3: 3 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_bits_1_to_3, range, value)
 
   -- Anonymous Trading: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.anonymous_trading, range, value)
@@ -3116,14 +3116,14 @@ moex_spectra_optinforeplay_simba_v1_0_4.flags.bits = function(range, value, pack
   -- Day Session: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.day_session, range, value)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_1, range, value)
+  -- Unused Bit 7: 1 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_bit_7, range, value)
 
   -- Multi Leg: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.multi_leg, range, value)
 
-  -- Unused 9: 9 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_9, range, value)
+  -- Unused Bits 9 To 17: 9 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.unused_bits_9_to_17, range, value)
 
   -- Collateral: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v1_0_4.fields.collateral, range, value)

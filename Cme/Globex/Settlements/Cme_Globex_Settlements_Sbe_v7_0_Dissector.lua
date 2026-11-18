@@ -76,7 +76,7 @@ omi_cme_globex_settlements_sbe_v7_0.fields.underlying_maturity_month_year = Prot
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_product_guid = ProtoField.new("Underlying Product Guid", "cme.globex.settlements.sbe.v7.0.underlyingproductguid", ftypes.UINT64)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "cme.globex.settlements.sbe.v7.0.underlyingsecurityexchange", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_security_type = ProtoField.new("Underlying Security Type", "cme.globex.settlements.sbe.v7.0.underlyingsecuritytype", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.unused_1 = ProtoField.new("Unused 1", "cme.globex.settlements.sbe.v7.0.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "1 unused bit")
+omi_cme_globex_settlements_sbe_v7_0.fields.unused_bit_6 = ProtoField.new("Unused Bit 6", "cme.globex.settlements.sbe.v7.0.unusedbit6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "1 unused bit")
 omi_cme_globex_settlements_sbe_v7_0.fields.version = ProtoField.new("Version", "cme.globex.settlements.sbe.v7.0.version", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.week = ProtoField.new("Week", "cme.globex.settlements.sbe.v7.0.week", ftypes.UINT8, nil, nil, nil, "WW")
 omi_cme_globex_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.globex.settlements.sbe.v7.0.year", ftypes.UINT16, nil, nil, nil, "YYYY")
@@ -2266,8 +2266,8 @@ cme_globex_settlements_sbe_v7_0.settl_price_type.bits = function(range, value, p
   -- Reserved Bits: 1 Bit
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.reserved_bits, range, value)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.unused_1, range, value)
+  -- Unused Bit 6: 1 Bit
+  parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.unused_bit_6, range, value)
 
   -- Null Value: 1 Bit
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.null_value, range, value)

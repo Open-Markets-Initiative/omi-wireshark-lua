@@ -134,8 +134,8 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transaction_begin = ProtoF
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transaction_end = ProtoField.new("Transaction End", "smallx.smallfutures.orderbookfeed.sbe.v2.2.transactionend", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Set in the last message resulting a single business event processing")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "smallx.smallfutures.orderbookfeed.sbe.v2.2.underlyinginstrumentid", ftypes.INT32, nil, nil, nil, "Option underlying ID. The ID is used to reference instrument definition message of the underlying transmitted in the snapshot line for getting underlying details from it")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "smallx.smallfutures.orderbookfeed.sbe.v2.2.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Option underlying symbol")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_1 = ProtoField.new("Unused 1", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unused1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "1 unused bit")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_2 = ProtoField.new("Unused 2", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unused2", ftypes.UINT16, nil, base.DEC, 0x0003, "2 unused bits")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bit_6 = ProtoField.new("Unused Bit 6", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unusedbit6", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "1 unused bit")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bits_0_to_1 = ProtoField.new("Unused Bits 0 To 1", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unusedbits0to1", ftypes.UINT16, nil, base.DEC, 0x0003, "2 unused bits")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.value = ProtoField.new("Value", "smallx.smallfutures.orderbookfeed.sbe.v2.2.value", ftypes.DOUBLE, nil, nil, nil, "Last index value")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.version = ProtoField.new("Version", "smallx.smallfutures.orderbookfeed.sbe.v2.2.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 
@@ -3086,8 +3086,8 @@ end
 -- Dissect Bit Fields: Snapshot Message Instructions
 smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits = function(range, value, packet, parent)
 
-  -- Unused 2: 2 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_2, range, value)
+  -- Unused Bits 0 To 1: 2 Bit
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bits_0_to_1, range, value)
 
   -- Instrument Begin: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.instrument_begin, range, value)
@@ -3101,8 +3101,8 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits = 
   -- Book End: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.book_end, range, value)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_1, range, value)
+  -- Unused Bit 6: 1 Bit
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bit_6, range, value)
 
   -- Snapshot Begin: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.snapshot_begin, range, value)

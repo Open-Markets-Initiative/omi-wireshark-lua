@@ -380,7 +380,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.uncrossing_trade = ProtoFi
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "euronext.optiq.orderentrygateway.sbe.v5.52.underlyinginstrumentid", ftypes.UINT32, nil, nil, nil, "underlyingInstrumentID")
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.undisclosed_iceberg_type = ProtoField.new("Undisclosed Iceberg Type", "euronext.optiq.orderentrygateway.sbe.v5.52.undisclosedicebergtype", ftypes.UINT8, nil, nil, nil, "undisclosedIcebergType")
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.undisclosed_price = ProtoField.new("Undisclosed Price", "euronext.optiq.orderentrygateway.sbe.v5.52.undisclosedprice", ftypes.INT64, nil, nil, nil, "undisclosedPrice")
-omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.unused_1 = ProtoField.new("Unused 1", "euronext.optiq.orderentrygateway.sbe.v5.52.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "1 unused bit")
+omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.unused_bit_0 = ProtoField.new("Unused Bit 0", "euronext.optiq.orderentrygateway.sbe.v5.52.unusedbit0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "1 unused bit")
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.use_of_cross_partition = ProtoField.new("Use Of Cross Partition", "euronext.optiq.orderentrygateway.sbe.v5.52.useofcrosspartition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "UseOfCrossPartition")
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.user_status = ProtoField.new("User Status", "euronext.optiq.orderentrygateway.sbe.v5.52.userstatus", ftypes.UINT8, nil, nil, nil, "userStatus")
 omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.version = ProtoField.new("Version", "euronext.optiq.orderentrygateway.sbe.v5.52.version", ftypes.UINT16, nil, nil, nil, "Schema version")
@@ -16293,8 +16293,8 @@ end
 -- Dissect Bit Fields: Trading Session
 euronext_optiq_orderentrygateway_sbe_v5_52.trading_session.bits = function(range, value, packet, parent)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.unused_1, range, value)
+  -- Unused Bit 0: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.unused_bit_0, range, value)
 
   -- Session 1: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v5_52.fields.session_1, range, value)

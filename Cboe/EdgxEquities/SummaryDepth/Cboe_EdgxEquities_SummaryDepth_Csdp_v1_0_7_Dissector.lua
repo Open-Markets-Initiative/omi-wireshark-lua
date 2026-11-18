@@ -1485,17 +1485,7 @@ end
 -- Adap Block
 cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block = {}
 
--- Calculate size of: Adap Block
-cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.size = function(buffer, offset)
-  local index = 0
-
-  -- Calculate runtime size of Adap Update field
-  local adap_update_offset = offset + index
-  local adap_update_type = buffer(adap_update_offset - 1, 1):uint()
-  index = index + cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_update.size(buffer, adap_update_offset, adap_update_type)
-
-  return index
-end
+-- Size of Adap Block: not written, it needs Adap Block Size passed down from Adap Message
 
 -- Display: Adap Block
 cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.display = function(packet, parent, length)
@@ -1503,7 +1493,7 @@ cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.display = function(packet,
 end
 
 -- Dissect Fields: Adap Block
-cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.fields = function(buffer, offset, packet, parent, adap_block_index)
+cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.fields = function(buffer, offset, packet, parent, adap_block_index, adap_block_size)
   local index = offset
 
   -- Implicit Adap Block Index
@@ -1512,9 +1502,6 @@ cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.fields = function(buffer, 
     iteration:set_generated()
   end
 
-  -- Dependency element: Adap Block Size
-  local adap_block_size = buffer(offset - 1, 1):uint()
-
   -- Adap Update: Runtime Type with 2 branches
   index = cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_update.dissect(buffer, index, packet, parent, adap_block_size)
 
@@ -1522,11 +1509,11 @@ cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.fields = function(buffer, 
 end
 
 -- Dissect: Adap Block
-cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.dissect = function(buffer, offset, packet, parent, adap_block_index)
+cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.dissect = function(buffer, offset, packet, parent, adap_block_index, adap_block_size)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_cboe_edgxequities_summarydepth_csdp_v1_0_7.fields.adap_block, buffer(offset, 0))
-    local index = cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.fields(buffer, offset, packet, parent, adap_block_index)
+    local index = cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.fields(buffer, offset, packet, parent, adap_block_index, adap_block_size)
     local length = index - offset
     parent:set_len(length)
     local display = cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.display(packet, parent, length)
@@ -1535,7 +1522,7 @@ cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.dissect = function(buffer,
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.fields(buffer, offset, packet, parent, adap_block_index)
+    return cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.fields(buffer, offset, packet, parent, adap_block_index, adap_block_size)
   end
 end
 
@@ -1656,7 +1643,7 @@ cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_message.fields = function(buffer
 
   -- Repeating: Adap Block
   for adap_block_index = 1, adap_blocks do
-    index, adap_block = cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.dissect(buffer, index, packet, parent, adap_block_index)
+    index, adap_block = cboe_edgxequities_summarydepth_csdp_v1_0_7.adap_block.dissect(buffer, index, packet, parent, adap_block_index, adap_block_size)
   end
 
   return index

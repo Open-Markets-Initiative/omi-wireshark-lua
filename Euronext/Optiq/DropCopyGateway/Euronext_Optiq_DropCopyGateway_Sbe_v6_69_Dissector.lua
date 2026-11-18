@@ -369,7 +369,8 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.transparency_indicator = Pro
 omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.uncrossing_trade = ProtoField.new("Uncrossing Trade", "euronext.optiq.dropcopygateway.sbe.v6.69.uncrossingtrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "UncrossingTrade")
 omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.undisclosed_iceberg_type = ProtoField.new("Undisclosed Iceberg Type", "euronext.optiq.dropcopygateway.sbe.v6.69.undisclosedicebergtype", ftypes.UINT8, nil, nil, nil, "undisclosedIcebergType")
 omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.undisclosed_price = ProtoField.new("Undisclosed Price", "euronext.optiq.dropcopygateway.sbe.v6.69.undisclosedprice", ftypes.INT64, nil, nil, nil, "undisclosedPrice")
-omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.unused_1 = ProtoField.new("Unused 1", "euronext.optiq.dropcopygateway.sbe.v6.69.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "1 unused bit")
+omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.unused_bit_0 = ProtoField.new("Unused Bit 0", "euronext.optiq.dropcopygateway.sbe.v6.69.unusedbit0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "1 unused bit")
+omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.unused_bit_7 = ProtoField.new("Unused Bit 7", "euronext.optiq.dropcopygateway.sbe.v6.69.unusedbit7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "1 unused bit")
 omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.update_type = ProtoField.new("Update Type", "euronext.optiq.dropcopygateway.sbe.v6.69.updatetype", ftypes.UINT8, nil, nil, nil, "updateType")
 omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.use_of_cross_partition = ProtoField.new("Use Of Cross Partition", "euronext.optiq.dropcopygateway.sbe.v6.69.useofcrosspartition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "UseOfCrossPartition")
 omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.version = ProtoField.new("Version", "euronext.optiq.dropcopygateway.sbe.v6.69.version", ftypes.UINT16, nil, nil, nil, "Schema version")
@@ -8505,8 +8506,8 @@ euronext_optiq_dropcopygateway_sbe_v6_69.dark_execution_instruction.bits = funct
   -- Dark Passive Order Indicator: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.dark_passive_order_indicator, range, value)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.unused_1, range, value)
+  -- Unused Bit 7: 1 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.unused_bit_7, range, value)
 end
 
 -- Dissect: Dark Execution Instruction
@@ -14268,8 +14269,8 @@ end
 -- Dissect Bit Fields: Trading Session
 euronext_optiq_dropcopygateway_sbe_v6_69.trading_session.bits = function(range, value, packet, parent)
 
-  -- Unused 1: 1 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.unused_1, range, value)
+  -- Unused Bit 0: 1 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.unused_bit_0, range, value)
 
   -- Session 1: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_69.fields.session_1, range, value)

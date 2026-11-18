@@ -9095,7 +9095,6 @@ end
 -- Dissect Fields: New Order Cross Message
 nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_order_cross_message.fields = function(buffer, offset, packet, parent, size_of_new_order_cross_message)
   local index = offset
-  local seq_msg_length = buffer(offset - 2, 2):le_uint()
 
   -- Cross Id: u64
   index, cross_id = nyse_arcaoptions_binarygateway_pillarstream_v3_28.cross_id.dissect(buffer, index, packet, parent)
@@ -9130,6 +9129,9 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_28.new_order_cross_message.fields
 
   -- Exposed: Struct of 15 fields
   index, exposed = nyse_arcaoptions_binarygateway_pillarstream_v3_28.exposed.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Seq Msg Length
+  local seq_msg_length = buffer(offset - 2, 2):le_uint()
 
   -- Covered: Struct of 15 fields
   index, covered = nyse_arcaoptions_binarygateway_pillarstream_v3_28.covered.dissect(buffer, index, packet, parent, seq_msg_length)

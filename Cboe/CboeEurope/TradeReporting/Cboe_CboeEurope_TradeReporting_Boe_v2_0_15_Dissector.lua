@@ -61,7 +61,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.order_category = ProtoFiel
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.order_qty = ProtoField.new("Order Qty", "cboe.cboeeurope.tradereporting.boe.v2.0.15.orderqty", ftypes.UINT32)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.param_group = ProtoField.new("Param Group", "cboe.cboeeurope.tradereporting.boe.v2.0.15.paramgroup", ftypes.STRING, nil, nil, nil, "Repeating group stated NumberOfParamGroups times.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.cboeeurope.tradereporting.boe.v2.0.15.paramgrouplength", ftypes.UINT16, nil, nil, nil, "Number of bytes for the parameter group, in- cluding this field.")
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.cboeeurope.tradereporting.boe.v2.0.15.paramgrouptype", ftypes.UINT8, nil, nil, nil, "0x80")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.cboeeurope.tradereporting.boe.v2.0.15.paramgrouptype", ftypes.UINT8, nil, nil, nil, "0x80 = Unit Sequences, 0x81 = Return Bitfields")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.party_id = ProtoField.new("Party Id", "cboe.cboeeurope.tradereporting.boe.v2.0.15.partyid", ftypes.STRING, nil, nil, nil, "Corresponds to PartyID (448) in Bats FIX. The end-client responsible for the trade. Must be an identifier (4 uppercase letters) known to Bats.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.party_role = ProtoField.new("Party Role", "cboe.cboeeurope.tradereporting.boe.v2.0.15.partyrole", ftypes.STRING, nil, nil, nil, "Corresponds to PartyRole (452) in Bats FIX. Contains the PartyRole specified on this leg on the trade capture, if any. Reflected back on trade capture report confirmations. 2 = EnteringFirm (the party reporting the trade)")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.password = ProtoField.new("Password", "cboe.cboeeurope.tradereporting.boe.v2.0.15.password", ftypes.STRING, nil, nil, nil, "Password supplied by Bats.")
@@ -340,6 +340,9 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.quote_v_2_bitfield_1_secur
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.quote_v_2_bitfield_1_symbol = ProtoField.new("Quote V 2 Bitfield 1 Symbol", "cboe.cboeeurope.tradereporting.boe.v2.0.15.quotev2bitfield1symbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.reason = ProtoField.new("Reason", "cboe.cboeeurope.tradereporting.boe.v2.0.15.reason", ftypes.STRING, nil, nil, nil, "Reason for a Trade Capture Report reject or decline. See Reason Codes (§ 8, p. 60) for a list of possible reasons.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cboeeurope.tradereporting.boe.v2.0.15.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for Bats’ internal use.")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.return_bitfield = ProtoField.new("Return Bitfield", "cboe.cboeeurope.tradereporting.boe.v2.0.15.returnbitfield", ftypes.UINT8, nil, nil, nil, "Bitfield identifying fields to return.")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.return_bitfields = ProtoField.new("Return Bitfields", "cboe.cboeeurope.tradereporting.boe.v2.0.15.returnbitfields", ftypes.STRING, nil, nil, nil, "Repeating group stated NumberOfReturnBitfields times.")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.return_bitfields_param_group = ProtoField.new("Return Bitfields Param Group", "cboe.cboeeurope.tradereporting.boe.v2.0.15.returnbitfieldsparamgroup", ftypes.STRING, nil, nil, nil, "ReturnBitfieldsParamGroup")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.cboeeurope.tradereporting.boe.v2.0.15.rpttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.rpt_time_utc = ProtoField.new("Rpt Time", "cboe.cboeeurope.tradereporting.boe.v2.0.15.rpttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.secondary_trd_type = ProtoField.new("Secondary Trd Type", "cboe.cboeeurope.tradereporting.boe.v2.0.15.secondarytrdtype", ftypes.UINT8)
@@ -922,6 +925,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.trd_cap_rpt_side_grp = Pro
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "cboe.cboeeurope.tradereporting.boe.v2.0.15.trdsubtype", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.unit_number = ProtoField.new("Unit Number", "cboe.cboeeurope.tradereporting.boe.v2.0.15.unitnumber", ftypes.UINT8, nil, nil, nil, "A unit number.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.cboeeurope.tradereporting.boe.v2.0.15.unitsequence", ftypes.UINT32, nil, nil, nil, "Highest available Bats to Participant sequence number for the unit.")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.unit_sequences_param_group = ProtoField.new("Unit Sequences Param Group", "cboe.cboeeurope.tradereporting.boe.v2.0.15.unitsequencesparamgroup", ftypes.STRING, nil, nil, nil, "UnitSequencesParamGroup")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.units = ProtoField.new("Units", "cboe.cboeeurope.tradereporting.boe.v2.0.15.units", ftypes.STRING, nil, nil, nil, "Repeating group stated NumberOfUnits times.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.username = ProtoField.new("Username", "cboe.cboeeurope.tradereporting.boe.v2.0.15.username", ftypes.STRING, nil, nil, nil, "Username supplied by Bats.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.venue_type = ProtoField.new("Venue Type", "cboe.cboeeurope.tradereporting.boe.v2.0.15.venuetype", ftypes.STRING)
@@ -952,6 +956,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.trade_capture_report_v_2_m
 -- Cboe CboeEurope TradeReporting Boe 2.0.15 Generated Fields
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.param_group_index = ProtoField.new("Param Group Index", "cboe.cboeeurope.tradereporting.boe.v2.0.15.paramgroupindex", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.quote_cancel_rpt_grp_index = ProtoField.new("Quote Cancel Rpt Grp Index", "cboe.cboeeurope.tradereporting.boe.v2.0.15.quotecancelrptgrpindex", ftypes.UINT16)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.return_bitfields_index = ProtoField.new("Return Bitfields Index", "cboe.cboeeurope.tradereporting.boe.v2.0.15.returnbitfieldsindex", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.trade_capture_confirm_v_2_trd_cap_ack_side_grp_index = ProtoField.new("Trade Capture Confirm V 2 Trd Cap Ack Side Grp Index", "cboe.cboeeurope.tradereporting.boe.v2.0.15.tradecaptureconfirmv2trdcapacksidegrpindex", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.trade_capture_report_decline_v_2_trd_cap_ack_side_grp_index = ProtoField.new("Trade Capture Report Decline V 2 Trd Cap Ack Side Grp Index", "cboe.cboeeurope.tradereporting.boe.v2.0.15.tradecapturereportdeclinev2trdcapacksidegrpindex", ftypes.UINT16)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.trade_capture_report_reject_v_2_trd_cap_ack_side_grp_index = ProtoField.new("Trade Capture Report Reject V 2 Trd Cap Ack Side Grp Index", "cboe.cboeeurope.tradereporting.boe.v2.0.15.tradecapturereportrejectv2trdcapacksidegrpindex", ftypes.UINT16)
@@ -2783,6 +2788,29 @@ cboe_cboeeurope_tradereporting_boe_v2_0_15.reserved_1.dissect = function(buffer,
   local display = cboe_cboeeurope_tradereporting_boe_v2_0_15.reserved_1.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.reserved_1, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Return Bitfield
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfield = {}
+
+-- Size: Return Bitfield
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfield.size = 1
+
+-- Display: Return Bitfield
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfield.display = function(value)
+  return "Return Bitfield: "..value
+end
+
+-- Dissect: Return Bitfield
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfield.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfield.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfield.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.return_bitfield, range, value, display)
 
   return offset + length, value
 end
@@ -8199,8 +8227,6 @@ end
 -- Dissect Fields: Trade Capture Report Decline V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_15.trade_capture_report_decline_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_decline_v_2_message)
   local index = offset
-  local number_of_return_bitfields = buffer(offset + 134, 1):uint()
-  local trade_capture_report_decline_v_2_return_bitfield_1 = buffer(offset + 135, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cboeeurope_tradereporting_boe_v2_0_15.transaction_time.dissect(buffer, index, packet, parent)
@@ -9941,8 +9967,6 @@ end
 -- Dissect Fields: Trade Capture Confirm V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_15.trade_capture_confirm_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_confirm_v_2_message)
   local index = offset
-  local number_of_trade_capture_confirm_v_2_bitfields = buffer(offset + 73, 1):uint()
-  local trade_capture_confirm_v_2_bitfield_1 = buffer(offset + 74, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cboeeurope_tradereporting_boe_v2_0_15.transaction_time.dissect(buffer, index, packet, parent)
@@ -11704,8 +11728,6 @@ end
 -- Dissect Fields: Trade Capture Report Reject V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_15.trade_capture_report_reject_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_reject_v_2_message)
   local index = offset
-  local number_of_return_bitfields = buffer(offset + 90, 1):uint()
-  local trade_capture_report_reject_v_2_return_bitfield_1 = buffer(offset + 91, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cboeeurope_tradereporting_boe_v2_0_15.transaction_time.dissect(buffer, index, packet, parent)
@@ -13422,8 +13444,6 @@ end
 -- Dissect Fields: Trade Capture Report Acknowledgment V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_15.trade_capture_report_acknowledgment_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_acknowledgment_v_2_message)
   local index = offset
-  local number_of_trade_capture_report_acknowledgment_v_2_bitfields = buffer(offset + 29, 1):uint()
-  local trade_capture_report_acknowledgment_v_2_bitfield_1 = buffer(offset + 30, 1):le_uint()
 
   -- Transaction Time: DateTime
   index, transaction_time = cboe_cboeeurope_tradereporting_boe_v2_0_15.transaction_time.dissect(buffer, index, packet, parent)
@@ -13968,8 +13988,6 @@ end
 -- Dissect Fields: Quote Cancel V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_15.quote_cancel_v_2_message.fields = function(buffer, offset, packet, parent, size_of_quote_cancel_v_2_message)
   local index = offset
-  local number_of_quote_cancel_v_2_bitfields = buffer(offset + 20, 1):uint()
-  local quote_cancel_v_2_bitfield_1 = buffer(offset + 21, 1):le_uint()
 
   -- Quote Id: Text
   index, quote_id = cboe_cboeeurope_tradereporting_boe_v2_0_15.quote_id.dissect(buffer, index, packet, parent)
@@ -14813,7 +14831,6 @@ end
 -- Dissect Fields: Trade Capture Report V 2 Message
 cboe_cboeeurope_tradereporting_boe_v2_0_15.trade_capture_report_v_2_message.fields = function(buffer, offset, packet, parent, size_of_trade_capture_report_v_2_message)
   local index = offset
-  local number_of_trade_capture_report_v_2_bitfields = buffer(offset + 32, 1):uint()
 
   -- Trade Report Id: Text
   index, trade_report_id = cboe_cboeeurope_tradereporting_boe_v2_0_15.trade_report_id.dissect(buffer, index, packet, parent)
@@ -15279,13 +15296,205 @@ cboe_cboeeurope_tradereporting_boe_v2_0_15.logout_message.dissect = function(buf
   end
 end
 
+-- Return Bitfields
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields = {}
+
+-- Size: Return Bitfields
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields.size =
+  cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfield.size
+
+-- Display: Return Bitfields
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Return Bitfields
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields.fields = function(buffer, offset, packet, parent, return_bitfields_index)
+  local index = offset
+
+  -- Implicit Return Bitfields Index
+  if return_bitfields_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.return_bitfields_index, return_bitfields_index)
+    iteration:set_generated()
+  end
+
+  -- Return Bitfield: Binary
+  index, return_bitfield = cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfield.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Return Bitfields
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields.dissect = function(buffer, offset, packet, parent, return_bitfields_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.return_bitfields, buffer(offset, 0))
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields.fields(buffer, offset, packet, parent, return_bitfields_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields.fields(buffer, offset, packet, parent, return_bitfields_index)
+  end
+end
+
+-- Return Bitfields Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields_param_group = {}
+
+-- Calculate size of: Return Bitfields Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields_param_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_cboeeurope_tradereporting_boe_v2_0_15.message_type.size
+
+  index = index + cboe_cboeeurope_tradereporting_boe_v2_0_15.number_of_return_bitfields.size
+
+  -- Calculate field size from count
+  local return_bitfields_count = buffer(offset + index - 1, 1):uint()
+  index = index + return_bitfields_count * 1
+
+  return index
+end
+
+-- Display: Return Bitfields Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields_param_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Return Bitfields Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields_param_group.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Type: Binary
+  index, message_type = cboe_cboeeurope_tradereporting_boe_v2_0_15.message_type.dissect(buffer, index, packet, parent)
+
+  -- Number Of Return Bitfields: Binary
+  index, number_of_return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_15.number_of_return_bitfields.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Return Bitfields
+  for return_bitfields_index = 1, number_of_return_bitfields do
+    index, return_bitfields = cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields.dissect(buffer, index, packet, parent, return_bitfields_index)
+  end
+
+  return index
+end
+
+-- Dissect: Return Bitfields Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields_param_group.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.return_bitfields_param_group, buffer(offset, 0))
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields_param_group.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields_param_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields_param_group.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Unit Sequences Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.unit_sequences_param_group = {}
+
+-- Calculate size of: Unit Sequences Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.unit_sequences_param_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_cboeeurope_tradereporting_boe_v2_0_15.no_unspecified_unit_replay.size
+
+  index = index + cboe_cboeeurope_tradereporting_boe_v2_0_15.number_of_units.size
+
+  -- Calculate field size from count
+  local units_count = buffer(offset + index - 1, 1):uint()
+  index = index + units_count * 5
+
+  return index
+end
+
+-- Display: Unit Sequences Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.unit_sequences_param_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Sequences Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.unit_sequences_param_group.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- No Unspecified Unit Replay: Binary
+  index, no_unspecified_unit_replay = cboe_cboeeurope_tradereporting_boe_v2_0_15.no_unspecified_unit_replay.dissect(buffer, index, packet, parent)
+
+  -- Number Of Units: Binary
+  index, number_of_units = cboe_cboeeurope_tradereporting_boe_v2_0_15.number_of_units.dissect(buffer, index, packet, parent)
+
+  -- Repeating: Units
+  for units_index = 1, number_of_units do
+    index, units = cboe_cboeeurope_tradereporting_boe_v2_0_15.units.dissect(buffer, index, packet, parent, units_index)
+  end
+
+  return index
+end
+
+-- Dissect: Unit Sequences Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.unit_sequences_param_group.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cboeeurope_tradereporting_boe_v2_0_15.fields.unit_sequences_param_group, buffer(offset, 0))
+    local index = cboe_cboeeurope_tradereporting_boe_v2_0_15.unit_sequences_param_group.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cboeeurope_tradereporting_boe_v2_0_15.unit_sequences_param_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cboeeurope_tradereporting_boe_v2_0_15.unit_sequences_param_group.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- ParamGroupPayload
+cboe_cboeeurope_tradereporting_boe_v2_0_15.paramgrouppayload = {}
+
+-- Dissect: ParamGroupPayload
+cboe_cboeeurope_tradereporting_boe_v2_0_15.paramgrouppayload.dissect = function(buffer, offset, packet, parent, param_group_type)
+  -- Dissect Unit Sequences Param Group
+  if param_group_type == 0x80 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_15.unit_sequences_param_group.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Return Bitfields Param Group
+  if param_group_type == 0x81 then
+    return cboe_cboeeurope_tradereporting_boe_v2_0_15.return_bitfields_param_group.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
 -- Param Group
 cboe_cboeeurope_tradereporting_boe_v2_0_15.param_group = {}
 
--- Size: Param Group
-cboe_cboeeurope_tradereporting_boe_v2_0_15.param_group.size =
-  cboe_cboeeurope_tradereporting_boe_v2_0_15.param_group_length.size + 
-  cboe_cboeeurope_tradereporting_boe_v2_0_15.param_group_type.size
+-- Calculate size of: Param Group
+cboe_cboeeurope_tradereporting_boe_v2_0_15.param_group.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_cboeeurope_tradereporting_boe_v2_0_15.param_group_length.size
+
+  index = index + cboe_cboeeurope_tradereporting_boe_v2_0_15.param_group_type.size
+
+  -- Calculate runtime size of ParamGroupPayload field
+  local paramgrouppayload_offset = offset + index
+  local paramgrouppayload_type = buffer(paramgrouppayload_offset - 1, 1):uint()
+  index = index + cboe_cboeeurope_tradereporting_boe_v2_0_15.paramgrouppayload.size(buffer, paramgrouppayload_offset, paramgrouppayload_type)
+
+  return index
+end
 
 -- Display: Param Group
 cboe_cboeeurope_tradereporting_boe_v2_0_15.param_group.display = function(packet, parent, length)
@@ -15307,6 +15516,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_15.param_group.fields = function(buffer,
 
   -- Param Group Type: Binary
   index, param_group_type = cboe_cboeeurope_tradereporting_boe_v2_0_15.param_group_type.dissect(buffer, index, packet, parent)
+
+  -- ParamGroupPayload: Runtime Type with 2 branches
+  index = cboe_cboeeurope_tradereporting_boe_v2_0_15.paramgrouppayload.dissect(buffer, index, packet, parent, param_group_type)
 
   return index
 end

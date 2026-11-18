@@ -9451,11 +9451,8 @@ gpw_wse_marketinformation_xdp_v6_8.packet.dissect = function(buffer, packet, par
     index = 0
   end
 
-  -- Runtime Size Of: Message Buffer
-  local size_of_message_buffer = buffer:len() - index
-
   -- Message Buffer: Struct of 1 fields
-  index, message_buffer = gpw_wse_marketinformation_xdp_v6_8.message_buffer.dissect(buffer, index, packet, parent, size_of_message_buffer)
+  index, message_buffer = gpw_wse_marketinformation_xdp_v6_8.message_buffer.dissect(buffer, index, packet, parent)
 
   return index
 end

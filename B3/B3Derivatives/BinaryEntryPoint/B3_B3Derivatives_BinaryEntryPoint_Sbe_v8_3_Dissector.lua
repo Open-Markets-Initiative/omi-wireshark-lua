@@ -6112,7 +6112,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_3.schema_id.size = 2
 -- Display: Schema Id
 b3_b3derivatives_binaryentrypoint_sbe_v8_3.schema_id.display = function(value)
   if value == 1 then
-    return "Schema Id: B3 Entrypoint Fixp Sbe (1)"
+    return "Schema Id: B3 EntryPoint"
   end
 
   return "Schema Id: Unknown("..value..")"

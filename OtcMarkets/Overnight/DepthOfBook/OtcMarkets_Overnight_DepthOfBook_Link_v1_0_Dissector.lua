@@ -2312,7 +2312,7 @@ otcmarkets_overnight_depthofbook_link_v1_0.message_block.dispatch = {
 }
 
 -- Dissect: Message Block
-otcmarkets_overnight_depthofbook_link_v1_0.message_block.dissect = function(buffer, offset, packet, parent, heartbeat)
+otcmarkets_overnight_depthofbook_link_v1_0.message_block.dissect = function(buffer, offset, packet, parent, packet_flag)
   local dissect = otcmarkets_overnight_depthofbook_link_v1_0.message_block.dispatch[bit.band(packet_flag, 0x01)]
   if dissect then
     return dissect(buffer, offset, packet, parent)
@@ -2468,7 +2468,7 @@ otcmarkets_overnight_depthofbook_link_v1_0.packet.dissect = function(buffer, pac
   index, packet_header = otcmarkets_overnight_depthofbook_link_v1_0.packet_header.dissect(buffer, index, packet, parent)
 
   -- Message Block: Runtime Type with 2 branches
-  index = otcmarkets_overnight_depthofbook_link_v1_0.message_block.dissect(buffer, index, packet, parent, heartbeat)
+  index = otcmarkets_overnight_depthofbook_link_v1_0.message_block.dissect(buffer, index, packet, parent, packet_flag)
 
   return index
 end
