@@ -578,10 +578,10 @@ nasdaq_ntxequities_lastsale_itch_v2_1.ipo_flag.size = 1
 -- Display: Ipo Flag
 nasdaq_ntxequities_lastsale_itch_v2_1.ipo_flag.display = function(value)
   if value == "Y" then
-    return "Ipo Flag: Nasdaq Listed Instrument (Y)"
+    return "Ipo Flag: New IPO Security (Y)"
   end
   if value == "N" then
-    return "Ipo Flag: Nasdaq Listed Instrument (N)"
+    return "Ipo Flag: Not New IPO Security (N)"
   end
   if value == " " then
     return "Ipo Flag: Na (<whitespace>)"
@@ -653,38 +653,38 @@ nasdaq_ntxequities_lastsale_itch_v2_1.issue_sub_type.size = 2
 -- Display: Issue Sub Type
 nasdaq_ntxequities_lastsale_itch_v2_1.issue_sub_type.labels = {
   ["A"] = "Issue Sub Type: Preferred Trust Securities (A)",
-  ["AI"] = "Issue Sub Type: Alpha Index Et Ns (AI)",
+  ["AI"] = "Issue Sub Type: Alpha Index ETNs (AI)",
   ["B"] = "Issue Sub Type: Index Based Derivative (B)",
   ["C"] = "Issue Sub Type: Common Shares (C)",
   ["CB"] = "Issue Sub Type: Commodity Based Trust Shares (CB)",
   ["CF"] = "Issue Sub Type: Commodity Futures Trust Shares (CF)",
-  ["CL"] = "Issue Sub Type: Currency Trust Shares (CL)",
+  ["CL"] = "Issue Sub Type: Commodity Linked Securities (CL)",
   ["CM"] = "Issue Sub Type: Commodity Index Trust Shares (CM)",
   ["CO"] = "Issue Sub Type: Collateralized Mortgage Obligation (CO)",
   ["CT"] = "Issue Sub Type: Currency Trust Shares (CT)",
-  ["CU"] = "Issue Sub Type: Commodity­ Currency (CU)",
+  ["CU"] = "Issue Sub Type: Commodity Currency Linked Securities (CU)",
   ["CW"] = "Issue Sub Type: Currency Warrants (CW)",
   ["D"] = "Issue Sub Type: Global Depositary (D)",
-  ["E"] = "Issue Sub Type: Etf­ Portfolio Depositary Receipt (E)",
+  ["E"] = "Issue Sub Type: ETF Portfolio Depositary Receipt (E)",
   ["EG"] = "Issue Sub Type: Equity Gold Shares (EG)",
   ["EI"] = "Issue Sub Type: Etn Equity (EI)",
-  ["EM"] = "Issue Sub Type: Next Shares Exchange (EM)",
+  ["EM"] = "Issue Sub Type: Exchange Traded Managed Funds (EM)",
   ["EN"] = "Issue Sub Type: Exchange Traded Notes (EN)",
   ["EU"] = "Issue Sub Type: Equity Units (EU)",
   ["F"] = "Issue Sub Type: Holdrs (F)",
   ["FI"] = "Issue Sub Type: Etn Fixed Income (FI)",
   ["FL"] = "Issue Sub Type: Etn Futures (FL)",
   ["G"] = "Issue Sub Type: Global Shares (G)",
-  ["I"] = "Issue Sub Type: Etf (I)",
-  ["IR"] = "Issue Sub Type: Interest (IR)",
-  ["IW"] = "Issue Sub Type: Index (IW)",
-  ["IX"] = "Issue Sub Type: Index (IX)",
+  ["I"] = "Issue Sub Type: ETF Index Fund Shares (I)",
+  ["IR"] = "Issue Sub Type: Interest Rate (IR)",
+  ["IW"] = "Issue Sub Type: Index Warrant (IW)",
+  ["IX"] = "Issue Sub Type: Index Linked Exchangeable Notes (IX)",
   ["J"] = "Issue Sub Type: Corporate (J)",
-  ["L"] = "Issue Sub Type: Contingent (L)",
+  ["L"] = "Issue Sub Type: Contingent Litigation Right (L)",
   ["LL"] = "Issue Sub Type: Llc (LL)",
   ["M"] = "Issue Sub Type: Equity Based Derivative (M)",
   ["MF"] = "Issue Sub Type: Managed Fund Shares (MF)",
-  ["ML"] = "Issue Sub Type: Etn (ML)",
+  ["ML"] = "Issue Sub Type: ETN Multi Factor Index Linked Securities (ML)",
   ["MT"] = "Issue Sub Type: Managed Trust Securities (MT)",
   ["N"] = "Issue Sub Type: Ny Registry Shares (N)",
   ["O"] = "Issue Sub Type: Open Ended Mutual Fund (O)",
@@ -693,10 +693,10 @@ nasdaq_ntxequities_lastsale_itch_v2_1.issue_sub_type.labels = {
   ["PU"] = "Issue Sub Type: Partnership Units (PU)",
   ["Q"] = "Issue Sub Type: Closed End Funds (Q)",
   ["R"] = "Issue Sub Type: Reg S (R)",
-  ["RC"] = "Issue Sub Type: Commodity Redeemable (RC)",
-  ["RF"] = "Issue Sub Type: Etn (RF)",
+  ["RC"] = "Issue Sub Type: Commodity Redeemable Commodity Linked Securities (RC)",
+  ["RF"] = "Issue Sub Type: ETN Redeemable Futures Linked Securities (RF)",
   ["RT"] = "Issue Sub Type: Reit (RT)",
-  ["RU"] = "Issue Sub Type: Commodity­ Redeemable (RU)",
+  ["RU"] = "Issue Sub Type: Commodity Redeemable Currency Linked Securities (RU)",
   ["S"] = "Issue Sub Type: Seed (S)",
   ["SC"] = "Issue Sub Type: Spot Rate Closing (SC)",
   ["SI"] = "Issue Sub Type: Spot Rate Intraday (SI)",
@@ -892,7 +892,7 @@ nasdaq_ntxequities_lastsale_itch_v2_1.market_category.display = function(value)
     return "Market Category: Nyse (N)"
   end
   if value == "A" then
-    return "Market Category: Nyse Mkt (A)"
+    return "Market Category: NYSE American (A)"
   end
   if value == "P" then
     return "Market Category: Nyse Arca (P)"
@@ -931,7 +931,7 @@ nasdaq_ntxequities_lastsale_itch_v2_1.market_center_identifier.size = 1
 -- Display: Market Center Identifier
 nasdaq_ntxequities_lastsale_itch_v2_1.market_center_identifier.labels = {
   ["B"] = "Market Center Identifier: Bx Execution System (B)",
-  ["X"] = "Market Center Identifier: Bx Execution System (X)",
+  ["L"] = "Market Center Identifier: Trade Reporting Facility (L)",
 }
 
 nasdaq_ntxequities_lastsale_itch_v2_1.market_center_identifier.display = function(value)
@@ -960,7 +960,7 @@ nasdaq_ntxequities_lastsale_itch_v2_1.market_code.size = 1
 nasdaq_ntxequities_lastsale_itch_v2_1.market_code.labels = {
   ["Q"] = "Market Code: Nasdaq (Q)",
   ["B"] = "Market Code: Bx (B)",
-  ["X"] = "Market Code: Bx (X)",
+  ["X"] = "Market Code: PSX (X)",
 }
 
 nasdaq_ntxequities_lastsale_itch_v2_1.market_code.display = function(value)
@@ -1565,10 +1565,11 @@ nasdaq_ntxequities_lastsale_itch_v2_1.security_class.size = 1
 nasdaq_ntxequities_lastsale_itch_v2_1.security_class.labels = {
   ["Q"] = "Security Class: Nasdaq (Q)",
   ["N"] = "Security Class: Nyse (N)",
-  ["A"] = "Security Class: Nyse Amex (A)",
+  ["A"] = "Security Class: NYSE American (A)",
   ["P"] = "Security Class: Nyse Arca (P)",
   ["Z"] = "Security Class: Bats (Z)",
   ["V"] = "Security Class: Investors Exchange (V)",
+  ["B"] = "Security Class: BX Listed Securities (B)",
 }
 
 nasdaq_ntxequities_lastsale_itch_v2_1.security_class.display = function(value)

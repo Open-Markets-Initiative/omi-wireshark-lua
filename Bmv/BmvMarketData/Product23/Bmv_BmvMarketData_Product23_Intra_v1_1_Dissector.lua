@@ -486,7 +486,7 @@ bmv_bmvmarketdata_product23_intra_v1_1.market_data_group.labels = {
   [16] = "Market Data Group: Twenty Price Levels Of Local And Global Market (16)",
   [17] = "Market Data Group: Best Offers Of Local And Global Market With Money Market (17)",
   [18] = "Market Data Group: Twenty Price Levels Of Local And Global Market Indices Components Level Of Indices And Levels Of Inavs (18)",
-  [19] = "Market Data Group: Ten Price Levels Of Derivate Futures And Derivative Options (19)",
+  [19] = "Market Data Group: Ten Price Levels Of Derivative Futures And Derivative Options (19)",
   [20] = "Market Data Group: Best Offers For Derivative Futures And Derivative Options (20)",
   [21] = "Market Data Group: Added Value With Benchmark (21)",
   [22] = "Market Data Group: Added Value With Capitalization Rules (22)",
@@ -498,8 +498,11 @@ bmv_bmvmarketdata_product23_intra_v1_1.market_data_group.labels = {
   [28] = "Market Data Group: Closing Price Origin (28)",
   [29] = "Market Data Group: Analytics Price And Market Depth (29)",
   [32] = "Market Data Group: Analytics Market Quality (32)",
-  [33] = "Market Data Group: Analytics Spead Performance (33)",
+  [33] = "Market Data Group: Analytics Spread Performance (33)",
   [34] = "Market Data Group: Analytics Negotiation (34)",
+  [35] = "Market Data Group: Indices Components Strategy (35)",
+  [36] = "Market Data Group: Indices Components ESG (36)",
+  [37] = "Market Data Group: MOC Local And Global Market (37)",
   [40] = "Market Data Group: Channel Zero Catalogs (40)",
 }
 
@@ -1243,6 +1246,7 @@ udp_table:add_for_decode_as(omi_bmv_bmvmarketdata_product23_intra_v1_1)
 --   Version: 1.1
 --   Specification: Market Data Multicast_P23_1_ENG.pdf
 --   Specification: Connection_Appendix_6.pdf
+--   Specification: Conexion_anexos_es_6.pdf
 --
 -- Script:
 --   Compiler: 2.0

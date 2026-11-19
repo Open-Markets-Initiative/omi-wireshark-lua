@@ -3466,12 +3466,12 @@ lseg_turquoise_replay_gtp_v24_4.source_venue.size = 2
 
 -- Display: Source Venue
 lseg_turquoise_replay_gtp_v24_4.source_venue.labels = {
-  [5] = "Source Venue: Turquoise Lit Order Book (5)",
-  [6] = "Source Venue: Turquoise Plato Order Book (6)",
-  [12] = "Source Venue: Turquoise Plato Lit Auctions Order Book (12)",
-  [14] = "Source Venue: Turquoise Lit Order Book (14)",
-  [15] = "Source Venue: Turquoise Plato Order Book (15)",
-  [16] = "Source Venue: Turquoise Plato Lit Auctions Order Book (16)",
+  [5] = "Source Venue: Turquoise Lit Order Book TGHL (5)",
+  [6] = "Source Venue: Turquoise Plato Order Book TGHL (6)",
+  [12] = "Source Venue: Turquoise Plato Lit Auctions Order Book TGHL (12)",
+  [14] = "Source Venue: Turquoise Lit Order Book TGHE (14)",
+  [15] = "Source Venue: Turquoise Plato Order Book TGHE (15)",
+  [16] = "Source Venue: Turquoise Plato Lit Auctions Order Book TGHE (16)",
 }
 
 lseg_turquoise_replay_gtp_v24_4.source_venue.display = function(value)

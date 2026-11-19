@@ -475,7 +475,11 @@ nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.comma.size = 1
 
 -- Display: Comma
 nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23.comma.display = function(value)
-  return "Comma: "..value
+  if value == "," then
+    return "Comma: Comma (,)"
+  end
+
+  return "Comma: Unknown("..value..")"
 end
 
 -- Dissect: Comma

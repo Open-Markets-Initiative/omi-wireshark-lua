@@ -2218,7 +2218,7 @@ nyse_amexequities_integratedfeed_xdp_v2_1_g.security_type.display = function(val
     return "Security Type: Test (T)"
   end
   if value == "U" then
-    return "Security Type: Units (U)"
+    return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
     return "Security Type: Warrant (W)"

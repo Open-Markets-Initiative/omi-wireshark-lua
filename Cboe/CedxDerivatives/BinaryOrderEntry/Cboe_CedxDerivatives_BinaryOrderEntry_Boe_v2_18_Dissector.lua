@@ -4875,10 +4875,10 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.cust_order_handling_inst.display
     return "Cust Order Handling Inst: Vendor Provided Platform Billed By Executing Broker (C)"
   end
   if value == "G" then
-    return "Cust Order Handling Inst: Sponsored Access Via Exchange Api Or Fix Provided By (G)"
+    return "Cust Order Handling Inst: Sponsored Access via Exchange API or FIX, provided by Executing Broker (G)"
   end
   if value == "H" then
-    return "Cust Order Handling Inst: Premium Algorithmic Trading Provider Billed By Execut (H)"
+    return "Cust Order Handling Inst: Premium Algorithmic Trading Provider, billed by Executing Broker (H)"
   end
   if value == "D" then
     return "Cust Order Handling Inst: Other Including Other Provided Screen (D)"
@@ -7906,10 +7906,10 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.quote_result.display = function(
     return "Quote Result: New Quote (A)"
   end
   if value == "L" then
-    return "Quote Result: Modified (L)"
+    return "Quote Result: Modified loss of priority (L)"
   end
   if value == "R" then
-    return "Quote Result: Modified (R)"
+    return "Quote Result: Modified retains priority (R)"
   end
   if value == "N" then
     return "Quote Result: No Change Matches Existing Quote (N)"
@@ -8409,31 +8409,31 @@ cboe_cedxderivatives_binaryorderentry_boe_v2_18.risk_reset_result.display = func
     return "Risk Reset Result: Success (Y)"
   end
   if value == "F" then
-    return "Risk Reset Result: Rejected (F)"
+    return "Risk Reset Result: Rejected exceeds firm reset limit (F)"
   end
   if value == "C" then
-    return "Risk Reset Result: Rejected (C)"
+    return "Risk Reset Result: Rejected exceeds Custom Group ID limit (C)"
   end
   if value == "D" then
-    return "Risk Reset Result: Rejected (D)"
+    return "Risk Reset Result: Rejected automatic risk resets are disabled (D)"
   end
   if value == "E" then
-    return "Risk Reset Result: Rejected (E)"
+    return "Risk Reset Result: Rejected empty ResetRisk field (E)"
   end
   if value == "I" then
-    return "Risk Reset Result: Rejected (I)"
+    return "Risk Reset Result: Rejected Incorrect data center (I)"
   end
   if value == "S" then
-    return "Risk Reset Result: Rejected (S)"
+    return "Risk Reset Result: Rejected exceeds risk root reset limit (S)"
   end
   if value == "U" then
-    return "Risk Reset Result: Rejected (U)"
+    return "Risk Reset Result: Rejected invalid underlying (U)"
   end
   if value == "c" then
-    return "Risk Reset Result: Rejected (c)"
+    return "Risk Reset Result: Rejected invalid ClearingFirm (c)"
   end
   if value == "y" then
-    return "Risk Reset Result: Rejected (y)"
+    return "Risk Reset Result: Rejected in replay (y)"
   end
 
   return "Risk Reset Result: Unknown("..value..")"

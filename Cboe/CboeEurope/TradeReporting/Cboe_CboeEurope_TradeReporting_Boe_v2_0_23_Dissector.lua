@@ -1454,10 +1454,10 @@ cboe_cboeeurope_tradereporting_boe_v2_0_23.deferral_reason.display = function(va
     return "Deferral Reason: Deferral For Size Specific (8)"
   end
   if value == "C" then
-    return "Deferral Reason: Deferral For Illiquid Instrument (C)"
+    return "Deferral Reason: Deferral for Illiquid Instrument and Deferral for Large In Scale (C)"
   end
   if value == "D" then
-    return "Deferral Reason: Deferral For Illiquid Instrument (D)"
+    return "Deferral Reason: Deferral for Illiquid Instrument and Deferral for Size Specific (D)"
   end
 
   return "Deferral Reason: Unknown("..value..")"
@@ -1937,9 +1937,9 @@ cboe_cboeeurope_tradereporting_boe_v2_0_23.match_type.size = 1
 
 -- Display: Match Type
 cboe_cboeeurope_tradereporting_boe_v2_0_23.match_type.labels = {
-  [1] = "Match Type: Trade Reporting (1)",
-  [3] = "Match Type: Trade Reporting (3)",
-  [9] = "Match Type: Trade Reporting (9)",
+  [1] = "Match Type: Trade Reporting Off Exchange (1)",
+  [3] = "Match Type: Trade Reporting On Exchange (3)",
+  [9] = "Match Type: Trade Reporting Systematic Internalizer (9)",
 }
 
 cboe_cboeeurope_tradereporting_boe_v2_0_23.match_type.display = function(value)
@@ -3154,6 +3154,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_price_condition.size = 1
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_price_condition.labels = {
   [0] = "Trade Price Condition: Cum Dividend (0)",
   [2] = "Trade Price Condition: Ex Dividend (2)",
+  [13] = "Trade Price Condition: Special Dividend (13)",
 }
 
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trade_price_condition.display = function(value)
@@ -3400,6 +3401,7 @@ cboe_cboeeurope_tradereporting_boe_v2_0_23.trading_session_sub_id.labels = {
   [9] = "Trading Session Sub Id: Unscheduled Auction (9)",
   [3] = "Trading Session Sub Id: Continuous Trading (3)",
   [5] = "Trading Session Sub Id: Post Trading (5)",
+  [10] = "Trading Session Sub Id: Out of Main Session Trading (10)",
 }
 
 cboe_cboeeurope_tradereporting_boe_v2_0_23.trading_session_sub_id.display = function(value)
@@ -3677,10 +3679,10 @@ cboe_cboeeurope_tradereporting_boe_v2_0_23.waiver_type.display = function(value)
     return "Waiver Type: Pre Trade Transparency Waiver For Illiquid Instrument (4)"
   end
   if value == "5" then
-    return "Waiver Type: Pre Trade Transparency Waiver For Above Standard Mar (5)"
+    return "Waiver Type: Pre Trade Transparency Waiver for Above Standard Market Size (5)"
   end
   if value == "B" then
-    return "Waiver Type: Pre Trade Transparency Waiver For Illiquid Instrument (B)"
+    return "Waiver Type: Pre Trade Transparency Waiver for Illiquid Instrument and for Above Standard Market Size (B)"
   end
 
   return "Waiver Type: Unknown("..value..")"

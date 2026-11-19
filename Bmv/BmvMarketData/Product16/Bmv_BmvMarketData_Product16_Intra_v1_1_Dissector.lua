@@ -433,7 +433,7 @@ bmv_bmvmarketdata_product16_intra_v1_1.concertation.labels = {
   ["K"] = "Concertation: Sell Leg Auto Entry Of Foreign Currency Strategy (K)",
   ["L"] = "Concertation: Buy Leg Auto Entry Of Foreign Currency Strategy (L)",
   ["N"] = "Concertation: Leg Of Foreign Currency Strategy (N)",
-  ["Q"] = "Concertation: Leg Of Foreign Currency Strategy (Q)",
+  ["Q"] = "Concertation: Leg Of Round Of Foreign Currency Strategy (Q)",
   ["R"] = "Concertation: Leg Of Crossing Of Chain Of Forwards (R)",
   ["S"] = "Concertation: Sell Leg Auto Entry Of Chain Of Forwards (S)",
   ["T"] = "Concertation: Buy Leg Auto Entry Of Chain Of Forwards (T)",
@@ -445,7 +445,7 @@ bmv_bmvmarketdata_product16_intra_v1_1.concertation.labels = {
   ["a"] = "Concertation: Buy Leg Auto Entry Of Rollover (a)",
   ["b"] = "Concertation: Leg Of Round Of Rollover (b)",
   ["c"] = "Concertation: Depth Of Round Of Chain Of Forwards (c)",
-  ["d"] = "Concertation: Trading Of Chain Of Forwards (d)",
+  ["d"] = "Concertation: Auction Of Chain Of Forwards (d)",
   ["e"] = "Concertation: Depth Of Round (e)",
   ["f"] = "Concertation: Round Of Chain Of Forwards (f)",
   ["g"] = "Concertation: Rollover Sentra (g)",
@@ -517,7 +517,7 @@ bmv_bmvmarketdata_product16_intra_v1_1.concertation_type.labels = {
   ["K"] = "Concertation Type: Sell Leg Auto Entry Of Foreign Currency Strategy (K)",
   ["L"] = "Concertation Type: Buy Leg Auto Entry Of Foreign Currency Strategy (L)",
   ["N"] = "Concertation Type: Leg Of Foreign Currency Strategy (N)",
-  ["Q"] = "Concertation Type: Leg Of Foreign Currency Strategy (Q)",
+  ["Q"] = "Concertation Type: Leg Of Round Of Foreign Currency Strategy (Q)",
   ["R"] = "Concertation Type: Leg Of Crossing Of Chain Of Forwards (R)",
   ["S"] = "Concertation Type: Sell Leg Auto Entry Of Chain Of Forwards (S)",
   ["T"] = "Concertation Type: Buy Leg Auto Entry Of Chain Of Forwards (T)",
@@ -529,7 +529,7 @@ bmv_bmvmarketdata_product16_intra_v1_1.concertation_type.labels = {
   ["a"] = "Concertation Type: Buy Leg Auto Entry Of Rollover (a)",
   ["b"] = "Concertation Type: Leg Of Round Of Rollover (b)",
   ["c"] = "Concertation Type: Depth Of Round Of Chain Of Forwards (c)",
-  ["d"] = "Concertation Type: Trading Of Chain Of Forwards (d)",
+  ["d"] = "Concertation Type: Auction Of Chain Of Forwards (d)",
   ["e"] = "Concertation Type: Depth Of Round (e)",
   ["f"] = "Concertation Type: Round Of Chain Of Forwards (f)",
   ["g"] = "Concertation Type: Rollover Sentra (g)",
@@ -1001,7 +1001,7 @@ bmv_bmvmarketdata_product16_intra_v1_1.market_data_group.labels = {
   [16] = "Market Data Group: Twenty Price Levels Of Local And Global Market (16)",
   [17] = "Market Data Group: Best Offers Of Local And Global Market With Money Market (17)",
   [18] = "Market Data Group: Twenty Price Levels Of Local And Global Market Indices Components Level Of Indices And Levels Of Inavs (18)",
-  [19] = "Market Data Group: Ten Price Levels Of Derivate Futures And Derivative Options (19)",
+  [19] = "Market Data Group: Ten Price Levels Of Derivative Futures And Derivative Options (19)",
   [20] = "Market Data Group: Best Offers For Derivative Futures And Derivative Options (20)",
   [21] = "Market Data Group: Added Value With Benchmark (21)",
   [22] = "Market Data Group: Added Value With Capitalization Rules (22)",
@@ -1013,8 +1013,11 @@ bmv_bmvmarketdata_product16_intra_v1_1.market_data_group.labels = {
   [28] = "Market Data Group: Closing Price Origin (28)",
   [29] = "Market Data Group: Analytics Price And Market Depth (29)",
   [32] = "Market Data Group: Analytics Market Quality (32)",
-  [33] = "Market Data Group: Analytics Spead Performance (33)",
+  [33] = "Market Data Group: Analytics Spread Performance (33)",
   [34] = "Market Data Group: Analytics Negotiation (34)",
+  [35] = "Market Data Group: Indices Components Strategy (35)",
+  [36] = "Market Data Group: Indices Components ESG (36)",
+  [37] = "Market Data Group: MOC Local And Global Market (37)",
   [40] = "Market Data Group: Channel Zero Catalogs (40)",
 }
 
@@ -3407,6 +3410,7 @@ udp_table:add_for_decode_as(omi_bmv_bmvmarketdata_product16_intra_v1_1)
 --   Version: 1.1
 --   Specification: Market Data Multicast_P16_1_ENG.pdf
 --   Specification: Connection_Appendix_6.pdf
+--   Specification: Conexion_anexos_es_6.pdf
 --
 -- Script:
 --   Compiler: 2.0

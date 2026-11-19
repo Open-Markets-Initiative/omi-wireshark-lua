@@ -2178,8 +2178,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_type.size = 1
 
 -- Display: Price Type
 nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_type.labels = {
-  [0] = "Price Type: Strike Price Is Amount (0)",
-  [1] = "Price Type: Strike Price Is Amount (1)",
+  [0] = "Price Type: Strike Price Is Dollar Amount (0)",
+  [1] = "Price Type: Strike Price Is Percent Amount (1)",
 }
 
 nyse_arcaoptions_deepfeed_pillar_v1_2_l.price_type.display = function(value)

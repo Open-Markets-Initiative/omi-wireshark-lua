@@ -51,11 +51,11 @@ omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.effective_time = Pr
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.effective_time_utc = ProtoField.new("Effective Time", "nyse.arcaequities.binarygateway.pillarstream.v6.1.effectivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Reserved for future use")
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.end_seq = ProtoField.new("End Seq", "nyse.arcaequities.binarygateway.pillarstream.v6.1.endseq", ftypes.UINT64, nil, nil, nil, "End sequence (ignored for write request)")
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.arcaequities.binarygateway.pillarstream.v6.1.execinst", ftypes.UINT64, {[0]="None", [1]="Reserved 1", [2]="Reserved 2", [3]="Tracking", [4]="Iso", [5]="Primary Peg", [6]="Market Peg", [7]="Midpoint", [8]="Non Displayed", [9]="Trade At Iso", [10]="Last Sale Peg"}, base.DEC, 0x00F0000000000000, "ExecInst")
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.executed_trading_session = ProtoField.new("Executed Trading Session", "nyse.arcaequities.binarygateway.pillarstream.v6.1.executedtradingsession", ftypes.UINT8, {[0]="Not Applicable", [4]="Overnight"}, base.DEC, 0x07, "ExecutedTradingSession")
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.executed_trading_session = ProtoField.new("Executed Trading Session", "nyse.arcaequities.binarygateway.pillarstream.v6.1.executedtradingsession", ftypes.UINT8, {[0]="Not Applicable", [4]="Overnight", [1]="Early Reserved For Future Use", [2]="Core Reserved For Future Use", [3]="Late Reserved For Future Use"}, base.DEC, 0x07, "ExecutedTradingSession")
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.arcaequities.binarygateway.pillarstream.v6.1.extendedexecinst", ftypes.UINT64, {[0]="None", [1]="Alo", [3]="No Ioi Route", [5]="Retail Type 1", [6]="Retail Type 2", [7]="Retail Provider", [8]="Imbalance Offset", [9]="Discretionary Peg", [10]="Dark Primary Peg", [14]="Ido"}, base.DEC, 0x000F000000000000, "ExtendedExecInst")
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.imbalance_side = ProtoField.new("Imbalance Side", "nyse.arcaequities.binarygateway.pillarstream.v6.1.imbalanceside", ftypes.UINT8, nil, nil, nil, "Imbalance side enum")
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nyse.arcaequities.binarygateway.pillarstream.v6.1.imbalancevolume", ftypes.UINT32, nil, nil, nil, "Unpaired better-priced shares relative to Price, excluding DMM.")
-omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.interest_type = ProtoField.new("Interest Type", "nyse.arcaequities.binarygateway.pillarstream.v6.1.interesttype", ftypes.UINT64, {[0]="No Interest Type", [4]="Q Order", [5]="Cco", [6]="Cco Partial Fill Contra Side"}, base.DEC, 0x000000000E000000, "InterestType")
+omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.interest_type = ProtoField.new("Interest Type", "nyse.arcaequities.binarygateway.pillarstream.v6.1.interesttype", ftypes.UINT64, {[0]="No Interest Type", [4]="Q Order", [5]="Cco", [6]="Cco Partial Fill Contra Side", [1]="Reserved For Future Use", [2]="Reserved For Future Use", [3]="Reserved For Future Use"}, base.DEC, 0x000000000E000000, "InterestType")
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.intraday_sell_short_qty = ProtoField.new("Intraday Sell Short Qty", "nyse.arcaequities.binarygateway.pillarstream.v6.1.intradaysellshortqty", ftypes.UINT32, nil, nil, nil, "Number of shares to mark as Sell Short for applicable ManualActionTypes. Populate 0 when not applicable.")
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.introducing_badge_id = ProtoField.new("Introducing Badge Id", "nyse.arcaequities.binarygateway.pillarstream.v6.1.introducingbadgeid", ftypes.STRING, nil, nil, nil, "NYSE Floor DMM supervisor badge when ManualOverride is 1 or 2.")
 omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.ioc_attribution = ProtoField.new("Ioc Attribution", "nyse.arcaequities.binarygateway.pillarstream.v6.1.iocattribution", ftypes.UINT8, nil, nil, nil, "IOC Attribution enum")
@@ -2823,7 +2823,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_1.reason_code.labels = {
   [87] = "Reason Code: Invalid Stock Leg Give Up (87)",
   [88] = "Reason Code: Invalid No Legs (88)",
   [89] = "Reason Code: Invalid Leg Position Effect (89)",
-  [90] = "Reason Code: Invalid Leg Symbol (90)",
+  [90] = "Reason Code: Invalid Leg Symbol Field (90)",
   [91] = "Reason Code: Invalid Leg Cfi Code (91)",
   [92] = "Reason Code: Invalid Leg Maturity Date (92)",
   [93] = "Reason Code: Invalid Leg Strike Price (93)",
@@ -3040,6 +3040,57 @@ nyse_arcaequities_binarygateway_pillarstream_v6_1.reason_code.labels = {
   [304] = "Reason Code: Invalid Flex Eod Tag (304)",
   [305] = "Reason Code: Invalid Percentage Price (305)",
   [999] = "Reason Code: Unknown Issue Encountered (999)",
+  [306] = "Reason Code: Invalid Percentage Strike (306)",
+  [307] = "Reason Code: Cancel Remaining Gtx (307)",
+  [308] = "Reason Code: Auction Not Running (308)",
+  [309] = "Reason Code: Invalid Ord Status (309)",
+  [310] = "Reason Code: Mmid Blocked (310)",
+  [311] = "Reason Code: Invalid Catimid (311)",
+  [312] = "Reason Code: Risk Rej Iso (312)",
+  [313] = "Reason Code: Risk Rej Mkt Orders (313)",
+  [314] = "Reason Code: Risk Rej Moo Moc (314)",
+  [315] = "Reason Code: Risk Rej Early Trading (315)",
+  [316] = "Reason Code: Risk Rej Late Trading (316)",
+  [317] = "Reason Code: Risk Rej Restricted Symbol (317)",
+  [318] = "Reason Code: Risk Rej Sell Short For Symbol (318)",
+  [319] = "Reason Code: Risk Rej Sell Short Exempt For Symbol (319)",
+  [320] = "Reason Code: Risk Rej Ord Max Qty Symbol Adv (320)",
+  [321] = "Reason Code: Risk Max Duplicative Ord (321)",
+  [322] = "Reason Code: Risk Require Locate Broker (322)",
+  [323] = "Reason Code: Invalid Risk Range Id (323)",
+  [324] = "Reason Code: Invalid Risk Minimum Value (324)",
+  [325] = "Reason Code: Invalid Price Scale (325)",
+  [326] = "Reason Code: Invalid Max Risk Symbols Exceeded (326)",
+  [327] = "Reason Code: Invalid Risk Settings Incomplete (327)",
+  [328] = "Reason Code: Invalid Auction Id (328)",
+  [329] = "Reason Code: Group Id Blocked (329)",
+  [330] = "Reason Code: Pending Flex Price Msg (330)",
+  [331] = "Reason Code: Risk Ord Rate Threshold (331)",
+  [332] = "Reason Code: Inconsistent Percentage Flex Legs (332)",
+  [333] = "Reason Code: Cancelled By Routing Venue (333)",
+  [334] = "Reason Code: Invalid Target Strategy (334)",
+  [335] = "Reason Code: Cancel Ioc Crossing Away Quote (335)",
+  [336] = "Reason Code: Routing Venue Not Available (336)",
+  [337] = "Reason Code: Invalid Leg Price (337)",
+  [338] = "Reason Code: Invalid Routing Strategy (338)",
+  [341] = "Reason Code: Routing Is Not Available (341)",
+  [400] = "Reason Code: Repriced (400)",
+  [500] = "Reason Code: Cancelled By Ats (500)",
+  [501] = "Reason Code: Invalid Currency (501)",
+  [700] = "Reason Code: Invalid Trf Tag (700)",
+  [701] = "Reason Code: Invalid Reporting Firm (701)",
+  [702] = "Reason Code: Invalid Contra Firm (702)",
+  [703] = "Reason Code: Invalid Reporting Clearing (703)",
+  [704] = "Reason Code: Invalid Contra Clearing (704)",
+  [705] = "Reason Code: Invalid Firm Relationship (705)",
+  [706] = "Reason Code: Unsupported Report Type (706)",
+  [707] = "Reason Code: Original Trade Not Found (707)",
+  [708] = "Reason Code: Invalid Price Luld (708)",
+  [709] = "Reason Code: Reject Trade Action Pending (709)",
+  [710] = "Reason Code: Finra Obr Down (710)",
+  [799] = "Reason Code: Misc Prism Reject (799)",
+  [800] = "Reason Code: Broker Reject (800)",
+  [906] = "Reason Code: System Full Cga Rate Exceeded (906)",
 }
 
 nyse_arcaequities_binarygateway_pillarstream_v6_1.reason_code.display = function(value)
@@ -3149,12 +3200,12 @@ nyse_arcaequities_binarygateway_pillarstream_v6_1.reject_type.labels = {
   [2] = "Reject Type: Modify Request (2)",
   [3] = "Reject Type: Cancel Request (3)",
   [4] = "Reject Type: Bulk Cancel Request (4)",
-  [5] = "Reject Type: Reserved (5)",
+  [5] = "Reject Type: Reserved For Future Use (5)",
   [6] = "Reject Type: Manual Action Response (6)",
   [7] = "Reject Type: Risk Limit Update Request (7)",
-  [8] = "Reject Type: Not Applicable Equities (8)",
-  [9] = "Reject Type: Reserved Future (9)",
-  [10] = "Reject Type: Not Applicable Equities Alt (10)",
+  [8] = "Reject Type: Not Applicable For Equities Markets (8)",
+  [9] = "Reject Type: Reserved For Future Use (9)",
+  [10] = "Reject Type: Not Applicable For Equities Markets (10)",
   [11] = "Reject Type: Risk Action Request (11)",
 }
 
@@ -3564,12 +3615,12 @@ nyse_arcaequities_binarygateway_pillarstream_v6_1.risk_control_type.labels = {
   [4] = "Risk Control Type: Gross Credit Open (4)",
   [5] = "Risk Control Type: Gross Credit Open Plus Executed (5)",
   [6] = "Risk Control Type: Maximum Duplicative Orders (6)",
-  [7] = "Risk Control Type: Reserved (7)",
+  [7] = "Risk Control Type: Reserved For Future Use (7)",
   [8] = "Risk Control Type: Activity Rolling Transaction (8)",
   [9] = "Risk Control Type: Activity Rolling Volume (9)",
   [10] = "Risk Control Type: Activity Rolling Percentage (10)",
   [11] = "Risk Control Type: Activity Global Risk Mitigation (11)",
-  [12] = "Risk Control Type: Reserved 2 (12)",
+  [12] = "Risk Control Type: Reserved For Future Use (12)",
   [13] = "Risk Control Type: Reject Market Orders (13)",
   [14] = "Risk Control Type: Reject Moo And Moc (14)",
   [15] = "Risk Control Type: Not Available 15 (15)",
@@ -3587,7 +3638,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_1.risk_control_type.labels = {
   [27] = "Risk Control Type: Lopp Options Complex Custom Limits (27)",
   [28] = "Risk Control Type: Require Locate Broker (28)",
   [29] = "Risk Control Type: Order Rate Threshold (29)",
-  [30] = "Risk Control Type: Reject Isoioc (30)",
+  [30] = "Risk Control Type: Reject Iso Ioc (30)",
   [31] = "Risk Control Type: Reject Iso Day (31)",
   [32] = "Risk Control Type: Reject Overnight Trading Session (32)",
 }
@@ -3687,6 +3738,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_1.risk_user_type.size = 1
 nyse_arcaequities_binarygateway_pillarstream_v6_1.risk_user_type.labels = {
   ["E"] = "Risk User Type: Entering Firm (E)",
   ["C"] = "Risk User Type: Clearing Firm (C)",
+  ["O"] = "Risk User Type: Options Market Maker Firm (O)",
 }
 
 nyse_arcaequities_binarygateway_pillarstream_v6_1.risk_user_type.display = function(value)
@@ -6097,7 +6149,7 @@ end
 -- Dissect Bit Fields: Bitfield Execution Details
 nyse_arcaequities_binarygateway_pillarstream_v6_1.bitfield_execution_details.bits = function(range, value, packet, parent)
 
-  -- Executed Trading Session: 3 Bit Unsigned Fixed Width Integer Enum with 2 values
+  -- Executed Trading Session: 3 Bit Unsigned Fixed Width Integer Enum with 5 values
   parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.executed_trading_session, range, value)
 
   -- Unused 5: 5 Bit
@@ -6618,7 +6670,7 @@ nyse_arcaequities_binarygateway_pillarstream_v6_1.bitfield_order_instructions.bi
   -- Order Capacity: 3 Bit Unsigned Fixed Width Integer Enum with 4 values
   parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.order_capacity, range, value)
 
-  -- Interest Type: 3 Bit Unsigned Fixed Width Integer Enum with 4 values
+  -- Interest Type: 3 Bit Unsigned Fixed Width Integer Enum with 7 values
   parent:add(omi_nyse_arcaequities_binarygateway_pillarstream_v6_1.fields.interest_type, range, value)
 
   -- Trading Session Id: 3 Bit Unsigned Fixed Width Integer Enum with 8 values

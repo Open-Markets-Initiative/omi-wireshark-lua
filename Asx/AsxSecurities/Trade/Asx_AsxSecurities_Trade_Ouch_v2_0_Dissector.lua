@@ -484,8 +484,24 @@ asx_asxsecurities_trade_ouch_v2_0.deal_source = {}
 asx_asxsecurities_trade_ouch_v2_0.deal_source.size = 2
 
 -- Display: Deal Source
+asx_asxsecurities_trade_ouch_v2_0.deal_source.labels = {
+  [1] = "Deal Source: Continuous Auto Match (1)",
+  [20] = "Deal Source: Auction Auto Match (20)",
+  [36] = "Deal Source: Tailor Made Combination Match (36)",
+  [43] = "Deal Source: Combination Order Matched Against Outright Legs (43)",
+  [44] = "Deal Source: Booked UCP Transaction (44)",
+  [45] = "Deal Source: Booked UCP Auction Transaction (45)",
+  [46] = "Deal Source: Centre Point Preference Matched Trade (46)",
+  [47] = "Deal Source: Centre Point Trade (47)",
+  [48] = "Deal Source: Centre Point Booked UCP (48)",
+  [49] = "Deal Source: Reserved 49 (49)",
+  [50] = "Deal Source: Block Trade (50)",
+  [51] = "Deal Source: Preference Block Trade (51)",
+  [52] = "Deal Source: Reserved 52 (52)",
+}
+
 asx_asxsecurities_trade_ouch_v2_0.deal_source.display = function(value)
-  return "Deal Source: "..value
+  return asx_asxsecurities_trade_ouch_v2_0.deal_source.labels[value] or "Deal Source: Unknown("..value..")"
 end
 
 -- Dissect: Deal Source
@@ -861,8 +877,8 @@ asx_asxsecurities_trade_ouch_v2_0.ouch_order_type.size = 1
 -- Display: Ouch Order Type
 asx_asxsecurities_trade_ouch_v2_0.ouch_order_type.labels = {
   ["Y"] = "Ouch Order Type: Limit Order (Y)",
-  ["N"] = "Ouch Order Type: Centre Point Order (N)",
-  ["D"] = "Ouch Order Type: Centre Point Order (D)",
+  ["N"] = "Ouch Order Type: Centre Point Order Mid Point Only (N)",
+  ["D"] = "Ouch Order Type: Centre Point Order Dark Limit Order (D)",
   ["S"] = "Ouch Order Type: Sweep Order (S)",
   ["P"] = "Ouch Order Type: Dual Posted Sweep Order (P)",
   ["B"] = "Ouch Order Type: Centre Point Block Order With Single Fill Maq (B)",

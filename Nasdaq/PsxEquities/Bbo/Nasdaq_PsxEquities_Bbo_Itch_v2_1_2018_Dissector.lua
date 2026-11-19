@@ -437,10 +437,10 @@ nasdaq_psxequities_bbo_itch_v2_1_2018.ipo_flag.size = 1
 -- Display: Ipo Flag
 nasdaq_psxequities_bbo_itch_v2_1_2018.ipo_flag.display = function(value)
   if value == "Y" then
-    return "Ipo Flag: Nasdaq Listed Instrument (Y)"
+    return "Ipo Flag: New IPO Security (Y)"
   end
   if value == "N" then
-    return "Ipo Flag: Nasdaq Listed Instrument (N)"
+    return "Ipo Flag: Not New IPO Security (N)"
   end
   if value == " " then
     return "Ipo Flag: Na (<whitespace>)"
@@ -648,7 +648,7 @@ nasdaq_psxequities_bbo_itch_v2_1_2018.market_category.display = function(value)
     return "Market Category: Nyse (N)"
   end
   if value == "A" then
-    return "Market Category: Nyse Amex (A)"
+    return "Market Category: NYSE American (A)"
   end
   if value == "P" then
     return "Market Category: Nyse Arca (P)"
@@ -1215,30 +1215,17 @@ nasdaq_psxequities_bbo_itch_v2_1_2018.security_class = {}
 nasdaq_psxequities_bbo_itch_v2_1_2018.security_class.size = 1
 
 -- Display: Security Class
-nasdaq_psxequities_bbo_itch_v2_1_2018.security_class.display = function(value)
-  if value == "Q" then
-    return "Security Class: Nasdaq Listed Issue (Q)"
-  end
-  if value == "N" then
-    return "Security Class: Nyse (N)"
-  end
-  if value == "A" then
-    return "Security Class: Nyse Mkt (A)"
-  end
-  if value == "P" then
-    return "Security Class: Nyse Arca (P)"
-  end
-  if value == "Z" then
-    return "Security Class: Bats (Z)"
-  end
-  if value == "V" then
-    return "Security Class: Iexg (V)"
-  end
-  if value == " " then
-    return "Security Class: Na (<whitespace>)"
-  end
+nasdaq_psxequities_bbo_itch_v2_1_2018.security_class.labels = {
+  ["Q"] = "Security Class: Nasdaq Listed Issue (Q)",
+  ["N"] = "Security Class: Nyse (N)",
+  ["A"] = "Security Class: NYSE American (A)",
+  ["P"] = "Security Class: Nyse Arca (P)",
+  ["Z"] = "Security Class: Bats (Z)",
+  ["V"] = "Security Class: Iexg (V)",
+}
 
-  return "Security Class: Unknown("..value..")"
+nasdaq_psxequities_bbo_itch_v2_1_2018.security_class.display = function(value)
+  return nasdaq_psxequities_bbo_itch_v2_1_2018.security_class.labels[value] or "Security Class: Unknown("..value..")"
 end
 
 -- Dissect: Security Class

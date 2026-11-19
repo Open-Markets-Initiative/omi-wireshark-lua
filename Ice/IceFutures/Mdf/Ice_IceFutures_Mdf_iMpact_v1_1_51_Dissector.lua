@@ -1574,6 +1574,12 @@ ice_icefutures_mdf_impact_v1_1_51.event_type.display = function(value)
   if value == "A" then
     return "Event Type: Implication Disabled For The Market (A)"
   end
+  if value == "B" then
+    return "Event Type: Trf Market Update (B)"
+  end
+  if value == "C" then
+    return "Event Type: Tpl Hold Exit (C)"
+  end
 
   return "Event Type: Unknown("..value..")"
 end
@@ -2747,7 +2753,14 @@ ice_icefutures_mdf_impact_v1_1_51.ipl_tpl_hold_type.display = function(value)
     return "Ipl Tpl Hold Type: No Value"
   end
 
-  return "Ipl Tpl Hold Type: "..value
+  if value == "S" then
+    return "Ipl Tpl Hold Type: Ipl Tpl Hold Start (S)"
+  end
+  if value == "E" then
+    return "Ipl Tpl Hold Type: Ipl Tpl Hold End (E)"
+  end
+
+  return "Ipl Tpl Hold Type: Unknown("..value..")"
 end
 
 -- Dissect: Ipl Tpl Hold Type
@@ -2783,7 +2796,14 @@ ice_icefutures_mdf_impact_v1_1_51.ipl_tpl_type.display = function(value)
     return "Ipl Tpl Type: No Value"
   end
 
-  return "Ipl Tpl Type: "..value
+  if value == "I" then
+    return "Ipl Tpl Type: Ipl (I)"
+  end
+  if value == "T" then
+    return "Ipl Tpl Type: Tpl (T)"
+  end
+
+  return "Ipl Tpl Type: Unknown("..value..")"
 end
 
 -- Dissect: Ipl Tpl Type
@@ -3345,16 +3365,10 @@ ice_icefutures_mdf_impact_v1_1_51.is_up.display = function(value)
   end
 
   if value == "Y" then
-    return "Is Up: Ipl Upper Bound Violation (Y)"
+    return "Is Up: Ipl Tpl Upper Bound Violation (Y)"
   end
   if value == "N" then
-    return "Is Up: Ipl Lower Bound Violation (N)"
-  end
-  if value == "F" then
-    return "Is Up: Final (F)"
-  end
-  if value == " " then
-    return "Is Up: Non Endex Spot Market (<whitespace>)"
+    return "Is Up: Ipl Tpl Lower Bound Violation (N)"
   end
 
   return "Is Up: Unknown("..value..")"
@@ -5007,7 +5021,10 @@ ice_icefutures_mdf_impact_v1_1_51.off_market_trade_type.display = function(value
     return "Off Market Trade Type: Asset Allocation (AA)"
   end
   if value == "V" then
-    return "Off Market Trade Type: Asset Allocation (V)"
+    return "Off Market Trade Type: Bilateral (V)"
+  end
+  if value == "SB" then
+    return "Off Market Trade Type: Trade At Market (SB)"
   end
 
   return "Off Market Trade Type: Unknown("..value..")"

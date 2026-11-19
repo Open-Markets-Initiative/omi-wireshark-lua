@@ -261,7 +261,7 @@ lseg_turquoise_level1incremental_gtp_v26_3.auction_type.display = function(value
   end
 
   if value == "L" then
-    return "Auction Type: Frequent Lit Auctions (L)"
+    return "Auction Type: Frequent Periodic Auctions (L)"
   end
 
   return "Auction Type: Unknown("..value..")"
@@ -1414,12 +1414,12 @@ lseg_turquoise_level1incremental_gtp_v26_3.source_venue.size = 2
 
 -- Display: Source Venue
 lseg_turquoise_level1incremental_gtp_v26_3.source_venue.labels = {
-  [5] = "Source Venue: Turquoise Lit Order Book (5)",
-  [6] = "Source Venue: Turquoise Plato Order Book (6)",
-  [12] = "Source Venue: Turquoise Plato Lit Auctions Order Book (12)",
-  [14] = "Source Venue: Turquoise Lit Order Book (14)",
-  [15] = "Source Venue: Turquoise Plato Order Book (15)",
-  [16] = "Source Venue: Turquoise Plato Lit Auctions Order Book (16)",
+  [5] = "Source Venue: Turquoise Lit Order Book TGHL (5)",
+  [6] = "Source Venue: Turquoise Dark Order Book TGHL (6)",
+  [12] = "Source Venue: Turquoise Periodic Auctions Order Book TGHL (12)",
+  [14] = "Source Venue: Turquoise Lit Order Book TGHE (14)",
+  [15] = "Source Venue: Turquoise Dark Order Book TGHE (15)",
+  [16] = "Source Venue: Turquoise Periodic Auctions Order Book TGHE (16)",
 }
 
 lseg_turquoise_level1incremental_gtp_v26_3.source_venue.display = function(value)
@@ -1675,21 +1675,6 @@ lseg_turquoise_level1incremental_gtp_v26_3.trade_qualifier.display = function(va
   if value == "T" then
     return "Trade Qualifier: Trade At Last (T)"
   end
-  if value == "A" then
-    return "Trade Qualifier: Aesp (A)"
-  end
-  if value == "B" then
-    return "Trade Qualifier: Edsp (B)"
-  end
-  if value == "E" then
-    return "Trade Qualifier: Resume Auction (E)"
-  end
-  if value == "F" then
-    return "Trade Qualifier: Periodic Auction (F)"
-  end
-  if value == "G" then
-    return "Trade Qualifier: Scheduled Level 1 Only Auction (G)"
-  end
 
   return "Trade Qualifier: Unknown("..value..")"
 end
@@ -1769,10 +1754,10 @@ lseg_turquoise_level1incremental_gtp_v26_3.trading_status.display = function(val
     return "Trading Status: Halted Regulatory Halt (P)"
   end
   if value == "T" then
-    return "Trading Status: Regular Trading Start Of Trqb Session (T)"
+    return "Trading Status: Regular Trading (T)"
   end
   if value == "t" then
-    return "Trading Status: End Of Regular Trading End Of Trqb Session (t)"
+    return "Trading Status: End Of Regular Trading (t)"
   end
   if value == "c" then
     return "Trading Status: Closed (c)"

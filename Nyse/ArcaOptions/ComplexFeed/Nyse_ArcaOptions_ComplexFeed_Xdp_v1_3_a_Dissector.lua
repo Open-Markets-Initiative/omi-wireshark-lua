@@ -818,9 +818,6 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.quote_condition.display = function(value
   if value == "4" then
     return "Quote Condition: Pre Open (4)"
   end
-  if value == "5" then
-    return "Quote Condition: Rotation Legal Width Quote Pending (5)"
-  end
 
   return "Quote Condition: Unknown("..value..")"
 end
@@ -928,12 +925,6 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.security_status.display = function(value
     return "Security Status: No Value"
   end
 
-  if value == "L" then
-    return "Security Status: Light Up A Dark Series (L)"
-  end
-  if value == "N" then
-    return "Security Status: Open A Dark Series (N)"
-  end
   if value == "O" then
     return "Security Status: Open (O)"
   end
@@ -942,12 +933,6 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.security_status.display = function(value
   end
   if value == "S" then
     return "Security Status: Halt (S)"
-  end
-  if value == "U" then
-    return "Security Status: Unhalt (U)"
-  end
-  if value == "T" then
-    return "Security Status: Unhalt A Dark Series (T)"
   end
   if value == "Q" then
     return "Security Status: End Of Rfq Auction (Q)"
@@ -1240,7 +1225,7 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.trade_cond_1.display = function(value)
     return "Trade Cond 1: Floor Trade (R)"
   end
   if value == "S" then
-    return "Trade Cond 1: So Sweep Trade (S)"
+    return "Trade Cond 1: ISO Sweep Trade (S)"
   end
 
   return "Trade Cond 1: Unknown("..value..")"
@@ -1432,7 +1417,8 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.size =
   nyse_arcaoptions_complexfeed_xdp_v1_3_a.source_time.size + 
   nyse_arcaoptions_complexfeed_xdp_v1_3_a.source_time_ns.size + 
   nyse_arcaoptions_complexfeed_xdp_v1_3_a.product_id.size + 
-  nyse_arcaoptions_complexfeed_xdp_v1_3_a.channel_id.size
+  nyse_arcaoptions_complexfeed_xdp_v1_3_a.channel_id.size + 
+  nyse_arcaoptions_complexfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Sequence Number Reset Message
 nyse_arcaoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.display = function(packet, parent, length)
@@ -1461,6 +1447,13 @@ nyse_arcaoptions_complexfeed_xdp_v1_3_a.sequence_number_reset_message.fields = f
 
   -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_complexfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: reserved
+  if show.padding then
+    index, reserved_2 = nyse_arcaoptions_complexfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_complexfeed_xdp_v1_3_a.reserved_2.size
+  end
 
   return index
 end

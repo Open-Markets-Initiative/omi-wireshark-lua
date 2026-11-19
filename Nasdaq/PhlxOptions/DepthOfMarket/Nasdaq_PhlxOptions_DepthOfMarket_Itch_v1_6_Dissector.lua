@@ -605,7 +605,7 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_6.customer_indicator.labels = {
   ["F"] = "Customer Indicator: Firm (F)",
   ["M"] = "Customer Indicator: On Floor (M)",
   ["P"] = "Customer Indicator: Professional (P)",
-  ["B"] = "Customer Indicator: Non Phlx (B)",
+  ["B"] = "Customer Indicator: Broker Dealer Non PHLX (B)",
 }
 
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.customer_indicator.display = function(value)
@@ -632,14 +632,14 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_6.event_code.size = 1
 
 -- Display: Event Code
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.event_code.labels = {
-  ["O"] = "Event Code: Start Of Messages This Is Always The First Message Sent In Any Trading Day (O)",
-  ["S"] = "Event Code: Start Of System Hours This Message Indicates That Phlx® Is Open And Ready To Start Accepting Orders (S)",
-  ["Q"] = "Event Code: Start Of Opening Process This Message Is Intended To Indicate That Phlx® Has Started Its Opening Auction Process (Q)",
-  ["N"] = "Event Code: End Of Normal Hours Processing This Message Is Intended To Indicate That Phlx® Will No Longer Accept Any New Orders Or Changes To Existing Orders For Options That Trade During Normal Trading Hours (N)",
-  ["L"] = "Event Code: End Of Late Hours Processing This Message Is Intended To Indicate That Phlx® Will No Longer Accept Any New Orders Or Changes To Existing Orders For Options That Trade During Extended Hours (L)",
-  ["E"] = "Event Code: End Of System Hours This Message Indicates That Phlx® Options System Is Now Closed (E)",
-  ["C"] = "Event Code: End Of Messages This Is Always The Last Message Sent In Any Trading Day (C)",
-  ["W"] = "Event Code: End Of Wco Early Closing This Message Is Intended To Indicate That The Exchange Will No Longer Accept Any New Orders Or Changes To Existing Orders On Last Trading Date Of Wco Options (W)",
+  ["O"] = "Event Code: Start Of Messages (O)",
+  ["S"] = "Event Code: Start Of System Hours (S)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
+  ["N"] = "Event Code: End Of Normal Hours Processing (N)",
+  ["L"] = "Event Code: End Of Late Hours Processing (L)",
+  ["E"] = "Event Code: End Of System Hours (E)",
+  ["C"] = "Event Code: End Of Messages (C)",
+  ["W"] = "Event Code: End Of WCO Early Closing (W)",
 }
 
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.event_code.display = function(value)
@@ -869,10 +869,10 @@ nasdaq_phlxoptions_depthofmarket_itch_v1_6.market_side.size = 1
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.market_side.labels = {
   ["B"] = "Market Side: Buy (B)",
   ["S"] = "Market Side: Sell (S)",
-  ["X"] = "Market Side: Buy (X)",
-  ["Y"] = "Market Side: Sell (Y)",
-  ["M"] = "Market Side: Buy (M)",
-  ["N"] = "Market Side: Sell (N)",
+  ["X"] = "Market Side: Buy AON (X)",
+  ["Y"] = "Market Side: Sell AON (Y)",
+  ["M"] = "Market Side: Buy Implied (M)",
+  ["N"] = "Market Side: Sell Implied (N)",
 }
 
 nasdaq_phlxoptions_depthofmarket_itch_v1_6.market_side.display = function(value)

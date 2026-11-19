@@ -1552,7 +1552,11 @@ tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.protocol_name.size = 1
 
 -- Display: Protocol Name
 tmx_tsx_quantumfeedlevel1recovery_xmt_v2_8.protocol_name.display = function(value)
-  return "Protocol Name: "..value
+  if value == "X" then
+    return "Protocol Name: Xmt (X)"
+  end
+
+  return "Protocol Name: Unknown("..value..")"
 end
 
 -- Dissect: Protocol Name

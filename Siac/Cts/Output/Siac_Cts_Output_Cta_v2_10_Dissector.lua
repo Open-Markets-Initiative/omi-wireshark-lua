@@ -35,7 +35,7 @@ omi_siac_cts_output_cta_v2_10.fields.corrected_trade = ProtoField.new("Corrected
 omi_siac_cts_output_cta_v2_10.fields.crossing_session_i_total_trades_volume = ProtoField.new("Crossing Session I Total Trades Volume", "siac.cts.output.cta.v2.10.crossingsessionitotaltradesvolume", ftypes.UINT64, nil, nil, nil, "Contains the number of shares traded at the Participant’s close price and taking place after the close of a Participant’s regular session.")
 omi_siac_cts_output_cta_v2_10.fields.crossing_session_ii_dollar_value = ProtoField.new("Crossing Session Ii Dollar Value", "siac.cts.output.cta.v2.10.crossingsessioniidollarvalue", ftypes.DOUBLE, nil, nil, nil, "Contains the Dollar Value traded after the close of a Participant’s regular session.")
 omi_siac_cts_output_cta_v2_10.fields.crossing_session_ii_total_trades_volume = ProtoField.new("Crossing Session Ii Total Trades Volume", "siac.cts.output.cta.v2.10.crossingsessioniitotaltradesvolume", ftypes.UINT64, nil, nil, nil, "Contains the number of shares traded after the close of a Participant’s regular session.")
-omi_siac_cts_output_cta_v2_10.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cts.output.cta.v2.10.datafeedindicator", ftypes.STRING, nil, nil, nil, "Q for Consolidated Quotation System")
+omi_siac_cts_output_cta_v2_10.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.cts.output.cta.v2.10.datafeedindicator", ftypes.STRING, nil, nil, nil, "T for Consolidated Tape System (CTS)")
 omi_siac_cts_output_cta_v2_10.fields.dollar_value = ProtoField.new("Dollar Value", "siac.cts.output.cta.v2.10.dollarvalue", ftypes.DOUBLE, nil, nil, nil, "The Dollar Value represents the total dollar worth of the daily trade transactions.")
 omi_siac_cts_output_cta_v2_10.fields.extended_hours_or_sequence_type = ProtoField.new("Extended Hours Or Sequence Type", "siac.cts.output.cta.v2.10.extendedhoursorsequencetype", ftypes.STRING, nil, nil, nil, "Category 3: Extended Hours Or Sequence Type")
 omi_siac_cts_output_cta_v2_10.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "siac.cts.output.cta.v2.10.financialstatusindicator", ftypes.STRING, nil, nil, nil, "Identifies the financial status of the security.")
@@ -193,7 +193,8 @@ omi_siac_cts_output_cta_v2_10.fields.participants_index = ProtoField.new("Partic
 -- Siac Cts Output Cta 2.10 Expert Info
 siac_cts_output_cta_v2_10.experts = {}
 siac_cts_output_cta_v2_10.experts.undecoded = ProtoExpert.new("siac.cts.output.cta.v2.10.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
-omi_siac_cts_output_cta_v2_10.experts = { siac_cts_output_cta_v2_10.experts.undecoded }
+siac_cts_output_cta_v2_10.experts.block_checksum_incorrect = ProtoExpert.new("siac.cts.output.cta.v2.10.blockchecksumincorrect", "Block Checksum incorrect: not the checksum of the bytes it covers", expert.group.CHECKSUM, expert.severity.ERROR)
+omi_siac_cts_output_cta_v2_10.experts = { siac_cts_output_cta_v2_10.experts.undecoded, siac_cts_output_cta_v2_10.experts.block_checksum_incorrect }
 
 -----------------------------------------------------------------------
 -- Siac Cts Output Cta 2.10 Formatting
@@ -207,6 +208,9 @@ local timestamp_format_enum = {
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 siac_cts_output_cta_v2_10.timestamp_format = 2
+
+-- Checksums are verified only where the reader asks
+siac_cts_output_cta_v2_10.verify_checksums = false
 
 
 -----------------------------------------------------------------------
@@ -233,6 +237,8 @@ omi_siac_cts_output_cta_v2_10.prefs.show_indexes = Pref.bool("Show Indexes", sho
 
 omi_siac_cts_output_cta_v2_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
+omi_siac_cts_output_cta_v2_10.prefs.verify_checksums = Pref.bool("Verify Checksums", false, "Compute each checksum the protocol carries and compare it with the one sent. Off by default: a capture taken on the sending host often holds checksums filled in after it was captured")
+
 -- Handle changed preferences
 function omi_siac_cts_output_cta_v2_10.prefs_changed()
 
@@ -258,6 +264,9 @@ function omi_siac_cts_output_cta_v2_10.prefs_changed()
   if siac_cts_output_cta_v2_10.timestamp_format ~= omi_siac_cts_output_cta_v2_10.prefs.timestamp_format then
     siac_cts_output_cta_v2_10.timestamp_format = omi_siac_cts_output_cta_v2_10.prefs.timestamp_format
   end
+  if siac_cts_output_cta_v2_10.verify_checksums ~= omi_siac_cts_output_cta_v2_10.prefs.verify_checksums then
+    siac_cts_output_cta_v2_10.verify_checksums = omi_siac_cts_output_cta_v2_10.prefs.verify_checksums
+  end
 end
 
 
@@ -277,6 +286,19 @@ trim_right_spaces = function(str)
 end
 
 
+-- Sum checksum: every byte of the range added, those of the checksum itself left out, reduced by the modulus
+local function checksum_sum(range, skip, length, modulus)
+  local bytes = range:bytes()
+  local sum = 0
+
+  for index = 0, bytes:len() - 1 do
+    if index < skip or index >= skip + length then
+      sum = sum + bytes:get_index(index)
+    end
+  end
+
+  return sum % modulus
+end
 -- Mark a sized group whose fields read past its end; raise any other failure as it was
 local function undecoded(failure, parent, expert, text)
   if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
@@ -453,7 +475,22 @@ siac_cts_output_cta_v2_10.block_checksum.dissect = function(buffer, offset, pack
   local value = range:uint()
   local display = siac_cts_output_cta_v2_10.block_checksum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cts_output_cta_v2_10.fields.block_checksum, range, value, display)
+  local item = parent:add(omi_siac_cts_output_cta_v2_10.fields.block_checksum, range, value, display)
+
+  -- Verified only where the reader asks: the sum of the bytes covered, its own left out
+  if siac_cts_output_cta_v2_10.verify_checksums then
+    local start = offset - 18
+    local computed = checksum_sum(buffer(start, buffer:len() - start), offset - start, length, 65536)
+
+    if computed == value then
+      item:append_text(" [correct]")
+    else
+      item:append_text(" [incorrect, should be "..computed.."]")
+      item:add_proto_expert_info(siac_cts_output_cta_v2_10.experts.block_checksum_incorrect, "Block Checksum incorrect: "..value..", should be "..computed)
+    end
+  else
+    item:append_text(" [unverified]")
+  end
 
   return offset + length, value
 end
@@ -726,7 +763,11 @@ siac_cts_output_cta_v2_10.data_feed_indicator.size = 1
 
 -- Display: Data Feed Indicator
 siac_cts_output_cta_v2_10.data_feed_indicator.display = function(value)
-  return "Data Feed Indicator: "..value
+  if value == "T" then
+    return "Data Feed Indicator: Consolidated Tape System (T)"
+  end
+
+  return "Data Feed Indicator: Unknown("..value..")"
 end
 
 -- Dissect: Data Feed Indicator
@@ -8367,10 +8408,30 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Data Feed Indicator Field
+siac_cts_output_cta_v2_10.data_feed_indicator.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 3 + 1 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(3, 1):string()
+
+  if value == "T" then
+    return true
+  end
+
+  return false
+end
+
 -- Dissector Heuristic for Siac Cts Output Cta 2.10 (Udp)
 local function omi_siac_cts_output_cta_v2_10_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not siac_cts_output_cta_v2_10.packet.requiredsize(buffer) then return false end
+
+  -- Verify Data Feed Indicator
+  if not siac_cts_output_cta_v2_10.data_feed_indicator.verify(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
   packet.conversation = omi_siac_cts_output_cta_v2_10

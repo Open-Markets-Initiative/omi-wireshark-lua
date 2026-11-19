@@ -548,9 +548,9 @@ miax_pearloptions_topofmarket_mach_v1_0_b.liquidity_acceptance_increment_indicat
 
 -- Display: Liquidity Acceptance Increment Indicator
 miax_pearloptions_topofmarket_mach_v1_0_b.liquidity_acceptance_increment_indicator.labels = {
-  ["P"] = "Liquidity Acceptance Increment Indicator: Penny 001 (P)",
-  ["N"] = "Liquidity Acceptance Increment Indicator: Penny 001 (N)",
-  ["D"] = "Liquidity Acceptance Increment Indicator: Nickel 005 (D)",
+  ["P"] = "Liquidity Acceptance Increment Indicator: Penny (P)",
+  ["N"] = "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)",
+  ["D"] = "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)",
 }
 
 miax_pearloptions_topofmarket_mach_v1_0_b.liquidity_acceptance_increment_indicator.display = function(value)
@@ -806,8 +806,8 @@ miax_pearloptions_topofmarket_mach_v1_0_b.opening_underlying_market_code.labels 
   ["M"] = "Opening Underlying Market Code: Chicago Stock (M)",
   ["N"] = "Opening Underlying Market Code: Nyse Euronext (N)",
   ["P"] = "Opening Underlying Market Code: Nyse Arca (P)",
-  ["Q"] = "Opening Underlying Market Code: Nasdaq Omx (Q)",
-  ["T"] = "Opening Underlying Market Code: Nasdaq Omx (T)",
+  ["Q"] = "Opening Underlying Market Code: Nasdaq Omx Utp (Q)",
+  ["T"] = "Opening Underlying Market Code: Nasdaq Omx Cta (T)",
   ["V"] = "Opening Underlying Market Code: Iex (V)",
   ["X"] = "Opening Underlying Market Code: Nasdaq Omx Phlx (X)",
   ["Y"] = "Opening Underlying Market Code: Bats Y Exchange (Y)",
@@ -997,9 +997,9 @@ miax_pearloptions_topofmarket_mach_v1_0_b.pearl_bbo_posting_increment_indicator.
 
 -- Display: Pearl Bbo Posting Increment Indicator
 miax_pearloptions_topofmarket_mach_v1_0_b.pearl_bbo_posting_increment_indicator.labels = {
-  ["P"] = "Pearl Bbo Posting Increment Indicator: Penny 001 (P)",
-  ["N"] = "Pearl Bbo Posting Increment Indicator: Penny 001 (N)",
-  ["D"] = "Pearl Bbo Posting Increment Indicator: Nickel 005 (D)",
+  ["P"] = "Pearl Bbo Posting Increment Indicator: Penny (P)",
+  ["N"] = "Pearl Bbo Posting Increment Indicator: Penny Or Nickel (N)",
+  ["D"] = "Pearl Bbo Posting Increment Indicator: Nickel Or Dime (D)",
 }
 
 miax_pearloptions_topofmarket_mach_v1_0_b.pearl_bbo_posting_increment_indicator.display = function(value)

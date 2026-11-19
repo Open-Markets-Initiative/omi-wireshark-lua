@@ -252,7 +252,7 @@ siac_opra_output_obi_v6_1.bbo_indicator.size = 1
 -- Display: Bbo Indicator
 siac_opra_output_obi_v6_1.bbo_indicator.display = function(value)
   if value == "A" then
-    return "Bbo Indicator: No Best Bid Change Or Best Offer Change (A)"
+    return "Bbo Indicator: No Best Bid Change, No Best Offer Change (A)"
   end
   if value == "B" then
     return "Bbo Indicator: No Best Bid Change Quote Contains Best Offer (B)"
@@ -365,7 +365,7 @@ siac_opra_output_obi_v6_1.best_bid_participant_id.labels = {
   ["B"] = "Best Bid Participant Id: Boston Options Exchange (B)",
   ["C"] = "Best Bid Participant Id: Cboe Options Exchange (C)",
   ["D"] = "Best Bid Participant Id: Miax Emerald (D)",
-  ["E"] = "Best Bid Participant Id: Cboe Edgx Options (E)",
+  ["E"] = "Best Bid Participant Id: Cboe EDGX Options Exchange (E)",
   ["H"] = "Best Bid Participant Id: Nasdaq Gemx (H)",
   ["I"] = "Best Bid Participant Id: Nasdaq Ise (I)",
   ["J"] = "Best Bid Participant Id: Nasdaq Mrx (J)",
@@ -375,7 +375,7 @@ siac_opra_output_obi_v6_1.best_bid_participant_id.labels = {
   ["P"] = "Best Bid Participant Id: Miax Pearl (P)",
   ["Q"] = "Best Bid Participant Id: Nasdaq Options Market (Q)",
   ["T"] = "Best Bid Participant Id: Nasdaq Bx Options (T)",
-  ["W"] = "Best Bid Participant Id: Cboe C 2 Options (W)",
+  ["W"] = "Best Bid Participant Id: Cboe C2 Options Exchange (W)",
   ["X"] = "Best Bid Participant Id: Nasdaq Phlx (X)",
   ["Z"] = "Best Bid Participant Id: Cboe Bzx Options Exchange (Z)",
 }
@@ -489,7 +489,7 @@ siac_opra_output_obi_v6_1.best_offer_participant_id.labels = {
   ["B"] = "Best Offer Participant Id: Boston Options Exchange (B)",
   ["C"] = "Best Offer Participant Id: Cboe Options Exchange (C)",
   ["D"] = "Best Offer Participant Id: Miax Emerald (D)",
-  ["E"] = "Best Offer Participant Id: Cboe Edgx Options (E)",
+  ["E"] = "Best Offer Participant Id: Cboe EDGX Options Exchange (E)",
   ["H"] = "Best Offer Participant Id: Nasdaq Gemx (H)",
   ["I"] = "Best Offer Participant Id: Nasdaq Ise (I)",
   ["J"] = "Best Offer Participant Id: Nasdaq Mrx (J)",
@@ -499,7 +499,7 @@ siac_opra_output_obi_v6_1.best_offer_participant_id.labels = {
   ["P"] = "Best Offer Participant Id: Miax Pearl (P)",
   ["Q"] = "Best Offer Participant Id: Nasdaq Options Market (Q)",
   ["T"] = "Best Offer Participant Id: Nasdaq Bx Options (T)",
-  ["W"] = "Best Offer Participant Id: Cboe C 2 Options (W)",
+  ["W"] = "Best Offer Participant Id: Cboe C2 Options Exchange (W)",
   ["X"] = "Best Offer Participant Id: Nasdaq Phlx (X)",
   ["Z"] = "Best Offer Participant Id: Cboe Bzx Options Exchange (Z)",
 }
@@ -796,12 +796,6 @@ siac_opra_output_obi_v6_1.control_message_type.labels = {
   ["M"] = "Control Message Type: End Of Open Interest (M)",
   ["N"] = "Control Message Type: Line Integrity (N)",
   ["P"] = "Control Message Type: Disaster Recovery Data Center Activation (P)",
-  ["A"] = "Control Message Type: Start Of Test Cycle (A)",
-  ["B"] = "Control Message Type: End Of Test Cycle (B)",
-  ["D"] = "Control Message Type: Good Morning (D)",
-  ["G"] = "Control Message Type: Early Market Close (G)",
-  ["H"] = "Control Message Type: End Of Transaction Reporting (H)",
-  ["I"] = "Control Message Type: Good Night (I)",
 }
 
 siac_opra_output_obi_v6_1.control_message_type.display = function(value)
@@ -904,75 +898,44 @@ siac_opra_output_obi_v6_1.equity_and_index_last_sale_message_type = {}
 siac_opra_output_obi_v6_1.equity_and_index_last_sale_message_type.size = 1
 
 -- Display: Equity And Index Last Sale Message Type
-siac_opra_output_obi_v6_1.equity_and_index_last_sale_message_type.display = function(value)
-  if value == " " then
-    return "Equity And Index Last Sale Message Type: Regular (<whitespace>)"
-  end
-  if value == "A" then
-    return "Equity And Index Last Sale Message Type: Canc (A)"
-  end
-  if value == "B" then
-    return "Equity And Index Last Sale Message Type: Oseq (B)"
-  end
-  if value == "C" then
-    return "Equity And Index Last Sale Message Type: Cncl (C)"
-  end
-  if value == "D" then
-    return "Equity And Index Last Sale Message Type: Late (D)"
-  end
-  if value == "E" then
-    return "Equity And Index Last Sale Message Type: Cnco (E)"
-  end
-  if value == "F" then
-    return "Equity And Index Last Sale Message Type: Open (F)"
-  end
-  if value == "G" then
-    return "Equity And Index Last Sale Message Type: Cnol (G)"
-  end
-  if value == "H" then
-    return "Equity And Index Last Sale Message Type: Opnl (H)"
-  end
-  if value == "I" then
-    return "Equity And Index Last Sale Message Type: Auto (I)"
-  end
-  if value == "J" then
-    return "Equity And Index Last Sale Message Type: Reop (J)"
-  end
-  if value == "K" then
-    return "Equity And Index Last Sale Message Type: Ajst (K)"
-  end
-  if value == "L" then
-    return "Equity And Index Last Sale Message Type: Sprd (L)"
-  end
-  if value == "M" then
-    return "Equity And Index Last Sale Message Type: Stdl (M)"
-  end
-  if value == "N" then
-    return "Equity And Index Last Sale Message Type: Stpd (N)"
-  end
-  if value == "O" then
-    return "Equity And Index Last Sale Message Type: Cstp (O)"
-  end
-  if value == "P" then
-    return "Equity And Index Last Sale Message Type: Bwrt (P)"
-  end
-  if value == "Q" then
-    return "Equity And Index Last Sale Message Type: Cmbo (Q)"
-  end
-  if value == "R" then
-    return "Equity And Index Last Sale Message Type: Spim (R)"
-  end
-  if value == "S" then
-    return "Equity And Index Last Sale Message Type: Isoi (S)"
-  end
-  if value == "T" then
-    return "Equity And Index Last Sale Message Type: Bnmt (T)"
-  end
-  if value == "X" then
-    return "Equity And Index Last Sale Message Type: Xmpt (X)"
-  end
+siac_opra_output_obi_v6_1.equity_and_index_last_sale_message_type.labels = {
+  ["A"] = "Equity And Index Last Sale Message Type: Canc (A)",
+  ["B"] = "Equity And Index Last Sale Message Type: Oseq (B)",
+  ["C"] = "Equity And Index Last Sale Message Type: Cncl (C)",
+  ["D"] = "Equity And Index Last Sale Message Type: Late (D)",
+  ["E"] = "Equity And Index Last Sale Message Type: Cnco (E)",
+  ["F"] = "Equity And Index Last Sale Message Type: Open (F)",
+  ["G"] = "Equity And Index Last Sale Message Type: Cnol (G)",
+  ["H"] = "Equity And Index Last Sale Message Type: Opnl (H)",
+  ["I"] = "Equity And Index Last Sale Message Type: Auto (I)",
+  ["J"] = "Equity And Index Last Sale Message Type: Reop (J)",
+  ["S"] = "Equity And Index Last Sale Message Type: Isoi (S)",
+  ["a"] = "Equity And Index Last Sale Message Type: SLAN (a)",
+  ["b"] = "Equity And Index Last Sale Message Type: SLAI (b)",
+  ["c"] = "Equity And Index Last Sale Message Type: SLCN (c)",
+  ["d"] = "Equity And Index Last Sale Message Type: SCLI (d)",
+  ["e"] = "Equity And Index Last Sale Message Type: SLFT (e)",
+  ["f"] = "Equity And Index Last Sale Message Type: MLET (f)",
+  ["g"] = "Equity And Index Last Sale Message Type: MLAT (g)",
+  ["h"] = "Equity And Index Last Sale Message Type: MLCT (h)",
+  ["i"] = "Equity And Index Last Sale Message Type: MLFT (i)",
+  ["j"] = "Equity And Index Last Sale Message Type: MESL (j)",
+  ["k"] = "Equity And Index Last Sale Message Type: TLAT (k)",
+  ["l"] = "Equity And Index Last Sale Message Type: MASL (l)",
+  ["m"] = "Equity And Index Last Sale Message Type: MFSL (m)",
+  ["n"] = "Equity And Index Last Sale Message Type: TLET (n)",
+  ["o"] = "Equity And Index Last Sale Message Type: TLCT (o)",
+  ["p"] = "Equity And Index Last Sale Message Type: TLFT (p)",
+  ["q"] = "Equity And Index Last Sale Message Type: TESL (q)",
+  ["r"] = "Equity And Index Last Sale Message Type: TASL (r)",
+  ["s"] = "Equity And Index Last Sale Message Type: TFSL (s)",
+  ["t"] = "Equity And Index Last Sale Message Type: CBMO (t)",
+  ["u"] = "Equity And Index Last Sale Message Type: MCTP (u)",
+  ["v"] = "Equity And Index Last Sale Message Type: EXHT (v)",
+}
 
-  return "Equity And Index Last Sale Message Type: Unknown("..value..")"
+siac_opra_output_obi_v6_1.equity_and_index_last_sale_message_type.display = function(value)
+  return siac_opra_output_obi_v6_1.equity_and_index_last_sale_message_type.labels[value] or "Equity And Index Last Sale Message Type: Unknown("..value..")"
 end
 
 -- Dissect: Equity And Index Last Sale Message Type
@@ -1018,30 +981,30 @@ siac_opra_output_obi_v6_1.expiration_month.size = 1
 
 -- Display: Expiration Month
 siac_opra_output_obi_v6_1.expiration_month.labels = {
-  ["A"] = "Expiration Month: January (A)",
-  ["M"] = "Expiration Month: January (M)",
-  ["B"] = "Expiration Month: February (B)",
-  ["N"] = "Expiration Month: February (N)",
-  ["C"] = "Expiration Month: March (C)",
-  ["O"] = "Expiration Month: March (O)",
-  ["D"] = "Expiration Month: April (D)",
-  ["P"] = "Expiration Month: April (P)",
-  ["E"] = "Expiration Month: May (E)",
-  ["Q"] = "Expiration Month: May (Q)",
-  ["F"] = "Expiration Month: June (F)",
-  ["R"] = "Expiration Month: June (R)",
-  ["G"] = "Expiration Month: July (G)",
-  ["S"] = "Expiration Month: July (S)",
-  ["H"] = "Expiration Month: August (H)",
-  ["T"] = "Expiration Month: August (T)",
-  ["I"] = "Expiration Month: September (I)",
-  ["U"] = "Expiration Month: September (U)",
-  ["J"] = "Expiration Month: October (J)",
-  ["V"] = "Expiration Month: October (V)",
-  ["K"] = "Expiration Month: November (K)",
-  ["W"] = "Expiration Month: November (W)",
-  ["L"] = "Expiration Month: December (L)",
-  ["X"] = "Expiration Month: December (X)",
+  ["A"] = "Expiration Month: January Call (A)",
+  ["M"] = "Expiration Month: January Put (M)",
+  ["B"] = "Expiration Month: February Call (B)",
+  ["N"] = "Expiration Month: February Put (N)",
+  ["C"] = "Expiration Month: March Call (C)",
+  ["O"] = "Expiration Month: March Put (O)",
+  ["D"] = "Expiration Month: April Call (D)",
+  ["P"] = "Expiration Month: April Put (P)",
+  ["E"] = "Expiration Month: May Call (E)",
+  ["Q"] = "Expiration Month: May Put (Q)",
+  ["F"] = "Expiration Month: June Call (F)",
+  ["R"] = "Expiration Month: June Put (R)",
+  ["G"] = "Expiration Month: July Call (G)",
+  ["S"] = "Expiration Month: July Put (S)",
+  ["H"] = "Expiration Month: August Call (H)",
+  ["T"] = "Expiration Month: August Put (T)",
+  ["I"] = "Expiration Month: September Call (I)",
+  ["U"] = "Expiration Month: September Put (U)",
+  ["J"] = "Expiration Month: October Call (J)",
+  ["V"] = "Expiration Month: October Put (V)",
+  ["K"] = "Expiration Month: November Call (K)",
+  ["W"] = "Expiration Month: November Put (W)",
+  ["L"] = "Expiration Month: December Call (L)",
+  ["X"] = "Expiration Month: December Put (X)",
 }
 
 siac_opra_output_obi_v6_1.expiration_month.display = function(value)
@@ -1640,7 +1603,7 @@ siac_opra_output_obi_v6_1.participant_id.labels = {
   ["B"] = "Participant Id: Boston Options Exchange (B)",
   ["C"] = "Participant Id: Cboe Options Exchange (C)",
   ["D"] = "Participant Id: Miax Emerald (D)",
-  ["E"] = "Participant Id: Cboe Edgx Options (E)",
+  ["E"] = "Participant Id: Cboe EDGX Options Exchange (E)",
   ["H"] = "Participant Id: Nasdaq Gemx (H)",
   ["I"] = "Participant Id: Nasdaq Ise (I)",
   ["J"] = "Participant Id: Nasdaq Mrx (J)",
@@ -1650,7 +1613,7 @@ siac_opra_output_obi_v6_1.participant_id.labels = {
   ["P"] = "Participant Id: Miax Pearl (P)",
   ["Q"] = "Participant Id: Nasdaq Options Market (Q)",
   ["T"] = "Participant Id: Nasdaq Bx Options (T)",
-  ["W"] = "Participant Id: Cboe C 2 Options (W)",
+  ["W"] = "Participant Id: Cboe C2 Options Exchange (W)",
   ["X"] = "Participant Id: Nasdaq Phlx (X)",
   ["Z"] = "Participant Id: Cboe Bzx Options Exchange (Z)",
 }
@@ -1932,7 +1895,22 @@ siac_opra_output_obi_v6_1.session_indicator.display = function(value)
     return "Session Indicator: Regular (0)"
   end
   if value == 0x58 then
-    return "Session Indicator: Pre Market (0x58)"
+    return "Session Indicator: GTH OPRA Generated (0x58)"
+  end
+  if value == 1 then
+    return "Session Indicator: GTH Monday (1)"
+  end
+  if value == 2 then
+    return "Session Indicator: GTH Tuesday (2)"
+  end
+  if value == 3 then
+    return "Session Indicator: GTH Wednesday (3)"
+  end
+  if value == 4 then
+    return "Session Indicator: GTH Thursday (4)"
+  end
+  if value == 5 then
+    return "Session Indicator: GTH Friday (5)"
   end
 
   return "Session Indicator: Unknown("..value..")"
@@ -4282,7 +4260,7 @@ end
 siac_opra_output_obi_v6_1.equity_and_index_last_sale_category.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Equity And Index Last Sale Message Type: 1 Byte Ascii String Enum with 22 values
+  -- Equity And Index Last Sale Message Type: 1 Byte Ascii String Enum with 33 values
   index, equity_and_index_last_sale_message_type = siac_opra_output_obi_v6_1.equity_and_index_last_sale_message_type.dissect(buffer, index, packet, parent)
 
   -- Equity And Index Last Sale Message Payload: Runtime Type with 1 branches

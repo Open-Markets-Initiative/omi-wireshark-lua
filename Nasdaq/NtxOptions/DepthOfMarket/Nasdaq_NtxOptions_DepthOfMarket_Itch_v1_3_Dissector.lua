@@ -759,7 +759,7 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_type.size = 1
 -- Display: Cross Type
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_type.labels = {
   ["O"] = "Cross Type: Bx Opening Reopening (O)",
-  ["P"] = "Cross Type: Bx Opening Reopening (P)",
+  ["P"] = "Cross Type: Price Improvement PRISM Auction (P)",
 }
 
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.cross_type.display = function(value)
@@ -790,8 +790,6 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.current_trading_state.labels = {
   ["T"] = "Current Trading State: Trading (T)",
   ["B"] = "Current Trading State: Buy Side Trading Suspended (B)",
   ["S"] = "Current Trading State: Sell Side Trading Suspended (S)",
-  ["Y"] = "Current Trading State: Open (Y)",
-  ["N"] = "Current Trading State: Closed (N)",
 }
 
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.current_trading_state.display = function(value)
@@ -851,10 +849,11 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.event_code.size = 1
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.event_code.labels = {
   ["O"] = "Event Code: Start Of Messages (O)",
   ["S"] = "Event Code: Start Of System Hours (S)",
-  ["Q"] = "Event Code: Start Of Market Hours (Q)",
-  ["M"] = "Event Code: End Of Market Hours (M)",
+  ["Q"] = "Event Code: Start Of Opening Process (Q)",
   ["E"] = "Event Code: End Of System Hours (E)",
   ["C"] = "Event Code: End Of Messages (C)",
+  ["N"] = "Event Code: End Of Normal Hours Processing (N)",
+  ["L"] = "Event Code: End Of Late Hours Processing (L)",
 }
 
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.event_code.display = function(value)
@@ -1304,8 +1303,13 @@ nasdaq_ntxoptions_depthofmarket_itch_v1_3.open_state = {}
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.open_state.size = 1
 
 -- Display: Open State
+nasdaq_ntxoptions_depthofmarket_itch_v1_3.open_state.labels = {
+  ["Y"] = "Open State: Open (Y)",
+  ["N"] = "Open State: Closed (N)",
+}
+
 nasdaq_ntxoptions_depthofmarket_itch_v1_3.open_state.display = function(value)
-  return "Open State: "..value
+  return nasdaq_ntxoptions_depthofmarket_itch_v1_3.open_state.labels[value] or "Open State: Unknown("..value..")"
 end
 
 -- Dissect: Open State

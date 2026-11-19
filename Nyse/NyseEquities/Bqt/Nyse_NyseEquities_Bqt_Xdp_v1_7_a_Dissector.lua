@@ -1097,14 +1097,8 @@ nyse_nyseequities_bqt_xdp_v1_7_a.market_state.display = function(value)
   if value == "P" then
     return "Market State: Pre Opening (P)"
   end
-  if value == "E" then
-    return "Market State: Early Session (E)"
-  end
   if value == "O" then
     return "Market State: Core Session (O)"
-  end
-  if value == "L" then
-    return "Market State: Late Session (L)"
   end
   if value == "X" then
     return "Market State: Closed (X)"
@@ -1747,8 +1741,8 @@ nyse_nyseequities_bqt_xdp_v1_7_a.retail_pricing_indicator.display = function(val
   if value == 0x02 then
     return "Retail Pricing Indicator: Retail Interest On The Ask Side (0x02)"
   end
-  if value == 0x04 then
-    return "Retail Pricing Indicator: Combination Of Retail Interest On Bid And Ask Side (0x04)"
+  if value == 0x03 then
+    return "Retail Pricing Indicator: Combination of Retail Interest on Bid and Ask side (0x03)"
   end
 
   return "Retail Pricing Indicator: Unknown("..string.format("0x%02X", value)..")"
@@ -1946,14 +1940,8 @@ nyse_nyseequities_bqt_xdp_v1_7_a.security_status.display = function(value)
   if value == "P" then
     return "Security Status: Pre Opening (P)"
   end
-  if value == "E" then
-    return "Security Status: Early Session (E)"
-  end
   if value == "O" then
     return "Security Status: Core Session (O)"
-  end
-  if value == "L" then
-    return "Security Status: Late Session Non Nyse Only (L)"
   end
   if value == "X" then
     return "Security Status: Closed (X)"
@@ -2050,7 +2038,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.security_type.display = function(value)
     return "Security Type: Test (T)"
   end
   if value == "U" then
-    return "Security Type: Units (U)"
+    return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
     return "Security Type: Warrant (W)"

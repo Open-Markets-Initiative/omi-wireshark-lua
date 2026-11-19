@@ -3738,7 +3738,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.attributed_quote.display = funct
     return "Attributed Quote: Attribute Client Id Only (C)"
   end
   if value == "Z" then
-    return "Attributed Quote: Attribute Both Clearing Firm (Z)"
+    return "Attributed Quote: Attribute both ClearingFirm and ClientID (Z)"
   end
 
   return "Attributed Quote: Unknown("..value..")"
@@ -3810,10 +3810,10 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.auto_match.display = function(va
     return "Auto Match: Limit (2)"
   end
   if value == "3" then
-    return "Auto Match: Market (3)"
+    return "Auto Match: Market No Starting Price Adjustments (3)"
   end
   if value == "4" then
-    return "Auto Match: Limit (4)"
+    return "Auto Match: Limit No Starting Price Adjustments (4)"
   end
 
   return "Auto Match: Unknown("..value..")"
@@ -5208,7 +5208,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.cross_type.display = function(va
   end
 
   if value == "1" then
-    return "Cross Type: Automated Improvement Mechamism (1)"
+    return "Cross Type: Automated Improvement Mechanism (1)"
   end
   if value == "2" then
     return "Cross Type: Qualified Contingent Cross (2)"
@@ -9268,10 +9268,10 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_result.display = function(
     return "Quote Result: Ioc Quote Accepted (I)"
   end
   if value == "L" then
-    return "Quote Result: Modified (L)"
+    return "Quote Result: Modified Loss Of Priority (L)"
   end
   if value == "R" then
-    return "Quote Result: Modified (R)"
+    return "Quote Result: Modified Retains Priority (R)"
   end
   if value == "N" then
     return "Quote Result: No Change Matches Existing Quote (N)"
@@ -9283,7 +9283,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_result.display = function(
     return "Quote Result: Modified But May Remove Liquidity (d)"
   end
   if value == "V" then
-    return "Quote Result: No Change Existing Constituent Series Quote (V)"
+    return "Quote Result: No change, existing constituent series quote modify attempt after cutoff time (V)"
   end
   if value == "U" then
     return "Quote Result: User Cancelled (U)"
@@ -9298,7 +9298,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_result.display = function(
     return "Quote Result: Rejected Cant Post (P)"
   end
   if value == "f" then
-    return "Quote Result: Risk Management Firm Or Custom Group Id (f)"
+    return "Quote Result: Risk management firm or Custom Group ID level (f)"
   end
   if value == "S" then
     return "Quote Result: Rejected Symbol Not Found (S)"
@@ -9322,7 +9322,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.quote_result.display = function(
     return "Quote Result: Rejected Closing Only Series (c)"
   end
   if value == "v" then
-    return "Quote Result: Rejected Attempt To Add Constituent Series (v)"
+    return "Quote Result: Rejected, attempt to add constituent series quote after cutoff time (v)"
   end
 
   return "Quote Result: Unknown("..value..")"
@@ -9773,37 +9773,37 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.risk_reset_result.display = func
     return "Risk Reset Result: Ignored (<whitespace>)"
   end
   if value == "C" then
-    return "Risk Reset Result: Rejected (C)"
+    return "Risk Reset Result: Rejected Exceeds Custom Group ID Limit (C)"
   end
   if value == "D" then
-    return "Risk Reset Result: Rejected (D)"
+    return "Risk Reset Result: Rejected Automatic Risk Resets Are Disabled (D)"
   end
   if value == "E" then
-    return "Risk Reset Result: Rejected (E)"
+    return "Risk Reset Result: Rejected Empty ResetRisk Field (E)"
   end
   if value == "F" then
-    return "Risk Reset Result: Rejected (F)"
+    return "Risk Reset Result: Rejected Exceeds Firm Reset Limit (F)"
   end
   if value == "I" then
-    return "Risk Reset Result: Rejected (I)"
+    return "Risk Reset Result: Rejected Incorrect Data Center (I)"
   end
   if value == "M" then
-    return "Risk Reset Result: Rejected (M)"
+    return "Risk Reset Result: Rejected Invalid Matching Unit (M)"
   end
   if value == "S" then
-    return "Risk Reset Result: Rejected (S)"
+    return "Risk Reset Result: Rejected Exceeds Risk Root Reset Limit (S)"
   end
   if value == "U" then
-    return "Risk Reset Result: Rejected (U)"
+    return "Risk Reset Result: Rejected Invalid RiskRoot (U)"
   end
   if value == "Y" then
     return "Risk Reset Result: Success (Y)"
   end
   if value == "c" then
-    return "Risk Reset Result: Rejected (c)"
+    return "Risk Reset Result: Rejected Invalid EFID ClearingFirm (c)"
   end
   if value == "y" then
-    return "Risk Reset Result: Rejected (y)"
+    return "Risk Reset Result: Rejected In Replay (y)"
   end
 
   return "Risk Reset Result: Unknown("..value..")"
@@ -10151,7 +10151,7 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.sender_location_id.display = fun
     return "Sender Location Id: Floor (F)"
   end
   if value == " " then
-    return "Sender Location Id: Or Not Present For Electronic Execution (<whitespace>)"
+    return "Sender Location Id: Electronic Execution (<whitespace>)"
   end
 
   return "Sender Location Id: Unknown("..value..")"
@@ -10960,22 +10960,22 @@ cboe_edgxoptions_binaryorderentry_boe_v2_11_115.time_in_force.display = function
     return "Time In Force: Day (0)"
   end
   if value == "1" then
-    return "Time In Force: Gtc Remains In System Until Executed Cancelled Or (1)"
+    return "Time In Force: GTC (1)"
   end
   if value == "2" then
-    return "Time In Force: At The Open Will Remain Queued And Only Interact In The (2)"
+    return "Time In Force: At the Open (2)"
   end
   if value == "3" then
-    return "Time In Force: Ioc Portion Not Filled Immediately Is Cancelled (3)"
+    return "Time In Force: IOC (3)"
   end
   if value == "4" then
-    return "Time In Force: Fok An Ioc Where The Entire Size Must Be Filled Else The (4)"
+    return "Time In Force: FOK (4)"
   end
   if value == "6" then
-    return "Time In Force: Gtd Expires At Specified Expire Time For A Specified Day (6)"
+    return "Time In Force: GTD (6)"
   end
   if value == "7" then
-    return "Time In Force: At The Close Orders Held For Execution Until 180 Seconds (7)"
+    return "Time In Force: At the Close (7)"
   end
 
   return "Time In Force: Unknown("..value..")"

@@ -1191,10 +1191,10 @@ nasdaq_uqdf_output_utp_v1_5.luld_national_bbo_indicator.display = function(value
     return "Luld National Bbo Indicator: National Best Offer Equals Lower Limit Price Band (F)"
   end
   if value == "G" then
-    return "Luld National Bbo Indicator: National Best Bid Equals Upper Limit Price Band (G)"
+    return "Luld National Bbo Indicator: National Best Bid Equals Upper Limit Price Band And National Best Ask Above Upper Limit Price Band (G)"
   end
   if value == "H" then
-    return "Luld National Bbo Indicator: National Best Ask Equals Lower Limit Price Band (H)"
+    return "Luld National Bbo Indicator: National Best Ask Equals Lower Limit Price Band And National Best Bid Below Lower Limit Price Band (H)"
   end
   if value == "I" then
     return "Luld National Bbo Indicator: National Best Bid Equals Upper Limit Price Band And National Best Ask Equals Lower Limit Price Band (I)"

@@ -1671,7 +1671,7 @@ nyse_amexoptions_topfeed_xdp_v1_3_a.security_type.display = function(value)
     return "Security Type: Test (T)"
   end
   if value == "U" then
-    return "Security Type: Units (U)"
+    return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
     return "Security Type: Warrant (W)"
@@ -2052,7 +2052,7 @@ nyse_amexoptions_topfeed_xdp_v1_3_a.trade_cond_1.display = function(value)
     return "Trade Cond 1: Floor Trade (R)"
   end
   if value == "S" then
-    return "Trade Cond 1: So Sweep Trade (S)"
+    return "Trade Cond 1: ISO Sweep Trade (S)"
   end
 
   return "Trade Cond 1: Unknown("..value..")"
@@ -2092,7 +2092,7 @@ nyse_amexoptions_topfeed_xdp_v1_3_a.trade_cond_2.display = function(value)
   end
 
   if value == "P" then
-    return "Trade Cond 2: Complex Trade With Equity (P)"
+    return "Trade Cond 2: Complex Trade With Equity Trade (P)"
   end
   if value == "L" then
     return "Trade Cond 2: Complex Trade (L)"
@@ -2336,7 +2336,8 @@ nyse_amexoptions_topfeed_xdp_v1_3_a.sequence_number_reset_message.size =
   nyse_amexoptions_topfeed_xdp_v1_3_a.source_time.size + 
   nyse_amexoptions_topfeed_xdp_v1_3_a.source_time_ns.size + 
   nyse_amexoptions_topfeed_xdp_v1_3_a.product_id.size + 
-  nyse_amexoptions_topfeed_xdp_v1_3_a.channel_id.size
+  nyse_amexoptions_topfeed_xdp_v1_3_a.channel_id.size + 
+  nyse_amexoptions_topfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Sequence Number Reset Message
 nyse_amexoptions_topfeed_xdp_v1_3_a.sequence_number_reset_message.display = function(packet, parent, length)
@@ -2365,6 +2366,13 @@ nyse_amexoptions_topfeed_xdp_v1_3_a.sequence_number_reset_message.fields = funct
 
   -- Channel Id: Binary
   index, channel_id = nyse_amexoptions_topfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: reserved
+  if show.padding then
+    index, reserved_2 = nyse_amexoptions_topfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_amexoptions_topfeed_xdp_v1_3_a.reserved_2.size
+  end
 
   return index
 end

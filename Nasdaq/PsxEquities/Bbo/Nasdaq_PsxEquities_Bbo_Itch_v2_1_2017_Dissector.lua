@@ -725,7 +725,7 @@ nasdaq_psxequities_bbo_itch_v2_1_2017.market_category.display = function(value)
     return "Market Category: Nyse (N)"
   end
   if value == "A" then
-    return "Market Category: Nyse Amex (A)"
+    return "Market Category: NYSE American (A)"
   end
   if value == "P" then
     return "Market Category: Nyse Arca (P)"
@@ -1340,7 +1340,7 @@ nasdaq_psxequities_bbo_itch_v2_1_2017.security_class.size = 1
 nasdaq_psxequities_bbo_itch_v2_1_2017.security_class.labels = {
   ["Q"] = "Security Class: Nasdaq Listed Issue (Q)",
   ["N"] = "Security Class: Nyse (N)",
-  ["A"] = "Security Class: Nyse Mkt (A)",
+  ["A"] = "Security Class: NYSE American (A)",
   ["P"] = "Security Class: Nyse Arca (P)",
   ["Z"] = "Security Class: Bats (Z)",
   ["V"] = "Security Class: Iexg (V)",

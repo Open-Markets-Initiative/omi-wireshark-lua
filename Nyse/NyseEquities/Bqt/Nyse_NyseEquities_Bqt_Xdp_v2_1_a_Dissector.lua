@@ -663,6 +663,9 @@ nyse_nyseequities_bqt_xdp_v2_1_a.exchange_code.display = function(value)
   if value == "Z" then
     return "Exchange Code: Bats (Z)"
   end
+  if value == "C" then
+    return "Exchange Code: NYSE National (C)"
+  end
 
   return "Exchange Code: Unknown("..value..")"
 end
@@ -919,6 +922,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_best_ask.labels = {
   [1] = "Market Id Of Best Ask: Nyse (1)",
   [3] = "Market Id Of Best Ask: Nyse Arca (3)",
   [9] = "Market Id Of Best Ask: Nyse American (9)",
+  [10] = "Market Id Of Best Ask: NYSE National (10)",
 }
 
 nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_best_ask.display = function(value)
@@ -949,6 +953,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_best_bid.labels = {
   [1] = "Market Id Of Best Bid: Nyse (1)",
   [3] = "Market Id Of Best Bid: Nyse Arca (3)",
   [9] = "Market Id Of Best Bid: Nyse American (9)",
+  [10] = "Market Id Of Best Bid: NYSE National (10)",
 }
 
 nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_best_bid.display = function(value)
@@ -979,6 +984,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_high_price.labels = {
   [1] = "Market Id Of High Price: Nyse (1)",
   [3] = "Market Id Of High Price: Nyse Arca (3)",
   [9] = "Market Id Of High Price: Nyse American (9)",
+  [10] = "Market Id Of High Price: NYSE National (10)",
 }
 
 nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_high_price.display = function(value)
@@ -1009,6 +1015,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_low_price.labels = {
   [1] = "Market Id Of Low Price: Nyse (1)",
   [3] = "Market Id Of Low Price: Nyse Arca (3)",
   [9] = "Market Id Of Low Price: Nyse American (9)",
+  [10] = "Market Id Of Low Price: NYSE National (10)",
 }
 
 nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_low_price.display = function(value)
@@ -1039,6 +1046,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_open_price.labels = {
   [1] = "Market Id Of Open Price: Nyse (1)",
   [3] = "Market Id Of Open Price: Nyse Arca (3)",
   [9] = "Market Id Of Open Price: Nyse American (9)",
+  [10] = "Market Id Of Open Price: NYSE National (10)",
 }
 
 nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_open_price.display = function(value)
@@ -1069,6 +1077,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_the_close.labels = {
   [1] = "Market Id Of The Close: Nyse (1)",
   [3] = "Market Id Of The Close: Nyse Arca (3)",
   [9] = "Market Id Of The Close: Nyse American (9)",
+  [10] = "Market Id Of The Close: NYSE National (10)",
 }
 
 nyse_nyseequities_bqt_xdp_v2_1_a.market_id_of_the_close.display = function(value)
@@ -2050,7 +2059,7 @@ nyse_nyseequities_bqt_xdp_v2_1_a.security_type.display = function(value)
     return "Security Type: Test (T)"
   end
   if value == "U" then
-    return "Security Type: Units (U)"
+    return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
     return "Security Type: Warrant (W)"

@@ -1890,6 +1890,9 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.ex_destination.display = function(val
   if value == "g" then
     return "Ex Destination: Nasdaq Gemx (g)"
   end
+  if value == "m" then
+    return "Ex Destination: Nasdaq MRX (m)"
+  end
 
   return "Ex Destination: Unknown("..value..")"
 end
@@ -4239,6 +4242,9 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.quote_reject_reason.display = functio
   if value == "y" then
     return "Quote Reject Reason: Quote Received By Cboe During Replay (y)"
   end
+  if value == "U" then
+    return "Quote Reject Reason: Message unable to be sent to Matching Engine (U)"
+  end
 
   return "Quote Reject Reason: Unknown("..value..")"
 end
@@ -4645,7 +4651,7 @@ cboe_bzxoptions_binaryorderentry_boe_v2_10.restatement_reason.display = function
     return "Restatement Reason: Unsolicited Floor Action (f)"
   end
   if value == "K" then
-    return "Restatement Reason: Price Sliding Reprice (K)"
+    return "Restatement Reason: Quote Price Sliding Reprice (K)"
   end
 
   return "Restatement Reason: Unknown("..value..")"

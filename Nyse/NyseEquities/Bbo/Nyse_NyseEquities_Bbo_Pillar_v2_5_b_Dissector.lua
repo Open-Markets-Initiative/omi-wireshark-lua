@@ -1479,7 +1479,7 @@ nyse_nyseequities_bbo_pillar_v2_5_b.security_type.display = function(value)
     return "Security Type: Test (T)"
   end
   if value == "U" then
-    return "Security Type: Units (U)"
+    return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
     return "Security Type: Warrant (W)"

@@ -2396,7 +2396,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.cancel_reason.display = function(va
     return "Cancel Reason: Order Persisted (h)"
   end
   if value == "f" then
-    return "Cancel Reason: Risk Management Efid Level Or Custom Group Id Level (f)"
+    return "Cancel Reason: Risk management EFID level or custom group ID level (f)"
   end
   if value == "m" then
     return "Cancel Reason: Market Access Risk Limit Exceeded (m)"
@@ -2508,7 +2508,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.cancel_reject_reason.display = func
     return "Cancel Reject Reason: Order Persisted (h)"
   end
   if value == "f" then
-    return "Cancel Reject Reason: Risk Management Efid Level Or Custom Group Id Level (f)"
+    return "Cancel Reject Reason: Risk management EFID level or custom group ID level (f)"
   end
   if value == "m" then
     return "Cancel Reject Reason: Market Access Risk Limit Exceeded (m)"
@@ -2954,7 +2954,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.cti_code.display = function(value)
   end
 
   if value == "1" then
-    return "Cti Code: Cti 1 (1)"
+    return "Cti Code: CTI (1)"
   end
   if value == "2" then
     return "Cti Code: Cti 2 (2)"
@@ -4071,7 +4071,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.modify_reject_reason.display = func
     return "Modify Reject Reason: Order Persisted (h)"
   end
   if value == "f" then
-    return "Modify Reject Reason: Risk Management Efid Level Or Custom Group Id Level (f)"
+    return "Modify Reject Reason: Risk management EFID level or custom group ID level (f)"
   end
   if value == "m" then
     return "Modify Reject Reason: Market Access Risk Limit Exceeded (m)"
@@ -4636,7 +4636,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.order_reject_reason.display = funct
     return "Order Reject Reason: Order Persisted (h)"
   end
   if value == "f" then
-    return "Order Reject Reason: Risk Management Efid Level Or Custom Group Id Level (f)"
+    return "Order Reject Reason: Risk management EFID level or custom group ID level (f)"
   end
   if value == "m" then
     return "Order Reject Reason: Market Access Risk Limit Exceeded (m)"
@@ -5085,7 +5085,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.purge_reject_reason.display = funct
     return "Purge Reject Reason: Order Persisted (h)"
   end
   if value == "f" then
-    return "Purge Reject Reason: Risk Management Efid Level Or Custom Group Id Level (f)"
+    return "Purge Reject Reason: Risk management EFID level or custom group ID level (f)"
   end
   if value == "m" then
     return "Purge Reject Reason: Market Access Risk Limit Exceeded (m)"
@@ -5287,10 +5287,10 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.quote_result.display = function(val
     return "Quote Result: New Quote (A)"
   end
   if value == "L" then
-    return "Quote Result: Modified (L)"
+    return "Quote Result: Modified loss of priority (L)"
   end
   if value == "R" then
-    return "Quote Result: Modified (R)"
+    return "Quote Result: Modified retains priority (R)"
   end
   if value == "N" then
     return "Quote Result: No Change Matches Existing Quote (N)"
@@ -5311,7 +5311,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.quote_result.display = function(val
     return "Quote Result: Rejected Cant Post (P)"
   end
   if value == "f" then
-    return "Quote Result: Risk Management Efid Or Custom Group Id (f)"
+    return "Quote Result: Risk management EFID or Custom Group ID level (f)"
   end
   if value == "S" then
     return "Quote Result: Rejected Symbol Not Found (S)"
@@ -5323,7 +5323,7 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.quote_result.display = function(val
     return "Quote Result: Risk Management Product Root Level (s)"
   end
   if value == "n" then
-    return "Quote Result: Risk Management Configuration Is Not (n)"
+    return "Quote Result: Risk management configuration is not sufficient (n)"
   end
   if value == "u" then
     return "Quote Result: Rejected Other Reason (u)"
@@ -5654,25 +5654,28 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.risk_reset_result.display = functio
     return "Risk Reset Result: Success (Y)"
   end
   if value == "F" then
-    return "Risk Reset Result: Rejected (F)"
+    return "Risk Reset Result: Rejected Exceeds Firm Reset Limit (F)"
   end
   if value == "C" then
-    return "Risk Reset Result: Rejected (C)"
+    return "Risk Reset Result: Rejected Exceeds Custom Group Id Limit (C)"
   end
   if value == "E" then
-    return "Risk Reset Result: Rejected (E)"
+    return "Risk Reset Result: Rejected Empty ResetRisk Field (E)"
   end
   if value == "I" then
-    return "Risk Reset Result: Rejected (I)"
+    return "Risk Reset Result: Rejected Incorrect Data Center (I)"
   end
   if value == "S" then
-    return "Risk Reset Result: Rejected (S)"
+    return "Risk Reset Result: Rejected Exceeds Product Level Reset Limit (S)"
   end
   if value == "U" then
-    return "Risk Reset Result: Rejected (U)"
+    return "Risk Reset Result: Rejected Invalid RiskRoot (U)"
   end
   if value == "c" then
-    return "Risk Reset Result: Rejected (c)"
+    return "Risk Reset Result: Rejected Invalid Efid or ClearingFirm (c)"
+  end
+  if value == "y" then
+    return "Risk Reset Result: Rejected In Replay (y)"
   end
 
   return "Risk Reset Result: Unknown("..value..")"
@@ -5994,6 +5997,9 @@ cboe_cfefutures_binaryorderentry_boe_v1_3_12.sub_liquidity_indicator.display = f
   end
   if value == "U" then
     return "Sub Liquidity Indicator: Qualifying Market Turner Order (U)"
+  end
+  if value == "N" then
+    return "Sub Liquidity Indicator: Normal (N)"
   end
 
   return "Sub Liquidity Indicator: Unknown("..value..")"

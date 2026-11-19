@@ -370,11 +370,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.auction_type.display = function(value)
     return "Auction Type: No Value"
   end
 
-  if value == "m" then
-    return "Auction Type: Core Opening Auction (m)"
+  if value == "M" then
+    return "Auction Type: Core Opening Auction (M)"
   end
-  if value == "h" then
-    return "Auction Type: Reopening Auction (h)"
+  if value == "H" then
+    return "Auction Type: Reopening Auction (Halt resume) (H)"
   end
 
   return "Auction Type: Unknown("..value..")"
@@ -541,7 +541,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.closing_only_indicator.display = functio
     return "Closing Only Indicator: Standard Series (0)"
   end
   if value == "1" then
-    return "Closing Only Indicator: Call (1)"
+    return "Closing Only Indicator: Closing Only Series (1)"
   end
 
   return "Closing Only Indicator: Unknown("..value..")"
@@ -649,11 +649,11 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.cross_type.display = function(value)
     return "Cross Type: No Value"
   end
 
-  if value == "0" then
-    return "Cross Type: Market Center Opening Auction (0)"
-  end
   if value == "5" then
     return "Cross Type: Market Center Reopening Auction (5)"
+  end
+  if value == "O" then
+    return "Cross Type: Market Center Opening Auction (O)"
   end
 
   return "Cross Type: Unknown("..value..")"
@@ -1867,8 +1867,8 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_type.size = 1
 
 -- Display: Price Type
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_type.labels = {
-  [0] = "Price Type: Strike Price Is Amount (0)",
-  [1] = "Price Type: Strike Price Is Amount (1)",
+  [0] = "Price Type: Strike Price Is Dollar Amount (0)",
+  [1] = "Price Type: Strike Price Is Percent Amount (1)",
 }
 
 nyse_arcaoptions_deepfeed_pillar_v1_2_f.price_type.display = function(value)
@@ -2931,10 +2931,7 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.status.display = function(value)
     return "Status: Accepted (0)"
   end
   if value == "1" then
-    return "Status: Rejected (1)"
-  end
-  if value == "2" then
-    return "Status: Invalid Sequence Range (2)"
+    return "Status: Invalid Source ID (1)"
   end
   if value == "3" then
     return "Status: Maximum Sequence Range (3)"
@@ -3266,7 +3263,50 @@ nyse_arcaoptions_deepfeed_pillar_v1_2_f.trade_cond_1.display = function(value)
     return "Trade Cond 1: No Value"
   end
 
-  return "Trade Cond 1: "..value
+  if value == "a" then
+    return "Trade Cond 1: Outright Series Order/Quote Trading Electronically With A Outright Series CUBE Exposed Order Or Outright Series CUBE Exposed Order Trading Electronically With Outright Series (a)"
+  end
+  if value == "c" then
+    return "Trade Cond 1: Trading Of A Outright Series QCC Order (c)"
+  end
+  if value == "e" then
+    return "Trade Cond 1: Outright Series Floor Trade (e)"
+  end
+  if value == "I" then
+    return "Trade Cond 1: All Outright Series Electronic Trades Excluding Away Market Executions That Were Not Part Of Certain Transactions (I)"
+  end
+  if value == "S" then
+    return "Trade Cond 1: All Outright Series Trades Generated As Part Of An Intermarket Sweep Order (S)"
+  end
+  if value == "D" then
+    return "Trade Cond 1: Any Of The Above Published After 90 Seconds Of Occurring (D)"
+  end
+  if value == "f" then
+    return "Trade Cond 1: Complex Order Trades That Were Not Part Of Certain Transactions (f)"
+  end
+  if value == "g" then
+    return "Trade Cond 1: Complex Order Trading Electronically With A Complex CUBE Exposed Order Or Complex CUBE Exposed Order Trading Electronically With Complex CUBE Covered Order (g)"
+  end
+  if value == "h" then
+    return "Trade Cond 1: Trading Of A Complex QCC Order (h)"
+  end
+  if value == "i" then
+    return "Trade Cond 1: Complex Order To Complex Order Floor Trade (i)"
+  end
+  if value == "j" then
+    return "Trade Cond 1: Complex Order Trading Electronically With The Outright Series Orders/Quotes (j)"
+  end
+  if value == "m" then
+    return "Trade Cond 1: Complex Order To Outright Series Order Floor Trade (m)"
+  end
+  if value == "p" then
+    return "Trade Cond 1: Complex Order With Stock To Complex Order With Stock Floor Trade (p)"
+  end
+  if value == "s" then
+    return "Trade Cond 1: Complex Order With Stock To Outright Series Order Floor Trade (s)"
+  end
+
+  return "Trade Cond 1: Unknown("..value..")"
 end
 
 -- Dissect: Trade Cond 1

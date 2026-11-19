@@ -2190,7 +2190,7 @@ miax_sapphireoptions_topofmarket_mach_v2_0.trade_condition.display = function(va
     return "Trade Condition: Complex Cross Transaction On The Exchange Floor That Is Not Complex Stock Tied (i)"
   end
   if value == "j" then
-    return "Trade Condition: Complex Cross Transaction On The Exchange Floor That Has Legging Occurred On The Floor And Not Complex Stock Tied (j)"
+    return "Trade Condition: Electronic Execution From Complex Cross Transaction On The Exchange Floor That Has Legging Occurred On The Floor And Not Complex Stock Tied (j)"
   end
   if value == "k" then
     return "Trade Condition: Reserved (k)"
@@ -2199,7 +2199,7 @@ miax_sapphireoptions_topofmarket_mach_v2_0.trade_condition.display = function(va
     return "Trade Condition: Reserved (l)"
   end
   if value == "m" then
-    return "Trade Condition: Complex Cross Transaction On The Exchange Floor That Has Legging Occurred On The Floor And Not Complex Stock Tied (m)"
+    return "Trade Condition: Complex Cross Transaction On The Exchange Floor Including Customer To Customer Cross And Qcc That Has Legging Occurred On The Floor And Not Complex Stock Tied (m)"
   end
   if value == "n" then
     return "Trade Condition: Complex Stock Tied Transaction That Does Not Involve Legging (n)"
@@ -2211,13 +2211,13 @@ miax_sapphireoptions_topofmarket_mach_v2_0.trade_condition.display = function(va
     return "Trade Condition: Complex Cross Stock Tied Transaction On The Exchange Floor That Does Not Involve Legging (p)"
   end
   if value == "q" then
-    return "Trade Condition: Complex Cross Stock Tied Transaction On The Exchange Floor That Has Legging Occurred On The Floor (q)"
+    return "Trade Condition: Electronic Execution From Complex Cross Stock Tied Transaction On The Exchange Floor That Has Legging Occurred On The Floor (q)"
   end
   if value == "r" then
     return "Trade Condition: Reserved (r)"
   end
   if value == "s" then
-    return "Trade Condition: Complex Cross Stock Tied Transaction On The Exchange Floor That Has Legging Occurred On The Floor (s)"
+    return "Trade Condition: Complex Cross Stock Tied Transaction On The Exchange Floor Including Customer To Customer Cross And Qcc That Has Legging Occurred On The Floor (s)"
   end
   if value == "t" then
     return "Trade Condition: Reserved (t)"

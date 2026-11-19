@@ -429,11 +429,11 @@ omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.display_update_message = P
 omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.download_data_response_message = ProtoField.new("Download Data Response Message", "nairobi.nairobibonds.marketdata.mits.v2.14.downloaddataresponsemessage", ftypes.STRING, nil, nil, nil, "Request Data Header and the compressed data returned.")
 omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.exchange_announcements_message = ProtoField.new("Exchange Announcements Message", "nairobi.nairobibonds.marketdata.mits.v2.14.exchangeannouncementsmessage", ftypes.STRING, nil, nil, nil, "Error and information messages.")
 omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.future_contract_subscription_message = ProtoField.new("Future Contract Subscription Message", "nairobi.nairobibonds.marketdata.mits.v2.14.futurecontractsubscriptionmessage", ftypes.STRING, nil, nil, nil, "Subscribe to Display Updates on up to 40 contracts.")
-omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.heart_beat_message = ProtoField.new("Heart Beat Message", "nairobi.nairobibonds.marketdata.mits.v2.14.heartbeatmessage", ftypes.BYTES)
-omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.heart_beats_message = ProtoField.new("Heart Beats Message", "nairobi.nairobibonds.marketdata.mits.v2.14.heartbeatsmessage", ftypes.BYTES)
+omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.heart_beat_message = ProtoField.new("Heart Beat Message", "nairobi.nairobibonds.marketdata.mits.v2.14.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "A heartbeat message sent to the logged in member as simply a blank header.")
+omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.heart_beats_message = ProtoField.new("Heart Beats Message", "nairobi.nairobibonds.marketdata.mits.v2.14.heartbeatsmessage", ftypes.BYTES, nil, nil, nil, "This message contains only a header with message type 84.")
 omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.indices_message = ProtoField.new("Indices Message", "nairobi.nairobibonds.marketdata.mits.v2.14.indicesmessage", ftypes.STRING, nil, nil, nil, "Each Index will be sent in this format.")
 omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.log_in_message = ProtoField.new("Log In Message", "nairobi.nairobibonds.marketdata.mits.v2.14.loginmessage", ftypes.STRING, nil, nil, nil, "Log in message.")
-omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.log_out_message = ProtoField.new("Log Out Message", "nairobi.nairobibonds.marketdata.mits.v2.14.logoutmessage", ftypes.BYTES)
+omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.log_out_message = ProtoField.new("Log Out Message", "nairobi.nairobibonds.marketdata.mits.v2.14.logoutmessage", ftypes.BYTES, nil, nil, nil, "This message does not contain any details.")
 omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.notification_of_failure_message = ProtoField.new("Notification Of Failure Message", "nairobi.nairobibonds.marketdata.mits.v2.14.notificationoffailuremessage", ftypes.STRING, nil, nil, nil, "Sent on the failure or the recovery of the exchange trading system.")
 omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.option_contract_subscription_message = ProtoField.new("Option Contract Subscription Message", "nairobi.nairobibonds.marketdata.mits.v2.14.optioncontractsubscriptionmessage", ftypes.STRING, nil, nil, nil, "Subscribe to Display Updates on the contracts listed.")
 omi_nairobi_nairobibonds_marketdata_mits_v2_14.fields.option_statistics_request_message = ProtoField.new("Option Statistics Request Message", "nairobi.nairobibonds.marketdata.mits.v2.14.optionstatisticsrequestmessage", ftypes.STRING, nil, nil, nil, "Request a Display Update with information for all option contracts traded since the beginning of the trading session.")
@@ -14616,6 +14616,23 @@ nairobi_nairobibonds_marketdata_mits_v2_14.session_key_challenge_message.dissect
   end
 end
 
+-- Heart Beat Message
+nairobi_nairobibonds_marketdata_mits_v2_14.heart_beat_message = {}
+
+-- Display: Heart Beat Message
+nairobi_nairobibonds_marketdata_mits_v2_14.heart_beat_message.display = function(packet, parent, length)
+  return "Heart Beat Message"
+end
+
+
+-- Dissect: Heart Beat Message
+nairobi_nairobibonds_marketdata_mits_v2_14.heart_beat_message.dissect = function(buffer, offset, packet, parent)
+  local display = nairobi_nairobibonds_marketdata_mits_v2_14.heart_beat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Member Code P 6
 nairobi_nairobibonds_marketdata_mits_v2_14.member_code_p_6 = {}
 
@@ -14950,63 +14967,29 @@ end
 -- Server Message Payload
 nairobi_nairobibonds_marketdata_mits_v2_14.server_message_payload = {}
 
+-- Dispatch: Server Message Payload
+nairobi_nairobibonds_marketdata_mits_v2_14.server_message_payload.dispatch = {
+  [1] = nairobi_nairobibonds_marketdata_mits_v2_14.successful_log_in_response_message.dissect,
+  [10] = nairobi_nairobibonds_marketdata_mits_v2_14.heart_beat_message.dissect,
+  [16] = nairobi_nairobibonds_marketdata_mits_v2_14.session_key_challenge_message.dissect,
+  [36] = nairobi_nairobibonds_marketdata_mits_v2_14.download_data_response_message.dissect,
+  [37] = nairobi_nairobibonds_marketdata_mits_v2_14.download_data_response_message.dissect,
+  [58] = nairobi_nairobibonds_marketdata_mits_v2_14.completed_trade_message.dissect,
+  [59] = nairobi_nairobibonds_marketdata_mits_v2_14.display_update_message.dissect,
+  [60] = nairobi_nairobibonds_marketdata_mits_v2_14.indices_message.dissect,
+  [61] = nairobi_nairobibonds_marketdata_mits_v2_14.daily_trend_reply_message.dissect,
+  [99] = nairobi_nairobibonds_marketdata_mits_v2_14.price_update_message.dissect,
+  [123] = nairobi_nairobibonds_marketdata_mits_v2_14.data_update_message.dissect,
+  [125] = nairobi_nairobibonds_marketdata_mits_v2_14.exchange_announcements_message.dissect,
+  [127] = nairobi_nairobibonds_marketdata_mits_v2_14.notification_of_failure_message.dissect,
+  [132] = nairobi_nairobibonds_marketdata_mits_v2_14.business_message_reject_message.dissect,
+}
+
 -- Dissect: Server Message Payload
 nairobi_nairobibonds_marketdata_mits_v2_14.server_message_payload.dissect = function(buffer, offset, packet, parent, server_message_type)
-  -- Dissect Successful Log In Response Message
-  if server_message_type == 1 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.successful_log_in_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heart Beat Message
-  if server_message_type == 10 then
-    return offset
-  end
-  -- Dissect Session Key Challenge Message
-  if server_message_type == 16 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.session_key_challenge_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Download Data Response Message
-  if server_message_type == 36 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.download_data_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Download Data Response Message
-  if server_message_type == 37 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.download_data_response_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Completed Trade Message
-  if server_message_type == 58 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.completed_trade_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Display Update Message
-  if server_message_type == 59 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.display_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Indices Message
-  if server_message_type == 60 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.indices_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Daily Trend Reply Message
-  if server_message_type == 61 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.daily_trend_reply_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Price Update Message
-  if server_message_type == 99 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.price_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Data Update Message
-  if server_message_type == 123 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.data_update_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Exchange Announcements Message
-  if server_message_type == 125 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.exchange_announcements_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Notification Of Failure Message
-  if server_message_type == 127 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.notification_of_failure_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Business Message Reject Message
-  if server_message_type == 132 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.business_message_reject_message.dissect(buffer, offset, packet, parent)
+  local dissect = nairobi_nairobibonds_marketdata_mits_v2_14.server_message_payload.dispatch[server_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset
@@ -15516,6 +15499,23 @@ nairobi_nairobibonds_marketdata_mits_v2_14.subscribing_to_indices_service_messag
   end
 end
 
+-- Heart Beats Message
+nairobi_nairobibonds_marketdata_mits_v2_14.heart_beats_message = {}
+
+-- Display: Heart Beats Message
+nairobi_nairobibonds_marketdata_mits_v2_14.heart_beats_message.display = function(packet, parent, length)
+  return "Heart Beats Message"
+end
+
+
+-- Dissect: Heart Beats Message
+nairobi_nairobibonds_marketdata_mits_v2_14.heart_beats_message.dissect = function(buffer, offset, packet, parent)
+  local display = nairobi_nairobibonds_marketdata_mits_v2_14.heart_beats_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Option Contract Subscription Message
 nairobi_nairobibonds_marketdata_mits_v2_14.option_contract_subscription_message = {}
 
@@ -15756,6 +15756,23 @@ nairobi_nairobibonds_marketdata_mits_v2_14.request_data_retrieval_message.dissec
   end
 end
 
+-- Log Out Message
+nairobi_nairobibonds_marketdata_mits_v2_14.log_out_message = {}
+
+-- Display: Log Out Message
+nairobi_nairobibonds_marketdata_mits_v2_14.log_out_message.display = function(packet, parent, length)
+  return "Log Out Message"
+end
+
+
+-- Dissect: Log Out Message
+nairobi_nairobibonds_marketdata_mits_v2_14.log_out_message.dissect = function(buffer, offset, packet, parent)
+  local display = nairobi_nairobibonds_marketdata_mits_v2_14.log_out_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
 -- Re Request Message
 nairobi_nairobibonds_marketdata_mits_v2_14.re_request_message = {}
 
@@ -15851,55 +15868,27 @@ end
 -- Client Message Payload
 nairobi_nairobibonds_marketdata_mits_v2_14.client_message_payload = {}
 
+-- Dispatch: Client Message Payload
+nairobi_nairobibonds_marketdata_mits_v2_14.client_message_payload.dispatch = {
+  [0] = nairobi_nairobibonds_marketdata_mits_v2_14.log_in_message.dissect,
+  [3] = nairobi_nairobibonds_marketdata_mits_v2_14.re_request_message.dissect,
+  [4] = nairobi_nairobibonds_marketdata_mits_v2_14.log_out_message.dissect,
+  [36] = nairobi_nairobibonds_marketdata_mits_v2_14.request_data_retrieval_message.dissect,
+  [37] = nairobi_nairobibonds_marketdata_mits_v2_14.request_data_retrieval_message.dissect,
+  [42] = nairobi_nairobibonds_marketdata_mits_v2_14.unsubscribe_contract_message.dissect,
+  [61] = nairobi_nairobibonds_marketdata_mits_v2_14.request_daily_trend_message.dissect,
+  [67] = nairobi_nairobibonds_marketdata_mits_v2_14.option_contract_subscription_message.dissect,
+  [84] = nairobi_nairobibonds_marketdata_mits_v2_14.heart_beats_message.dissect,
+  [98] = nairobi_nairobibonds_marketdata_mits_v2_14.subscribing_to_indices_service_message.dissect,
+  [99] = nairobi_nairobibonds_marketdata_mits_v2_14.future_contract_subscription_message.dissect,
+  [135] = nairobi_nairobibonds_marketdata_mits_v2_14.option_statistics_request_message.dissect,
+}
+
 -- Dissect: Client Message Payload
 nairobi_nairobibonds_marketdata_mits_v2_14.client_message_payload.dissect = function(buffer, offset, packet, parent, client_message_type)
-  -- Dissect Log In Message
-  if client_message_type == 0 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.log_in_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Re Request Message
-  if client_message_type == 3 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.re_request_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Log Out Message
-  if client_message_type == 4 then
-    return offset
-  end
-  -- Dissect Request Data Retrieval Message
-  if client_message_type == 36 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.request_data_retrieval_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Data Retrieval Message
-  if client_message_type == 37 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.request_data_retrieval_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Unsubscribe Contract Message
-  if client_message_type == 42 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.unsubscribe_contract_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Request Daily Trend Message
-  if client_message_type == 61 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.request_daily_trend_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Contract Subscription Message
-  if client_message_type == 67 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.option_contract_subscription_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Heart Beats Message
-  if client_message_type == 84 then
-    return offset
-  end
-  -- Dissect Subscribing To Indices Service Message
-  if client_message_type == 98 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.subscribing_to_indices_service_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Future Contract Subscription Message
-  if client_message_type == 99 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.future_contract_subscription_message.dissect(buffer, offset, packet, parent)
-  end
-  -- Dissect Option Statistics Request Message
-  if client_message_type == 135 then
-    return nairobi_nairobibonds_marketdata_mits_v2_14.option_statistics_request_message.dissect(buffer, offset, packet, parent)
+  local dissect = nairobi_nairobibonds_marketdata_mits_v2_14.client_message_payload.dispatch[client_message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
   end
 
   return offset

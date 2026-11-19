@@ -1497,7 +1497,7 @@ nyse_nyseequities_bbo_xdp_v2_4_g.security_type.display = function(value)
     return "Security Type: Test (T)"
   end
   if value == "U" then
-    return "Security Type: Units (U)"
+    return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
     return "Security Type: Warrant (W)"

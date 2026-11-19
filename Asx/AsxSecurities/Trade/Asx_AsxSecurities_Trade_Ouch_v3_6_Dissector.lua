@@ -489,7 +489,6 @@ asx_asxsecurities_trade_ouch_v3_6.deal_source.labels = {
   [1] = "Deal Source: Continuous Auto Match (1)",
   [20] = "Deal Source: Auction Auto Match (20)",
   [36] = "Deal Source: Tailor Made Combination Match (36)",
-  [10] = "Deal Source: Deleted By Asx (10)",
   [44] = "Deal Source: Booked Ucp Transaction (44)",
   [45] = "Deal Source: Booked Ucp Auction Transaction (45)",
   [46] = "Deal Source: Centre Point Preference Matched Trade (46)",
@@ -499,6 +498,7 @@ asx_asxsecurities_trade_ouch_v3_6.deal_source.labels = {
   [50] = "Deal Source: Block Trade (50)",
   [51] = "Deal Source: Preference Block Trade (51)",
   [52] = "Deal Source: Reserved (52)",
+  [43] = "Deal Source: Combination Order Matched Against Outright Legs (43)",
 }
 
 asx_asxsecurities_trade_ouch_v3_6.deal_source.display = function(value)
@@ -877,8 +877,8 @@ asx_asxsecurities_trade_ouch_v3_6.ouch_order_type.size = 1
 -- Display: Ouch Order Type
 asx_asxsecurities_trade_ouch_v3_6.ouch_order_type.labels = {
   ["Y"] = "Ouch Order Type: Limit Order (Y)",
-  ["N"] = "Ouch Order Type: Centre Point Order (N)",
-  ["D"] = "Ouch Order Type: Centre Point Order (D)",
+  ["N"] = "Ouch Order Type: Centre Point Order Mid Point Only (N)",
+  ["D"] = "Ouch Order Type: Centre Point Order Dark Limit Order (D)",
   ["S"] = "Ouch Order Type: Sweep Order (S)",
   ["P"] = "Ouch Order Type: Dual Posted Sweep Order (P)",
   ["B"] = "Ouch Order Type: Centre Point Block Order With Single Fill Maq (B)",

@@ -1208,7 +1208,7 @@ nyse_arcaoptions_deepfeed_xdp_v1_3_a.security_type.display = function(value)
     return "Security Type: Test (T)"
   end
   if value == "U" then
-    return "Security Type: Units (U)"
+    return "Security Type: Closed End Fund (U)"
   end
   if value == "W" then
     return "Security Type: Warrant (W)"
@@ -1715,7 +1715,8 @@ nyse_arcaoptions_deepfeed_xdp_v1_3_a.sequence_number_reset_message.size =
   nyse_arcaoptions_deepfeed_xdp_v1_3_a.source_time.size + 
   nyse_arcaoptions_deepfeed_xdp_v1_3_a.source_time_ns.size + 
   nyse_arcaoptions_deepfeed_xdp_v1_3_a.product_id.size + 
-  nyse_arcaoptions_deepfeed_xdp_v1_3_a.channel_id.size
+  nyse_arcaoptions_deepfeed_xdp_v1_3_a.channel_id.size + 
+  nyse_arcaoptions_deepfeed_xdp_v1_3_a.reserved_2.size
 
 -- Display: Sequence Number Reset Message
 nyse_arcaoptions_deepfeed_xdp_v1_3_a.sequence_number_reset_message.display = function(packet, parent, length)
@@ -1744,6 +1745,13 @@ nyse_arcaoptions_deepfeed_xdp_v1_3_a.sequence_number_reset_message.fields = func
 
   -- Channel Id: Binary
   index, channel_id = nyse_arcaoptions_deepfeed_xdp_v1_3_a.channel_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: reserved
+  if show.padding then
+    index, reserved_2 = nyse_arcaoptions_deepfeed_xdp_v1_3_a.reserved_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + nyse_arcaoptions_deepfeed_xdp_v1_3_a.reserved_2.size
+  end
 
   return index
 end

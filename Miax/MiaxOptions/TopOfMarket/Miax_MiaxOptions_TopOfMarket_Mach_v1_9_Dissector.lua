@@ -614,8 +614,8 @@ miax_miaxoptions_topofmarket_mach_v1_9.liquidity_acceptance_increment_indicator.
 -- Display: Liquidity Acceptance Increment Indicator
 miax_miaxoptions_topofmarket_mach_v1_9.liquidity_acceptance_increment_indicator.labels = {
   ["P"] = "Liquidity Acceptance Increment Indicator: Penny (P)",
-  ["N"] = "Liquidity Acceptance Increment Indicator: Nickel (N)",
-  ["D"] = "Liquidity Acceptance Increment Indicator: Dime (D)",
+  ["N"] = "Liquidity Acceptance Increment Indicator: Penny Or Nickel (N)",
+  ["D"] = "Liquidity Acceptance Increment Indicator: Nickel Or Dime (D)",
 }
 
 miax_miaxoptions_topofmarket_mach_v1_9.liquidity_acceptance_increment_indicator.display = function(value)
@@ -884,8 +884,8 @@ miax_miaxoptions_topofmarket_mach_v1_9.miax_bbo_posting_increment_indicator.size
 -- Display: Miax Bbo Posting Increment Indicator
 miax_miaxoptions_topofmarket_mach_v1_9.miax_bbo_posting_increment_indicator.labels = {
   ["P"] = "Miax Bbo Posting Increment Indicator: Penny (P)",
-  ["N"] = "Miax Bbo Posting Increment Indicator: Nickel (N)",
-  ["D"] = "Miax Bbo Posting Increment Indicator: Dime (D)",
+  ["N"] = "Miax Bbo Posting Increment Indicator: Penny Or Nickel (N)",
+  ["D"] = "Miax Bbo Posting Increment Indicator: Nickel Or Dime (D)",
 }
 
 miax_miaxoptions_topofmarket_mach_v1_9.miax_bbo_posting_increment_indicator.display = function(value)

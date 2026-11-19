@@ -3188,12 +3188,6 @@ ice_icefutures_mdf_impact_v1_1_43.is_up.display = function(value)
   if value == "N" then
     return "Is Up: Ipl Lower Bound Violation (N)"
   end
-  if value == "F" then
-    return "Is Up: Final (F)"
-  end
-  if value == " " then
-    return "Is Up: Non Endex Spot Market (<whitespace>)"
-  end
 
   return "Is Up: Unknown("..value..")"
 end
@@ -4898,7 +4892,7 @@ ice_icefutures_mdf_impact_v1_1_43.off_market_trade_type.display = function(value
     return "Off Market Trade Type: Asset Allocation (AA)"
   end
   if value == "V" then
-    return "Off Market Trade Type: Asset Allocation (V)"
+    return "Off Market Trade Type: Bilateral (V)"
   end
 
   return "Off Market Trade Type: Unknown("..value..")"
