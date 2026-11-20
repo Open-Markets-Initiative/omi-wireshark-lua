@@ -69,7 +69,8 @@ omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_trading_status = Prot
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_type = ProtoField.new("Security Type", "cboe.c1options.marketlevel2.csm.v1.0.4.securitytype", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_type_length = ProtoField.new("Security Type Length", "cboe.c1options.marketlevel2.csm.v1.0.4.securitytypelength", ftypes.UINT8)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.security_type_text = ProtoField.new("Security Type Text", "cboe.c1options.marketlevel2.csm.v1.0.4.securitytypetext", ftypes.STRING)
-omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.sending_time = ProtoField.new("Sending Time", "cboe.c1options.marketlevel2.csm.v1.0.4.sendingtime", ftypes.UINT64, nil, nil, nil, "The time that this packet was sent. It applies to all messages in this packet.")
+omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.sending_time_utc = ProtoField.new("Sending Time", "cboe.c1options.marketlevel2.csm.v1.0.4.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time that this packet was sent. It applies to all messages in this packet.")
+omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.sending_time = ProtoField.new("Sending Time", "cboe.c1options.marketlevel2.csm.v1.0.4.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time that this packet was sent. It applies to all messages in this packet.")
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.snapshot_full_refresh_md_entry = ProtoField.new("Snapshot Full Refresh Md Entry", "cboe.c1options.marketlevel2.csm.v1.0.4.snapshotfullrefreshmdentry", ftypes.STRING, nil, nil, nil, "MDEntry indicating price, side, level, and volume of the book.")
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.strike_price = ProtoField.new("Strike Price", "cboe.c1options.marketlevel2.csm.v1.0.4.strikeprice", ftypes.STRING)
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.strike_price_exponent = ProtoField.new("Strike Price Exponent", "cboe.c1options.marketlevel2.csm.v1.0.4.strikepriceexponent", ftypes.INT8, nil, nil, nil, "First byte represents the exponent and the last 4 bytes represent the mantissa")
@@ -115,6 +116,20 @@ cboe_c1options_marketlevel2_csm_v1_0_4.experts.undecoded = ProtoExpert.new("cboe
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.experts = { cboe_c1options_marketlevel2_csm_v1_0_4.experts.undecoded }
 
 -----------------------------------------------------------------------
+-- Cboe C1Options MarketLevel2 Csm 1.0.4 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
+cboe_c1options_marketlevel2_csm_v1_0_4.timestamp_format = 3
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -134,6 +149,8 @@ omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_application_messages = Pre
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
+omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs_changed()
 
@@ -152,6 +169,9 @@ function omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs_changed()
   end
   if show.indexes ~= omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_indexes then
     show.indexes = omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.show_indexes
+  end
+  if cboe_c1options_marketlevel2_csm_v1_0_4.timestamp_format ~= omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.timestamp_format then
+    cboe_c1options_marketlevel2_csm_v1_0_4.timestamp_format = omi_cboe_c1options_marketlevel2_csm_v1_0_4.prefs.timestamp_format
   end
 end
 
@@ -394,7 +414,11 @@ cboe_c1options_marketlevel2_csm_v1_0_4.maturity_date.size = 8
 
 -- Display: Maturity Date
 cboe_c1options_marketlevel2_csm_v1_0_4.maturity_date.display = function(value)
-  return "Maturity Date: "..value
+  value = value:tonumber()
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Maturity Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Maturity Date
@@ -1219,19 +1243,20 @@ cboe_c1options_marketlevel2_csm_v1_0_4.sending_time = {}
 -- Size: Sending Time
 cboe_c1options_marketlevel2_csm_v1_0_4.sending_time.size = 8
 
--- Display: Sending Time
-cboe_c1options_marketlevel2_csm_v1_0_4.sending_time.display = function(value)
-  return "Sending Time: "..value
-end
-
 -- Dissect: Sending Time
 cboe_c1options_marketlevel2_csm_v1_0_4.sending_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_marketlevel2_csm_v1_0_4.sending_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = cboe_c1options_marketlevel2_csm_v1_0_4.sending_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.sending_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.sending_time
+  if cboe_c1options_marketlevel2_csm_v1_0_4.timestamp_format == 3 then field = omi_cboe_c1options_marketlevel2_csm_v1_0_4.fields.sending_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

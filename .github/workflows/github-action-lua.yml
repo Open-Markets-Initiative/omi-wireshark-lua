@@ -79,8 +79,8 @@ jobs:
       - name: Run Cboe C1Options OpeningAuction Csm 1.0 Dissector Tests
         run: bash -x .github/tests/Cboe-C1Options-OpeningAuction-Csm-v1-0-Test.sh
 
-      - name: Run Cboe CfeFutures BinaryOrderEntry Boe3 1.1.20 Dissector Tests
-        run: bash -x .github/tests/Cboe-CfeFutures-BinaryOrderEntry-Boe3-v1-1-20-Test.sh
+      - name: Run Cboe CfeFutures BinaryOrderEntry Boe3 1.0 Dissector Tests
+        run: bash -x .github/tests/Cboe-CfeFutures-BinaryOrderEntry-Boe3-v1-0-Test.sh
 
       - name: Run Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.12 Dissector Tests
         run: bash -x .github/tests/Cboe-CfeFutures-MulticastDepthOfBook-Pitch-v1-1-12-Test.sh
@@ -88,8 +88,8 @@ jobs:
       - name: Run Cboe CfeFutures MulticastDepthOfBook Pitch 1.1.6 Dissector Tests
         run: bash -x .github/tests/Cboe-CfeFutures-MulticastDepthOfBook-Pitch-v1-1-6-Test.sh
 
-      - name: Run Cboe CfeFutures MulticastTop Pitch 1.2.22 Dissector Tests
-        run: bash -x .github/tests/Cboe-CfeFutures-MulticastTop-Pitch-v1-2-22-Test.sh
+      - name: Run Cboe CfeFutures MulticastTop Pitch 1.0.15 Dissector Tests
+        run: bash -x .github/tests/Cboe-CfeFutures-MulticastTop-Pitch-v1-0-15-Test.sh
 
       - name: Run Cboe EdgaEquities MulticastDepthOfBook Pitch 2.41.29 Dissector Tests
         run: bash -x .github/tests/Cboe-EdgaEquities-MulticastDepthOfBook-Pitch-v2-41-29-Test.sh

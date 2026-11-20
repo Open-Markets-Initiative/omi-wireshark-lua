@@ -96,7 +96,8 @@ local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "DateTime Local", 2 },
-  { 4, "DateTime Utc", 3 }
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime Europe/London", 4 }
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
@@ -1259,6 +1260,13 @@ cboe_cxeequities_lastsale_asciipitch_v1_7.timestamp.display = function(value, bu
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_cxeequities_lastsale_asciipitch_v1_7.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." Europe/London"
+      end
 
       local format = cboe_cxeequities_lastsale_asciipitch_v1_7.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
       return "Timestamp: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)

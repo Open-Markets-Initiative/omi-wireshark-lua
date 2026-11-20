@@ -1140,7 +1140,10 @@ cboe_cxaequities_binaryorderentry_boe3_v1_0_20.expire_date.size = 4
 
 -- Display: Expire Date
 cboe_cxaequities_binaryorderentry_boe3_v1_0_20.expire_date.display = function(value)
-  return "Expire Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Expire Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Expire Date

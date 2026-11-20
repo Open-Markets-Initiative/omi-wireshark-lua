@@ -127,35 +127,35 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.firm_message_header = Prot
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.firm_packet = ProtoField.new("Packet", "cboe.cfefutures.binaryorderentry.boe3.v1.0.firmpacket", ftypes.STRING, nil, nil, nil, "Binary Order Entry Tcp Packet sent by the firm")
 
 -- Cboe CfeFutures BinaryOrderEntry 1.0 Application Messages
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.cancelordermessage", ftypes.STRING, nil, nil, nil, "Request to cancel a single order or quote")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.cancel_rejected_message = ProtoField.new("Cancel Rejected Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.cancelrejectedmessage", ftypes.STRING, nil, nil, nil, "A Cancel Rejected message is sent in response to a Cancel Order message to indicate that the cancellation cannot occur")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_acknowledgement_message = ProtoField.new("Mass Cancel Acknowledgement Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.masscancelacknowledgementmessage", ftypes.STRING, nil, nil, nil, "A Mass Cancel Acknowledgment is an unsequenced message sent when a Cancel Order or Purge Orders message requesting a mass cancellation has completed cancelling all individual orders")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.masscancelordermessage", ftypes.STRING, nil, nil, nil, "A Mass Cancel Order message is a request to cancel a group of orders or quotes")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_rejected_message = ProtoField.new("Mass Cancel Rejected Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.masscancelrejectedmessage", ftypes.STRING, nil, nil, nil, "A Mass Cancel Rejected message is sent in response to a Mass Cancel Order message to indicate that the mass cancellation cannot occur")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.modify_order_message = ProtoField.new("Modify Order Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.modifyordermessage", ftypes.STRING, nil, nil, nil, "Request to modify an order")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.modify_rejected_message = ProtoField.new("Modify Rejected Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.modifyrejectedmessage", ftypes.STRING, nil, nil, nil, "Modify Rejected messages are sent in response to a Modify Order for an order which cannot be modified")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.new_order_message = ProtoField.new("New Order Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.newordermessage", ftypes.STRING, nil, nil, nil, "New order futures message")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_acknowledgement_message = ProtoField.new("Order Acknowledgement Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.orderacknowledgementmessage", ftypes.STRING, nil, nil, nil, "Order Acknowledgement messages are sent in response to a new order message")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_cancelled_message = ProtoField.new("Order Cancelled Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.ordercancelledmessage", ftypes.STRING)
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_execution_message = ProtoField.new("Order Execution Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.orderexecutionmessage", ftypes.STRING, nil, nil, nil, "An Order Execution is sent for each fill on an order")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_modified_message = ProtoField.new("Order Modified Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.ordermodifiedmessage", ftypes.STRING, nil, nil, nil, "Order Modified messages are sent in response to a Modify Order to indicate that the orderhas been successfully modified")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_rejected_message = ProtoField.new("Order Rejected Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.orderrejectedmessage", ftypes.STRING, nil, nil, nil, "Order Rejected messages are sent in response to a New Order which must be rejected")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_acknowledgement_message = ProtoField.new("Purge Acknowledgement Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.purgeacknowledgementmessage", ftypes.STRING, nil, nil, nil, "A Purge Acknowledgment is an unsequenced message sent when a Purge Orders message requesting an order purge has completed cancelling all individual orders")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_orders_message = ProtoField.new("Purge Orders Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.purgeordersmessage", ftypes.STRING, nil, nil, nil, "Request to cancel a group of orders or quotes across all the TPH's sessions for that port’s matching unit")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_rejected_message = ProtoField.new("Purge Rejected Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.purgerejectedmessage", ftypes.STRING, nil, nil, nil, "A Purge Rejected message is sent in response to a Purge Orders message to indicate that the mass cancellation cannot occur")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_cancelled_message = ProtoField.new("Quote Cancelled Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quotecancelledmessage", ftypes.STRING, nil, nil, nil, "A Quote Cancelled message will be sent to indicate an unsolicited cancellation of a quote entered with a Quote Update message")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_execution_message = ProtoField.new("Quote Execution Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoteexecutionmessage", ftypes.STRING, nil, nil, nil, "A Quote Execution message is used to indicate an execution has occurred on a resting quote")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_restated_message = ProtoField.new("Quote Restated Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoterestatedmessage", ftypes.STRING, nil, nil, nil, "Quote Restated messages are sent to inform the TPH that an order has been asynchronously modified for some reason by CFE")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_acknowledgement_message = ProtoField.new("Quote Update Acknowledgement Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoteupdateacknowledgementmessage", ftypes.STRING, nil, nil, nil, "Quote Update Acknowledgment messages are sent in response to a Quote Update or Quote Update Option message")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_message = ProtoField.new("Quote Update Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoteupdatemessage", ftypes.STRING, nil, nil, nil, "Request to enter or update one or more quotes")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_rejected_message = ProtoField.new("Quote Update Rejected Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoteupdaterejectedmessage", ftypes.STRING, nil, nil, nil, "Quote Update Rejected messages are sent in response to a Quote Update or Quote Update Option message when the entire quote block is rejected by the order handler")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.reset_risk_acknowledgement_message = ProtoField.new("Reset Risk Acknowledgement Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.resetriskacknowledgementmessage", ftypes.STRING, nil, nil, nil, "Response to a Reset Risk request")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.reset_risk_message = ProtoField.new("Reset Risk Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.resetriskmessage", ftypes.STRING, nil, nil, nil, "Reset or release Firm/EFID, Product, or Custom Group Id level lockout conditions resulting from risk profile trips or self-imposed lockouts issued viaMass Cancel Order or Purge Orders messages")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.tas_quote_restatement_message = ProtoField.new("Tas Quote Restatement Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.tasquoterestatementmessage", ftypes.STRING, nil, nil, nil, "A TAS Quote Restatement is sent post-settlement time for each TAS quote execution during the associated business day to communicate the updated Price and Symbol associated with the cleared execution")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.tas_restatement_message = ProtoField.new("Tas Restatement Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.tasrestatementmessage", ftypes.STRING, nil, nil, nil, "A Tas Restatement is sent post-settlement time for each TAS execution during the associated business day to communicate the updated Price and Symbol associated with the cleared execution")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.trade_cancel_or_correct_message = ProtoField.new("Trade Cancel Or Correct Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.tradecancelorcorrectmessage", ftypes.STRING, nil, nil, nil, "Used to provide notification that a trade has been cancelled or corrected")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.variance_quote_restatement_message = ProtoField.new("Variance Quote Restatement Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.variancequoterestatementmessage", ftypes.STRING, nil, nil, nil, "A Variance Quote Restatement is sent post-settlement time for each VA and VAO execution during the associated business day to communicate updated Price, Size, and Symbol values associated with the cleared execution")
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.variance_restatement_message = ProtoField.new("Variance Restatement Message", "cboe.cfefutures.binaryorderentry.boe3.v1.0.variancerestatementmessage", ftypes.STRING, nil, nil, nil, "A Variance Restatement is sent post-settlement time for each VA and VAO execution during the associated business day to communicate updated Price, Size and Symbol associated with the cleared execution")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.cancel_order = ProtoField.new("Cancel Order", "cboe.cfefutures.binaryorderentry.boe3.v1.0.cancelorder", ftypes.STRING, nil, nil, nil, "Request to cancel a single order or quote")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.cancel_rejected = ProtoField.new("Cancel Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.0.cancelrejected", ftypes.STRING, nil, nil, nil, "A Cancel Rejected message is sent in response to a Cancel Order message to indicate that the cancellation cannot occur")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_acknowledgement = ProtoField.new("Mass Cancel Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.0.masscancelacknowledgement", ftypes.STRING, nil, nil, nil, "A Mass Cancel Acknowledgment is an unsequenced message sent when a Cancel Order or Purge Orders message requesting a mass cancellation has completed cancelling all individual orders")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_order = ProtoField.new("Mass Cancel Order", "cboe.cfefutures.binaryorderentry.boe3.v1.0.masscancelorder", ftypes.STRING, nil, nil, nil, "A Mass Cancel Order message is a request to cancel a group of orders or quotes")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_rejected = ProtoField.new("Mass Cancel Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.0.masscancelrejected", ftypes.STRING, nil, nil, nil, "A Mass Cancel Rejected message is sent in response to a Mass Cancel Order message to indicate that the mass cancellation cannot occur")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.modify_order = ProtoField.new("Modify Order", "cboe.cfefutures.binaryorderentry.boe3.v1.0.modifyorder", ftypes.STRING, nil, nil, nil, "Request to modify an order")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.modify_rejected = ProtoField.new("Modify Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.0.modifyrejected", ftypes.STRING, nil, nil, nil, "Modify Rejected messages are sent in response to a Modify Order for an order which cannot be modified")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.new_order = ProtoField.new("New Order", "cboe.cfefutures.binaryorderentry.boe3.v1.0.neworder", ftypes.STRING, nil, nil, nil, "New order futures message")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_acknowledgement = ProtoField.new("Order Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.0.orderacknowledgement", ftypes.STRING, nil, nil, nil, "Order Acknowledgement messages are sent in response to a new order message")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_cancelled = ProtoField.new("Order Cancelled", "cboe.cfefutures.binaryorderentry.boe3.v1.0.ordercancelled", ftypes.STRING, nil, nil, nil, "Order Cancelled message")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_execution = ProtoField.new("Order Execution", "cboe.cfefutures.binaryorderentry.boe3.v1.0.orderexecution", ftypes.STRING, nil, nil, nil, "An Order Execution is sent for each fill on an order")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_modified = ProtoField.new("Order Modified", "cboe.cfefutures.binaryorderentry.boe3.v1.0.ordermodified", ftypes.STRING, nil, nil, nil, "Order Modified messages are sent in response to a Modify Order to indicate that the orderhas been successfully modified")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_rejected = ProtoField.new("Order Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.0.orderrejected", ftypes.STRING, nil, nil, nil, "Order Rejected messages are sent in response to a New Order which must be rejected")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_acknowledgement = ProtoField.new("Purge Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.0.purgeacknowledgement", ftypes.STRING, nil, nil, nil, "A Purge Acknowledgment is an unsequenced message sent when a Purge Orders message requesting an order purge has completed cancelling all individual orders")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_orders = ProtoField.new("Purge Orders", "cboe.cfefutures.binaryorderentry.boe3.v1.0.purgeorders", ftypes.STRING, nil, nil, nil, "Request to cancel a group of orders or quotes across all the TPH's sessions for that port’s matching unit")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_rejected = ProtoField.new("Purge Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.0.purgerejected", ftypes.STRING, nil, nil, nil, "A Purge Rejected message is sent in response to a Purge Orders message to indicate that the mass cancellation cannot occur")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_cancelled = ProtoField.new("Quote Cancelled", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quotecancelled", ftypes.STRING, nil, nil, nil, "A Quote Cancelled message will be sent to indicate an unsolicited cancellation of a quote entered with a Quote Update message")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_execution = ProtoField.new("Quote Execution", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoteexecution", ftypes.STRING, nil, nil, nil, "A Quote Execution message is used to indicate an execution has occurred on a resting quote")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_restated = ProtoField.new("Quote Restated", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoterestated", ftypes.STRING, nil, nil, nil, "Quote Restated messages are sent to inform the TPH that an order has been asynchronously modified for some reason by CFE")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update = ProtoField.new("Quote Update", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoteupdate", ftypes.STRING, nil, nil, nil, "Request to enter or update one or more quotes")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_acknowledgement = ProtoField.new("Quote Update Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoteupdateacknowledgement", ftypes.STRING, nil, nil, nil, "Quote Update Acknowledgment messages are sent in response to a Quote Update or Quote Update Option message")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_rejected = ProtoField.new("Quote Update Rejected", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoteupdaterejected", ftypes.STRING, nil, nil, nil, "Quote Update Rejected messages are sent in response to a Quote Update or Quote Update Option message when the entire quote block is rejected by the order handler")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.reset_risk = ProtoField.new("Reset Risk", "cboe.cfefutures.binaryorderentry.boe3.v1.0.resetrisk", ftypes.STRING, nil, nil, nil, "Reset or release Firm/EFID, Product, or Custom Group Id level lockout conditions resulting from risk profile trips or self-imposed lockouts issued viaMass Cancel Order or Purge Orders messages")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.reset_risk_acknowledgement = ProtoField.new("Reset Risk Acknowledgement", "cboe.cfefutures.binaryorderentry.boe3.v1.0.resetriskacknowledgement", ftypes.STRING, nil, nil, nil, "Response to a Reset Risk request")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.tas_quote_restatement = ProtoField.new("Tas Quote Restatement", "cboe.cfefutures.binaryorderentry.boe3.v1.0.tasquoterestatement", ftypes.STRING, nil, nil, nil, "A TAS Quote Restatement is sent post-settlement time for each TAS quote execution during the associated business day to communicate the updated Price and Symbol associated with the cleared execution")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.tas_restatement = ProtoField.new("Tas Restatement", "cboe.cfefutures.binaryorderentry.boe3.v1.0.tasrestatement", ftypes.STRING, nil, nil, nil, "A Tas Restatement is sent post-settlement time for each TAS execution during the associated business day to communicate the updated Price and Symbol associated with the cleared execution")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.trade_cancel_or_correct = ProtoField.new("Trade Cancel Or Correct", "cboe.cfefutures.binaryorderentry.boe3.v1.0.tradecancelorcorrect", ftypes.STRING, nil, nil, nil, "Used to provide notification that a trade has been cancelled or corrected")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.variance_quote_restatement = ProtoField.new("Variance Quote Restatement", "cboe.cfefutures.binaryorderentry.boe3.v1.0.variancequoterestatement", ftypes.STRING, nil, nil, nil, "A Variance Quote Restatement is sent post-settlement time for each VA and VAO execution during the associated business day to communicate updated Price, Size, and Symbol values associated with the cleared execution")
+omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.variance_restatement = ProtoField.new("Variance Restatement", "cboe.cfefutures.binaryorderentry.boe3.v1.0.variancerestatement", ftypes.STRING, nil, nil, nil, "A Variance Restatement is sent post-settlement time for each VA and VAO execution during the associated business day to communicate updated Price, Size and Symbol associated with the cleared execution")
 
 -- Cboe CfeFutures BinaryOrderEntry 1.0 Session Messages
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.client_heartbeat = ProtoField.new("Client Heartbeat", "cboe.cfefutures.binaryorderentry.boe3.v1.0.clientheartbeat", ftypes.BYTES, nil, nil, nil, "Boe3 client sends a heartbeat to indicate the connection is alive; carries no payload")
@@ -167,7 +167,6 @@ omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.replay_complete = ProtoFie
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.server_heartbeat = ProtoField.new("Server Heartbeat", "cboe.cfefutures.binaryorderentry.boe3.v1.0.serverheartbeat", ftypes.BYTES, nil, nil, nil, "Boe3 server sends a heartbeat to indicate the connection is alive; carries no payload")
 
 -- Cboe CfeFutures BinaryOrderEntry Boe3 1.0 Generated Fields
-omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.custom_group_id_index = ProtoField.new("Custom Group Id Index", "cboe.cfefutures.binaryorderentry.boe3.v1.0.customgroupidindex", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_acknowledgement_group_index = ProtoField.new("Quote Update Acknowledgement Group Index", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoteupdateacknowledgementgroupindex", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_group_index = ProtoField.new("Quote Update Group Index", "cboe.cfefutures.binaryorderentry.boe3.v1.0.quoteupdategroupindex", ftypes.UINT16)
 omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.unit_sequence_index = ProtoField.new("Unit Sequence Index", "cboe.cfefutures.binaryorderentry.boe3.v1.0.unitsequenceindex", ftypes.UINT16)
@@ -4149,22 +4148,22 @@ end
 -- Dissect Cboe CfeFutures BinaryOrderEntry Boe3 1.0
 -----------------------------------------------------------------------
 
--- Reset Risk Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message = {}
+-- Reset Risk Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement = {}
 
--- Size: Reset Risk Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.size =
+-- Size: Reset Risk Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.risk_status_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.risk_reset_result.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.request_received_time.size
 
--- Display: Reset Risk Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.display = function(packet, parent, length)
+-- Display: Reset Risk Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Reset Risk Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Reset Risk Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Risk Status Id: Text
@@ -4179,29 +4178,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.fi
   return index
 end
 
--- Dissect: Reset Risk Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Reset Risk Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.reset_risk_acknowledgement_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.reset_risk_acknowledgement, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement.fields(buffer, offset, packet, parent)
   end
 end
 
--- Variance Quote Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message = {}
+-- Variance Quote Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement = {}
 
--- Size: Variance Quote Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.size =
+-- Size: Variance Quote Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.exec_id.size + 
@@ -4210,13 +4209,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.si
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_price.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_size.size
 
--- Display: Variance Quote Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.display = function(packet, parent, length)
+-- Display: Variance Quote Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Variance Quote Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Variance Quote Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -4243,29 +4242,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.fi
   return index
 end
 
--- Dissect: Variance Quote Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Variance Quote Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.variance_quote_restatement_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.variance_quote_restatement, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement.fields(buffer, offset, packet, parent)
   end
 end
 
--- Tas Quote Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message = {}
+-- Tas Quote Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement = {}
 
--- Size: Tas Quote Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.size =
+-- Size: Tas Quote Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.exec_id.size + 
@@ -4273,13 +4272,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_symbol.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_price.size
 
--- Display: Tas Quote Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.display = function(packet, parent, length)
+-- Display: Tas Quote Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Tas Quote Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Tas Quote Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -4303,29 +4302,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.fields 
   return index
 end
 
--- Dissect: Tas Quote Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Tas Quote Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.tas_quote_restatement_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.tas_quote_restatement, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement.fields(buffer, offset, packet, parent)
   end
 end
 
--- Quote Cancelled Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message = {}
+-- Quote Cancelled
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled = {}
 
--- Size: Quote Cancelled Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.size =
+-- Size: Quote Cancelled
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.order_id.size + 
@@ -4333,13 +4332,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.side.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_reason.size
 
--- Display: Quote Cancelled Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.display = function(packet, parent, length)
+-- Display: Quote Cancelled
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Cancelled Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Cancelled
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -4363,29 +4362,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.fields = func
   return index
 end
 
--- Dissect: Quote Cancelled Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Cancelled
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_cancelled_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_cancelled, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled.fields(buffer, offset, packet, parent)
   end
 end
 
--- Quote Execution Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message = {}
+-- Quote Execution
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution = {}
 
--- Size: Quote Execution Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.size =
+-- Size: Quote Execution
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.order_id.size + 
@@ -4400,13 +4399,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.sub_liquidity_indicator.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.fee_code.size
 
--- Display: Quote Execution Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.display = function(packet, parent, length)
+-- Display: Quote Execution
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Execution Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Execution
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -4451,29 +4450,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.fields = func
   return index
 end
 
--- Dissect: Quote Execution Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Execution
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_execution_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_execution, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution.fields(buffer, offset, packet, parent)
   end
 end
 
--- Quote Restated Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message = {}
+-- Quote Restated
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated = {}
 
--- Size: Quote Restated Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.size =
+-- Size: Quote Restated
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.order_id.size + 
@@ -4483,13 +4482,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.side.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.restatement_reason.size
 
--- Display: Quote Restated Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.display = function(packet, parent, length)
+-- Display: Quote Restated
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Restated Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Restated
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -4519,40 +4518,40 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.fields = funct
   return index
 end
 
--- Dissect: Quote Restated Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Restated
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_restated_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_restated, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated.fields(buffer, offset, packet, parent)
   end
 end
 
--- Quote Update Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message = {}
+-- Quote Update Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected = {}
 
--- Size: Quote Update Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.size =
+-- Size: Quote Update Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_reject_reason.size
 
--- Display: Quote Update Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.display = function(packet, parent, length)
+-- Display: Quote Update Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Update Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Update Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -4567,21 +4566,21 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.fields 
   return index
 end
 
--- Dissect: Quote Update Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Update Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_rejected_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_rejected, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -4639,11 +4638,11 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_group.di
   end
 end
 
--- Quote Update Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message = {}
+-- Quote Update Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement = {}
 
--- Calculate size of: Quote Update Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.size = function(buffer, offset)
+-- Calculate size of: Quote Update Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement.size = function(buffer, offset)
   local index = 0
 
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size
@@ -4661,13 +4660,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.
   return index
 end
 
--- Display: Quote Update Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.display = function(packet, parent, length)
+-- Display: Quote Update Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Update Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Update Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -4690,29 +4689,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.
   return index
 end
 
--- Dissect: Quote Update Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Update Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_acknowledgement_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_acknowledgement, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement.fields(buffer, offset, packet, parent)
   end
 end
 
--- Variance Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message = {}
+-- Variance Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement = {}
 
--- Size: Variance Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.size =
+-- Size: Variance Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size + 
@@ -4731,13 +4730,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.multileg_reporting_type.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.secondary_exec_id.size
 
--- Display: Variance Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.display = function(packet, parent, length)
+-- Display: Variance Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Variance Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Variance Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -4794,29 +4793,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.fields =
   return index
 end
 
--- Dissect: Variance Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Variance Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.variance_restatement_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.variance_restatement, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement.fields(buffer, offset, packet, parent)
   end
 end
 
--- Tas Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message = {}
+-- Tas Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement = {}
 
--- Size: Tas Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.size =
+-- Size: Tas Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size + 
@@ -4834,13 +4833,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.multileg_reporting_type.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.secondary_exec_id.size
 
--- Display: Tas Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.display = function(packet, parent, length)
+-- Display: Tas Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Tas Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Tas Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -4894,29 +4893,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.fields = func
   return index
 end
 
--- Dissect: Tas Restatement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Tas Restatement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.tas_restatement_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.tas_restatement, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement.fields(buffer, offset, packet, parent)
   end
 end
 
--- Trade Cancel Or Correct Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message = {}
+-- Trade Cancel Or Correct
+cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct = {}
 
--- Size: Trade Cancel Or Correct Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.size =
+-- Size: Trade Cancel Or Correct
+cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.exec_ref_id.size + 
@@ -4934,13 +4933,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.size 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.open_close.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cmta_number.size
 
--- Display: Trade Cancel Or Correct Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.display = function(packet, parent, length)
+-- Display: Trade Cancel Or Correct
+cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Trade Cancel Or Correct Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Trade Cancel Or Correct
+cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -4994,41 +4993,41 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.field
   return index
 end
 
--- Dissect: Trade Cancel Or Correct Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Trade Cancel Or Correct
+cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.trade_cancel_or_correct_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.trade_cancel_or_correct, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct.fields(buffer, offset, packet, parent)
   end
 end
 
--- Purge Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message = {}
+-- Purge Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected = {}
 
--- Size: Purge Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.size =
+-- Size: Purge Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_reject_reason.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.text.size
 
--- Display: Purge Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.display = function(packet, parent, length)
+-- Display: Purge Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Purge Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Purge Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5046,41 +5045,41 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.fields = funct
   return index
 end
 
--- Dissect: Purge Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Purge Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_rejected_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_rejected, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected.fields(buffer, offset, packet, parent)
   end
 end
 
--- Purge Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message = {}
+-- Purge Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement = {}
 
--- Size: Purge Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.size =
+-- Size: Purge Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cancelled_order_count.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.request_received_time.size
 
--- Display: Purge Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.display = function(packet, parent, length)
+-- Display: Purge Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Purge Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Purge Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5098,41 +5097,41 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.fields 
   return index
 end
 
--- Dissect: Purge Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Purge Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_acknowledgement_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_acknowledgement, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement.fields(buffer, offset, packet, parent)
   end
 end
 
--- Mass Cancel Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message = {}
+-- Mass Cancel Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected = {}
 
--- Size: Mass Cancel Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.size =
+-- Size: Mass Cancel Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_reject_reason.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.text.size
 
--- Display: Mass Cancel Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.display = function(packet, parent, length)
+-- Display: Mass Cancel Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Cancel Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mass Cancel Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5150,41 +5149,41 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.fields =
   return index
 end
 
--- Dissect: Mass Cancel Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Mass Cancel Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_rejected_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_rejected, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected.fields(buffer, offset, packet, parent)
   end
 end
 
--- Mass Cancel Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message = {}
+-- Mass Cancel Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement = {}
 
--- Size: Mass Cancel Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.size =
+-- Size: Mass Cancel Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cancelled_order_count.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.request_received_time.size
 
--- Display: Mass Cancel Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.display = function(packet, parent, length)
+-- Display: Mass Cancel Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Cancel Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mass Cancel Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5202,42 +5201,42 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.f
   return index
 end
 
--- Dissect: Mass Cancel Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Mass Cancel Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_acknowledgement_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_acknowledgement, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement.fields(buffer, offset, packet, parent)
   end
 end
 
--- Cancel Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message = {}
+-- Cancel Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected = {}
 
--- Size: Cancel Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.size =
+-- Size: Cancel Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_reject_reason.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.text.size
 
--- Display: Cancel Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.display = function(packet, parent, length)
+-- Display: Cancel Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Cancel Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Cancel Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5258,42 +5257,42 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.fields = func
   return index
 end
 
--- Dissect: Cancel Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Cancel Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.cancel_rejected_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.cancel_rejected, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected.fields(buffer, offset, packet, parent)
   end
 end
 
--- Order Cancelled Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message = {}
+-- Order Cancelled
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled = {}
 
--- Size: Order Cancelled Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.size =
+-- Size: Order Cancelled
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_reason.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.request_received_time.size
 
--- Display: Order Cancelled Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.display = function(packet, parent, length)
+-- Display: Order Cancelled
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Cancelled Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Cancelled
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5314,29 +5313,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.fields = func
   return index
 end
 
--- Dissect: Order Cancelled Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Order Cancelled
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_cancelled_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_cancelled, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled.fields(buffer, offset, packet, parent)
   end
 end
 
--- Order Execution Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message = {}
+-- Order Execution
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution = {}
 
--- Size: Order Execution Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.size =
+-- Size: Order Execution
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.exec_id.size + 
@@ -5356,13 +5355,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.multileg_reporting_type.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.secondary_exec_id.size
 
--- Display: Order Execution Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.display = function(packet, parent, length)
+-- Display: Order Execution
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Execution Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Execution
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5422,29 +5421,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.fields = func
   return index
 end
 
--- Dissect: Order Execution Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Order Execution
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_execution_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_execution, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution.fields(buffer, offset, packet, parent)
   end
 end
 
--- Modify Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message = {}
+-- Modify Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected = {}
 
--- Size: Modify Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.size =
+-- Size: Modify Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.orig_cl_ord_id.size + 
@@ -5452,13 +5451,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_reject_reason.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.text.size
 
--- Display: Modify Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.display = function(packet, parent, length)
+-- Display: Modify Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Modify Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Modify Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5482,29 +5481,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.fields = func
   return index
 end
 
--- Dissect: Modify Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Modify Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.modify_rejected_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.modify_rejected, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected.fields(buffer, offset, packet, parent)
   end
 end
 
--- Order Modified Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message = {}
+-- Order Modified
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified = {}
 
--- Size: Order Modified Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.size =
+-- Size: Order Modified
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.orig_cl_ord_id.size + 
@@ -5520,13 +5519,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cust_order_handling_inst.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.request_received_time.size
 
--- Display: Order Modified Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.display = function(packet, parent, length)
+-- Display: Order Modified
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Modified Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Modified
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5574,42 +5573,42 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.fields = funct
   return index
 end
 
--- Dissect: Order Modified Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Order Modified
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_modified_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_modified, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified.fields(buffer, offset, packet, parent)
   end
 end
 
--- Order Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message = {}
+-- Order Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected = {}
 
--- Size: Order Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.size =
+-- Size: Order Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.order_reject_reason.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.text.size
 
--- Display: Order Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.display = function(packet, parent, length)
+-- Display: Order Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5630,21 +5629,21 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.fields = funct
   return index
 end
 
--- Dissect: Order Rejected Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Order Rejected
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_rejected_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_rejected, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -5713,11 +5712,11 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.prevent_match.dissect = function(buff
   end
 end
 
--- Order Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message = {}
+-- Order Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement = {}
 
--- Size: Order Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.size =
+-- Size: Order Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.transaction_time.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.order_id.size + 
@@ -5749,13 +5748,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cust_order_handling_inst.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.request_received_time.size
 
--- Display: Order Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.display = function(packet, parent, length)
+-- Display: Order Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Order Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Order Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: DateTime
@@ -5851,21 +5850,21 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.fields 
   return index
 end
 
--- Dissect: Order Acknowledgement Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Order Acknowledgement
+cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_acknowledgement_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.order_acknowledgement, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6075,28 +6074,28 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_message.dispatch = {
   [502] = cboe_cfefutures_binaryorderentry_boe3_v1_0.replay_complete.dissect,
   [503] = cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_response_message.dissect,
   [504] = cboe_cfefutures_binaryorderentry_boe3_v1_0.server_heartbeat.dissect,
-  [1501] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement_message.dissect,
-  [1502] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected_message.dissect,
-  [1503] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified_message.dissect,
-  [1504] = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected_message.dissect,
-  [1505] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution_message.dissect,
-  [1506] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled_message.dissect,
-  [1507] = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected_message.dissect,
-  [1508] = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement_message.dissect,
-  [1509] = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected_message.dissect,
-  [1510] = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement_message.dissect,
-  [1511] = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected_message.dissect,
-  [1512] = cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct_message.dissect,
-  [1513] = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement_message.dissect,
-  [1514] = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement_message.dissect,
-  [1515] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement_message.dissect,
-  [1516] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected_message.dissect,
-  [1517] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated_message.dissect,
-  [1518] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution_message.dissect,
-  [1519] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled_message.dissect,
-  [1520] = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement_message.dissect,
-  [1521] = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement_message.dissect,
-  [1522] = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement_message.dissect,
+  [1501] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_acknowledgement.dissect,
+  [1502] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_rejected.dissect,
+  [1503] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_modified.dissect,
+  [1504] = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_rejected.dissect,
+  [1505] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_execution.dissect,
+  [1506] = cboe_cfefutures_binaryorderentry_boe3_v1_0.order_cancelled.dissect,
+  [1507] = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_rejected.dissect,
+  [1508] = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_acknowledgement.dissect,
+  [1509] = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_rejected.dissect,
+  [1510] = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_acknowledgement.dissect,
+  [1511] = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_rejected.dissect,
+  [1512] = cboe_cfefutures_binaryorderentry_boe3_v1_0.trade_cancel_or_correct.dissect,
+  [1513] = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_restatement.dissect,
+  [1514] = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_restatement.dissect,
+  [1515] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_acknowledgement.dissect,
+  [1516] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_rejected.dissect,
+  [1517] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_restated.dissect,
+  [1518] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_execution.dissect,
+  [1519] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_cancelled.dissect,
+  [1520] = cboe_cfefutures_binaryorderentry_boe3_v1_0.tas_quote_restatement.dissect,
+  [1521] = cboe_cfefutures_binaryorderentry_boe3_v1_0.variance_quote_restatement.dissect,
+  [1522] = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_acknowledgement.dissect,
 }
 
 -- Dissect: Exchange Message
@@ -6197,24 +6196,24 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_packet.dissect = function(bu
   return index
 end
 
--- Reset Risk Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message = {}
+-- Reset Risk
+cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk = {}
 
--- Size: Reset Risk Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.size =
+-- Size: Reset Risk
+cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.risk_status_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.risk_reset.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.product_name.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.custom_group_id.size
 
--- Display: Reset Risk Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.display = function(packet, parent, length)
+-- Display: Reset Risk
+cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Reset Risk Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Reset Risk
+cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Risk Status Id: Text
@@ -6235,21 +6234,21 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.fields = function(
   return index
 end
 
--- Dissect: Reset Risk Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Reset Risk
+cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.reset_risk_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.reset_risk, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6315,11 +6314,11 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_group.dissect = function
   end
 end
 
--- Quote Update Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message = {}
+-- Quote Update
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update = {}
 
--- Calculate size of: Quote Update Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.size = function(buffer, offset)
+-- Calculate size of: Quote Update
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update.size = function(buffer, offset)
   local index = 0
 
   index = index + cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_id.size
@@ -6353,13 +6352,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.size = function(
   return index
 end
 
--- Display: Quote Update Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.display = function(packet, parent, length)
+-- Display: Quote Update
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Quote Update Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Quote Update
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Quote Update Id: Text
@@ -6406,21 +6405,21 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.fields = functio
   return index
 end
 
--- Dissect: Quote Update Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Quote Update
+cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.quote_update, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -6501,41 +6500,27 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_inst.dissect = function(b
   end
 end
 
--- Purge Orders Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message = {}
+-- Purge Orders
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders = {}
 
--- Calculate size of: Purge Orders Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.size = function(buffer, offset)
-  local index = 0
+-- Size: Purge Orders
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders.size =
+  cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_id.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_0.product_name.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_inst.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_0.manual_order_indicator.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_0.oeo_id.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_0.custom_group_id_cnt.size + 
+  cboe_cfefutures_binaryorderentry_boe3_v1_0.custom_group_id.size
 
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_id.size
-
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size
-
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_0.product_name.size
-
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_inst.size
-
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_0.manual_order_indicator.size
-
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_0.oeo_id.size
-
-  index = index + cboe_cfefutures_binaryorderentry_boe3_v1_0.custom_group_id_cnt.size
-
-  -- Calculate field size from count
-  local custom_group_id_count = buffer(offset + index - 1, 1):uint()
-  index = index + custom_group_id_count * 2
-
-  return index
-end
-
--- Display: Purge Orders Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.display = function(packet, parent, length)
+-- Display: Purge Orders
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Purge Orders Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Purge Orders
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Mass Cancel Id: Text
@@ -6559,37 +6544,35 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.fields = functio
   -- Custom Group Id Cnt: Binary
   index, custom_group_id_cnt = cboe_cfefutures_binaryorderentry_boe3_v1_0.custom_group_id_cnt.dissect(buffer, index, packet, parent)
 
-  -- Repeating: Custom Group Id
-  for custom_group_id_index = 1, custom_group_id_cnt do
-    index, custom_group_id = cboe_cfefutures_binaryorderentry_boe3_v1_0.custom_group_id.dissect(buffer, index, packet, parent, custom_group_id_index)
-  end
+  -- Custom Group Id: Binary
+  index, custom_group_id = cboe_cfefutures_binaryorderentry_boe3_v1_0.custom_group_id.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Purge Orders Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Purge Orders
+cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_orders_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.purge_orders, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders.fields(buffer, offset, packet, parent)
   end
 end
 
--- Mass Cancel Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message = {}
+-- Mass Cancel Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order = {}
 
--- Size: Mass Cancel Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.size =
+-- Size: Mass Cancel Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.product_name.size + 
@@ -6597,13 +6580,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.manual_order_indicator.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.oeo_id.size
 
--- Display: Mass Cancel Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.display = function(packet, parent, length)
+-- Display: Mass Cancel Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Mass Cancel Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Mass Cancel Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Mass Cancel Id: Text
@@ -6627,41 +6610,41 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.fields = fu
   return index
 end
 
--- Dissect: Mass Cancel Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Mass Cancel Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_order_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.mass_cancel_order, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order.fields(buffer, offset, packet, parent)
   end
 end
 
--- Cancel Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message = {}
+-- Cancel Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order = {}
 
--- Size: Cancel Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.size =
+-- Size: Cancel Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.orig_cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.manual_order_indicator.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.oeo_id.size
 
--- Display: Cancel Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.display = function(packet, parent, length)
+-- Display: Cancel Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Cancel Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Cancel Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Orig Cl Ord Id: Text
@@ -6679,29 +6662,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.fields = functio
   return index
 end
 
--- Dissect: Cancel Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Cancel Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.cancel_order_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.cancel_order, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order.fields(buffer, offset, packet, parent)
   end
 end
 
--- Modify Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message = {}
+-- Modify Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order = {}
 
--- Size: Modify Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.size =
+-- Size: Modify Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.orig_cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.clearing_firm.size + 
@@ -6715,13 +6698,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.frequent_trader_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cust_order_handling_inst.size
 
--- Display: Modify Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.display = function(packet, parent, length)
+-- Display: Modify Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Modify Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Modify Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Cl Ord Id: Text
@@ -6763,29 +6746,29 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.fields = functio
   return index
 end
 
--- Dissect: Modify Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Modify Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.modify_order_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.modify_order, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order.fields(buffer, offset, packet, parent)
   end
 end
 
--- New Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message = {}
+-- New Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order = {}
 
--- Size: New Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.size =
+-- Size: New Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cl_ord_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.side.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.order_qty.size + 
@@ -6811,13 +6794,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.size =
   cboe_cfefutures_binaryorderentry_boe3_v1_0.frequent_trader_id.size + 
   cboe_cfefutures_binaryorderentry_boe3_v1_0.cust_order_handling_inst.size
 
--- Display: New Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.display = function(packet, parent, length)
+-- Display: New Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: New Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: New Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Cl Ord Id: Text
@@ -6895,21 +6878,21 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.fields = function(b
   return index
 end
 
--- Dissect: New Order Message
-cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.dissect = function(buffer, offset, packet, parent)
+-- Dissect: New Order
+cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order.dissect = function(buffer, offset, packet, parent)
   if show.application_messages then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.new_order_message, buffer(offset, 0))
-    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cboe_cfefutures_binaryorderentry_boe3_v1_0.fields.new_order, buffer(offset, 0))
+    local index = cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.display(packet, parent, length)
+    local display = cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.fields(buffer, offset, packet, parent)
+    return cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7029,13 +7012,13 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_message.dispatch = {
   [1] = cboe_cfefutures_binaryorderentry_boe3_v1_0.login_request_message.dissect,
   [2] = cboe_cfefutures_binaryorderentry_boe3_v1_0.logout_request.dissect,
   [3] = cboe_cfefutures_binaryorderentry_boe3_v1_0.client_heartbeat.dissect,
-  [1001] = cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order_message.dissect,
-  [1002] = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order_message.dissect,
-  [1003] = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order_message.dissect,
-  [1004] = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order_message.dissect,
-  [1005] = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders_message.dissect,
-  [1006] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update_message.dissect,
-  [1007] = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk_message.dissect,
+  [1001] = cboe_cfefutures_binaryorderentry_boe3_v1_0.new_order.dissect,
+  [1002] = cboe_cfefutures_binaryorderentry_boe3_v1_0.modify_order.dissect,
+  [1003] = cboe_cfefutures_binaryorderentry_boe3_v1_0.cancel_order.dissect,
+  [1004] = cboe_cfefutures_binaryorderentry_boe3_v1_0.mass_cancel_order.dissect,
+  [1005] = cboe_cfefutures_binaryorderentry_boe3_v1_0.purge_orders.dissect,
+  [1006] = cboe_cfefutures_binaryorderentry_boe3_v1_0.quote_update.dissect,
+  [1007] = cboe_cfefutures_binaryorderentry_boe3_v1_0.reset_risk.dissect,
 }
 
 -- Dissect: Firm Message
@@ -7293,37 +7276,37 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.firm_packet.fingerprint = function(bu
     return true
   end
 
-  -- New Order Message
+  -- New Order
   if firm_message_type == 1001 then
     return true
   end
 
-  -- Modify Order Message
+  -- Modify Order
   if firm_message_type == 1002 then
     return true
   end
 
-  -- Cancel Order Message
+  -- Cancel Order
   if firm_message_type == 1003 then
     return true
   end
 
-  -- Mass Cancel Order Message
+  -- Mass Cancel Order
   if firm_message_type == 1004 then
     return true
   end
 
-  -- Purge Orders Message
+  -- Purge Orders
   if firm_message_type == 1005 then
     return true
   end
 
-  -- Quote Update Message
+  -- Quote Update
   if firm_message_type == 1006 then
     return true
   end
 
-  -- Reset Risk Message
+  -- Reset Risk
   if firm_message_type == 1007 then
     return true
   end
@@ -7359,112 +7342,112 @@ cboe_cfefutures_binaryorderentry_boe3_v1_0.exchange_packet.fingerprint = functio
     return true
   end
 
-  -- Order Acknowledgement Message
+  -- Order Acknowledgement
   if exchange_message_type == 1501 then
     return true
   end
 
-  -- Order Rejected Message
+  -- Order Rejected
   if exchange_message_type == 1502 then
     return true
   end
 
-  -- Order Modified Message
+  -- Order Modified
   if exchange_message_type == 1503 then
     return true
   end
 
-  -- Modify Rejected Message
+  -- Modify Rejected
   if exchange_message_type == 1504 then
     return true
   end
 
-  -- Order Execution Message
+  -- Order Execution
   if exchange_message_type == 1505 then
     return true
   end
 
-  -- Order Cancelled Message
+  -- Order Cancelled
   if exchange_message_type == 1506 then
     return true
   end
 
-  -- Cancel Rejected Message
+  -- Cancel Rejected
   if exchange_message_type == 1507 then
     return true
   end
 
-  -- Mass Cancel Acknowledgement Message
+  -- Mass Cancel Acknowledgement
   if exchange_message_type == 1508 then
     return true
   end
 
-  -- Mass Cancel Rejected Message
+  -- Mass Cancel Rejected
   if exchange_message_type == 1509 then
     return true
   end
 
-  -- Purge Acknowledgement Message
+  -- Purge Acknowledgement
   if exchange_message_type == 1510 then
     return true
   end
 
-  -- Purge Rejected Message
+  -- Purge Rejected
   if exchange_message_type == 1511 then
     return true
   end
 
-  -- Trade Cancel Or Correct Message
+  -- Trade Cancel Or Correct
   if exchange_message_type == 1512 then
     return true
   end
 
-  -- Tas Restatement Message
+  -- Tas Restatement
   if exchange_message_type == 1513 then
     return true
   end
 
-  -- Variance Restatement Message
+  -- Variance Restatement
   if exchange_message_type == 1514 then
     return true
   end
 
-  -- Quote Update Acknowledgement Message
+  -- Quote Update Acknowledgement
   if exchange_message_type == 1515 then
     return true
   end
 
-  -- Quote Update Rejected Message
+  -- Quote Update Rejected
   if exchange_message_type == 1516 then
     return true
   end
 
-  -- Quote Restated Message
+  -- Quote Restated
   if exchange_message_type == 1517 then
     return true
   end
 
-  -- Quote Execution Message
+  -- Quote Execution
   if exchange_message_type == 1518 then
     return true
   end
 
-  -- Quote Cancelled Message
+  -- Quote Cancelled
   if exchange_message_type == 1519 then
     return true
   end
 
-  -- Tas Quote Restatement Message
+  -- Tas Quote Restatement
   if exchange_message_type == 1520 then
     return true
   end
 
-  -- Variance Quote Restatement Message
+  -- Variance Quote Restatement
   if exchange_message_type == 1521 then
     return true
   end
 
-  -- Reset Risk Acknowledgement Message
+  -- Reset Risk Acknowledgement
   if exchange_message_type == 1522 then
     return true
   end

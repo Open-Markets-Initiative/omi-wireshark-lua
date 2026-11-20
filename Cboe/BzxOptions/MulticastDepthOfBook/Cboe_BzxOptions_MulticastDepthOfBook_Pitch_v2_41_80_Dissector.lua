@@ -4052,6 +4052,7 @@ udp_table:add_for_decode_as(omi_cboe_bzxoptions_multicastdepthofbook_pitch_v2_41
 --   Version: 2.41.80
 --   Since: 2.41.79
 --   Date: Thursday, September 17, 2026
+--   Specification: technical-specifications-cboe-titanium-us-equitiesoptions-multicast-pitch-specification.pdf
 --
 -- Script:
 --   Compiler: 2.0

@@ -491,7 +491,10 @@ cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.futures_expiration.size = 4
 
 -- Display: Futures Expiration
 cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.futures_expiration.display = function(value)
-  return "Futures Expiration: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Futures Expiration: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Futures Expiration
@@ -1068,7 +1071,10 @@ cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.options_expiration.size = 4
 
 -- Display: Options Expiration
 cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.options_expiration.display = function(value)
-  return "Options Expiration: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Options Expiration: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Options Expiration

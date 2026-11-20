@@ -6962,33 +6962,18 @@ cme_globex_ilink3_sbe_v8_6.time_in_force = {}
 cme_globex_ilink3_sbe_v8_6.time_in_force.size = 1
 
 -- Display: Time In Force
-cme_globex_ilink3_sbe_v8_6.time_in_force.display = function(value)
-  if value == 0 then
-    return "Time In Force: Day (0)"
-  end
-  if value == 1 then
-    return "Time In Force: Good Till Cancel (1)"
-  end
-  if value == 3 then
-    return "Time In Force: Fill And Kill (3)"
-  end
-  if value == 4 then
-    return "Time In Force: Fill Or Kill (4)"
-  end
-  if value == 6 then
-    return "Time In Force: Good Till Date (6)"
-  end
-  if value == 99 then
-    return "Time In Force: Good For Session (99)"
-  end
-  if value == 255 then
-    return "Time In Force: Null (255)"
-  end
-  if value == 255 then
-    return "Time In Force: No Value"
-  end
+cme_globex_ilink3_sbe_v8_6.time_in_force.labels = {
+  [0] = "Time In Force: Day (0)",
+  [1] = "Time In Force: Good Till Cancel (1)",
+  [3] = "Time In Force: Fill And Kill (3)",
+  [4] = "Time In Force: Fill Or Kill (4)",
+  [6] = "Time In Force: Good Till Date (6)",
+  [99] = "Time In Force: Good For Session (99)",
+  [255] = "Time In Force: Null (255)",
+}
 
-  return "Time In Force: Unknown("..value..")"
+cme_globex_ilink3_sbe_v8_6.time_in_force.display = function(value)
+  return cme_globex_ilink3_sbe_v8_6.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force

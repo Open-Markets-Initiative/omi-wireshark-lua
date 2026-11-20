@@ -92,7 +92,8 @@ local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "DateTime Local", 2 },
-  { 4, "DateTime Utc", 3 }
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
@@ -823,6 +824,13 @@ cboe_byxequities_top_asciipitch_v1_3_2.last_trade_time.display = function(value,
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Last Trade Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." America/New York"
+      end
+
       local format = cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
       return "Last Trade Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
@@ -1058,8 +1066,44 @@ cboe_byxequities_top_asciipitch_v1_3_2.seconds = {}
 cboe_byxequities_top_asciipitch_v1_3_2.seconds.size = 5
 
 -- Display: Seconds
-cboe_byxequities_top_asciipitch_v1_3_2.seconds.display = function(value)
-  return "Seconds: "..value
+cboe_byxequities_top_asciipitch_v1_3_2.seconds.display = function(value, buffer, offset, packet, parent)
+  -- A field wide enough for a 64 bit ftype reads as a UInt64 object, a narrow one as a number
+  local count = type(value) == "number" and value or tonumber(tostring(value))
+
+  -- Digits no reader could make a number of
+  if count == nil then
+    return "Seconds: "..tostring(value)
+  end
+
+  if cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format == 0 then
+    return "Seconds: "..value
+  end
+
+  local seconds = count
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Seconds: "..os.date("!%Y-%m-%d %H:%M:%S", day + seconds).." America/New York"
+      end
+
+      local format = cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S" or "%Y-%m-%d %H:%M:%S"
+      return "Seconds: "..os.date(format, settled + seconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Seconds: "..os.date("!%H:%M:%S", seconds)
 end
 
 -- Dissect: Seconds
@@ -1206,6 +1250,13 @@ cboe_byxequities_top_asciipitch_v1_3_2.timestamp.display = function(value, buffe
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." America/New York"
+      end
 
       local format = cboe_byxequities_top_asciipitch_v1_3_2.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
       return "Timestamp: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)

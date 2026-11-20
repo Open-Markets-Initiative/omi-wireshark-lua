@@ -23,7 +23,8 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.contract_date = Pr
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.contract_size = ProtoField.new("Contract Size", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.contractsize", ftypes.UINT16, nil, nil, nil, "Contract size of Instrument.")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.discount_factor = ProtoField.new("Discount Factor", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.discountfactor", ftypes.DOUBLE, nil, nil, nil, "Discount Factor (signed 64-bit decimal with 16 implied decimal places)")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.ecrp_volume = ProtoField.new("Ecrp Volume", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.ecrpvolume", ftypes.UINT32, nil, nil, nil, "Total number of contracts traded for the day.")
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.epoch = ProtoField.new("Epoch", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.epoch", ftypes.UINT32, nil, nil, nil, "Number of whole seconds Since Epoch: 1.1.1970")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.epoch_utc = ProtoField.new("Epoch", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.epoch.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of whole seconds Since Epoch: 1.1.1970")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.epoch = ProtoField.new("Epoch", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.epoch", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds Since Epoch: 1.1.1970")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares/contracts executed")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.execution_id = ProtoField.new("Execution Id", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution. Execution Id is also referenced in the Trade Break message")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.expirationdate", ftypes.UINT32, nil, nil, nil, "Expiration Date of Instrument.")
@@ -79,7 +80,8 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.trade_condition = 
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.trade_date = ProtoField.new("Trade Date", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.tradedate", ftypes.UINT32, nil, nil, nil, "Current Trade Date")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.trading_status = ProtoField.new("Trading Status", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading Status Values")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unit = ProtoField.new("Unit", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unit_timestamp = ProtoField.new("Unit Timestamp", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.unittimestamp", ftypes.UINT32, nil, nil, nil, "Unit timestamp expressed as number of whole seconds since the Epoch (Midnight, January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unit_timestamp_utc = ProtoField.new("Unit Timestamp", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.unittimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unit timestamp expressed as number of whole seconds since the Epoch (Midnight, January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unit_timestamp = ProtoField.new("Unit Timestamp", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.unittimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unit timestamp expressed as number of whole seconds since the Epoch (Midnight, January 1, 1970 UTC).")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unused_3 = ProtoField.new("Unused 3", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.unused3", ftypes.UINT8, nil, base.DEC, 0xE0, "Reserved 5-7 Bits")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.variance", ftypes.STRING)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.variance_block_offset = ProtoField.new("Variance Block Offset", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.12.varianceblockoffset", ftypes.UINT8, nil, nil, nil, "Variance Future parameter block begins at this offset from the beginning of the message. Possible values are 0 (no Variance Block) or 41 (Variance Block present).")
@@ -363,7 +365,10 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.contract_date.size = 4
 
 -- Display: Contract Date
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.contract_date.display = function(value)
-  return "Contract Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Contract Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Contract Date
@@ -459,19 +464,20 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.epoch = {}
 -- Size: Epoch
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.epoch.size = 4
 
--- Display: Epoch
-cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.epoch.display = function(value)
-  return "Epoch: "..value
-end
-
 -- Dissect: Epoch
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.epoch.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.epoch.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.epoch.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.epoch, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.epoch
+  if cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.timestamp_format == 3 then field = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.epoch_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -530,7 +536,10 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.expiration_date.size = 4
 
 -- Display: Expiration Date
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.expiration_date.display = function(value)
-  return "Expiration Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Expiration Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Expiration Date
@@ -1756,19 +1765,20 @@ cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.unit_timestamp = {}
 -- Size: Unit Timestamp
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.unit_timestamp.size = 4
 
--- Display: Unit Timestamp
-cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.unit_timestamp.display = function(value)
-  return "Unit Timestamp: "..value
-end
-
 -- Dissect: Unit Timestamp
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.unit_timestamp.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.unit_timestamp.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.unit_timestamp.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unit_timestamp, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unit_timestamp
+  if cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.timestamp_format == 3 then field = omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_12.fields.unit_timestamp_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

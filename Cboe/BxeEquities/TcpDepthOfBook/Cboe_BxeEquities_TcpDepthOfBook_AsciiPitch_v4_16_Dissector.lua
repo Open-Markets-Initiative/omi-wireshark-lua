@@ -1597,6 +1597,13 @@ cboe_bxeequities_tcpdepthofbook_asciipitch_v4_16.trade_time.display = function(v
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_bxeequities_tcpdepthofbook_asciipitch_v4_16.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Trade Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." Europe/London"
+      end
+
       local format = cboe_bxeequities_tcpdepthofbook_asciipitch_v4_16.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
       return "Trade Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end

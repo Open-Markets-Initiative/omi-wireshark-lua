@@ -50,7 +50,8 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.symbol_chars = ProtoFi
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.symbol_length = ProtoField.new("Symbol Length", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbollength", ftypes.INT8, nil, nil, nil, "Byte Length")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.template_id = ProtoField.new("Template ID", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.templateid", ftypes.UINT8, nil, nil, nil, "Template identifier used for decoding the message structure.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.total_number_of_records = ProtoField.new("Total Number Of Records", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.totalnumberofrecords", ftypes.UINT32, nil, nil, nil, "Total number of updates within loop.")
-omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.transact_time = ProtoField.new("Transact Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.transacttime", ftypes.UINT64, nil, nil, nil, "Time that data was calculated or produced from client. Applies only to this message within the packet.")
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.transact_time_utc = ProtoField.new("Transact Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that data was calculated or produced from client. Applies only to this message within the packet.")
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.transact_time = ProtoField.new("Transact Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that data was calculated or produced from client. Applies only to this message within the packet.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.version = ProtoField.new("Version", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.version", ftypes.UINT8, nil, nil, nil, "Version associated with the contents and format of this header. Currently 1.")
 
 -- Cboe TitaniumConsolidated Indices Cgif 1.4.13 Framing
@@ -872,19 +873,20 @@ cboe_titaniumconsolidated_indices_cgif_v1_4_13.transact_time = {}
 -- Size: Transact Time
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.transact_time.size = 8
 
--- Display: Transact Time
-cboe_titaniumconsolidated_indices_cgif_v1_4_13.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 cboe_titaniumconsolidated_indices_cgif_v1_4_13.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_titaniumconsolidated_indices_cgif_v1_4_13.transact_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = cboe_titaniumconsolidated_indices_cgif_v1_4_13.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.transact_time
+  if cboe_titaniumconsolidated_indices_cgif_v1_4_13.timestamp_format == 3 then field = omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

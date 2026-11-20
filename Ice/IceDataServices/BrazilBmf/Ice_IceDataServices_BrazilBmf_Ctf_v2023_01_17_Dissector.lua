@@ -3178,6 +3178,7 @@ register_filehandler(omi_ice_icedataservices_brazilbmf_ctf_v2023_01_17_lines_rea
 --   Date: Tuesday, January 17, 2023
 --   Specification: Brazil_BMnF_Futures_and_Options_2023-01-17.pdf
 --   Specification: CTF_Wire_Protocol_2017-10-10.pdf
+--   Specification: CTF_Command_Reference_for_the_CSP_v.6.10-6.14_2019-05-28.pdf
 --
 -- Script:
 --   Compiler: 2.0

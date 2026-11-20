@@ -1,0 +1,3726 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Cboe CfeFutures MulticastTop Pitch 1.0.15 Protocol
+local omi_cboe_cfefutures_multicasttop_pitch_v1_0_15 = Proto("Omi.Cboe.CfeFutures.MulticastTop.Pitch.v1.0.15", "Cboe CfeFutures MulticastTop Pitch 1.0.15")
+
+-- Protocol table
+local cboe_cfefutures_multicasttop_pitch_v1_0_15 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Cboe CfeFutures MulticastTop Pitch 1.0.15 Fields
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.ask_price_long = ProtoField.new("Ask Price Long", "cboe.cfefutures.multicasttop.pitch.v1.0.15.askpricelong", ftypes.DOUBLE, nil, nil, nil, "Ask price (may be a zero or negative price for some instruments).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.ask_price_short = ProtoField.new("Ask Price Short", "cboe.cfefutures.multicasttop.pitch.v1.0.15.askpriceshort", ftypes.DOUBLE, nil, nil, nil, "Ask price (may be a zero or negative price for some instruments).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.ask_quantity_long = ProtoField.new("Ask Quantity Long", "cboe.cfefutures.multicasttop.pitch.v1.0.15.askquantitylong", ftypes.UINT32, nil, nil, nil, "Number of contracts on the ask side of the inside book (a zero value denotes the Ask Price is invalid).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.ask_quantity_short = ProtoField.new("Ask Quantity Short", "cboe.cfefutures.multicasttop.pitch.v1.0.15.askquantityshort", ftypes.UINT16, nil, nil, nil, "Number of contracts on the ask side of the inside book (a zero value denotes the Ask Price is invalid).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.bid_price_long = ProtoField.new("Bid Price Long", "cboe.cfefutures.multicasttop.pitch.v1.0.15.bidpricelong", ftypes.DOUBLE, nil, nil, nil, "Bid price (may be a zero or negative price for some instruments).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.bid_price_short = ProtoField.new("Bid Price Short", "cboe.cfefutures.multicasttop.pitch.v1.0.15.bidpriceshort", ftypes.DOUBLE, nil, nil, nil, "Bid price (may be a zero or negative price for some instruments).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.bid_quantity_long = ProtoField.new("Bid Quantity Long", "cboe.cfefutures.multicasttop.pitch.v1.0.15.bidquantitylong", ftypes.UINT32, nil, nil, nil, "Number of contracts on the bid side of the inside book (a zero value denotes the Bid Price is invalid).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.bid_quantity_short = ProtoField.new("Bid Quantity Short", "cboe.cfefutures.multicasttop.pitch.v1.0.15.bidquantityshort", ftypes.UINT16, nil, nil, nil, "Number of contracts on the bid side of the inside book (a zero value denotes the Bid Price is invalid).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.close_price = ProtoField.new("Close Price", "cboe.cfefutures.multicasttop.pitch.v1.0.15.closeprice", ftypes.DOUBLE, nil, nil, nil, "The last trade on the day (in any session) will set the Close Price for the day (valid only if Total Volume > 0). Block and ECRP trades (Trade Condition = B or E) do not update Close Price.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.contract_size = ProtoField.new("Contract Size", "cboe.cfefutures.multicasttop.pitch.v1.0.15.contractsize", ftypes.UINT16, nil, nil, nil, "Contract size of Instrument. Contract sizes less than 1 are represented with a 0 value; refer to the product specification for the contract size.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.discount_factor = ProtoField.new("Discount Factor", "cboe.cfefutures.multicasttop.pitch.v1.0.15.discountfactor", ftypes.DOUBLE, nil, nil, nil, "Discount Factor (signed 64-bit decimal with 16 implied decimal places)")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.cfefutures.multicasttop.pitch.v1.0.15.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.cfefutures.multicasttop.pitch.v1.0.15.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.execution_id = ProtoField.new("Execution Id", "cboe.cfefutures.multicasttop.pitch.v1.0.15.executionid", ftypes.UINT64, nil, nil, nil, "CFE generated day-unique execution identifier of this trade. Execution Id is also referenced in the Trade Break message.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.expiration_date = ProtoField.new("Expiration Date", "cboe.cfefutures.multicasttop.pitch.v1.0.15.expirationdate", ftypes.UINT32, nil, nil, nil, "Expiration Date of Instrument.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.fed_funds_rate = ProtoField.new("Fed Funds Rate", "cboe.cfefutures.multicasttop.pitch.v1.0.15.fedfundsrate", ftypes.DOUBLE, nil, nil, nil, "Fed Funds rate of prior day (signed 64-bit number with 6 implied decimal places)")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.future_leg = ProtoField.new("Future Leg", "cboe.cfefutures.multicasttop.pitch.v1.0.15.futureleg", ftypes.STRING)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.futures_flags = ProtoField.new("Futures Flags", "cboe.cfefutures.multicasttop.pitch.v1.0.15.futuresflags", ftypes.STRING, nil, nil, nil, "Futures Flags bitfields")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.high_price = ProtoField.new("High Price", "cboe.cfefutures.multicasttop.pitch.v1.0.15.highprice", ftypes.DOUBLE, nil, nil, nil, "The higher of highest bid price and highest trade price for the day. Block and ECRP trades (Trade Condition = B or E) do not update High Price.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.initial_strike = ProtoField.new("Initial Strike", "cboe.cfefutures.multicasttop.pitch.v1.0.15.initialstrike", ftypes.DOUBLE)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.issue = ProtoField.new("Issue", "cboe.cfefutures.multicasttop.pitch.v1.0.15.issue", ftypes.STRING, nil, nil, nil, "Issue Values")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.last_trade_condition = ProtoField.new("Last Trade Condition", "cboe.cfefutures.multicasttop.pitch.v1.0.15.lasttradecondition", ftypes.STRING, nil, nil, nil, "Last Trade Condition Values")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.last_trade_price_long = ProtoField.new("Last Trade Price Long", "cboe.cfefutures.multicasttop.pitch.v1.0.15.lasttradepricelong", ftypes.DOUBLE, nil, nil, nil, "Price of last execution (this can be zero or negative for some instruments).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.last_trade_price_short = ProtoField.new("Last Trade Price Short", "cboe.cfefutures.multicasttop.pitch.v1.0.15.lasttradepriceshort", ftypes.DOUBLE, nil, nil, nil, "Price of last execution (this can be zero or negative for some instruments).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.last_trade_size_long = ProtoField.new("Last Trade Size Long", "cboe.cfefutures.multicasttop.pitch.v1.0.15.lasttradesizelong", ftypes.UINT32, nil, nil, nil, "Number of contracts traded on the last trade (if this value is 0 the Last Trade Price is invalid).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.last_trade_size_short = ProtoField.new("Last Trade Size Short", "cboe.cfefutures.multicasttop.pitch.v1.0.15.lasttradesizeshort", ftypes.UINT16, nil, nil, nil, "Number of contracts traded on the last trade (if this value is 0 the Last Trade Price is invalid).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.leg_count = ProtoField.new("Leg Count", "cboe.cfefutures.multicasttop.pitch.v1.0.15.legcount", ftypes.UINT8, nil, nil, nil, "Values greater than 0 indicate this is a spread instrument.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.leg_offset = ProtoField.new("Leg Offset", "cboe.cfefutures.multicasttop.pitch.v1.0.15.legoffset", ftypes.UINT8, nil, nil, nil, "Leg definitions, if any, begin at this offset from the beginning of the message. Possible values are 0 (no legs present) or 45 (spread instrument).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.leg_ratio = ProtoField.new("Leg Ratio", "cboe.cfefutures.multicasttop.pitch.v1.0.15.legratio", ftypes.INT32, nil, nil, nil, "Leg ratio (positive for buy, negative for sell).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.cfefutures.multicasttop.pitch.v1.0.15.legsymbol", ftypes.STRING, nil, nil, nil, "Symbol of leg.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.length = ProtoField.new("Length", "cboe.cfefutures.multicasttop.pitch.v1.0.15.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.listing_state = ProtoField.new("Listing State", "cboe.cfefutures.multicasttop.pitch.v1.0.15.listingstate", ftypes.STRING, nil, nil, nil, "Listing State Values")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.low_price = ProtoField.new("Low Price", "cboe.cfefutures.multicasttop.pitch.v1.0.15.lowprice", ftypes.DOUBLE, nil, nil, nil, "The lower of lowest offer price and lowest trade price for the day. Block and ECRP trades (Trade Condition = B or E) do not update Low Price.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "cboe.cfefutures.multicasttop.pitch.v1.0.15.lowerpricelimit", ftypes.DOUBLE)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_count = ProtoField.new("Message Count", "cboe.cfefutures.multicasttop.pitch.v1.0.15.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_length = ProtoField.new("Message Length", "cboe.cfefutures.multicasttop.pitch.v1.0.15.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_type = ProtoField.new("Message Type", "cboe.cfefutures.multicasttop.pitch.v1.0.15.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.cfefutures.multicasttop.pitch.v1.0.15.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.cfefutures.multicasttop.pitch.v1.0.15.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.num_elapsed_returns = ProtoField.new("Num Elapsed Returns", "cboe.cfefutures.multicasttop.pitch.v1.0.15.numelapsedreturns", ftypes.UINT16, nil, nil, nil, "Number of returns elapsed as of the beginning of the trading day")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.num_expected_prices = ProtoField.new("Num Expected Prices", "cboe.cfefutures.multicasttop.pitch.v1.0.15.numexpectedprices", ftypes.UINT16, nil, nil, nil, "Number of expected SP500 prices to be used for calculating returns during the life of the contract")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.open_interest = ProtoField.new("Open Interest", "cboe.cfefutures.multicasttop.pitch.v1.0.15.openinterest", ftypes.UINT32, nil, nil, nil, "Prior Trade Date Open Interest for this symbol.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.multicasttop.pitch.v1.0.15.openprice", ftypes.DOUBLE, nil, nil, nil, "The first trade on the day (in any session) will set the Open Price for the day (valid only if Total Volume > 0). Block and ECRP trades (Trade Condition = B or E) do not update Open Price.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.previous_armvm = ProtoField.new("Previous ARMVM", "cboe.cfefutures.multicasttop.pitch.v1.0.15.previousarmvm", ftypes.DOUBLE, nil, nil, nil, "ARMVM that was used to adjust the previous day settlement price (signed 64-bit decimal value with 6 implied decimal places)")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.previous_settlement = ProtoField.new("Previous Settlement", "cboe.cfefutures.multicasttop.pitch.v1.0.15.previoussettlement", ftypes.DOUBLE, nil, nil, nil, "Previous day Settlement Value")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.price_increment = ProtoField.new("Price Increment", "cboe.cfefutures.multicasttop.pitch.v1.0.15.priceincrement", ftypes.DOUBLE, nil, nil, nil, "Minimum Price Increment.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.price_long = ProtoField.new("Price Long", "cboe.cfefutures.multicasttop.pitch.v1.0.15.pricelong", ftypes.DOUBLE, nil, nil, nil, "Price (may be a zero or negative price for some instruments).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.price_short = ProtoField.new("Price Short", "cboe.cfefutures.multicasttop.pitch.v1.0.15.priceshort", ftypes.DOUBLE, nil, nil, nil, "Price (may be a zero or negative price for some instruments).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.quantity_long = ProtoField.new("Quantity Long", "cboe.cfefutures.multicasttop.pitch.v1.0.15.quantitylong", ftypes.UINT32, nil, nil, nil, "Number of contracts on the inside book (a zero value denotes the Price is invalid).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.cfefutures.multicasttop.pitch.v1.0.15.quantityshort", ftypes.UINT16, nil, nil, nil, "Number of contracts on the inside book (a zero value denotes the Price is invalid).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.realized_variance = ProtoField.new("Realized Variance", "cboe.cfefutures.multicasttop.pitch.v1.0.15.realizedvariance", ftypes.DOUBLE, nil, nil, nil, "Realized Variance to date (signed 64-bit decimal with 8 implied decimal places)")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.report_symbol = ProtoField.new("Report Symbol", "cboe.cfefutures.multicasttop.pitch.v1.0.15.reportsymbol", ftypes.STRING, nil, nil, nil, "Symbol for product or underlying security.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.reserved_2 = ProtoField.new("Reserved 2", "cboe.cfefutures.multicasttop.pitch.v1.0.15.reserved2", ftypes.STRING, nil, nil, nil, "Reserved")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.reserved_3 = ProtoField.new("Reserved 3", "cboe.cfefutures.multicasttop.pitch.v1.0.15.reserved3", ftypes.STRING, nil, nil, nil, "Reserved for use in other markets.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.reserved_flags_7 = ProtoField.new("Reserved Flags 7", "cboe.cfefutures.multicasttop.pitch.v1.0.15.reservedflags7", ftypes.UINT8, nil, base.DEC, 0xFE, "Reserved 1-7 Bits")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.sequence = ProtoField.new("Sequence", "cboe.cfefutures.multicasttop.pitch.v1.0.15.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.cfefutures.multicasttop.pitch.v1.0.15.settlementprice", ftypes.DOUBLE)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.side = ProtoField.new("Side", "cboe.cfefutures.multicasttop.pitch.v1.0.15.side", ftypes.STRING, nil, nil, nil, "Side Values")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.standard_future = ProtoField.new("Standard Future", "cboe.cfefutures.multicasttop.pitch.v1.0.15.standardfuture", ftypes.STRING)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.symbol = ProtoField.new("Symbol", "cboe.cfefutures.multicasttop.pitch.v1.0.15.symbol", ftypes.STRING, nil, nil, nil, "Six character, base 62 symbol.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.time_offset = ProtoField.new("Time Offset", "cboe.cfefutures.multicasttop.pitch.v1.0.15.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.time_reference = ProtoField.new("Time Reference", "cboe.cfefutures.multicasttop.pitch.v1.0.15.timereference", ftypes.UINT32, nil, nil, nil, "Number of whole seconds from midnight Central Time.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.total_volume = ProtoField.new("Total Volume", "cboe.cfefutures.multicasttop.pitch.v1.0.15.totalvolume", ftypes.UINT32, nil, nil, nil, "Total number of contracts traded on the current business day.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.cfefutures.multicasttop.pitch.v1.0.15.tradecondition", ftypes.STRING, nil, nil, nil, "Trade Condition Values")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.trade_date = ProtoField.new("Trade Date", "cboe.cfefutures.multicasttop.pitch.v1.0.15.tradedate", ftypes.UINT32, nil, nil, nil, "Current Trade Date")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.trading_status = ProtoField.new("Trading Status", "cboe.cfefutures.multicasttop.pitch.v1.0.15.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading Status Values")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.unit = ProtoField.new("Unit", "cboe.cfefutures.multicasttop.pitch.v1.0.15.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.unit_timestamp_utc = ProtoField.new("Unit Timestamp", "cboe.cfefutures.multicasttop.pitch.v1.0.15.unittimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unit timestamp expressed as number of whole seconds since the Epoch (Midnight, January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.unit_timestamp = ProtoField.new("Unit Timestamp", "cboe.cfefutures.multicasttop.pitch.v1.0.15.unittimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unit timestamp expressed as number of whole seconds since the Epoch (Midnight, January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "cboe.cfefutures.multicasttop.pitch.v1.0.15.upperpricelimit", ftypes.DOUBLE)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.variance = ProtoField.new("Variance", "cboe.cfefutures.multicasttop.pitch.v1.0.15.variance", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Set for a Variance Future, clear for a Standard Future")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.variance_block_offset = ProtoField.new("Variance Block Offset", "cboe.cfefutures.multicasttop.pitch.v1.0.15.varianceblockoffset", ftypes.UINT8, nil, nil, nil, "Variance Future parameter block begins at this offset from the beginning of the message. Possible values are 0 (no Variance Block) or 41 (Variance Block present).")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.variance_future = ProtoField.new("Variance Future", "cboe.cfefutures.multicasttop.pitch.v1.0.15.variancefuture", ftypes.STRING)
+
+-- Cboe CfeFutures MulticastTop Pitch 1.0.15 Framing
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message = ProtoField.new("Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.message", ftypes.STRING)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_header = ProtoField.new("Message Header", "cboe.cfefutures.multicasttop.pitch.v1.0.15.messageheader", ftypes.STRING)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.packet = ProtoField.new("Packet", "cboe.cfefutures.multicasttop.pitch.v1.0.15.packet", ftypes.STRING, nil, nil, nil, "Pitch Udp Packet")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.packet_header = ProtoField.new("Packet Header", "cboe.cfefutures.multicasttop.pitch.v1.0.15.packetheader", ftypes.STRING)
+
+-- Cboe CfeFutures MulticastTop 1.0.15 Application Messages
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.end_of_day_summary_message = ProtoField.new("End Of Day Summary Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.endofdaysummarymessage", ftypes.STRING, nil, nil, nil, "The End of Day Summary message is sent immediately after trading ends for a symbol. No more Market Update messages will follow an End of Day Summary message for a particular symbol.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.endofsessionmessage", ftypes.STRING, nil, nil, nil, "The End of Session message is sent for each unit when the unit shuts down. No more sequenced messages will be delivered for this unit, but heartbeats from the unit may be received.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.futures_instrument_definition_message = ProtoField.new("Futures Instrument Definition Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.futuresinstrumentdefinitionmessage", ftypes.STRING, nil, nil, nil, "The Futures Instrument Definition message can be sent as a sequenced message or an un-sequenced message. It is sent as a sequenced message when the system starts up at the beginning of a trading session or if an instrument is created or modified during a trading day.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.market_snapshot_long_message = ProtoField.new("Market Snapshot Long Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.marketsnapshotlongmessage", ftypes.STRING, nil, nil, nil, "A Market Snapshot message provides a snapshot of the price and size for the bid and ask, last trade price, total number of contracts traded, and the current trading status of a single symbol.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.market_snapshot_short_message = ProtoField.new("Market Snapshot Short Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.marketsnapshotshortmessage", ftypes.STRING, nil, nil, nil, "A Market Snapshot message provides a snapshot of the price and size for the bid and ask, last trade price, total number of contracts traded, and the current trading status of a single symbol.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.price_limits_message = ProtoField.new("Price Limits Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.pricelimitsmessage", ftypes.STRING, nil, nil, nil, "The Price Limits message can be sent as a sequenced or un-sequenced message. It is sent out at the start of the session for products subject to price limits per the contract specifications.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.settlement_message = ProtoField.new("Settlement Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.settlementmessage", ftypes.STRING, nil, nil, nil, "Settlement messages are used to provide information concerning indicative, approved, or corrected daily and final settlement prices for CFE products.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.single_side_update_long_message = ProtoField.new("Single Side Update Long Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.singlesideupdatelongmessage", ftypes.STRING, nil, nil, nil, "Single Side Update messages provide an updated price and size for a single side of a Symbol.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.single_side_update_short_message = ProtoField.new("Single Side Update Short Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.singlesideupdateshortmessage", ftypes.STRING, nil, nil, nil, "Single Side Update messages provide an updated price and size for a single side of a Symbol.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.time_message = ProtoField.new("Time Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.timemessage", ftypes.STRING, nil, nil, nil, "A Time message is immediately generated and sent when there is a TOP event for a given clock second.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.time_reference_message = ProtoField.new("Time Reference Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.timereferencemessage", ftypes.STRING, nil, nil, nil, "The Time Reference message is used to provide a midnight reference point for recipients of the feed. It is sent whenever the system starts up and when the system crosses a midnight boundary.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.top_trade_message = ProtoField.new("Top Trade Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.toptrademessage", ftypes.STRING, nil, nil, nil, "The TOP Trade message provides information about executions of orders on the CFE book. TOP Trade messages are necessary to calculate CFE execution-based data.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.tradingstatusmessage", ftypes.STRING, nil, nil, nil, "The Trading Status message is used to indicate the current trading status of a Futures contract.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.two_side_update_long_message = ProtoField.new("Two Side Update Long Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.twosideupdatelongmessage", ftypes.STRING, nil, nil, nil, "Two Side Update messages provide an updated price and size for both sides of a Symbol.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.two_side_update_short_message = ProtoField.new("Two Side Update Short Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.twosideupdateshortmessage", ftypes.STRING, nil, nil, nil, "Two Side Update messages provide an updated price and size for both sides of a Symbol.")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.cfefutures.multicasttop.pitch.v1.0.15.unitclearmessage", ftypes.STRING, nil, nil, nil, "The Unit Clear message instructs feed recipients to clear all market snapshots for the CFE book in the unit specified in the Sequenced Unit Header message header.")
+
+-- Cboe CfeFutures MulticastTop Pitch 1.0.15 Generated Fields
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.future_leg_index = ProtoField.new("Future Leg Index", "cboe.cfefutures.multicasttop.pitch.v1.0.15.futurelegindex", ftypes.UINT16)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_index = ProtoField.new("Message Index", "cboe.cfefutures.multicasttop.pitch.v1.0.15.messageindex", ftypes.UINT16)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cboe.cfefutures.multicasttop.pitch.v1.0.15.messagesequencenumber", ftypes.UINT64)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.timestamp = ProtoField.new("Timestamp", "cboe.cfefutures.multicasttop.pitch.v1.0.15.timestamp", ftypes.UINT64)
+
+-----------------------------------------------------------------------
+-- Cboe CfeFutures MulticastTop Pitch 1.0.15 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "DateTime Local", 2 },
+  { 3, "DateTime Utc", 3 },
+  { 4, "DateTime America/Chicago", 4 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
+cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp_format = 3
+
+-- Offset of the source's zone from utc in seconds, as the reader states it
+cboe_cfefutures_multicasttop_pitch_v1_0_15.zone_offset = 0
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Cboe CfeFutures MulticastTop Pitch 1.0.15 Element Dissection Options
+show.application_messages = true
+show.repeating_groups = true
+show.structs = true
+show.headers = true
+show.indexes = true
+show.sequences = true
+
+-- Register Cboe CfeFutures MulticastTop Pitch 1.0.15 Show Options
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
+
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.zone_offset = Pref.string("America/Chicago Utc Offset", "", "Offset of America/Chicago from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
+
+-- Handle changed preferences
+function omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_application_messages then
+    show.application_messages = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_application_messages
+  end
+  if show.headers ~= omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_headers then
+    show.headers = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_headers
+  end
+  if show.repeating_groups ~= omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_repeating_groups then
+    show.repeating_groups = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_repeating_groups
+  end
+  if show.structs ~= omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_structs then
+    show.structs = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_structs
+  end
+  if show.indexes ~= omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_indexes then
+    show.indexes = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_indexes
+  end
+  if show.sequences ~= omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_sequences then
+    show.sequences = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.show_sequences
+  end
+  if cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp_format ~= omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.timestamp_format then
+    cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp_format = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.timestamp_format
+  end
+  local sign, hours, minutes = string.match(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.prefs.zone_offset, "^%s*([+-]?)(%d%d?):?(%d?%d?)%s*$")
+
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.zone_offset = 0
+
+  if hours then
+    cboe_cfefutures_multicasttop_pitch_v1_0_15.zone_offset = tonumber(hours) * 3600 + (tonumber(minutes) or 0) * 60
+  end
+
+  if sign == "-" then
+    cboe_cfefutures_multicasttop_pitch_v1_0_15.zone_offset = -cboe_cfefutures_multicasttop_pitch_v1_0_15.zone_offset
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Conversation State
+-----------------------------------------------------------------------
+
+-- State, keyed by src/dst tuple
+cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation = {}
+cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.flows = {}
+
+-- Conversation key for the current packet (src/dst tuple)
+cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.key = function(packet)
+  return string.format("%s|%s|%s|%s", tostring(packet.src), packet.src_port, tostring(packet.dst), packet.dst_port)
+end
+
+
+-- Get/create our protocol's data record for the current packet's flow
+cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.data = function(packet)
+  local key = cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.key(packet)
+  local data = cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.flows[key]
+  if data == nil then
+    data = { midnight_reference = { last = nil, frames = {} }, time_reference = { last = nil, frames = {} } }
+    cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.flows[key] = data
+  end
+  return data
+end
+
+
+-- Handle to the current packet's conversation data
+cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.current = nil
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+
+-----------------------------------------------------------------------
+-- Cboe CfeFutures MulticastTop Pitch 1.0.15 Fields
+-----------------------------------------------------------------------
+
+-- Ask Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long = {}
+
+-- Size: Ask Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.size = 8
+
+-- Display: Ask Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.display = function(value)
+  return "Ask Price Long: "..value
+end
+
+-- Translate: Ask Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Ask Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.ask_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short = {}
+
+-- Size: Ask Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.size = 2
+
+-- Display: Ask Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.display = function(value)
+  return "Ask Price Short: "..value
+end
+
+-- Translate: Ask Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Ask Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.ask_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_long = {}
+
+-- Size: Ask Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_long.size = 4
+
+-- Display: Ask Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_long.display = function(value)
+  return "Ask Quantity Long: "..value
+end
+
+-- Dissect: Ask Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.ask_quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Ask Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_short = {}
+
+-- Size: Ask Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_short.size = 2
+
+-- Display: Ask Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_short.display = function(value)
+  return "Ask Quantity Short: "..value
+end
+
+-- Dissect: Ask Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.ask_quantity_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long = {}
+
+-- Size: Bid Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.size = 8
+
+-- Display: Bid Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.display = function(value)
+  return "Bid Price Long: "..value
+end
+
+-- Translate: Bid Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Bid Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.bid_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short = {}
+
+-- Size: Bid Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.size = 2
+
+-- Display: Bid Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.display = function(value)
+  return "Bid Price Short: "..value
+end
+
+-- Translate: Bid Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Bid Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.bid_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_long = {}
+
+-- Size: Bid Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_long.size = 4
+
+-- Display: Bid Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_long.display = function(value)
+  return "Bid Quantity Long: "..value
+end
+
+-- Dissect: Bid Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.bid_quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_short = {}
+
+-- Size: Bid Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_short.size = 2
+
+-- Display: Bid Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_short.display = function(value)
+  return "Bid Quantity Short: "..value
+end
+
+-- Dissect: Bid Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.bid_quantity_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Close Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.close_price = {}
+
+-- Size: Close Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.close_price.size = 8
+
+-- Display: Close Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.close_price.display = function(value)
+  return "Close Price: "..value
+end
+
+-- Translate: Close Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.close_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Close Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.close_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.close_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.close_price.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.close_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.close_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contract Size
+cboe_cfefutures_multicasttop_pitch_v1_0_15.contract_size = {}
+
+-- Size: Contract Size
+cboe_cfefutures_multicasttop_pitch_v1_0_15.contract_size.size = 2
+
+-- Display: Contract Size
+cboe_cfefutures_multicasttop_pitch_v1_0_15.contract_size.display = function(value)
+  return "Contract Size: "..value
+end
+
+-- Dissect: Contract Size
+cboe_cfefutures_multicasttop_pitch_v1_0_15.contract_size.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.contract_size.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.contract_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.contract_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Discount Factor
+cboe_cfefutures_multicasttop_pitch_v1_0_15.discount_factor = {}
+
+-- Size: Discount Factor
+cboe_cfefutures_multicasttop_pitch_v1_0_15.discount_factor.size = 8
+
+-- Display: Discount Factor
+cboe_cfefutures_multicasttop_pitch_v1_0_15.discount_factor.display = function(value)
+  return "Discount Factor: "..value
+end
+
+-- Translate: Discount Factor
+cboe_cfefutures_multicasttop_pitch_v1_0_15.discount_factor.translate = function(raw)
+  return raw:tonumber()/10000000000000000
+end
+
+-- Dissect: Discount Factor
+cboe_cfefutures_multicasttop_pitch_v1_0_15.discount_factor.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.discount_factor.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.discount_factor.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.discount_factor.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.discount_factor, range, value, display)
+
+  return offset + length, value
+end
+
+-- Epoch Time
+cboe_cfefutures_multicasttop_pitch_v1_0_15.epoch_time = {}
+
+-- Size: Epoch Time
+cboe_cfefutures_multicasttop_pitch_v1_0_15.epoch_time.size = 4
+
+-- Dissect: Epoch Time
+cboe_cfefutures_multicasttop_pitch_v1_0_15.epoch_time.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.epoch_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.epoch_time
+  if cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp_format == 3 then field = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.epoch_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Execution Id
+cboe_cfefutures_multicasttop_pitch_v1_0_15.execution_id = {}
+
+-- Size: Execution Id
+cboe_cfefutures_multicasttop_pitch_v1_0_15.execution_id.size = 8
+
+-- Display: Execution Id
+cboe_cfefutures_multicasttop_pitch_v1_0_15.execution_id.display = function(value)
+  return "Execution Id: "..value
+end
+
+-- Dissect: Execution Id
+cboe_cfefutures_multicasttop_pitch_v1_0_15.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.execution_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.execution_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expiration Date
+cboe_cfefutures_multicasttop_pitch_v1_0_15.expiration_date = {}
+
+-- Size: Expiration Date
+cboe_cfefutures_multicasttop_pitch_v1_0_15.expiration_date.size = 4
+
+-- Display: Expiration Date
+cboe_cfefutures_multicasttop_pitch_v1_0_15.expiration_date.display = function(value)
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Expiration Date: %04d-%02d-%02d", year, month, day)
+end
+
+-- Dissect: Expiration Date
+cboe_cfefutures_multicasttop_pitch_v1_0_15.expiration_date.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.expiration_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.expiration_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.expiration_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fed Funds Rate
+cboe_cfefutures_multicasttop_pitch_v1_0_15.fed_funds_rate = {}
+
+-- Size: Fed Funds Rate
+cboe_cfefutures_multicasttop_pitch_v1_0_15.fed_funds_rate.size = 8
+
+-- Display: Fed Funds Rate
+cboe_cfefutures_multicasttop_pitch_v1_0_15.fed_funds_rate.display = function(value)
+  return "Fed Funds Rate: "..value
+end
+
+-- Translate: Fed Funds Rate
+cboe_cfefutures_multicasttop_pitch_v1_0_15.fed_funds_rate.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Fed Funds Rate
+cboe_cfefutures_multicasttop_pitch_v1_0_15.fed_funds_rate.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.fed_funds_rate.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.fed_funds_rate.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.fed_funds_rate.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.fed_funds_rate, range, value, display)
+
+  return offset + length, value
+end
+
+-- High Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.high_price = {}
+
+-- Size: High Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.high_price.size = 8
+
+-- Display: High Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.high_price.display = function(value)
+  return "High Price: "..value
+end
+
+-- Translate: High Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.high_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: High Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.high_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.high_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.high_price.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.high_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.high_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Initial Strike
+cboe_cfefutures_multicasttop_pitch_v1_0_15.initial_strike = {}
+
+-- Size: Initial Strike
+cboe_cfefutures_multicasttop_pitch_v1_0_15.initial_strike.size = 8
+
+-- Display: Initial Strike
+cboe_cfefutures_multicasttop_pitch_v1_0_15.initial_strike.display = function(value)
+  return "Initial Strike: "..value
+end
+
+-- Translate: Initial Strike
+cboe_cfefutures_multicasttop_pitch_v1_0_15.initial_strike.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Initial Strike
+cboe_cfefutures_multicasttop_pitch_v1_0_15.initial_strike.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.initial_strike.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.initial_strike.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.initial_strike.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.initial_strike, range, value, display)
+
+  return offset + length, value
+end
+
+-- Issue
+cboe_cfefutures_multicasttop_pitch_v1_0_15.issue = {}
+
+-- Size: Issue
+cboe_cfefutures_multicasttop_pitch_v1_0_15.issue.size = 1
+
+-- Display: Issue
+cboe_cfefutures_multicasttop_pitch_v1_0_15.issue.labels = {
+  ["S"] = "Issue: Initial Settlement (S)",
+  ["R"] = "Issue: Reissued Settlement (R)",
+}
+
+cboe_cfefutures_multicasttop_pitch_v1_0_15.issue.display = function(value)
+  return cboe_cfefutures_multicasttop_pitch_v1_0_15.issue.labels[value] or "Issue: Unknown("..value..")"
+end
+
+-- Dissect: Issue
+cboe_cfefutures_multicasttop_pitch_v1_0_15.issue.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.issue.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.issue.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.issue, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Condition
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_condition = {}
+
+-- Size: Last Trade Condition
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_condition.size = 1
+
+-- Display: Last Trade Condition
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_condition.display = function(value)
+  if value == " " then
+    return "Last Trade Condition: Normal Trade (<whitespace>)"
+  end
+  if value == "O" then
+    return "Last Trade Condition: Opening Trade (O)"
+  end
+  if value == "S" then
+    return "Last Trade Condition: Spread Trade (S)"
+  end
+  if value == "B" then
+    return "Last Trade Condition: Block Trade (B)"
+  end
+  if value == "E" then
+    return "Last Trade Condition: Ecrp Trade (E)"
+  end
+  if value == "X" then
+    return "Last Trade Condition: Trade Break (X)"
+  end
+
+  return "Last Trade Condition: Unknown("..value..")"
+end
+
+-- Dissect: Last Trade Condition
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_condition.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.last_trade_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_long = {}
+
+-- Size: Last Trade Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_long.size = 8
+
+-- Display: Last Trade Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_long.display = function(value)
+  return "Last Trade Price Long: "..value
+end
+
+-- Translate: Last Trade Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_long.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Last Trade Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_long.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_long.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.last_trade_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_short = {}
+
+-- Size: Last Trade Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_short.size = 2
+
+-- Display: Last Trade Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_short.display = function(value)
+  return "Last Trade Price Short: "..value
+end
+
+-- Translate: Last Trade Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Last Trade Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_short.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.last_trade_price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Size Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_long = {}
+
+-- Size: Last Trade Size Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_long.size = 4
+
+-- Display: Last Trade Size Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_long.display = function(value)
+  return "Last Trade Size Long: "..value
+end
+
+-- Dissect: Last Trade Size Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.last_trade_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Trade Size Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_short = {}
+
+-- Size: Last Trade Size Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_short.size = 2
+
+-- Display: Last Trade Size Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_short.display = function(value)
+  return "Last Trade Size Short: "..value
+end
+
+-- Dissect: Last Trade Size Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.last_trade_size_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Count
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_count = {}
+
+-- Size: Leg Count
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_count.size = 1
+
+-- Display: Leg Count
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_count.display = function(value)
+  return "Leg Count: "..value
+end
+
+-- Dissect: Leg Count
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.leg_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_offset = {}
+
+-- Size: Leg Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_offset.size = 1
+
+-- Display: Leg Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_offset.display = function(value)
+  return "Leg Offset: "..value
+end
+
+-- Dissect: Leg Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_offset.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.leg_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Ratio
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_ratio = {}
+
+-- Size: Leg Ratio
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_ratio.size = 4
+
+-- Display: Leg Ratio
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_ratio.display = function(value)
+  return "Leg Ratio: "..value
+end
+
+-- Dissect: Leg Ratio
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_ratio.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_ratio.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_ratio.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.leg_ratio, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_symbol = {}
+
+-- Size: Leg Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_symbol.size = 6
+
+-- Display: Leg Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_symbol.display = function(value)
+  return "Leg Symbol: "..value
+end
+
+-- Dissect: Leg Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.leg_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+cboe_cfefutures_multicasttop_pitch_v1_0_15.length = {}
+
+-- Size: Length
+cboe_cfefutures_multicasttop_pitch_v1_0_15.length.size = 2
+
+-- Display: Length
+cboe_cfefutures_multicasttop_pitch_v1_0_15.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+cboe_cfefutures_multicasttop_pitch_v1_0_15.length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Listing State
+cboe_cfefutures_multicasttop_pitch_v1_0_15.listing_state = {}
+
+-- Size: Listing State
+cboe_cfefutures_multicasttop_pitch_v1_0_15.listing_state.size = 1
+
+-- Display: Listing State
+cboe_cfefutures_multicasttop_pitch_v1_0_15.listing_state.labels = {
+  ["A"] = "Listing State: Active (A)",
+  ["I"] = "Listing State: Inactive (I)",
+  ["T"] = "Listing State: Test (T)",
+}
+
+cboe_cfefutures_multicasttop_pitch_v1_0_15.listing_state.display = function(value)
+  return cboe_cfefutures_multicasttop_pitch_v1_0_15.listing_state.labels[value] or "Listing State: Unknown("..value..")"
+end
+
+-- Dissect: Listing State
+cboe_cfefutures_multicasttop_pitch_v1_0_15.listing_state.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.listing_state.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.listing_state.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.listing_state, range, value, display)
+
+  return offset + length, value
+end
+
+-- Low Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.low_price = {}
+
+-- Size: Low Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.low_price.size = 8
+
+-- Display: Low Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.low_price.display = function(value)
+  return "Low Price: "..value
+end
+
+-- Translate: Low Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.low_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Low Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.low_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.low_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.low_price.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.low_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.low_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Lower Price Limit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.lower_price_limit = {}
+
+-- Size: Lower Price Limit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.lower_price_limit.size = 8
+
+-- Display: Lower Price Limit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.lower_price_limit.display = function(value)
+  return "Lower Price Limit: "..value
+end
+
+-- Translate: Lower Price Limit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.lower_price_limit.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Lower Price Limit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.lower_price_limit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.lower_price_limit.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.lower_price_limit.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.lower_price_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.lower_price_limit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_count = {}
+
+-- Size: Message Count
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_count.size = 1
+
+-- Display: Message Count
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_length = {}
+
+-- Size: Message Length
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_length.size = 1
+
+-- Display: Message Length
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_length.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_type = {}
+
+-- Size: Message Type
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_type.size = 1
+
+-- Display: Message Type
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_type.display = function(value)
+  if value == 0xB1 then
+    return "Message Type: Time Reference Message (0xB1)"
+  end
+  if value == 0x20 then
+    return "Message Type: Time Message (0x20)"
+  end
+  if value == 0x97 then
+    return "Message Type: Unit Clear Message (0x97)"
+  end
+  if value == 0xBB then
+    return "Message Type: Futures Instrument Definition Message (0xBB)"
+  end
+  if value == 0xBE then
+    return "Message Type: Price Limits Message (0xBE)"
+  end
+  if value == 0xB2 then
+    return "Message Type: Market Snapshot Short Message (0xB2)"
+  end
+  if value == 0xB3 then
+    return "Message Type: Market Snapshot Long Message (0xB3)"
+  end
+  if value == 0xB4 then
+    return "Message Type: Single Side Update Short Message (0xB4)"
+  end
+  if value == 0xB5 then
+    return "Message Type: Single Side Update Long Message (0xB5)"
+  end
+  if value == 0xB6 then
+    return "Message Type: Two Side Update Short Message (0xB6)"
+  end
+  if value == 0xB7 then
+    return "Message Type: Two Side Update Long Message (0xB7)"
+  end
+  if value == 0xB8 then
+    return "Message Type: Top Trade Message (0xB8)"
+  end
+  if value == 0xB9 then
+    return "Message Type: Settlement Message (0xB9)"
+  end
+  if value == 0xBA then
+    return "Message Type: End Of Day Summary Message (0xBA)"
+  end
+  if value == 0x31 then
+    return "Message Type: Trading Status Message (0x31)"
+  end
+  if value == 0x2D then
+    return "Message Type: End Of Session Message (0x2D)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+end
+
+-- Dissect: Message Type
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Midnight Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference = {}
+
+-- Size: Midnight Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.size = 4
+
+-- Store: Midnight Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.current = nil
+
+-- Generated: Midnight Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.generated = function(value, range, packet, parent)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.midnight_reference
+  if cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp_format == 3 then field = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.midnight_reference_utc end
+  local midnight_reference = parent:add(field, range, NSTime.new(value, 0))
+  midnight_reference:set_generated()
+end
+
+-- Dissect: Midnight Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.midnight_reference
+  if cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp_format == 3 then field = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.midnight_reference_utc end
+
+  local seconds = value
+
+  -- Read on America/Chicago's clock: the instant moved by the offset the reader states for it
+  if cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp_format == 4 and cboe_cfefutures_multicasttop_pitch_v1_0_15.zone_offset ~= 0 then
+    local clock = seconds + cboe_cfefutures_multicasttop_pitch_v1_0_15.zone_offset
+    local item = parent:add(field, range, NSTime.new(seconds, 0))
+    item:set_text("Midnight Reference: "..os.date("!%Y-%m-%d %H:%M:%S", clock).." America/Chicago")
+    return offset + length, value
+  end
+
+  parent:add(field, range, NSTime.new(seconds, 0))
+
+  return offset + length, value
+end
+
+-- Num Elapsed Returns
+cboe_cfefutures_multicasttop_pitch_v1_0_15.num_elapsed_returns = {}
+
+-- Size: Num Elapsed Returns
+cboe_cfefutures_multicasttop_pitch_v1_0_15.num_elapsed_returns.size = 2
+
+-- Display: Num Elapsed Returns
+cboe_cfefutures_multicasttop_pitch_v1_0_15.num_elapsed_returns.display = function(value)
+  return "Num Elapsed Returns: "..value
+end
+
+-- Dissect: Num Elapsed Returns
+cboe_cfefutures_multicasttop_pitch_v1_0_15.num_elapsed_returns.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.num_elapsed_returns.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.num_elapsed_returns.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.num_elapsed_returns, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Expected Prices
+cboe_cfefutures_multicasttop_pitch_v1_0_15.num_expected_prices = {}
+
+-- Size: Num Expected Prices
+cboe_cfefutures_multicasttop_pitch_v1_0_15.num_expected_prices.size = 2
+
+-- Display: Num Expected Prices
+cboe_cfefutures_multicasttop_pitch_v1_0_15.num_expected_prices.display = function(value)
+  return "Num Expected Prices: "..value
+end
+
+-- Dissect: Num Expected Prices
+cboe_cfefutures_multicasttop_pitch_v1_0_15.num_expected_prices.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.num_expected_prices.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.num_expected_prices.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.num_expected_prices, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Interest
+cboe_cfefutures_multicasttop_pitch_v1_0_15.open_interest = {}
+
+-- Size: Open Interest
+cboe_cfefutures_multicasttop_pitch_v1_0_15.open_interest.size = 4
+
+-- Display: Open Interest
+cboe_cfefutures_multicasttop_pitch_v1_0_15.open_interest.display = function(value)
+  return "Open Interest: "..value
+end
+
+-- Dissect: Open Interest
+cboe_cfefutures_multicasttop_pitch_v1_0_15.open_interest.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.open_interest.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.open_interest.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.open_interest, range, value, display)
+
+  return offset + length, value
+end
+
+-- Open Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.open_price = {}
+
+-- Size: Open Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.open_price.size = 8
+
+-- Display: Open Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.open_price.display = function(value)
+  return "Open Price: "..value
+end
+
+-- Translate: Open Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.open_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Open Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.open_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.open_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.open_price.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.open_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.open_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous ARMVM
+cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_armvm = {}
+
+-- Size: Previous ARMVM
+cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_armvm.size = 8
+
+-- Display: Previous ARMVM
+cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_armvm.display = function(value)
+  return "Previous ARMVM: "..value
+end
+
+-- Translate: Previous ARMVM
+cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_armvm.translate = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Previous ARMVM
+cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_armvm.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_armvm.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_armvm.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_armvm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.previous_armvm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Previous Settlement
+cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_settlement = {}
+
+-- Size: Previous Settlement
+cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_settlement.size = 8
+
+-- Display: Previous Settlement
+cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_settlement.display = function(value)
+  return "Previous Settlement: "..value
+end
+
+-- Translate: Previous Settlement
+cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_settlement.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Previous Settlement
+cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_settlement.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_settlement.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_settlement.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_settlement.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.previous_settlement, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Increment
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_increment = {}
+
+-- Size: Price Increment
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_increment.size = 8
+
+-- Display: Price Increment
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_increment.display = function(value)
+  return "Price Increment: "..value
+end
+
+-- Translate: Price Increment
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_increment.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price Increment
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_increment.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_increment.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_increment.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_increment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.price_increment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long = {}
+
+-- Size: Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.size = 8
+
+-- Display: Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.display = function(value)
+  return "Price Long: "..value
+end
+
+-- Translate: Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Price Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_short = {}
+
+-- Size: Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_short.size = 2
+
+-- Display: Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_short.display = function(value)
+  return "Price Short: "..value
+end
+
+-- Translate: Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_short.translate = function(raw)
+  return raw/100
+end
+
+-- Dissect: Price Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_short.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_short.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_long = {}
+
+-- Size: Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_long.size = 4
+
+-- Display: Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_long.display = function(value)
+  return "Quantity Long: "..value
+end
+
+-- Dissect: Quantity Long
+cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_long.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_long.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_long.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.quantity_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_short = {}
+
+-- Size: Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_short.size = 2
+
+-- Display: Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_short.display = function(value)
+  return "Quantity Short: "..value
+end
+
+-- Dissect: Quantity Short
+cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_short.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_short.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_short.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.quantity_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Realized Variance
+cboe_cfefutures_multicasttop_pitch_v1_0_15.realized_variance = {}
+
+-- Size: Realized Variance
+cboe_cfefutures_multicasttop_pitch_v1_0_15.realized_variance.size = 8
+
+-- Display: Realized Variance
+cboe_cfefutures_multicasttop_pitch_v1_0_15.realized_variance.display = function(value)
+  return "Realized Variance: "..value
+end
+
+-- Translate: Realized Variance
+cboe_cfefutures_multicasttop_pitch_v1_0_15.realized_variance.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Realized Variance
+cboe_cfefutures_multicasttop_pitch_v1_0_15.realized_variance.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.realized_variance.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.realized_variance.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.realized_variance.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.realized_variance, range, value, display)
+
+  return offset + length, value
+end
+
+-- Report Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.report_symbol = {}
+
+-- Size: Report Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.report_symbol.size = 6
+
+-- Display: Report Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.report_symbol.display = function(value)
+  return "Report Symbol: "..value
+end
+
+-- Dissect: Report Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.report_symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.report_symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.report_symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.report_symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 2
+cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_2 = {}
+
+-- Size: Reserved 2
+cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_2.size = 2
+
+-- Display: Reserved 2
+cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_2.display = function(value)
+  return "Reserved 2: "..value
+end
+
+-- Dissect: Reserved 2
+cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_2.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_2.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_2.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.reserved_2, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 3
+cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3 = {}
+
+-- Size: Reserved 3
+cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.size = 3
+
+-- Display: Reserved 3
+cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.display = function(value)
+  return "Reserved 3: "..value
+end
+
+-- Dissect: Reserved 3
+cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.reserved_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence
+cboe_cfefutures_multicasttop_pitch_v1_0_15.sequence = {}
+
+-- Size: Sequence
+cboe_cfefutures_multicasttop_pitch_v1_0_15.sequence.size = 4
+
+-- Display: Sequence
+cboe_cfefutures_multicasttop_pitch_v1_0_15.sequence.display = function(value)
+  return "Sequence: "..value
+end
+
+-- Dissect: Sequence
+cboe_cfefutures_multicasttop_pitch_v1_0_15.sequence.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.sequence.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.sequence.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.sequence, range, value, display)
+
+  return offset + length, value
+end
+
+-- Settlement Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_price = {}
+
+-- Size: Settlement Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_price.size = 8
+
+-- Display: Settlement Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_price.display = function(value)
+  return "Settlement Price: "..value
+end
+
+-- Translate: Settlement Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_price.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Settlement Price
+cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_price.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_price.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.settlement_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+cboe_cfefutures_multicasttop_pitch_v1_0_15.side = {}
+
+-- Size: Side
+cboe_cfefutures_multicasttop_pitch_v1_0_15.side.size = 1
+
+-- Display: Side
+cboe_cfefutures_multicasttop_pitch_v1_0_15.side.labels = {
+  ["B"] = "Side: Bid Side (B)",
+  ["S"] = "Side: Ask Side (S)",
+}
+
+cboe_cfefutures_multicasttop_pitch_v1_0_15.side.display = function(value)
+  return cboe_cfefutures_multicasttop_pitch_v1_0_15.side.labels[value] or "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+cboe_cfefutures_multicasttop_pitch_v1_0_15.side.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.side.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol = {}
+
+-- Size: Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size = 6
+
+-- Display: Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.display = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset = {}
+
+-- Size: Time Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size = 4
+
+-- Display: Time Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.display = function(value)
+  return "Time Offset: "..value
+end
+
+-- Dissect: Time Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.time_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Time Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference = {}
+
+-- Size: Time Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.size = 4
+
+-- Store: Time Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.current = nil
+
+-- Generated: Time Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.generated = function(value, range, packet, parent)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.display(value)
+  local time_reference = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.time_reference, range, value, display)
+  time_reference:set_generated()
+end
+
+-- Display: Time Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.display = function(value)
+  return "Time Reference: "..value
+end
+
+-- Dissect: Time Reference
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.time_reference, range, value, display)
+
+  return offset + length, value
+end
+
+-- Total Volume
+cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume = {}
+
+-- Size: Total Volume
+cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.size = 4
+
+-- Display: Total Volume
+cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.display = function(value)
+  return "Total Volume: "..value
+end
+
+-- Dissect: Total Volume
+cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.total_volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Condition
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_condition = {}
+
+-- Size: Trade Condition
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_condition.size = 1
+
+-- Display: Trade Condition
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_condition.display = function(value)
+  if value == " " then
+    return "Trade Condition: Normal Trade (<whitespace>)"
+  end
+  if value == "O" then
+    return "Trade Condition: Opening Trade (O)"
+  end
+  if value == "S" then
+    return "Trade Condition: Spread Trade (S)"
+  end
+  if value == "B" then
+    return "Trade Condition: Block Trade (B)"
+  end
+  if value == "E" then
+    return "Trade Condition: Ecrp Trade (E)"
+  end
+  if value == "X" then
+    return "Trade Condition: Trade Break (X)"
+  end
+
+  return "Trade Condition: Unknown("..value..")"
+end
+
+-- Dissect: Trade Condition
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_condition.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_condition.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_condition.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.trade_condition, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Date
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date = {}
+
+-- Size: Trade Date
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.size = 4
+
+-- Display: Trade Date
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.display = function(value)
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Trade Date: %04d-%02d-%02d", year, month, day)
+end
+
+-- Dissect: Trade Date
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.trade_date, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status = {}
+
+-- Size: Trading Status
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.size = 1
+
+-- Display: Trading Status
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.labels = {
+  ["S"] = "Trading Status: Suspended (S)",
+  ["Q"] = "Trading Status: Queuing (Q)",
+  ["T"] = "Trading Status: Trading (T)",
+  ["H"] = "Trading Status: Halted (H)",
+}
+
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.display = function(value)
+  return cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.labels[value] or "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit = {}
+
+-- Size: Unit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit.size = 1
+
+-- Display: Unit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit.display = function(value)
+  return "Unit: "..value
+end
+
+-- Dissect: Unit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.unit.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.unit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.unit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Unit Timestamp
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_timestamp = {}
+
+-- Size: Unit Timestamp
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_timestamp.size = 4
+
+-- Dissect: Unit Timestamp
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.unit_timestamp
+  if cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp_format == 3 then field = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.unit_timestamp_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Upper Price Limit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.upper_price_limit = {}
+
+-- Size: Upper Price Limit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.upper_price_limit.size = 8
+
+-- Display: Upper Price Limit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.upper_price_limit.display = function(value)
+  return "Upper Price Limit: "..value
+end
+
+-- Translate: Upper Price Limit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.upper_price_limit.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Upper Price Limit
+cboe_cfefutures_multicasttop_pitch_v1_0_15.upper_price_limit.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.upper_price_limit.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.upper_price_limit.translate(raw)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.upper_price_limit.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.upper_price_limit, range, value, display)
+
+  return offset + length, value
+end
+
+-- Variance Block Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_block_offset = {}
+
+-- Size: Variance Block Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_block_offset.size = 1
+
+-- Display: Variance Block Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_block_offset.display = function(value)
+  return "Variance Block Offset: "..value
+end
+
+-- Dissect: Variance Block Offset
+cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_block_offset.dissect = function(buffer, offset, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_block_offset.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_block_offset.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.variance_block_offset, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp = {}
+
+-- Translate: Timestamp
+cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.translate = function(time_offset, stored_midnight_reference, stored_time_reference)
+  return (UInt64.new(stored_midnight_reference) + stored_time_reference) * 1000000000 + time_offset
+end
+
+-- Display: Timestamp
+cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.display = function(time_offset, stored_midnight_reference, stored_time_reference)
+  -- An offset the Field epoch leaves unbounded carries whole seconds of its own
+  local seconds = stored_midnight_reference + stored_time_reference + math.floor(time_offset / 1000000000)
+  local fraction = time_offset % 1000000000
+
+  local format = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return "Timestamp: "..os.date(format, seconds)..string.format("%09d", fraction)
+end
+
+-- Composite: Timestamp
+cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.composite = function(buffer, offset, stored_midnight_reference, stored_time_reference, packet, parent)
+  local length = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size
+  local range = buffer(offset, length)
+  local time_offset = range:le_uint()
+  local value = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.translate(time_offset, stored_midnight_reference, stored_time_reference)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.display(time_offset, stored_midnight_reference, stored_time_reference)
+  parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.timestamp, range, value, display)
+
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.generated(stored_time_reference, range, packet, parent)
+
+  display = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.display(time_offset)
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.time_offset, range, time_offset, display)
+
+  return offset + length, value
+end
+
+-- Dissect: Timestamp
+cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect = function(buffer, offset, packet, parent)
+  local stored_midnight_reference = cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.current
+  local stored_time_reference = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.current
+
+  if stored_midnight_reference ~= nil and stored_time_reference ~= nil then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.composite(buffer, offset, stored_midnight_reference, stored_time_reference, packet, parent)
+  end
+
+  return cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.dissect(buffer, offset, packet, parent)
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Cboe CfeFutures MulticastTop Pitch 1.0.15
+-----------------------------------------------------------------------
+
+-- End Of Session Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_session_message = {}
+
+-- Size: End Of Session Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_session_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size
+
+-- Display: End Of Session Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_session_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: End Of Session Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_session_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Session Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_session_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.end_of_session_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_session_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_session_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_session_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Trading Status Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status_message = {}
+
+-- Size: Trading Status Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_2.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.size
+
+-- Display: Trading Status Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Trading Status Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Reserved 2: Alpha
+  index, reserved_2 = cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_2.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Alpha
+  index, trading_status = cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Reserved 3: Alphanumeric
+  index, reserved_3 = cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Trading Status Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.trading_status_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- End Of Day Summary Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_day_summary_message = {}
+
+-- Size: End Of Day Summary Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_day_summary_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.open_interest.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.high_price.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.low_price.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.open_price.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.close_price.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.size
+
+-- Display: End Of Day Summary Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_day_summary_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: End Of Day Summary Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_day_summary_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Trade Date: Binary Date
+  index, trade_date = cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.dissect(buffer, index, packet, parent)
+
+  -- Open Interest: Binary
+  index, open_interest = cboe_cfefutures_multicasttop_pitch_v1_0_15.open_interest.dissect(buffer, index, packet, parent)
+
+  -- High Price: Binary Price
+  index, high_price = cboe_cfefutures_multicasttop_pitch_v1_0_15.high_price.dissect(buffer, index, packet, parent)
+
+  -- Low Price: Binary Price
+  index, low_price = cboe_cfefutures_multicasttop_pitch_v1_0_15.low_price.dissect(buffer, index, packet, parent)
+
+  -- Open Price: Binary Price
+  index, open_price = cboe_cfefutures_multicasttop_pitch_v1_0_15.open_price.dissect(buffer, index, packet, parent)
+
+  -- Close Price: Binary Price
+  index, close_price = cboe_cfefutures_multicasttop_pitch_v1_0_15.close_price.dissect(buffer, index, packet, parent)
+
+  -- Total Volume: Binary
+  index, total_volume = cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Day Summary Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_day_summary_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.end_of_day_summary_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_day_summary_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_day_summary_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_day_summary_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Settlement Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_message = {}
+
+-- Size: Settlement Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_price.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.issue.size
+
+-- Display: Settlement Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Settlement Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Trade Date: Binary Date
+  index, trade_date = cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.dissect(buffer, index, packet, parent)
+
+  -- Settlement Price: Binary Price
+  index, settlement_price = cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_price.dissect(buffer, index, packet, parent)
+
+  -- Issue: Alphanumeric
+  index, issue = cboe_cfefutures_multicasttop_pitch_v1_0_15.issue.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Settlement Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.settlement_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Top Trade Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.top_trade_message = {}
+
+-- Size: Top Trade Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.top_trade_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.execution_id.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_condition.size
+
+-- Display: Top Trade Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.top_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Top Trade Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.top_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Quantity Long: Binary
+  index, quantity_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_long.dissect(buffer, index, packet, parent)
+
+  -- Price Long: Binary Price
+  index, price_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: Binary
+  index, execution_id = cboe_cfefutures_multicasttop_pitch_v1_0_15.execution_id.dissect(buffer, index, packet, parent)
+
+  -- Total Volume: Binary
+  index, total_volume = cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.dissect(buffer, index, packet, parent)
+
+  -- Trade Condition: Alphanumeric
+  index, trade_condition = cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_condition.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Top Trade Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.top_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.top_trade_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.top_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.top_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.top_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Two Side Update Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_long_message = {}
+
+-- Size: Two Side Update Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_long_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_long.size
+
+-- Display: Two Side Update Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_long_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Two Side Update Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_long_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Long: Binary Price
+  index, bid_price_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.dissect(buffer, index, packet, parent)
+
+  -- Bid Quantity Long: Binary
+  index, bid_quantity_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_long.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Long: Binary Price
+  index, ask_price_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.dissect(buffer, index, packet, parent)
+
+  -- Ask Quantity Long: Binary
+  index, ask_quantity_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_long.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Two Side Update Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_long_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.two_side_update_long_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_long_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_long_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_long_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Two Side Update Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_short_message = {}
+
+-- Size: Two Side Update Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_short_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_short.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_short.size
+
+-- Display: Two Side Update Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_short_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Two Side Update Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_short_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Short: Binary Short Price
+  index, bid_price_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.dissect(buffer, index, packet, parent)
+
+  -- Bid Quantity Short: Binary
+  index, bid_quantity_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_short.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Short: Binary Short Price
+  index, ask_price_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.dissect(buffer, index, packet, parent)
+
+  -- Ask Quantity Short: Binary
+  index, ask_quantity_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_short.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Two Side Update Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_short_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.two_side_update_short_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_short_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_short_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_short_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Single Side Update Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_long_message = {}
+
+-- Size: Single Side Update Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_long_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.side.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_long.size
+
+-- Display: Single Side Update Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_long_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Single Side Update Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_long_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Side: Alphanumeric
+  index, side = cboe_cfefutures_multicasttop_pitch_v1_0_15.side.dissect(buffer, index, packet, parent)
+
+  -- Price Long: Binary Price
+  index, price_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_long.dissect(buffer, index, packet, parent)
+
+  -- Quantity Long: Binary
+  index, quantity_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_long.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Single Side Update Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_long_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.single_side_update_long_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_long_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_long_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_long_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Single Side Update Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_short_message = {}
+
+-- Size: Single Side Update Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_short_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.side.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.price_short.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_short.size
+
+-- Display: Single Side Update Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_short_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Single Side Update Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_short_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Side: Alphanumeric
+  index, side = cboe_cfefutures_multicasttop_pitch_v1_0_15.side.dissect(buffer, index, packet, parent)
+
+  -- Price Short: Binary Short Price
+  index, price_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_short.dissect(buffer, index, packet, parent)
+
+  -- Quantity Short: Binary
+  index, quantity_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.quantity_short.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Single Side Update Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_short_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.single_side_update_short_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_short_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_short_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_short_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Market Snapshot Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_long_message = {}
+
+-- Size: Market Snapshot Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_long_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_long.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_condition.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.size
+
+-- Display: Market Snapshot Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_long_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Snapshot Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_long_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Unit Timestamp: Binary
+  index, unit_timestamp = cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Long: Binary Price
+  index, bid_price_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_long.dissect(buffer, index, packet, parent)
+
+  -- Bid Quantity Long: Binary
+  index, bid_quantity_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_long.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Long: Binary Price
+  index, ask_price_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_long.dissect(buffer, index, packet, parent)
+
+  -- Ask Quantity Long: Binary
+  index, ask_quantity_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_long.dissect(buffer, index, packet, parent)
+
+  -- Last Trade Price Long: Binary Price
+  index, last_trade_price_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_long.dissect(buffer, index, packet, parent)
+
+  -- Last Trade Size Long: Binary
+  index, last_trade_size_long = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_long.dissect(buffer, index, packet, parent)
+
+  -- Last Trade Condition: Alphanumeric
+  index, last_trade_condition = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_condition.dissect(buffer, index, packet, parent)
+
+  -- Total Volume: Binary
+  index, total_volume = cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Alpha
+  index, trading_status = cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Reserved 3: Alphanumeric
+  index, reserved_3 = cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Snapshot Long Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_long_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.market_snapshot_long_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_long_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_long_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_long_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Market Snapshot Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_short_message = {}
+
+-- Size: Market Snapshot Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_short_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_timestamp.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_short.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_short.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_short.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_short.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_condition.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.size
+
+-- Display: Market Snapshot Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_short_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Market Snapshot Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_short_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Unit Timestamp: Binary
+  index, unit_timestamp = cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Bid Price Short: Binary Short Price
+  index, bid_price_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_price_short.dissect(buffer, index, packet, parent)
+
+  -- Bid Quantity Short: Binary
+  index, bid_quantity_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.bid_quantity_short.dissect(buffer, index, packet, parent)
+
+  -- Ask Price Short: Binary Short Price
+  index, ask_price_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_price_short.dissect(buffer, index, packet, parent)
+
+  -- Ask Quantity Short: Binary
+  index, ask_quantity_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.ask_quantity_short.dissect(buffer, index, packet, parent)
+
+  -- Last Trade Price Short: Binary Short Price
+  index, last_trade_price_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_price_short.dissect(buffer, index, packet, parent)
+
+  -- Last Trade Size Short: Binary
+  index, last_trade_size_short = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_size_short.dissect(buffer, index, packet, parent)
+
+  -- Last Trade Condition: Alphanumeric
+  index, last_trade_condition = cboe_cfefutures_multicasttop_pitch_v1_0_15.last_trade_condition.dissect(buffer, index, packet, parent)
+
+  -- Total Volume: Binary
+  index, total_volume = cboe_cfefutures_multicasttop_pitch_v1_0_15.total_volume.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Alpha
+  index, trading_status = cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Reserved 3: Alphanumeric
+  index, reserved_3 = cboe_cfefutures_multicasttop_pitch_v1_0_15.reserved_3.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Market Snapshot Short Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_short_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.market_snapshot_short_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_short_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_short_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_short_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Price Limits Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_limits_message = {}
+
+-- Size: Price Limits Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_limits_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.upper_price_limit.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.lower_price_limit.size
+
+-- Display: Price Limits Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_limits_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Price Limits Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_limits_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Upper Price Limit: Binary Price
+  index, upper_price_limit = cboe_cfefutures_multicasttop_pitch_v1_0_15.upper_price_limit.dissect(buffer, index, packet, parent)
+
+  -- Lower Price Limit: Binary Price
+  index, lower_price_limit = cboe_cfefutures_multicasttop_pitch_v1_0_15.lower_price_limit.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Price Limits Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.price_limits_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.price_limits_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_limits_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_limits_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.price_limits_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Future Leg
+cboe_cfefutures_multicasttop_pitch_v1_0_15.future_leg = {}
+
+-- Size: Future Leg
+cboe_cfefutures_multicasttop_pitch_v1_0_15.future_leg.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_ratio.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_symbol.size
+
+-- Display: Future Leg
+cboe_cfefutures_multicasttop_pitch_v1_0_15.future_leg.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Future Leg
+cboe_cfefutures_multicasttop_pitch_v1_0_15.future_leg.fields = function(buffer, offset, packet, parent, future_leg_index)
+  local index = offset
+
+  -- Implicit Future Leg Index
+  if future_leg_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.future_leg_index, future_leg_index)
+    iteration:set_generated()
+  end
+
+  -- Leg Ratio: Signed Binary
+  index, leg_ratio = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_ratio.dissect(buffer, index, packet, parent)
+
+  -- Leg Symbol: Alphanumeric
+  index, leg_symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_symbol.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Future Leg
+cboe_cfefutures_multicasttop_pitch_v1_0_15.future_leg.dissect = function(buffer, offset, packet, parent, future_leg_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.future_leg, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.future_leg.fields(buffer, offset, packet, parent, future_leg_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.future_leg.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.future_leg.fields(buffer, offset, packet, parent, future_leg_index)
+  end
+end
+
+-- Variance Future
+cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_future = {}
+
+-- Calculate size of: Variance Future
+cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_future.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.realized_variance.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.num_expected_prices.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.num_elapsed_returns.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_settlement.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.discount_factor.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.initial_strike.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_armvm.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.fed_funds_rate.size
+
+  -- Calculate field size from count
+  local future_leg_count = buffer(offset + index - 55, 1):uint()
+  index = index + future_leg_count * 10
+
+  return index
+end
+
+-- Display: Variance Future
+cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_future.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Variance Future
+cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_future.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Realized Variance: 8 Byte Signed Fixed Width Integer
+  index, realized_variance = cboe_cfefutures_multicasttop_pitch_v1_0_15.realized_variance.dissect(buffer, index, packet, parent)
+
+  -- Num Expected Prices: 2 Byte Unsigned Fixed Width Integer
+  index, num_expected_prices = cboe_cfefutures_multicasttop_pitch_v1_0_15.num_expected_prices.dissect(buffer, index, packet, parent)
+
+  -- Num Elapsed Returns: 2 Byte Unsigned Fixed Width Integer
+  index, num_elapsed_returns = cboe_cfefutures_multicasttop_pitch_v1_0_15.num_elapsed_returns.dissect(buffer, index, packet, parent)
+
+  -- Previous Settlement: 8 Byte Unsigned Fixed Width Integer
+  index, previous_settlement = cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_settlement.dissect(buffer, index, packet, parent)
+
+  -- Discount Factor: 8 Byte Signed Fixed Width Integer
+  index, discount_factor = cboe_cfefutures_multicasttop_pitch_v1_0_15.discount_factor.dissect(buffer, index, packet, parent)
+
+  -- Initial Strike: 8 Byte Unsigned Fixed Width Integer
+  index, initial_strike = cboe_cfefutures_multicasttop_pitch_v1_0_15.initial_strike.dissect(buffer, index, packet, parent)
+
+  -- Previous ARMVM: 8 Byte Signed Fixed Width Integer
+  index, previous_armvm = cboe_cfefutures_multicasttop_pitch_v1_0_15.previous_armvm.dissect(buffer, index, packet, parent)
+
+  -- Fed Funds Rate: 8 Byte Signed Fixed Width Integer
+  index, fed_funds_rate = cboe_cfefutures_multicasttop_pitch_v1_0_15.fed_funds_rate.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Leg Count
+  local leg_count = buffer(offset - 3, 1):uint()
+
+  -- Repeating: Future Leg
+  for future_leg_index = 1, leg_count do
+    index, future_leg = cboe_cfefutures_multicasttop_pitch_v1_0_15.future_leg.dissect(buffer, index, packet, parent, future_leg_index)
+  end
+
+  return index
+end
+
+-- Dissect: Variance Future
+cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_future.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.variance_future, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_future.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_future.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_future.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Standard Future
+cboe_cfefutures_multicasttop_pitch_v1_0_15.standard_future = {}
+
+-- Calculate size of: Standard Future
+cboe_cfefutures_multicasttop_pitch_v1_0_15.standard_future.size = function(buffer, offset)
+  local index = 0
+
+  -- Calculate field size from count
+  local future_leg_count = buffer(offset + index - 3, 1):uint()
+  index = index + future_leg_count * 10
+
+  return index
+end
+
+-- Display: Standard Future
+cboe_cfefutures_multicasttop_pitch_v1_0_15.standard_future.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Standard Future
+cboe_cfefutures_multicasttop_pitch_v1_0_15.standard_future.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Dependency element: Leg Count
+  local leg_count = buffer(offset - 3, 1):uint()
+
+  -- Repeating: Future Leg
+  for future_leg_index = 1, leg_count do
+    index, future_leg = cboe_cfefutures_multicasttop_pitch_v1_0_15.future_leg.dissect(buffer, index, packet, parent, future_leg_index)
+  end
+
+  return index
+end
+
+-- Dissect: Standard Future
+cboe_cfefutures_multicasttop_pitch_v1_0_15.standard_future.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.standard_future, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.standard_future.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.standard_future.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.standard_future.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Future Block
+cboe_cfefutures_multicasttop_pitch_v1_0_15.future_block = {}
+
+-- Dispatch: Future Block
+cboe_cfefutures_multicasttop_pitch_v1_0_15.future_block.dispatch = {
+  [0] = cboe_cfefutures_multicasttop_pitch_v1_0_15.standard_future.dissect,
+  [41] = cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_future.dissect,
+}
+
+-- Dissect: Future Block
+cboe_cfefutures_multicasttop_pitch_v1_0_15.future_block.dissect = function(buffer, offset, packet, parent, variance_block_offset)
+  local dissect = cboe_cfefutures_multicasttop_pitch_v1_0_15.future_block.dispatch[variance_block_offset]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Futures Flags
+cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_flags = {}
+
+-- Size: Futures Flags
+cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_flags.size = 1
+
+-- Display: Futures Flags
+cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Variance flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Variance"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Futures Flags
+cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_flags.bits = function(range, value, packet, parent)
+
+  -- Variance: 1 Bit
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.variance, range, value)
+
+  -- Reserved Flags 7: 7 Bit
+  parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.reserved_flags_7, range, value)
+end
+
+-- Dissect: Futures Flags
+cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_flags.dissect = function(buffer, offset, packet, parent)
+  local size = cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.futures_flags, range, display)
+
+  if show.structs then
+    cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Futures Instrument Definition Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_instrument_definition_message = {}
+
+-- Calculate size of: Futures Instrument Definition Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_instrument_definition_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_timestamp.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.report_symbol.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_flags.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.expiration_date.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.contract_size.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.listing_state.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.price_increment.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_count.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_offset.size
+
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_block_offset.size
+
+  -- Calculate runtime size of Future Block field
+  local future_block_offset = offset + index
+  local future_block_type = buffer(future_block_offset - 1, 1):uint()
+  index = index + cboe_cfefutures_multicasttop_pitch_v1_0_15.future_block.size(buffer, future_block_offset, future_block_type)
+
+  return index
+end
+
+-- Display: Futures Instrument Definition Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_instrument_definition_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Futures Instrument Definition Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_instrument_definition_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Symbol: Printable ASCII
+  index, symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.symbol.dissect(buffer, index, packet, parent)
+
+  -- Unit Timestamp: Binary
+  index, unit_timestamp = cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_timestamp.dissect(buffer, index, packet, parent)
+
+  -- Report Symbol: Alphanumeric
+  index, report_symbol = cboe_cfefutures_multicasttop_pitch_v1_0_15.report_symbol.dissect(buffer, index, packet, parent)
+
+  -- Futures Flags: Struct of 2 fields
+  index, futures_flags = cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_flags.dissect(buffer, index, packet, parent)
+
+  -- Expiration Date: Binary Date
+  index, expiration_date = cboe_cfefutures_multicasttop_pitch_v1_0_15.expiration_date.dissect(buffer, index, packet, parent)
+
+  -- Contract Size: Binary
+  index, contract_size = cboe_cfefutures_multicasttop_pitch_v1_0_15.contract_size.dissect(buffer, index, packet, parent)
+
+  -- Listing State: Alphanumeric
+  index, listing_state = cboe_cfefutures_multicasttop_pitch_v1_0_15.listing_state.dissect(buffer, index, packet, parent)
+
+  -- Price Increment: Binary Price
+  index, price_increment = cboe_cfefutures_multicasttop_pitch_v1_0_15.price_increment.dissect(buffer, index, packet, parent)
+
+  -- Leg Count: Binary
+  index, leg_count = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_count.dissect(buffer, index, packet, parent)
+
+  -- Leg Offset: Binary
+  index, leg_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.leg_offset.dissect(buffer, index, packet, parent)
+
+  -- Variance Block Offset: 1 Byte Unsigned Fixed Width Integer
+  index, variance_block_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.variance_block_offset.dissect(buffer, index, packet, parent)
+
+  -- Future Block: Runtime Type with 2 branches
+  index = cboe_cfefutures_multicasttop_pitch_v1_0_15.future_block.dissect(buffer, index, packet, parent, variance_block_offset)
+
+  return index
+end
+
+-- Dissect: Futures Instrument Definition Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_instrument_definition_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.futures_instrument_definition_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_instrument_definition_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_instrument_definition_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_instrument_definition_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Unit Clear Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_clear_message = {}
+
+-- Size: Unit Clear Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_clear_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size
+
+-- Display: Unit Clear Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_clear_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Clear Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_clear_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unit Clear Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_clear_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.unit_clear_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_clear_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_clear_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_clear_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Time Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_message = {}
+
+-- Size: Time Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.epoch_time.size
+
+-- Display: Time Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Time Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Time Reference: Binary
+  index, time_reference = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.dissect(buffer, index, packet, parent)
+
+  -- Store Time Reference Value
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.current = time_reference
+
+  if not packet.visited then
+    cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.current.time_reference.last = time_reference
+  end
+
+  -- Epoch Time: Binary
+  index, epoch_time = cboe_cfefutures_multicasttop_pitch_v1_0_15.epoch_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Time Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.time_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.time_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Time Reference Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference_message = {}
+
+-- Size: Time Reference Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference_message.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_offset.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.size
+
+-- Display: Time Reference Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Time Reference Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Midnight Reference: Binary
+  index, midnight_reference = cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.dissect(buffer, index, packet, parent)
+
+  -- Store Midnight Reference Value
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.current = midnight_reference
+
+  if not packet.visited then
+    cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.current.midnight_reference.last = midnight_reference
+  end
+
+  -- Time Reference: Binary
+  index, time_reference = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.dissect(buffer, index, packet, parent)
+
+  -- Store Time Reference Value
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.current = time_reference
+
+  if not packet.visited then
+    cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.current.time_reference.last = time_reference
+  end
+
+  -- Time Offset: Binary
+  index, time_offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Trade Date: Binary Date
+  index, trade_date = cboe_cfefutures_multicasttop_pitch_v1_0_15.trade_date.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Time Reference Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.time_reference_message, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+cboe_cfefutures_multicasttop_pitch_v1_0_15.payload = {}
+
+-- Dissect: Payload
+cboe_cfefutures_multicasttop_pitch_v1_0_15.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect Time Reference Message
+  if message_type == 0xB1 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Time Message
+  if message_type == 0x20 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.time_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Unit Clear Message
+  if message_type == 0x97 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.unit_clear_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Futures Instrument Definition Message
+  if message_type == 0xBB then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.futures_instrument_definition_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Price Limits Message
+  if message_type == 0xBE then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.price_limits_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Snapshot Short Message
+  if message_type == 0xB2 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Market Snapshot Long Message
+  if message_type == 0xB3 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.market_snapshot_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Side Update Short Message
+  if message_type == 0xB4 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Single Side Update Long Message
+  if message_type == 0xB5 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.single_side_update_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Two Side Update Short Message
+  if message_type == 0xB6 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_short_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Two Side Update Long Message
+  if message_type == 0xB7 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.two_side_update_long_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Top Trade Message
+  if message_type == 0xB8 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.top_trade_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Settlement Message
+  if message_type == 0xB9 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.settlement_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Day Summary Message
+  if message_type == 0xBA then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_day_summary_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Trading Status Message
+  if message_type == 0x31 then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.trading_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session Message
+  if message_type == 0x2D then
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.end_of_session_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_header = {}
+
+-- Size: Message Header
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_header.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.message_length.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.message_type.size
+
+-- Display: Message Header
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 1 Byte Unsigned Fixed Width Integer
+  index, message_length = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_length.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
+  index, message_type = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_header, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message = {}
+
+-- Read runtime size of: Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message.size = function(buffer, offset)
+  local index = offset
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset, 1):uint()
+
+  return message_length
+end
+
+-- Display: Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Implicit Message Sequence Number
+  if message_index ~= nil and show.sequences and cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_sequence ~= nil then
+    local sequence = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message_sequence_number, UInt64.new(cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_sequence + message_index - 1))
+    sequence:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):uint()
+
+  -- Payload: Runtime Type with 16 branches
+  index = cboe_cfefutures_multicasttop_pitch_v1_0_15.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message
+cboe_cfefutures_multicasttop_pitch_v1_0_15.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local size_of_message = cboe_cfefutures_multicasttop_pitch_v1_0_15.message.size(buffer, offset)
+  local index = offset + size_of_message
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.message, buffer(offset, 0))
+    local current = cboe_cfefutures_multicasttop_pitch_v1_0_15.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+    parent:set_len(size_of_message)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    cboe_cfefutures_multicasttop_pitch_v1_0_15.message.fields(buffer, offset, packet, parent, size_of_message, message_index)
+
+    return index
+  end
+end
+
+-- Heartbeat
+cboe_cfefutures_multicasttop_pitch_v1_0_15.heartbeat = {}
+
+-- Display: Heartbeat
+cboe_cfefutures_multicasttop_pitch_v1_0_15.heartbeat.display = function(packet, parent, length)
+  return "Heartbeat"
+end
+
+
+-- Dissect: Heartbeat
+cboe_cfefutures_multicasttop_pitch_v1_0_15.heartbeat.dissect = function(buffer, offset, packet, parent)
+  local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.heartbeat.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Messages
+cboe_cfefutures_multicasttop_pitch_v1_0_15.messages = {}
+
+-- Dispatch: Messages
+cboe_cfefutures_multicasttop_pitch_v1_0_15.messages.dispatch = {
+  [0] = cboe_cfefutures_multicasttop_pitch_v1_0_15.heartbeat.dissect,
+}
+
+-- Dissect: Messages
+cboe_cfefutures_multicasttop_pitch_v1_0_15.messages.dissect = function(buffer, offset, packet, parent, message_count)
+  local dissect = cboe_cfefutures_multicasttop_pitch_v1_0_15.messages.dispatch[message_count]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Repeating: Message
+  for message_index = 1, message_count do
+
+    -- Dependency element: Message Length
+    local message_length = buffer(offset, 1):uint()
+
+    -- Message: Struct of 2 fields
+    offset = cboe_cfefutures_multicasttop_pitch_v1_0_15.message.dissect(buffer, offset, packet, parent, size_of_message, message_index)
+  end
+end
+
+-- Packet Header
+cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_header = {}
+
+-- Size: Packet Header
+cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_header.size =
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.length.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.message_count.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.unit.size + 
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.sequence.size
+
+-- Display: Packet Header
+cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Packet Header
+cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Length: 2 Byte Unsigned Fixed Width Integer
+  index, length = cboe_cfefutures_multicasttop_pitch_v1_0_15.length.dissect(buffer, index, packet, parent)
+
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = cboe_cfefutures_multicasttop_pitch_v1_0_15.message_count.dissect(buffer, index, packet, parent)
+
+  -- Unit: 1 Byte Unsigned Fixed Width Integer
+  index, unit = cboe_cfefutures_multicasttop_pitch_v1_0_15.unit.dissect(buffer, index, packet, parent)
+
+  -- Sequence: 4 Byte Unsigned Fixed Width Integer
+  index, sequence = cboe_cfefutures_multicasttop_pitch_v1_0_15.sequence.dissect(buffer, index, packet, parent)
+
+  -- Sequence base for the packet's messages
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_sequence = sequence
+
+  return index
+end
+
+-- Dissect: Packet Header
+cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.fields.packet_header, buffer(offset, 0))
+    local index = cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+cboe_cfefutures_multicasttop_pitch_v1_0_15.packet = {}
+
+-- Verify required size of Udp packet
+cboe_cfefutures_multicasttop_pitch_v1_0_15.packet.requiredsize = function(buffer)
+  return buffer:len() >= cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_header.size
+end
+
+-- Dissect Packet
+cboe_cfefutures_multicasttop_pitch_v1_0_15.packet.dissect = function(buffer, packet, parent)
+  -- establish frame context from the conversation's stored values
+  local data = cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.data(packet)
+  if not packet.visited then
+    data.midnight_reference.frames[packet.number] = data.midnight_reference.last
+    data.time_reference.frames[packet.number] = data.time_reference.last
+    data.time_reference.frames[packet.number] = data.time_reference.last
+  end
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.current = data.midnight_reference.frames[packet.number]
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.current = data.time_reference.frames[packet.number]
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.current = data.time_reference.frames[packet.number]
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.current = data
+
+  local index = 0
+
+  -- Packet Header: Struct of 4 fields
+  index, packet_header = cboe_cfefutures_multicasttop_pitch_v1_0_15.packet_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 6, 1):uint()
+
+  -- Messages: Runtime Type with 2 branches
+  index = cboe_cfefutures_multicasttop_pitch_v1_0_15.messages.dissect(buffer, index, packet, parent, message_count)
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.init()
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.midnight_reference.current = nil
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.time_reference.current = nil
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.current = nil
+  cboe_cfefutures_multicasttop_pitch_v1_0_15.conversation.flows = {}
+end
+
+-- Dissector for Cboe CfeFutures MulticastTop Pitch 1.0.15
+function omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15, buffer(), omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.description, "("..buffer:len().." Bytes)")
+  return cboe_cfefutures_multicasttop_pitch_v1_0_15.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Cboe CfeFutures MulticastTop Pitch 1.0.15 (Udp)
+local function omi_cboe_cfefutures_multicasttop_pitch_v1_0_15_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not cboe_cfefutures_multicasttop_pitch_v1_0_15.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_cboe_cfefutures_multicasttop_pitch_v1_0_15
+  omi_cboe_cfefutures_multicasttop_pitch_v1_0_15.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Cboe CfeFutures MulticastTop Pitch 1.0.15
+omi_cboe_cfefutures_multicasttop_pitch_v1_0_15:register_heuristic("udp", omi_cboe_cfefutures_multicasttop_pitch_v1_0_15_udp_heuristic)
+
+-- Register Cboe CfeFutures MulticastTop Pitch 1.0.15 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_cboe_cfefutures_multicasttop_pitch_v1_0_15)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: Chicago Board Options Exchange
+--   Version: 1.0.15
+--   Since: 1.0.9
+--   Date: Thursday, March 1, 2018
+--   Specification: CBOE_FUTURES_EXCHANGE_MULTICAST_TOP_SPECIFICATION.pdf
+--
+-- Script:
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--
+-----------------------------------------------------------------------

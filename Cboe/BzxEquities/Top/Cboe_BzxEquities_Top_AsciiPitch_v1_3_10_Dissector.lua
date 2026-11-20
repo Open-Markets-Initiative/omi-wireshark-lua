@@ -39,7 +39,8 @@ omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_trade_price_short = Prot
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_trade_size = ProtoField.new("Last Trade Size", "cboe.bzxequities.top.asciipitch.v1.3.10.lasttradesize", ftypes.UINT24, nil, nil, nil, "Last trade size; 0 if no trades")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.last_trade_time = ProtoField.new("Last Trade Time", "cboe.bzxequities.top.asciipitch.v1.3.10.lasttradetime", ftypes.UINT32, nil, nil, nil, "Time of last trade; milliseconds since midnight, Eastern time")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.message_type = ProtoField.new("Message Type", "cboe.bzxequities.top.asciipitch.v1.3.10.messagetype", ftypes.STRING, nil, nil, nil, "Single ASCII byte identifying this packet type")
-omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.bzxequities.top.asciipitch.v1.3.10.midnightreference", ftypes.UINT64, nil, nil, nil, "Midnight Eastern Time reference time for subsequent Timestamp values, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.bzxequities.top.asciipitch.v1.3.10.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Eastern Time reference time for subsequent Timestamp values, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.bzxequities.top.asciipitch.v1.3.10.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Eastern Time reference time for subsequent Timestamp values, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.milliseconds = ProtoField.new("Milliseconds", "cboe.bzxequities.top.asciipitch.v1.3.10.milliseconds", ftypes.UINT16, nil, nil, nil, "Number of milliseconds since last Second message")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.password = ProtoField.new("Password", "cboe.bzxequities.top.asciipitch.v1.3.10.password", ftypes.STRING, nil, nil, nil, "Password, assigned by Cboe")
 omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.reg_sho_action = ProtoField.new("Reg SHO Action", "cboe.bzxequities.top.asciipitch.v1.3.10.regshoaction", ftypes.STRING)
@@ -1037,6 +1038,13 @@ cboe_bzxequities_top_asciipitch_v1_3_10.last_trade_time.display = function(value
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_bzxequities_top_asciipitch_v1_3_10.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Last Trade Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." America/New York"
+      end
+
       local format = cboe_bzxequities_top_asciipitch_v1_3_10.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
       return "Last Trade Time: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
     end
@@ -1135,10 +1143,10 @@ end
 cboe_bzxequities_top_asciipitch_v1_3_10.midnight_reference.dissect = function(buffer, offset, packet, parent)
   local length = cboe_bzxequities_top_asciipitch_v1_3_10.midnight_reference.size
   local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = UInt64.new("0")
+    value = 0
     local item = parent:add(omi_cboe_bzxequities_top_asciipitch_v1_3_10.fields.midnight_reference, range, value, "Midnight Reference: Not Applicable")
     item:add_proto_expert_info(cboe_bzxequities_top_asciipitch_v1_3_10.experts.not_a_number, "Midnight Reference is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1309,8 +1317,44 @@ cboe_bzxequities_top_asciipitch_v1_3_10.seconds = {}
 cboe_bzxequities_top_asciipitch_v1_3_10.seconds.size = 5
 
 -- Display: Seconds
-cboe_bzxequities_top_asciipitch_v1_3_10.seconds.display = function(value)
-  return "Seconds: "..value
+cboe_bzxequities_top_asciipitch_v1_3_10.seconds.display = function(value, buffer, offset, packet, parent)
+  -- A field wide enough for a 64 bit ftype reads as a UInt64 object, a narrow one as a number
+  local count = type(value) == "number" and value or tonumber(tostring(value))
+
+  -- Digits no reader could make a number of
+  if count == nil then
+    return "Seconds: "..tostring(value)
+  end
+
+  if cboe_bzxequities_top_asciipitch_v1_3_10.timestamp_format == 0 then
+    return "Seconds: "..value
+  end
+
+  local seconds = count
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_bzxequities_top_asciipitch_v1_3_10.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_bzxequities_top_asciipitch_v1_3_10.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Seconds: "..os.date("!%Y-%m-%d %H:%M:%S", day + seconds).." America/New York"
+      end
+
+      local format = cboe_bzxequities_top_asciipitch_v1_3_10.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S" or "%Y-%m-%d %H:%M:%S"
+      return "Seconds: "..os.date(format, settled + seconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Seconds: "..os.date("!%H:%M:%S", seconds)
 end
 
 -- Dissect: Seconds
@@ -1524,6 +1568,13 @@ cboe_bzxequities_top_asciipitch_v1_3_10.timestamp.display = function(value, buff
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_bzxequities_top_asciipitch_v1_3_10.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." America/New York"
+      end
 
       local format = cboe_bzxequities_top_asciipitch_v1_3_10.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
       return "Timestamp: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
@@ -3192,6 +3243,7 @@ tcp_table:add_for_decode_as(omi_cboe_bzxequities_top_asciipitch_v1_3_10)
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.3.10
 --   Date: Wednesday, September 23, 2026
+--   Specification: technical-specifications-cboe-titanium-u-s-equities-top-specification.pdf
 --
 -- Script:
 --   Compiler: 2.0

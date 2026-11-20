@@ -31,7 +31,8 @@ omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.indicative_price
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.loginacceptedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends a Login Accepted Packet in response to receiving a valid Login Request from the client.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.loginrejectedpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 server sends this packet in response to an invalid Login Request Packet from the client.")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.login_request_packet = ProtoField.new("Login Request Packet", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.loginrequestpacket", ftypes.STRING, nil, nil, nil, "The Soup 2.0 client must send a Login Request Packet immediately upon establishing a new TCP/IP socket connection to the server.")
-omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.midnightreference", ftypes.UINT64, nil, nil, nil, "Midnight Eastern Time reference time for subsequent Timestamp values, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Eastern Time reference time for subsequent Timestamp values, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Eastern Time reference time for subsequent Timestamp values, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.order_id = ProtoField.new("Order Id", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.orderid", ftypes.STRING, nil, nil, nil, "Day-specific identifier assigned to this order")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.packet_type = ProtoField.new("Packet Type", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.packettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type")
 omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.participant_id = ProtoField.new("Participant Id", "cboe.edgxequities.tcpdepthofbook.asciipitch.v1.15.16.participantid", ftypes.STRING, nil, nil, nil, "Optionally specified. If specified, MPID or 'RTAL' for retail specified orders (equities) of firm attributed to this quote. Space filled otherwise.")
@@ -652,10 +653,10 @@ end
 cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.midnight_reference.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.midnight_reference.size
   local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = UInt64.new("0")
+    value = 0
     local item = parent:add(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.fields.midnight_reference, range, value, "Midnight Reference: Not Applicable")
     item:add_proto_expert_info(cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.experts.not_a_number, "Midnight Reference is not a number: '"..range:string().."'")
     return offset + length, value
@@ -1533,6 +1534,13 @@ cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp.display = functio
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%03d", milliseconds).." America/New York"
+      end
 
       local format = cboe_edgxequities_tcpdepthofbook_asciipitch_v1_15_16.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
       return "Timestamp: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
@@ -3115,6 +3123,7 @@ tcp_table:add_for_decode_as(omi_cboe_edgxequities_tcpdepthofbook_asciipitch_v1_1
 --   Version: 1.15.16
 --   Since: 1.15.15
 --   Date: Wednesday, September 9, 2026
+--   Specification: technical-specifications-cboe-titanium-us-equities-tcp-depth-of-book-pitch-specification.pdf
 --
 -- Script:
 --   Compiler: 2.0

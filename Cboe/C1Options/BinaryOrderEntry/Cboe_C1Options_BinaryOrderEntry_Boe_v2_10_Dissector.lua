@@ -626,7 +626,8 @@ omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.time_in_force = ProtoField.
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_through_alert_type = ProtoField.new("Trade Through Alert Type", "cboe.c1options.binaryorderentry.boe.v2.10.tradethroughalerttype", ftypes.STRING, nil, nil, nil, "Indication of a type of trade through. Corresponds to TradeThroughAlertType (21098) in Cboe FIX.")
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_time_utc = ProtoField.new("Trade Time", "cboe.c1options.binaryorderentry.boe.v2.10.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.trade_time = ProtoField.new("Trade Time", "cboe.c1options.binaryorderentry.boe.v2.10.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
-omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.transact_time = ProtoField.new("Transact Time", "cboe.c1options.binaryorderentry.boe.v2.10.transacttime", ftypes.UINT64, nil, nil, nil, "The time the event occurred in the CFE matching engine.")
+omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.transact_time_utc = ProtoField.new("Transact Time", "cboe.c1options.binaryorderentry.boe.v2.10.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the CFE matching engine.")
+omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.transact_time = ProtoField.new("Transact Time", "cboe.c1options.binaryorderentry.boe.v2.10.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the CFE matching engine.")
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.c1options.binaryorderentry.boe.v2.10.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Report send time (for audit).")
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.c1options.binaryorderentry.boe.v2.10.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Report send time (for audit).")
 omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.unit_number = ProtoField.new("Unit Number", "cboe.c1options.binaryorderentry.boe.v2.10.unitnumber", ftypes.UINT8, nil, nil, nil, "A unit number.")
@@ -7453,19 +7454,20 @@ cboe_c1options_binaryorderentry_boe_v2_10.transact_time = {}
 -- Size: Transact Time
 cboe_c1options_binaryorderentry_boe_v2_10.transact_time.size = 8
 
--- Display: Transact Time
-cboe_c1options_binaryorderentry_boe_v2_10.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 cboe_c1options_binaryorderentry_boe_v2_10.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_c1options_binaryorderentry_boe_v2_10.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_c1options_binaryorderentry_boe_v2_10.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.transact_time
+  if cboe_c1options_binaryorderentry_boe_v2_10.timestamp_format == 3 then field = omi_cboe_c1options_binaryorderentry_boe_v2_10.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

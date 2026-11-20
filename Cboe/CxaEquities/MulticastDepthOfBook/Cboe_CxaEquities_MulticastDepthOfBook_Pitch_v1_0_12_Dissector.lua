@@ -46,7 +46,8 @@ omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.timestamp = Proto
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_designation = ProtoField.new("Trade Designation", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradedesignation", ftypes.STRING, nil, nil, nil, "Trade designation. Valid only for on-exchange executions, space otherwise.")
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_from_converted_order = ProtoField.new("Trade From Converted Order", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradefromconvertedorder", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "0 = Normal trade, 1 = Trade from converted order.")
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_report_type = ProtoField.new("Trade Report Type", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradereporttype", ftypes.STRING, nil, nil, nil, "Trade report type. Valid only for off-exchange trade reports, space otherwise.")
-omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_transaction_time = ProtoField.new("Trade Transaction Time", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradetransactiontime", ftypes.UINT64, nil, nil, nil, "Nanosecond timestamp of the off-exchange trade as specified in the Trade Report submitted by the trading participant. Valid only for off-exchange trade reports, zero otherwise.")
+omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_transaction_time_utc = ProtoField.new("Trade Transaction Time", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradetransactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanosecond timestamp of the off-exchange trade as specified in the Trade Report submitted by the trading participant. Valid only for off-exchange trade reports, zero otherwise.")
+omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_transaction_time = ProtoField.new("Trade Transaction Time", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradetransactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanosecond timestamp of the off-exchange trade as specified in the Trade Report submitted by the trading participant. Valid only for off-exchange trade reports, zero otherwise.")
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_type = ProtoField.new("Trade Type", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradetype", ftypes.STRING, nil, nil, nil, "Trade type. Auction executions of Undisclosed orders will include one of O, C, or H.")
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trading_status = ProtoField.new("Trading Status", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading status of the session for the symbol.")
 omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.unit = ProtoField.new("Unit", "cboe.cxaequities.multicastdepthofbook.pitch.v1.0.12.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
@@ -942,19 +943,20 @@ cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.trade_transaction_time = {}
 -- Size: Trade Transaction Time
 cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.trade_transaction_time.size = 8
 
--- Display: Trade Transaction Time
-cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.trade_transaction_time.display = function(value)
-  return "Trade Transaction Time: "..value
-end
-
 -- Dissect: Trade Transaction Time
 cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.trade_transaction_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.trade_transaction_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.trade_transaction_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_transaction_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_transaction_time
+  if cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.timestamp_format == 3 then field = omi_cboe_cxaequities_multicastdepthofbook_pitch_v1_0_12.fields.trade_transaction_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

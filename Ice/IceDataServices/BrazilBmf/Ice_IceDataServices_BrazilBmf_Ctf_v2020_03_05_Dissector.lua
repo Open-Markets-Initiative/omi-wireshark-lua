@@ -3080,6 +3080,7 @@ register_filehandler(omi_ice_icedataservices_brazilbmf_ctf_v2020_03_05_lines_rea
 --   Date: Thursday, March 5, 2020
 --   Specification: Brazil_BMnF_Futures_and_Options_2020-03-05.pdf
 --   Specification: CTF_Wire_Protocol_2017-10-10.pdf
+--   Specification: CTF_Command_Reference_for_the_CSP_v.6.10-6.14_2019-05-28.pdf
 --
 -- Script:
 --   Compiler: 2.0

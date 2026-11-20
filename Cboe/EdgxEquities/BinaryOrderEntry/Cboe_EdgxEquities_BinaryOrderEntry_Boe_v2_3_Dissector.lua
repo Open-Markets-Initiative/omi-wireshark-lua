@@ -373,7 +373,8 @@ omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.symbol = ProtoField.new("
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "cboe.edgxequities.binaryorderentry.boe.v2.3.symbolsfx", ftypes.STRING)
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.text = ProtoField.new("Text", "cboe.edgxequities.binaryorderentry.boe.v2.3.text", ftypes.STRING, nil, nil, nil, "Human readable text with more information about the reject reason.")
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.time_in_force = ProtoField.new("Time In Force", "cboe.edgxequities.binaryorderentry.boe.v2.3.timeinforce", ftypes.STRING)
-omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.transact_time = ProtoField.new("Transact Time", "cboe.edgxequities.binaryorderentry.boe.v2.3.transacttime", ftypes.UINT64, nil, nil, nil, "The time the event occurred in the CFE matching engine.")
+omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.transact_time_utc = ProtoField.new("Transact Time", "cboe.edgxequities.binaryorderentry.boe.v2.3.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the CFE matching engine.")
+omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.transact_time = ProtoField.new("Transact Time", "cboe.edgxequities.binaryorderentry.boe.v2.3.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the CFE matching engine.")
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.edgxequities.binaryorderentry.boe.v2.3.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the Cboe Matching Engine (not the time the message was sent).")
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.edgxequities.binaryorderentry.boe.v2.3.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the Cboe Matching Engine (not the time the message was sent).")
 omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.unit_number = ProtoField.new("Unit Number", "cboe.edgxequities.binaryorderentry.boe.v2.3.unitnumber", ftypes.UINT8)
@@ -3935,19 +3936,20 @@ cboe_edgxequities_binaryorderentry_boe_v2_3.transact_time = {}
 -- Size: Transact Time
 cboe_edgxequities_binaryorderentry_boe_v2_3.transact_time.size = 8
 
--- Display: Transact Time
-cboe_edgxequities_binaryorderentry_boe_v2_3.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 cboe_edgxequities_binaryorderentry_boe_v2_3.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = cboe_edgxequities_binaryorderentry_boe_v2_3.transact_time.size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = cboe_edgxequities_binaryorderentry_boe_v2_3.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.transact_time
+  if cboe_edgxequities_binaryorderentry_boe_v2_3.timestamp_format == 3 then field = omi_cboe_edgxequities_binaryorderentry_boe_v2_3.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

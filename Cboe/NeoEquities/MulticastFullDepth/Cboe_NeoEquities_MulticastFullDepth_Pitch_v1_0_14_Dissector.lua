@@ -405,7 +405,10 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.corrected_settlement_date.size
 
 -- Display: Corrected Settlement Date
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.corrected_settlement_date.display = function(value)
-  return "Corrected Settlement Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Corrected Settlement Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Corrected Settlement Date
@@ -989,7 +992,10 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.original_settlement_date.size 
 
 -- Display: Original Settlement Date
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.original_settlement_date.display = function(value)
-  return "Original Settlement Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Original Settlement Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Original Settlement Date
@@ -1305,7 +1311,10 @@ cboe_neoequities_multicastfulldepth_pitch_v1_0_14.settlement_date.size = 4
 
 -- Display: Settlement Date
 cboe_neoequities_multicastfulldepth_pitch_v1_0_14.settlement_date.display = function(value)
-  return "Settlement Date: "..value
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+  return string.format("Settlement Date: %04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Settlement Date

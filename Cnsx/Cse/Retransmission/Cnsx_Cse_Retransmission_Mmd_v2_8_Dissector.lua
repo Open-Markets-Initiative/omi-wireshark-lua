@@ -817,6 +817,7 @@ cnsx_cse_retransmission_mmd_v2_8.expiry.display = function(value)
     return "Expiry: None"
   end
 
+  value = value:tonumber()
   local year = math.floor(value / 10000)
   local month = math.floor(value / 100) % 100
   local day = value % 100
@@ -968,6 +969,7 @@ cnsx_cse_retransmission_mmd_v2_8.listing.display = function(value)
     return "Listing: None"
   end
 
+  value = value:tonumber()
   local year = math.floor(value / 10000)
   local month = math.floor(value / 100) % 100
   local day = value % 100

@@ -86,7 +86,8 @@ local timestamp_format_enum = {
   { 1, "Raw", 0 },
   { 2, "Time of Day", 1 },
   { 3, "DateTime Local", 2 },
-  { 4, "DateTime Utc", 3 }
+  { 4, "DateTime Utc", 3 },
+  { 5, "DateTime America/New York", 4 }
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
@@ -344,8 +345,39 @@ cboe_bzxequities_summarydepth_csdp_v1_0_4.last_update_timestamp = {}
 cboe_bzxequities_summarydepth_csdp_v1_0_4.last_update_timestamp.size = 8
 
 -- Display: Last Update Timestamp
-cboe_bzxequities_summarydepth_csdp_v1_0_4.last_update_timestamp.display = function(value)
-  return "Last Update Timestamp: "..value
+cboe_bzxequities_summarydepth_csdp_v1_0_4.last_update_timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 0 then
+    return "Last Update Timestamp: "..value
+  end
+
+  -- Parse nanoseconds since midnight
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Last Update Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
+
+      local format = cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Last Update Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Last Update Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Last Update Timestamp
@@ -834,6 +866,13 @@ cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp.display = function(value, bu
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
 
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Timestamp: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
+
       local format = cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
       return "Timestamp: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
     end
@@ -903,6 +942,13 @@ cboe_bzxequities_summarydepth_csdp_v1_0_4.transaction_time.display = function(va
     if capture_time >= 86400 then
       -- The venue's midnight: the frame's instant less the time of day it states
       local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      -- The zone's own date and clock, in the zone it keeps
+      if cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 4 then
+        local day = math.floor(settled / 86400 + 0.5) * 86400
+
+        return "Transaction Time: "..os.date("!%Y-%m-%d %H:%M:%S.", day + seconds)..string.format("%09d", nanoseconds).." America/New York"
+      end
 
       local format = cboe_bzxequities_summarydepth_csdp_v1_0_4.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
       return "Transaction Time: "..os.date(format, settled + seconds)..string.format("%09d", nanoseconds)
