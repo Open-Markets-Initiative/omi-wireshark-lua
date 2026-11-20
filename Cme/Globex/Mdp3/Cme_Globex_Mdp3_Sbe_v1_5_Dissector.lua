@@ -177,9 +177,9 @@ omi_cme_globex_mdp3_sbe_v1_5.fields.request_ack_security_group = ProtoField.new(
 omi_cme_globex_mdp3_sbe_v1_5.fields.request_ack_security_groups = ProtoField.new("Request Ack Security Groups", "cme.globex.mdp3.sbe.v1.5.requestacksecuritygroups", ftypes.STRING, nil, nil, nil, "NoSecurityGroups Block")
 omi_cme_globex_mdp3_sbe_v1_5.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.5.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_5.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.5.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
-omi_cme_globex_mdp3_sbe_v1_5.fields.reserved = ProtoField.new("Reserved", "cme.globex.mdp3.sbe.v1.5.reserved", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cme_globex_mdp3_sbe_v1_5.fields.reserved_12 = ProtoField.new("Reserved 12", "cme.globex.mdp3.sbe.v1.5.reserved12", ftypes.UINT32, nil, base.DEC, 0xFFF00000, "12 reserved bits")
-omi_cme_globex_mdp3_sbe_v1_5.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.globex.mdp3.sbe.v1.5.reservedbits", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "ReservedBits")
+omi_cme_globex_mdp3_sbe_v1_5.fields.reserved_21_to_32 = ProtoField.new("Reserved 21 To 32", "cme.globex.mdp3.sbe.v1.5.reserved21to32", ftypes.UINT32, nil, base.DEC, 0xFFF00000, "12 reserved bits")
+omi_cme_globex_mdp3_sbe_v1_5.fields.reserved_5_to_7 = ProtoField.new("Reserved 5 To 7", "cme.globex.mdp3.sbe.v1.5.reserved5to7", ftypes.UINT8, nil, base.DEC, 0x70, "3 reserved bits")
+omi_cme_globex_mdp3_sbe_v1_5.fields.reserved_7 = ProtoField.new("Reserved 7", "cme.globex.mdp3.sbe.v1.5.reserved7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "1 reserved bit")
 omi_cme_globex_mdp3_sbe_v1_5.fields.rfq_cross_eligible = ProtoField.new("Rfq Cross Eligible", "cme.globex.mdp3.sbe.v1.5.rfqcrosseligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00002000, "RFQCrossEligible")
 omi_cme_globex_mdp3_sbe_v1_5.fields.rounded = ProtoField.new("Rounded", "cme.globex.mdp3.sbe.v1.5.rounded", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cme_globex_mdp3_sbe_v1_5.fields.rpt_seq = ProtoField.new("Rpt Seq", "cme.globex.mdp3.sbe.v1.5.rptseq", ftypes.UINT32, nil, nil, nil, "Sequence number of the last Market Data entry processed for the instrument")
@@ -236,7 +236,6 @@ omi_cme_globex_mdp3_sbe_v1_5.fields.underlying_security_id = ProtoField.new("Und
 omi_cme_globex_mdp3_sbe_v1_5.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "cme.globex.mdp3.sbe.v1.5.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying Instrument Symbol (Contract Name)")
 omi_cme_globex_mdp3_sbe_v1_5.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.globex.mdp3.sbe.v1.5.unitofmeasure", ftypes.STRING, nil, nil, nil, "Unit of measure for the products' original contract size. This will be populated for all products listed on CME Globex")
 omi_cme_globex_mdp3_sbe_v1_5.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.globex.mdp3.sbe.v1.5.unitofmeasureqty", ftypes.DOUBLE, nil, nil, nil, "This field contains the contract size for each instrument. Used in combination with tag 996-UnitofMeasure")
-omi_cme_globex_mdp3_sbe_v1_5.fields.unused_bits_5_to_6 = ProtoField.new("Unused Bits 5 To 6", "cme.globex.mdp3.sbe.v1.5.unusedbits5to6", ftypes.UINT8, nil, base.DEC, 0x60, "2 unused bits")
 omi_cme_globex_mdp3_sbe_v1_5.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.globex.mdp3.sbe.v1.5.userdefinedinstrument", ftypes.STRING, nil, nil, nil, "User-defined instruments flag")
 omi_cme_globex_mdp3_sbe_v1_5.fields.uuid = ProtoField.new("Uuid", "cme.globex.mdp3.sbe.v1.5.uuid", ftypes.UINT64, nil, nil, nil, "Session Identifier defined as type long uInt64, recommended to use timestamp as number of microseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_5.fields.variable_product_eligibility = ProtoField.new("Variable Product Eligibility", "cme.globex.mdp3.sbe.v1.5.variableproducteligibility", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00010000, "VariableProductEligibility")
@@ -5479,8 +5478,8 @@ cme_globex_mdp3_sbe_v1_5.match_event_indicator.bits = function(range, value, pac
   -- Recovery Msg: 1 Bit
   parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.recovery_msg, range, value)
 
-  -- Reserved: 1 Bit
-  parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.reserved, range, value)
+  -- Reserved 7: 1 Bit
+  parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.reserved_7, range, value)
 
   -- End Of Event: 1 Bit
   parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.end_of_event, range, value)
@@ -5941,8 +5940,8 @@ cme_globex_mdp3_sbe_v1_5.inst_attrib_value.bits = function(range, value, packet,
   -- Implied Matching Eligibility: 1 Bit
   parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.implied_matching_eligibility, range, value)
 
-  -- Reserved 12: 12 Bit
-  parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.reserved_12, range, value)
+  -- Reserved 21 To 32: 12 Bit
+  parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.reserved_21_to_32, range, value)
 end
 
 -- Dissect: Inst Attrib Value
@@ -6326,11 +6325,8 @@ cme_globex_mdp3_sbe_v1_5.settl_price_type.bits = function(range, value, packet, 
   -- Intraday: 1 Bit
   parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.intraday, range, value)
 
-  -- Reserved Bits: 1 Bit
-  parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.reserved_bits, range, value)
-
-  -- Unused Bits 5 To 6: 2 Bit
-  parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.unused_bits_5_to_6, range, value)
+  -- Reserved 5 To 7: 3 Bit
+  parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.reserved_5_to_7, range, value)
 
   -- Null Value: 1 Bit
   parent:add(omi_cme_globex_mdp3_sbe_v1_5.fields.null_value, range, value)
@@ -6619,7 +6615,7 @@ cme_globex_mdp3_sbe_v1_5.md_instrument_definition_option.fields = function(buffe
   -- Trading Reference Price: PRICENULL
   index, trading_reference_price = cme_globex_mdp3_sbe_v1_5.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 7 fields
+  -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_5.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Cleared Volume: Int32NULL
@@ -6916,7 +6912,7 @@ cme_globex_mdp3_sbe_v1_5.snapshot_full_refresh_group.fields = function(buffer, o
   -- Open Close Settl Flag: OpenCloseSettlFlag
   index, open_close_settl_flag = cme_globex_mdp3_sbe_v1_5.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 7 fields
+  -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_5.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Md Entry Type: MDEntryType
@@ -7913,7 +7909,7 @@ cme_globex_mdp3_sbe_v1_5.incremental_refresh_daily_statistics_group.fields = fun
   -- Trading Reference Date: LocalMktDate
   index, trading_reference_date = cme_globex_mdp3_sbe_v1_5.trading_reference_date.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 7 fields
+  -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_5.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Md Update Action: MDUpdateAction
@@ -8655,7 +8651,7 @@ cme_globex_mdp3_sbe_v1_5.md_instrument_definition_spread.fields = function(buffe
   -- Trading Reference Price: PRICENULL
   index, trading_reference_price = cme_globex_mdp3_sbe_v1_5.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 7 fields
+  -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_5.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Open Interest Qty: Int32NULL
@@ -8915,7 +8911,7 @@ cme_globex_mdp3_sbe_v1_5.md_instrument_definition_future.fields = function(buffe
   -- Trading Reference Price: PRICENULL
   index, trading_reference_price = cme_globex_mdp3_sbe_v1_5.trading_reference_price.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 7 fields
+  -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = cme_globex_mdp3_sbe_v1_5.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Open Interest Qty: Int32NULL

@@ -299,10 +299,11 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.random_uncrossing = ProtoFie
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.rejected_message = ProtoField.new("Rejected Message", "euronext.optiq.dropcopygateway.sbe.v6.67.rejectedmessage", ftypes.UINT8, nil, nil, nil, "rejectedMessage")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.rejected_message_id = ProtoField.new("Rejected Message Id", "euronext.optiq.dropcopygateway.sbe.v6.67.rejectedmessageid", ftypes.UINT16, nil, nil, nil, "rejectedMessageID")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.request_with_client_order_id = ProtoField.new("Request With Client Order Id", "euronext.optiq.dropcopygateway.sbe.v6.67.requestwithclientorderid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "RequestWithClientOrderID")
-omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_2 = ProtoField.new("Reserved 2", "euronext.optiq.dropcopygateway.sbe.v6.67.reserved2", ftypes.UINT8, nil, base.DEC, 0xC0, "2 reserved bits")
-omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_3 = ProtoField.new("Reserved 3", "euronext.optiq.dropcopygateway.sbe.v6.67.reserved3", ftypes.UINT8, nil, base.DEC, 0xE0, "3 reserved bits")
-omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_5 = ProtoField.new("Reserved 5", "euronext.optiq.dropcopygateway.sbe.v6.67.reserved5", ftypes.UINT16, nil, base.DEC, 0xF800, "5 reserved bits")
-omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_6 = ProtoField.new("Reserved 6", "euronext.optiq.dropcopygateway.sbe.v6.67.reserved6", ftypes.UINT16, nil, base.DEC, 0xFC00, "6 reserved bits")
+omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_11_to_16 = ProtoField.new("Reserved 11 To 16", "euronext.optiq.dropcopygateway.sbe.v6.67.reserved11to16", ftypes.UINT16, nil, base.DEC, 0xFC00, "6 reserved bits")
+omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_12_to_16 = ProtoField.new("Reserved 12 To 16", "euronext.optiq.dropcopygateway.sbe.v6.67.reserved12to16", ftypes.UINT16, nil, base.DEC, 0xF800, "5 reserved bits")
+omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_6_to_8 = ProtoField.new("Reserved 6 To 8", "euronext.optiq.dropcopygateway.sbe.v6.67.reserved6to8", ftypes.UINT8, nil, base.DEC, 0xE0, "3 reserved bits")
+omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_7_to_8 = ProtoField.new("Reserved 7 To 8", "euronext.optiq.dropcopygateway.sbe.v6.67.reserved7to8", ftypes.UINT8, nil, base.DEC, 0xC0, "2 reserved bits")
+omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_8 = ProtoField.new("Reserved 8", "euronext.optiq.dropcopygateway.sbe.v6.67.reserved8", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "1 reserved bit")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.rfe_answer = ProtoField.new("Rfe Answer", "euronext.optiq.dropcopygateway.sbe.v6.67.rfeanswer", ftypes.UINT8, nil, nil, nil, "rFEAnswer")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.rfe_answer_optional = ProtoField.new("Rfe Answer Optional", "euronext.optiq.dropcopygateway.sbe.v6.67.rfeansweroptional", ftypes.UINT8, nil, nil, nil, "rFEAnswer")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.rfq_answer = ProtoField.new("Rfq Answer", "euronext.optiq.dropcopygateway.sbe.v6.67.rfqanswer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "RFQAnswer")
@@ -369,8 +370,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.transparency_indicator = Pro
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.uncrossing_trade = ProtoField.new("Uncrossing Trade", "euronext.optiq.dropcopygateway.sbe.v6.67.uncrossingtrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "UncrossingTrade")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.undisclosed_iceberg_type = ProtoField.new("Undisclosed Iceberg Type", "euronext.optiq.dropcopygateway.sbe.v6.67.undisclosedicebergtype", ftypes.UINT8, nil, nil, nil, "undisclosedIcebergType")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.undisclosed_price = ProtoField.new("Undisclosed Price", "euronext.optiq.dropcopygateway.sbe.v6.67.undisclosedprice", ftypes.INT64, nil, nil, nil, "undisclosedPrice")
-omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_bit_0 = ProtoField.new("Unused Bit 0", "euronext.optiq.dropcopygateway.sbe.v6.67.unusedbit0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "1 unused bit")
-omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_bit_7 = ProtoField.new("Unused Bit 7", "euronext.optiq.dropcopygateway.sbe.v6.67.unusedbit7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "1 unused bit")
+omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_bit_1 = ProtoField.new("Unused Bit 1", "euronext.optiq.dropcopygateway.sbe.v6.67.unusedbit1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "1 unused bit")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.update_type = ProtoField.new("Update Type", "euronext.optiq.dropcopygateway.sbe.v6.67.updatetype", ftypes.UINT8, nil, nil, nil, "updateType")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.use_of_cross_partition = ProtoField.new("Use Of Cross Partition", "euronext.optiq.dropcopygateway.sbe.v6.67.useofcrosspartition", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "UseOfCrossPartition")
 omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.version = ProtoField.new("Version", "euronext.optiq.dropcopygateway.sbe.v6.67.version", ftypes.UINT16, nil, nil, nil, "Schema version")
@@ -8505,8 +8505,8 @@ euronext_optiq_dropcopygateway_sbe_v6_67.dark_execution_instruction.bits = funct
   -- Dark Passive Order Indicator: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.dark_passive_order_indicator, range, value)
 
-  -- Unused Bit 7: 1 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_bit_7, range, value)
+  -- Reserved 8: 1 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_8, range, value)
 end
 
 -- Dissect: Dark Execution Instruction
@@ -9217,8 +9217,8 @@ euronext_optiq_dropcopygateway_sbe_v6_67.open_close.bits = function(range, value
   -- Leg 9: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.leg_9, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_6, range, value)
+  -- Reserved 11 To 16: 6 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_11_to_16, range, value)
 end
 
 -- Dissect: Open Close
@@ -11420,8 +11420,8 @@ euronext_optiq_dropcopygateway_sbe_v6_67.mi_fid_indicators.bits = function(range
   -- Frmaramplp: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.frmaramplp, range, value)
 
-  -- Reserved 2: 2 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_2, range, value)
+  -- Reserved 7 To 8: 2 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_7_to_8, range, value)
 end
 
 -- Dissect: Mi Fid Indicators
@@ -12605,8 +12605,8 @@ euronext_optiq_dropcopygateway_sbe_v6_67.mi_fid_indicators_optional.bits = funct
   -- Frmaramplp: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.frmaramplp, range, value)
 
-  -- Reserved 2: 2 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_2, range, value)
+  -- Reserved 7 To 8: 2 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_7_to_8, range, value)
 end
 
 -- Dissect: Mi Fid Indicators Optional
@@ -14268,8 +14268,8 @@ end
 -- Dissect Bit Fields: Trading Session
 euronext_optiq_dropcopygateway_sbe_v6_67.trading_session.bits = function(range, value, packet, parent)
 
-  -- Unused Bit 0: 1 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_bit_0, range, value)
+  -- Unused Bit 1: 1 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.unused_bit_1, range, value)
 
   -- Session 1: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.session_1, range, value)
@@ -14283,8 +14283,8 @@ euronext_optiq_dropcopygateway_sbe_v6_67.trading_session.bits = function(range, 
   -- Session 4: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.session_4, range, value)
 
-  -- Reserved 3: 3 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_3, range, value)
+  -- Reserved 6 To 8: 3 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_6_to_8, range, value)
 end
 
 -- Dissect: Trading Session
@@ -15301,8 +15301,8 @@ euronext_optiq_dropcopygateway_sbe_v6_67.phase_qualifier.bits = function(range, 
   -- Execution Prevention Across All Firms: 1 Bit
   parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.execution_prevention_across_all_firms, range, value)
 
-  -- Reserved 5: 5 Bit
-  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_5, range, value)
+  -- Reserved 12 To 16: 5 Bit
+  parent:add(omi_euronext_optiq_dropcopygateway_sbe_v6_67.fields.reserved_12_to_16, range, value)
 end
 
 -- Dissect: Phase Qualifier

@@ -81,7 +81,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.entering_firm_optional = P
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.entering_trader = ProtoField.new("Entering Trader", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.enteringtrader", ftypes.STRING, nil, nil, nil, "enteringTrader")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.establishment_reject_code = ProtoField.new("Establishment Reject Code", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.establishmentrejectcode", ftypes.UINT8, nil, nil, nil, "establishmentRejectCode")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.event_id = ProtoField.new("Event Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.eventid", ftypes.UINT32, nil, nil, nil, "eventID")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.event_indicator = ProtoField.new("Event Indicator", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.eventindicator", ftypes.UINT8, nil, nil, nil, "eventIndicator")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.event_indicator = ProtoField.new("Event Indicator", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.eventindicator", ftypes.STRING, nil, nil, nil, "EventIndicator bit set")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.exec_id = ProtoField.new("Exec Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.execid", ftypes.UINT64, nil, nil, nil, "execID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.execrefid", ftypes.UINT64, nil, nil, nil, "execRefID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.execrestatementreason", ftypes.UINT8, nil, nil, nil, "execRestatementReason")
@@ -111,6 +111,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.legs_group = ProtoField.ne
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.legs_groups = ProtoField.new("Legs Groups", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.legsgroups", ftypes.STRING, nil, nil, nil, "noLegs Block")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.long_qty = ProtoField.new("Long Qty", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.longqty", ftypes.UINT64, nil, nil, nil, "longQty")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.long_qty_optional = ProtoField.new("Long Qty Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.longqtyoptional", ftypes.UINT64, nil, nil, nil, "Long Quantity.")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.low_priority = ProtoField.new("Low Priority", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.lowpriority", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "LowPriority")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.major_number = ProtoField.new("Major Number", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.majornumber", ftypes.UINT8, nil, nil, nil, "majorNumber")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.market_segment_id = ProtoField.new("Market Segment Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.marketsegmentid", ftypes.UINT8, nil, nil, nil, "marketSegmentID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.market_segment_id_optional = ProtoField.new("Market Segment Id Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.marketsegmentidoptional", ftypes.UINT8, nil, nil, nil, "marketSegmentID")
@@ -187,6 +188,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.pos_trans_type = ProtoFiel
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.pos_type = ProtoField.new("Pos Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.postype", ftypes.STRING, nil, nil, nil, "Used to identify the type of quantity.")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.positions_group = ProtoField.new("Positions Group", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.positionsgroup", ftypes.STRING, nil, nil, nil, "noPositions")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.positions_groups = ProtoField.new("Positions Groups", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.positionsgroups", ftypes.STRING, nil, nil, nil, "noPositions Block")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.poss_resend = ProtoField.new("Poss Resend", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.possresend", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "PossResend")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.prefix = ProtoField.new("Prefix", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.prefix", ftypes.UINT16)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.price_8 = ProtoField.new("Price 8", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.price8", ftypes.DOUBLE, nil, nil, nil, "price")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.price_8_optional = ProtoField.new("Price 8 Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.price8optional", ftypes.DOUBLE, nil, nil, nil, "price")
@@ -207,6 +209,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.ref_msg_type = ProtoField.
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.ref_seq_num = ProtoField.new("Ref Seq Num", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.refseqnum", ftypes.UINT32, nil, nil, nil, "refSeqNum")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "requestTimestamp")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.request_timestamp = ProtoField.new("Request Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "requestTimestamp")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.reserved_3_to_8 = ProtoField.new("Reserved 3 To 8", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.reserved3to8", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.retransmit_reject_code = ProtoField.new("Retransmit Reject Code", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.retransmitrejectcode", ftypes.UINT8, nil, nil, nil, "retransmitRejectCode")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.routing_instruction = ProtoField.new("Routing Instruction", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.routinginstruction", ftypes.UINT8, nil, nil, nil, "routingInstruction")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.schema_id = ProtoField.new("Schema Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.4.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
@@ -1986,29 +1989,6 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_id.dissect = function(buffer, o
   local display = b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.event_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Event Indicator
-b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator = {}
-
--- Size: Event Indicator
-b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.size = 1
-
--- Display: Event Indicator
-b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.display = function(value)
-  return "Event Indicator: "..value
-end
-
--- Dissect: Event Indicator
-b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.dissect = function(buffer, offset, packet, parent)
-  local length = b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.size
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.display(value, buffer, offset, packet, parent)
-
-  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.event_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -7787,6 +7767,56 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.investor_id.dissect = function(buffer
   end
 end
 
+-- Event Indicator
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator = {}
+
+-- Size: Event Indicator
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.size = 1
+
+-- Display: Event Indicator
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Poss Resend flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Poss Resend"
+  end
+  -- Is Low Priority flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Low Priority"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Event Indicator
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.bits = function(range, value, packet, parent)
+
+  -- Poss Resend: 1 Bit
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.poss_resend, range, value)
+
+  -- Low Priority: 1 Bit
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.low_priority, range, value)
+
+  -- Reserved 3 To 8: 6 Bit
+  parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.reserved_3_to_8, range, value)
+end
+
+-- Dissect: Event Indicator
+b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.dissect = function(buffer, offset, packet, parent)
+  local size = b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.display(range, value, packet, parent)
+  local element = parent:add(omi_b3_b3derivatives_binaryentrypoint_sbe_v8_4.fields.event_indicator, range, display)
+
+  if show.structs then
+    b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
 -- Outbound Business Header
 b3_b3derivatives_binaryentrypoint_sbe_v8_4.outbound_business_header = {}
 
@@ -7816,7 +7846,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.outbound_business_header.fields = fun
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = b3_b3derivatives_binaryentrypoint_sbe_v8_4.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Event Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Event Indicator: Struct of 3 fields
   index, event_indicator = b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id Optional: 1 Byte Unsigned Fixed Width Integer Nullable
@@ -9075,7 +9105,7 @@ b3_b3derivatives_binaryentrypoint_sbe_v8_4.bidirectional_business_header.fields 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = b3_b3derivatives_binaryentrypoint_sbe_v8_4.sending_time.dissect(buffer, index, packet, parent)
 
-  -- Event Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Event Indicator: Struct of 3 fields
   index, event_indicator = b3_b3derivatives_binaryentrypoint_sbe_v8_4.event_indicator.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id Optional: 1 Byte Unsigned Fixed Width Integer Nullable

@@ -43,7 +43,7 @@ omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.price_short = ProtoField.new(
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.quantity = ProtoField.new("Quantity", "memx.memxoptions.memoirdepth.sbe.v1.6.a.quantity", ftypes.UINT32)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.quantity_reduced = ProtoField.new("Quantity Reduced", "memx.memxoptions.memoirdepth.sbe.v1.6.a.quantityreduced", ftypes.UINT32, nil, nil, nil, "QuantityReduced")
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.quantity_short = ProtoField.new("Quantity Short", "memx.memxoptions.memoirdepth.sbe.v1.6.a.quantityshort", ftypes.UINT16, nil, nil, nil, "Quantity")
-omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.reserved_7 = ProtoField.new("Reserved 7", "memx.memxoptions.memoirdepth.sbe.v1.6.a.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
+omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.reserved_2_to_8 = ProtoField.new("Reserved 2 To 8", "memx.memxoptions.memoirdepth.sbe.v1.6.a.reserved2to8", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.memoirdepth.sbe.v1.6.a.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.sequence_number = ProtoField.new("Sequence Number", "memx.memxoptions.memoirdepth.sbe.v1.6.a.sequencenumber", ftypes.UINT64)
 omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxoptions.memoirdepth.sbe.v1.6.a.sequencedmessage", ftypes.STRING)
@@ -1366,8 +1366,8 @@ memx_memxoptions_memoirdepth_sbe_v1_6_a.trade_conditions.bits = function(range, 
   -- Intermarket Sweep: 1 Bit
   parent:add(omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.intermarket_sweep, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.reserved_7, range, value)
+  -- Reserved 2 To 8: 7 Bit
+  parent:add(omi_memx_memxoptions_memoirdepth_sbe_v1_6_a.fields.reserved_2_to_8, range, value)
 end
 
 -- Dissect: Trade Conditions

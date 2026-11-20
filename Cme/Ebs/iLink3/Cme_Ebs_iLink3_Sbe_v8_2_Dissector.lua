@@ -52,11 +52,6 @@ omi_cme_ebs_ilink3_sbe_v8_2.fields.exchange_quote_req_id = ProtoField.new("Excha
 omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_ack_status = ProtoField.new("Exec Ack Status", "cme.ebs.ilink3.sbe.v8.2.execackstatus", ftypes.UINT8, nil, nil, nil, "Indicates the status of the execution acknowledgement")
 omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_id = ProtoField.new("Exec Id", "cme.ebs.ilink3.sbe.v8.2.execid", ftypes.STRING, nil, nil, nil, "Unique identifier of execution message as assigned by the exchange � unique per day across all instruments and across all good till orders.")
 omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst = ProtoField.new("Exec Inst", "cme.ebs.ilink3.sbe.v8.2.execinst", ftypes.STRING, nil, nil, nil, "ExecInst bit set")
-omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst_reserved_1 = ProtoField.new("Exec Inst Reserved 1", "cme.ebs.ilink3.sbe.v8.2.execinstreserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Reserved1")
-omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst_reserved_2 = ProtoField.new("Exec Inst Reserved 2", "cme.ebs.ilink3.sbe.v8.2.execinstreserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Reserved2")
-omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst_reserved_3 = ProtoField.new("Exec Inst Reserved 3", "cme.ebs.ilink3.sbe.v8.2.execinstreserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "Reserved3")
-omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst_reserved_4 = ProtoField.new("Exec Inst Reserved 4", "cme.ebs.ilink3.sbe.v8.2.execinstreserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Reserved4")
-omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst_reserved_5 = ProtoField.new("Exec Inst Reserved 5", "cme.ebs.ilink3.sbe.v8.2.execinstreserved5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Reserved5")
 omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "cme.ebs.ilink3.sbe.v8.2.execrestatementreason", ftypes.UINT8, nil, nil, nil, "Used to communicate unsolicited cancels")
 omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_type = ProtoField.new("Exec Type", "cme.ebs.ilink3.sbe.v8.2.exectype", ftypes.STRING, nil, nil, nil, "Describes the specific ExecutionRpt as trade cancellation or correction")
 omi_cme_ebs_ilink3_sbe_v8_2.fields.execution_mode = ProtoField.new("Execution Mode", "cme.ebs.ilink3.sbe.v8.2.executionmode", ftypes.STRING, nil, nil, nil, "Identifies whether the order should be treated as passive (will not match when entered) or aggressive (could match when entered); default behavior when absent is aggressive")
@@ -211,6 +206,7 @@ omi_cme_ebs_ilink3_sbe_v8_2.fields.requesting_party_id_source = ProtoField.new("
 omi_cme_ebs_ilink3_sbe_v8_2.fields.requesting_party_ids_group = ProtoField.new("Requesting Party Ids Group", "cme.ebs.ilink3.sbe.v8.2.requestingpartyidsgroup", ftypes.STRING, nil, nil, nil, "Number of requesting party identifiers. Will be zero if specific PartyDetailsDefinitionID's are being requested. Will be populated only if all PartyDetailsDefinitions are being requested for a specific Firm")
 omi_cme_ebs_ilink3_sbe_v8_2.fields.requesting_party_ids_groups = ProtoField.new("Requesting Party Ids Groups", "cme.ebs.ilink3.sbe.v8.2.requestingpartyidsgroups", ftypes.STRING, nil, nil, nil, "NoRequestingPartyIDs Block")
 omi_cme_ebs_ilink3_sbe_v8_2.fields.requesting_party_role = ProtoField.new("Requesting Party Role", "cme.ebs.ilink3.sbe.v8.2.requestingpartyrole", ftypes.STRING, nil, nil, nil, "Identifies the type or role of the RequestingPartyID(1658) specified. Constant value")
+omi_cme_ebs_ilink3_sbe_v8_2.fields.reserved_4_to_8 = ProtoField.new("Reserved 4 To 8", "cme.ebs.ilink3.sbe.v8.2.reserved4to8", ftypes.UINT8, nil, base.DEC, 0xF8, "5 reserved bits")
 omi_cme_ebs_ilink3_sbe_v8_2.fields.response_legs_group = ProtoField.new("Response Legs Group", "cme.ebs.ilink3.sbe.v8.2.responselegsgroup", ftypes.STRING, nil, nil, nil, "Number of legs (repeating groups).")
 omi_cme_ebs_ilink3_sbe_v8_2.fields.response_legs_groups = ProtoField.new("Response Legs Groups", "cme.ebs.ilink3.sbe.v8.2.responselegsgroups", ftypes.STRING, nil, nil, nil, "NoLegs Block")
 omi_cme_ebs_ilink3_sbe_v8_2.fields.rfq_side = ProtoField.new("Rfq Side", "cme.ebs.ilink3.sbe.v8.2.rfqside", ftypes.UINT8, nil, nil, nil, "Order side")
@@ -7917,26 +7913,6 @@ cme_ebs_ilink3_sbe_v8_2.exec_inst.display = function(range, value, packet, paren
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "Nh"
   end
-  -- Is Exec Inst Reserved 1 flag set?
-  if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Exec Inst Reserved 1"
-  end
-  -- Is Exec Inst Reserved 2 flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Exec Inst Reserved 2"
-  end
-  -- Is Exec Inst Reserved 3 flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Exec Inst Reserved 3"
-  end
-  -- Is Exec Inst Reserved 4 flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Exec Inst Reserved 4"
-  end
-  -- Is Exec Inst Reserved 5 flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Exec Inst Reserved 5"
-  end
 
   return table.concat(flags, "|")
 end
@@ -7953,20 +7929,8 @@ cme_ebs_ilink3_sbe_v8_2.exec_inst.bits = function(range, value, packet, parent)
   -- Nh: 1 Bit
   parent:add(omi_cme_ebs_ilink3_sbe_v8_2.fields.nh, range, value)
 
-  -- Exec Inst Reserved 1: 1 Bit
-  parent:add(omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst_reserved_1, range, value)
-
-  -- Exec Inst Reserved 2: 1 Bit
-  parent:add(omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst_reserved_2, range, value)
-
-  -- Exec Inst Reserved 3: 1 Bit
-  parent:add(omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst_reserved_3, range, value)
-
-  -- Exec Inst Reserved 4: 1 Bit
-  parent:add(omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst_reserved_4, range, value)
-
-  -- Exec Inst Reserved 5: 1 Bit
-  parent:add(omi_cme_ebs_ilink3_sbe_v8_2.fields.exec_inst_reserved_5, range, value)
+  -- Reserved 4 To 8: 5 Bit
+  parent:add(omi_cme_ebs_ilink3_sbe_v8_2.fields.reserved_4_to_8, range, value)
 end
 
 -- Dissect: Exec Inst
@@ -8149,7 +8113,7 @@ cme_ebs_ilink3_sbe_v8_2.execution_report_trade_addendum_spread.fields = function
   -- Total Num Securities: uInt8
   index, total_num_securities = cme_ebs_ilink3_sbe_v8_2.total_num_securities.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -8465,7 +8429,7 @@ cme_ebs_ilink3_sbe_v8_2.execution_report_trade_addendum_outright.fields = functi
   -- Poss Retrans Flag: BooleanFlag
   index, poss_retrans_flag = cme_ebs_ilink3_sbe_v8_2.poss_retrans_flag.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -9705,7 +9669,7 @@ cme_ebs_ilink3_sbe_v8_2.execution_report_cancel.fields = function(buffer, offset
   -- Cross Type: uInt8NULL
   index, cross_type = cme_ebs_ilink3_sbe_v8_2.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -9893,7 +9857,7 @@ cme_ebs_ilink3_sbe_v8_2.execution_report_status.fields = function(buffer, offset
   -- Cross Type: uInt8NULL
   index, cross_type = cme_ebs_ilink3_sbe_v8_2.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -10069,7 +10033,7 @@ cme_ebs_ilink3_sbe_v8_2.execution_report_modify.fields = function(buffer, offset
   -- Cross Type: uInt8NULL
   index, cross_type = cme_ebs_ilink3_sbe_v8_2.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -11078,7 +11042,7 @@ cme_ebs_ilink3_sbe_v8_2.execution_report_trade_spread.fields = function(buffer, 
   -- Total Num Securities: uInt8
   index, total_num_securities = cme_ebs_ilink3_sbe_v8_2.total_num_securities.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -11453,7 +11417,7 @@ cme_ebs_ilink3_sbe_v8_2.execution_report_trade_outright.fields = function(buffer
   -- Cross Type: uInt8NULL
   index, cross_type = cme_ebs_ilink3_sbe_v8_2.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -11626,7 +11590,7 @@ cme_ebs_ilink3_sbe_v8_2.execution_report_elimination.fields = function(buffer, o
   -- Cross Type: uInt8NULL
   index, cross_type = cme_ebs_ilink3_sbe_v8_2.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -11802,7 +11766,7 @@ cme_ebs_ilink3_sbe_v8_2.execution_report_reject.fields = function(buffer, offset
   -- Cross Type: uInt8NULL
   index, cross_type = cme_ebs_ilink3_sbe_v8_2.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -11970,7 +11934,7 @@ cme_ebs_ilink3_sbe_v8_2.execution_report_new.fields = function(buffer, offset, p
   -- Cross Type: uInt8NULL
   index, cross_type = cme_ebs_ilink3_sbe_v8_2.cross_type.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -14935,7 +14899,7 @@ cme_ebs_ilink3_sbe_v8_2.order_cancel_replace_request.fields = function(buffer, o
   -- Ofm Override: OFMOverrideReq
   index, ofm_override = cme_ebs_ilink3_sbe_v8_2.ofm_override.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode
@@ -15063,7 +15027,7 @@ cme_ebs_ilink3_sbe_v8_2.new_order_single.fields = function(buffer, offset, packe
   -- Manual Order Indicator: ManualOrdIndReq
   index, manual_order_indicator = cme_ebs_ilink3_sbe_v8_2.manual_order_indicator.dissect(buffer, index, packet, parent)
 
-  -- Exec Inst: Struct of 8 fields
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = cme_ebs_ilink3_sbe_v8_2.exec_inst.dissect(buffer, index, packet, parent)
 
   -- Execution Mode: ExecMode

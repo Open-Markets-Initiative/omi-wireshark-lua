@@ -69,7 +69,7 @@ omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.min_price_increment = ProtoFi
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.min_price_increment_amount = ProtoField.new("Min Price Increment Amount", "moex.spectra.optinforeplay.simba.v9.9.0.minpriceincrementamount", ftypes.DOUBLE, nil, nil, nil, "MinPriceIncrementAmount")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.min_price_increment_amount_curr = ProtoField.new("Min Price Increment Amount Curr", "moex.spectra.optinforeplay.simba.v9.9.0.minpriceincrementamountcurr", ftypes.DOUBLE, nil, nil, nil, "MinPriceIncrementAmountCurr")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.morning_session = ProtoField.new("Morning Session", "moex.spectra.optinforeplay.simba.v9.9.0.morningsession", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000008, "MorningSession")
-omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.msg_flags = ProtoField.new("Msg Flags", "moex.spectra.optinforeplay.simba.v9.9.0.msgflags", ftypes.STRING, nil, nil, nil, "Message flags, least significant bit first, as the schema's MsgFlagsSet declares them")
+omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.msg_flags = ProtoField.new("Msg Flags", "moex.spectra.optinforeplay.simba.v9.9.0.msgflags", ftypes.STRING, nil, nil, nil, "MsgFlagsSet bit set")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "moex.spectra.optinforeplay.simba.v9.9.0.msgseqnum", ftypes.UINT32, nil, nil, nil, "MsgSeqNum")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.msg_size = ProtoField.new("Msg Size", "moex.spectra.optinforeplay.simba.v9.9.0.msgsize", ftypes.UINT16, nil, nil, nil, "MsgSize")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.multi_leg = ProtoField.new("Multi Leg", "moex.spectra.optinforeplay.simba.v9.9.0.multileg", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000000100, "MultiLeg")
@@ -82,9 +82,9 @@ omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.projected_spot_discount = Pro
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.quotation_list = ProtoField.new("Quotation List", "moex.spectra.optinforeplay.simba.v9.9.0.quotationlist", ftypes.STRING, nil, nil, nil, "QuotationList data struct")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.quotation_list_data = ProtoField.new("Quotation List Data", "moex.spectra.optinforeplay.simba.v9.9.0.quotationlistdata", ftypes.STRING)
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.quotation_list_length = ProtoField.new("Quotation List Length", "moex.spectra.optinforeplay.simba.v9.9.0.quotationlistlength", ftypes.UINT16)
-omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_44 = ProtoField.new("Reserved 44", "moex.spectra.optinforeplay.simba.v9.9.0.reserved44", ftypes.UINT64, nil, base.DEC, UInt64(0xFFF00000, 0xFFFFFFFF), "44 reserved bits")
-omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_60 = ProtoField.new("Reserved 60", "moex.spectra.optinforeplay.simba.v9.9.0.reserved60", ftypes.UINT64, nil, base.DEC, UInt64(0xFFFFFFF0, 0xFFFFFFFF), "60 reserved bits")
-omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "moex.spectra.optinforeplay.simba.v9.9.0.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFFE0, "Bits the schema's MsgFlagsSet leaves unused")
+omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_21_to_64 = ProtoField.new("Reserved 21 To 64", "moex.spectra.optinforeplay.simba.v9.9.0.reserved21to64", ftypes.UINT64, nil, base.DEC, UInt64(0xFFF00000, 0xFFFFFFFF), "44 reserved bits")
+omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_5_to_64 = ProtoField.new("Reserved 5 To 64", "moex.spectra.optinforeplay.simba.v9.9.0.reserved5to64", ftypes.UINT64, nil, base.DEC, UInt64(0xFFFFFFF0, 0xFFFFFFFF), "60 reserved bits")
+omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_6_to_16 = ProtoField.new("Reserved 6 To 16", "moex.spectra.optinforeplay.simba.v9.9.0.reserved6to16", ftypes.UINT16, nil, base.DEC, 0xFFE0, "11 reserved bits")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.risk_free_rate = ProtoField.new("Risk Free Rate", "moex.spectra.optinforeplay.simba.v9.9.0.riskfreerate", ftypes.DOUBLE, nil, nil, nil, "RiskFreeRate")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.risk_free_rate_2 = ProtoField.new("Risk Free Rate 2", "moex.spectra.optinforeplay.simba.v9.9.0.riskfreerate2", ftypes.DOUBLE, nil, nil, nil, "RiskFreeRate2")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.schema_id = ProtoField.new("Schema Id", "moex.spectra.optinforeplay.simba.v9.9.0.schemaid", ftypes.UINT16, nil, nil, nil, "Message schema identifier")
@@ -142,9 +142,9 @@ omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.underlying_future_id = ProtoF
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.underlying_qty = ProtoField.new("Underlying Qty", "moex.spectra.optinforeplay.simba.v9.9.0.underlyingqty", ftypes.DOUBLE, nil, nil, nil, "UnderlyingQty")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "moex.spectra.optinforeplay.simba.v9.9.0.underlyingsecurityid", ftypes.INT32, nil, nil, nil, "Futures instrument ID")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "moex.spectra.optinforeplay.simba.v9.9.0.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying asset code")
-omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_0_to_3 = ProtoField.new("Unused Bits 0 To 3", "moex.spectra.optinforeplay.simba.v9.9.0.unusedbits0to3", ftypes.UINT64, nil, base.DEC, 0x000000000000000F, "4 unused bits")
-omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_6_to_7 = ProtoField.new("Unused Bits 6 To 7", "moex.spectra.optinforeplay.simba.v9.9.0.unusedbits6to7", ftypes.UINT64, nil, base.DEC, 0x00000000000000C0, "2 unused bits")
-omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_9_to_17 = ProtoField.new("Unused Bits 9 To 17", "moex.spectra.optinforeplay.simba.v9.9.0.unusedbits9to17", ftypes.UINT64, nil, base.DEC, 0x000000000003FE00, "9 unused bits")
+omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_1_to_4 = ProtoField.new("Unused Bits 1 To 4", "moex.spectra.optinforeplay.simba.v9.9.0.unusedbits1to4", ftypes.UINT64, nil, base.DEC, 0x000000000000000F, "4 unused bits")
+omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_10_to_18 = ProtoField.new("Unused Bits 10 To 18", "moex.spectra.optinforeplay.simba.v9.9.0.unusedbits10to18", ftypes.UINT64, nil, base.DEC, 0x000000000003FE00, "9 unused bits")
+omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_7_to_8 = ProtoField.new("Unused Bits 7 To 8", "moex.spectra.optinforeplay.simba.v9.9.0.unusedbits7to8", ftypes.UINT64, nil, base.DEC, 0x00000000000000C0, "2 unused bits")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.valuation_method = ProtoField.new("Valuation Method", "moex.spectra.optinforeplay.simba.v9.9.0.valuationmethod", ftypes.STRING, nil, nil, nil, "ValuationMethod")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.version = ProtoField.new("Version", "moex.spectra.optinforeplay.simba.v9.9.0.version", ftypes.UINT16, nil, nil, nil, "Message schema version")
 omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.volatility = ProtoField.new("Volatility", "moex.spectra.optinforeplay.simba.v9.9.0.volatility", ftypes.DOUBLE)
@@ -4049,8 +4049,8 @@ moex_spectra_optinforeplay_simba_v9_9_0.trade_period_access.bits = function(rang
   -- Morning Session: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.morning_session, range, value)
 
-  -- Reserved 60: 60 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_60, range, value)
+  -- Reserved 5 To 64: 60 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_5_to_64, range, value)
 end
 
 -- Dissect: Trade Period Access
@@ -4105,8 +4105,8 @@ end
 -- Dissect Bit Fields: Flags
 moex_spectra_optinforeplay_simba_v9_9_0.flags.bits = function(range, value, packet, parent)
 
-  -- Unused Bits 0 To 3: 4 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_0_to_3, range, value)
+  -- Unused Bits 1 To 4: 4 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_1_to_4, range, value)
 
   -- Anonymous Trading: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.anonymous_trading, range, value)
@@ -4114,14 +4114,14 @@ moex_spectra_optinforeplay_simba_v9_9_0.flags.bits = function(range, value, pack
   -- Private Trading: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.private_trading, range, value)
 
-  -- Unused Bits 6 To 7: 2 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_6_to_7, range, value)
+  -- Unused Bits 7 To 8: 2 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_7_to_8, range, value)
 
   -- Multi Leg: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.multi_leg, range, value)
 
-  -- Unused Bits 9 To 17: 9 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_9_to_17, range, value)
+  -- Unused Bits 10 To 18: 9 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.unused_bits_10_to_18, range, value)
 
   -- Collateral: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.collateral, range, value)
@@ -4129,8 +4129,8 @@ moex_spectra_optinforeplay_simba_v9_9_0.flags.bits = function(range, value, pack
   -- Intraday Exercise: 1 Bit
   parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.intraday_exercise, range, value)
 
-  -- Reserved 44: 44 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_44, range, value)
+  -- Reserved 21 To 64: 44 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_21_to_64, range, value)
 end
 
 -- Dissect: Flags
@@ -4712,8 +4712,8 @@ moex_spectra_optinforeplay_simba_v9_9_0.msg_flags.bits = function(range, value, 
   -- Poss Dup Flag: 1 Bit Enum with 2 values
   parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.poss_dup_flag, range, value)
 
-  -- Reserved Bits: 11 Bit
-  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_bits, range, value)
+  -- Reserved 6 To 16: 11 Bit
+  parent:add(omi_moex_spectra_optinforeplay_simba_v9_9_0.fields.reserved_6_to_16, range, value)
 end
 
 -- Dissect: Msg Flags

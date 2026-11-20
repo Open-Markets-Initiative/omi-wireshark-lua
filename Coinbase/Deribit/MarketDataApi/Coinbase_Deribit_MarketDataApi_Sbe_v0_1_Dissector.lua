@@ -77,8 +77,8 @@ omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.quantity_exponent = ProtoFiel
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.quantity_mantissa = ProtoField.new("Quantity Mantissa", "coinbase.deribit.marketdataapi.sbe.v0.1.quantitymantissa", ftypes.INT64, nil, nil, nil, "quantityMantissa")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.quote_currency = ProtoField.new("Quote Currency", "coinbase.deribit.marketdataapi.sbe.v0.1.quotecurrency", ftypes.STRING, nil, nil, nil, "quoteCurrency")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reason = ProtoField.new("Reason", "coinbase.deribit.marketdataapi.sbe.v0.1.reason", ftypes.INT8)
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_29 = ProtoField.new("Reserved 29", "coinbase.deribit.marketdataapi.sbe.v0.1.reserved29", ftypes.UINT32, nil, base.DEC, 0xFFFFFFF8, "29 reserved bits")
-omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_30 = ProtoField.new("Reserved 30", "coinbase.deribit.marketdataapi.sbe.v0.1.reserved30", ftypes.UINT32, nil, base.DEC, 0xFFFFFFFC, "30 reserved bits")
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_3_to_32 = ProtoField.new("Reserved 3 To 32", "coinbase.deribit.marketdataapi.sbe.v0.1.reserved3to32", ftypes.UINT32, nil, base.DEC, 0xFFFFFFFC, "30 reserved bits")
+omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_4_to_32 = ProtoField.new("Reserved 4 To 32", "coinbase.deribit.marketdataapi.sbe.v0.1.reserved4to32", ftypes.UINT32, nil, base.DEC, 0xFFFFFFF8, "29 reserved bits")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.deribit.marketdataapi.sbe.v0.1.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFFFC, "Bits reserved for future use")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.retransmit = ProtoField.new("Retransmit", "coinbase.deribit.marketdataapi.sbe.v0.1.retransmit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "Retransmit packet indicator (Bit 2)")
 omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.deribit.marketdataapi.sbe.v0.1.retrydelaynanos", ftypes.INT64, nil, nil, nil, "retryDelayNanos")
@@ -2304,8 +2304,8 @@ coinbase_deribit_marketdataapi_sbe_v0_1.taker_flags.bits = function(range, value
   -- Is Liquidation: 1 Bit
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.is_liquidation, range, value)
 
-  -- Reserved 30: 30 Bit
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_30, range, value)
+  -- Reserved 3 To 32: 30 Bit
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_3_to_32, range, value)
 end
 
 -- Dissect: Taker Flags
@@ -2434,8 +2434,8 @@ coinbase_deribit_marketdataapi_sbe_v0_1.maker_flags.bits = function(range, value
   -- Is Liquidation: 1 Bit
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.is_liquidation, range, value)
 
-  -- Reserved 30: 30 Bit
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_30, range, value)
+  -- Reserved 3 To 32: 30 Bit
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_3_to_32, range, value)
 end
 
 -- Dissect: Maker Flags
@@ -3067,8 +3067,8 @@ coinbase_deribit_marketdataapi_sbe_v0_1.flags.bits = function(range, value, pack
   -- Is Perpetual: 1 Bit
   parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.is_perpetual, range, value)
 
-  -- Reserved 29: 29 Bit
-  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_29, range, value)
+  -- Reserved 4 To 32: 29 Bit
+  parent:add(omi_coinbase_deribit_marketdataapi_sbe_v0_1.fields.reserved_4_to_32, range, value)
 end
 
 -- Dissect: Flags

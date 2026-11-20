@@ -199,12 +199,6 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.on_behalf_of_sub_id = ProtoField.new("On 
 omi_ice_icefutures_bgw_sbe_v7_0.fields.options_allowed = ProtoField.new("Options Allowed", "ice.icefutures.bgw.sbe.v7.0.optionsallowed", ftypes.UINT8, nil, nil, nil, "optionsAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ord_type = ProtoField.new("Ord Type", "ice.icefutures.bgw.sbe.v7.0.ordtype", ftypes.UINT8, nil, nil, nil, "ordType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ord_type_optional = ProtoField.new("Ord Type Optional", "ice.icefutures.bgw.sbe.v7.0.ordtypeoptional", ftypes.UINT8, nil, nil, nil, "ordType")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_2 = ProtoField.new("Order Flags reserved 2", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "reserved2")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_3 = ProtoField.new("Order Flags reserved 3", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "reserved3")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_4 = ProtoField.new("Order Flags reserved 4", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "reserved4")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_5 = ProtoField.new("Order Flags reserved 5", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "reserved5")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_6 = ProtoField.new("Order Flags reserved 6", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "reserved6")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_7 = ProtoField.new("Order Flags reserved 7", "ice.icefutures.bgw.sbe.v7.0.orderflagsreserved7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "reserved7")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_id = ProtoField.new("Order Id", "ice.icefutures.bgw.sbe.v7.0.orderid", ftypes.INT64, nil, nil, nil, "orderID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_modification_flags = ProtoField.new("Order Modification Flags", "ice.icefutures.bgw.sbe.v7.0.ordermodificationflags", ftypes.STRING, nil, nil, nil, "OrderFlags bit set")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.order_qty = ProtoField.new("Order Qty", "ice.icefutures.bgw.sbe.v7.0.orderqty", ftypes.INT64, nil, nil, nil, "orderQty")
@@ -263,6 +257,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.ref_sequence_id = ProtoField.new("Ref Seq
 omi_ice_icefutures_bgw_sbe_v7_0.fields.ref_sprd_product_id = ProtoField.new("Ref Sprd Product Id", "ice.icefutures.bgw.sbe.v7.0.refsprdproductid", ftypes.INT32, nil, nil, nil, "refSprdProductID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.reject_reason = ProtoField.new("Reject Reason", "ice.icefutures.bgw.sbe.v7.0.rejectreason", ftypes.UINT8, nil, nil, nil, "rejectReason")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.reject_response_to = ProtoField.new("Reject Response To", "ice.icefutures.bgw.sbe.v7.0.rejectresponseto", ftypes.UINT8, nil, nil, nil, "rejectResponseTo")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_3_to_8 = ProtoField.new("Reserved 3 To 8", "ice.icefutures.bgw.sbe.v7.0.reserved3to8", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "ice.icefutures.bgw.sbe.v7.0.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFC, "Bits reserved for future use")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.rfc_status = ProtoField.new("Rfc Status", "ice.icefutures.bgw.sbe.v7.0.rfcstatus", ftypes.UINT8, nil, nil, nil, "rfcStatus")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.rfq_futures_allowed = ProtoField.new("Rfq Futures Allowed", "ice.icefutures.bgw.sbe.v7.0.rfqfuturesallowed", ftypes.UINT8, nil, nil, nil, "rfqFuturesAllowed")
@@ -351,12 +346,6 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force_optional = ProtoField.new("
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority_utc = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "timePriority")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "timePriority")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags = ProtoField.new("Trade Flags", "ice.icefutures.bgw.sbe.v7.0.tradeflags", ftypes.STRING, nil, nil, nil, "TradeFlags bit set")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_2 = ProtoField.new("Trade Flags reserved 2", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "reserved2")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_3 = ProtoField.new("Trade Flags reserved 3", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "reserved3")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_4 = ProtoField.new("Trade Flags reserved 4", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "reserved4")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_5 = ProtoField.new("Trade Flags reserved 5", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved5", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "reserved5")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_6 = ProtoField.new("Trade Flags reserved 6", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "reserved6")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_7 = ProtoField.new("Trade Flags reserved 7", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "reserved7")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_type = ProtoField.new("Trade Type", "ice.icefutures.bgw.sbe.v7.0.tradetype", ftypes.STRING, nil, nil, nil, "tradeType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trading_capacity = ProtoField.new("Trading Capacity", "ice.icefutures.bgw.sbe.v7.0.tradingcapacity", ftypes.UINT8, nil, nil, nil, "tradingCapacity")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_details = ProtoField.new("Transact Details", "ice.icefutures.bgw.sbe.v7.0.transactdetails", ftypes.STRING, nil, nil, nil, "transactDetails")
@@ -9611,30 +9600,6 @@ ice_icefutures_bgw_sbe_v7_0.trade_flags.display = function(range, value, packet,
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Deal Adjust Indicator"
   end
-  -- Is Trade Flags reserved 2 flag set?
-  if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Trade Flags reserved 2"
-  end
-  -- Is Trade Flags reserved 3 flag set?
-  if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Trade Flags reserved 3"
-  end
-  -- Is Trade Flags reserved 4 flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Trade Flags reserved 4"
-  end
-  -- Is Trade Flags reserved 5 flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Trade Flags reserved 5"
-  end
-  -- Is Trade Flags reserved 6 flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Trade Flags reserved 6"
-  end
-  -- Is Trade Flags reserved 7 flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Trade Flags reserved 7"
-  end
 
   return table.concat(flags, "|")
 end
@@ -9648,23 +9613,8 @@ ice_icefutures_bgw_sbe_v7_0.trade_flags.bits = function(range, value, packet, pa
   -- Deal Adjust Indicator: 1 Bit
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.deal_adjust_indicator, range, value)
 
-  -- Trade Flags reserved 2: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_2, range, value)
-
-  -- Trade Flags reserved 3: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_3, range, value)
-
-  -- Trade Flags reserved 4: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_4, range, value)
-
-  -- Trade Flags reserved 5: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_5, range, value)
-
-  -- Trade Flags reserved 6: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_6, range, value)
-
-  -- Trade Flags reserved 7: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_7, range, value)
+  -- Reserved 3 To 8: 6 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_3_to_8, range, value)
 end
 
 -- Dissect: Trade Flags
@@ -9816,7 +9766,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_trade_message.fields = function(buf
   -- Exec Type: ExecTypeEnum
   index, exec_type = ice_icefutures_bgw_sbe_v7_0.exec_type.dissect(buffer, index, packet, parent)
 
-  -- Trade Flags: Struct of 8 fields
+  -- Trade Flags: Struct of 3 fields
   index, trade_flags = ice_icefutures_bgw_sbe_v7_0.trade_flags.dissect(buffer, index, packet, parent)
 
   -- Clearing Firm Optional: int32NULL
@@ -10328,30 +10278,6 @@ ice_icefutures_bgw_sbe_v7_0.order_modification_flags.display = function(range, v
   if bit.band(value, 0x02) ~= 0 then
     flags[#flags + 1] = "Stop Elected"
   end
-  -- Is Order Flags reserved 2 flag set?
-  if bit.band(value, 0x04) ~= 0 then
-    flags[#flags + 1] = "Order Flags reserved 2"
-  end
-  -- Is Order Flags reserved 3 flag set?
-  if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Order Flags reserved 3"
-  end
-  -- Is Order Flags reserved 4 flag set?
-  if bit.band(value, 0x10) ~= 0 then
-    flags[#flags + 1] = "Order Flags reserved 4"
-  end
-  -- Is Order Flags reserved 5 flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Order Flags reserved 5"
-  end
-  -- Is Order Flags reserved 6 flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Order Flags reserved 6"
-  end
-  -- Is Order Flags reserved 7 flag set?
-  if bit.band(value, 0x80) ~= 0 then
-    flags[#flags + 1] = "Order Flags reserved 7"
-  end
 
   return table.concat(flags, "|")
 end
@@ -10365,23 +10291,8 @@ ice_icefutures_bgw_sbe_v7_0.order_modification_flags.bits = function(range, valu
   -- Stop Elected: 1 Bit
   parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.stop_elected, range, value)
 
-  -- Order Flags reserved 2: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_2, range, value)
-
-  -- Order Flags reserved 3: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_3, range, value)
-
-  -- Order Flags reserved 4: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_4, range, value)
-
-  -- Order Flags reserved 5: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_5, range, value)
-
-  -- Order Flags reserved 6: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_6, range, value)
-
-  -- Order Flags reserved 7: 1 Bit
-  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.order_flags_reserved_7, range, value)
+  -- Reserved 3 To 8: 6 Bit
+  parent:add(omi_ice_icefutures_bgw_sbe_v7_0.fields.reserved_3_to_8, range, value)
 end
 
 -- Dissect: Order Modification Flags
@@ -10484,7 +10395,7 @@ ice_icefutures_bgw_sbe_v7_0.execution_report_modify_message.fields = function(bu
   -- Exec Restatement Reason: ExecRestatementReasonEnumNULL
   index, exec_restatement_reason = ice_icefutures_bgw_sbe_v7_0.exec_restatement_reason.dissect(buffer, index, packet, parent)
 
-  -- Order Modification Flags: Struct of 8 fields
+  -- Order Modification Flags: Struct of 3 fields
   index, order_modification_flags = ice_icefutures_bgw_sbe_v7_0.order_modification_flags.dissect(buffer, index, packet, parent)
 
   -- Memo: string30NULL

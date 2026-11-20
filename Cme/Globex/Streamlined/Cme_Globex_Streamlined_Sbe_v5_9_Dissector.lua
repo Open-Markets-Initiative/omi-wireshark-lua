@@ -205,8 +205,8 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.reference_id_50 = ProtoField.new("Ref
 omi_cme_globex_streamlined_sbe_v5_9.fields.related_instrument_type = ProtoField.new("Related Instrument Type", "cme.globex.streamlined.sbe.v5.9.relatedinstrumenttype", ftypes.UINT8, nil, nil, nil, "The type of instrument relationship")
 omi_cme_globex_streamlined_sbe_v5_9.fields.related_security_group = ProtoField.new("Related Security Group", "cme.globex.streamlined.sbe.v5.9.relatedsecuritygroup", ftypes.STRING, nil, nil, nil, "Instrument Symbol Suffix for T+1 (Next Trading day)")
 omi_cme_globex_streamlined_sbe_v5_9.fields.related_symbol = ProtoField.new("Related Symbol", "cme.globex.streamlined.sbe.v5.9.relatedsymbol", ftypes.STRING, nil, nil, nil, "Related instrument Symbol")
-omi_cme_globex_streamlined_sbe_v5_9.fields.reserved = ProtoField.new("Reserved", "cme.globex.streamlined.sbe.v5.9.reserved", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_cme_globex_streamlined_sbe_v5_9.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.globex.streamlined.sbe.v5.9.reservedbits", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "ReservedBits")
+omi_cme_globex_streamlined_sbe_v5_9.fields.reserved_4_to_7 = ProtoField.new("Reserved 4 To 7", "cme.globex.streamlined.sbe.v5.9.reserved4to7", ftypes.UINT8, nil, base.DEC, 0x78, "4 reserved bits")
+omi_cme_globex_streamlined_sbe_v5_9.fields.reserved_7 = ProtoField.new("Reserved 7", "cme.globex.streamlined.sbe.v5.9.reserved7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "1 reserved bit")
 omi_cme_globex_streamlined_sbe_v5_9.fields.restructuring_type = ProtoField.new("Restructuring Type", "cme.globex.streamlined.sbe.v5.9.restructuringtype", ftypes.STRING, nil, nil, nil, "A category of CDS credit event in which the underlying bond experiences a restructuring")
 omi_cme_globex_streamlined_sbe_v5_9.fields.rounded = ProtoField.new("Rounded", "cme.globex.streamlined.sbe.v5.9.rounded", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cme_globex_streamlined_sbe_v5_9.fields.rpt_seq = ProtoField.new("Rpt Seq", "cme.globex.streamlined.sbe.v5.9.rptseq", ftypes.UINT32, nil, nil, nil, "Sequence number per Index update")
@@ -275,7 +275,6 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_currency_3 = ProtoFie
 omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_qty_decimal = ProtoField.new("Unit Of Measure Qty Decimal", "cme.globex.streamlined.sbe.v5.9.unitofmeasureqtydecimal", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_qty_decimal_optional = ProtoField.new("Unit Of Measure Qty Decimal Optional", "cme.globex.streamlined.sbe.v5.9.unitofmeasureqtydecimaloptional", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.unit_of_measure_qty_optional = ProtoField.new("Unit Of Measure Qty Optional", "cme.globex.streamlined.sbe.v5.9.unitofmeasureqtyoptional", ftypes.DOUBLE, nil, nil, nil, "This field contains the notional value for each instrument. The notional value is equivalent to the corresponding premium-quoted contract")
-omi_cme_globex_streamlined_sbe_v5_9.fields.unused_bits_4_to_6 = ProtoField.new("Unused Bits 4 To 6", "cme.globex.streamlined.sbe.v5.9.unusedbits4to6", ftypes.UINT8, nil, base.DEC, 0x70, "3 unused bits")
 omi_cme_globex_streamlined_sbe_v5_9.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.globex.streamlined.sbe.v5.9.userdefinedinstrument", ftypes.STRING, nil, nil, nil, "Identifies user-defined instruments. If the tag is not present, the instrument is not user-defined.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.version = ProtoField.new("Version", "cme.globex.streamlined.sbe.v5.9.version", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.vol_type = ProtoField.new("Vol Type", "cme.globex.streamlined.sbe.v5.9.voltype", ftypes.UINT16, nil, nil, nil, "Volume types for end of day volume")
@@ -6153,10 +6152,6 @@ cme_globex_streamlined_sbe_v5_9.match_event_indicator.display = function(range, 
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Recovery Msg"
   end
-  -- Is Reserved flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Reserved"
-  end
   -- Is End Of Event flag set?
   if bit.band(value, 0x80) ~= 0 then
     flags[#flags + 1] = "End Of Event"
@@ -6186,8 +6181,8 @@ cme_globex_streamlined_sbe_v5_9.match_event_indicator.bits = function(range, val
   -- Recovery Msg: 1 Bit
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.recovery_msg, range, value)
 
-  -- Reserved: 1 Bit
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.reserved, range, value)
+  -- Reserved 7: 1 Bit
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.reserved_7, range, value)
 
   -- End Of Event: 1 Bit
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.end_of_event, range, value)
@@ -12725,10 +12720,6 @@ cme_globex_streamlined_sbe_v5_9.settl_price_type.display = function(range, value
   if bit.band(value, 0x04) ~= 0 then
     flags[#flags + 1] = "Rounded"
   end
-  -- Is Reserved Bits flag set?
-  if bit.band(value, 0x08) ~= 0 then
-    flags[#flags + 1] = "Reserved Bits"
-  end
   -- Is Null Value flag set?
   if bit.band(value, 0x80) ~= 0 then
     flags[#flags + 1] = "Null Value"
@@ -12749,11 +12740,8 @@ cme_globex_streamlined_sbe_v5_9.settl_price_type.bits = function(range, value, p
   -- Rounded: 1 Bit
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.rounded, range, value)
 
-  -- Reserved Bits: 1 Bit
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.reserved_bits, range, value)
-
-  -- Unused Bits 4 To 6: 3 Bit
-  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.unused_bits_4_to_6, range, value)
+  -- Reserved 4 To 7: 4 Bit
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.reserved_4_to_7, range, value)
 
   -- Null Value: 1 Bit
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.null_value, range, value)
@@ -12964,7 +12952,7 @@ cme_globex_streamlined_sbe_v5_9.eris_reference_data_group.fields = function(buff
   -- Open Close Settl Flag: uInt8NULL
   index, open_close_settl_flag = cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 6 fields
+  -- Settl Price Type: Struct of 5 fields
   index, settl_price_type = cme_globex_streamlined_sbe_v5_9.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Cal Fut Px Optional: Struct of 2 fields

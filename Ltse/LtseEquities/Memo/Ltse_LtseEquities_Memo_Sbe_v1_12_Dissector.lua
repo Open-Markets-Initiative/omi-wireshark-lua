@@ -85,7 +85,7 @@ omi_ltse_ltseequities_memo_sbe_v1_12.fields.replay_request_message = ProtoField.
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "ltse.ltseequities.memo.sbe.v1.12.repricebehavior", ftypes.UINT8, nil, nil, nil, "RepriceBehavior")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "ltse.ltseequities.memo.sbe.v1.12.repricefrequency", ftypes.UINT8, nil, nil, nil, "RepriceFrequency")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "ltse.ltseequities.memo.sbe.v1.12.reservereplenishtiming", ftypes.UINT8, nil, nil, nil, "ReserveReplenishTiming")
-omi_ltse_ltseequities_memo_sbe_v1_12.fields.reserved_13 = ProtoField.new("Reserved 13", "ltse.ltseequities.memo.sbe.v1.12.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
+omi_ltse_ltseequities_memo_sbe_v1_12.fields.reserved_4_to_16 = ProtoField.new("Reserved 4 To 16", "ltse.ltseequities.memo.sbe.v1.12.reserved4to16", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.risk_group_id = ProtoField.new("Risk Group Id", "ltse.ltseequities.memo.sbe.v1.12.riskgroupid", ftypes.UINT16, nil, nil, nil, "RiskGroupId")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.schema_id = ProtoField.new("Schema Id", "ltse.ltseequities.memo.sbe.v1.12.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_ltse_ltseequities_memo_sbe_v1_12.fields.security_group = ProtoField.new("Security Group", "ltse.ltseequities.memo.sbe.v1.12.securitygroup", ftypes.STRING, nil, nil, nil, "SecurityGroup")
@@ -4114,8 +4114,8 @@ ltse_ltseequities_memo_sbe_v1_12.exec_inst.bits = function(range, value, packet,
   -- External Routing Not Allowed: 1 Bit
   parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.external_routing_not_allowed, range, value)
 
-  -- Reserved 13: 13 Bit
-  parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.reserved_13, range, value)
+  -- Reserved 4 To 16: 13 Bit
+  parent:add(omi_ltse_ltseequities_memo_sbe_v1_12.fields.reserved_4_to_16, range, value)
 end
 
 -- Dissect: Exec Inst

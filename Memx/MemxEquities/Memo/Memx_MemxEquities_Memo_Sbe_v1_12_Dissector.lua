@@ -85,7 +85,7 @@ omi_memx_memxequities_memo_sbe_v1_12.fields.replay_request_message = ProtoField.
 omi_memx_memxequities_memo_sbe_v1_12.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "memx.memxequities.memo.sbe.v1.12.repricebehavior", ftypes.UINT8, nil, nil, nil, "Defines the reprice behavior when market is locked or crossed.")
 omi_memx_memxequities_memo_sbe_v1_12.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "memx.memxequities.memo.sbe.v1.12.repricefrequency", ftypes.UINT8, nil, nil, nil, "Defines the frequency of a reprice. If this tag is not sent then the order will not be repriced.")
 omi_memx_memxequities_memo_sbe_v1_12.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "memx.memxequities.memo.sbe.v1.12.reservereplenishtiming", ftypes.UINT8, nil, nil, nil, "Defines the replenishment timing behavior for a reserve order.")
-omi_memx_memxequities_memo_sbe_v1_12.fields.reserved_13 = ProtoField.new("Reserved 13", "memx.memxequities.memo.sbe.v1.12.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
+omi_memx_memxequities_memo_sbe_v1_12.fields.reserved_4_to_16 = ProtoField.new("Reserved 4 To 16", "memx.memxequities.memo.sbe.v1.12.reserved4to16", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
 omi_memx_memxequities_memo_sbe_v1_12.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxequities.memo.sbe.v1.12.riskgroupid", ftypes.UINT16, nil, nil, nil, "RiskGroupId")
 omi_memx_memxequities_memo_sbe_v1_12.fields.schema_id = ProtoField.new("Schema Id", "memx.memxequities.memo.sbe.v1.12.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_memx_memxequities_memo_sbe_v1_12.fields.security_group = ProtoField.new("Security Group", "memx.memxequities.memo.sbe.v1.12.securitygroup", ftypes.STRING, nil, nil, nil, "Security Listing Tape indicator (“A”, “B”, “C”). MEMO SBE v1.12 COPYRIGHT MEMX LLC 2023. ALL RIGHTS RESERVED. 38 5.2.1.5 ExecutionReport_PendingCancel The ExecutionReport_PendingCancel is a response to OrderCancelRequest request indicating the request has been received by the exchange and is in the process of being handled. Field Offset Length Type Tag Ref Num Req'd Description SBE")
@@ -4114,8 +4114,8 @@ memx_memxequities_memo_sbe_v1_12.exec_inst.bits = function(range, value, packet,
   -- External Routing Not Allowed: 1 Bit
   parent:add(omi_memx_memxequities_memo_sbe_v1_12.fields.external_routing_not_allowed, range, value)
 
-  -- Reserved 13: 13 Bit
-  parent:add(omi_memx_memxequities_memo_sbe_v1_12.fields.reserved_13, range, value)
+  -- Reserved 4 To 16: 13 Bit
+  parent:add(omi_memx_memxequities_memo_sbe_v1_12.fields.reserved_4_to_16, range, value)
 end
 
 -- Dissect: Exec Inst

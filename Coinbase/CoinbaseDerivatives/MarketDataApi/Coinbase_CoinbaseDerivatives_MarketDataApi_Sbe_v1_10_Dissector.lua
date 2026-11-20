@@ -116,8 +116,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.product_id = Pro
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.quantity = ProtoField.new("Quantity", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.10.quantity", ftypes.INT32, nil, nil, nil, "Quantity encoded with 0 decimal places")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reason = ProtoField.new("Reason", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.10.reason", ftypes.INT8, nil, nil, nil, "Why the retransmit was rejected: 1 sequence too low, 2 sequence too high, 3 rate limit exceeded, 4 other error")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reserved = ProtoField.new("Reserved", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.10.reserved", ftypes.INT16, nil, nil, nil, "Two bytes of padding, reserved for future use")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reserved_11 = ProtoField.new("Reserved 11", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.10.reserved11", ftypes.UINT16, nil, base.DEC, 0xFFE0, "11 reserved bits")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reserved_7 = ProtoField.new("Reserved 7", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.10.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reserved_2_to_8 = ProtoField.new("Reserved 2 To 8", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.10.reserved2to8", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reserved_6_to_16 = ProtoField.new("Reserved 6 To 16", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.10.reserved6to16", ftypes.UINT16, nil, base.DEC, 0xFFE0, "11 reserved bits")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.10.reservedbits", ftypes.UINT8, nil, base.DEC, 0xF8, "Bits reserved for future use")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.retransmit = ProtoField.new("Retransmit", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.10.retransmit", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Retransmit packet indicator (Bit 2)")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.10.retrydelaynanos", ftypes.INT64, nil, nil, nil, "retryDelayNanos")
@@ -3803,8 +3803,8 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.definition_flags.bits = fun
   -- Funding Rate Applicable: 1 Bit
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.funding_rate_applicable, range, value)
 
-  -- Reserved 11: 11 Bit
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reserved_11, range, value)
+  -- Reserved 6 To 16: 11 Bit
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reserved_6_to_16, range, value)
 end
 
 -- Dissect: Definition Flags
@@ -4482,8 +4482,8 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.flags.bits = function(range
   -- Is Final: 1 Bit
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.is_final, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reserved_7, range, value)
+  -- Reserved 2 To 8: 7 Bit
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_10.fields.reserved_2_to_8, range, value)
 end
 
 -- Dissect: Flags

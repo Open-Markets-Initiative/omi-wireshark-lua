@@ -132,6 +132,11 @@ omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.orders_index = Prot
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.sub_trading_phase_codes_index = ProtoField.new("Sub Trading Phase Codes Index", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.subtradingphasecodesindex", ftypes.UINT16)
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.switch_index = ProtoField.new("Switch Index", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.switchindex", ftypes.UINT16)
 
+-- Neeq NeeqSecurities TcpMarketData BjseBinary 1.1 Expert Info
+neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.experts = {}
+neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.experts.checksum_incorrect = ProtoExpert.new("neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.checksumincorrect", "Checksum incorrect: not the checksum of the bytes it covers", expert.group.CHECKSUM, expert.severity.ERROR)
+omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.experts = { neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.experts.checksum_incorrect }
+
 -----------------------------------------------------------------------
 -- Neeq NeeqSecurities TcpMarketData BjseBinary 1.1 Formatting
 -----------------------------------------------------------------------
@@ -147,6 +152,9 @@ local timestamp_format_enum = {
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format = 3
+
+-- Checksums are verified only where the reader asks
+neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.verify_checksums = false
 
 
 -----------------------------------------------------------------------
@@ -171,6 +179,8 @@ omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.show_indexes = Pref.
 
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
+omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.verify_checksums = Pref.bool("Verify Checksums", false, "Compute each checksum the protocol carries and compare it with the one sent. Off by default: a capture taken on the sending host often holds checksums filled in after it was captured")
+
 -- Handle changed preferences
 function omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs_changed()
 
@@ -192,6 +202,9 @@ function omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs_changed()
   end
   if neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format ~= omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.timestamp_format then
     neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.timestamp_format
+  end
+  if neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.verify_checksums ~= omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.verify_checksums then
+    neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.verify_checksums = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.verify_checksums
   end
 end
 
@@ -223,6 +236,19 @@ trim_left_spaces = function(str)
 end
 
 
+-- Sum checksum: every byte of the range added, those of the checksum itself left out, reduced by the modulus
+local function checksum_sum(range, skip, length, modulus)
+  local bytes = range:bytes()
+  local sum = 0
+
+  for index = 0, bytes:len() - 1 do
+    if index < skip or index >= skip + length then
+      sum = sum + bytes:get_index(index)
+    end
+  end
+
+  return sum % modulus
+end
 -----------------------------------------------------------------------
 -- Neeq NeeqSecurities TcpMarketData BjseBinary 1.1 Fields
 -----------------------------------------------------------------------
@@ -556,7 +582,22 @@ neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.checksum.dissect = function(bu
   local value = range:uint()
   local display = neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.checksum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.checksum, range, value, display)
+  local item = parent:add(omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.checksum, range, value, display)
+
+  -- Verified only where the reader asks: the sum of the bytes covered, its own left out
+  if neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.verify_checksums then
+    local start = 0
+    local computed = checksum_sum(buffer(start, buffer:len() - start), offset - start, length, 256)
+
+    if computed == value then
+      item:append_text(" [correct]")
+    else
+      item:append_text(" [incorrect, should be "..computed.."]")
+      item:add_proto_expert_info(neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.experts.checksum_incorrect, "Checksum incorrect: "..value..", should be "..computed)
+    end
+  else
+    item:append_text(" [unverified]")
+  end
 
   return offset + length, value
 end

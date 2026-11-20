@@ -99,7 +99,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.product_id = Prot
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.quantity = ProtoField.new("Quantity", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.quantity", ftypes.INT32, nil, nil, nil, "Quantity encoded with 0 decimal places")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.reason = ProtoField.new("Reason", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.reason", ftypes.INT8, nil, nil, nil, "Why the retransmit was rejected: 1 sequence too low, 2 sequence too high, 3 rate limit exceeded, 4 other error")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.reserved = ProtoField.new("Reserved", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.reserved", ftypes.INT16, nil, nil, nil, "Two bytes of padding, reserved for future use")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.reserved_12 = ProtoField.new("Reserved 12", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.reserved12", ftypes.UINT16, nil, base.DEC, 0xFFF0, "12 reserved bits")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.reserved_5_to_16 = ProtoField.new("Reserved 5 To 16", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.reserved5to16", ftypes.UINT16, nil, base.DEC, 0xFFF0, "12 reserved bits")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.reservedbits", ftypes.UINT8, nil, base.DEC, 0xF8, "Bits reserved for future use")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.retransmit = ProtoField.new("Retransmit", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.retransmit", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Retransmit packet indicator (Bit 2)")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.7.retrydelaynanos", ftypes.INT64, nil, nil, nil, "retryDelayNanos")
@@ -3285,8 +3285,8 @@ coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.definition_flags.bits = func
   -- Is Strike Delisted: 1 Bit
   parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.is_strike_delisted, range, value)
 
-  -- Reserved 12: 12 Bit
-  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.reserved_12, range, value)
+  -- Reserved 5 To 16: 12 Bit
+  parent:add(omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_7.fields.reserved_5_to_16, range, value)
 end
 
 -- Dissect: Definition Flags

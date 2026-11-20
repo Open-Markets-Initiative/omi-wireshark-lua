@@ -92,7 +92,7 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.replay_request_message = Pro
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "blueoceanats.blueequities.memo.sbe.v1.13.repricebehavior", ftypes.UINT8, nil, nil, nil, "Defines the reprice behavior when the market is locked or crossed")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "blueoceanats.blueequities.memo.sbe.v1.13.repricefrequency", ftypes.UINT8, nil, nil, nil, "Defines the frequency of a reprice; an order is not repriced when this is absent")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "blueoceanats.blueequities.memo.sbe.v1.13.reservereplenishtiming", ftypes.UINT8, nil, nil, nil, "Defines the replenishment timing behavior for a reserve order")
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reserved_13 = ProtoField.new("Reserved 13", "blueoceanats.blueequities.memo.sbe.v1.13.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reserved_4_to_16 = ProtoField.new("Reserved 4 To 16", "blueoceanats.blueequities.memo.sbe.v1.13.reserved4to16", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.risk_group_id = ProtoField.new("Risk Group Id", "blueoceanats.blueequities.memo.sbe.v1.13.riskgroupid", ftypes.UINT16, nil, nil, nil, "Unique identifier of a custom risk control set applied to this order; the null value disables custom risk controls")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("Schema Id", "blueoceanats.blueequities.memo.sbe.v1.13.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "blueoceanats.blueequities.memo.sbe.v1.13.securitygroup", ftypes.STRING, nil, nil, nil, "Security listing tape indicator, A, B or C")
@@ -4572,8 +4572,8 @@ blueoceanats_blueequities_memo_sbe_v1_13.exec_inst.bits = function(range, value,
   -- External Routing Not Allowed: 1 Bit
   parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.external_routing_not_allowed, range, value)
 
-  -- Reserved 13: 13 Bit
-  parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reserved_13, range, value)
+  -- Reserved 4 To 16: 13 Bit
+  parent:add(omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.reserved_4_to_16, range, value)
 end
 
 -- Dissect: Exec Inst

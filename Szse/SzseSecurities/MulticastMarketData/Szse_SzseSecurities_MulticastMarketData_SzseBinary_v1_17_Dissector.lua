@@ -206,6 +206,11 @@ omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.switch_index
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trade_md_entries_index = ProtoField.new("Trade Md Entries Index", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.trademdentriesindex", ftypes.UINT16)
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.messages_sequence_number = ProtoField.new("Messages Sequence Number", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.messagessequencenumber", ftypes.UINT64)
 
+-- Szse SzseSecurities MulticastMarketData SzseBinary 1.17 Expert Info
+szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.experts = {}
+szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.experts.checksum_incorrect = ProtoExpert.new("szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.checksumincorrect", "Checksum incorrect: not the checksum of the bytes it covers", expert.group.CHECKSUM, expert.severity.ERROR)
+omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.experts = { szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.experts.checksum_incorrect }
+
 -----------------------------------------------------------------------
 -- Szse SzseSecurities MulticastMarketData SzseBinary 1.17 Formatting
 -----------------------------------------------------------------------
@@ -218,6 +223,9 @@ local timestamp_format_enum = {
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format = 3
+
+-- Checksums are verified only where the reader asks
+szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.verify_checksums = false
 
 
 -----------------------------------------------------------------------
@@ -245,6 +253,8 @@ omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.show_indexes 
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
+omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.verify_checksums = Pref.bool("Verify Checksums", false, "Compute each checksum the protocol carries and compare it with the one sent. Off by default: a capture taken on the sending host often holds checksums filled in after it was captured")
 
 -- Handle changed preferences
 function omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs_changed()
@@ -274,6 +284,9 @@ function omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs_chan
   if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format ~= omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.timestamp_format then
     szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.timestamp_format
   end
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.verify_checksums ~= omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.verify_checksums then
+    szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.verify_checksums = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.verify_checksums
+  end
 end
 
 
@@ -302,6 +315,23 @@ local function zlib_decompress(range)
   end
 
   return range:uncompress("Decompressed")
+end
+-- Adler32 checksum: two running sums of the range modulo 65521, those of the checksum itself left out or counted as zeros
+local function checksum_adler32(range, skip, length, zeroed)
+  local bytes = range:bytes()
+  local a = 1
+  local b = 0
+
+  for index = 0, bytes:len() - 1 do
+    local own = index >= skip and index < skip + length
+
+    if not own or zeroed then
+      a = (a + (own and 0 or bytes:get_index(index))) % 65521
+      b = (b + a) % 65521
+    end
+  end
+
+  return b * 65536 + a
 end
 -----------------------------------------------------------------------
 -- Szse SzseSecurities MulticastMarketData SzseBinary 1.17 Fields
@@ -723,7 +753,22 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.checksum.dissect = func
   local value = range:uint()
   local display = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.checksum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.checksum, range, value, display)
+  local item = parent:add(omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.checksum, range, value, display)
+
+  -- Verified only where the reader asks: the Adler32 of the bytes covered, its own left out
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.verify_checksums then
+    local start = 0
+    local computed = checksum_adler32(buffer(start, buffer:len() - start), offset - start, length, false)
+
+    if computed == value then
+      item:append_text(" [correct]")
+    else
+      item:append_text(" [incorrect, should be "..computed.."]")
+      item:add_proto_expert_info(szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.experts.checksum_incorrect, "Checksum incorrect: "..value..", should be "..computed)
+    end
+  else
+    item:append_text(" [unverified]")
+  end
 
   return offset + length, value
 end
@@ -6845,10 +6890,10 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet.dissect = functi
   local msg_count = buffer(16, 2):uint()
 
   -- Dependency element: Channel
-  local channel = buffer(offset + 6, 2):uint()
+  local channel = buffer(6, 2):uint()
 
   -- Dependency element: Msg Count
-  local msg_count = buffer(offset + 16, 2):uint()
+  local msg_count = buffer(16, 2):uint()
 
   -- Packet Body: Runtime Type with 4 branches
   index = szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.packet_body.dissect(buffer, index, packet, parent, channel, msg_count, flag)

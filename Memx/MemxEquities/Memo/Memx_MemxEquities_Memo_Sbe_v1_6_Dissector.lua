@@ -81,7 +81,7 @@ omi_memx_memxequities_memo_sbe_v1_6.fields.replay_request_message = ProtoField.n
 omi_memx_memxequities_memo_sbe_v1_6.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "memx.memxequities.memo.sbe.v1.6.repricebehavior", ftypes.UINT8, nil, nil, nil, "Defines the reprice behavior when market is locked or crossed.")
 omi_memx_memxequities_memo_sbe_v1_6.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "memx.memxequities.memo.sbe.v1.6.repricefrequency", ftypes.UINT8, nil, nil, nil, "Defines the frequency of a reprice. If this tag is not sent then the order will not be repriced.")
 omi_memx_memxequities_memo_sbe_v1_6.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "memx.memxequities.memo.sbe.v1.6.reservereplenishtiming", ftypes.UINT8, nil, nil, nil, "Defines the replenishment timing behavior for a reserve order.")
-omi_memx_memxequities_memo_sbe_v1_6.fields.reserved_13 = ProtoField.new("Reserved 13", "memx.memxequities.memo.sbe.v1.6.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
+omi_memx_memxequities_memo_sbe_v1_6.fields.reserved_4_to_16 = ProtoField.new("Reserved 4 To 16", "memx.memxequities.memo.sbe.v1.6.reserved4to16", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
 omi_memx_memxequities_memo_sbe_v1_6.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxequities.memo.sbe.v1.6.riskgroupid", ftypes.UINT16, nil, nil, nil, "RiskGroupId")
 omi_memx_memxequities_memo_sbe_v1_6.fields.schema_id = ProtoField.new("Schema Id", "memx.memxequities.memo.sbe.v1.6.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_memx_memxequities_memo_sbe_v1_6.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "memx.memxequities.memo.sbe.v1.6.selftradeprevention", ftypes.UINT8, nil, nil, nil, "Defines the desired behavior in the event of a wash. The UINT8 Null (0xFF) value disables self trade prevention.")
@@ -3690,8 +3690,8 @@ memx_memxequities_memo_sbe_v1_6.exec_inst.bits = function(range, value, packet, 
   -- External Routing Not Allowed: 1 Bit
   parent:add(omi_memx_memxequities_memo_sbe_v1_6.fields.external_routing_not_allowed, range, value)
 
-  -- Reserved 13: 13 Bit
-  parent:add(omi_memx_memxequities_memo_sbe_v1_6.fields.reserved_13, range, value)
+  -- Reserved 4 To 16: 13 Bit
+  parent:add(omi_memx_memxequities_memo_sbe_v1_6.fields.reserved_4_to_16, range, value)
 end
 
 -- Dissect: Exec Inst

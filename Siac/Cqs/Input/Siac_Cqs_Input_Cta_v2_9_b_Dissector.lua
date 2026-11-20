@@ -162,6 +162,11 @@ omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_extended_quote
 omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_long_quote_appendage_index = ProtoField.new("Partial Reject Odd Lot Offer Long Quote Appendage Index", "siac.cqs.input.cta.v2.9.b.partialrejectoddlotofferlongquoteappendageindex", ftypes.UINT16)
 omi_siac_cqs_input_cta_v2_9_b.fields.partial_reject_odd_lot_offer_short_quote_appendage_index = ProtoField.new("Partial Reject Odd Lot Offer Short Quote Appendage Index", "siac.cqs.input.cta.v2.9.b.partialrejectoddlotoffershortquoteappendageindex", ftypes.UINT16)
 
+-- Siac Cqs Input Cta 2.9.b Expert Info
+siac_cqs_input_cta_v2_9_b.experts = {}
+siac_cqs_input_cta_v2_9_b.experts.block_checksum_incorrect = ProtoExpert.new("siac.cqs.input.cta.v2.9.b.blockchecksumincorrect", "Block Checksum incorrect: not the checksum of the bytes it covers", expert.group.CHECKSUM, expert.severity.ERROR)
+omi_siac_cqs_input_cta_v2_9_b.experts = { siac_cqs_input_cta_v2_9_b.experts.block_checksum_incorrect }
+
 -----------------------------------------------------------------------
 -- Siac Cqs Input Cta 2.9.b Formatting
 -----------------------------------------------------------------------
@@ -174,6 +179,9 @@ local timestamp_format_enum = {
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 siac_cqs_input_cta_v2_9_b.timestamp_format = 3
+
+-- Checksums are verified only where the reader asks
+siac_cqs_input_cta_v2_9_b.verify_checksums = false
 
 
 -----------------------------------------------------------------------
@@ -200,6 +208,8 @@ omi_siac_cqs_input_cta_v2_9_b.prefs.show_indexes = Pref.bool("Show Indexes", sho
 
 omi_siac_cqs_input_cta_v2_9_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
+omi_siac_cqs_input_cta_v2_9_b.prefs.verify_checksums = Pref.bool("Verify Checksums", false, "Compute each checksum the protocol carries and compare it with the one sent. Off by default: a capture taken on the sending host often holds checksums filled in after it was captured")
+
 -- Handle changed preferences
 function omi_siac_cqs_input_cta_v2_9_b.prefs_changed()
 
@@ -225,6 +235,9 @@ function omi_siac_cqs_input_cta_v2_9_b.prefs_changed()
   if siac_cqs_input_cta_v2_9_b.timestamp_format ~= omi_siac_cqs_input_cta_v2_9_b.prefs.timestamp_format then
     siac_cqs_input_cta_v2_9_b.timestamp_format = omi_siac_cqs_input_cta_v2_9_b.prefs.timestamp_format
   end
+  if siac_cqs_input_cta_v2_9_b.verify_checksums ~= omi_siac_cqs_input_cta_v2_9_b.prefs.verify_checksums then
+    siac_cqs_input_cta_v2_9_b.verify_checksums = omi_siac_cqs_input_cta_v2_9_b.prefs.verify_checksums
+  end
 end
 
 
@@ -244,6 +257,19 @@ trim_right_spaces = function(str)
 end
 
 
+-- Sum checksum: every byte of the range added, those of the checksum itself left out, reduced by the modulus
+local function checksum_sum(range, skip, length, modulus)
+  local bytes = range:bytes()
+  local sum = 0
+
+  for index = 0, bytes:len() - 1 do
+    if index < skip or index >= skip + length then
+      sum = sum + bytes:get_index(index)
+    end
+  end
+
+  return sum % modulus
+end
 -----------------------------------------------------------------------
 -- Siac Cqs Input Cta 2.9.b Fields
 -----------------------------------------------------------------------
@@ -457,7 +483,22 @@ siac_cqs_input_cta_v2_9_b.block_checksum.dissect = function(buffer, offset, pack
   local value = range:uint()
   local display = siac_cqs_input_cta_v2_9_b.block_checksum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.block_checksum, range, value, display)
+  local item = parent:add(omi_siac_cqs_input_cta_v2_9_b.fields.block_checksum, range, value, display)
+
+  -- Verified only where the reader asks: the sum of the bytes covered, its own left out
+  if siac_cqs_input_cta_v2_9_b.verify_checksums then
+    local start = offset - 8
+    local computed = checksum_sum(buffer(start, buffer:len() - start), offset - start, length, 65536)
+
+    if computed == value then
+      item:append_text(" [correct]")
+    else
+      item:append_text(" [incorrect, should be "..computed.."]")
+      item:add_proto_expert_info(siac_cqs_input_cta_v2_9_b.experts.block_checksum_incorrect, "Block Checksum incorrect: "..value..", should be "..computed)
+    end
+  else
+    item:append_text(" [unverified]")
+  end
 
   return offset + length, value
 end

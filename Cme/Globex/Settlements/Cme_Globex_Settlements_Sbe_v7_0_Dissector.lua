@@ -54,7 +54,7 @@ omi_cme_globex_settlements_sbe_v7_0.fields.open_interest_qty = ProtoField.new("O
 omi_cme_globex_settlements_sbe_v7_0.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "cme.globex.settlements.sbe.v7.0.packetsequencenumber", ftypes.UINT32)
 omi_cme_globex_settlements_sbe_v7_0.fields.product_guid = ProtoField.new("Product Guid", "cme.globex.settlements.sbe.v7.0.productguid", ftypes.UINT64)
 omi_cme_globex_settlements_sbe_v7_0.fields.put_or_call = ProtoField.new("Put Or Call", "cme.globex.settlements.sbe.v7.0.putorcall", ftypes.UINT8, nil, nil, nil, "Put or call indicator")
-omi_cme_globex_settlements_sbe_v7_0.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.globex.settlements.sbe.v7.0.reservedbits", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "ReservedBits")
+omi_cme_globex_settlements_sbe_v7_0.fields.reserved_6_to_7 = ProtoField.new("Reserved 6 To 7", "cme.globex.settlements.sbe.v7.0.reserved6to7", ftypes.UINT8, nil, base.DEC, 0x60, "2 reserved bits")
 omi_cme_globex_settlements_sbe_v7_0.fields.rounded = ProtoField.new("Rounded", "cme.globex.settlements.sbe.v7.0.rounded", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04)
 omi_cme_globex_settlements_sbe_v7_0.fields.schema_id = ProtoField.new("Schema Id", "cme.globex.settlements.sbe.v7.0.schemaid", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.security_exchange = ProtoField.new("Security Exchange", "cme.globex.settlements.sbe.v7.0.securityexchange", ftypes.STRING)
@@ -76,7 +76,6 @@ omi_cme_globex_settlements_sbe_v7_0.fields.underlying_maturity_month_year = Prot
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_product_guid = ProtoField.new("Underlying Product Guid", "cme.globex.settlements.sbe.v7.0.underlyingproductguid", ftypes.UINT64)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "cme.globex.settlements.sbe.v7.0.underlyingsecurityexchange", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_security_type = ProtoField.new("Underlying Security Type", "cme.globex.settlements.sbe.v7.0.underlyingsecuritytype", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.unused_bit_6 = ProtoField.new("Unused Bit 6", "cme.globex.settlements.sbe.v7.0.unusedbit6", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "1 unused bit")
 omi_cme_globex_settlements_sbe_v7_0.fields.version = ProtoField.new("Version", "cme.globex.settlements.sbe.v7.0.version", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.week = ProtoField.new("Week", "cme.globex.settlements.sbe.v7.0.week", ftypes.UINT8, nil, nil, nil, "WW")
 omi_cme_globex_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.globex.settlements.sbe.v7.0.year", ftypes.UINT16, nil, nil, nil, "YYYY")
@@ -2233,10 +2232,6 @@ cme_globex_settlements_sbe_v7_0.settl_price_type.display = function(range, value
   if bit.band(value, 0x10) ~= 0 then
     flags[#flags + 1] = "Cabinet"
   end
-  -- Is Reserved Bits flag set?
-  if bit.band(value, 0x20) ~= 0 then
-    flags[#flags + 1] = "Reserved Bits"
-  end
   -- Is Null Value flag set?
   if bit.band(value, 0x80) ~= 0 then
     flags[#flags + 1] = "Null Value"
@@ -2263,11 +2258,8 @@ cme_globex_settlements_sbe_v7_0.settl_price_type.bits = function(range, value, p
   -- Cabinet: 1 Bit
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.cabinet, range, value)
 
-  -- Reserved Bits: 1 Bit
-  parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.reserved_bits, range, value)
-
-  -- Unused Bit 6: 1 Bit
-  parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.unused_bit_6, range, value)
+  -- Reserved 6 To 7: 2 Bit
+  parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.reserved_6_to_7, range, value)
 
   -- Null Value: 1 Bit
   parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.null_value, range, value)
@@ -2442,7 +2434,7 @@ cme_globex_settlements_sbe_v7_0.incremental_refresh_settle_group.fields = functi
   -- Md Entry Px: PRICENULL9
   index, md_entry_px = cme_globex_settlements_sbe_v7_0.md_entry_px.dissect(buffer, index, packet, parent)
 
-  -- Settl Price Type: Struct of 8 fields
+  -- Settl Price Type: Struct of 7 fields
   index, settl_price_type = cme_globex_settlements_sbe_v7_0.settl_price_type.dissect(buffer, index, packet, parent)
 
   -- Trading Reference Date: LocalMktDate

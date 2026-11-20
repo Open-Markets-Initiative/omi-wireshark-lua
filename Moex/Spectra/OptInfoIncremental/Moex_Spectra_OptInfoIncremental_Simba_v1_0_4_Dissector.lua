@@ -29,12 +29,12 @@ omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.last_fragment = ProtoFie
 omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.low_limit_px = ProtoField.new("Low Limit Px", "moex.spectra.optinfoincremental.simba.v1.0.4.lowlimitpx", ftypes.DOUBLE, nil, nil, nil, "LowLimitPx")
 omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.market_data_packet_header = ProtoField.new("Market Data Packet Header", "moex.spectra.optinfoincremental.simba.v1.0.4.marketdatapacketheader", ftypes.STRING, nil, nil, nil, "MarketDataDummyMessage")
 omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.market_segment_id = ProtoField.new("Market Segment Id", "moex.spectra.optinfoincremental.simba.v1.0.4.marketsegmentid", ftypes.STRING, nil, nil, nil, "MarketSegmentID")
-omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.msg_flags = ProtoField.new("Msg Flags", "moex.spectra.optinfoincremental.simba.v1.0.4.msgflags", ftypes.STRING, nil, nil, nil, "Message flags, least significant bit first, as the schema's MsgFlagsSet declares them")
+omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.msg_flags = ProtoField.new("Msg Flags", "moex.spectra.optinfoincremental.simba.v1.0.4.msgflags", ftypes.STRING, nil, nil, nil, "MsgFlagsSet bit set")
 omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "moex.spectra.optinfoincremental.simba.v1.0.4.msgseqnum", ftypes.UINT32, nil, nil, nil, "MsgSeqNum")
 omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.msg_size = ProtoField.new("Msg Size", "moex.spectra.optinfoincremental.simba.v1.0.4.msgsize", ftypes.UINT16, nil, nil, nil, "MsgSize")
 omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.new_seq_no = ProtoField.new("New Seq No", "moex.spectra.optinfoincremental.simba.v1.0.4.newseqno", ftypes.UINT32, nil, nil, nil, "NewSeqNo")
 omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.poss_dup_flag = ProtoField.new("Poss Dup Flag", "moex.spectra.optinfoincremental.simba.v1.0.4.possdupflag", ftypes.UINT16, {[0]="Online Updates", [1]="Full Order Books"}, base.DEC, 0x0010, "PossDupFlag")
-omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.reserved_bits = ProtoField.new("Reserved Bits", "moex.spectra.optinfoincremental.simba.v1.0.4.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFFE0, "Bits the schema's MsgFlagsSet leaves unused")
+omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.reserved_6_to_16 = ProtoField.new("Reserved 6 To 16", "moex.spectra.optinfoincremental.simba.v1.0.4.reserved6to16", ftypes.UINT16, nil, base.DEC, 0xFFE0, "11 reserved bits")
 omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.schema_id = ProtoField.new("Schema Id", "moex.spectra.optinfoincremental.simba.v1.0.4.schemaid", ftypes.UINT16, nil, nil, nil, "Message schema identifier")
 omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.security_id = ProtoField.new("Security Id", "moex.spectra.optinfoincremental.simba.v1.0.4.securityid", ftypes.INT32, nil, nil, nil, "SecurityID")
 omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.security_trading_status = ProtoField.new("Security Trading Status", "moex.spectra.optinfoincremental.simba.v1.0.4.securitytradingstatus", ftypes.UINT8, nil, nil, nil, "SecurityTradingStatus")
@@ -1589,8 +1589,8 @@ moex_spectra_optinfoincremental_simba_v1_0_4.msg_flags.bits = function(range, va
   -- Poss Dup Flag: 1 Bit Enum with 2 values
   parent:add(omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.poss_dup_flag, range, value)
 
-  -- Reserved Bits: 11 Bit
-  parent:add(omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.reserved_bits, range, value)
+  -- Reserved 6 To 16: 11 Bit
+  parent:add(omi_moex_spectra_optinfoincremental_simba_v1_0_4.fields.reserved_6_to_16, range, value)
 end
 
 -- Dissect: Msg Flags

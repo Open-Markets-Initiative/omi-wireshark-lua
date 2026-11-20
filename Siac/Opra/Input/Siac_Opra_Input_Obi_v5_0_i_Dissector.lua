@@ -114,6 +114,11 @@ omi_siac_opra_input_obi_v5_0_i.fields.underlying_value_last_sale_message = Proto
 -- Siac Opra Input Obi 5.0.i Generated Fields
 omi_siac_opra_input_obi_v5_0_i.fields.message_index = ProtoField.new("Message Index", "siac.opra.input.obi.v5.0.i.messageindex", ftypes.UINT16)
 
+-- Siac Opra Input Obi 5.0.i Expert Info
+siac_opra_input_obi_v5_0_i.experts = {}
+siac_opra_input_obi_v5_0_i.experts.block_checksum_incorrect = ProtoExpert.new("siac.opra.input.obi.v5.0.i.blockchecksumincorrect", "Block Checksum incorrect: not the checksum of the bytes it covers", expert.group.CHECKSUM, expert.severity.ERROR)
+omi_siac_opra_input_obi_v5_0_i.experts = { siac_opra_input_obi_v5_0_i.experts.block_checksum_incorrect }
+
 -----------------------------------------------------------------------
 -- Siac Opra Input Obi 5.0.i Formatting
 -----------------------------------------------------------------------
@@ -126,6 +131,9 @@ local timestamp_format_enum = {
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 siac_opra_input_obi_v5_0_i.timestamp_format = 3
+
+-- Checksums are verified only where the reader asks
+siac_opra_input_obi_v5_0_i.verify_checksums = false
 
 
 -----------------------------------------------------------------------
@@ -150,6 +158,8 @@ omi_siac_opra_input_obi_v5_0_i.prefs.show_indexes = Pref.bool("Show Indexes", sh
 
 omi_siac_opra_input_obi_v5_0_i.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
+omi_siac_opra_input_obi_v5_0_i.prefs.verify_checksums = Pref.bool("Verify Checksums", false, "Compute each checksum the protocol carries and compare it with the one sent. Off by default: a capture taken on the sending host often holds checksums filled in after it was captured")
+
 -- Handle changed preferences
 function omi_siac_opra_input_obi_v5_0_i.prefs_changed()
 
@@ -172,6 +182,9 @@ function omi_siac_opra_input_obi_v5_0_i.prefs_changed()
   if siac_opra_input_obi_v5_0_i.timestamp_format ~= omi_siac_opra_input_obi_v5_0_i.prefs.timestamp_format then
     siac_opra_input_obi_v5_0_i.timestamp_format = omi_siac_opra_input_obi_v5_0_i.prefs.timestamp_format
   end
+  if siac_opra_input_obi_v5_0_i.verify_checksums ~= omi_siac_opra_input_obi_v5_0_i.prefs.verify_checksums then
+    siac_opra_input_obi_v5_0_i.verify_checksums = omi_siac_opra_input_obi_v5_0_i.prefs.verify_checksums
+  end
 end
 
 
@@ -191,6 +204,19 @@ trim_right_spaces = function(str)
 end
 
 
+-- Sum checksum: every byte of the range added, those of the checksum itself left out, reduced by the modulus
+local function checksum_sum(range, skip, length, modulus)
+  local bytes = range:bytes()
+  local sum = 0
+
+  for index = 0, bytes:len() - 1 do
+    if index < skip or index >= skip + length then
+      sum = sum + bytes:get_index(index)
+    end
+  end
+
+  return sum % modulus
+end
 -----------------------------------------------------------------------
 -- Siac Opra Input Obi 5.0.i Fields
 -----------------------------------------------------------------------
@@ -355,7 +381,22 @@ siac_opra_input_obi_v5_0_i.block_checksum.dissect = function(buffer, offset, pac
   local value = range:uint()
   local display = siac_opra_input_obi_v5_0_i.block_checksum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_input_obi_v5_0_i.fields.block_checksum, range, value, display)
+  local item = parent:add(omi_siac_opra_input_obi_v5_0_i.fields.block_checksum, range, value, display)
+
+  -- Verified only where the reader asks: the sum of the bytes covered, its own left out
+  if siac_opra_input_obi_v5_0_i.verify_checksums then
+    local start = offset - 19
+    local computed = checksum_sum(buffer(start, buffer:len() - start), offset - start, length, 65536)
+
+    if computed == value then
+      item:append_text(" [correct]")
+    else
+      item:append_text(" [incorrect, should be "..computed.."]")
+      item:add_proto_expert_info(siac_opra_input_obi_v5_0_i.experts.block_checksum_incorrect, "Block Checksum incorrect: "..value..", should be "..computed)
+    end
+  else
+    item:append_text(" [unverified]")
+  end
 
   return offset + length, value
 end

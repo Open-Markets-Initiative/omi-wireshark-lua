@@ -88,11 +88,11 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.price_multiplier = ProtoFi
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.price_optional = ProtoField.new("Price Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.priceoptional", ftypes.DOUBLE, nil, nil, nil, "Order price. For modified order represents a price after modification")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.product = ProtoField.new("Product", "smallx.smallfutures.orderbookfeed.sbe.v2.2.product", ftypes.STRING, nil, nil, nil, "Instrument product")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.put_or_call = ProtoField.new("Put Or Call", "smallx.smallfutures.orderbookfeed.sbe.v2.2.putorcall", ftypes.STRING, nil, nil, nil, "Option put/call flag")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_14 = ProtoField.new("Reserved 14", "smallx.smallfutures.orderbookfeed.sbe.v2.2.reserved14", ftypes.UINT16, nil, base.DEC, 0xFFFC, "14 reserved bits")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_15 = ProtoField.new("Reserved 15", "smallx.smallfutures.orderbookfeed.sbe.v2.2.reserved15", ftypes.UINT16, nil, base.DEC, 0xFFFE, "15 reserved bits")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_5 = ProtoField.new("Reserved 5", "smallx.smallfutures.orderbookfeed.sbe.v2.2.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8, "5 reserved bits")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_7 = ProtoField.new("Reserved 7", "smallx.smallfutures.orderbookfeed.sbe.v2.2.reserved7", ftypes.UINT16, nil, base.DEC, 0xFE00, "7 reserved bits")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_9 = ProtoField.new("Reserved 9", "smallx.smallfutures.orderbookfeed.sbe.v2.2.reserved9", ftypes.UINT16, nil, base.DEC, 0xFF80, "9 reserved bits")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_10_to_16 = ProtoField.new("Reserved 10 To 16", "smallx.smallfutures.orderbookfeed.sbe.v2.2.reserved10to16", ftypes.UINT16, nil, base.DEC, 0xFE00, "7 reserved bits")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_2_to_16 = ProtoField.new("Reserved 2 To 16", "smallx.smallfutures.orderbookfeed.sbe.v2.2.reserved2to16", ftypes.UINT16, nil, base.DEC, 0xFFFE, "15 reserved bits")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_3_to_16 = ProtoField.new("Reserved 3 To 16", "smallx.smallfutures.orderbookfeed.sbe.v2.2.reserved3to16", ftypes.UINT16, nil, base.DEC, 0xFFFC, "14 reserved bits")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_5 = ProtoField.new("Reserved 5", "smallx.smallfutures.orderbookfeed.sbe.v2.2.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved5")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_8_to_16 = ProtoField.new("Reserved 8 To 16", "smallx.smallfutures.orderbookfeed.sbe.v2.2.reserved8to16", ftypes.UINT16, nil, base.DEC, 0xFF80, "9 reserved bits")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.retransmission = ProtoField.new("Retransmission", "smallx.smallfutures.orderbookfeed.sbe.v2.2.retransmission", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Set when the packet is resent by the retransmission service")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.schema_id = ProtoField.new("Schema Id", "smallx.smallfutures.orderbookfeed.sbe.v2.2.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.sell_order_id = ProtoField.new("Sell Order Id", "smallx.smallfutures.orderbookfeed.sbe.v2.2.sellorderid", ftypes.INT64, nil, nil, nil, "Id of the 'sell' order. Order id here is the same as reported in FIX protocol")
@@ -134,8 +134,8 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transaction_begin = ProtoF
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transaction_end = ProtoField.new("Transaction End", "smallx.smallfutures.orderbookfeed.sbe.v2.2.transactionend", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Set in the last message resulting a single business event processing")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "smallx.smallfutures.orderbookfeed.sbe.v2.2.underlyinginstrumentid", ftypes.INT32, nil, nil, nil, "Option underlying ID. The ID is used to reference instrument definition message of the underlying transmitted in the snapshot line for getting underlying details from it")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "smallx.smallfutures.orderbookfeed.sbe.v2.2.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Option underlying symbol")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bit_6 = ProtoField.new("Unused Bit 6", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unusedbit6", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "1 unused bit")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bits_0_to_1 = ProtoField.new("Unused Bits 0 To 1", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unusedbits0to1", ftypes.UINT16, nil, base.DEC, 0x0003, "2 unused bits")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bit_7 = ProtoField.new("Unused Bit 7", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unusedbit7", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "1 unused bit")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bits_1_to_2 = ProtoField.new("Unused Bits 1 To 2", "smallx.smallfutures.orderbookfeed.sbe.v2.2.unusedbits1to2", ftypes.UINT16, nil, base.DEC, 0x0003, "2 unused bits")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.value = ProtoField.new("Value", "smallx.smallfutures.orderbookfeed.sbe.v2.2.value", ftypes.DOUBLE, nil, nil, nil, "Last index value")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.version = ProtoField.new("Version", "smallx.smallfutures.orderbookfeed.sbe.v2.2.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 
@@ -3086,8 +3086,8 @@ end
 -- Dissect Bit Fields: Snapshot Message Instructions
 smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits = function(range, value, packet, parent)
 
-  -- Unused Bits 0 To 1: 2 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bits_0_to_1, range, value)
+  -- Unused Bits 1 To 2: 2 Bit
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bits_1_to_2, range, value)
 
   -- Instrument Begin: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.instrument_begin, range, value)
@@ -3101,8 +3101,8 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits = 
   -- Book End: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.book_end, range, value)
 
-  -- Unused Bit 6: 1 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bit_6, range, value)
+  -- Unused Bit 7: 1 Bit
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.unused_bit_7, range, value)
 
   -- Snapshot Begin: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.snapshot_begin, range, value)
@@ -3110,8 +3110,8 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.snapshot_message_instructions.bits = 
   -- Snapshot End: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.snapshot_end, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_7, range, value)
+  -- Reserved 10 To 16: 7 Bit
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_10_to_16, range, value)
 end
 
 -- Dissect: Snapshot Message Instructions
@@ -3488,8 +3488,8 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.incremental_message_instructions.bits
   -- Book Reset: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.book_reset, range, value)
 
-  -- Reserved 9: 9 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_9, range, value)
+  -- Reserved 8 To 16: 9 Bit
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_8_to_16, range, value)
 end
 
 -- Dissect: Incremental Message Instructions
@@ -4011,8 +4011,8 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.order_attributes.bits = function(rang
   -- Implied: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.implied, range, value)
 
-  -- Reserved 15: 15 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_15, range, value)
+  -- Reserved 2 To 16: 15 Bit
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_2_to_16, range, value)
 end
 
 -- Dissect: Order Attributes
@@ -4571,8 +4571,8 @@ smallx_smallfutures_orderbookfeed_sbe_v2_2.trade_conditions.bits = function(rang
   -- Auction: 1 Bit
   parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.auction, range, value)
 
-  -- Reserved 14: 14 Bit
-  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_14, range, value)
+  -- Reserved 3 To 16: 14 Bit
+  parent:add(omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.reserved_3_to_16, range, value)
 end
 
 -- Dissect: Trade Conditions

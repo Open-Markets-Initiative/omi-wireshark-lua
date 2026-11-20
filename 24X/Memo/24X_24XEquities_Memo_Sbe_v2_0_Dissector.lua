@@ -107,9 +107,9 @@ omi_n24x_24xequities_memo_sbe_v2_0.fields.replay_request_message = ProtoField.ne
 omi_n24x_24xequities_memo_sbe_v2_0.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "24x.24xequities.memo.sbe.v2.0.repricebehavior", ftypes.UINT8, nil, nil, nil, "RepriceBehavior")
 omi_n24x_24xequities_memo_sbe_v2_0.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "24x.24xequities.memo.sbe.v2.0.repricefrequency", ftypes.UINT8, nil, nil, nil, "RepriceFrequency")
 omi_n24x_24xequities_memo_sbe_v2_0.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "24x.24xequities.memo.sbe.v2.0.reservereplenishtiming", ftypes.UINT8, nil, nil, nil, "ReserveReplenishTiming")
-omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_13 = ProtoField.new("Reserved 13", "24x.24xequities.memo.sbe.v2.0.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
-omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_14 = ProtoField.new("Reserved 14", "24x.24xequities.memo.sbe.v2.0.reserved14", ftypes.UINT16, nil, base.DEC, 0xFFFC, "14 reserved bits")
-omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_4 = ProtoField.new("Reserved 4", "24x.24xequities.memo.sbe.v2.0.reserved4", ftypes.UINT16, nil, base.DEC, 0xF000, "4 reserved bits")
+omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_13_to_16 = ProtoField.new("Reserved 13 To 16", "24x.24xequities.memo.sbe.v2.0.reserved13to16", ftypes.UINT16, nil, base.DEC, 0xF000, "4 reserved bits")
+omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_3_to_16 = ProtoField.new("Reserved 3 To 16", "24x.24xequities.memo.sbe.v2.0.reserved3to16", ftypes.UINT16, nil, base.DEC, 0xFFFC, "14 reserved bits")
+omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_4_to_16 = ProtoField.new("Reserved 4 To 16", "24x.24xequities.memo.sbe.v2.0.reserved4to16", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
 omi_n24x_24xequities_memo_sbe_v2_0.fields.retail_order = ProtoField.new("Retail Order", "24x.24xequities.memo.sbe.v2.0.retailorder", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080, "RetailOrder")
 omi_n24x_24xequities_memo_sbe_v2_0.fields.risk_group_id = ProtoField.new("Risk Group Id", "24x.24xequities.memo.sbe.v2.0.riskgroupid", ftypes.UINT16, nil, nil, nil, "RiskGroupID")
 omi_n24x_24xequities_memo_sbe_v2_0.fields.schema_id = ProtoField.new("Schema Id", "24x.24xequities.memo.sbe.v2.0.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
@@ -3732,8 +3732,8 @@ n24x_24xequities_memo_sbe_v2_0.execution_details.bits = function(range, value, p
   -- Traded Against Hidden: 1 Bit
   parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.traded_against_hidden, range, value)
 
-  -- Reserved 4: 4 Bit
-  parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_4, range, value)
+  -- Reserved 13 To 16: 4 Bit
+  parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_13_to_16, range, value)
 end
 
 -- Dissect: Execution Details
@@ -4839,8 +4839,8 @@ n24x_24xequities_memo_sbe_v2_0.extended_exec_inst.bits = function(range, value, 
   -- Non Attested Retail: 1 Bit
   parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.non_attested_retail, range, value)
 
-  -- Reserved 14: 14 Bit
-  parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_14, range, value)
+  -- Reserved 3 To 16: 14 Bit
+  parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_3_to_16, range, value)
 end
 
 -- Dissect: Extended Exec Inst
@@ -4896,8 +4896,8 @@ n24x_24xequities_memo_sbe_v2_0.exec_inst.bits = function(range, value, packet, p
   -- External Routing Not Allowed: 1 Bit
   parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.external_routing_not_allowed, range, value)
 
-  -- Reserved 13: 13 Bit
-  parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_13, range, value)
+  -- Reserved 4 To 16: 13 Bit
+  parent:add(omi_n24x_24xequities_memo_sbe_v2_0.fields.reserved_4_to_16, range, value)
 end
 
 -- Dissect: Exec Inst

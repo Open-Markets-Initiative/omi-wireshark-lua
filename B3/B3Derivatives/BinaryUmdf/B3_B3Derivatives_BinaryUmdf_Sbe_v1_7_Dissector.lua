@@ -153,8 +153,9 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.product = ProtoField.new("Produc
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.put_or_call = ProtoField.new("Put Or Call", "b3.b3derivatives.binaryumdf.sbe.v1.7.putorcall", ftypes.UINT8, nil, nil, nil, "putOrCall")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.recovery_msg = ProtoField.new("Recovery Msg", "b3.b3derivatives.binaryumdf.sbe.v1.7.recoverymsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "RecoveryMsg")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.regular_trade = ProtoField.new("Regular Trade", "b3.b3derivatives.binaryumdf.sbe.v1.7.regulartrade", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000, "RegularTrade")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.reserved = ProtoField.new("Reserved", "b3.b3derivatives.binaryumdf.sbe.v1.7.reserved", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
-omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.reserved_6 = ProtoField.new("Reserved 6", "b3.b3derivatives.binaryumdf.sbe.v1.7.reserved6", ftypes.UINT16, nil, base.DEC, 0xFC00, "6 reserved bits")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.reserved_11_to_16 = ProtoField.new("Reserved 11 To 16", "b3.b3derivatives.binaryumdf.sbe.v1.7.reserved11to16", ftypes.UINT16, nil, base.DEC, 0xFC00, "6 reserved bits")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.reserved_16 = ProtoField.new("Reserved 16", "b3.b3derivatives.binaryumdf.sbe.v1.7.reserved16", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000, "1 reserved bit")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.reserved_7 = ProtoField.new("Reserved 7", "b3.b3derivatives.binaryumdf.sbe.v1.7.reserved7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "1 reserved bit")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.rpt_seq = ProtoField.new("Rpt Seq", "b3.b3derivatives.binaryumdf.sbe.v1.7.rptseq", ftypes.UINT32, nil, nil, nil, "rptSeq")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.schema_id = ProtoField.new("Schema Id", "b3.b3derivatives.binaryumdf.sbe.v1.7.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "b3.b3derivatives.binaryumdf.sbe.v1.7.secondaryorderid", ftypes.UINT64, nil, nil, nil, "secondaryOrderID")
@@ -218,10 +219,9 @@ omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.underlying_security_id = ProtoFi
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "b3.b3derivatives.binaryumdf.sbe.v1.7.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying instrument's ticker symbol.")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.underlyings_group = ProtoField.new("Underlyings Group", "b3.b3derivatives.binaryumdf.sbe.v1.7.underlyingsgroup", ftypes.STRING, nil, nil, nil, "noUnderlyings")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.underlyings_groups = ProtoField.new("Underlyings Groups", "b3.b3derivatives.binaryumdf.sbe.v1.7.underlyingsgroups", ftypes.STRING, nil, nil, nil, "noUnderlyings Block")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bit_15 = ProtoField.new("Unused Bit 15", "b3.b3derivatives.binaryumdf.sbe.v1.7.unusedbit15", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x8000, "1 unused bit")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_0_to_7 = ProtoField.new("Unused Bits 0 To 7", "b3.b3derivatives.binaryumdf.sbe.v1.7.unusedbits0to7", ftypes.UINT16, nil, base.DEC, 0x00FF, "8 unused bits")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_4_to_5 = ProtoField.new("Unused Bits 4 To 5", "b3.b3derivatives.binaryumdf.sbe.v1.7.unusedbits4to5", ftypes.UINT16, nil, base.DEC, 0x0030, "2 unused bits")
-omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_7_to_12 = ProtoField.new("Unused Bits 7 To 12", "b3.b3derivatives.binaryumdf.sbe.v1.7.unusedbits7to12", ftypes.UINT16, nil, base.DEC, 0x1F80, "6 unused bits")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_1_to_8 = ProtoField.new("Unused Bits 1 To 8", "b3.b3derivatives.binaryumdf.sbe.v1.7.unusedbits1to8", ftypes.UINT16, nil, base.DEC, 0x00FF, "8 unused bits")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_5_to_6 = ProtoField.new("Unused Bits 5 To 6", "b3.b3derivatives.binaryumdf.sbe.v1.7.unusedbits5to6", ftypes.UINT16, nil, base.DEC, 0x0030, "2 unused bits")
+omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_8_to_13 = ProtoField.new("Unused Bits 8 To 13", "b3.b3derivatives.binaryumdf.sbe.v1.7.unusedbits8to13", ftypes.UINT16, nil, base.DEC, 0x1F80, "6 unused bits")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.url_link = ProtoField.new("Url Link", "b3.b3derivatives.binaryumdf.sbe.v1.7.urllink", ftypes.STRING, nil, nil, nil, "uRLLink data struct")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.url_link_data = ProtoField.new("Url Link Data", "b3.b3derivatives.binaryumdf.sbe.v1.7.urllinkdata", ftypes.STRING, nil, nil, nil, "Bytes of the string, encoded in UTF-8.")
 omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.url_link_length = ProtoField.new("Url Link Length", "b3.b3derivatives.binaryumdf.sbe.v1.7.urllinklength", ftypes.UINT16, nil, nil, nil, "Length of a string, in bytes. For instance, the string 'Ação', converted to UTF-8, has 6 bytes, so length = 6.")
@@ -5508,10 +5508,6 @@ b3_b3derivatives_binaryumdf_sbe_v1_7.match_event_indicator.display = function(ra
   if bit.band(value, 0x20) ~= 0 then
     flags[#flags + 1] = "Recovery Msg"
   end
-  -- Is Reserved flag set?
-  if bit.band(value, 0x40) ~= 0 then
-    flags[#flags + 1] = "Reserved"
-  end
   -- Is End Of Event flag set?
   if bit.band(value, 0x80) ~= 0 then
     flags[#flags + 1] = "End Of Event"
@@ -5541,8 +5537,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_7.match_event_indicator.bits = function(range
   -- Recovery Msg: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.recovery_msg, range, value)
 
-  -- Reserved: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.reserved, range, value)
+  -- Reserved 7: 1 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.reserved_7, range, value)
 
   -- End Of Event: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.end_of_event, range, value)
@@ -5872,14 +5868,14 @@ b3_b3derivatives_binaryumdf_sbe_v1_7.trade_condition.bits = function(range, valu
   -- Out Of Sequence: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.out_of_sequence, range, value)
 
-  -- Unused Bits 4 To 5: 2 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_4_to_5, range, value)
+  -- Unused Bits 5 To 6: 2 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_5_to_6, range, value)
 
   -- Trade On Behalf: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.trade_on_behalf, range, value)
 
-  -- Unused Bits 7 To 12: 6 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_7_to_12, range, value)
+  -- Unused Bits 8 To 13: 6 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_8_to_13, range, value)
 
   -- Regular Trade: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.regular_trade, range, value)
@@ -5887,8 +5883,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_7.trade_condition.bits = function(range, valu
   -- Block Trade: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.block_trade, range, value)
 
-  -- Unused Bit 15: 1 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bit_15, range, value)
+  -- Reserved 16: 1 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.reserved_16, range, value)
 end
 
 -- Dissect: Trade Condition
@@ -6903,8 +6899,8 @@ end
 -- Dissect Bit Fields: Imbalance Condition
 b3_b3derivatives_binaryumdf_sbe_v1_7.imbalance_condition.bits = function(range, value, packet, parent)
 
-  -- Unused Bits 0 To 7: 8 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_0_to_7, range, value)
+  -- Unused Bits 1 To 8: 8 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.unused_bits_1_to_8, range, value)
 
   -- Imbalance More Buyers: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.imbalance_more_buyers, range, value)
@@ -6912,8 +6908,8 @@ b3_b3derivatives_binaryumdf_sbe_v1_7.imbalance_condition.bits = function(range, 
   -- Imbalance More Sellers: 1 Bit
   parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.imbalance_more_sellers, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.reserved_6, range, value)
+  -- Reserved 11 To 16: 6 Bit
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v1_7.fields.reserved_11_to_16, range, value)
 end
 
 -- Dissect: Imbalance Condition

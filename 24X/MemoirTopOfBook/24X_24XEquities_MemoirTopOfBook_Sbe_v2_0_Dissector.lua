@@ -50,7 +50,7 @@ omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.original_sale_condition_1 =
 omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.original_sale_condition_2 = ProtoField.new("Original Sale Condition 2", "24x.24xequities.memoirtopofbook.sbe.v2.0.originalsalecondition2", ftypes.STRING, nil, nil, nil, "OriginalSaleCondition2")
 omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.original_sale_condition_3 = ProtoField.new("Original Sale Condition 3", "24x.24xequities.memoirtopofbook.sbe.v2.0.originalsalecondition3", ftypes.STRING, nil, nil, nil, "OriginalSaleCondition3")
 omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.original_sale_condition_4 = ProtoField.new("Original Sale Condition 4", "24x.24xequities.memoirtopofbook.sbe.v2.0.originalsalecondition4", ftypes.STRING, nil, nil, nil, "OriginalSaleCondition4")
-omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.reserved_7 = ProtoField.new("Reserved 7", "24x.24xequities.memoirtopofbook.sbe.v2.0.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
+omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.reserved_2_to_8 = ProtoField.new("Reserved 2 To 8", "24x.24xequities.memoirtopofbook.sbe.v2.0.reserved2to8", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
 omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.retail_present_on_bid = ProtoField.new("Retail Present On Bid", "24x.24xequities.memoirtopofbook.sbe.v2.0.retailpresentonbid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "RetailPresentOnBid")
 omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.retail_present_on_offer = ProtoField.new("Retail Present On Offer", "24x.24xequities.memoirtopofbook.sbe.v2.0.retailpresentonoffer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "RetailPresentOnOffer")
 omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.round_lot = ProtoField.new("Round Lot", "24x.24xequities.memoirtopofbook.sbe.v2.0.roundlot", ftypes.UINT32, nil, nil, nil, "RoundLot")
@@ -2182,8 +2182,8 @@ n24x_24xequities_memoirtopofbook_sbe_v2_0.offer_flags.bits = function(range, val
   -- Retail Present On Offer: 1 Bit
   parent:add(omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.retail_present_on_offer, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.reserved_7, range, value)
+  -- Reserved 2 To 8: 7 Bit
+  parent:add(omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.reserved_2_to_8, range, value)
 end
 
 -- Dissect: Offer Flags
@@ -2281,8 +2281,8 @@ n24x_24xequities_memoirtopofbook_sbe_v2_0.bid_flags.bits = function(range, value
   -- Retail Present On Bid: 1 Bit
   parent:add(omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.retail_present_on_bid, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.reserved_7, range, value)
+  -- Reserved 2 To 8: 7 Bit
+  parent:add(omi_n24x_24xequities_memoirtopofbook_sbe_v2_0.fields.reserved_2_to_8, range, value)
 end
 
 -- Dissect: Bid Flags

@@ -94,7 +94,7 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.replay_request_message = ProtoField.n
 omi_n24x_24xequities_memo_sbe_v1_13.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "24x.24xequities.memo.sbe.v1.13.repricebehavior", ftypes.UINT8, nil, nil, nil, "RepriceBehavior")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "24x.24xequities.memo.sbe.v1.13.repricefrequency", ftypes.UINT8, nil, nil, nil, "RepriceFrequency")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "24x.24xequities.memo.sbe.v1.13.reservereplenishtiming", ftypes.UINT8, nil, nil, nil, "ReserveReplenishTiming")
-omi_n24x_24xequities_memo_sbe_v1_13.fields.reserved_13 = ProtoField.new("Reserved 13", "24x.24xequities.memo.sbe.v1.13.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
+omi_n24x_24xequities_memo_sbe_v1_13.fields.reserved_4_to_16 = ProtoField.new("Reserved 4 To 16", "24x.24xequities.memo.sbe.v1.13.reserved4to16", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.risk_group_id = ProtoField.new("Risk Group Id", "24x.24xequities.memo.sbe.v1.13.riskgroupid", ftypes.UINT16, nil, nil, nil, "RiskGroupId")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("Schema Id", "24x.24xequities.memo.sbe.v1.13.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "24x.24xequities.memo.sbe.v1.13.securitygroup", ftypes.STRING, nil, nil, nil, "SecurityGroup")
@@ -4615,8 +4615,8 @@ n24x_24xequities_memo_sbe_v1_13.exec_inst.bits = function(range, value, packet, 
   -- External Routing Not Allowed: 1 Bit
   parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.external_routing_not_allowed, range, value)
 
-  -- Reserved 13: 13 Bit
-  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.reserved_13, range, value)
+  -- Reserved 4 To 16: 13 Bit
+  parent:add(omi_n24x_24xequities_memo_sbe_v1_13.fields.reserved_4_to_16, range, value)
 end
 
 -- Dissect: Exec Inst

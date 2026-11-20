@@ -133,10 +133,10 @@ omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.receive_time_utc = ProtoField.new
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.receive_time = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.2.receivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "receiveTime")
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.ref_sequence_number = ProtoField.new("Ref Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.2.refsequencenumber", ftypes.INT64, nil, nil, nil, "refSequenceNumber")
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reject_reason = ProtoField.new("Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.2.rejectreason", ftypes.INT8, nil, nil, nil, "reason")
-omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_10 = ProtoField.new("Reserved 10", "coinbase.deribit.ordersapi.sbe.v1.2.reserved10", ftypes.UINT16, nil, base.DEC, 0xFFC0, "10 reserved bits")
-omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_13 = ProtoField.new("Reserved 13", "coinbase.deribit.ordersapi.sbe.v1.2.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
-omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_6 = ProtoField.new("Reserved 6", "coinbase.deribit.ordersapi.sbe.v1.2.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
-omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_7 = ProtoField.new("Reserved 7", "coinbase.deribit.ordersapi.sbe.v1.2.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
+omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_2_to_8 = ProtoField.new("Reserved 2 To 8", "coinbase.deribit.ordersapi.sbe.v1.2.reserved2to8", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
+omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_3_to_8 = ProtoField.new("Reserved 3 To 8", "coinbase.deribit.ordersapi.sbe.v1.2.reserved3to8", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
+omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_4_to_16 = ProtoField.new("Reserved 4 To 16", "coinbase.deribit.ordersapi.sbe.v1.2.reserved4to16", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
+omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_7_to_16 = ProtoField.new("Reserved 7 To 16", "coinbase.deribit.ordersapi.sbe.v1.2.reserved7to16", ftypes.UINT16, nil, base.DEC, 0xFFC0, "10 reserved bits")
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.deribit.ordersapi.sbe.v1.2.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFE, "Bits reserved for future use")
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reset_mmp = ProtoField.new("Reset Mmp", "coinbase.deribit.ordersapi.sbe.v1.2.resetmmp", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0020, "resetMmp")
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.deribit.ordersapi.sbe.v1.2.resetseqnum", ftypes.INT8, nil, nil, nil, "resetSeqNum")
@@ -159,7 +159,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.to_sequence_number = ProtoField.n
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.total_filled = ProtoField.new("Total Filled", "coinbase.deribit.ordersapi.sbe.v1.2.totalfilled", ftypes.STRING, nil, nil, nil, "NewOrderResponseMessage")
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.total_order_count = ProtoField.new("Total Order Count", "coinbase.deribit.ordersapi.sbe.v1.2.totalordercount", ftypes.INT32, nil, nil, nil, "totalOrderCount")
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.trigger = ProtoField.new("Trigger", "coinbase.deribit.ordersapi.sbe.v1.2.trigger", ftypes.INT8)
-omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.unused_bit_0 = ProtoField.new("Unused Bit 0", "coinbase.deribit.ordersapi.sbe.v1.2.unusedbit0", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "1 unused bit")
+omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.unused_bit_1 = ProtoField.new("Unused Bit 1", "coinbase.deribit.ordersapi.sbe.v1.2.unusedbit1", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "1 unused bit")
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.vega_level = ProtoField.new("Vega Level", "coinbase.deribit.ordersapi.sbe.v1.2.vegalevel", ftypes.DOUBLE, nil, nil, nil, "vegaLevel")
 omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.visible_qty = ProtoField.new("Visible Qty", "coinbase.deribit.ordersapi.sbe.v1.2.visibleqty", ftypes.STRING, nil, nil, nil, "NewOrderResponseMessage")
 
@@ -3690,8 +3690,8 @@ coinbase_deribit_ordersapi_sbe_v1_2.flags_cancel_flags.bits = function(range, va
   -- Is Quote: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.is_quote, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_7, range, value)
+  -- Reserved 2 To 8: 7 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_2_to_8, range, value)
 end
 
 -- Dissect: Flags Cancel Flags
@@ -3856,8 +3856,8 @@ coinbase_deribit_ordersapi_sbe_v1_2.flags_multi_part_event_flags.bits = function
   -- Is Last Message: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.is_last_message, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_7, range, value)
+  -- Reserved 2 To 8: 7 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_2_to_8, range, value)
 end
 
 -- Dissect: Flags Multi Part Event Flags
@@ -4085,8 +4085,8 @@ coinbase_deribit_ordersapi_sbe_v1_2.flags_fill_flags.bits = function(range, valu
   -- Is Fully Filled: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.is_fully_filled, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_6, range, value)
+  -- Reserved 3 To 8: 6 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_3_to_8, range, value)
 end
 
 -- Dissect: Flags Fill Flags
@@ -6522,8 +6522,8 @@ coinbase_deribit_ordersapi_sbe_v1_2.ask_flags.bits = function(range, value, pack
   -- Reset Mmp: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reset_mmp, range, value)
 
-  -- Reserved 10: 10 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_10, range, value)
+  -- Reserved 7 To 16: 10 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_7_to_16, range, value)
 end
 
 -- Dissect: Ask Flags
@@ -6600,8 +6600,8 @@ coinbase_deribit_ordersapi_sbe_v1_2.bid_flags.bits = function(range, value, pack
   -- Reset Mmp: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reset_mmp, range, value)
 
-  -- Reserved 10: 10 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_10, range, value)
+  -- Reserved 7 To 16: 10 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_7_to_16, range, value)
 end
 
 -- Dissect: Bid Flags
@@ -6770,8 +6770,8 @@ coinbase_deribit_ordersapi_sbe_v1_2.flags_mass_quote_flags.bits = function(range
   -- Reset Mmp: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reset_mmp, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_7, range, value)
+  -- Reserved 2 To 8: 7 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_2_to_8, range, value)
 end
 
 -- Dissect: Flags Mass Quote Flags
@@ -6980,8 +6980,8 @@ end
 -- Dissect Bit Fields: Flags Replace Order Flags
 coinbase_deribit_ordersapi_sbe_v1_2.flags_replace_order_flags.bits = function(range, value, packet, parent)
 
-  -- Unused Bit 0: 1 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.unused_bit_0, range, value)
+  -- Unused Bit 1: 1 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.unused_bit_1, range, value)
 
   -- Post Only: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.post_only, range, value)
@@ -6989,8 +6989,8 @@ coinbase_deribit_ordersapi_sbe_v1_2.flags_replace_order_flags.bits = function(ra
   -- Post Only Reject: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.post_only_reject, range, value)
 
-  -- Reserved 13: 13 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_13, range, value)
+  -- Reserved 4 To 16: 13 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_4_to_16, range, value)
 end
 
 -- Dissect: Flags Replace Order Flags
@@ -7185,8 +7185,8 @@ coinbase_deribit_ordersapi_sbe_v1_2.flags_order_flags.bits = function(range, val
   -- Reset Mmp: 1 Bit
   parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reset_mmp, range, value)
 
-  -- Reserved 10: 10 Bit
-  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_10, range, value)
+  -- Reserved 7 To 16: 10 Bit
+  parent:add(omi_coinbase_deribit_ordersapi_sbe_v1_2.fields.reserved_7_to_16, range, value)
 end
 
 -- Dissect: Flags Order Flags

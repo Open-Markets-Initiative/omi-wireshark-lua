@@ -183,6 +183,11 @@ omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.sub_trading_phase_
 omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.switch_index = ProtoField.new("Switch Index", "szse.szsesecurities.tcpmarketdata.szsebinary.v1.17.switchindex", ftypes.UINT16)
 omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.trade_md_entries_index = ProtoField.new("Trade Md Entries Index", "szse.szsesecurities.tcpmarketdata.szsebinary.v1.17.trademdentriesindex", ftypes.UINT16)
 
+-- Szse SzseSecurities TcpMarketData SzseBinary 1.17 Expert Info
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.experts = {}
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.experts.checksum_incorrect = ProtoExpert.new("szse.szsesecurities.tcpmarketdata.szsebinary.v1.17.checksumincorrect", "Checksum incorrect: not the checksum of the bytes it covers", expert.group.CHECKSUM, expert.severity.ERROR)
+omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.experts = { szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.experts.checksum_incorrect }
+
 -----------------------------------------------------------------------
 -- Szse SzseSecurities TcpMarketData SzseBinary 1.17 Formatting
 -----------------------------------------------------------------------
@@ -195,6 +200,9 @@ local timestamp_format_enum = {
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.timestamp_format = 3
+
+-- Checksums are verified only where the reader asks
+szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.verify_checksums = false
 
 
 -----------------------------------------------------------------------
@@ -219,6 +227,8 @@ omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.prefs.show_indexes = Pref
 
 omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
+omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.prefs.verify_checksums = Pref.bool("Verify Checksums", false, "Compute each checksum the protocol carries and compare it with the one sent. Off by default: a capture taken on the sending host often holds checksums filled in after it was captured")
+
 -- Handle changed preferences
 function omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.prefs_changed()
 
@@ -241,6 +251,9 @@ function omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.prefs_changed()
   if szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.timestamp_format ~= omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.prefs.timestamp_format then
     szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.timestamp_format = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.prefs.timestamp_format
   end
+  if szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.verify_checksums ~= omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.prefs.verify_checksums then
+    szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.verify_checksums = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.prefs.verify_checksums
+  end
 end
 
 
@@ -260,6 +273,19 @@ trim_right_spaces = function(str)
 end
 
 
+-- Sum checksum: every byte of the range added, those of the checksum itself left out, reduced by the modulus
+local function checksum_sum(range, skip, length, modulus)
+  local bytes = range:bytes()
+  local sum = 0
+
+  for index = 0, bytes:len() - 1 do
+    if index < skip or index >= skip + length then
+      sum = sum + bytes:get_index(index)
+    end
+  end
+
+  return sum % modulus
+end
 -----------------------------------------------------------------------
 -- Szse SzseSecurities TcpMarketData SzseBinary 1.17 Fields
 -----------------------------------------------------------------------
@@ -657,7 +683,22 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.checksum.dissect = function(b
   local value = range:uint()
   local display = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.checksum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.checksum, range, value, display)
+  local item = parent:add(omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.checksum, range, value, display)
+
+  -- Verified only where the reader asks: the sum of the bytes covered, its own left out
+  if szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.verify_checksums then
+    local start = 0
+    local computed = checksum_sum(buffer(start, buffer:len() - start), offset - start, length, 256)
+
+    if computed == value then
+      item:append_text(" [correct]")
+    else
+      item:append_text(" [incorrect, should be "..computed.."]")
+      item:add_proto_expert_info(szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.experts.checksum_incorrect, "Checksum incorrect: "..value..", should be "..computed)
+    end
+  else
+    item:append_text(" [unverified]")
+  end
 
   return offset + length, value
 end

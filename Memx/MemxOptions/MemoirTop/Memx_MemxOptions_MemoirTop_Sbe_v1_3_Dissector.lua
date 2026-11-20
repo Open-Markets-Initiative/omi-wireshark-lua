@@ -48,7 +48,7 @@ omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.original_quantity = ProtoField.ne
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.osi_root = ProtoField.new("Osi Root", "memx.memxoptions.memoirtop.sbe.v1.3.osiroot", ftypes.STRING, nil, nil, nil, "OSIRoot")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.memxoptions.memoirtop.sbe.v1.3.price", ftypes.DOUBLE)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.memxoptions.memoirtop.sbe.v1.3.quantity", ftypes.UINT32)
-omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.reserved_7 = ProtoField.new("Reserved 7", "memx.memxoptions.memoirtop.sbe.v1.3.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
+omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.reserved_2_to_8 = ProtoField.new("Reserved 2 To 8", "memx.memxoptions.memoirtop.sbe.v1.3.reserved2to8", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.memoirtop.sbe.v1.3.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "memx.memxoptions.memoirtop.sbe.v1.3.sequencenumber", ftypes.UINT64)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxoptions.memoirtop.sbe.v1.3.sequencedmessage", ftypes.STRING)
@@ -1600,8 +1600,8 @@ memx_memxoptions_memoirtop_sbe_v1_3.trade_conditions.bits = function(range, valu
   -- Intermarket Sweep: 1 Bit
   parent:add(omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.intermarket_sweep, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.reserved_7, range, value)
+  -- Reserved 2 To 8: 7 Bit
+  parent:add(omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.reserved_2_to_8, range, value)
 end
 
 -- Dissect: Trade Conditions

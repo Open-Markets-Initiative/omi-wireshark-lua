@@ -212,10 +212,12 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.recipient_type = ProtoField
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rejected_client_message_sequence_number = ProtoField.new("Rejected Client Message Sequence Number", "euronext.optiq.orderentrygateway.sbe.v1.3.rejectedclientmessagesequencenumber", ftypes.UINT32, nil, nil, nil, "rejectedClientMessageSequenceNumber")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rejected_message = ProtoField.new("Rejected Message", "euronext.optiq.orderentrygateway.sbe.v1.3.rejectedmessage", ftypes.UINT8, nil, nil, nil, "rejectedMessage")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rejected_message_id = ProtoField.new("Rejected Message Id", "euronext.optiq.orderentrygateway.sbe.v1.3.rejectedmessageid", ftypes.UINT16, nil, nil, nil, "rejectedMessageID")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_2 = ProtoField.new("Reserved 2", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved2", ftypes.UINT8, nil, base.DEC, 0xC0, "2 reserved bits")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_3 = ProtoField.new("Reserved 3", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved3", ftypes.UINT8, nil, base.DEC, 0xE0, "3 reserved bits")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_4 = ProtoField.new("Reserved 4", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved4", ftypes.UINT8, nil, base.DEC, 0xF0, "4 reserved bits")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_6 = ProtoField.new("Reserved 6", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved6", ftypes.UINT16, nil, base.DEC, 0xFC00, "6 reserved bits")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_11_to_16 = ProtoField.new("Reserved 11 To 16", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved11to16", ftypes.UINT16, nil, base.DEC, 0xFC00, "6 reserved bits")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_3_to_8 = ProtoField.new("Reserved 3 To 8", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved3to8", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_5_to_8 = ProtoField.new("Reserved 5 To 8", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved5to8", ftypes.UINT8, nil, base.DEC, 0xF0, "4 reserved bits")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_6_to_8 = ProtoField.new("Reserved 6 To 8", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved6to8", ftypes.UINT8, nil, base.DEC, 0xE0, "3 reserved bits")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_7_to_8 = ProtoField.new("Reserved 7 To 8", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved7to8", ftypes.UINT8, nil, base.DEC, 0xC0, "2 reserved bits")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_8 = ProtoField.new("Reserved 8", "euronext.optiq.orderentrygateway.sbe.v1.3.reserved8", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "1 reserved bit")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.resynchronization_id = ProtoField.new("Resynchronization Id", "euronext.optiq.orderentrygateway.sbe.v1.3.resynchronizationid", ftypes.UINT16, nil, nil, nil, "resynchronizationID")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfe_answer = ProtoField.new("Rfe Answer", "euronext.optiq.orderentrygateway.sbe.v1.3.rfeanswer", ftypes.UINT8, nil, nil, nil, "rFEAnswer")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfpt = ProtoField.new("Rfpt", "euronext.optiq.orderentrygateway.sbe.v1.3.rfpt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
@@ -265,8 +267,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.uncrossing_trade = ProtoFie
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "euronext.optiq.orderentrygateway.sbe.v1.3.underlyinginstrumentid", ftypes.UINT32, nil, nil, nil, "underlyingInstrumentID")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.undisclosed_iceberg_type = ProtoField.new("Undisclosed Iceberg Type", "euronext.optiq.orderentrygateway.sbe.v1.3.undisclosedicebergtype", ftypes.UINT8, nil, nil, nil, "undisclosedIcebergType")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.undisclosed_price = ProtoField.new("Undisclosed Price", "euronext.optiq.orderentrygateway.sbe.v1.3.undisclosedprice", ftypes.INT64, nil, nil, nil, "undisclosedPrice")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_bit_0 = ProtoField.new("Unused Bit 0", "euronext.optiq.orderentrygateway.sbe.v1.3.unusedbit0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "1 unused bit")
-omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_bit_7 = ProtoField.new("Unused Bit 7", "euronext.optiq.orderentrygateway.sbe.v1.3.unusedbit7", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "1 unused bit")
+omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_bit_1 = ProtoField.new("Unused Bit 1", "euronext.optiq.orderentrygateway.sbe.v1.3.unusedbit1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "1 unused bit")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.user_status = ProtoField.new("User Status", "euronext.optiq.orderentrygateway.sbe.v1.3.userstatus", ftypes.UINT8, nil, nil, nil, "userStatus")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.version = ProtoField.new("Version", "euronext.optiq.orderentrygateway.sbe.v1.3.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.waiver_indicator = ProtoField.new("Waiver Indicator", "euronext.optiq.orderentrygateway.sbe.v1.3.waiverindicator", ftypes.STRING, nil, nil, nil, "WaiverIndicator_set bit set")
@@ -6787,8 +6788,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.mifid_indicators.bits = function(range
   -- Deferral Indicator: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.deferral_indicator, range, value)
 
-  -- Reserved 3: 3 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_3, range, value)
+  -- Reserved 6 To 8: 3 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_6_to_8, range, value)
 end
 
 -- Dissect: Mifid Indicators
@@ -8708,8 +8709,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.open_close.bits = function(range, valu
   -- Leg 9: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.leg_9, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_6, range, value)
+  -- Reserved 11 To 16: 6 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_11_to_16, range, value)
 end
 
 -- Dissect: Open Close
@@ -9454,8 +9455,8 @@ end
 -- Dissect Bit Fields: Trading Session
 euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.bits = function(range, value, packet, parent)
 
-  -- Unused Bit 0: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_bit_0, range, value)
+  -- Unused Bit 1: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_bit_1, range, value)
 
   -- Session 1: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_1, range, value)
@@ -9466,8 +9467,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trading_session.bits = function(range,
   -- Session 3: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.session_3, range, value)
 
-  -- Reserved 4: 4 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_4, range, value)
+  -- Reserved 5 To 8: 4 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_5_to_8, range, value)
 end
 
 -- Dissect: Trading Session
@@ -9775,8 +9776,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.dark_execution_instruction.bits = func
   -- Minimum Quantity Type: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.minimum_quantity_type, range, value)
 
-  -- Reserved 3: 3 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_3, range, value)
+  -- Reserved 6 To 8: 3 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_6_to_8, range, value)
 end
 
 -- Dissect: Dark Execution Instruction
@@ -9853,8 +9854,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.execution_instruction.bits = function(
   -- Rfq Confirmation: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.rfq_confirmation, range, value)
 
-  -- Reserved 2: 2 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_2, range, value)
+  -- Reserved 7 To 8: 2 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_7_to_8, range, value)
 end
 
 -- Dissect: Execution Instruction
@@ -10424,8 +10425,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.trade_qualifier.bits = function(range,
   -- Nav Trade Expressed In Price Currency: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.nav_trade_expressed_in_price_currency, range, value)
 
-  -- Unused Bit 7: 1 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.unused_bit_7, range, value)
+  -- Reserved 8: 1 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_8, range, value)
 end
 
 -- Dissect: Trade Qualifier
@@ -10614,8 +10615,8 @@ euronext_optiq_orderentrygateway_sbe_v1_3.ack_qualifiers.bits = function(range, 
   -- Queue Indicator: 1 Bit
   parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.queue_indicator, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_6, range, value)
+  -- Reserved 3 To 8: 6 Bit
+  parent:add(omi_euronext_optiq_orderentrygateway_sbe_v1_3.fields.reserved_3_to_8, range, value)
 end
 
 -- Dissect: Ack Qualifiers

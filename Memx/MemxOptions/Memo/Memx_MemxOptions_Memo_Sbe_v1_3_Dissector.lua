@@ -127,8 +127,8 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.replay_rejected_message = ProtoField.n
 omi_memx_memxoptions_memo_sbe_v1_3.fields.replay_request_message = ProtoField.new("Replay Request Message", "memx.memxoptions.memo.sbe.v1.3.replayrequestmessage", ftypes.STRING, nil, nil, nil, "Memx Tcp Replay Request message")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "memx.memxoptions.memo.sbe.v1.3.repricebehavior", ftypes.UINT8, nil, nil, nil, "Defines the reprice behavior when market is locked or crossed.")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "memx.memxoptions.memo.sbe.v1.3.repricefrequency", ftypes.UINT8, nil, nil, nil, "Defines the frequency of a MEMO for Options - SBE - v1.10 COPYRIGHT MEMX LLC 2025. ALL RIGHTS RESERVED. 38 Field Offset Length Type Tag Ref Num Req'd Description reprice. If this tag is not sent then the order will not be repriced.")
-omi_memx_memxoptions_memo_sbe_v1_3.fields.reserved_13 = ProtoField.new("Reserved 13", "memx.memxoptions.memo.sbe.v1.3.reserved13", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
-omi_memx_memxoptions_memo_sbe_v1_3.fields.reserved_5 = ProtoField.new("Reserved 5", "memx.memxoptions.memo.sbe.v1.3.reserved5", ftypes.UINT8, nil, base.DEC, 0xF8, "5 reserved bits")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.reserved_4_to_16 = ProtoField.new("Reserved 4 To 16", "memx.memxoptions.memo.sbe.v1.3.reserved4to16", ftypes.UINT16, nil, base.DEC, 0xFFF8, "13 reserved bits")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.reserved_4_to_8 = ProtoField.new("Reserved 4 To 8", "memx.memxoptions.memo.sbe.v1.3.reserved4to8", ftypes.UINT8, nil, base.DEC, 0xF8, "5 reserved bits")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxoptions.memo.sbe.v1.3.riskgroupid", ftypes.UINT16, nil, nil, nil, "Unique identifier of a custom risk control set to be applied to this order. The UINT16 Null value (0xFFFF) disables custom risk controls. NoPartyIDs - - RepeatingGroupDimensions 453 Y The dimensions of the Repeating Group. Parties - - Parties Group N/A N The parties associated with the quotes. 5.1.2 ShortTwoSidedBulkQuote The two sided bulk quote message type is used by market makers wishing to electronically submit multiple quotes with similar semantics to the exchange for execution. This messages supports two sided quotes with smaller field sizes for quantities and prices. This message corresponds to FIX message type i. Field Offset Length Type Tag Ref Num Req'd Description SBE Header 0 7 SBE Header N/A Y SBE Header with templateID = 2 MEMO for Options - SBE - v1.10 COPYRIGHT MEMX LLC 2025. ALL RIGHTS RESERVED. 39 Field Offset Length Type Tag Ref Num Req'd Description")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.memo.sbe.v1.3.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "memx.memxoptions.memo.sbe.v1.3.securityid", ftypes.STRING, nil, nil, nil, "The OptionsSecurityID of the tradable options product for the quote. The Underlier for all quotes in the repeating group must match the Underlier of the first quote in the repeating group.")
@@ -4406,8 +4406,8 @@ memx_memxoptions_memo_sbe_v1_3.mass_cancel_inst.bits = function(range, value, pa
   -- Cancel Orders From This Port Only: 1 Bit
   parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.cancel_orders_from_this_port_only, range, value)
 
-  -- Reserved 5: 5 Bit
-  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.reserved_5, range, value)
+  -- Reserved 4 To 8: 5 Bit
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.reserved_4_to_8, range, value)
 end
 
 -- Dissect: Mass Cancel Inst
@@ -5626,8 +5626,8 @@ memx_memxoptions_memo_sbe_v1_3.exec_inst.bits = function(range, value, packet, p
   -- External Routing Not Allowed: 1 Bit
   parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.external_routing_not_allowed, range, value)
 
-  -- Reserved 13: 13 Bit
-  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.reserved_13, range, value)
+  -- Reserved 4 To 16: 13 Bit
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.reserved_4_to_16, range, value)
 end
 
 -- Dissect: Exec Inst

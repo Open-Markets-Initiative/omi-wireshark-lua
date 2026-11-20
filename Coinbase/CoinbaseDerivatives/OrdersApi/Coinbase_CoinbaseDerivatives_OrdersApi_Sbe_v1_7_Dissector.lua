@@ -78,7 +78,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.request_trading_lock 
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.resend_reject_reason = ProtoField.new("Resend Reject Reason", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.resendrejectreason", ftypes.INT8, nil, nil, nil, "rejectReason")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.resent_event_count = ProtoField.new("Resent Event Count", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.resenteventcount", ftypes.INT32, nil, nil, nil, "resentEventCount")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved = ProtoField.new("Reserved", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reserved", ftypes.UINT32, nil, nil, nil, "Reserved for future use")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_7 = ProtoField.new("Reserved 7", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_2_to_8 = ProtoField.new("Reserved 2 To 8", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reserved2to8", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFE, "Bits reserved for future use")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_byte = ProtoField.new("Reserved Byte", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.reservedbyte", ftypes.INT8, nil, nil, nil, "reserved")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.resetseqnum", ftypes.INT8, nil, nil, nil, "resetSeqNum")
@@ -3681,8 +3681,8 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_7.new_order_flags.bits = function(
   -- Post Only: 1 Bit
   parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.post_only, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_7, range, value)
+  -- Reserved 2 To 8: 7 Bit
+  parent:add(omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_2_to_8, range, value)
 end
 
 -- Dissect: New Order Flags

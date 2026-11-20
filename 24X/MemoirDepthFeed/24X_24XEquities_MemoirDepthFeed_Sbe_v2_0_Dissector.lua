@@ -55,7 +55,7 @@ omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.quantity = ProtoField.new("
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.reference_buy_quantity = ProtoField.new("Reference Buy Quantity", "24x.24xequities.memoirdepthfeed.sbe.v2.0.referencebuyquantity", ftypes.UINT64, nil, nil, nil, "ReferenceBuyQuantity")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.reference_price = ProtoField.new("Reference Price", "24x.24xequities.memoirdepthfeed.sbe.v2.0.referenceprice", ftypes.DOUBLE, nil, nil, nil, "ReferencePrice")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.reference_sell_quantity = ProtoField.new("Reference Sell Quantity", "24x.24xequities.memoirdepthfeed.sbe.v2.0.referencesellquantity", ftypes.UINT64, nil, nil, nil, "ReferenceSellQuantity")
-omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.reserved_7 = ProtoField.new("Reserved 7", "24x.24xequities.memoirdepthfeed.sbe.v2.0.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
+omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.reserved_2_to_8 = ProtoField.new("Reserved 2 To 8", "24x.24xequities.memoirdepthfeed.sbe.v2.0.reserved2to8", ftypes.UINT8, nil, base.DEC, 0xFE, "7 reserved bits")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.retail_present = ProtoField.new("Retail Present", "24x.24xequities.memoirdepthfeed.sbe.v2.0.retailpresent", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "RetailPresent")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.round_lot = ProtoField.new("Round Lot", "24x.24xequities.memoirdepthfeed.sbe.v2.0.roundlot", ftypes.UINT32, nil, nil, nil, "RoundLot")
 omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.sale_condition_1 = ProtoField.new("Sale Condition 1", "24x.24xequities.memoirdepthfeed.sbe.v2.0.salecondition1", ftypes.STRING, nil, nil, nil, "SaleCondition1")
@@ -2920,8 +2920,8 @@ n24x_24xequities_memoirdepthfeed_sbe_v2_0.order_flags.bits = function(range, val
   -- Retail Present: 1 Bit
   parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.retail_present, range, value)
 
-  -- Reserved 7: 7 Bit
-  parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.reserved_7, range, value)
+  -- Reserved 2 To 8: 7 Bit
+  parent:add(omi_n24x_24xequities_memoirdepthfeed_sbe_v2_0.fields.reserved_2_to_8, range, value)
 end
 
 -- Dissect: Order Flags

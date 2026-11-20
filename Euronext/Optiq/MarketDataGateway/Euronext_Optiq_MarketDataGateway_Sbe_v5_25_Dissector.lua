@@ -356,10 +356,10 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reference_price_origin_in_
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reference_spread_table_id = ProtoField.new("Reference Spread Table Id", "euronext.optiq.marketdatagateway.sbe.v5.25.referencespreadtableid", ftypes.UINT16, nil, nil, nil, "referenceSpreadTableID")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.repo_indicator = ProtoField.new("Repo Indicator", "euronext.optiq.marketdatagateway.sbe.v5.25.repoindicator", ftypes.UINT8, nil, nil, nil, "repoIndicator")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.repo_settlement_date = ProtoField.new("Repo Settlement Date", "euronext.optiq.marketdatagateway.sbe.v5.25.reposettlementdate", ftypes.UINT16, nil, nil, nil, "repoSettlementDate")
-omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_10 = ProtoField.new("Reserved 10", "euronext.optiq.marketdatagateway.sbe.v5.25.reserved10", ftypes.UINT16, nil, base.DEC, 0xFFC0, "10 reserved bits")
-omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_16 = ProtoField.new("Reserved 16", "euronext.optiq.marketdatagateway.sbe.v5.25.reserved16", ftypes.UINT64, nil, base.DEC, UInt64(0x00000000, 0xFFFF0000), "16 reserved bits")
-omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_5 = ProtoField.new("Reserved 5", "euronext.optiq.marketdatagateway.sbe.v5.25.reserved5", ftypes.UINT16, nil, base.DEC, 0xF800, "5 reserved bits")
-omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_6 = ProtoField.new("Reserved 6", "euronext.optiq.marketdatagateway.sbe.v5.25.reserved6", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
+omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_12_to_16 = ProtoField.new("Reserved 12 To 16", "euronext.optiq.marketdatagateway.sbe.v5.25.reserved12to16", ftypes.UINT16, nil, base.DEC, 0xF800, "5 reserved bits")
+omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_3_to_8 = ProtoField.new("Reserved 3 To 8", "euronext.optiq.marketdatagateway.sbe.v5.25.reserved3to8", ftypes.UINT8, nil, base.DEC, 0xFC, "6 reserved bits")
+omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_49_to_64 = ProtoField.new("Reserved 49 To 64", "euronext.optiq.marketdatagateway.sbe.v5.25.reserved49to64", ftypes.UINT64, nil, base.DEC, UInt64(0x00000000, 0xFFFF0000), "16 reserved bits")
+omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_7_to_16 = ProtoField.new("Reserved 7 To 16", "euronext.optiq.marketdatagateway.sbe.v5.25.reserved7to16", ftypes.UINT16, nil, base.DEC, 0xFFC0, "10 reserved bits")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_bits = ProtoField.new("Reserved Bits", "euronext.optiq.marketdatagateway.sbe.v5.25.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFC00, "Bits Reserved for future use")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.retransmission_end_time_utc = ProtoField.new("Retransmission End Time", "euronext.optiq.marketdatagateway.sbe.v5.25.retransmissionendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "retransmissionEndTime")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.retransmission_end_time = ProtoField.new("Retransmission End Time", "euronext.optiq.marketdatagateway.sbe.v5.25.retransmissionendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "retransmissionEndTime")
@@ -452,7 +452,7 @@ omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.underlying_mic = ProtoFiel
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.underlying_subtype = ProtoField.new("Underlying Subtype", "euronext.optiq.marketdatagateway.sbe.v5.25.underlyingsubtype", ftypes.UINT8, nil, nil, nil, "underlyingSubtype")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.underlying_symbol_index = ProtoField.new("Underlying Symbol Index", "euronext.optiq.marketdatagateway.sbe.v5.25.underlyingsymbolindex", ftypes.UINT32, nil, nil, nil, "underlyingSymbolIndex")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.underlying_type = ProtoField.new("Underlying Type", "euronext.optiq.marketdatagateway.sbe.v5.25.underlyingtype", ftypes.STRING, nil, nil, nil, "underlyingType")
-omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.unused_bit_8 = ProtoField.new("Unused Bit 8", "euronext.optiq.marketdatagateway.sbe.v5.25.unusedbit8", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "1 unused bit")
+omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.unused_bit_9 = ProtoField.new("Unused Bit 9", "euronext.optiq.marketdatagateway.sbe.v5.25.unusedbit9", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "1 unused bit")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.update_type = ProtoField.new("Update Type", "euronext.optiq.marketdatagateway.sbe.v5.25.updatetype", ftypes.UINT8, nil, nil, nil, "updateType")
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.venue = ProtoField.new("Venue", "euronext.optiq.marketdatagateway.sbe.v5.25.venue", ftypes.STRING)
 omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.version = ProtoField.new("Version", "euronext.optiq.marketdatagateway.sbe.v5.25.version", ftypes.UINT16, nil, nil, nil, "Schema version")
@@ -14231,8 +14231,8 @@ euronext_optiq_marketdatagateway_sbe_v5_25.strategy_authorized.bits = function(r
   -- Put Straddle Versus Sell A Call Or A Put: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.put_straddle_versus_sell_a_call_or_a_put, range, value)
 
-  -- Reserved 16: 16 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_16, range, value)
+  -- Reserved 49 To 64: 16 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_49_to_64, range, value)
 end
 
 -- Dissect: Strategy Authorized
@@ -14412,8 +14412,8 @@ euronext_optiq_marketdatagateway_sbe_v5_25.mm_protections.bits = function(range,
   -- Volume: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.volume, range, value)
 
-  -- Reserved 6: 6 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_6, range, value)
+  -- Reserved 3 To 8: 6 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_3_to_8, range, value)
 end
 
 -- Dissect: Mm Protections
@@ -14490,8 +14490,8 @@ euronext_optiq_marketdatagateway_sbe_v5_25.order_type_rules.bits = function(rang
   -- Trade At Settlement: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.trade_at_settlement, range, value)
 
-  -- Reserved 10: 10 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_10, range, value)
+  -- Reserved 7 To 16: 10 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_7_to_16, range, value)
 end
 
 -- Dissect: Order Type Rules
@@ -15927,8 +15927,8 @@ euronext_optiq_marketdatagateway_sbe_v5_25.phase_qualifier.bits = function(range
   -- Exceptional Market Conditions: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.exceptional_market_conditions, range, value)
 
-  -- Unused Bit 8: 1 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.unused_bit_8, range, value)
+  -- Unused Bit 9: 1 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.unused_bit_9, range, value)
 
   -- Quoting Period: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.quoting_period, range, value)
@@ -15936,8 +15936,8 @@ euronext_optiq_marketdatagateway_sbe_v5_25.phase_qualifier.bits = function(range
   -- Execution Prevention Across All Firms: 1 Bit
   parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.execution_prevention_across_all_firms, range, value)
 
-  -- Reserved 5: 5 Bit
-  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_5, range, value)
+  -- Reserved 12 To 16: 5 Bit
+  parent:add(omi_euronext_optiq_marketdatagateway_sbe_v5_25.fields.reserved_12_to_16, range, value)
 end
 
 -- Dissect: Phase Qualifier
