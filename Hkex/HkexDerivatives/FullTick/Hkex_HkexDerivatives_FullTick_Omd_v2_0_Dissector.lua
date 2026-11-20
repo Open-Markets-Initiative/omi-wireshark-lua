@@ -15,11 +15,11 @@ local hkex_hkexderivatives_fulltick_omd_v2_0 = {}
 -----------------------------------------------------------------------
 
 -- Hkex HkexDerivatives FullTick Omd 2.0 Fields
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.fulltick.omd.v2.0.actualstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.actual_start_time_utc = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.fulltick.omd.v2.0.actualstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.fulltick.omd.v2.0.actualstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.alert_id = ProtoField.new("Alert Id", "hkex.hkexderivatives.fulltick.omd.v2.0.alertid", ftypes.UINT64, nil, nil, nil, "The reference ID for this alert, unique for any given day")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.amendment_execution_time = ProtoField.new("Amendment Execution Time", "hkex.hkexderivatives.fulltick.omd.v2.0.amendmentexecutiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time of the trade amendment execution")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.amendment_execution_time_utc = ProtoField.new("Amendment Execution Time", "hkex.hkexderivatives.fulltick.omd.v2.0.amendmentexecutiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time of the trade amendment execution")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.amendment_execution_time = ProtoField.new("Amendment Execution Time", "hkex.hkexderivatives.fulltick.omd.v2.0.amendmentexecutiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time of the trade amendment execution")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.base_currency = ProtoField.new("Base Currency", "hkex.hkexderivatives.fulltick.omd.v2.0.basecurrency", ftypes.STRING, nil, nil, nil, "Defines the trading currency")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.bid_ask_flag = ProtoField.new("Bid Ask Flag", "hkex.hkexderivatives.fulltick.omd.v2.0.bidaskflag", ftypes.UINT8, nil, nil, nil, "Indicates if the quote request is for a Bid or Ask or both")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.calculated_opening_price = ProtoField.new("Calculated Opening Price", "hkex.hkexderivatives.fulltick.omd.v2.0.calculatedopeningprice", ftypes.INT64)
@@ -31,10 +31,10 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.commodity_name = ProtoField.ne
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.compression_mode = ProtoField.new("Compression Mode", "hkex.hkexderivatives.fulltick.omd.v2.0.compressionmode", ftypes.UINT8, nil, nil, nil, "Indicates if compression is applied on messages in the packet")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.content = ProtoField.new("Content", "hkex.hkexderivatives.fulltick.omd.v2.0.content", ftypes.BYTES, nil, nil, nil, "Market Alert Content")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.contract_size = ProtoField.new("Contract Size", "hkex.hkexderivatives.fulltick.omd.v2.0.contractsize", ftypes.UINT32, nil, nil, nil, "Number of Underlying entities per contract")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.fulltick.omd.v2.0.coolingoffendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period ends (UTC timestamp)")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.cooling_off_end_time_utc = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.fulltick.omd.v2.0.coolingoffendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period ends (UTC timestamp)")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.fulltick.omd.v2.0.coolingoffstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period starts (UTC timestamp)")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.fulltick.omd.v2.0.coolingoffendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period ends (UTC timestamp)")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.cooling_off_start_time_utc = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.fulltick.omd.v2.0.coolingoffstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period starts (UTC timestamp)")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.fulltick.omd.v2.0.coolingoffstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period starts (UTC timestamp)")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.decimal_in_contract_size = ProtoField.new("Decimal In Contract Size", "hkex.hkexderivatives.fulltick.omd.v2.0.decimalincontractsize", ftypes.UINT16, nil, nil, nil, "Implicit decimals in Contract Size and Price Quotation Factor")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.decimal_in_price = ProtoField.new("Decimal In Price", "hkex.hkexderivatives.fulltick.omd.v2.0.decimalinprice", ftypes.UINT16, nil, nil, nil, "Number of implicit decimals in Price fields and Tick Size")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.decimal_in_strike_price = ProtoField.new("Decimal In Strike Price", "hkex.hkexderivatives.fulltick.omd.v2.0.decimalinstrikeprice", ftypes.UINT16, nil, nil, nil, "Number of implicit decimals in the Strike Price")
@@ -50,8 +50,8 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_3 = ProtoField.new("Fil
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_4 = ProtoField.new("Filler 4", "hkex.hkexderivatives.fulltick.omd.v2.0.filler4", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.filler_5 = ProtoField.new("Filler 5", "hkex.hkexderivatives.fulltick.omd.v2.0.filler5", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.first_trading_date = ProtoField.new("First Trading Date", "hkex.hkexderivatives.fulltick.omd.v2.0.firsttradingdate", ftypes.UINT32, nil, nil, nil, "The first trading date")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.first_trading_time = ProtoField.new("First Trading Time", "hkex.hkexderivatives.fulltick.omd.v2.0.firsttradingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The first trading time (UTC timestamp)")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.first_trading_time_utc = ProtoField.new("First Trading Time", "hkex.hkexderivatives.fulltick.omd.v2.0.firsttradingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The first trading time (UTC timestamp)")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.first_trading_time = ProtoField.new("First Trading Time", "hkex.hkexderivatives.fulltick.omd.v2.0.firsttradingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The first trading time (UTC timestamp)")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.header = ProtoField.new("Header", "hkex.hkexderivatives.fulltick.omd.v2.0.header", ftypes.BYTES)
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.implied_price = ProtoField.new("Implied Price", "hkex.hkexderivatives.fulltick.omd.v2.0.impliedprice", ftypes.INT64, nil, nil, nil, "Implied Price. Decimal places determined from Class Definition field “DecimalInPrice”. Null means N/A")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.implied_quantity = ProtoField.new("Implied Quantity", "hkex.hkexderivatives.fulltick.omd.v2.0.impliedquantity", ftypes.UINT64, nil, nil, nil, "Aggregated Implied Volume at Implied Price")
@@ -69,8 +69,8 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.key_type = ProtoField.new("Key
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.last_fragment = ProtoField.new("Last Fragment", "hkex.hkexderivatives.fulltick.omd.v2.0.lastfragment", ftypes.STRING, nil, nil, nil, "Indicates whether this message is the last in a sequence of message")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.hkexderivatives.fulltick.omd.v2.0.lastseqnum", ftypes.UINT32, nil, nil, nil, "Sequence number with which")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.last_trading_date = ProtoField.new("Last Trading Date", "hkex.hkexderivatives.fulltick.omd.v2.0.lasttradingdate", ftypes.UINT32, nil, nil, nil, "Last trading date of the instrument")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.last_trading_time = ProtoField.new("Last Trading Time", "hkex.hkexderivatives.fulltick.omd.v2.0.lasttradingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The last trading time of the instrument")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.last_trading_time_utc = ProtoField.new("Last Trading Time", "hkex.hkexderivatives.fulltick.omd.v2.0.lasttradingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The last trading time of the instrument")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.last_trading_time = ProtoField.new("Last Trading Time", "hkex.hkexderivatives.fulltick.omd.v2.0.lasttradingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The last trading time of the instrument")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.leg_orderbook_id = ProtoField.new("Leg Orderbook Id", "hkex.hkexderivatives.fulltick.omd.v2.0.legorderbookid", ftypes.UINT32, nil, nil, nil, "Uniquely identifies a leg instrument")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.leg_ratio = ProtoField.new("Leg Ratio", "hkex.hkexderivatives.fulltick.omd.v2.0.legratio", ftypes.INT32, nil, nil, nil, "Relative numbers of bid and ask contracts between legs")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.leg_side = ProtoField.new("Leg Side", "hkex.hkexderivatives.fulltick.omd.v2.0.legside", ftypes.STRING, nil, nil, nil, "Identifies the leg side within the combination")
@@ -90,16 +90,16 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.order_id = ProtoField.new("Ord
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.order_type = ProtoField.new("Order Type", "hkex.hkexderivatives.fulltick.omd.v2.0.ordertype", ftypes.UINT8, nil, nil, nil, "Additional order attributes")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.hkexderivatives.fulltick.omd.v2.0.orderbookid", ftypes.UINT32, nil, nil, nil, "Uniquely identifies an instrument available for trading")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexderivatives.fulltick.omd.v2.0.pktsize", ftypes.UINT16, nil, nil, nil, "Size of the packet including this field")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.fulltick.omd.v2.0.plannedstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Next planned time")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.planned_start_time_utc = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.fulltick.omd.v2.0.plannedstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Next planned time")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.fulltick.omd.v2.0.plannedstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Next planned time")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.price = ProtoField.new("Price", "hkex.hkexderivatives.fulltick.omd.v2.0.price", ftypes.INT64)
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.price_quotation_factor = ProtoField.new("Price Quotation Factor", "hkex.hkexderivatives.fulltick.omd.v2.0.pricequotationfactor", ftypes.UINT32, nil, nil, nil, "Implies the contracted value of the product")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.priority = ProtoField.new("Priority", "hkex.hkexderivatives.fulltick.omd.v2.0.priority", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.quantity = ProtoField.new("Quantity", "hkex.hkexderivatives.fulltick.omd.v2.0.quantity", ftypes.UINT32, nil, nil, nil, "Number of contracts")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.quote_quantity = ProtoField.new("Quote Quantity", "hkex.hkexderivatives.fulltick.omd.v2.0.quotequantity", ftypes.INT32, nil, nil, nil, "Quantity")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.fulltick.omd.v2.0.secondfiller3", ftypes.BYTES, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.fulltick.omd.v2.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.send_time_utc = ProtoField.new("Send Time", "hkex.hkexderivatives.fulltick.omd.v2.0.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.fulltick.omd.v2.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.fulltick.omd.v2.0.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.settlement_currency_id = ProtoField.new("Settlement Currency Id", "hkex.hkexderivatives.fulltick.omd.v2.0.settlementcurrencyid", ftypes.STRING, nil, nil, nil, "Full descriptive name of the Settlement Currency")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.side = ProtoField.new("Side", "hkex.hkexderivatives.fulltick.omd.v2.0.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
@@ -117,8 +117,8 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.trade_condition = ProtoField.n
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.trade_id = ProtoField.new("Trade Id", "hkex.hkexderivatives.fulltick.omd.v2.0.tradeid", ftypes.UINT64, nil, nil, nil, "Unique trade identification.")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.trade_state = ProtoField.new("Trade State", "hkex.hkexderivatives.fulltick.omd.v2.0.tradestate", ftypes.UINT8)
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.trade_sub_type = ProtoField.new("Trade Sub Type", "hkex.hkexderivatives.fulltick.omd.v2.0.tradesubtype", ftypes.UINT8)
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexderivatives.fulltick.omd.v2.0.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time of the last")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.trade_time_utc = ProtoField.new("Trade Time", "hkex.hkexderivatives.fulltick.omd.v2.0.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time of the last")
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.trade_time = ProtoField.new("Trade Time", "hkex.hkexderivatives.fulltick.omd.v2.0.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time of the last")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.underlying_code = ProtoField.new("Underlying Code", "hkex.hkexderivatives.fulltick.omd.v2.0.underlyingcode", ftypes.STRING, nil, nil, nil, "Underlying Code of the Commodity")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.underlying_type = ProtoField.new("Underlying Type", "hkex.hkexderivatives.fulltick.omd.v2.0.underlyingtype", ftypes.STRING, nil, nil, nil, "Type of the underlying")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.fields.vcm_flag = ProtoField.new("Vcm Flag", "hkex.hkexderivatives.fulltick.omd.v2.0.vcmflag", ftypes.UINT8, nil, nil, nil, "Indicate whether Volatility Control Mechanism (VCM) is applicable")
@@ -177,7 +177,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-hkex_hkexderivatives_fulltick_omd_v2_0.timestamp_format = 2
+hkex_hkexderivatives_fulltick_omd_v2_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -200,7 +200,7 @@ omi_hkex_hkexderivatives_fulltick_omd_v2_0.prefs.show_headers = Pref.bool("Show 
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_hkex_hkexderivatives_fulltick_omd_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_hkex_hkexderivatives_fulltick_omd_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_hkex_hkexderivatives_fulltick_omd_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_hkex_hkexderivatives_fulltick_omd_v2_0.prefs_changed()

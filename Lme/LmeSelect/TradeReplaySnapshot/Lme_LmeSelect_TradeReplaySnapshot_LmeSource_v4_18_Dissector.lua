@@ -22,8 +22,8 @@ omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.leg_price = ProtoFi
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.leg_trade_at_reference_price = ProtoField.new("Leg Trade At Reference Price", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.legtradeatreferenceprice", ftypes.STRING, nil, nil, nil, "Indicates whether the leg price is differential or substituted.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.leg_volume = ProtoField.new("Leg Volume", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.legvolume", ftypes.UINT32, nil, nil, nil, "Quantity allocated to this leg of the strategy.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.match_id = ProtoField.new("Match Id", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.matchid", ftypes.UINT64, nil, nil, nil, "Assigned trade match identifier for the matched trade.")
-omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.matched_time = ProtoField.new("Matched Time", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.matchedtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the trade was matched in LMEsmart. Null until such time.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.matched_time_utc = ProtoField.new("Matched Time", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.matchedtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the trade was matched in LMEsmart. Null until such time.")
+omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.matched_time = ProtoField.new("Matched Time", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.matchedtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the trade was matched in LMEsmart. Null until such time.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.msg_count = ProtoField.new("Msg Count", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.msgcount", ftypes.UINT8, nil, nil, nil, "Number of messages included in the packet")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.msg_size = ProtoField.new("Msg Size", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.msgsize", ftypes.UINT16, nil, nil, nil, "Message length, including this field")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.msg_type = ProtoField.new("Msg Type", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.msgtype", ftypes.UINT16, nil, nil, nil, "Type of message, selecting the payload that follows the message header")
@@ -33,13 +33,13 @@ omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.price = ProtoField.
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.record_count = ProtoField.new("Record Count", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.recordcount", ftypes.UINT16, nil, nil, nil, "The number of leg records carried by this message.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.remaining_records = ProtoField.new("Remaining Records", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.remainingrecords", ftypes.UINT16, nil, nil, nil, "Number of leg records still to be published for this trade.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.ring_session = ProtoField.new("Ring Session", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.ringsession", ftypes.STRING, nil, nil, nil, "This identifies the ring trading session. Space if not applicable.")
-omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.strategy_leg_count = ProtoField.new("Strategy Leg Count", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.strategylegcount", ftypes.UINT32, nil, nil, nil, "Number of legs of the strategy.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.sub_type_of_trade = ProtoField.new("Sub Type Of Trade", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.subtypeoftrade", ftypes.UINT8, nil, nil, nil, "Sub type of trade.")
-omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the trade occurred.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.time_of_event_utc = ProtoField.new("Time Of Event", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.timeofevent.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time at which the trade occurred.")
+omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the trade occurred.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.tradable_instrument_id = ProtoField.new("Tradable Instrument Id", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.tradableinstrumentid", ftypes.UINT64, nil, nil, nil, "Tradable Instrument ID.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.trade_at_reference_price_type = ProtoField.new("Trade At Reference Price Type", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.tradeatreferencepricetype", ftypes.STRING, nil, nil, nil, "For a TaR, indicates whether the price is differential or substituted. Defaults to space, meaning not applicable.")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.fields.trade_cancel_flag = ProtoField.new("Trade Cancel Flag", "lme.lmeselect.tradereplaysnapshot.lmesource.v4.18.tradecancelflag", ftypes.UINT8, nil, nil, nil, "Trade Cancel Flag.")
@@ -73,7 +73,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.timestamp_format = 2
+lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -96,7 +96,7 @@ omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.prefs.show_headers = Pref.
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lme_lmeselect_tradereplaysnapshot_lmesource_v4_18.prefs_changed()

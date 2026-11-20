@@ -61,11 +61,11 @@ omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.static_circuit_break
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.tcp_unit = ProtoField.new("Tcp Unit", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.tcpunit", ftypes.STRING, nil, nil, nil, "One unit on the tcp stream: the unit header and its payload messages")
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.tickid", ftypes.STRING, nil, nil, nil, "Not Applicable to TRADEcho")
-omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated")
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated")
+omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated")
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.tradingstatus", ftypes.STRING, nil, nil, nil, "Current Trading status of the Instrument. Populated only when the message is sent at the end of individual order book snapshots during a trading session.")
-omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.transaction_time_utc = ProtoField.new("Transaction Time", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Not Applicable to TRADEcho")
+omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.unused_1 = ProtoField.new("Unused 1", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Unused")
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.unused_5 = ProtoField.new("Unused 5", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Unused")
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.fields.username = ProtoField.new("Username", "lseg.tradeecho.level2incrementalreplay.gtp.v24.4.username", ftypes.STRING, nil, nil, nil, "CompID assigned to the client.")
@@ -111,7 +111,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_tradeecho_level2incrementalreplay_gtp_v24_4.timestamp_format = 2
+lseg_tradeecho_level2incrementalreplay_gtp_v24_4.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -134,7 +134,7 @@ omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.prefs.show_headers = Pref.b
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_tradeecho_level2incrementalreplay_gtp_v24_4.prefs_changed()

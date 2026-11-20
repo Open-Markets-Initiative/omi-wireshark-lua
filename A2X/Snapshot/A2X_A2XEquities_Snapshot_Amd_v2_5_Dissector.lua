@@ -33,8 +33,8 @@ omi_a2x_a2xequities_snapshot_amd_v2_5.fields.security_id = ProtoField.new("Secur
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.seq_no = ProtoField.new("Seq No", "a2x.a2xequities.snapshot.amd.v2.5.seqno", ftypes.UINT32, nil, nil, nil, "Sequence number of this message in the market data stream for the current trading day")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.side = ProtoField.new("Side", "a2x.a2xequities.snapshot.amd.v2.5.side", ftypes.UINT8, nil, nil, nil, "Side of the order")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.stream_seq_no = ProtoField.new("Stream Seq No", "a2x.a2xequities.snapshot.amd.v2.5.streamseqno", ftypes.UINT32, nil, nil, nil, "The sequence number of the last message in the continuous stream which relates to this snapshot")
-omi_a2x_a2xequities_snapshot_amd_v2_5.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.snapshot.amd.v2.5.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this snapshot")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.snapshot.amd.v2.5.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this snapshot")
+omi_a2x_a2xequities_snapshot_amd_v2_5.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.snapshot.amd.v2.5.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this snapshot")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.trading = ProtoField.new("Trading", "a2x.a2xequities.snapshot.amd.v2.5.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "Continuous trading open or closed")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.trading_status = ProtoField.new("Trading Status", "a2x.a2xequities.snapshot.amd.v2.5.tradingstatus", ftypes.UINT8, nil, nil, nil, "Trading status of the security")
 omi_a2x_a2xequities_snapshot_amd_v2_5.fields.unused_5 = ProtoField.new("Unused 5", "a2x.a2xequities.snapshot.amd.v2.5.unused5", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved")
@@ -70,7 +70,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-a2x_a2xequities_snapshot_amd_v2_5.timestamp_format = 2
+a2x_a2xequities_snapshot_amd_v2_5.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -91,7 +91,7 @@ omi_a2x_a2xequities_snapshot_amd_v2_5.prefs.show_structs = Pref.bool("Show Struc
 omi_a2x_a2xequities_snapshot_amd_v2_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_a2x_a2xequities_snapshot_amd_v2_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_a2x_a2xequities_snapshot_amd_v2_5.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_a2x_a2xequities_snapshot_amd_v2_5.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_a2x_a2xequities_snapshot_amd_v2_5.prefs_changed()

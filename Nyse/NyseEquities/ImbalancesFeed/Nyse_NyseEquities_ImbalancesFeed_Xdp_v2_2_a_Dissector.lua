@@ -61,18 +61,18 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.reserved_2 = ProtoField.n
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.reserved4", ftypes.BYTES, nil, nil, nil, "Future use. Any field content should be ignored.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted")
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Arca, National and American")
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sequencenumber", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sessionstate", ftypes.STRING, nil, nil, nil, "Unused. Defaulted to 0x00.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.significant_imbalance = ProtoField.new("Significant Imbalance", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.significantimbalance", ftypes.STRING, nil, nil, nil, "For Auction Types=C or P in NYSE-listed symbols. Using historical closing data for each symbol,NYSE will set this indicator if the Continuous Book Clearing Price is more than a ‘significant’ range away from the Reference Price.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.source_id = ProtoField.new("Source Id", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sourceid", ftypes.STRING, nil, nil, nil, "The ID of the client requesting this retransmission . This field is up to 9 characters, null terminated.")
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.source_time_utc = ProtoField.new("Source Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.ssrfilingprice", ftypes.UINT32, nil, nil, nil, "For NYSE, the price at which Sell Short interest in the opening auction will be filed if a Sell Short Restriction is in effect for the security.")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.ssr_state = ProtoField.new("Ssr State", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state, which this msg updates if the Security Status field contains an SSR Code. Valid")
@@ -113,7 +113,17 @@ omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.symbol_index_mapping_requ
 
 -- Nyse NyseEquities ImbalancesFeed Xdp 2.2.a Generated Fields
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.messageindex", ftypes.UINT16)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.closing_only_clearing_price_calculate = ProtoField.new("Closing Only Clearing Price Calculate", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.closingonlyclearingpricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.continuous_book_clearing_price_calculate = ProtoField.new("Continuous Book Clearing Price Calculate", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.continuousbookclearingpricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.indicative_match_price_calculate = ProtoField.new("Indicative Match Price Calculate", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.indicativematchpricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.lower_collar_calculate = ProtoField.new("Lower Collar Calculate", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.lowercollarcalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.prev_close_price_calculate = ProtoField.new("Prev Close Price Calculate", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.prevclosepricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.price_1_calculate = ProtoField.new("Price 1 Calculate", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.price1calculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.price_2_calculate = ProtoField.new("Price 2 Calculate", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.price2calculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.reference_price_calculate = ProtoField.new("Reference Price Calculate", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.referencepricecalculate", ftypes.DOUBLE)
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.timestamp", ftypes.UINT64)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.ssr_filing_price_calculate = ProtoField.new("SSR Filing Price Calculate", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.ssrfilingpricecalculate", ftypes.DOUBLE)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.upper_collar_calculate = ProtoField.new("Upper Collar Calculate", "nyse.nyseequities.imbalancesfeed.xdp.v2.2.a.uppercollarcalculate", ftypes.DOUBLE)
 
 -- Nyse NyseEquities ImbalancesFeed Xdp 2.2.a Expert Info
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.experts = {}
@@ -132,7 +142,10 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp_format = 2
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp_format = 3
+
+-- Prev Close Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals = true
 
 
 -----------------------------------------------------------------------
@@ -142,6 +155,7 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp_format = 2
 local show = {}
 
 -- Nyse NyseEquities ImbalancesFeed Xdp 2.2.a Element Dissection Options
+show.records = true
 show.structs = true
 show.application_messages = true
 show.headers = true
@@ -149,18 +163,23 @@ show.padding = false
 show.indexes = true
 
 -- Register Nyse NyseEquities ImbalancesFeed Xdp 2.2.a Show Options
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.resolve_records = Pref.bool("Symbol Index Mapping Message", show.records, "Cache records and resolve cross-packet lookups")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs_changed()
 
   -- Check if preferences have changed
+  if show.records ~= omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.resolve_records then
+    show.records = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.resolve_records
+  end
   if show.application_messages ~= omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_application_messages then
     show.application_messages = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_application_messages
   end
@@ -175,6 +194,9 @@ function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs_changed()
   end
   if show.indexes ~= omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_indexes then
     show.indexes = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.show_indexes
+  end
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals ~= omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.format_decimals then
+    nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.format_decimals
   end
   if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp_format ~= omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.timestamp_format then
     nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp_format = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prefs.timestamp_format
@@ -201,7 +223,7 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.data = function(packet)
   local key = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.key(packet)
   local data = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.flows[key]
   if data == nil then
-    data = { source_time = { last = nil, frames = {} } }
+    data = { source_time = { last = nil, frames = {} }, price_scale_code = { last = nil, frames = {} }, symbol_index_mapping_message = {} }
     nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.flows[key] = data
   end
   return data
@@ -310,8 +332,11 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.auction_type.display = function(valu
   if value == "C" then
     return "Auction Type: Closing (C)"
   end
+  if value == "P" then
+    return "Auction Type: Extreme Closing Imbalance (P)"
+  end
   if value == "R" then
-    return "Auction Type: Regulatory Imbalance (R)"
+    return "Auction Type: Regulatory Closing Imbalance (R)"
   end
 
   return "Auction Type: Unknown("..value..")"
@@ -1198,6 +1223,16 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code = {}
 -- Size: Price Scale Code
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code.size = 1
 
+-- Store: Price Scale Code
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code.current = nil
+
+-- Generated: Price Scale Code
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code.generated = function(value, range, packet, parent)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code.display(value)
+  local price_scale_code = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.price_scale_code, range, value, display)
+  price_scale_code:set_generated()
+end
+
 -- Display: Price Scale Code
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code.display = function(value)
   return "Price Scale Code: "..value
@@ -1581,10 +1616,10 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.significant_imbalance.display = func
   end
 
   if value == " " then
-    return "Significant Imbalance: Not Applicable (<whitespace>)"
+    return "Significant Imbalance: Not Significant (<whitespace>)"
   end
   if value == "Y" then
-    return "Significant Imbalance: Yes (Y)"
+    return "Significant Imbalance: Significant (Y)"
   end
 
   return "Significant Imbalance: Unknown("..value..")"
@@ -1908,6 +1943,47 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index = {}
 -- Size: Symbol Index
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.size = 4
 
+-- Lookup: Symbol Index
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.lookup = function(buffer, offset, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.display(value, buffer, offset, packet, parent)
+
+  if not show.records then
+    nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current = nil
+    parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.symbol_index, range, value, display)
+
+    return offset + length, value
+  end
+
+  -- Lookup Symbol Index Mapping Message record
+  local record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.current.symbol_index_mapping_message[value]
+
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current = record
+
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.symbol_index, range, value, display)
+
+  if record ~= nil then
+    if record.symbol ~= nil then
+      local entry_symbol = field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.symbol, record.symbol)
+      entry_symbol:set_generated()
+    end
+    if record.price_scale_code ~= nil then
+      local entry_price_scale_code = field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.price_scale_code, record.price_scale_code)
+      entry_price_scale_code:set_generated()
+    end
+  end
+
+  return offset + length, value, record
+end
+
 -- Display: Symbol Index
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.display = function(value)
   return "Symbol Index: "..value
@@ -2165,6 +2241,311 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar.dissect = function(buff
   return offset + length, value
 end
 
+-- Closing Only Clearing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price_calculate = {}
+
+-- Display: Closing Only Clearing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price_calculate.display = function(value)
+  return "Closing Only Clearing Price Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Closing Only Clearing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.closing_only_clearing_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.closing_only_clearing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Closing Only Clearing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals then
+    local record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Continuous Book Clearing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price_calculate = {}
+
+-- Display: Continuous Book Clearing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price_calculate.display = function(value)
+  return "Continuous Book Clearing Price Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Continuous Book Clearing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.continuous_book_clearing_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.continuous_book_clearing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Continuous Book Clearing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals then
+    local record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Indicative Match Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price_calculate = {}
+
+-- Display: Indicative Match Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price_calculate.display = function(value)
+  return "Indicative Match Price Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Indicative Match Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.indicative_match_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.indicative_match_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Indicative Match Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals then
+    local record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Lower Collar Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar_calculate = {}
+
+-- Display: Lower Collar Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar_calculate.display = function(value)
+  return "Lower Collar Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Lower Collar Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.lower_collar_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.lower_collar, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Lower Collar Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals then
+    local record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar.dissect(buffer, offset, packet, parent)
+end
+
+-- Prev Close Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price_calculate = {}
+
+-- Display: Prev Close Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price_calculate.display = function(value)
+  return "Prev Close Price Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Prev Close Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price_calculate.composite = function(buffer, offset, stored_price_scale_code, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ stored_price_scale_code)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.prev_close_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.prev_close_price, range, mantissa, mantissa_display)
+
+  local stored_price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(stored_price_scale_code))
+  stored_price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Prev Close Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals then
+    local stored_price_scale_code = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code.current
+
+    if stored_price_scale_code ~= nil then
+      return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price_calculate.composite(buffer, offset, stored_price_scale_code, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Price 1 Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1_calculate = {}
+
+-- Display: Price 1 Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1_calculate.display = function(value)
+  return "Price 1 Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Price 1 Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.price_1_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.price_1, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Price 1 Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals then
+    local record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1.dissect(buffer, offset, packet, parent)
+end
+
+-- Price 2 Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2_calculate = {}
+
+-- Display: Price 2 Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2_calculate.display = function(value)
+  return "Price 2 Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Price 2 Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.price_2_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.price_2, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Price 2 Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals then
+    local record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2.dissect(buffer, offset, packet, parent)
+end
+
+-- Reference Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price_calculate = {}
+
+-- Display: Reference Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price_calculate.display = function(value)
+  return "Reference Price Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Reference Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.reference_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.reference_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Reference Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals then
+    local record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price.dissect(buffer, offset, packet, parent)
+end
+
 -- Timestamp
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp = {}
 
@@ -2211,6 +2592,82 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp.dissect = function(buffer,
   end
 
   return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.source_time_ns.dissect(buffer, offset, packet, parent)
+end
+
+-- SSR Filing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price_calculate = {}
+
+-- Display: SSR Filing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price_calculate.display = function(value)
+  return "SSR Filing Price Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: SSR Filing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.ssr_filing_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.ssr_filing_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: SSR Filing Price Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals then
+    local record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Upper Collar Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar_calculate = {}
+
+-- Display: Upper Collar Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar_calculate.display = function(value)
+  return "Upper Collar Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Upper Collar Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.upper_collar_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.upper_collar, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Upper Collar Calculate
+nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.format_decimals then
+    local record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar.dissect(buffer, offset, packet, parent)
 end
 
 
@@ -2269,14 +2726,14 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.imbalance_message.fields = function(
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_seq_num.dissect(buffer, index, packet, parent)
 
   -- Reference Price: Binary
-  index, reference_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price.dissect(buffer, index, packet, parent)
+  index, reference_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reference_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Paired Qty: Binary
   index, paired_qty = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.paired_qty.dissect(buffer, index, packet, parent)
@@ -2297,22 +2754,22 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.imbalance_message.fields = function(
   index, imbalance_side = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.imbalance_side.dissect(buffer, index, packet, parent)
 
   -- Continuous Book Clearing Price: Binary
-  index, continuous_book_clearing_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price.dissect(buffer, index, packet, parent)
+  index, continuous_book_clearing_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.continuous_book_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Closing Only Clearing Price: Binary
-  index, closing_only_clearing_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price.dissect(buffer, index, packet, parent)
+  index, closing_only_clearing_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.closing_only_clearing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Ssr Filing Price: Binary
-  index, ssr_filing_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price.dissect(buffer, index, packet, parent)
+  index, ssr_filing_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_filing_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Indicative Match Price: Binary
-  index, indicative_match_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price.dissect(buffer, index, packet, parent)
+  index, indicative_match_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.indicative_match_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Upper Collar: Binary
-  index, upper_collar = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar.dissect(buffer, index, packet, parent)
+  index, upper_collar = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.upper_collar_calculate.dissect(buffer, index, packet, parent)
 
   -- Lower Collar: Binary
-  index, lower_collar = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar.dissect(buffer, index, packet, parent)
+  index, lower_collar = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lower_collar_calculate.dissect(buffer, index, packet, parent)
 
   -- Auction Status: Binary
   index, auction_status = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.auction_status.dissect(buffer, index, packet, parent)
@@ -2506,8 +2963,8 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_status_message.fields = fun
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2526,10 +2983,10 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_status_message.fields = fun
   end
 
   -- Price 1: Binary
-  index, price_1 = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1.dissect(buffer, index, packet, parent)
+  index, price_1 = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_1_calculate.dissect(buffer, index, packet, parent)
 
   -- Price 2: Binary
-  index, price_2 = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2.dissect(buffer, index, packet, parent)
+  index, price_2 = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_2_calculate.dissect(buffer, index, packet, parent)
 
   -- Ssr Triggering Exchange Id: ASCII
   index, ssr_triggering_exchange_id = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.ssr_triggering_exchange_id.dissect(buffer, index, packet, parent)
@@ -2602,8 +3059,8 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_clear_message.fields = functi
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -2700,8 +3157,8 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.source_id.dissect(buffer, index, packet, parent)
@@ -2753,8 +3210,8 @@ end
 nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.source_id.dissect(buffer, index, packet, parent)
@@ -3005,6 +3462,13 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.fields 
   -- Price Scale Code: Binary
   index, price_scale_code = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code.dissect(buffer, index, packet, parent)
 
+  -- Store Price Scale Code Value
+  nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code.current = price_scale_code
+
+  if not packet.visited then
+    nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.current.price_scale_code.last = price_scale_code
+  end
+
   -- Security Type: ASCII
   index, security_type = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.security_type.dissect(buffer, index, packet, parent)
 
@@ -3012,7 +3476,7 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.fields 
   index, lot_size = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.lot_size.dissect(buffer, index, packet, parent)
 
   -- Prev Close Price: Binary
-  index, prev_close_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price.dissect(buffer, index, packet, parent)
+  index, prev_close_price = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Prev Close Volume: Binary
   index, prev_close_volume = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.prev_close_volume.dissect(buffer, index, packet, parent)
@@ -3034,6 +3498,17 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.symbol_index_mapping_message.fields 
     index, reserved_2 = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reserved_2.dissect(buffer, index, packet, parent)
   else
     index = index + nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.reserved_2.size
+  end
+
+  -- Cache Symbol Index Mapping Message record by symbol_index
+  if show.records and not packet.visited then
+    nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      record_frame = packet.number,
+      record_previous = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.current.symbol_index_mapping_message[symbol_index],
+      symbol_index = symbol_index,
+      symbol = symbol,
+      price_scale_code = price_scale_code,
+    }
   end
 
   return index
@@ -3299,8 +3774,8 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.send_time.dissect = function(buffer,
     local length = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.send_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.send_time
-    if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp_format == 3 then field = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.send_time_utc end
+    local field = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.send_time_utc
+    if nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.timestamp_format == 2 then field = omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.fields.send_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.send_time.fields(buffer, offset, packet, parent)
 
@@ -3381,11 +3856,13 @@ nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.packet.dissect = function(buffer, pa
   local data = nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.data(packet)
   if not packet.visited then
     data.source_time.frames[packet.number] = data.source_time.last
+    data.price_scale_code.frames[packet.number] = data.price_scale_code.last
     data.source_time.frames[packet.number] = data.source_time.last
     data.source_time.frames[packet.number] = data.source_time.last
     data.source_time.frames[packet.number] = data.source_time.last
   end
   nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.source_time.current = data.source_time.frames[packet.number]
+  nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code.current = data.price_scale_code.frames[packet.number]
   nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.source_time.current = data.source_time.frames[packet.number]
   nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.source_time.current = data.source_time.frames[packet.number]
   nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.source_time.current = data.source_time.frames[packet.number]
@@ -3428,6 +3905,7 @@ end
 -- Initialize Dissector
 function omi_nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.init()
   nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.source_time.current = nil
+  nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.price_scale_code.current = nil
   nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.current = nil
   nyse_nyseequities_imbalancesfeed_xdp_v2_2_a.conversation.flows = {}
 end

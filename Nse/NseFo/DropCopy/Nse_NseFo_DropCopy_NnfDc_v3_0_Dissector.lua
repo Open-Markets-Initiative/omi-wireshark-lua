@@ -17,8 +17,8 @@ local nse_nsefo_dropcopy_nnfdc_v3_0 = {}
 -- Nse NseFo DropCopy NnfDc 3.0 Fields
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.account_number = ProtoField.new("Account Number", "nse.nsefo.dropcopy.nnfdc.v3.0.accountnumber", ftypes.STRING, nil, nil, nil, "Account Number or client code")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.account_number_1 = ProtoField.new("Account Number 1", "nse.nsefo.dropcopy.nnfdc.v3.0.accountnumber1", ftypes.STRING, nil, nil, nil, "Trader account number, blank for a broker's own order")
-omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.activity_time_in_nanos = ProtoField.new("Activity Time In Nanos", "nse.nsefo.dropcopy.nnfdc.v3.0.activitytimeinnanos", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Activity time in nanoseconds")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.activity_time_in_nanos_utc = ProtoField.new("Activity Time In Nanos", "nse.nsefo.dropcopy.nnfdc.v3.0.activitytimeinnanos.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Activity time in nanoseconds")
+omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.activity_time_in_nanos = ProtoField.new("Activity Time In Nanos", "nse.nsefo.dropcopy.nnfdc.v3.0.activitytimeinnanos", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Activity time in nanoseconds")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.algo_id = ProtoField.new("Algo Id", "nse.nsefo.dropcopy.nnfdc.v3.0.algoid", ftypes.INT32, nil, nil, nil, "Algo Id issued by the exchange, zero for a non algo order")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.aon = ProtoField.new("Aon", "nse.nsefo.dropcopy.nnfdc.v3.0.aon", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000, "All or none order")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.fields.ato = ProtoField.new("Ato", "nse.nsefo.dropcopy.nnfdc.v3.0.ato", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "At the opening order")
@@ -195,7 +195,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nse_nsefo_dropcopy_nnfdc_v3_0.timestamp_format = 2
+nse_nsefo_dropcopy_nnfdc_v3_0.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 nse_nsefo_dropcopy_nnfdc_v3_0.zone_offset = 0
@@ -229,7 +229,7 @@ omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_structs = Pref.bool("Show Structs",
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_nse_nsefo_dropcopy_nnfdc_v3_0.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

@@ -24,8 +24,8 @@ omi_nse_nsecom_snapshot_tbt_v6_8.fields.price = ProtoField.new("Price", "nse.nse
 omi_nse_nsecom_snapshot_tbt_v6_8.fields.quantity = ProtoField.new("Quantity", "nse.nsecom.snapshot.tbt.v6.8.quantity", ftypes.INT32, nil, nil, nil, "Quantity of the order")
 omi_nse_nsecom_snapshot_tbt_v6_8.fields.size = ProtoField.new("Size", "nse.nsecom.snapshot.tbt.v6.8.size", ftypes.INT32, nil, nil, nil, "Total size of the message, including snapshot header [4, Int]")
 omi_nse_nsecom_snapshot_tbt_v6_8.fields.stream_id = ProtoField.new("Stream Id", "nse.nsecom.snapshot.tbt.v6.8.streamid", ftypes.INT16, nil, nil, nil, "Identifies a particular stream [2, Short]")
-omi_nse_nsecom_snapshot_tbt_v6_8.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecom.snapshot.tbt.v6.8.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
 omi_nse_nsecom_snapshot_tbt_v6_8.fields.timestamp_utc = ProtoField.new("Timestamp", "nse.nsecom.snapshot.tbt.v6.8.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nsecom_snapshot_tbt_v6_8.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecom.snapshot.tbt.v6.8.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
 omi_nse_nsecom_snapshot_tbt_v6_8.fields.token = ProtoField.new("Token", "nse.nsecom.snapshot.tbt.v6.8.token", ftypes.INT32, nil, nil, nil, "Unique Contract Identifier")
 omi_nse_nsecom_snapshot_tbt_v6_8.fields.trans_code = ProtoField.new("Trans Code", "nse.nsecom.snapshot.tbt.v6.8.transcode", ftypes.INT16, nil, nil, nil, "Transcode of the message [2, Short]")
 
@@ -53,7 +53,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nse_nsecom_snapshot_tbt_v6_8.timestamp_format = 2
+nse_nsecom_snapshot_tbt_v6_8.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 nse_nsecom_snapshot_tbt_v6_8.zone_offset = 0
@@ -77,7 +77,7 @@ omi_nse_nsecom_snapshot_tbt_v6_8.prefs.show_application_messages = Pref.bool("Sh
 omi_nse_nsecom_snapshot_tbt_v6_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsecom_snapshot_tbt_v6_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nse_nsecom_snapshot_tbt_v6_8.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsecom_snapshot_tbt_v6_8.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_nse_nsecom_snapshot_tbt_v6_8.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

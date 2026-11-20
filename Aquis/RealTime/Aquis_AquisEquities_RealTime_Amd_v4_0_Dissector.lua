@@ -64,8 +64,8 @@ omi_aquis_aquisequities_realtime_amd_v4_0.fields.test_stock = ProtoField.new("Te
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.threshold = ProtoField.new("Threshold", "aquis.aquisequities.realtime.amd.v4.0.threshold", ftypes.DOUBLE, nil, nil, nil, "The price threshold at which this tick data applies")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.tick_size = ProtoField.new("Tick Size", "aquis.aquisequities.realtime.amd.v4.0.ticksize", ftypes.DOUBLE, nil, nil, nil, "The tick size (price increment)")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.tick_table_id = ProtoField.new("Tick Table Id", "aquis.aquisequities.realtime.amd.v4.0.ticktableid", ftypes.UINT8, nil, nil, nil, "Numeric identifier for this tick table or static tick")
-omi_aquis_aquisequities_realtime_amd_v4_0.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.realtime.amd.v4.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this market data event")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisequities.realtime.amd.v4.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this market data event")
+omi_aquis_aquisequities_realtime_amd_v4_0.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisequities.realtime.amd.v4.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this market data event")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.trade_ref = ProtoField.new("Trade Ref", "aquis.aquisequities.realtime.amd.v4.0.traderef", ftypes.UINT32, nil, nil, nil, "Trade reference number")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.trade_type = ProtoField.new("Trade Type", "aquis.aquisequities.realtime.amd.v4.0.tradetype", ftypes.UINT8, nil, nil, nil, "Code identifying type of trade (see below)")
 omi_aquis_aquisequities_realtime_amd_v4_0.fields.traded_quantity = ProtoField.new("Quantity", "aquis.aquisequities.realtime.amd.v4.0.tradedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares traded")
@@ -120,7 +120,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-aquis_aquisequities_realtime_amd_v4_0.timestamp_format = 2
+aquis_aquisequities_realtime_amd_v4_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -143,7 +143,7 @@ omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_headers = Pref.bool("Show H
 omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_aquis_aquisequities_realtime_amd_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_aquis_aquisequities_realtime_amd_v4_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_aquis_aquisequities_realtime_amd_v4_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_aquis_aquisequities_realtime_amd_v4_0.prefs_changed()
@@ -2230,19 +2230,11 @@ aquis_aquisequities_realtime_amd_v4_0.packet.dissect = function(buffer, packet, 
   -- Packet Header: Struct of 1 fields
   index, packet_header = aquis_aquisequities_realtime_amd_v4_0.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 1, 1):uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Stop where the payload ends inside the next size
-    if index + 1 + 1 > end_of_payload then
-      parent:add_proto_expert_info(aquis_aquisequities_realtime_amd_v4_0.experts.undecoded, "Msg Length runs past the end of the payload")
-      break
-    end
+  -- Repeating: Message
+  for message_index = 1, message_count do
 
     -- Dependency element: Msg Length
     local msg_length = buffer(index + 1, 1):uint()

@@ -61,10 +61,10 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.currency = ProtoField.new("Currency", "ic
 omi_ice_icefutures_bgw_sbe_v7_0.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "ice.icefutures.bgw.sbe.v7.0.custorderhandlinginst", ftypes.STRING, nil, nil, nil, "custOrderHandlingInst")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.customer_account_ref_id = ProtoField.new("Customer Account Ref Id", "ice.icefutures.bgw.sbe.v7.0.customeraccountrefid", ftypes.STRING, nil, nil, nil, "customerAccountRefID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.deal_adjust_indicator = ProtoField.new("Deal Adjust Indicator", "ice.icefutures.bgw.sbe.v7.0.dealadjustindicator", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "dealAdjustIndicator")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_end_date = ProtoField.new("Delivery End Date", "ice.icefutures.bgw.sbe.v7.0.deliveryenddate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "deliveryEndDate")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_end_date_utc = ProtoField.new("Delivery End Date", "ice.icefutures.bgw.sbe.v7.0.deliveryenddate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "deliveryEndDate")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_start_date = ProtoField.new("Delivery Start Date", "ice.icefutures.bgw.sbe.v7.0.deliverystartdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "deliveryStartDate")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_end_date = ProtoField.new("Delivery End Date", "ice.icefutures.bgw.sbe.v7.0.deliveryenddate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "deliveryEndDate")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_start_date_utc = ProtoField.new("Delivery Start Date", "ice.icefutures.bgw.sbe.v7.0.deliverystartdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "deliveryStartDate")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.delivery_start_date = ProtoField.new("Delivery Start Date", "ice.icefutures.bgw.sbe.v7.0.deliverystartdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "deliveryStartDate")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.denominator = ProtoField.new("Denominator", "ice.icefutures.bgw.sbe.v7.0.denominator", ftypes.INT32)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.direct_electronic_access = ProtoField.new("Direct Electronic Access", "ice.icefutures.bgw.sbe.v7.0.directelectronicaccess", ftypes.UINT8, nil, nil, nil, "directElectronicAccess")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.encoding_type = ProtoField.new("Encoding Type", "ice.icefutures.bgw.sbe.v7.0.encodingtype", ftypes.UINT16, nil, nil, nil, "encodingType")
@@ -160,10 +160,10 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.mass_quotes_allowed = ProtoField.new("Mas
 omi_ice_icefutures_bgw_sbe_v7_0.fields.maturity_date = ProtoField.new("Maturity Date", "ice.icefutures.bgw.sbe.v7.0.maturitydate", ftypes.UINT16, nil, nil, nil, "maturityDate")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.max_price = ProtoField.new("Max Price", "ice.icefutures.bgw.sbe.v7.0.maxprice", ftypes.INT64, nil, nil, nil, "maxPrice")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.max_show = ProtoField.new("Max Show", "ice.icefutures.bgw.sbe.v7.0.maxshow", ftypes.INT64, nil, nil, nil, "maxShow")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time = ProtoField.new("Me Acceptance Time", "ice.icefutures.bgw.sbe.v7.0.meacceptancetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "meAcceptanceTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_utc = ProtoField.new("Me Acceptance Time", "ice.icefutures.bgw.sbe.v7.0.meacceptancetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "meAcceptanceTime")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional = ProtoField.new("Me Acceptance Time Optional", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "meAcceptanceTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time = ProtoField.new("Me Acceptance Time", "ice.icefutures.bgw.sbe.v7.0.meacceptancetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "meAcceptanceTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional_utc = ProtoField.new("Me Acceptance Time Optional", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "meAcceptanceTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.me_acceptance_time_optional = ProtoField.new("Me Acceptance Time Optional", "ice.icefutures.bgw.sbe.v7.0.meacceptancetimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "meAcceptanceTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.memo = ProtoField.new("Memo", "ice.icefutures.bgw.sbe.v7.0.memo", ftypes.STRING)
 omi_ice_icefutures_bgw_sbe_v7_0.fields.message_length = ProtoField.new("Message Length", "ice.icefutures.bgw.sbe.v7.0.messagelength", ftypes.UINT16, nil, nil, nil, "messageLength")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.mifid_id = ProtoField.new("Mifid Id", "ice.icefutures.bgw.sbe.v7.0.mifidid", ftypes.INT64, nil, nil, nil, "mifidID")
@@ -309,8 +309,8 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.security_type_optional = ProtoField.new("
 omi_ice_icefutures_bgw_sbe_v7_0.fields.self_block_allowed = ProtoField.new("Self Block Allowed", "ice.icefutures.bgw.sbe.v7.0.selfblockallowed", ftypes.UINT8, nil, nil, nil, "selfBlockAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.self_match_prevention_id = ProtoField.new("Self Match Prevention Id", "ice.icefutures.bgw.sbe.v7.0.selfmatchpreventionid", ftypes.INT64, nil, nil, nil, "selfMatchPreventionID")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.self_match_prevention_instruction = ProtoField.new("Self Match Prevention Instruction", "ice.icefutures.bgw.sbe.v7.0.selfmatchpreventioninstruction", ftypes.STRING, nil, nil, nil, "selfMatchPreventionInstruction")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.send_time = ProtoField.new("Send Time", "ice.icefutures.bgw.sbe.v7.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the message was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.send_time_utc = ProtoField.new("Send Time", "ice.icefutures.bgw.sbe.v7.0.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp of when the message was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.send_time = ProtoField.new("Send Time", "ice.icefutures.bgw.sbe.v7.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the message was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.sequence_id = ProtoField.new("Sequence Id", "ice.icefutures.bgw.sbe.v7.0.sequenceid", ftypes.UINT32, nil, nil, nil, "Outbound sequence number assigned per Bgw session, reset to 1 at the start of each trading session")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.settl_method = ProtoField.new("Settl Method", "ice.icefutures.bgw.sbe.v7.0.settlmethod", ftypes.STRING, nil, nil, nil, "settlMethod")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.severity_level = ProtoField.new("Severity Level", "ice.icefutures.bgw.sbe.v7.0.severitylevel", ftypes.UINT8, nil, nil, nil, "severityLevel")
@@ -348,8 +348,8 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.text_var_string_16_null = ProtoField.new(
 omi_ice_icefutures_bgw_sbe_v7_0.fields.tick_value = ProtoField.new("Tick Value", "ice.icefutures.bgw.sbe.v7.0.tickvalue", ftypes.INT64, nil, nil, nil, "tickValue")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force = ProtoField.new("Time In Force", "ice.icefutures.bgw.sbe.v7.0.timeinforce", ftypes.UINT8, nil, nil, nil, "timeInForce")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_in_force_optional = ProtoField.new("Time In Force Optional", "ice.icefutures.bgw.sbe.v7.0.timeinforceoptional", ftypes.UINT8, nil, nil, nil, "timeInForce")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "timePriority")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority_utc = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "timePriority")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.time_priority = ProtoField.new("Time Priority", "ice.icefutures.bgw.sbe.v7.0.timepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "timePriority")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags = ProtoField.new("Trade Flags", "ice.icefutures.bgw.sbe.v7.0.tradeflags", ftypes.STRING, nil, nil, nil, "TradeFlags bit set")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_2 = ProtoField.new("Trade Flags reserved 2", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "reserved2")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_3 = ProtoField.new("Trade Flags reserved 3", "ice.icefutures.bgw.sbe.v7.0.tradeflagsreserved3", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "reserved3")
@@ -360,12 +360,12 @@ omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_flags_reserved_7 = ProtoField.new("
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trade_type = ProtoField.new("Trade Type", "ice.icefutures.bgw.sbe.v7.0.tradetype", ftypes.STRING, nil, nil, nil, "tradeType")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.trading_capacity = ProtoField.new("Trading Capacity", "ice.icefutures.bgw.sbe.v7.0.tradingcapacity", ftypes.UINT8, nil, nil, nil, "tradingCapacity")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_details = ProtoField.new("Transact Details", "ice.icefutures.bgw.sbe.v7.0.transactdetails", ftypes.STRING, nil, nil, nil, "transactDetails")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "ice.icefutures.bgw.sbe.v7.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc = ProtoField.new("Transact Time", "ice.icefutures.bgw.sbe.v7.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional = ProtoField.new("Transact Time Optional", "ice.icefutures.bgw.sbe.v7.0.transacttimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "ice.icefutures.bgw.sbe.v7.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional_utc = ProtoField.new("Transact Time Optional", "ice.icefutures.bgw.sbe.v7.0.transacttimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
-omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp = ProtoField.new("Transact Time Utc Timestamp", "ice.icefutures.bgw.sbe.v7.0.transacttimeutctimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_optional = ProtoField.new("Transact Time Optional", "ice.icefutures.bgw.sbe.v7.0.transacttimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp_utc = ProtoField.new("Transact Time Utc Timestamp", "ice.icefutures.bgw.sbe.v7.0.transacttimeutctimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
+omi_ice_icefutures_bgw_sbe_v7_0.fields.transact_time_utc_timestamp = ProtoField.new("Transact Time Utc Timestamp", "ice.icefutures.bgw.sbe.v7.0.transacttimeutctimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.uds_futures_allowed = ProtoField.new("Uds Futures Allowed", "ice.icefutures.bgw.sbe.v7.0.udsfuturesallowed", ftypes.UINT8, nil, nil, nil, "udsFuturesAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.uds_options_allowed = ProtoField.new("Uds Options Allowed", "ice.icefutures.bgw.sbe.v7.0.udsoptionsallowed", ftypes.UINT8, nil, nil, nil, "udsOptionsAllowed")
 omi_ice_icefutures_bgw_sbe_v7_0.fields.underlying_product = ProtoField.new("Underlying Product", "ice.icefutures.bgw.sbe.v7.0.underlyingproduct", ftypes.INT32, nil, nil, nil, "underlyingProduct")
@@ -463,7 +463,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-ice_icefutures_bgw_sbe_v7_0.timestamp_format = 2
+ice_icefutures_bgw_sbe_v7_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -488,7 +488,7 @@ omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Show Re
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_ice_icefutures_bgw_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_ice_icefutures_bgw_sbe_v7_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_ice_icefutures_bgw_sbe_v7_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_ice_icefutures_bgw_sbe_v7_0.prefs_changed()

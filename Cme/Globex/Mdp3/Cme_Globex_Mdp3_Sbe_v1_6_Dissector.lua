@@ -43,8 +43,8 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.electronic_match_eligible = ProtoField.new("
 omi_cme_globex_mdp3_sbe_v1_6.fields.encoding_type = ProtoField.new("Encoding Type", "cme.globex.mdp3.sbe.v1.6.encodingtype", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.end_of_event = ProtoField.new("End Of Event", "cme.globex.mdp3.sbe.v1.6.endofevent", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "EndOfEvent")
 omi_cme_globex_mdp3_sbe_v1_6.fields.error_codes = ProtoField.new("Error Codes", "cme.globex.mdp3.sbe.v1.6.errorcodes", ftypes.UINT8, nil, nil, nil, "Error code for reject reason")
-omi_cme_globex_mdp3_sbe_v1_6.fields.event_time = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.6.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and Time of instument Activation or Expiration event sent as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_6.fields.event_time_utc = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.6.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and Time of instument Activation or Expiration event sent as number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_6.fields.event_time = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.6.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and Time of instument Activation or Expiration event sent as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_6.fields.event_type = ProtoField.new("Event Type", "cme.globex.mdp3.sbe.v1.6.eventtype", ftypes.UINT8, nil, nil, nil, "Code to represent the type of event")
 omi_cme_globex_mdp3_sbe_v1_6.fields.events_group = ProtoField.new("Events Group", "cme.globex.mdp3.sbe.v1.6.eventsgroup", ftypes.STRING, nil, nil, nil, "Number of repeating EventType entries")
 omi_cme_globex_mdp3_sbe_v1_6.fields.events_groups = ProtoField.new("Events Groups", "cme.globex.mdp3.sbe.v1.6.eventsgroups", ftypes.STRING, nil, nil, nil, "NoEvents Block")
@@ -89,8 +89,8 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.last_qty = ProtoField.new("Last Qty", "cme.g
 omi_cme_globex_mdp3_sbe_v1_6.fields.last_quote_msg = ProtoField.new("Last Quote Msg", "cme.globex.mdp3.sbe.v1.6.lastquotemsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "LastQuoteMsg")
 omi_cme_globex_mdp3_sbe_v1_6.fields.last_stats_msg = ProtoField.new("Last Stats Msg", "cme.globex.mdp3.sbe.v1.6.laststatsmsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "LastStatsMsg")
 omi_cme_globex_mdp3_sbe_v1_6.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "cme.globex.mdp3.sbe.v1.6.lasttrademsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "LastTradeMsg")
-omi_cme_globex_mdp3_sbe_v1_6.fields.last_update_time = ProtoField.new("Last Update Time", "cme.globex.mdp3.sbe.v1.6.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the instrument was last added, modified or deleted")
 omi_cme_globex_mdp3_sbe_v1_6.fields.last_update_time_utc = ProtoField.new("Last Update Time", "cme.globex.mdp3.sbe.v1.6.lastupdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of when the instrument was last added, modified or deleted")
+omi_cme_globex_mdp3_sbe_v1_6.fields.last_update_time = ProtoField.new("Last Update Time", "cme.globex.mdp3.sbe.v1.6.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the instrument was last added, modified or deleted")
 omi_cme_globex_mdp3_sbe_v1_6.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "cme.globex.mdp3.sbe.v1.6.lastvolumemsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "LastVolumeMsg")
 omi_cme_globex_mdp3_sbe_v1_6.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.globex.mdp3.sbe.v1.6.legoptiondelta", ftypes.DOUBLE, nil, nil, nil, "Delta used to calculate the quantity of futures used to cover the option or option strategy")
 omi_cme_globex_mdp3_sbe_v1_6.fields.leg_price = ProtoField.new("Leg Price", "cme.globex.mdp3.sbe.v1.6.legprice", ftypes.DOUBLE, nil, nil, nil, "Price for the future leg of a UDS Covered instrument")
@@ -175,8 +175,8 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.request_ack_related_symbol_group = ProtoFiel
 omi_cme_globex_mdp3_sbe_v1_6.fields.request_ack_related_symbol_groups = ProtoField.new("Request Ack Related Symbol Groups", "cme.globex.mdp3.sbe.v1.6.requestackrelatedsymbolgroups", ftypes.STRING, nil, nil, nil, "NoRelatedSym Block")
 omi_cme_globex_mdp3_sbe_v1_6.fields.request_ack_security_group = ProtoField.new("Request Ack Security Group", "cme.globex.mdp3.sbe.v1.6.requestacksecuritygroup", ftypes.STRING, nil, nil, nil, "Number of SecurityGroups acknowledged")
 omi_cme_globex_mdp3_sbe_v1_6.fields.request_ack_security_groups = ProtoField.new("Request Ack Security Groups", "cme.globex.mdp3.sbe.v1.6.requestacksecuritygroups", ftypes.STRING, nil, nil, nil, "NoSecurityGroups Block")
-omi_cme_globex_mdp3_sbe_v1_6.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.6.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_6.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.6.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_6.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.6.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_6.fields.reserved = ProtoField.new("Reserved", "cme.globex.mdp3.sbe.v1.6.reserved", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cme_globex_mdp3_sbe_v1_6.fields.reserved_12 = ProtoField.new("Reserved 12", "cme.globex.mdp3.sbe.v1.6.reserved12", ftypes.UINT32, nil, base.DEC, 0xFFF00000, "12 reserved bits")
 omi_cme_globex_mdp3_sbe_v1_6.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.globex.mdp3.sbe.v1.6.reservedbits", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "ReservedBits")
@@ -202,8 +202,8 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.security_trading_event = ProtoField.new("Sec
 omi_cme_globex_mdp3_sbe_v1_6.fields.security_trading_status = ProtoField.new("Security Trading Status", "cme.globex.mdp3.sbe.v1.6.securitytradingstatus", ftypes.UINT8, nil, nil, nil, "Identifies the trading status applicable to the instrument or Security Group")
 omi_cme_globex_mdp3_sbe_v1_6.fields.security_type = ProtoField.new("Security Type", "cme.globex.mdp3.sbe.v1.6.securitytype", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_6.fields.security_update_action = ProtoField.new("Security Update Action", "cme.globex.mdp3.sbe.v1.6.securityupdateaction", ftypes.STRING, nil, nil, nil, "Last Security update action on Incremental feed, 'D' or 'M' is used when a mid-week deletion or modification (i.e. extension) occurs")
-omi_cme_globex_mdp3_sbe_v1_6.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.6.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_globex_mdp3_sbe_v1_6.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.6.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
+omi_cme_globex_mdp3_sbe_v1_6.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.6.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_globex_mdp3_sbe_v1_6.fields.session = ProtoField.new("Session", "cme.globex.mdp3.sbe.v1.6.session", ftypes.STRING, nil, nil, nil, "Session ID")
 omi_cme_globex_mdp3_sbe_v1_6.fields.session_text = ProtoField.new("Session Text", "cme.globex.mdp3.sbe.v1.6.sessiontext", ftypes.STRING, nil, nil, nil, "Reject reason details")
 omi_cme_globex_mdp3_sbe_v1_6.fields.settl_currency = ProtoField.new("Settl Currency", "cme.globex.mdp3.sbe.v1.6.settlcurrency", ftypes.STRING, nil, nil, nil, "Identifies currency used for settlement, if different from trading currency")
@@ -217,8 +217,8 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.strike_price = ProtoField.new("Strike Price"
 omi_cme_globex_mdp3_sbe_v1_6.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.globex.mdp3.sbe.v1.6.subfraction", ftypes.UINT8, nil, nil, nil, "Price Denominator of Sub Fraction")
 omi_cme_globex_mdp3_sbe_v1_6.fields.subscription_req_type = ProtoField.new("Subscription Req Type", "cme.globex.mdp3.sbe.v1.6.subscriptionreqtype", ftypes.UINT8, nil, nil, nil, "Subscription Request Type indicates to the type of response expected")
 omi_cme_globex_mdp3_sbe_v1_6.fields.symbol = ProtoField.new("Symbol", "cme.globex.mdp3.sbe.v1.6.symbol", ftypes.STRING, nil, nil, nil, "Instrument Name or Symbol")
-omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.6.tcpsendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_sending_time_utc = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.6.tcpsendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_6.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.6.tcpsendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_6.fields.template_id = ProtoField.new("Template Id", "cme.globex.mdp3.sbe.v1.6.templateid", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_6.fields.text = ProtoField.new("Text", "cme.globex.mdp3.sbe.v1.6.text", ftypes.STRING, nil, nil, nil, "Free format text string. May include logout confirmation or reason for logout")
 omi_cme_globex_mdp3_sbe_v1_6.fields.tick_rule = ProtoField.new("Tick Rule", "cme.globex.mdp3.sbe.v1.6.tickrule", ftypes.INT8)
@@ -228,8 +228,8 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.trade_date = ProtoField.new("Trade Date", "c
 omi_cme_globex_mdp3_sbe_v1_6.fields.trade_id = ProtoField.new("Trade Id", "cme.globex.mdp3.sbe.v1.6.tradeid", ftypes.INT32, nil, nil, nil, "Unique Trade ID per instrument and Trading Date")
 omi_cme_globex_mdp3_sbe_v1_6.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.globex.mdp3.sbe.v1.6.tradingreferencedate", ftypes.UINT16, nil, nil, nil, "Indicates session date corresponding to the settlement price in tag 1150-TradingReferencePrice")
 omi_cme_globex_mdp3_sbe_v1_6.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "cme.globex.mdp3.sbe.v1.6.tradingreferenceprice", ftypes.DOUBLE, nil, nil, nil, "Reference price for prelisted instruments or the last calculated Settlement whether it be Theoretical, Preliminary or a Final Settle of the session.")
-omi_cme_globex_mdp3_sbe_v1_6.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.6.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_6.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.6.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_6.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.6.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_6.fields.underlying_product = ProtoField.new("Underlying Product", "cme.globex.mdp3.sbe.v1.6.underlyingproduct", ftypes.UINT8, nil, nil, nil, "Product complex")
 omi_cme_globex_mdp3_sbe_v1_6.fields.underlying_product_optional = ProtoField.new("Underlying Product Optional", "cme.globex.mdp3.sbe.v1.6.underlyingproductoptional", ftypes.UINT8, nil, nil, nil, "Product complex")
 omi_cme_globex_mdp3_sbe_v1_6.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.globex.mdp3.sbe.v1.6.underlyingsecurityid", ftypes.INT32, nil, nil, nil, "Unique Instrument ID as qualified by the exchange per tag 305-UnderlyingSecurityIDSource")
@@ -252,7 +252,7 @@ omi_cme_globex_mdp3_sbe_v1_6.fields.client_tcp_frame = ProtoField.new("Client Tc
 omi_cme_globex_mdp3_sbe_v1_6.fields.client_tcp_message = ProtoField.new("Client Tcp Message", "cme.globex.mdp3.sbe.v1.6.clienttcpmessage", ftypes.STRING, nil, nil, nil, "Cme Tcp Message sent by the firm to Cme")
 omi_cme_globex_mdp3_sbe_v1_6.fields.client_tcp_packet = ProtoField.new("Client Tcp Packet", "cme.globex.mdp3.sbe.v1.6.clienttcppacket", ftypes.STRING, nil, nil, nil, "Cme Sbe Tcp Packet sent by the firm to Cme")
 omi_cme_globex_mdp3_sbe_v1_6.fields.client_technical_header = ProtoField.new("Client Technical Header", "cme.globex.mdp3.sbe.v1.6.clienttechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by the firm to Cme")
-omi_cme_globex_mdp3_sbe_v1_6.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.6.message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
+omi_cme_globex_mdp3_sbe_v1_6.fields.mdp3_message = ProtoField.new("Mdp3 Message", "cme.globex.mdp3.sbe.v1.6.mdp3message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
 omi_cme_globex_mdp3_sbe_v1_6.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.6.messageheader", ftypes.STRING, nil, nil, nil, "Message Size followed by the Simple Binary Header")
 omi_cme_globex_mdp3_sbe_v1_6.fields.server_tcp_frame = ProtoField.new("Server Tcp Frame", "cme.globex.mdp3.sbe.v1.6.servertcpframe", ftypes.STRING, nil, nil, nil, "One technical header and the message it carries: the unit the wire repeats")
 omi_cme_globex_mdp3_sbe_v1_6.fields.server_tcp_message = ProtoField.new("Server Tcp Message", "cme.globex.mdp3.sbe.v1.6.servertcpmessage", ftypes.STRING, nil, nil, nil, "Cme Tcp Message sent by Cme to the firm")
@@ -338,7 +338,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cme_globex_mdp3_sbe_v1_6.timestamp_format = 2
+cme_globex_mdp3_sbe_v1_6.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -375,7 +375,7 @@ omi_cme_globex_mdp3_sbe_v1_6.prefs.show_schema_messages = Pref.bool("Show Schema
 omi_cme_globex_mdp3_sbe_v1_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cme_globex_mdp3_sbe_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cme_globex_mdp3_sbe_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cme_globex_mdp3_sbe_v1_6.prefs_changed()
@@ -10789,6 +10789,9 @@ cme_globex_mdp3_sbe_v1_6.mdpsessionmgmt_message.dissect = function(buffer, offse
     local index = cme_globex_mdp3_sbe_v1_6.mdpsessionmgmt_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = cme_globex_mdp3_sbe_v1_6.mdpsessionmgmt_message.display(packet, parent, length)
     parent:append_text(display)
 
@@ -10874,6 +10877,9 @@ cme_globex_mdp3_sbe_v1_6.mktdata_message.dissect = function(buffer, offset, pack
     local index = cme_globex_mdp3_sbe_v1_6.mktdata_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = cme_globex_mdp3_sbe_v1_6.mktdata_message.display(packet, parent, length)
     parent:append_text(display)
 
@@ -10903,16 +10909,16 @@ cme_globex_mdp3_sbe_v1_6.payload.dissect = function(buffer, offset, packet, pare
   return offset
 end
 
--- Message
-cme_globex_mdp3_sbe_v1_6.message = {}
+-- Mdp3 Message
+cme_globex_mdp3_sbe_v1_6.mdp3_message = {}
 
--- Display: Message
-cme_globex_mdp3_sbe_v1_6.message.display = function(packet, parent, length)
+-- Display: Mdp3 Message
+cme_globex_mdp3_sbe_v1_6.mdp3_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-cme_globex_mdp3_sbe_v1_6.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Mdp3 Message
+cme_globex_mdp3_sbe_v1_6.mdp3_message.fields = function(buffer, offset, packet, parent, size_of_mdp3_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
@@ -10927,30 +10933,30 @@ cme_globex_mdp3_sbe_v1_6.message.fields = function(buffer, offset, packet, paren
   return index
 end
 
--- Dissect: Message
-cme_globex_mdp3_sbe_v1_6.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Mdp3 Message
+cme_globex_mdp3_sbe_v1_6.mdp3_message.dissect = function(buffer, offset, packet, parent, size_of_mdp3_message)
+  local index = offset + size_of_mdp3_message
 
   -- Its fields read only its own bytes: a layout running past them is marked, not raised
   local bounded = buffer(0, math.min(index, buffer:len())):tvb()
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.message, buffer(offset, 0))
-    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_6.message.fields, bounded, offset, packet, parent, size_of_message)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_6.fields.mdp3_message, buffer(offset, 0))
+    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_6.mdp3_message.fields, bounded, offset, packet, parent, size_of_mdp3_message)
     if not decoded then
-      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_6.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_6.experts.undecoded, "Mdp3 Message does not decode within its "..size_of_mdp3_message.." bytes")
     end
-    parent:set_len(size_of_message)
-    local display = cme_globex_mdp3_sbe_v1_6.message.display(buffer, packet, parent)
+    parent:set_len(size_of_mdp3_message)
+    local display = cme_globex_mdp3_sbe_v1_6.mdp3_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_6.message.fields, bounded, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_6.mdp3_message.fields, bounded, offset, packet, parent, size_of_mdp3_message)
     if not decoded then
-      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_6.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_6.experts.undecoded, "Mdp3 Message does not decode within its "..size_of_mdp3_message.." bytes")
     end
 
     return index
@@ -11016,10 +11022,10 @@ cme_globex_mdp3_sbe_v1_6.udp_packet.dissect = function(buffer, packet, parent)
   -- Binary Packet Header: Struct of 2 fields
   index, binary_packet_header = cme_globex_mdp3_sbe_v1_6.binary_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
+  -- Dependency for Mdp3 Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Mdp3 Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
@@ -11033,8 +11039,8 @@ cme_globex_mdp3_sbe_v1_6.udp_packet.dissect = function(buffer, packet, parent)
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 
-    -- Runtime Size Of: Message
-    index, message = cme_globex_mdp3_sbe_v1_6.message.dissect(buffer, index, packet, parent, message_size)
+    -- Runtime Size Of: Mdp3 Message
+    index, mdp3_message = cme_globex_mdp3_sbe_v1_6.mdp3_message.dissect(buffer, index, packet, parent, message_size)
   end
 
   return index

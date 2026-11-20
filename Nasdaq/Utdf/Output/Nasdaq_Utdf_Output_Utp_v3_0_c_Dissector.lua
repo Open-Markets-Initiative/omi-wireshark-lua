@@ -15,8 +15,8 @@ local nasdaq_utdf_output_utp_v3_0_c = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq Utdf Output Utp 3.0.c Fields
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.action_time = ProtoField.new("Action Time", "nasdaq.utdf.output.utp.v3.0.c.actiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the action occurred")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.action_time_utc = ProtoField.new("Action Time", "nasdaq.utdf.output.utp.v3.0.c.actiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of when the action occurred")
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.action_time = ProtoField.new("Action Time", "nasdaq.utdf.output.utp.v3.0.c.actiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the action occurred")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.administrative_message = ProtoField.new("Administrative Message", "nasdaq.utdf.output.utp.v3.0.c.administrativemessage", ftypes.STRING, nil, nil, nil, "Administrative Messages")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.utdf.output.utp.v3.0.c.administrativemessagetype", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.as_of_action = ProtoField.new("As Of Action", "nasdaq.utdf.output.utp.v3.0.c.asofaction", ftypes.STRING, nil, nil, nil, "As-Of Action")
@@ -49,8 +49,8 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.issue_subtype = ProtoField.new("Issue S
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.issue_type = ProtoField.new("Issue Type", "nasdaq.utdf.output.utp.v3.0.c.issuetype", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.limit_down_price = ProtoField.new("Limit Down Price", "nasdaq.utdf.output.utp.v3.0.c.limitdownprice", ftypes.DOUBLE)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.limit_up_price = ProtoField.new("Limit Up Price", "nasdaq.utdf.output.utp.v3.0.c.limitupprice", ftypes.DOUBLE)
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.luld_price_band_effective_time = ProtoField.new("Luld Price Band Effective Time", "nasdaq.utdf.output.utp.v3.0.c.luldpricebandeffectivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.luld_price_band_effective_time_utc = ProtoField.new("Luld Price Band Effective Time", "nasdaq.utdf.output.utp.v3.0.c.luldpricebandeffectivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.luld_price_band_effective_time = ProtoField.new("Luld Price Band Effective Time", "nasdaq.utdf.output.utp.v3.0.c.luldpricebandeffectivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.luld_price_band_indicator = ProtoField.new("Luld Price Band Indicator", "nasdaq.utdf.output.utp.v3.0.c.luldpricebandindicator", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_center_close_indicator = ProtoField.new("Market Center Close Indicator", "nasdaq.utdf.output.utp.v3.0.c.marketcentercloseindicator", ftypes.STRING)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.market_center_closing_price = ProtoField.new("Market Center Closing Price", "nasdaq.utdf.output.utp.v3.0.c.marketcenterclosingprice", ftypes.DOUBLE)
@@ -90,19 +90,19 @@ omi_nasdaq_utdf_output_utp_v3_0_c.fields.sellers_sale_days = ProtoField.new("Sel
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.utdf.output.utp.v3.0.c.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.session = ProtoField.new("Session", "nasdaq.utdf.output.utp.v3.0.c.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.utdf.output.utp.v3.0.c.shortsalethresholdindicator", ftypes.STRING)
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.utdf.output.utp.v3.0.c.siptimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.sip_timestamp_utc = ProtoField.new("Sip Timestamp", "nasdaq.utdf.output.utp.v3.0.c.siptimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.utdf.output.utp.v3.0.c.siptimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.sub_market_center_id = ProtoField.new("Sub Market Center Id", "nasdaq.utdf.output.utp.v3.0.c.submarketcenterid", ftypes.STRING, nil, nil, nil, "Sub-Market Center ID")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.symbol_long = ProtoField.new("Symbol Long", "nasdaq.utdf.output.utp.v3.0.c.symbollong", ftypes.STRING, nil, nil, nil, "Security symbol")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.symbol_short = ProtoField.new("Symbol Short", "nasdaq.utdf.output.utp.v3.0.c.symbolshort", ftypes.STRING, nil, nil, nil, "Security symbol")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.text = ProtoField.new("Text", "nasdaq.utdf.output.utp.v3.0.c.text", ftypes.STRING, nil, nil, nil, "Administrative text; variable-length, sized by Text Length")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.text_length = ProtoField.new("Text Length", "nasdaq.utdf.output.utp.v3.0.c.textlength", ftypes.UINT16, nil, nil, nil, "Length of the variable Text field")
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.timestamp_1 = ProtoField.new("Timestamp 1", "nasdaq.utdf.output.utp.v3.0.c.timestamp1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Participant Timestamp")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.timestamp_1_utc = ProtoField.new("Timestamp 1", "nasdaq.utdf.output.utp.v3.0.c.timestamp1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Participant Timestamp")
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.timestamp_2 = ProtoField.new("Timestamp 2", "nasdaq.utdf.output.utp.v3.0.c.timestamp2", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "FINRA Timestamp, nanoseconds since Epoch. Set to 0 if from an exchange")
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.timestamp_1 = ProtoField.new("Timestamp 1", "nasdaq.utdf.output.utp.v3.0.c.timestamp1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Participant Timestamp")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.timestamp_2_utc = ProtoField.new("Timestamp 2", "nasdaq.utdf.output.utp.v3.0.c.timestamp2.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "FINRA Timestamp, nanoseconds since Epoch. Set to 0 if from an exchange")
-omi_nasdaq_utdf_output_utp_v3_0_c.fields.timestamp_of_trade = ProtoField.new("Timestamp Of Trade", "nasdaq.utdf.output.utp.v3.0.c.timestampoftrade", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of original trade")
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.timestamp_2 = ProtoField.new("Timestamp 2", "nasdaq.utdf.output.utp.v3.0.c.timestamp2", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "FINRA Timestamp, nanoseconds since Epoch. Set to 0 if from an exchange")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.timestamp_of_trade_utc = ProtoField.new("Timestamp Of Trade", "nasdaq.utdf.output.utp.v3.0.c.timestampoftrade.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of original trade")
+omi_nasdaq_utdf_output_utp_v3_0_c.fields.timestamp_of_trade = ProtoField.new("Timestamp Of Trade", "nasdaq.utdf.output.utp.v3.0.c.timestampoftrade", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of original trade")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.total_consolidated_volume = ProtoField.new("Total Consolidated Volume", "nasdaq.utdf.output.utp.v3.0.c.totalconsolidatedvolume", ftypes.DOUBLE, nil, nil, nil, "Total Consolidated Volume, 6 implied decimal places")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.total_consolidated_volume_message = ProtoField.new("Total Consolidated Volume Message", "nasdaq.utdf.output.utp.v3.0.c.totalconsolidatedvolumemessage", ftypes.STRING, nil, nil, nil, "Total Consolidated And Market Center Volume Messages")
 omi_nasdaq_utdf_output_utp_v3_0_c.fields.total_consolidated_volume_message_type = ProtoField.new("Total Consolidated Volume Message Type", "nasdaq.utdf.output.utp.v3.0.c.totalconsolidatedvolumemessagetype", ftypes.STRING)
@@ -178,7 +178,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_utdf_output_utp_v3_0_c.timestamp_format = 2
+nasdaq_utdf_output_utp_v3_0_c.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -203,7 +203,7 @@ omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_headers = Pref.bool("Show Headers",
 omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_utdf_output_utp_v3_0_c.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_utdf_output_utp_v3_0_c.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_utdf_output_utp_v3_0_c.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_utdf_output_utp_v3_0_c.prefs_changed()

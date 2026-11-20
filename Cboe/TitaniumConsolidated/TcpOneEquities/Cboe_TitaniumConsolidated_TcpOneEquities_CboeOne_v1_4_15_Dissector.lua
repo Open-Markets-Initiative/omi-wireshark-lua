@@ -38,8 +38,8 @@ omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.high_price =
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_price = ProtoField.new("Last Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastprice", ftypes.DOUBLE, nil, nil, nil, "Last trade price.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_quantity = ProtoField.new("Last Quantity", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastquantity", ftypes.UINT64, nil, nil, nil, "Last trade quantity.")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_sale_eligible = ProtoField.new("Last Sale Eligible", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastsaleeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastupdatetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe One server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_update_timestamp_utc = ProtoField.new("Last Update Timestamp", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastupdatetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe One server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lastupdatetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe One server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.length = ProtoField.new("Length", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.longupdateadapblock", ftypes.STRING)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.low_price = ProtoField.new("Low Price", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.lowprice", ftypes.DOUBLE, nil, nil, nil, "Lowest trade price of the day.")
@@ -72,11 +72,11 @@ omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.side_indicat
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.sip_volume_status = ProtoField.new("Sip Volume Status", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.sipvolumestatus", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.status = ProtoField.new("Status", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.status", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.symbol = ProtoField.new("Symbol", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.symbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.timestamp = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the Market Status changed for the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of when the Market Status changed for the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.timestamp = ProtoField.new("Timestamp", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the Market Status changed for the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.trading_status = ProtoField.new("Trading Status", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.tradingstatus", ftypes.STRING, nil, nil, nil, "A=Accepting Orders for Queuing H=Halted Q=Quote-Only S=Exchange Specific Suspension T=Trading")
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the trade occurred on the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the trade occurred on the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the trade occurred on the specified Market Center. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.unit = ProtoField.new("Unit", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.unused_5 = ProtoField.new("Unused 5", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.unused5", ftypes.UINT8, nil, base.DEC, 0xF8)
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.fields.unused_6 = ProtoField.new("Unused 6", "cboe.titaniumconsolidated.tcponeequities.cboeone.v1.4.15.unused6", ftypes.UINT8, nil, base.DEC, 0xFC)
@@ -120,7 +120,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format = 2
+cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -143,7 +143,7 @@ omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.show_applicat
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.prefs_changed()
@@ -2098,6 +2098,9 @@ cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.adap_block.dissect = fu
     local index = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.adap_block.fields(buffer, offset, packet, parent, adap_block_index, adap_block_size)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = cboe_titaniumconsolidated_tcponeequities_cboeone_v1_4_15.adap_block.display(packet, parent, length)
     parent:append_text(display)
 

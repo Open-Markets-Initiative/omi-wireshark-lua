@@ -1191,20 +1191,20 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_sell_clearing_fi
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_trade_price = ProtoField.new("Equity Trade Price", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitytradeprice", ftypes.DOUBLE)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_trade_size = ProtoField.new("Equity Trade Size", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitytradesize", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_trade_venue = ProtoField.new("Equity Trade Venue", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitytradevenue", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_transact_time = ProtoField.new("Equity Transact Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitytransacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_transact_time_utc = ProtoField.new("Equity Transact Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitytransacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.equity_transact_time = ProtoField.new("Equity Transact Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.equitytransacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.ex_destination = ProtoField.new("Ex Destination", "cboe.c1options.binaryorderentry.boe.v2.11.115.exdestination", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.exec_id = ProtoField.new("Exec Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.execid", ftypes.UINT64, nil, nil, nil, "Corresponds to ExecID (17) in Cboe FIX. Execution ID. Unique across all matching units on a given day. Note: ExecIDs will be represented on ODROP and FIXDROP ports as nine character, base 36 ASCII. Leading zeros should be added if the converted base 36 value is shorter than nine characters. Table 2. Example Conversion Decimal Base 36 28294005440239 A1234B567 76335905726621 R248BC23H 728557228187 09AP05V2Z")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.c1options.binaryorderentry.boe.v2.11.115.execinst", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.exec_leg_cfi_code = ProtoField.new("Exec Leg Cfi Code", "cboe.c1options.binaryorderentry.boe.v2.11.115.execlegcficode", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.execrefid", ftypes.UINT64, nil, nil, nil, "Corresponds to ExecRefID (19) in Cboe FIX. Refers to the ExecID of the fill being cancelled or corrected.")
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.expire_time = ProtoField.new("Expire Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.expire_time_utc = ProtoField.new("Expire Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.expire_time = ProtoField.new("Expire Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.fee_code = ProtoField.new("Fee Code", "cboe.c1options.binaryorderentry.boe.v2.11.115.feecode", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.floor_destination = ProtoField.new("Floor Destination", "cboe.c1options.binaryorderentry.boe.v2.11.115.floordestination", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.floor_routing_inst = ProtoField.new("Floor Routing Inst", "cboe.c1options.binaryorderentry.boe.v2.11.115.floorroutinginst", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.floor_trade_time = ProtoField.new("Floor Trade Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.floortradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade time")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.floor_trade_time_utc = ProtoField.new("Floor Trade Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.floortradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trade time")
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.floor_trade_time = ProtoField.new("Floor Trade Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.floortradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade time")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.floor_trader_acronym = ProtoField.new("Floor Trader Acronym", "cboe.c1options.binaryorderentry.boe.v2.11.115.floortraderacronym", ftypes.STRING, nil, nil, nil, "Floor acronym of participant submitting trade.")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.frequent_trader_id = ProtoField.new("Frequent Trader Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.frequenttraderid", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.give_up_firm_id = ProtoField.new("Give Up Firm Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.giveupfirmid", ftypes.STRING)
@@ -2679,8 +2679,8 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_restated_return_b
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_restated_return_bitfield_9_order_category = ProtoField.new("Order Restated Return Bitfield 9 Order Category", "cboe.c1options.binaryorderentry.boe.v2.11.115.orderrestatedreturnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.order_restated_return_bitfield_9_target_party_id = ProtoField.new("Order Restated Return Bitfield 9 Target Party Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.orderrestatedreturnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.origclordid", ftypes.STRING, nil, nil, nil, "Corresponds to OrigClOrdID (41) in Cboe FIX. ClOrdID of the order to cancel. For mass cancel requests, must be empty (all zeroes).")
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.orig_time = ProtoField.new("Orig Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT. The UTC date and time of the original trade are available in nanoseconds.")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.orig_time_utc = ProtoField.new("Orig Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT. The UTC date and time of the original trade are available in nanoseconds.")
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.orig_time = ProtoField.new("Orig Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT. The UTC date and time of the original trade are available in nanoseconds.")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.ors = ProtoField.new("Ors", "cboe.c1options.binaryorderentry.boe.v2.11.115.ors", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.param_group = ProtoField.new("Param Group", "cboe.c1options.binaryorderentry.boe.v2.11.115.paramgroup", ftypes.STRING, nil, nil, nil, "Repeating group stated NumberOfParamGroups times.")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.c1options.binaryorderentry.boe.v2.11.115.paramgrouplength", ftypes.UINT16, nil, nil, nil, "Number of bytes for the parameter group, including this field.")
@@ -3099,8 +3099,8 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.routing_firm_id = Proto
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.routing_inst = ProtoField.new("Routing Inst", "cboe.c1options.binaryorderentry.boe.v2.11.115.routinginst", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.secondary_exec_id = ProtoField.new("Secondary Exec Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.secondaryexecid", ftypes.UINT64)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.secondary_order_id = ProtoField.new("Secondary Order Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.secondaryorderid", ftypes.UINT64)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.send_time = ProtoField.new("Send Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.send_time_utc = ProtoField.new("Send Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.send_time = ProtoField.new("Send Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.sender_location_id = ProtoField.new("Sender Location Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.senderlocationid", ftypes.STRING)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.sequence_number = ProtoField.new("Sequence Number", "cboe.c1options.binaryorderentry.boe.v2.11.115.sequencenumber", ftypes.UINT32, nil, nil, nil, "The sequence number for this message. Cboe-to-Member messages sequenced distinctly per matching unit; Member-to-Cboe sequenced across all matching units with a single stream.")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.session_eligibility = ProtoField.new("Session Eligibility", "cboe.c1options.binaryorderentry.boe.v2.11.115.sessioneligibility", ftypes.STRING)
@@ -3313,8 +3313,8 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.trade_cancelor_correct_
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.trade_cancelor_correct_return_bitfield_9_target_party_id = ProtoField.new("Trade Cancelor Correct Return Bitfield 9 Target Party Id", "cboe.c1options.binaryorderentry.boe.v2.11.115.tradecancelorcorrectreturnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.trade_date = ProtoField.new("Trade Date", "cboe.c1options.binaryorderentry.boe.v2.11.115.tradedate", ftypes.UINT32)
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.trade_through_alert_type = ProtoField.new("Trade Through Alert Type", "cboe.c1options.binaryorderentry.boe.v2.11.115.tradethroughalerttype", ftypes.STRING)
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Report send time (for audit).")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Report send time (for audit).")
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.c1options.binaryorderentry.boe.v2.11.115.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Report send time (for audit).")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_number = ProtoField.new("Unit Number", "cboe.c1options.binaryorderentry.boe.v2.11.115.unitnumber", ftypes.UINT8, nil, nil, nil, "A unit number.")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.c1options.binaryorderentry.boe.v2.11.115.unitsequence", ftypes.UINT32, nil, nil, nil, "Highest available Cboe to Member sequence number for the unit.")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.fields.units = ProtoField.new("Units", "cboe.c1options.binaryorderentry.boe.v2.11.115.units", ftypes.STRING, nil, nil, nil, "Repeating group stated NumberOfUnits times.")
@@ -3594,7 +3594,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_c1options_binaryorderentry_boe_v2_11_115.timestamp_format = 2
+cboe_c1options_binaryorderentry_boe_v2_11_115.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -3619,7 +3619,7 @@ omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_headers = Pref.bool
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_c1options_binaryorderentry_boe_v2_11_115.prefs_changed()

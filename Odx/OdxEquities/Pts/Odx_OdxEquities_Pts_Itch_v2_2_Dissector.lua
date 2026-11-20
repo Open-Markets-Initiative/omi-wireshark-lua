@@ -29,7 +29,7 @@ omi_odx_odxequities_pts_itch_v2_2.fields.order_number = ProtoField.new("Order Nu
 omi_odx_odxequities_pts_itch_v2_2.fields.orderbook_code = ProtoField.new("Orderbook Code", "odx.odxequities.pts.itch.v2.2.orderbookcode", ftypes.STRING, nil, nil, nil, "International Securities Identification Number (ISIN)")
 omi_odx_odxequities_pts_itch_v2_2.fields.orderbook_id = ProtoField.new("Orderbook Id", "odx.odxequities.pts.itch.v2.2.orderbookid", ftypes.STRING, nil, nil, nil, "4 digit Quick code")
 omi_odx_odxequities_pts_itch_v2_2.fields.original_order_number = ProtoField.new("Original Order Number", "odx.odxequities.pts.itch.v2.2.originalordernumber", ftypes.UINT64, nil, nil, nil, "Reference number of the original order")
-omi_odx_odxequities_pts_itch_v2_2.fields.price = ProtoField.new("Price", "odx.odxequities.pts.itch.v2.2.price", ftypes.DOUBLE, nil, nil, nil, "Price of the order For a reference price message, a value of 214,748,3647 (7FFFFFFF hex) denotes no reference price available")
+omi_odx_odxequities_pts_itch_v2_2.fields.price = ProtoField.new("Price", "odx.odxequities.pts.itch.v2.2.price", ftypes.DOUBLE, nil, nil, nil, "Price of the order")
 omi_odx_odxequities_pts_itch_v2_2.fields.price_decimals = ProtoField.new("Price Decimals", "odx.odxequities.pts.itch.v2.2.pricedecimals", ftypes.UINT32, nil, nil, nil, "Number of decimal places in price fields Value is 1")
 omi_odx_odxequities_pts_itch_v2_2.fields.price_start = ProtoField.new("Price Start", "odx.odxequities.pts.itch.v2.2.pricestart", ftypes.DOUBLE, nil, nil, nil, "Start of price range for this price tick size")
 omi_odx_odxequities_pts_itch_v2_2.fields.price_tick_size = ProtoField.new("Price Tick Size", "odx.odxequities.pts.itch.v2.2.priceticksize", ftypes.DOUBLE)
@@ -84,7 +84,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-odx_odxequities_pts_itch_v2_2.timestamp_format = 2
+odx_odxequities_pts_itch_v2_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -107,7 +107,7 @@ omi_odx_odxequities_pts_itch_v2_2.prefs.show_application_messages = Pref.bool("S
 omi_odx_odxequities_pts_itch_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_odx_odxequities_pts_itch_v2_2.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_odx_odxequities_pts_itch_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_odx_odxequities_pts_itch_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_odx_odxequities_pts_itch_v2_2.prefs_changed()
@@ -537,12 +537,22 @@ odx_odxequities_pts_itch_v2_2.price = {}
 odx_odxequities_pts_itch_v2_2.price.size = 4
 
 -- Display: Price
-odx_odxequities_pts_itch_v2_2.price.display = function(value)
+odx_odxequities_pts_itch_v2_2.price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return "Price: No Reference Price"
+  end
+
   return "Price: "..value
 end
 
 -- Translate: Price
 odx_odxequities_pts_itch_v2_2.price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return 0/0
+  end
+
   return raw/10
 end
 
@@ -552,7 +562,7 @@ odx_odxequities_pts_itch_v2_2.price.dissect = function(buffer, offset, packet, p
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = odx_odxequities_pts_itch_v2_2.price.translate(raw)
-  local display = odx_odxequities_pts_itch_v2_2.price.display(value, buffer, offset, packet, parent)
+  local display = odx_odxequities_pts_itch_v2_2.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_itch_v2_2.fields.price, range, value, display)
 

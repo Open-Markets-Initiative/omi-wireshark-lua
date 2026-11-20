@@ -60,7 +60,8 @@ omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.display_low_qty = ProtoField.new(
 omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.display_method = ProtoField.new("Display Method", "nasdaq.gemxoptions.otto.ouch.v2.1.4.displaymethod", ftypes.STRING, nil, nil, nil, "I=Initial, R=Random, N=None")
 omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.display_qty = ProtoField.new("Display Qty", "nasdaq.gemxoptions.otto.ouch.v2.1.4.displayqty", ftypes.UINT16, nil, nil, nil, "Initial Display Quantity")
 omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.display_when = ProtoField.new("Display When", "nasdaq.gemxoptions.otto.ouch.v2.1.4.displaywhen", ftypes.STRING, nil, nil, nil, "I=Immediate, E=Exhaust, N=N/A")
-omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.effective_time = ProtoField.new("Effective Time", "nasdaq.gemxoptions.otto.ouch.v2.1.4.effectivetime", ftypes.UINT64, nil, nil, nil, "Agreed upon time for the stopped price. UTC time in milliseconds.")
+omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.effective_time_utc = ProtoField.new("Effective Time", "nasdaq.gemxoptions.otto.ouch.v2.1.4.effectivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Agreed upon time for the stopped price. UTC time in milliseconds.")
+omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.effective_time = ProtoField.new("Effective Time", "nasdaq.gemxoptions.otto.ouch.v2.1.4.effectivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Agreed upon time for the stopped price. UTC time in milliseconds.")
 omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.event_code = ProtoField.new("Event Code", "nasdaq.gemxoptions.otto.ouch.v2.1.4.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes")
 omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.event_source = ProtoField.new("Event Source", "nasdaq.gemxoptions.otto.ouch.v2.1.4.eventsource", ftypes.STRING, nil, nil, nil, "A=Matching Engine, M=Manual Trade Entry, U=Trade Modification (user), C=Trade Modification (contra-side user), E=Trade Modification (exchange), B=Trade Bust (exchange)")
 omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.exec_flag = ProtoField.new("Exec Flag", "nasdaq.gemxoptions.otto.ouch.v2.1.4.execflag", ftypes.STRING, nil, nil, nil, "0=None, 1=AON")
@@ -225,7 +226,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_gemxoptions_otto_ouch_v2_1_4.timestamp_format = 2
+nasdaq_gemxoptions_otto_ouch_v2_1_4.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -262,7 +263,7 @@ omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.prefs.show_session_messages = Pref.bool(
 omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.prefs_changed()
@@ -1553,19 +1554,20 @@ nasdaq_gemxoptions_otto_ouch_v2_1_4.effective_time = {}
 -- Size: Effective Time
 nasdaq_gemxoptions_otto_ouch_v2_1_4.effective_time.size = 8
 
--- Display: Effective Time
-nasdaq_gemxoptions_otto_ouch_v2_1_4.effective_time.display = function(value)
-  return "Effective Time: "..value
-end
-
 -- Dissect: Effective Time
 nasdaq_gemxoptions_otto_ouch_v2_1_4.effective_time.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_gemxoptions_otto_ouch_v2_1_4.effective_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_gemxoptions_otto_ouch_v2_1_4.effective_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.effective_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.effective_time
+  if nasdaq_gemxoptions_otto_ouch_v2_1_4.timestamp_format == 3 then field = omi_nasdaq_gemxoptions_otto_ouch_v2_1_4.fields.effective_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

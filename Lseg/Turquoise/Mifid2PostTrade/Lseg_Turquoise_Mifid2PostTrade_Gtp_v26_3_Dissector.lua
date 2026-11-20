@@ -78,8 +78,8 @@ omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.special_dividend_indicator =
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.turquoise.mifid2posttrade.gtp.v26.3.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Static Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.turquoise.mifid2posttrade.gtp.v26.3.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.mifid2posttrade.gtp.v26.3.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.mifid2posttrade.gtp.v26.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.turquoise.mifid2posttrade.gtp.v26.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.mifid2posttrade.gtp.v26.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.turquoise.mifid2posttrade.gtp.v26.3.tradequalifier", ftypes.STRING)
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.trade_type = ProtoField.new("Trade Type", "lseg.turquoise.mifid2posttrade.gtp.v26.3.tradetype", ftypes.UINT8)
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "lseg.turquoise.mifid2posttrade.gtp.v26.3.tradingdateandtime", ftypes.STRING, nil, nil, nil, "Date and time when the transaction was executed/agreed upon.")
@@ -126,7 +126,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_turquoise_mifid2posttrade_gtp_v26_3.timestamp_format = 2
+lseg_turquoise_mifid2posttrade_gtp_v26_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -149,7 +149,7 @@ omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.prefs.show_headers = Pref.bool("Sho
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_turquoise_mifid2posttrade_gtp_v26_3.prefs_changed()

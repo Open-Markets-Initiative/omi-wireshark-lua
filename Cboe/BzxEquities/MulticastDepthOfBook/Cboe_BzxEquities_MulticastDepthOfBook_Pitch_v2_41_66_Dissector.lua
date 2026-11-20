@@ -112,7 +112,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.timestamp_format = 2
+cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -137,7 +137,7 @@ omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_padding = Pr
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.prefs_changed()
@@ -1354,6 +1354,7 @@ cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.auction_update_message = {}
 
 -- Size: Auction Update Message
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.auction_update_message.size =
+  cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.time_offset.size + 
   cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.stock_symbol.size + 
   cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.auction_type.size + 
   cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.reference_price.size + 
@@ -1370,6 +1371,9 @@ end
 -- Dissect Fields: Auction Update Message
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Time Offset: Time Offset
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock Symbol: Printable ASCII
   index, stock_symbol = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_66.stock_symbol.dissect(buffer, index, packet, parent)

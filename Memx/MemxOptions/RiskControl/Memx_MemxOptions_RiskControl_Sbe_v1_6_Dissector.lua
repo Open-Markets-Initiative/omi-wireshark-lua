@@ -54,8 +54,8 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.risk_type = ProtoField.new("Ris
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.rule_type = ProtoField.new("Rule Type", "memx.memxoptions.riskcontrol.sbe.v1.6.ruletype", ftypes.UINT8, nil, nil, nil, "RuleType")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.riskcontrol.sbe.v1.6.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.send_cancels = ProtoField.new("Send Cancels", "memx.memxoptions.riskcontrol.sbe.v1.6.sendcancels", ftypes.UINT8, nil, nil, nil, "SendCancels")
-omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.sending_time = ProtoField.new("Sending Time", "memx.memxoptions.riskcontrol.sbe.v1.6.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.sending_time_utc = ProtoField.new("Sending Time", "memx.memxoptions.riskcontrol.sbe.v1.6.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "SendingTime")
+omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.sending_time = ProtoField.new("Sending Time", "memx.memxoptions.riskcontrol.sbe.v1.6.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "memx.memxoptions.riskcontrol.sbe.v1.6.serversbemessage", ftypes.STRING, nil, nil, nil, "Sbe message sent by Memx to the firm")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.session_id = ProtoField.new("Session Id", "memx.memxoptions.riskcontrol.sbe.v1.6.sessionid", ftypes.UINT64, nil, nil, nil, "The identifier for the session for which data is desired")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.side = ProtoField.new("Side", "memx.memxoptions.riskcontrol.sbe.v1.6.side", ftypes.STRING)
@@ -68,8 +68,8 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.token_type = ProtoField.new("To
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "memx.memxoptions.riskcontrol.sbe.v1.6.totalaffectedorders", ftypes.UINT32, nil, nil, nil, "TotalAffectedOrders")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.total_executions = ProtoField.new("Total Executions", "memx.memxoptions.riskcontrol.sbe.v1.6.totalexecutions", ftypes.UINT32, nil, nil, nil, "TotalExecutions")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.memxoptions.riskcontrol.sbe.v1.6.totalsequencecount", ftypes.UINT64, nil, nil, nil, "The count of messages that were sent on this stream")
-omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.transact_time = ProtoField.new("Transact Time", "memx.memxoptions.riskcontrol.sbe.v1.6.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.transact_time_utc = ProtoField.new("Transact Time", "memx.memxoptions.riskcontrol.sbe.v1.6.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TransactTime")
+omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.transact_time = ProtoField.new("Transact Time", "memx.memxoptions.riskcontrol.sbe.v1.6.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.memxoptions.riskcontrol.sbe.v1.6.trdmatchid", ftypes.UINT64, nil, nil, nil, "TrdMatchID")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.unacked_quantity = ProtoField.new("Unacked Quantity", "memx.memxoptions.riskcontrol.sbe.v1.6.unackedquantity", ftypes.UINT32, nil, nil, nil, "UnackedQuantity")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.fields.underlier = ProtoField.new("Underlier", "memx.memxoptions.riskcontrol.sbe.v1.6.underlier", ftypes.STRING)
@@ -164,7 +164,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-memx_memxoptions_riskcontrol_sbe_v1_6.timestamp_format = 2
+memx_memxoptions_riskcontrol_sbe_v1_6.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -195,7 +195,7 @@ omi_memx_memxoptions_riskcontrol_sbe_v1_6.prefs.show_structs = Pref.bool("Show S
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_memx_memxoptions_riskcontrol_sbe_v1_6.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
-omi_memx_memxoptions_riskcontrol_sbe_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_memx_memxoptions_riskcontrol_sbe_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_memx_memxoptions_riskcontrol_sbe_v1_6.prefs_changed()

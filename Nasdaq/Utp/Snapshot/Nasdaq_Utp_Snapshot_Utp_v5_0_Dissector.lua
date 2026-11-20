@@ -17,11 +17,11 @@ local nasdaq_utp_snapshot_utp_v5_0 = {}
 -- Nasdaq Utp Snapshot Utp 5.0 Fields
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.accepted_sequence_number = ProtoField.new("Accepted Sequence Number", "nasdaq.utp.snapshot.utp.v5.0.acceptedsequencenumber", ftypes.UINT64, nil, nil, nil, "Next sequenced message number the SIP will deliver, space-padded")
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.utp.snapshot.utp.v5.0.acceptedsession", ftypes.STRING, nil, nil, nil, "Session ID accepted by the SIP for this client, left padded with spaces")
-omi_nasdaq_utp_snapshot_utp_v5_0.fields.action_time = ProtoField.new("Action Time", "nasdaq.utp.snapshot.utp.v5.0.actiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the action occurred")
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.action_time_utc = ProtoField.new("Action Time", "nasdaq.utp.snapshot.utp.v5.0.actiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of when the action occurred")
+omi_nasdaq_utp_snapshot_utp_v5_0.fields.action_time = ProtoField.new("Action Time", "nasdaq.utp.snapshot.utp.v5.0.actiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the action occurred")
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.adf_market_participant_identifier = ProtoField.new("Adf Market Participant Identifier", "nasdaq.utp.snapshot.utp.v5.0.adfmarketparticipantidentifier", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v5_0.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "nasdaq.utp.snapshot.utp.v5.0.adftimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.adf_timestamp_utc = ProtoField.new("Adf Timestamp", "nasdaq.utp.snapshot.utp.v5.0.adftimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nasdaq_utp_snapshot_utp_v5_0.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "nasdaq.utp.snapshot.utp.v5.0.adftimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.administrative_message = ProtoField.new("Administrative Message", "nasdaq.utp.snapshot.utp.v5.0.administrativemessage", ftypes.STRING, nil, nil, nil, "Administrative Messages")
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.utp.snapshot.utp.v5.0.administrativemessagetype", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.ask_adf_mpid = ProtoField.new("Ask Adf Mpid", "nasdaq.utp.snapshot.utp.v5.0.askadfmpid", ftypes.STRING, nil, nil, nil, "Ask ADF Market Participant Identifier")
@@ -54,8 +54,8 @@ omi_nasdaq_utp_snapshot_utp_v5_0.fields.etp_indicator = ProtoField.new("Etp Indi
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.utp.snapshot.utp.v5.0.financialstatusindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.finra_adf_mpid_appendage = ProtoField.new("Finra Adf Mpid Appendage", "nasdaq.utp.snapshot.utp.v5.0.finraadfmpidappendage", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.finra_adf_mpid_appendage_indicator = ProtoField.new("Finra Adf Mpid Appendage Indicator", "nasdaq.utp.snapshot.utp.v5.0.finraadfmpidappendageindicator", ftypes.STRING, nil, nil, nil, "FINRA ADF MPID Appendage Indicator. Populated with the FINRA ADF update if necessary.")
-omi_nasdaq_utp_snapshot_utp_v5_0.fields.finra_adf_timestamp = ProtoField.new("Finra Adf Timestamp", "nasdaq.utp.snapshot.utp.v5.0.finraadftimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.finra_adf_timestamp_utc = ProtoField.new("Finra Adf Timestamp", "nasdaq.utp.snapshot.utp.v5.0.finraadftimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nasdaq_utp_snapshot_utp_v5_0.fields.finra_adf_timestamp = ProtoField.new("Finra Adf Timestamp", "nasdaq.utp.snapshot.utp.v5.0.finraadftimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.halt_reason = ProtoField.new("Halt Reason", "nasdaq.utp.snapshot.utp.v5.0.haltreason", ftypes.STRING, nil, nil, nil, "Reason for Halt, when Trading State indicates halted")
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.issue_name = ProtoField.new("Issue Name", "nasdaq.utp.snapshot.utp.v5.0.issuename", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.issue_subtype = ProtoField.new("Issue Subtype", "nasdaq.utp.snapshot.utp.v5.0.issuesubtype", ftypes.STRING)
@@ -65,8 +65,8 @@ omi_nasdaq_utp_snapshot_utp_v5_0.fields.limit_up_price = ProtoField.new("Limit U
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.listing_market_official_prior_day_close_price = ProtoField.new("Listing Market Official Prior Day Close Price", "nasdaq.utp.snapshot.utp.v5.0.listingmarketofficialpriordaycloseprice", ftypes.DOUBLE, nil, nil, nil, "RESERVED. Listing Market's official prior day's close, adjusted if needed. Populated beginning December 6, 2026 when supported by the Listing Market.")
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.luld_bbo_indicator = ProtoField.new("Luld Bbo Indicator", "nasdaq.utp.snapshot.utp.v5.0.luldbboindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.luld_national_bbo_indicator = ProtoField.new("Luld National Bbo Indicator", "nasdaq.utp.snapshot.utp.v5.0.luldnationalbboindicator", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v5_0.fields.luld_price_band_effective_time = ProtoField.new("Luld Price Band Effective Time", "nasdaq.utp.snapshot.utp.v5.0.luldpricebandeffectivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.luld_price_band_effective_time_utc = ProtoField.new("Luld Price Band Effective Time", "nasdaq.utp.snapshot.utp.v5.0.luldpricebandeffectivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nasdaq_utp_snapshot_utp_v5_0.fields.luld_price_band_effective_time = ProtoField.new("Luld Price Band Effective Time", "nasdaq.utp.snapshot.utp.v5.0.luldpricebandeffectivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.luld_price_band_indicator = ProtoField.new("Luld Price Band Indicator", "nasdaq.utp.snapshot.utp.v5.0.luldpricebandindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.market_center_id = ProtoField.new("Market Center Id", "nasdaq.utp.snapshot.utp.v5.0.marketcenterid", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.utp.snapshot.utp.v5.0.marketcenteridentifier", ftypes.STRING)
@@ -110,12 +110,12 @@ omi_nasdaq_utp_snapshot_utp_v5_0.fields.shares_at_odd_lot_price = ProtoField.new
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.utp.snapshot.utp.v5.0.shortsalethresholdindicator", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.side = ProtoField.new("Side", "nasdaq.utp.snapshot.utp.v5.0.side", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.sip_generated_update_flag = ProtoField.new("Sip Generated Update Flag", "nasdaq.utp.snapshot.utp.v5.0.sipgeneratedupdateflag", ftypes.STRING)
-omi_nasdaq_utp_snapshot_utp_v5_0.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.utp.snapshot.utp.v5.0.siptimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.sip_timestamp_utc = ProtoField.new("Sip Timestamp", "nasdaq.utp.snapshot.utp.v5.0.siptimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nasdaq_utp_snapshot_utp_v5_0.fields.sip_timestamp = ProtoField.new("Sip Timestamp", "nasdaq.utp.snapshot.utp.v5.0.siptimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.sub_market_center_id = ProtoField.new("Sub Market Center Id", "nasdaq.utp.snapshot.utp.v5.0.submarketcenterid", ftypes.STRING, nil, nil, nil, "Sub-Market Center ID")
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.symbol = ProtoField.new("Symbol", "nasdaq.utp.snapshot.utp.v5.0.symbol", ftypes.STRING, nil, nil, nil, "Security Identifier")
-omi_nasdaq_utp_snapshot_utp_v5_0.fields.timestamp_1 = ProtoField.new("Timestamp 1", "nasdaq.utp.snapshot.utp.v5.0.timestamp1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Participant Timestamp")
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.timestamp_1_utc = ProtoField.new("Timestamp 1", "nasdaq.utp.snapshot.utp.v5.0.timestamp1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Participant Timestamp")
+omi_nasdaq_utp_snapshot_utp_v5_0.fields.timestamp_1 = ProtoField.new("Timestamp 1", "nasdaq.utp.snapshot.utp.v5.0.timestamp1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Participant Timestamp")
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.trading_action_code = ProtoField.new("Trading Action Code", "nasdaq.utp.snapshot.utp.v5.0.tradingactioncode", ftypes.STRING)
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.trading_action_sequence_number = ProtoField.new("Trading Action Sequence Number", "nasdaq.utp.snapshot.utp.v5.0.tradingactionsequencenumber", ftypes.UINT32, nil, nil, nil, "Trading Action Sequence Number (UTP SIP internal use only — data recipients should disregard)")
 omi_nasdaq_utp_snapshot_utp_v5_0.fields.trading_state = ProtoField.new("Trading State", "nasdaq.utp.snapshot.utp.v5.0.tradingstate", ftypes.STRING, nil, nil, nil, "Trading State (halted / trading) at the time of dissemination")
@@ -178,7 +178,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_utp_snapshot_utp_v5_0.timestamp_format = 2
+nasdaq_utp_snapshot_utp_v5_0.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -213,7 +213,7 @@ omi_nasdaq_utp_snapshot_utp_v5_0.prefs.show_session_messages = Pref.bool("Show S
 omi_nasdaq_utp_snapshot_utp_v5_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_utp_snapshot_utp_v5_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nasdaq_utp_snapshot_utp_v5_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_utp_snapshot_utp_v5_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_utp_snapshot_utp_v5_0.prefs_changed()

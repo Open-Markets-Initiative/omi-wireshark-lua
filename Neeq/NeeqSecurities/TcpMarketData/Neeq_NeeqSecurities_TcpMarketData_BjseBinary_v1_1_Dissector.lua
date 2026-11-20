@@ -59,8 +59,8 @@ omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.number_of_orders = 
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.ord_type = ProtoField.new("Ord Type", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.ordtype", ftypes.STRING, nil, nil, nil, "Order type")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.order_qty = ProtoField.new("Order Qty", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.orderqty", ftypes.DOUBLE, nil, nil, nil, "Order quantity")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.orders = ProtoField.new("Orders", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.orders", ftypes.STRING, nil, nil, nil, "The individual order quantities disclosed at this price level")
-omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.orig_time = ProtoField.new("Orig Time", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the channel heartbeat was generated")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.orig_time_utc = ProtoField.new("Orig Time", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the channel heartbeat was generated")
+omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.orig_time = ProtoField.new("Orig Time", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the channel heartbeat was generated")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.password = ProtoField.new("Password", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.password", ftypes.STRING)
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.pre_close_px = ProtoField.new("Pre Close Px", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.preclosepx", ftypes.DOUBLE, nil, nil, nil, "Previous close price")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.price = ProtoField.new("Price", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.price", ftypes.DOUBLE, nil, nil, nil, "Order price")
@@ -93,12 +93,12 @@ omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.total_volume_trade 
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trade_money = ProtoField.new("Trade Money", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.trademoney", ftypes.DOUBLE, nil, nil, nil, "Trade value in yuan")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trade_price = ProtoField.new("Trade Price", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.tradeprice", ftypes.DOUBLE)
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trade_qty = ProtoField.new("Trade Qty", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.tradeqty", ftypes.DOUBLE, nil, nil, nil, "Trade quantity")
-omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trade_time = ProtoField.new("Trade Time", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the most recent trade")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trade_time_utc = ProtoField.new("Trade Time", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the most recent trade")
+omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trade_time = ProtoField.new("Trade Time", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the most recent trade")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trading_phase_code = ProtoField.new("Trading Phase Code", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.tradingphasecode", ftypes.STRING, nil, nil, nil, "Trading phase code of the product. Only the first two characters are used: character 0 is the phase, S = start before the open, O = opening call auction, T = continuous trading, E = closed, H = temporary halt, V = volatility interruption; character 1 is 0 = cannot trade normally (before the open, suspended all day or after the close) or 1 = can trade normally")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trading_type = ProtoField.new("Trading Type", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.tradingtype", ftypes.UINT8)
-omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.transact_time = ProtoField.new("Transact Time", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Order time")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.transact_time_utc = ProtoField.new("Transact Time", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Order time")
+omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.transact_time = ProtoField.new("Transact Time", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Order time")
 
 -- Neeq NeeqSecurities TcpMarketData BjseBinary 1.1 Framing
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.message = ProtoField.new("Message", "neeq.neeqsecurities.tcpmarketdata.bjsebinary.v1.1.message", ftypes.STRING, nil, nil, nil, "Bjse Bjqg Session Message")
@@ -146,7 +146,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format = 2
+neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -169,7 +169,7 @@ omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.show_structs = Pref.
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.prefs_changed()
@@ -1256,8 +1256,8 @@ neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.orig_time.dissect = function(b
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.orig_time
-  if neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format == 3 then field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.orig_time_utc end
+  local field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.orig_time_utc
+  if neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format == 2 then field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.orig_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2101,8 +2101,8 @@ neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.trade_time.dissect = function(
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trade_time
-  if neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format == 3 then field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trade_time_utc end
+  local field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trade_time_utc
+  if neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format == 2 then field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.trade_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2202,8 +2202,8 @@ neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.transact_time.dissect = functi
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.transact_time
-  if neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format == 3 then field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.transact_time_utc end
+  local field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.transact_time_utc
+  if neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.timestamp_format == 2 then field = omi_neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.fields.transact_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)

@@ -29,8 +29,8 @@ omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.fields.record_count = P
 omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.fields.remaining_records = ProtoField.new("Remaining Records", "lme.lmeselect.warehousestocksnapshot.lmesource.v4.18.remainingrecords", ftypes.UINT16, nil, nil, nil, "Number of remaining records to be published for a product. When the value of RemainingRecords equals RecordCount this is the last message for the report level.")
 omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.fields.report_date = ProtoField.new("Report Date", "lme.lmeselect.warehousestocksnapshot.lmesource.v4.18.reportdate", ftypes.UINT32, nil, nil, nil, "The business date for which the stock movement is being reported, as YYYYMMDD.")
 omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.fields.report_level = ProtoField.new("Report Level", "lme.lmeselect.warehousestocksnapshot.lmesource.v4.18.reportlevel", ftypes.STRING, nil, nil, nil, "Indicates the level at which the stock movement quantity is being reported.")
-omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.warehousestocksnapshot.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.warehousestocksnapshot.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.warehousestocksnapshot.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.warehousestocksnapshot.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.fields.stock_quantity = ProtoField.new("Stock Quantity", "lme.lmeselect.warehousestocksnapshot.lmesource.v4.18.stockquantity", ftypes.INT32, nil, nil, nil, "Stock quantity.")
 omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.fields.stock_records = ProtoField.new("Stock Records", "lme.lmeselect.warehousestocksnapshot.lmesource.v4.18.stockrecords", ftypes.STRING, nil, nil, nil, "One warehouse stock movement record. The specification's length formula names the repeat NoOfRecords, a field no table of this message declares; RecordCount is the count it gives, as the number of repeating records in this message")
@@ -62,7 +62,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.timestamp_format = 2
+lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -85,7 +85,7 @@ omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.prefs.show_application_
 omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lme_lmeselect_warehousestocksnapshot_lmesource_v4_18.prefs_changed()

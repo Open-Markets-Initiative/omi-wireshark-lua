@@ -35,15 +35,15 @@ omi_iex_iexequities_tops_iextp_v1_56.fields.quote_update_flags = ProtoField.new(
 omi_iex_iexequities_tops_iextp_v1_56.fields.reserved = ProtoField.new("Reserved", "iex.iexequities.tops.iextp.v1.56.reserved", ftypes.BYTES, nil, nil, nil, "Reserved byte")
 omi_iex_iexequities_tops_iextp_v1_56.fields.reserved_4 = ProtoField.new("Reserved 4", "iex.iexequities.tops.iextp.v1.56.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved bytes")
 omi_iex_iexequities_tops_iextp_v1_56.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.iexequities.tops.iextp.v1.56.saleconditionflags", ftypes.STRING)
-omi_iex_iexequities_tops_iextp_v1_56.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.tops.iextp.v1.56.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_iex_iexequities_tops_iextp_v1_56.fields.send_time_utc = ProtoField.new("Send Time", "iex.iexequities.tops.iextp.v1.56.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
+omi_iex_iexequities_tops_iextp_v1_56.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.tops.iextp.v1.56.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_iex_iexequities_tops_iextp_v1_56.fields.session_id = ProtoField.new("Session Id", "iex.iexequities.tops.iextp.v1.56.sessionid", ftypes.UINT32, nil, nil, nil, "Identifies the session")
 omi_iex_iexequities_tops_iextp_v1_56.fields.size = ProtoField.new("Size", "iex.iexequities.tops.iextp.v1.56.size", ftypes.UINT32, nil, nil, nil, "Trade volume")
 omi_iex_iexequities_tops_iextp_v1_56.fields.stream_offset = ProtoField.new("Stream Offset", "iex.iexequities.tops.iextp.v1.56.streamoffset", ftypes.UINT64, nil, nil, nil, "Byte offset of the data stream")
 omi_iex_iexequities_tops_iextp_v1_56.fields.symbol = ProtoField.new("Symbol", "iex.iexequities.tops.iextp.v1.56.symbol", ftypes.STRING, nil, nil, nil, "Security identifier")
 omi_iex_iexequities_tops_iextp_v1_56.fields.symbol_availability = ProtoField.new("Symbol Availability", "iex.iexequities.tops.iextp.v1.56.symbolavailability", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Symbol is halted, paused, or otherwise not available for trading on IEX")
-omi_iex_iexequities_tops_iextp_v1_56.fields.timestamp = ProtoField.new("Timestamp", "iex.iexequities.tops.iextp.v1.56.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamp of the system event")
 omi_iex_iexequities_tops_iextp_v1_56.fields.timestamp_utc = ProtoField.new("Timestamp", "iex.iexequities.tops.iextp.v1.56.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time stamp of the system event")
+omi_iex_iexequities_tops_iextp_v1_56.fields.timestamp = ProtoField.new("Timestamp", "iex.iexequities.tops.iextp.v1.56.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamp of the system event")
 omi_iex_iexequities_tops_iextp_v1_56.fields.trade_id = ProtoField.new("Trade Id", "iex.iexequities.tops.iextp.v1.56.tradeid", ftypes.UINT64, nil, nil, nil, "IEX Generated Identifier. Trade ID is also")
 omi_iex_iexequities_tops_iextp_v1_56.fields.trade_through_exempt = ProtoField.new("Trade Through Exempt", "iex.iexequities.tops.iextp.v1.56.tradethroughexempt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Trade is not subject to Rule 611")
 omi_iex_iexequities_tops_iextp_v1_56.fields.unused_4 = ProtoField.new("Unused 4", "iex.iexequities.tops.iextp.v1.56.unused4", ftypes.UINT8, nil, base.DEC, 0x0F, "Unused")
@@ -76,7 +76,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-iex_iexequities_tops_iextp_v1_56.timestamp_format = 2
+iex_iexequities_tops_iextp_v1_56.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -101,7 +101,7 @@ omi_iex_iexequities_tops_iextp_v1_56.prefs.show_padding = Pref.bool("Show Paddin
 omi_iex_iexequities_tops_iextp_v1_56.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_iex_iexequities_tops_iextp_v1_56.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_iex_iexequities_tops_iextp_v1_56.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_iex_iexequities_tops_iextp_v1_56.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_iex_iexequities_tops_iextp_v1_56.prefs_changed()

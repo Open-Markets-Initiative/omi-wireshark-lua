@@ -66,8 +66,8 @@ omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.reserved_7_b = ProtoField.
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.reserved_8_a = ProtoField.new("Reserved 8 A", "jpx.osederivatives.geniuminet.glimpse.v2.2.reserved8a", ftypes.BYTES, nil, nil, nil, "Reserved item, if any value is set ignore it")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.reserved_8_b = ProtoField.new("Reserved 8 B", "jpx.osederivatives.geniuminet.glimpse.v2.2.reserved8b", ftypes.BYTES, nil, nil, nil, "Reserved item, if any value is set ignore it")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "jpx.osederivatives.geniuminet.glimpse.v2.2.roundlotsize", ftypes.UINT32, nil, nil, nil, "Fixed at 1")
-omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second = ProtoField.new("Second", "jpx.osederivatives.geniuminet.glimpse.v2.2.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX time, the time elapsed since January 1 1970 00:00:00 GMT")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second_utc = ProtoField.new("Second", "jpx.osederivatives.geniuminet.glimpse.v2.2.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UNIX time, the time elapsed since January 1 1970 00:00:00 GMT")
+omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.second = ProtoField.new("Second", "jpx.osederivatives.geniuminet.glimpse.v2.2.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX time, the time elapsed since January 1 1970 00:00:00 GMT")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.sequence = ProtoField.new("Sequence", "jpx.osederivatives.geniuminet.glimpse.v2.2.sequence", ftypes.STRING, nil, nil, nil, "The sequence number of the multicast data to be received just after snapshot data is received")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "jpx.osederivatives.geniuminet.glimpse.v2.2.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.fields.server_packet_type = ProtoField.new("Packet Type", "jpx.osederivatives.geniuminet.glimpse.v2.2.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -139,7 +139,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-jpx_osederivatives_geniuminet_glimpse_v2_2.timestamp_format = 2
+jpx_osederivatives_geniuminet_glimpse_v2_2.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -174,7 +174,7 @@ omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_application_messages =
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_glimpse_v2_2.prefs_changed()

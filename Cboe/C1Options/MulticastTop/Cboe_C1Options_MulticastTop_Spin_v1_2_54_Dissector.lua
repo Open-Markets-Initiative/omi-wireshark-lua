@@ -32,8 +32,8 @@ omi_cboe_c1options_multicasttop_spin_v1_2_54.fields.bit_fields = ProtoField.new(
 omi_cboe_c1options_multicasttop_spin_v1_2_54.fields.customer = ProtoField.new("Customer", "cboe.c1options.multicasttop.spin.v1.2.54.customer", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "C1 Only. 0 = Not customer specific, 1 = Price Level is specifically for firm customer quotes.")
 omi_cboe_c1options_multicasttop_spin_v1_2_54.fields.customer_quantity_long = ProtoField.new("Customer Quantity Long", "cboe.c1options.multicasttop.spin.v1.2.54.customerquantitylong", ftypes.UINT32, nil, nil, nil, "Number of customer contracts on the inside book. A zero value denotes that there are no customer contracts at the inside price. If Customer bit is set, this will be the number of customer contracts on the inside book considering only customer firm quotes. Will always be zero for C2.")
 omi_cboe_c1options_multicasttop_spin_v1_2_54.fields.customer_quantity_short = ProtoField.new("Customer Quantity Short", "cboe.c1options.multicasttop.spin.v1.2.54.customerquantityshort", ftypes.UINT16, nil, nil, nil, "Number of customer contracts on the inside book. A zero value denotes that there are no customer contracts at the inside price. If Customer bit is set, this will be the number of customer contracts on the inside book considering only customer firm quotes. Will always be zero for C2.")
-omi_cboe_c1options_multicasttop_spin_v1_2_54.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.multicasttop.spin.v1.2.54.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_multicasttop_spin_v1_2_54.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.multicasttop.spin.v1.2.54.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_multicasttop_spin_v1_2_54.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.multicasttop.spin.v1.2.54.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_multicasttop_spin_v1_2_54.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.multicasttop.spin.v1.2.54.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this trade. Execution Id is also referenced in the Trade Break message.")
 omi_cboe_c1options_multicasttop_spin_v1_2_54.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.multicasttop.spin.v1.2.54.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
 omi_cboe_c1options_multicasttop_spin_v1_2_54.fields.filler = ProtoField.new("Filler", "cboe.c1options.multicasttop.spin.v1.2.54.filler", ftypes.STRING, nil, nil, nil, "(space filled)")
@@ -114,7 +114,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_c1options_multicasttop_spin_v1_2_54.timestamp_format = 2
+cboe_c1options_multicasttop_spin_v1_2_54.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -137,7 +137,7 @@ omi_cboe_c1options_multicasttop_spin_v1_2_54.prefs.show_headers = Pref.bool("Sho
 omi_cboe_c1options_multicasttop_spin_v1_2_54.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c1options_multicasttop_spin_v1_2_54.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_c1options_multicasttop_spin_v1_2_54.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_c1options_multicasttop_spin_v1_2_54.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_c1options_multicasttop_spin_v1_2_54.prefs_changed()

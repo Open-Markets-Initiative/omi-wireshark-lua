@@ -52,14 +52,14 @@ omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.record_count = 
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.reference_price_category = ProtoField.new("Reference Price Category", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.referencepricecategory", ftypes.STRING, nil, nil, nil, "Category of the reference price. The specification names this field Category; it is qualified here because the Reference FX Rate message gives a Category of its own carrying a different set of values.")
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.reference_price_type = ProtoField.new("Reference Price Type", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.referencepricetype", ftypes.STRING, nil, nil, nil, "Reference price type. The specification names this field PriceType; it is qualified here because the Contract Definition message gives a PriceType of its own carrying a different set of values.")
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.remaining_records = ProtoField.new("Remaining Records", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.remainingrecords", ftypes.UINT16, nil, nil, nil, "Number of remaining prices to be published for a product. When the value of RemainingRecords equals RecordCount this is the last message for the product.")
-omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.strike_price = ProtoField.new("Strike Price", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Strike price for the volatility point, in implicit six decimal place format.")
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.surface_domain = ProtoField.new("Surface Domain", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.surfacedomain", ftypes.STRING, nil, nil, nil, "Indicates whether the reference volatility was created in Delta or Strike space.")
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.target_currency_code = ProtoField.new("Target Currency Code", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.targetcurrencycode", ftypes.STRING, nil, nil, nil, "The currency code according to ISO 4217.")
-omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the price was established.")
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.time_of_event_utc = ProtoField.new("Time Of Event", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.timeofevent.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time at which the price was established.")
+omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the price was established.")
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.fields.volatility_points = ProtoField.new("Volatility Points", "lme.lmeselect.referencepricessnapshot.lmesource.v4.18.volatilitypoints", ftypes.STRING, nil, nil, nil, "One point of the reference volatility curve. The specification's length formula names the repeat NumVolatilityRecords, a field no table of this message declares; RecordCount is the count it gives, as the number of reference volatility points in this message")
 
 -- Lme LmeSelect ReferencePricesSnapshot LmeSource 4.18 Framing
@@ -92,7 +92,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lme_lmeselect_referencepricessnapshot_lmesource_v4_18.timestamp_format = 2
+lme_lmeselect_referencepricessnapshot_lmesource_v4_18.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -115,7 +115,7 @@ omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.prefs.show_headers = P
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lme_lmeselect_referencepricessnapshot_lmesource_v4_18.prefs_changed()

@@ -34,8 +34,8 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.exec_id = ProtoField.new("Exec Id", "
 omi_n24x_24xequities_memo_sbe_v1_13.fields.exec_inst = ProtoField.new("Exec Inst", "24x.24xequities.memo.sbe.v1.13.execinst", ftypes.STRING, nil, nil, nil, "ExecInstType bit set")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "24x.24xequities.memo.sbe.v1.13.execrefid", ftypes.UINT64, nil, nil, nil, "ExecRefID")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "24x.24xequities.memo.sbe.v1.13.execrestatementreason", ftypes.UINT8, nil, nil, nil, "ExecRestatementReason")
-omi_n24x_24xequities_memo_sbe_v1_13.fields.expire_time = ProtoField.new("Expire Time", "24x.24xequities.memo.sbe.v1.13.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "ExpireTime")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.expire_time_utc = ProtoField.new("Expire Time", "24x.24xequities.memo.sbe.v1.13.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "ExpireTime")
+omi_n24x_24xequities_memo_sbe_v1_13.fields.expire_time = ProtoField.new("Expire Time", "24x.24xequities.memo.sbe.v1.13.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "ExpireTime")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.extended_restatement_reason = ProtoField.new("Extended Restatement Reason", "24x.24xequities.memo.sbe.v1.13.extendedrestatementreason", ftypes.UINT8, nil, nil, nil, "ExtendedRestatementReason")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "24x.24xequities.memo.sbe.v1.13.externalroutingnotallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "ExternalRoutingNotAllowed")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.higher_than_price = ProtoField.new("Higher Than Price", "24x.24xequities.memo.sbe.v1.13.higherthanprice", ftypes.DOUBLE, nil, nil, nil, "HigherThanPrice")
@@ -99,8 +99,8 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.risk_group_id = ProtoField.new("Risk 
 omi_n24x_24xequities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("Schema Id", "24x.24xequities.memo.sbe.v1.13.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "24x.24xequities.memo.sbe.v1.13.securitygroup", ftypes.STRING, nil, nil, nil, "SecurityGroup")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "24x.24xequities.memo.sbe.v1.13.selftradeprevention", ftypes.UINT8, nil, nil, nil, "SelfTradePrevention")
-omi_n24x_24xequities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "24x.24xequities.memo.sbe.v1.13.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.sending_time_utc = ProtoField.new("Sending Time", "24x.24xequities.memo.sbe.v1.13.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "SendingTime")
+omi_n24x_24xequities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "24x.24xequities.memo.sbe.v1.13.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.sequenced_message = ProtoField.new("Sequenced Message", "24x.24xequities.memo.sbe.v1.13.sequencedmessage", ftypes.STRING, nil, nil, nil, "24X Tcp sequenced message")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "24x.24xequities.memo.sbe.v1.13.serversbemessage", ftypes.STRING, nil, nil, nil, "Sbe message sent by 24X to the firm")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.session_id = ProtoField.new("Session Id", "24x.24xequities.memo.sbe.v1.13.sessionid", ftypes.UINT64, nil, nil, nil, "The identifier for the session for which data is desired")
@@ -121,8 +121,8 @@ omi_n24x_24xequities_memo_sbe_v1_13.fields.time_in_force = ProtoField.new("Time 
 omi_n24x_24xequities_memo_sbe_v1_13.fields.token = ProtoField.new("Token", "24x.24xequities.memo.sbe.v1.13.token", ftypes.STRING, nil, nil, nil, "Login Token")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.token_type = ProtoField.new("Token Type", "24x.24xequities.memo.sbe.v1.13.tokentype", ftypes.STRING, nil, nil, nil, "Login Token type")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "24x.24xequities.memo.sbe.v1.13.totalsequencecount", ftypes.UINT64, nil, nil, nil, "The count of messages that were sent on this stream")
-omi_n24x_24xequities_memo_sbe_v1_13.fields.transact_time = ProtoField.new("Transact Time", "24x.24xequities.memo.sbe.v1.13.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.transact_time_utc = ProtoField.new("Transact Time", "24x.24xequities.memo.sbe.v1.13.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TransactTime")
+omi_n24x_24xequities_memo_sbe_v1_13.fields.transact_time = ProtoField.new("Transact Time", "24x.24xequities.memo.sbe.v1.13.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.trd_match_id = ProtoField.new("Trd Match Id", "24x.24xequities.memo.sbe.v1.13.trdmatchid", ftypes.UINT64, nil, nil, nil, "TrdMatchID")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "24x.24xequities.memo.sbe.v1.13.trdmatchingid", ftypes.UINT64, nil, nil, nil, "TrdMatchingID")
 omi_n24x_24xequities_memo_sbe_v1_13.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "24x.24xequities.memo.sbe.v1.13.unsequencedmessage", ftypes.STRING, nil, nil, nil, "24X Tcp unsequenced message")
@@ -169,7 +169,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-n24x_24xequities_memo_sbe_v1_13.timestamp_format = 2
+n24x_24xequities_memo_sbe_v1_13.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -202,7 +202,7 @@ omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_application_messages = Pref.bool(
 omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_n24x_24xequities_memo_sbe_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_n24x_24xequities_memo_sbe_v1_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_n24x_24xequities_memo_sbe_v1_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_n24x_24xequities_memo_sbe_v1_13.prefs_changed()

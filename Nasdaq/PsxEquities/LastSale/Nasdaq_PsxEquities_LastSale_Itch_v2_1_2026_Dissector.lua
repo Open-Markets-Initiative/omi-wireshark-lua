@@ -113,7 +113,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp_format = 2
+nasdaq_psxequities_lastsale_itch_v2_1_2026.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -136,7 +136,7 @@ omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_application_messages =
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_psxequities_lastsale_itch_v2_1_2026.prefs_changed()
@@ -260,7 +260,7 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2026.corrected_nav_premium_discount_amount.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_lastsale_itch_v2_1_2026.corrected_nav_premium_discount_amount.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_psxequities_lastsale_itch_v2_1_2026.corrected_nav_premium_discount_amount.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1_2026.corrected_nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
 
@@ -1083,7 +1083,7 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2026.nav_premium_discount_amount.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_lastsale_itch_v2_1_2026.nav_premium_discount_amount.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_psxequities_lastsale_itch_v2_1_2026.nav_premium_discount_amount.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1_2026.nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
 
@@ -1163,7 +1163,7 @@ end
 nasdaq_psxequities_lastsale_itch_v2_1_2026.original_nav_premium_discount_amount.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_lastsale_itch_v2_1_2026.original_nav_premium_discount_amount.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_psxequities_lastsale_itch_v2_1_2026.original_nav_premium_discount_amount.translate(raw)
   local display = nasdaq_psxequities_lastsale_itch_v2_1_2026.original_nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
 
@@ -2410,7 +2410,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_for_next_shares_mess
   -- Original Trade Price: Price (4)
   index, original_trade_price = nasdaq_psxequities_lastsale_itch_v2_1_2026.original_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Original Nav Premium Discount Amount: Price (4)
+  -- Original Nav Premium Discount Amount: Signed Price (4)
   index, original_nav_premium_discount_amount = nasdaq_psxequities_lastsale_itch_v2_1_2026.original_nav_premium_discount_amount.dissect(buffer, index, packet, parent)
 
   -- Original Trade Size: Integer
@@ -2425,7 +2425,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_correction_for_next_shares_mess
   -- Corrected Trade Price: Price (4)
   index, corrected_trade_price = nasdaq_psxequities_lastsale_itch_v2_1_2026.corrected_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Corrected Nav Premium Discount Amount: Price (4)
+  -- Corrected Nav Premium Discount Amount: Signed Price (4)
   index, corrected_nav_premium_discount_amount = nasdaq_psxequities_lastsale_itch_v2_1_2026.corrected_nav_premium_discount_amount.dissect(buffer, index, packet, parent)
 
   -- Corrected Trade Size: Integer
@@ -2589,7 +2589,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_cancel_error_for_next_shares_me
   -- Original Trade Price: Price (4)
   index, original_trade_price = nasdaq_psxequities_lastsale_itch_v2_1_2026.original_trade_price.dissect(buffer, index, packet, parent)
 
-  -- Original Nav Premium Discount Amount: Price (4)
+  -- Original Nav Premium Discount Amount: Signed Price (4)
   index, original_nav_premium_discount_amount = nasdaq_psxequities_lastsale_itch_v2_1_2026.original_nav_premium_discount_amount.dissect(buffer, index, packet, parent)
 
   -- Original Trade Size: Integer
@@ -2743,7 +2743,7 @@ nasdaq_psxequities_lastsale_itch_v2_1_2026.next_shares_trade_report_message.fiel
   -- Trade Size: Integer
   index, trade_size = nasdaq_psxequities_lastsale_itch_v2_1_2026.trade_size.dissect(buffer, index, packet, parent)
 
-  -- Nav Premium Discount Amount: Price (4)
+  -- Nav Premium Discount Amount: Signed Price (4)
   index, nav_premium_discount_amount = nasdaq_psxequities_lastsale_itch_v2_1_2026.nav_premium_discount_amount.dissect(buffer, index, packet, parent)
 
   -- Sale Condition Modifier Level 1: Alpha

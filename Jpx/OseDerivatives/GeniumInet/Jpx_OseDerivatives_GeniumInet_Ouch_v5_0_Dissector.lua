@@ -48,8 +48,8 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.server_packet_type = ProtoFie
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.side = ProtoField.new("Side", "jpx.osederivatives.geniuminet.ouch.v5.0.side", ftypes.STRING, nil, nil, nil, "Order side")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.status = ProtoField.new("Status", "jpx.osederivatives.geniuminet.ouch.v5.0.status", ftypes.UINT32, nil, nil, nil, "Status of the mass cancel indicating the number of cancelled orders.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.time_in_force = ProtoField.new("Time In Force", "jpx.osederivatives.geniuminet.ouch.v5.0.timeinforce", ftypes.UINT8)
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jpx.osederivatives.geniuminet.ouch.v5.0.timestampnanoseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX timestamp in nanoseconds since 1970-01-01 00:00:00 UTC.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds_utc = ProtoField.new("Timestamp Nanoseconds", "jpx.osederivatives.geniuminet.ouch.v5.0.timestampnanoseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UNIX timestamp in nanoseconds since 1970-01-01 00:00:00 UTC.")
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "jpx.osederivatives.geniuminet.ouch.v5.0.timestampnanoseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX timestamp in nanoseconds since 1970-01-01 00:00:00 UTC.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.trade_price = ProtoField.new("Trade Price", "jpx.osederivatives.geniuminet.ouch.v5.0.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Signed integer trade price. Number of decimals is defined by the Order Book Directory message in ITCH.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.traded_quantity = ProtoField.new("Traded Quantity", "jpx.osederivatives.geniuminet.ouch.v5.0.tradedquantity", ftypes.UINT64, nil, nil, nil, "Quantity executed in this trade.")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.fields.underlying_id = ProtoField.new("Underlying Id", "jpx.osederivatives.geniuminet.ouch.v5.0.underlyingid", ftypes.UINT32, nil, nil, nil, "Underlying instrument identifier. Required when canceling orders for the underlying instrument.")
@@ -110,7 +110,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_format = 2
+jpx_osederivatives_geniuminet_ouch_v5_0.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -143,7 +143,7 @@ omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_headers = Pref.bool("Show
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_ouch_v5_0.prefs_changed()

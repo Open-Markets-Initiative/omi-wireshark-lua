@@ -27,8 +27,8 @@ omi_hkex_hkexsecurities_index_omd_v1_45.fields.high_value = ProtoField.new("High
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_code = ProtoField.new("Index Code", "hkex.hkexsecurities.index.omd.v1.45.indexcode", ftypes.STRING, nil, nil, nil, "Upstream source's index code or market information identifier.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_source = ProtoField.new("Index Source", "hkex.hkexsecurities.index.omd.v1.45.indexsource", ftypes.STRING, nil, nil, nil, "Index or market information source.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_status = ProtoField.new("Index Status", "hkex.hkexsecurities.index.omd.v1.45.indexstatus", ftypes.STRING, nil, nil, nil, "Index status. Can be blank if not defined by third party index compilers.")
-omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_time = ProtoField.new("Index Time", "hkex.hkexsecurities.index.omd.v1.45.indextime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publisher timestamp. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_time_utc = ProtoField.new("Index Time", "hkex.hkexsecurities.index.omd.v1.45.indextime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publisher timestamp. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
+omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_time = ProtoField.new("Index Time", "hkex.hkexsecurities.index.omd.v1.45.indextime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publisher timestamp. Nanoseconds since Unix epoch UTC, precision to the nearest second.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_turnover = ProtoField.new("Index Turnover", "hkex.hkexsecurities.index.omd.v1.45.indexturnover", ftypes.DOUBLE, nil, nil, nil, "Current turnover of underlying constituents. 4 implied decimal places.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_value = ProtoField.new("Index Value", "hkex.hkexsecurities.index.omd.v1.45.indexvalue", ftypes.DOUBLE, nil, nil, nil, "Current value of the index. 4 implied decimal places.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.index_volume = ProtoField.new("Index Volume", "hkex.hkexsecurities.index.omd.v1.45.indexvolume", ftypes.INT64, nil, nil, nil, "Index volume of underlying constituents. Only applicable for CSI and CES.")
@@ -43,8 +43,8 @@ omi_hkex_hkexsecurities_index_omd_v1_45.fields.new_seq_no = ProtoField.new("New 
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.opening_value = ProtoField.new("Opening Value", "hkex.hkexsecurities.index.omd.v1.45.openingvalue", ftypes.DOUBLE, nil, nil, nil, "First value for an index. 4 implied decimal places.")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexsecurities.index.omd.v1.45.pktsize", ftypes.UINT16, nil, nil, nil, "Size of the packet including this field")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.previous_ses_close = ProtoField.new("Previous Ses Close", "hkex.hkexsecurities.index.omd.v1.45.previoussesclose", ftypes.DOUBLE, nil, nil, nil, "Previous session closing value (previous day for CSI, CES, S&P; previous session for HSI and TR). 4 implied decimal places.")
-omi_hkex_hkexsecurities_index_omd_v1_45.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.index.omd.v1.45.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of the packet — nanoseconds since Unix epoch UTC (precision to millisecond)")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.send_time_utc = ProtoField.new("Send Time", "hkex.hkexsecurities.index.omd.v1.45.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of the packet — nanoseconds since Unix epoch UTC (precision to millisecond)")
+omi_hkex_hkexsecurities_index_omd_v1_45.fields.send_time = ProtoField.new("Send Time", "hkex.hkexsecurities.index.omd.v1.45.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of the packet — nanoseconds since Unix epoch UTC (precision to millisecond)")
 omi_hkex_hkexsecurities_index_omd_v1_45.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexsecurities.index.omd.v1.45.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 
 -- Hkex HkexSecurities Index Omd 1.45 Framing
@@ -79,7 +79,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-hkex_hkexsecurities_index_omd_v1_45.timestamp_format = 2
+hkex_hkexsecurities_index_omd_v1_45.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -102,7 +102,7 @@ omi_hkex_hkexsecurities_index_omd_v1_45.prefs.show_headers = Pref.bool("Show Hea
 omi_hkex_hkexsecurities_index_omd_v1_45.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_hkex_hkexsecurities_index_omd_v1_45.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_hkex_hkexsecurities_index_omd_v1_45.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_hkex_hkexsecurities_index_omd_v1_45.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_hkex_hkexsecurities_index_omd_v1_45.prefs_changed()

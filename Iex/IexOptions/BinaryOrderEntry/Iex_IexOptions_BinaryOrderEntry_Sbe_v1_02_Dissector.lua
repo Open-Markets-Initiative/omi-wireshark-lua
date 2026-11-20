@@ -137,8 +137,8 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status = Proto
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.risk_control_status_optional = ProtoField.new("Risk Control Status Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.riskcontrolstatusoptional", ftypes.INT8, nil, nil, nil, "riskControlStatus")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.routingfirmid", ftypes.STRING, nil, nil, nil, "routingFirmId")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.schema_id = ProtoField.new("Schema Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message (10000 market data, 20000 session, 20001 order entry business)")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.send_time = ProtoField.new("Send Time", "iex.iexoptions.binaryorderentry.sbe.v1.02.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendTime")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.send_time_utc = ProtoField.new("Send Time", "iex.iexoptions.binaryorderentry.sbe.v1.02.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "sendTime")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.send_time = ProtoField.new("Send Time", "iex.iexoptions.binaryorderentry.sbe.v1.02.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendTime")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.sequence = ProtoField.new("Sequence", "iex.iexoptions.binaryorderentry.sbe.v1.02.sequence", ftypes.UINT32)
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "iex.iexoptions.binaryorderentry.sbe.v1.02.serversbemessage", ftypes.STRING, nil, nil, nil, "Iex Options length-framed Sbe Message sent by Iex Options to the User")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.session_info_group_encoding = ProtoField.new("Session Info Group Encoding", "iex.iexoptions.binaryorderentry.sbe.v1.02.sessioninfogroupencoding", ftypes.STRING, nil, nil, nil, "sessionInfoGroupEncoding")
@@ -161,8 +161,8 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.trade_id = ProtoField.new("
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.trade_liquidity_indicator = ProtoField.new("Trade Liquidity Indicator", "iex.iexoptions.binaryorderentry.sbe.v1.02.tradeliquidityindicator", ftypes.INT8, nil, nil, nil, "tradeLiquidityIndicator")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.trade_ref_id = ProtoField.new("Trade Ref Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.traderefid", ftypes.UINT64, nil, nil, nil, "tradeRefId")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.trading_ring = ProtoField.new("Trading Ring", "iex.iexoptions.binaryorderentry.sbe.v1.02.tradingring", ftypes.INT8, nil, nil, nil, "tradingRing")
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.transact_time = ProtoField.new("Transact Time", "iex.iexoptions.binaryorderentry.sbe.v1.02.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.transact_time_utc = ProtoField.new("Transact Time", "iex.iexoptions.binaryorderentry.sbe.v1.02.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.transact_time = ProtoField.new("Transact Time", "iex.iexoptions.binaryorderentry.sbe.v1.02.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id = ProtoField.new("Underlying Id", "iex.iexoptions.binaryorderentry.sbe.v1.02.underlyingid", ftypes.UINT32, nil, nil, nil, "underlyingId")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_id_optional = ProtoField.new("Underlying Id Optional", "iex.iexoptions.binaryorderentry.sbe.v1.02.underlyingidoptional", ftypes.UINT32, nil, nil, nil, "underlyingId")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "iex.iexoptions.binaryorderentry.sbe.v1.02.underlyingsymbol", ftypes.STRING, nil, nil, nil, "underlyingSymbol")
@@ -246,7 +246,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-iex_iexoptions_binaryorderentry_sbe_v1_02.timestamp_format = 2
+iex_iexoptions_binaryorderentry_sbe_v1_02.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -281,7 +281,7 @@ omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs.show_schema_messages = Pref.
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_iex_iexoptions_binaryorderentry_sbe_v1_02.prefs_changed()
@@ -6660,6 +6660,9 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.dissect = func
     local index = iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = iex_iexoptions_binaryorderentry_sbe_v1_02.server_business_message.display(packet, parent, length)
     parent:append_text(display)
 
@@ -7163,6 +7166,9 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.dissect = funct
     local index = iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = iex_iexoptions_binaryorderentry_sbe_v1_02.server_session_message.display(packet, parent, length)
     parent:append_text(display)
 
@@ -8360,6 +8366,9 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.dissect = func
     local index = iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = iex_iexoptions_binaryorderentry_sbe_v1_02.client_business_message.display(packet, parent, length)
     parent:append_text(display)
 
@@ -8600,6 +8609,9 @@ iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.dissect = funct
     local index = iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = iex_iexoptions_binaryorderentry_sbe_v1_02.client_session_message.display(packet, parent, length)
     parent:append_text(display)
 

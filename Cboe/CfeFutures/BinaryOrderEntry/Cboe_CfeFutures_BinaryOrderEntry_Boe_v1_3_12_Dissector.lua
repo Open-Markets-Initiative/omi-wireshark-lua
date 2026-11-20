@@ -225,8 +225,8 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.day_cum_qty = ProtoField
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.day_order_qty = ProtoField.new("Day Order Qty", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.dayorderqty", ftypes.UINT32)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.exec_id = ProtoField.new("Exec Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.execid", ftypes.UINT64, nil, nil, nil, "Corresponds to ExecID (17) in CFE FIX. Sent to the OCC in the Trade ID field. Execution ID. Unique across all matching units on a given day. Note: ExecIDs will be represented on ODROP and FIXDROP ports as base 36 ASCII. Example conversion: Decimal Base 36 28294005440239 A1234B567 76335905726621 R248BC23H 728557228187 09AP05V2Z")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.execrefid", ftypes.UINT64, nil, nil, nil, "Corresponds to ExecRefID (19) in CFE FIX. Refers to the ExecID of the fill being cancelled or corrected.")
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.expire_time = ProtoField.new("Expire Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.expire_time_utc = ProtoField.new("Expire Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.expire_time = ProtoField.new("Expire Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.fee_code = ProtoField.new("Fee Code", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.feecode", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.frequent_trader_id = ProtoField.new("Frequent Trader Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.frequenttraderid", ftypes.STRING)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.last_px = ProtoField.new("Last Px", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.lastpx", ftypes.DOUBLE)
@@ -1173,8 +1173,8 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bi
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_9_order_category = ProtoField.new("Order Rejected Return Bitfield 9 Order Category", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderrejectedreturnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.order_rejected_return_bitfield_9_target_party_id = ProtoField.new("Order Rejected Return Bitfield 9 Target Party Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.orderrejectedreturnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.origclordid", ftypes.STRING, nil, nil, nil, "Corresponds to OrigClOrdID (41) in CFE FIX. ClOrdID of the order to cancel. For mass cancel requests, must be empty (all zeroes).")
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.orig_time = ProtoField.new("Orig Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.orig_time_utc = ProtoField.new("Orig Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.orig_time = ProtoField.new("Orig Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Corresponds to OrigTime (42). The date and time of the original trade, in GMT.")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.param_group = ProtoField.new("Param Group", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.paramgroup", ftypes.STRING, nil, nil, nil, "Repeating group stated NumberOfParamGroups times.")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.param_group_length = ProtoField.new("Param Group Length", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.paramgrouplength", ftypes.UINT16, nil, nil, nil, "Number of bytes for the parameter group, including this field.")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.param_group_type = ProtoField.new("Param Group Type", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.paramgrouptype", ftypes.UINT8, nil, nil, nil, "0x80 = Unit Sequences, 0x81 = Return Bitfields")
@@ -1722,8 +1722,8 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.trade_cancelor_correct_r
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.trade_cancelor_correct_return_bitfield_9_order_category = ProtoField.new("Trade Cancelor Correct Return Bitfield 9 Order Category", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tradecancelorcorrectreturnbitfield9ordercategory", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.trade_cancelor_correct_return_bitfield_9_target_party_id = ProtoField.new("Trade Cancelor Correct Return Bitfield 9 Target Party Id", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tradecancelorcorrectreturnbitfield9targetpartyid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.trade_date = ProtoField.new("Trade Date", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.tradedate", ftypes.UINT32)
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the CFE Matching Engine (not the time the message was sent).")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the CFE Matching Engine (not the time the message was sent).")
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the CFE Matching Engine (not the time the message was sent).")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.unit_number = ProtoField.new("Unit Number", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.unitnumber", ftypes.UINT8, nil, nil, nil, "A unit number.")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.unitsequence", ftypes.UINT32, nil, nil, nil, "Highest available CFE to TPH sequence number for the unit.")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.fields.unit_sequences_param_group = ProtoField.new("Unit Sequences Param Group", "cboe.cfefutures.binaryorderentry.boe.v1.3.12.unitsequencesparamgroup", ftypes.STRING, nil, nil, nil, "UnitSequencesParamGroup")
@@ -2112,7 +2112,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_cfefutures_binaryorderentry_boe_v1_3_12.timestamp_format = 2
+cboe_cfefutures_binaryorderentry_boe_v1_3_12.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -2137,7 +2137,7 @@ omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.prefs.show_repeating_groups = P
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cfefutures_binaryorderentry_boe_v1_3_12.prefs_changed()

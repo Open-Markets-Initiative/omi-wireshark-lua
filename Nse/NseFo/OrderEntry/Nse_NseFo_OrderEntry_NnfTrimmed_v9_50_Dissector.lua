@@ -16,8 +16,8 @@ local nse_nsefo_orderentry_nnftrimmed_v9_50 = {}
 
 -- Nse NseFo OrderEntry NnfTrimmed 9.50 Fields
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.account_number = ProtoField.new("Account Number", "nse.nsefo.orderentry.nnftrimmed.v9.50.accountnumber", ftypes.STRING, nil, nil, nil, "Account number the order is for")
-omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.activity_time = ProtoField.new("Activity Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the activity occurred")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.activity_time_utc = ProtoField.new("Activity Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.activitytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the activity occurred")
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.activity_time = ProtoField.new("Activity Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the activity occurred")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.activity_type = ProtoField.new("Activity Type", "nse.nsefo.orderentry.nnftrimmed.v9.50.activitytype", ftypes.STRING, nil, nil, nil, "Type of activity being confirmed")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.additional_order_flags = ProtoField.new("Additional Order Flags", "nse.nsefo.orderentry.nnftrimmed.v9.50.additionalorderflags", ftypes.STRING, nil, nil, nil, "Further terms attached to the order")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.algo_id = ProtoField.new("Algo Id", "nse.nsefo.orderentry.nnftrimmed.v9.50.algoid", ftypes.INT32, nil, nil, nil, "Algorithm identifier")
@@ -34,11 +34,11 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.contract_desc_tr = ProtoField.n
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.day = ProtoField.new("Day", "nse.nsefo.orderentry.nnftrimmed.v9.50.day", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0800, "Day order")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.disclosed_volume = ProtoField.new("Disclosed Volume", "nse.nsefo.orderentry.nnftrimmed.v9.50.disclosedvolume", ftypes.INT32, nil, nil, nil, "Quantity disclosed to the market")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.disclosed_volume_remaining = ProtoField.new("Disclosed Volume Remaining", "nse.nsefo.orderentry.nnftrimmed.v9.50.disclosedvolumeremaining", ftypes.INT32, nil, nil, nil, "Disclosed quantity still outstanding")
-omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.entry_date_time = ProtoField.new("Entry Date Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.entrydatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order entered the system")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.entry_date_time_utc = ProtoField.new("Entry Date Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.entrydatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the order entered the system")
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.entry_date_time = ProtoField.new("Entry Date Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.entrydatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order entered the system")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.error_code = ProtoField.new("Error Code", "nse.nsefo.orderentry.nnftrimmed.v9.50.errorcode", ftypes.INT16, nil, nil, nil, "Zero when the request succeeded")
-omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsefo.orderentry.nnftrimmed.v9.50.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date the contract expires")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.expiry_date_utc = ProtoField.new("Expiry Date", "nse.nsefo.orderentry.nnftrimmed.v9.50.expirydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date the contract expires")
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsefo.orderentry.nnftrimmed.v9.50.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date the contract expires")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.fill_number = ProtoField.new("Fill Number", "nse.nsefo.orderentry.nnftrimmed.v9.50.fillnumber", ftypes.INT32, nil, nil, nil, "Number of the trade")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.fill_price = ProtoField.new("Fill Price", "nse.nsefo.orderentry.nnftrimmed.v9.50.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price the trade occurred at")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.fill_quantity = ProtoField.new("Fill Quantity", "nse.nsefo.orderentry.nnftrimmed.v9.50.fillquantity", ftypes.INT32, nil, nil, nil, "Quantity traded")
@@ -50,8 +50,8 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.instrument_name = ProtoField.ne
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.ioc = ProtoField.new("Ioc", "nse.nsefo.orderentry.nnftrimmed.v9.50.ioc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200, "Immediate or cancel order")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.last_activity_reference = ProtoField.new("Last Activity Reference", "nse.nsefo.orderentry.nnftrimmed.v9.50.lastactivityreference", ftypes.INT64, nil, nil, nil, "Reference of the last activity on the order")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.last_modified = ProtoField.new("Last Modified", "nse.nsefo.orderentry.nnftrimmed.v9.50.lastmodified", ftypes.INT32, nil, nil, nil, "Time the order was last modified")
-omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.log_time = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.log_time_utc = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.logtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated")
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.log_time = ProtoField.new("Log Time", "nse.nsefo.orderentry.nnftrimmed.v9.50.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.market = ProtoField.new("Market", "nse.nsefo.orderentry.nnftrimmed.v9.50.market", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000, "Market order")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.matched_ind = ProtoField.new("Matched Ind", "nse.nsefo.orderentry.nnftrimmed.v9.50.matchedind", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "Order has been matched")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.fields.message = ProtoField.new("Message", "nse.nsefo.orderentry.nnftrimmed.v9.50.message", ftypes.STRING, nil, nil, nil, "Nnf trimmed message")
@@ -132,7 +132,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format = 2
+nse_nsefo_orderentry_nnftrimmed_v9_50.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 nse_nsefo_orderentry_nnftrimmed_v9_50.zone_offset = 0
@@ -154,7 +154,7 @@ omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.show_structs = Pref.bool("Show S
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_nse_nsefo_orderentry_nnftrimmed_v9_50.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

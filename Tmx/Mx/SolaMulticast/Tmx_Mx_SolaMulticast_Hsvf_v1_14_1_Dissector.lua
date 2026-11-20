@@ -87,8 +87,8 @@ omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.ask_price_summary_numeric_pair = Pr
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.ask_size = ProtoField.new("Ask Size", "tmx.mx.solamulticast.hsvf.v1.14.1.asksize", ftypes.STRING, nil, nil, nil, "Number of option contracts represented by the Ask Price. If size is greater than 99999, the 5th character becomes an exponent")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.associated_product = ProtoField.new("Associated Product", "tmx.mx.solamulticast.hsvf.v1.14.1.associatedproduct", ftypes.STRING, nil, nil, nil, "Associated future product symbology")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.auction_duration = ProtoField.new("Auction Duration", "tmx.mx.solamulticast.hsvf.v1.14.1.auctionduration", ftypes.UINT64, nil, nil, nil, "Indicates the duration of the auction")
-omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.auction_expiry_timestamp = ProtoField.new("Auction Expiry Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.1.auctionexpirytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Indicates the expiry time of the auction")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.auction_expiry_timestamp_utc = ProtoField.new("Auction Expiry Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.1.auctionexpirytimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Indicates the expiry time of the auction")
+omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.auction_expiry_timestamp = ProtoField.new("Auction Expiry Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.1.auctionexpirytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Indicates the expiry time of the auction")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.auction_id = ProtoField.new("Auction Id", "tmx.mx.solamulticast.hsvf.v1.14.1.auctionid", ftypes.STRING, nil, nil, nil, "Identifier of an auction")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.bid_price_fraction_indicator = ProtoField.new("Bid Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.1.bidpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.bid_price_quote_futures_quote_message_numeric_pair = ProtoField.new("Bid Price Quote Futures Quote Message Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.1.bidpricequotefuturesquotemessagenumericpair", ftypes.STRING)
@@ -256,8 +256,8 @@ omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_price_negative_thousand_pair =
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_price_negative_whole_pair = ProtoField.new("Last Price Negative Whole Pair", "tmx.mx.solamulticast.hsvf.v1.14.1.lastpricenegativewholepair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_price_numeric_pair = ProtoField.new("Last Price Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.1.lastpricenumericpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_price_sign = ProtoField.new("Last Price Sign", "tmx.mx.solamulticast.hsvf.v1.14.1.lastpricesign", ftypes.STRING, nil, nil, nil, "For the Last Price field")
-omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_trading_datetime = ProtoField.new("Last Trading Datetime", "tmx.mx.solamulticast.hsvf.v1.14.1.lasttradingdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Indicates when the instrument stops trading")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_trading_datetime_utc = ProtoField.new("Last Trading Datetime", "tmx.mx.solamulticast.hsvf.v1.14.1.lasttradingdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Indicates when the instrument stops trading")
+omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_trading_datetime = ProtoField.new("Last Trading Datetime", "tmx.mx.solamulticast.hsvf.v1.14.1.lasttradingdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Indicates when the instrument stops trading")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.leg_group_instrument = ProtoField.new("Leg Group Instrument", "tmx.mx.solamulticast.hsvf.v1.14.1.leggroupinstrument", ftypes.STRING, nil, nil, nil, "Group of the Leg Instrument")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.leg_instrument = ProtoField.new("Leg Instrument", "tmx.mx.solamulticast.hsvf.v1.14.1.leginstrument", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.leg_price = ProtoField.new("Leg Price", "tmx.mx.solamulticast.hsvf.v1.14.1.legprice", ftypes.UINT24, nil, nil, nil, "Significant if the leg is a fixed leg of a covered strategy")
@@ -315,8 +315,8 @@ omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.maximum_threshold_price_negative_te
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.maximum_threshold_price_negative_thousand_pair = ProtoField.new("Maximum Threshold Price Negative Thousand Pair", "tmx.mx.solamulticast.hsvf.v1.14.1.maximumthresholdpricenegativethousandpair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.maximum_threshold_price_negative_whole_pair = ProtoField.new("Maximum Threshold Price Negative Whole Pair", "tmx.mx.solamulticast.hsvf.v1.14.1.maximumthresholdpricenegativewholepair", ftypes.STRING)
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.maximum_threshold_price_numeric_pair = ProtoField.new("Maximum Threshold Price Numeric Pair", "tmx.mx.solamulticast.hsvf.v1.14.1.maximumthresholdpricenumericpair", ftypes.STRING)
-omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.message_timestamp = ProtoField.new("Message Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.1.messagetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "System timestamp, YYYYMMDDHHMMSSmmmuuu.")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.message_timestamp_utc = ProtoField.new("Message Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.1.messagetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "System timestamp, YYYYMMDDHHMMSSmmmuuu.")
+omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.message_timestamp = ProtoField.new("Message Timestamp", "tmx.mx.solamulticast.hsvf.v1.14.1.messagetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "System timestamp, YYYYMMDDHHMMSSmmmuuu.")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.message_type = ProtoField.new("Message Type", "tmx.mx.solamulticast.hsvf.v1.14.1.messagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of message being sent")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.min_price = ProtoField.new("Min Price", "tmx.mx.solamulticast.hsvf.v1.14.1.minprice", ftypes.UINT24, nil, nil, nil, "Starting price for this tick entry")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.min_price_fraction_indicator = ProtoField.new("Min Price Fraction Indicator", "tmx.mx.solamulticast.hsvf.v1.14.1.minpricefractionindicator", ftypes.STRING, nil, nil, nil, "Defines number of decimal places or fraction positions")
@@ -787,7 +787,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-tmx_mx_solamulticast_hsvf_v1_14_1.timestamp_format = 2
+tmx_mx_solamulticast_hsvf_v1_14_1.timestamp_format = 3
 
 -- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
 tmx_mx_solamulticast_hsvf_v1_14_1.format_decimals = true
@@ -818,7 +818,7 @@ omi_tmx_mx_solamulticast_hsvf_v1_14_1.prefs.show_padding = Pref.bool("Show Paddi
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_tmx_mx_solamulticast_hsvf_v1_14_1.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_tmx_mx_solamulticast_hsvf_v1_14_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_tmx_mx_solamulticast_hsvf_v1_14_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_tmx_mx_solamulticast_hsvf_v1_14_1.prefs_changed()
@@ -1239,8 +1239,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.auction_expiry_timestamp.dissect = function(bu
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.auction_expiry_timestamp
-  if tmx_mx_solamulticast_hsvf_v1_14_1.timestamp_format == 3 then field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.auction_expiry_timestamp_utc end
+  local field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.auction_expiry_timestamp_utc
+  if tmx_mx_solamulticast_hsvf_v1_14_1.timestamp_format == 2 then field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.auction_expiry_timestamp end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros
@@ -3171,8 +3171,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.last_trading_datetime.dissect = function(buffe
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_trading_datetime
-  if tmx_mx_solamulticast_hsvf_v1_14_1.timestamp_format == 3 then field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_trading_datetime_utc end
+  local field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_trading_datetime_utc
+  if tmx_mx_solamulticast_hsvf_v1_14_1.timestamp_format == 2 then field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.last_trading_datetime end
 
   -- Fourteen digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second
@@ -3745,15 +3745,30 @@ tmx_mx_solamulticast_hsvf_v1_14_1.maximum_number_of_contracts_per_order = {}
 tmx_mx_solamulticast_hsvf_v1_14_1.maximum_number_of_contracts_per_order.size = 6
 
 -- Display: Maximum Number Of Contracts Per Order
-tmx_mx_solamulticast_hsvf_v1_14_1.maximum_number_of_contracts_per_order.display = function(value)
-  return "Maximum Number Of Contracts Per Order: "..value
+tmx_mx_solamulticast_hsvf_v1_14_1.maximum_number_of_contracts_per_order.display = function(value, buffer, offset, packet, parent)
+  return "Maximum Number Of Contracts Per Order: "..string.format("%.0f", value)
 end
 
 -- Dissect: Maximum Number Of Contracts Per Order
 tmx_mx_solamulticast_hsvf_v1_14_1.maximum_number_of_contracts_per_order.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.maximum_number_of_contracts_per_order.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = tmx_mx_solamulticast_hsvf_v1_14_1.maximum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.maximum_number_of_contracts_per_order, range, value, display)
@@ -3933,8 +3948,8 @@ tmx_mx_solamulticast_hsvf_v1_14_1.message_timestamp.dissect = function(buffer, o
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.message_timestamp
-  if tmx_mx_solamulticast_hsvf_v1_14_1.timestamp_format == 3 then field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.message_timestamp_utc end
+  local field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.message_timestamp_utc
+  if tmx_mx_solamulticast_hsvf_v1_14_1.timestamp_format == 2 then field = omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.message_timestamp end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros
@@ -4182,15 +4197,30 @@ tmx_mx_solamulticast_hsvf_v1_14_1.minimum_number_of_contracts_per_order = {}
 tmx_mx_solamulticast_hsvf_v1_14_1.minimum_number_of_contracts_per_order.size = 6
 
 -- Display: Minimum Number Of Contracts Per Order
-tmx_mx_solamulticast_hsvf_v1_14_1.minimum_number_of_contracts_per_order.display = function(value)
-  return "Minimum Number Of Contracts Per Order: "..value
+tmx_mx_solamulticast_hsvf_v1_14_1.minimum_number_of_contracts_per_order.display = function(value, buffer, offset, packet, parent)
+  return "Minimum Number Of Contracts Per Order: "..string.format("%.0f", value)
 end
 
 -- Dissect: Minimum Number Of Contracts Per Order
 tmx_mx_solamulticast_hsvf_v1_14_1.minimum_number_of_contracts_per_order.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.minimum_number_of_contracts_per_order.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = tmx_mx_solamulticast_hsvf_v1_14_1.minimum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.minimum_number_of_contracts_per_order, range, value, display)
@@ -4749,22 +4779,29 @@ tmx_mx_solamulticast_hsvf_v1_14_1.open_interest = {}
 tmx_mx_solamulticast_hsvf_v1_14_1.open_interest.size = 7
 
 -- Display: Open Interest
-tmx_mx_solamulticast_hsvf_v1_14_1.open_interest.display = function(value)
-  return "Open Interest: "..value
+tmx_mx_solamulticast_hsvf_v1_14_1.open_interest.display = function(value, buffer, offset, packet, parent)
+  return "Open Interest: "..string.format("%.0f", value)
 end
 
 -- Dissect: Open Interest
 tmx_mx_solamulticast_hsvf_v1_14_1.open_interest.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.open_interest.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
 
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.open_interest, range, value, "Open Interest: Not Applicable")
-    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14_1.experts.not_a_number, "Open Interest is not a number: '"..range:string().."'")
-    return offset + length, value
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
   end
+
+  value = value * (10 ^ power)
 
   local display = tmx_mx_solamulticast_hsvf_v1_14_1.open_interest.display(value, buffer, offset, packet, parent)
 
@@ -7573,15 +7610,30 @@ tmx_mx_solamulticast_hsvf_v1_14_1.requested_size = {}
 tmx_mx_solamulticast_hsvf_v1_14_1.requested_size.size = 8
 
 -- Display: Requested Size
-tmx_mx_solamulticast_hsvf_v1_14_1.requested_size.display = function(value)
-  return "Requested Size: "..value
+tmx_mx_solamulticast_hsvf_v1_14_1.requested_size.display = function(value, buffer, offset, packet, parent)
+  return "Requested Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Requested Size
 tmx_mx_solamulticast_hsvf_v1_14_1.requested_size.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.requested_size.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = tmx_mx_solamulticast_hsvf_v1_14_1.requested_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.requested_size, range, value, display)
@@ -9239,22 +9291,29 @@ tmx_mx_solamulticast_hsvf_v1_14_1.volume = {}
 tmx_mx_solamulticast_hsvf_v1_14_1.volume.size = 8
 
 -- Display: Volume
-tmx_mx_solamulticast_hsvf_v1_14_1.volume.display = function(value)
-  return "Volume: "..value
+tmx_mx_solamulticast_hsvf_v1_14_1.volume.display = function(value, buffer, offset, packet, parent)
+  return "Volume: "..string.format("%.0f", value)
 end
 
 -- Dissect: Volume
 tmx_mx_solamulticast_hsvf_v1_14_1.volume.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_14_1.volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
 
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_14_1.fields.volume, range, value, "Volume: Not Applicable")
-    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_14_1.experts.not_a_number, "Volume is not a number: '"..range:string().."'")
-    return offset + length, value
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
   end
+
+  value = value * (10 ^ power)
 
   local display = tmx_mx_solamulticast_hsvf_v1_14_1.volume.display(value, buffer, offset, packet, parent)
 

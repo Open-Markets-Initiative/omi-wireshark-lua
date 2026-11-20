@@ -45,8 +45,8 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.electronic_match_eligible = ProtoField.new("
 omi_cme_globex_mdp3_sbe_v1_9.fields.encoding_type = ProtoField.new("Encoding Type", "cme.globex.mdp3.sbe.v1.9.encodingtype", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.end_of_event = ProtoField.new("End Of Event", "cme.globex.mdp3.sbe.v1.9.endofevent", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "EndOfEvent")
 omi_cme_globex_mdp3_sbe_v1_9.fields.error_codes = ProtoField.new("Error Codes", "cme.globex.mdp3.sbe.v1.9.errorcodes", ftypes.UINT8, nil, nil, nil, "Error code for reject reason")
-omi_cme_globex_mdp3_sbe_v1_9.fields.event_time = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.9.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and Time of instument Activation or Expiration event sent as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.event_time_utc = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.9.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and Time of instument Activation or Expiration event sent as number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_9.fields.event_time = ProtoField.new("Event Time", "cme.globex.mdp3.sbe.v1.9.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and Time of instument Activation or Expiration event sent as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.event_type = ProtoField.new("Event Type", "cme.globex.mdp3.sbe.v1.9.eventtype", ftypes.UINT8, nil, nil, nil, "Code to represent the type of event")
 omi_cme_globex_mdp3_sbe_v1_9.fields.events_group = ProtoField.new("Events Group", "cme.globex.mdp3.sbe.v1.9.eventsgroup", ftypes.STRING, nil, nil, nil, "Number of repeating EventType entries")
 omi_cme_globex_mdp3_sbe_v1_9.fields.events_groups = ProtoField.new("Events Groups", "cme.globex.mdp3.sbe.v1.9.eventsgroups", ftypes.STRING, nil, nil, nil, "NoEvents Block")
@@ -67,18 +67,30 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.ilink_indicative_mass_quoting_eligible = Pro
 omi_cme_globex_mdp3_sbe_v1_9.fields.implied_matching_eligibility = ProtoField.new("Implied Matching Eligibility", "cme.globex.mdp3.sbe.v1.9.impliedmatchingeligibility", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00080000, "ImpliedMatchingEligibility")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_group = ProtoField.new("Incremental Refresh Book Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshbookgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_groups = ProtoField.new("Incremental Refresh Book Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshbookgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_legacy_group = ProtoField.new("Incremental Refresh Book Legacy Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshbooklegacygroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_legacy_groups = ProtoField.new("Incremental Refresh Book Legacy Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshbooklegacygroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_order_id_group = ProtoField.new("Incremental Refresh Book Order Id Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshbookorderidgroup", ftypes.STRING, nil, nil, nil, "Number of OrderID entries")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_order_id_groups = ProtoField.new("Incremental Refresh Book Order Id Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshbookorderidgroups", ftypes.STRING, nil, nil, nil, "NoOrderIDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_daily_statistics_group = ProtoField.new("Incremental Refresh Daily Statistics Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshdailystatisticsgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_daily_statistics_groups = ProtoField.new("Incremental Refresh Daily Statistics Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshdailystatisticsgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_daily_statistics_legacy_group = ProtoField.new("Incremental Refresh Daily Statistics Legacy Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshdailystatisticslegacygroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_daily_statistics_legacy_groups = ProtoField.new("Incremental Refresh Daily Statistics Legacy Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshdailystatisticslegacygroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_limits_banding_group = ProtoField.new("Incremental Refresh Limits Banding Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshlimitsbandinggroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_limits_banding_groups = ProtoField.new("Incremental Refresh Limits Banding Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshlimitsbandinggroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_limits_banding_legacy_group = ProtoField.new("Incremental Refresh Limits Banding Legacy Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshlimitsbandinglegacygroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_limits_banding_legacy_groups = ProtoField.new("Incremental Refresh Limits Banding Legacy Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshlimitsbandinglegacygroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_order_book_group = ProtoField.new("Incremental Refresh Order Book Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshorderbookgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_order_book_groups = ProtoField.new("Incremental Refresh Order Book Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshorderbookgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_order_book_legacy_group = ProtoField.new("Incremental Refresh Order Book Legacy Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshorderbooklegacygroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_order_book_legacy_groups = ProtoField.new("Incremental Refresh Order Book Legacy Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshorderbooklegacygroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_session_statistics_group = ProtoField.new("Incremental Refresh Session Statistics Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshsessionstatisticsgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_session_statistics_groups = ProtoField.new("Incremental Refresh Session Statistics Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshsessionstatisticsgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_session_statistics_legacy_group = ProtoField.new("Incremental Refresh Session Statistics Legacy Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshsessionstatisticslegacygroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_session_statistics_legacy_groups = ProtoField.new("Incremental Refresh Session Statistics Legacy Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshsessionstatisticslegacygroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_group = ProtoField.new("Incremental Refresh Trade Summary Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshtradesummarygroup", ftypes.STRING, nil, nil, nil, "Number of Trade Summary entries")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_groups = ProtoField.new("Incremental Refresh Trade Summary Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshtradesummarygroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_legacy_group = ProtoField.new("Incremental Refresh Trade Summary Legacy Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshtradesummarylegacygroup", ftypes.STRING, nil, nil, nil, "Number of Trade Summary entries")
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_legacy_groups = ProtoField.new("Incremental Refresh Trade Summary Legacy Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshtradesummarylegacygroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_order_id_group = ProtoField.new("Incremental Refresh Trade Summary Order Id Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshtradesummaryorderidgroup", ftypes.STRING, nil, nil, nil, "Number of OrderID entries")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_order_id_groups = ProtoField.new("Incremental Refresh Trade Summary Order Id Groups", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshtradesummaryorderidgroups", ftypes.STRING, nil, nil, nil, "NoOrderIDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_volume_group = ProtoField.new("Incremental Refresh Volume Group", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshvolumegroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
@@ -94,8 +106,8 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.last_qty = ProtoField.new("Last Qty", "cme.g
 omi_cme_globex_mdp3_sbe_v1_9.fields.last_quote_msg = ProtoField.new("Last Quote Msg", "cme.globex.mdp3.sbe.v1.9.lastquotemsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "LastQuoteMsg")
 omi_cme_globex_mdp3_sbe_v1_9.fields.last_stats_msg = ProtoField.new("Last Stats Msg", "cme.globex.mdp3.sbe.v1.9.laststatsmsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "LastStatsMsg")
 omi_cme_globex_mdp3_sbe_v1_9.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "cme.globex.mdp3.sbe.v1.9.lasttrademsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "LastTradeMsg")
-omi_cme_globex_mdp3_sbe_v1_9.fields.last_update_time = ProtoField.new("Last Update Time", "cme.globex.mdp3.sbe.v1.9.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the instrument was last added, modified or deleted")
 omi_cme_globex_mdp3_sbe_v1_9.fields.last_update_time_utc = ProtoField.new("Last Update Time", "cme.globex.mdp3.sbe.v1.9.lastupdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of when the instrument was last added, modified or deleted")
+omi_cme_globex_mdp3_sbe_v1_9.fields.last_update_time = ProtoField.new("Last Update Time", "cme.globex.mdp3.sbe.v1.9.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the instrument was last added, modified or deleted")
 omi_cme_globex_mdp3_sbe_v1_9.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "cme.globex.mdp3.sbe.v1.9.lastvolumemsg", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "LastVolumeMsg")
 omi_cme_globex_mdp3_sbe_v1_9.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.globex.mdp3.sbe.v1.9.legoptiondelta", ftypes.DOUBLE, nil, nil, nil, "Delta used to calculate the quantity of futures used to cover the option or option strategy")
 omi_cme_globex_mdp3_sbe_v1_9.fields.leg_price = ProtoField.new("Leg Price", "cme.globex.mdp3.sbe.v1.9.legprice", ftypes.DOUBLE, nil, nil, nil, "Price for the future leg of a UDS Covered instrument")
@@ -127,7 +139,9 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.max_price_variation_ex = ProtoField.new("Max
 omi_cme_globex_mdp3_sbe_v1_9.fields.max_trade_vol = ProtoField.new("Max Trade Vol", "cme.globex.mdp3.sbe.v1.9.maxtradevol", ftypes.UINT32, nil, nil, nil, "The maximum trading volume for a security")
 omi_cme_globex_mdp3_sbe_v1_9.fields.md_display_qty = ProtoField.new("Md Display Qty", "cme.globex.mdp3.sbe.v1.9.mddisplayqty", ftypes.INT32, nil, nil, nil, "Visible order qty")
 omi_cme_globex_mdp3_sbe_v1_9.fields.md_display_qty_optional = ProtoField.new("Md Display Qty Optional", "cme.globex.mdp3.sbe.v1.9.mddisplayqtyoptional", ftypes.INT32, nil, nil, nil, "Visible qty of order")
+omi_cme_globex_mdp3_sbe_v1_9.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.globex.mdp3.sbe.v1.9.mdentrypx", ftypes.DOUBLE, nil, nil, nil, "Market Data entry price")
 omi_cme_globex_mdp3_sbe_v1_9.fields.md_entry_px_ex = ProtoField.new("Md Entry Px Ex", "cme.globex.mdp3.sbe.v1.9.mdentrypxex", ftypes.DOUBLE, nil, nil, nil, "Trade price")
+omi_cme_globex_mdp3_sbe_v1_9.fields.md_entry_px_optional = ProtoField.new("Md Entry Px Optional", "cme.globex.mdp3.sbe.v1.9.mdentrypxoptional", ftypes.DOUBLE, nil, nil, nil, "Market Data entry price")
 omi_cme_globex_mdp3_sbe_v1_9.fields.md_entry_px_optional_ex = ProtoField.new("Md Entry Px Optional Ex", "cme.globex.mdp3.sbe.v1.9.mdentrypxoptionalex", ftypes.DOUBLE, nil, nil, nil, "Market Data entry price")
 omi_cme_globex_mdp3_sbe_v1_9.fields.md_entry_size_short = ProtoField.new("Md Entry Size Short", "cme.globex.mdp3.sbe.v1.9.mdentrysizeshort", ftypes.INT32, nil, nil, nil, "Cumulative traded volume")
 omi_cme_globex_mdp3_sbe_v1_9.fields.md_entry_size_short_optional = ProtoField.new("Md Entry Size Short Optional", "cme.globex.mdp3.sbe.v1.9.mdentrysizeshortoptional", ftypes.INT32, nil, nil, nil, "Market Data entry size")
@@ -204,8 +218,8 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.request_ack_related_symbol_group = ProtoFiel
 omi_cme_globex_mdp3_sbe_v1_9.fields.request_ack_related_symbol_groups = ProtoField.new("Request Ack Related Symbol Groups", "cme.globex.mdp3.sbe.v1.9.requestackrelatedsymbolgroups", ftypes.STRING, nil, nil, nil, "NoRelatedSym Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.request_ack_security_group = ProtoField.new("Request Ack Security Group", "cme.globex.mdp3.sbe.v1.9.requestacksecuritygroup", ftypes.STRING, nil, nil, nil, "Number of SecurityGroups acknowledged")
 omi_cme_globex_mdp3_sbe_v1_9.fields.request_ack_security_groups = ProtoField.new("Request Ack Security Groups", "cme.globex.mdp3.sbe.v1.9.requestacksecuritygroups", ftypes.STRING, nil, nil, nil, "NoSecurityGroups Block")
-omi_cme_globex_mdp3_sbe_v1_9.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.9.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.9.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_9.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.mdp3.sbe.v1.9.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.reserved = ProtoField.new("Reserved", "cme.globex.mdp3.sbe.v1.9.reserved", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40)
 omi_cme_globex_mdp3_sbe_v1_9.fields.reserved_10 = ProtoField.new("Reserved 10", "cme.globex.mdp3.sbe.v1.9.reserved10", ftypes.UINT32, nil, base.DEC, 0xFFC00000, "10 reserved bits")
 omi_cme_globex_mdp3_sbe_v1_9.fields.reserved_bits = ProtoField.new("Reserved Bits", "cme.globex.mdp3.sbe.v1.9.reservedbits", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "ReservedBits")
@@ -231,8 +245,8 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.security_trading_event = ProtoField.new("Sec
 omi_cme_globex_mdp3_sbe_v1_9.fields.security_trading_status = ProtoField.new("Security Trading Status", "cme.globex.mdp3.sbe.v1.9.securitytradingstatus", ftypes.UINT8, nil, nil, nil, "Identifies the trading status applicable to the instrument or Security Group")
 omi_cme_globex_mdp3_sbe_v1_9.fields.security_type = ProtoField.new("Security Type", "cme.globex.mdp3.sbe.v1.9.securitytype", ftypes.STRING)
 omi_cme_globex_mdp3_sbe_v1_9.fields.security_update_action = ProtoField.new("Security Update Action", "cme.globex.mdp3.sbe.v1.9.securityupdateaction", ftypes.STRING, nil, nil, nil, "Last Security update action on Incremental feed, 'D' or 'M' is used when a mid-week deletion or modification (i.e. extension) occurs")
-omi_cme_globex_mdp3_sbe_v1_9.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.9.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_globex_mdp3_sbe_v1_9.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.9.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
+omi_cme_globex_mdp3_sbe_v1_9.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.mdp3.sbe.v1.9.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_globex_mdp3_sbe_v1_9.fields.session = ProtoField.new("Session", "cme.globex.mdp3.sbe.v1.9.session", ftypes.STRING, nil, nil, nil, "Session ID")
 omi_cme_globex_mdp3_sbe_v1_9.fields.session_text = ProtoField.new("Session Text", "cme.globex.mdp3.sbe.v1.9.sessiontext", ftypes.STRING, nil, nil, nil, "Reject reason details")
 omi_cme_globex_mdp3_sbe_v1_9.fields.settl_currency = ProtoField.new("Settl Currency", "cme.globex.mdp3.sbe.v1.9.settlcurrency", ftypes.STRING, nil, nil, nil, "Identifies currency used for settlement, if different from trading currency")
@@ -241,16 +255,20 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.side = ProtoField.new("Side", "cme.globex.md
 omi_cme_globex_mdp3_sbe_v1_9.fields.simple_binary_header = ProtoField.new("Simple Binary Header", "cme.globex.mdp3.sbe.v1.9.simplebinaryheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_group = ProtoField.new("Snapshot Full Refresh Group", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_groups = ProtoField.new("Snapshot Full Refresh Groups", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_legacy_group = ProtoField.new("Snapshot Full Refresh Legacy Group", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshlegacygroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
+omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_legacy_groups = ProtoField.new("Snapshot Full Refresh Legacy Groups", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshlegacygroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_group = ProtoField.new("Snapshot Full Refresh Order Book Group", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbookgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_groups = ProtoField.new("Snapshot Full Refresh Order Book Groups", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbookgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_legacy_group = ProtoField.new("Snapshot Full Refresh Order Book Legacy Group", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbooklegacygroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
+omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_legacy_groups = ProtoField.new("Snapshot Full Refresh Order Book Legacy Groups", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbooklegacygroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_mdp3_sbe_v1_9.fields.strike_currency = ProtoField.new("Strike Currency", "cme.globex.mdp3.sbe.v1.9.strikecurrency", ftypes.STRING, nil, nil, nil, "Currency in which the StrikePrice is denominated")
 omi_cme_globex_mdp3_sbe_v1_9.fields.strike_price = ProtoField.new("Strike Price", "cme.globex.mdp3.sbe.v1.9.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Strike Price for an option instrument")
 omi_cme_globex_mdp3_sbe_v1_9.fields.strike_price_ex = ProtoField.new("Strike Price Ex", "cme.globex.mdp3.sbe.v1.9.strikepriceex", ftypes.DOUBLE, nil, nil, nil, "Strike Price for an option instrument")
 omi_cme_globex_mdp3_sbe_v1_9.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.globex.mdp3.sbe.v1.9.subfraction", ftypes.UINT8, nil, nil, nil, "Price Denominator of Sub Fraction")
 omi_cme_globex_mdp3_sbe_v1_9.fields.subscription_req_type = ProtoField.new("Subscription Req Type", "cme.globex.mdp3.sbe.v1.9.subscriptionreqtype", ftypes.UINT8, nil, nil, nil, "Subscription Request Type indicates to the type of response expected")
 omi_cme_globex_mdp3_sbe_v1_9.fields.symbol = ProtoField.new("Symbol", "cme.globex.mdp3.sbe.v1.9.symbol", ftypes.STRING, nil, nil, nil, "Instrument Name or Symbol")
-omi_cme_globex_mdp3_sbe_v1_9.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.9.tcpsendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.tcp_sending_time_utc = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.9.tcpsendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_9.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.mdp3.sbe.v1.9.tcpsendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.template_id = ProtoField.new("Template Id", "cme.globex.mdp3.sbe.v1.9.templateid", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.text = ProtoField.new("Text", "cme.globex.mdp3.sbe.v1.9.text", ftypes.STRING, nil, nil, nil, "Free format text string. May include logout confirmation or reason for logout")
 omi_cme_globex_mdp3_sbe_v1_9.fields.tick_rule = ProtoField.new("Tick Rule", "cme.globex.mdp3.sbe.v1.9.tickrule", ftypes.INT8)
@@ -260,8 +278,8 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.trade_date = ProtoField.new("Trade Date", "c
 omi_cme_globex_mdp3_sbe_v1_9.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.globex.mdp3.sbe.v1.9.tradingreferencedate", ftypes.UINT16, nil, nil, nil, "Indicates session date corresponding to the settlement price in tag 1150-TradingReferencePrice")
 omi_cme_globex_mdp3_sbe_v1_9.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "cme.globex.mdp3.sbe.v1.9.tradingreferenceprice", ftypes.DOUBLE, nil, nil, nil, "Reference price for prelisted instruments or the last calculated Settlement whether it be Theoretical, Preliminary or a Final Settle of the session.")
 omi_cme_globex_mdp3_sbe_v1_9.fields.trading_reference_price_ex = ProtoField.new("Trading Reference Price Ex", "cme.globex.mdp3.sbe.v1.9.tradingreferencepriceex", ftypes.DOUBLE, nil, nil, nil, "Reference price for prelisted instruments or the last calculated Settlement whether it be Theoretical, Preliminary or a Final Settle of the session.")
-omi_cme_globex_mdp3_sbe_v1_9.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.9.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.9.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
+omi_cme_globex_mdp3_sbe_v1_9.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.mdp3.sbe.v1.9.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
 omi_cme_globex_mdp3_sbe_v1_9.fields.triangulation_eligible = ProtoField.new("Triangulation Eligible", "cme.globex.mdp3.sbe.v1.9.triangulationeligible", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00100000, "TriangulationEligible")
 omi_cme_globex_mdp3_sbe_v1_9.fields.underlying_product = ProtoField.new("Underlying Product", "cme.globex.mdp3.sbe.v1.9.underlyingproduct", ftypes.UINT8, nil, nil, nil, "Product complex")
 omi_cme_globex_mdp3_sbe_v1_9.fields.underlying_product_optional = ProtoField.new("Underlying Product Optional", "cme.globex.mdp3.sbe.v1.9.underlyingproductoptional", ftypes.UINT8, nil, nil, nil, "Product complex")
@@ -287,7 +305,7 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.client_tcp_frame = ProtoField.new("Client Tc
 omi_cme_globex_mdp3_sbe_v1_9.fields.client_tcp_message = ProtoField.new("Client Tcp Message", "cme.globex.mdp3.sbe.v1.9.clienttcpmessage", ftypes.STRING, nil, nil, nil, "Cme Tcp Message sent by the firm to Cme")
 omi_cme_globex_mdp3_sbe_v1_9.fields.client_tcp_packet = ProtoField.new("Client Tcp Packet", "cme.globex.mdp3.sbe.v1.9.clienttcppacket", ftypes.STRING, nil, nil, nil, "Cme Sbe Tcp Packet sent by the firm to Cme")
 omi_cme_globex_mdp3_sbe_v1_9.fields.client_technical_header = ProtoField.new("Client Technical Header", "cme.globex.mdp3.sbe.v1.9.clienttechnicalheader", ftypes.STRING, nil, nil, nil, "Cme Technical Header sent by the firm to Cme")
-omi_cme_globex_mdp3_sbe_v1_9.fields.message = ProtoField.new("Message", "cme.globex.mdp3.sbe.v1.9.message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
+omi_cme_globex_mdp3_sbe_v1_9.fields.mdp3_message = ProtoField.new("Mdp3 Message", "cme.globex.mdp3.sbe.v1.9.mdp3message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
 omi_cme_globex_mdp3_sbe_v1_9.fields.message_header = ProtoField.new("Message Header", "cme.globex.mdp3.sbe.v1.9.messageheader", ftypes.STRING, nil, nil, nil, "Message Size followed by the Simple Binary Header")
 omi_cme_globex_mdp3_sbe_v1_9.fields.server_tcp_frame = ProtoField.new("Server Tcp Frame", "cme.globex.mdp3.sbe.v1.9.servertcpframe", ftypes.STRING, nil, nil, nil, "One technical header and the message it carries: the unit the wire repeats")
 omi_cme_globex_mdp3_sbe_v1_9.fields.server_tcp_message = ProtoField.new("Server Tcp Message", "cme.globex.mdp3.sbe.v1.9.servertcpmessage", ftypes.STRING, nil, nil, nil, "Cme Tcp Message sent by Cme to the firm")
@@ -347,12 +365,18 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.channel_reset_group_index = ProtoField.new("
 omi_cme_globex_mdp3_sbe_v1_9.fields.events_group_index = ProtoField.new("Events Group Index", "cme.globex.mdp3.sbe.v1.9.eventsgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.feed_types_group_index = ProtoField.new("Feed Types Group Index", "cme.globex.mdp3.sbe.v1.9.feedtypesgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_group_index = ProtoField.new("Incremental Refresh Book Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshbookgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_legacy_group_index = ProtoField.new("Incremental Refresh Book Legacy Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshbooklegacygroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_order_id_group_index = ProtoField.new("Incremental Refresh Book Order Id Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshbookorderidgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_daily_statistics_group_index = ProtoField.new("Incremental Refresh Daily Statistics Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshdailystatisticsgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_daily_statistics_legacy_group_index = ProtoField.new("Incremental Refresh Daily Statistics Legacy Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshdailystatisticslegacygroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_limits_banding_group_index = ProtoField.new("Incremental Refresh Limits Banding Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshlimitsbandinggroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_limits_banding_legacy_group_index = ProtoField.new("Incremental Refresh Limits Banding Legacy Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshlimitsbandinglegacygroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_order_book_group_index = ProtoField.new("Incremental Refresh Order Book Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshorderbookgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_order_book_legacy_group_index = ProtoField.new("Incremental Refresh Order Book Legacy Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshorderbooklegacygroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_session_statistics_group_index = ProtoField.new("Incremental Refresh Session Statistics Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshsessionstatisticsgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_session_statistics_legacy_group_index = ProtoField.new("Incremental Refresh Session Statistics Legacy Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshsessionstatisticslegacygroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_group_index = ProtoField.new("Incremental Refresh Trade Summary Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshtradesummarygroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_legacy_group_index = ProtoField.new("Incremental Refresh Trade Summary Legacy Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshtradesummarylegacygroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_order_id_group_index = ProtoField.new("Incremental Refresh Trade Summary Order Id Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshtradesummaryorderidgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_volume_group_index = ProtoField.new("Incremental Refresh Volume Group Index", "cme.globex.mdp3.sbe.v1.9.incrementalrefreshvolumegroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.inst_attrib_group_index = ProtoField.new("Inst Attrib Group Index", "cme.globex.mdp3.sbe.v1.9.instattribgroupindex", ftypes.UINT16)
@@ -371,7 +395,9 @@ omi_cme_globex_mdp3_sbe_v1_9.fields.security_list_request_security_group_index =
 omi_cme_globex_mdp3_sbe_v1_9.fields.security_status_request_related_symbol_group_index = ProtoField.new("Security Status Request Related Symbol Group Index", "cme.globex.mdp3.sbe.v1.9.securitystatusrequestrelatedsymbolgroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.security_status_request_security_group_index = ProtoField.new("Security Status Request Security Group Index", "cme.globex.mdp3.sbe.v1.9.securitystatusrequestsecuritygroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_group_index = ProtoField.new("Snapshot Full Refresh Group Index", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_legacy_group_index = ProtoField.new("Snapshot Full Refresh Legacy Group Index", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshlegacygroupindex", ftypes.UINT16)
 omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_group_index = ProtoField.new("Snapshot Full Refresh Order Book Group Index", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbookgroupindex", ftypes.UINT16)
+omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_legacy_group_index = ProtoField.new("Snapshot Full Refresh Order Book Legacy Group Index", "cme.globex.mdp3.sbe.v1.9.snapshotfullrefreshorderbooklegacygroupindex", ftypes.UINT16)
 
 -- Cme Globex Mdp3 Sbe 1.9 Expert Info
 cme_globex_mdp3_sbe_v1_9.experts = {}
@@ -389,7 +415,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cme_globex_mdp3_sbe_v1_9.timestamp_format = 2
+cme_globex_mdp3_sbe_v1_9.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -426,7 +452,7 @@ omi_cme_globex_mdp3_sbe_v1_9.prefs.show_schema_messages = Pref.bool("Show Schema
 omi_cme_globex_mdp3_sbe_v1_9.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cme_globex_mdp3_sbe_v1_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cme_globex_mdp3_sbe_v1_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cme_globex_mdp3_sbe_v1_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cme_globex_mdp3_sbe_v1_9.prefs_changed()
@@ -1936,6 +1962,35 @@ cme_globex_mdp3_sbe_v1_9.md_display_qty_optional.dissect = function(buffer, offs
   return offset + length, value
 end
 
+-- Md Entry Px
+cme_globex_mdp3_sbe_v1_9.md_entry_px = {}
+
+-- Size: Md Entry Px
+cme_globex_mdp3_sbe_v1_9.md_entry_px.size = 8
+
+-- Display: Md Entry Px
+cme_globex_mdp3_sbe_v1_9.md_entry_px.display = function(value)
+  return "Md Entry Px: "..value
+end
+
+-- Translate: Md Entry Px
+cme_globex_mdp3_sbe_v1_9.md_entry_px.translate = function(raw)
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Md Entry Px
+cme_globex_mdp3_sbe_v1_9.md_entry_px.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_9.md_entry_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_globex_mdp3_sbe_v1_9.md_entry_px.translate(raw)
+  local display = cme_globex_mdp3_sbe_v1_9.md_entry_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.md_entry_px, range, value, display)
+
+  return offset + length, value
+end
+
 -- Md Entry Px Ex
 cme_globex_mdp3_sbe_v1_9.md_entry_px_ex = {}
 
@@ -1961,6 +2016,45 @@ cme_globex_mdp3_sbe_v1_9.md_entry_px_ex.dissect = function(buffer, offset, packe
   local display = cme_globex_mdp3_sbe_v1_9.md_entry_px_ex.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.md_entry_px_ex, range, value, display)
+
+  return offset + length, value
+end
+
+-- Md Entry Px Optional
+cme_globex_mdp3_sbe_v1_9.md_entry_px_optional = {}
+
+-- Size: Md Entry Px Optional
+cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.size = 8
+
+-- Display: Md Entry Px Optional
+cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return "Md Entry Px Optional: No Value"
+  end
+
+  return "Md Entry Px Optional: "..value
+end
+
+-- Translate: Md Entry Px Optional
+cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.translate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000000
+end
+
+-- Dissect: Md Entry Px Optional
+cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.translate(raw)
+  local display = cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.display(raw, value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.md_entry_px_optional, range, value, display)
 
   return offset + length, value
 end
@@ -9879,6 +9973,125 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book.dissect = function(buffer, 
   end
 end
 
+-- Snapshot Full Refresh Order Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_group = {}
+
+-- Size: Snapshot Full Refresh Order Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_group.size =
+  cme_globex_mdp3_sbe_v1_9.order_id.size + 
+  cme_globex_mdp3_sbe_v1_9.md_order_priority.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_px.size + 
+  cme_globex_mdp3_sbe_v1_9.md_display_qty.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_type_book.size
+
+-- Display: Snapshot Full Refresh Order Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Snapshot Full Refresh Order Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_group.fields = function(buffer, offset, packet, parent, snapshot_full_refresh_order_book_legacy_group_index)
+  local index = offset
+
+  -- Implicit Snapshot Full Refresh Order Book Legacy Group Index
+  if snapshot_full_refresh_order_book_legacy_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_legacy_group_index, snapshot_full_refresh_order_book_legacy_group_index)
+    iteration:set_generated()
+  end
+
+  -- Order Id: uInt64
+  index, order_id = cme_globex_mdp3_sbe_v1_9.order_id.dissect(buffer, index, packet, parent)
+
+  -- Md Order Priority: uInt64NULL
+  index, md_order_priority = cme_globex_mdp3_sbe_v1_9.md_order_priority.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Px: PRICE
+  index, md_entry_px = cme_globex_mdp3_sbe_v1_9.md_entry_px.dissect(buffer, index, packet, parent)
+
+  -- Md Display Qty: Int32
+  index, md_display_qty = cme_globex_mdp3_sbe_v1_9.md_display_qty.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Type Book: MDEntryTypeBook
+  index, md_entry_type_book = cme_globex_mdp3_sbe_v1_9.md_entry_type_book.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Snapshot Full Refresh Order Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_group.dissect = function(buffer, offset, packet, parent, snapshot_full_refresh_order_book_legacy_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_legacy_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_order_book_legacy_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_order_book_legacy_group_index)
+  end
+end
+
+-- Snapshot Full Refresh Order Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_groups = {}
+
+-- Calculate size of: Snapshot Full Refresh Order Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_9.group_size.size
+
+  -- Calculate field size from count
+  local snapshot_full_refresh_order_book_legacy_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + snapshot_full_refresh_order_book_legacy_group_count * 29
+
+  return index
+end
+
+-- Display: Snapshot Full Refresh Order Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Snapshot Full Refresh Order Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Snapshot Full Refresh Order Book Legacy Group
+  for snapshot_full_refresh_order_book_legacy_group_index = 1, num_in_group do
+    index, snapshot_full_refresh_order_book_legacy_group = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_group.dissect(buffer, index, packet, parent, snapshot_full_refresh_order_book_legacy_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Snapshot Full Refresh Order Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_legacy_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Snapshot Full Refresh Order Book Legacy
 cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy = {}
 
@@ -9898,7 +10111,7 @@ cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy.size = function
 
   index = index + cme_globex_mdp3_sbe_v1_9.transact_time.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_groups.size(buffer, offset + index)
 
   return index
 end
@@ -9930,8 +10143,8 @@ cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy.fields = functi
   -- Transact Time: uInt64
   index, transact_time = cme_globex_mdp3_sbe_v1_9.transact_time.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Full Refresh Order Book Groups: Struct of 2 fields
-  index, snapshot_full_refresh_order_book_groups = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_groups.dissect(buffer, index, packet, parent)
+  -- Snapshot Full Refresh Order Book Legacy Groups: Struct of 2 fields
+  index, snapshot_full_refresh_order_book_legacy_groups = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9954,6 +10167,141 @@ cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_order_book_legacy.dissect = funct
   end
 end
 
+-- Incremental Refresh Order Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_group = {}
+
+-- Size: Incremental Refresh Order Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_group.size =
+  cme_globex_mdp3_sbe_v1_9.order_id_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.md_order_priority.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.md_display_qty_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.security_id.size + 
+  cme_globex_mdp3_sbe_v1_9.md_update_action.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_type_book.size + 
+  cme_globex_mdp3_sbe_v1_9.padding_6.size
+
+-- Display: Incremental Refresh Order Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Order Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_group.fields = function(buffer, offset, packet, parent, incremental_refresh_order_book_legacy_group_index)
+  local index = offset
+
+  -- Implicit Incremental Refresh Order Book Legacy Group Index
+  if incremental_refresh_order_book_legacy_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_order_book_legacy_group_index, incremental_refresh_order_book_legacy_group_index)
+    iteration:set_generated()
+  end
+
+  -- Order Id Optional: uInt64NULL
+  index, order_id_optional = cme_globex_mdp3_sbe_v1_9.order_id_optional.dissect(buffer, index, packet, parent)
+
+  -- Md Order Priority: uInt64NULL
+  index, md_order_priority = cme_globex_mdp3_sbe_v1_9.md_order_priority.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Px Optional: PRICENULL
+  index, md_entry_px_optional = cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.dissect(buffer, index, packet, parent)
+
+  -- Md Display Qty Optional: Int32NULL
+  index, md_display_qty_optional = cme_globex_mdp3_sbe_v1_9.md_display_qty_optional.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_mdp3_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
+
+  -- Md Update Action: MDUpdateAction
+  index, md_update_action = cme_globex_mdp3_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Type Book: MDEntryTypeBook
+  index, md_entry_type_book = cme_globex_mdp3_sbe_v1_9.md_entry_type_book.dissect(buffer, index, packet, parent)
+
+  -- Padding 6: 6 Byte
+  if show.padding then
+    index, padding_6 = cme_globex_mdp3_sbe_v1_9.padding_6.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_9.padding_6.size
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Order Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_order_book_legacy_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_order_book_legacy_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_order_book_legacy_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_order_book_legacy_group_index)
+  end
+end
+
+-- Incremental Refresh Order Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_groups = {}
+
+-- Calculate size of: Incremental Refresh Order Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_9.group_size.size
+
+  -- Calculate field size from count
+  local incremental_refresh_order_book_legacy_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + incremental_refresh_order_book_legacy_group_count * 40
+
+  return index
+end
+
+-- Display: Incremental Refresh Order Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Order Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Incremental Refresh Order Book Legacy Group
+  for incremental_refresh_order_book_legacy_group_index = 1, num_in_group do
+    index, incremental_refresh_order_book_legacy_group = cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_group.dissect(buffer, index, packet, parent, incremental_refresh_order_book_legacy_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Order Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_order_book_legacy_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Md Incremental Refresh Order Book Legacy
 cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book_legacy = {}
 
@@ -9967,7 +10315,7 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book_legacy.size = functio
 
   index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_groups.size(buffer, offset + index)
 
   return index
 end
@@ -9994,8 +10342,8 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book_legacy.fields = funct
     index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
   end
 
-  -- Incremental Refresh Order Book Groups: Struct of 2 fields
-  index, incremental_refresh_order_book_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Order Book Legacy Groups: Struct of 2 fields
+  index, incremental_refresh_order_book_legacy_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_order_book_legacy_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10018,6 +10366,145 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_order_book_legacy.dissect = func
   end
 end
 
+-- Incremental Refresh Trade Summary Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_group = {}
+
+-- Size: Incremental Refresh Trade Summary Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_group.size =
+  cme_globex_mdp3_sbe_v1_9.md_entry_px.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_size_short.size + 
+  cme_globex_mdp3_sbe_v1_9.security_id.size + 
+  cme_globex_mdp3_sbe_v1_9.rpt_seq.size + 
+  cme_globex_mdp3_sbe_v1_9.number_of_orders_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.aggressor_side.size + 
+  cme_globex_mdp3_sbe_v1_9.md_update_action.size + 
+  cme_globex_mdp3_sbe_v1_9.md_trade_entry_id.size + 
+  cme_globex_mdp3_sbe_v1_9.padding_2.size
+
+-- Display: Incremental Refresh Trade Summary Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Trade Summary Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_group.fields = function(buffer, offset, packet, parent, incremental_refresh_trade_summary_legacy_group_index)
+  local index = offset
+
+  -- Implicit Incremental Refresh Trade Summary Legacy Group Index
+  if incremental_refresh_trade_summary_legacy_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_legacy_group_index, incremental_refresh_trade_summary_legacy_group_index)
+    iteration:set_generated()
+  end
+
+  -- Md Entry Px: PRICE
+  index, md_entry_px = cme_globex_mdp3_sbe_v1_9.md_entry_px.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Size Short: Int32
+  index, md_entry_size_short = cme_globex_mdp3_sbe_v1_9.md_entry_size_short.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_mdp3_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
+
+  -- Rpt Seq: uInt32
+  index, rpt_seq = cme_globex_mdp3_sbe_v1_9.rpt_seq.dissect(buffer, index, packet, parent)
+
+  -- Number Of Orders Optional: Int32NULL
+  index, number_of_orders_optional = cme_globex_mdp3_sbe_v1_9.number_of_orders_optional.dissect(buffer, index, packet, parent)
+
+  -- Aggressor Side: AggressorSide
+  index, aggressor_side = cme_globex_mdp3_sbe_v1_9.aggressor_side.dissect(buffer, index, packet, parent)
+
+  -- Md Update Action: MDUpdateAction
+  index, md_update_action = cme_globex_mdp3_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
+
+  -- Md Trade Entry Id: uInt32NULL
+  index, md_trade_entry_id = cme_globex_mdp3_sbe_v1_9.md_trade_entry_id.dissect(buffer, index, packet, parent)
+
+  -- Padding 2: 2 Byte
+  if show.padding then
+    index, padding_2 = cme_globex_mdp3_sbe_v1_9.padding_2.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Trade Summary Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_trade_summary_legacy_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_legacy_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_trade_summary_legacy_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_trade_summary_legacy_group_index)
+  end
+end
+
+-- Incremental Refresh Trade Summary Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_groups = {}
+
+-- Calculate size of: Incremental Refresh Trade Summary Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_9.group_size.size
+
+  -- Calculate field size from count
+  local incremental_refresh_trade_summary_legacy_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + incremental_refresh_trade_summary_legacy_group_count * 32
+
+  return index
+end
+
+-- Display: Incremental Refresh Trade Summary Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Trade Summary Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Incremental Refresh Trade Summary Legacy Group
+  for incremental_refresh_trade_summary_legacy_group_index = 1, num_in_group do
+    index, incremental_refresh_trade_summary_legacy_group = cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_group.dissect(buffer, index, packet, parent, incremental_refresh_trade_summary_legacy_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Trade Summary Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_trade_summary_legacy_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Md Incremental Refresh Trade Summary Legacy
 cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary_legacy = {}
 
@@ -10031,7 +10518,7 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary_legacy.size = func
 
   index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_groups.size(buffer, offset + index)
 
   index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_order_id_groups.size(buffer, offset + index)
 
@@ -10060,8 +10547,8 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_trade_summary_legacy.fields = fu
     index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
   end
 
-  -- Incremental Refresh Trade Summary Groups: Struct of 2 fields
-  index, incremental_refresh_trade_summary_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Trade Summary Legacy Groups: Struct of 2 fields
+  index, incremental_refresh_trade_summary_legacy_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_legacy_groups.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Trade Summary Order Id Groups: Struct of 2 fields
   index, incremental_refresh_trade_summary_order_id_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_trade_summary_order_id_groups.dissect(buffer, index, packet, parent)
@@ -10563,6 +11050,137 @@ cme_globex_mdp3_sbe_v1_9.quote_request.dissect = function(buffer, offset, packet
   end
 end
 
+-- Snapshot Full Refresh Legacy Group
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_group = {}
+
+-- Size: Snapshot Full Refresh Legacy Group
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_group.size =
+  cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_size_short_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.number_of_orders_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.md_price_level_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.trading_reference_date.size + 
+  cme_globex_mdp3_sbe_v1_9.open_close_settl_flag.size + 
+  cme_globex_mdp3_sbe_v1_9.settl_price_type.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_type.size
+
+-- Display: Snapshot Full Refresh Legacy Group
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Snapshot Full Refresh Legacy Group
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_group.fields = function(buffer, offset, packet, parent, snapshot_full_refresh_legacy_group_index)
+  local index = offset
+
+  -- Implicit Snapshot Full Refresh Legacy Group Index
+  if snapshot_full_refresh_legacy_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_legacy_group_index, snapshot_full_refresh_legacy_group_index)
+    iteration:set_generated()
+  end
+
+  -- Md Entry Px Optional: PRICENULL
+  index, md_entry_px_optional = cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Size Short Optional: Int32NULL
+  index, md_entry_size_short_optional = cme_globex_mdp3_sbe_v1_9.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
+
+  -- Number Of Orders Optional: Int32NULL
+  index, number_of_orders_optional = cme_globex_mdp3_sbe_v1_9.number_of_orders_optional.dissect(buffer, index, packet, parent)
+
+  -- Md Price Level Optional: Int8NULL
+  index, md_price_level_optional = cme_globex_mdp3_sbe_v1_9.md_price_level_optional.dissect(buffer, index, packet, parent)
+
+  -- Trading Reference Date: LocalMktDate
+  index, trading_reference_date = cme_globex_mdp3_sbe_v1_9.trading_reference_date.dissect(buffer, index, packet, parent)
+
+  -- Open Close Settl Flag: OpenCloseSettlFlag
+  index, open_close_settl_flag = cme_globex_mdp3_sbe_v1_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
+
+  -- Settl Price Type: Struct of 7 fields
+  index, settl_price_type = cme_globex_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Type: MDEntryType
+  index, md_entry_type = cme_globex_mdp3_sbe_v1_9.md_entry_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Snapshot Full Refresh Legacy Group
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_group.dissect = function(buffer, offset, packet, parent, snapshot_full_refresh_legacy_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_legacy_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_legacy_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_group.fields(buffer, offset, packet, parent, snapshot_full_refresh_legacy_group_index)
+  end
+end
+
+-- Snapshot Full Refresh Legacy Groups
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_groups = {}
+
+-- Calculate size of: Snapshot Full Refresh Legacy Groups
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_9.group_size.size
+
+  -- Calculate field size from count
+  local snapshot_full_refresh_legacy_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + snapshot_full_refresh_legacy_group_count * 22
+
+  return index
+end
+
+-- Display: Snapshot Full Refresh Legacy Groups
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Snapshot Full Refresh Legacy Groups
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Snapshot Full Refresh Legacy Group
+  for snapshot_full_refresh_legacy_group_index = 1, num_in_group do
+    index, snapshot_full_refresh_legacy_group = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_group.dissect(buffer, index, packet, parent, snapshot_full_refresh_legacy_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Snapshot Full Refresh Legacy Groups
+cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.snapshot_full_refresh_legacy_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Snapshot Full Refresh Legacy
 cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy = {}
 
@@ -10592,7 +11210,7 @@ cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy.size = function(buffer, of
 
   index = index + cme_globex_mdp3_sbe_v1_9.max_price_variation.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_groups.size(buffer, offset + index)
 
   return index
 end
@@ -10639,8 +11257,8 @@ cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy.fields = function(buffer, 
   -- Max Price Variation: PRICENULL
   index, max_price_variation = cme_globex_mdp3_sbe_v1_9.max_price_variation.dissect(buffer, index, packet, parent)
 
-  -- Snapshot Full Refresh Groups: Struct of 2 fields
-  index, snapshot_full_refresh_groups = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_groups.dissect(buffer, index, packet, parent)
+  -- Snapshot Full Refresh Legacy Groups: Struct of 2 fields
+  index, snapshot_full_refresh_legacy_groups = cme_globex_mdp3_sbe_v1_9.snapshot_full_refresh_legacy_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10850,6 +11468,141 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_volume.dissect = function(buffer
   end
 end
 
+-- Incremental Refresh Session Statistics Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_group = {}
+
+-- Size: Incremental Refresh Session Statistics Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_group.size =
+  cme_globex_mdp3_sbe_v1_9.md_entry_px.size + 
+  cme_globex_mdp3_sbe_v1_9.security_id.size + 
+  cme_globex_mdp3_sbe_v1_9.rpt_seq.size + 
+  cme_globex_mdp3_sbe_v1_9.open_close_settl_flag.size + 
+  cme_globex_mdp3_sbe_v1_9.md_update_action.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_type_statistics.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_size_short_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.padding_1.size
+
+-- Display: Incremental Refresh Session Statistics Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Session Statistics Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_group.fields = function(buffer, offset, packet, parent, incremental_refresh_session_statistics_legacy_group_index)
+  local index = offset
+
+  -- Implicit Incremental Refresh Session Statistics Legacy Group Index
+  if incremental_refresh_session_statistics_legacy_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_session_statistics_legacy_group_index, incremental_refresh_session_statistics_legacy_group_index)
+    iteration:set_generated()
+  end
+
+  -- Md Entry Px: PRICE
+  index, md_entry_px = cme_globex_mdp3_sbe_v1_9.md_entry_px.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_mdp3_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
+
+  -- Rpt Seq: uInt32
+  index, rpt_seq = cme_globex_mdp3_sbe_v1_9.rpt_seq.dissect(buffer, index, packet, parent)
+
+  -- Open Close Settl Flag: OpenCloseSettlFlag
+  index, open_close_settl_flag = cme_globex_mdp3_sbe_v1_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
+
+  -- Md Update Action: MDUpdateAction
+  index, md_update_action = cme_globex_mdp3_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Type Statistics: MDEntryTypeStatistics
+  index, md_entry_type_statistics = cme_globex_mdp3_sbe_v1_9.md_entry_type_statistics.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Size Short Optional: Int32NULL
+  index, md_entry_size_short_optional = cme_globex_mdp3_sbe_v1_9.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
+
+  -- Padding 1: 1 Byte
+  if show.padding then
+    index, padding_1 = cme_globex_mdp3_sbe_v1_9.padding_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_9.padding_1.size
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Session Statistics Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_session_statistics_legacy_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_session_statistics_legacy_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_session_statistics_legacy_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_session_statistics_legacy_group_index)
+  end
+end
+
+-- Incremental Refresh Session Statistics Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_groups = {}
+
+-- Calculate size of: Incremental Refresh Session Statistics Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_9.group_size.size
+
+  -- Calculate field size from count
+  local incremental_refresh_session_statistics_legacy_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + incremental_refresh_session_statistics_legacy_group_count * 24
+
+  return index
+end
+
+-- Display: Incremental Refresh Session Statistics Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Session Statistics Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Incremental Refresh Session Statistics Legacy Group
+  for incremental_refresh_session_statistics_legacy_group_index = 1, num_in_group do
+    index, incremental_refresh_session_statistics_legacy_group = cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_group.dissect(buffer, index, packet, parent, incremental_refresh_session_statistics_legacy_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Session Statistics Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_session_statistics_legacy_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Md Incremental Refresh Session Statistics Legacy
 cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics_legacy = {}
 
@@ -10863,7 +11616,7 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics_legacy.size =
 
   index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_groups.size(buffer, offset + index)
 
   return index
 end
@@ -10890,8 +11643,8 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics_legacy.fields
     index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
   end
 
-  -- Incremental Refresh Session Statistics Groups: Struct of 2 fields
-  index, incremental_refresh_session_statistics_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Session Statistics Legacy Groups: Struct of 2 fields
+  index, incremental_refresh_session_statistics_legacy_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_session_statistics_legacy_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10914,6 +11667,125 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_session_statistics_legacy.dissec
   end
 end
 
+-- Incremental Refresh Limits Banding Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_group = {}
+
+-- Size: Incremental Refresh Limits Banding Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_group.size =
+  cme_globex_mdp3_sbe_v1_9.high_limit_price.size + 
+  cme_globex_mdp3_sbe_v1_9.low_limit_price.size + 
+  cme_globex_mdp3_sbe_v1_9.max_price_variation.size + 
+  cme_globex_mdp3_sbe_v1_9.security_id.size + 
+  cme_globex_mdp3_sbe_v1_9.rpt_seq.size
+
+-- Display: Incremental Refresh Limits Banding Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Limits Banding Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_group.fields = function(buffer, offset, packet, parent, incremental_refresh_limits_banding_legacy_group_index)
+  local index = offset
+
+  -- Implicit Incremental Refresh Limits Banding Legacy Group Index
+  if incremental_refresh_limits_banding_legacy_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_limits_banding_legacy_group_index, incremental_refresh_limits_banding_legacy_group_index)
+    iteration:set_generated()
+  end
+
+  -- High Limit Price: PRICENULL
+  index, high_limit_price = cme_globex_mdp3_sbe_v1_9.high_limit_price.dissect(buffer, index, packet, parent)
+
+  -- Low Limit Price: PRICENULL
+  index, low_limit_price = cme_globex_mdp3_sbe_v1_9.low_limit_price.dissect(buffer, index, packet, parent)
+
+  -- Max Price Variation: PRICENULL
+  index, max_price_variation = cme_globex_mdp3_sbe_v1_9.max_price_variation.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_mdp3_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
+
+  -- Rpt Seq: uInt32
+  index, rpt_seq = cme_globex_mdp3_sbe_v1_9.rpt_seq.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Limits Banding Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_limits_banding_legacy_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_limits_banding_legacy_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_limits_banding_legacy_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_limits_banding_legacy_group_index)
+  end
+end
+
+-- Incremental Refresh Limits Banding Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_groups = {}
+
+-- Calculate size of: Incremental Refresh Limits Banding Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_9.group_size.size
+
+  -- Calculate field size from count
+  local incremental_refresh_limits_banding_legacy_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + incremental_refresh_limits_banding_legacy_group_count * 32
+
+  return index
+end
+
+-- Display: Incremental Refresh Limits Banding Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Limits Banding Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Incremental Refresh Limits Banding Legacy Group
+  for incremental_refresh_limits_banding_legacy_group_index = 1, num_in_group do
+    index, incremental_refresh_limits_banding_legacy_group = cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_group.dissect(buffer, index, packet, parent, incremental_refresh_limits_banding_legacy_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Limits Banding Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_limits_banding_legacy_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Md Incremental Refresh Limits Banding Legacy
 cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding_legacy = {}
 
@@ -10927,7 +11799,7 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding_legacy.size = fun
 
   index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_groups.size(buffer, offset + index)
 
   return index
 end
@@ -10954,8 +11826,8 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding_legacy.fields = f
     index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
   end
 
-  -- Incremental Refresh Limits Banding Groups: Struct of 2 fields
-  index, incremental_refresh_limits_banding_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Limits Banding Legacy Groups: Struct of 2 fields
+  index, incremental_refresh_limits_banding_legacy_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_limits_banding_legacy_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10978,6 +11850,145 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_limits_banding_legacy.dissect = 
   end
 end
 
+-- Incremental Refresh Daily Statistics Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_group = {}
+
+-- Size: Incremental Refresh Daily Statistics Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_group.size =
+  cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_size_short_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.security_id.size + 
+  cme_globex_mdp3_sbe_v1_9.rpt_seq.size + 
+  cme_globex_mdp3_sbe_v1_9.trading_reference_date.size + 
+  cme_globex_mdp3_sbe_v1_9.settl_price_type.size + 
+  cme_globex_mdp3_sbe_v1_9.md_update_action.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_type_daily_statistics.size + 
+  cme_globex_mdp3_sbe_v1_9.padding_7.size
+
+-- Display: Incremental Refresh Daily Statistics Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Daily Statistics Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_group.fields = function(buffer, offset, packet, parent, incremental_refresh_daily_statistics_legacy_group_index)
+  local index = offset
+
+  -- Implicit Incremental Refresh Daily Statistics Legacy Group Index
+  if incremental_refresh_daily_statistics_legacy_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_daily_statistics_legacy_group_index, incremental_refresh_daily_statistics_legacy_group_index)
+    iteration:set_generated()
+  end
+
+  -- Md Entry Px Optional: PRICENULL
+  index, md_entry_px_optional = cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Size Short Optional: Int32NULL
+  index, md_entry_size_short_optional = cme_globex_mdp3_sbe_v1_9.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_mdp3_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
+
+  -- Rpt Seq: uInt32
+  index, rpt_seq = cme_globex_mdp3_sbe_v1_9.rpt_seq.dissect(buffer, index, packet, parent)
+
+  -- Trading Reference Date: LocalMktDate
+  index, trading_reference_date = cme_globex_mdp3_sbe_v1_9.trading_reference_date.dissect(buffer, index, packet, parent)
+
+  -- Settl Price Type: Struct of 7 fields
+  index, settl_price_type = cme_globex_mdp3_sbe_v1_9.settl_price_type.dissect(buffer, index, packet, parent)
+
+  -- Md Update Action: MDUpdateAction
+  index, md_update_action = cme_globex_mdp3_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Type Daily Statistics: MDEntryTypeDailyStatistics
+  index, md_entry_type_daily_statistics = cme_globex_mdp3_sbe_v1_9.md_entry_type_daily_statistics.dissect(buffer, index, packet, parent)
+
+  -- Padding 7: 7 Byte
+  if show.padding then
+    index, padding_7 = cme_globex_mdp3_sbe_v1_9.padding_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_9.padding_7.size
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Daily Statistics Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_daily_statistics_legacy_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_daily_statistics_legacy_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_daily_statistics_legacy_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_daily_statistics_legacy_group_index)
+  end
+end
+
+-- Incremental Refresh Daily Statistics Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_groups = {}
+
+-- Calculate size of: Incremental Refresh Daily Statistics Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_9.group_size.size
+
+  -- Calculate field size from count
+  local incremental_refresh_daily_statistics_legacy_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + incremental_refresh_daily_statistics_legacy_group_count * 32
+
+  return index
+end
+
+-- Display: Incremental Refresh Daily Statistics Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Daily Statistics Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Incremental Refresh Daily Statistics Legacy Group
+  for incremental_refresh_daily_statistics_legacy_group_index = 1, num_in_group do
+    index, incremental_refresh_daily_statistics_legacy_group = cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_group.dissect(buffer, index, packet, parent, incremental_refresh_daily_statistics_legacy_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Daily Statistics Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_daily_statistics_legacy_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Md Incremental Refresh Daily Statistics Legacy
 cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics_legacy = {}
 
@@ -10991,7 +12002,7 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics_legacy.size = f
 
   index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_groups.size(buffer, offset + index)
 
   return index
 end
@@ -11018,8 +12029,8 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics_legacy.fields =
     index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
   end
 
-  -- Incremental Refresh Daily Statistics Groups: Struct of 2 fields
-  index, incremental_refresh_daily_statistics_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Daily Statistics Legacy Groups: Struct of 2 fields
+  index, incremental_refresh_daily_statistics_legacy_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_daily_statistics_legacy_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -11042,6 +12053,145 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_daily_statistics_legacy.dissect 
   end
 end
 
+-- Incremental Refresh Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_group = {}
+
+-- Size: Incremental Refresh Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_group.size =
+  cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_size_short_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.security_id.size + 
+  cme_globex_mdp3_sbe_v1_9.rpt_seq.size + 
+  cme_globex_mdp3_sbe_v1_9.number_of_orders_optional.size + 
+  cme_globex_mdp3_sbe_v1_9.md_price_level.size + 
+  cme_globex_mdp3_sbe_v1_9.md_update_action.size + 
+  cme_globex_mdp3_sbe_v1_9.md_entry_type_book.size + 
+  cme_globex_mdp3_sbe_v1_9.padding_5.size
+
+-- Display: Incremental Refresh Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_group.fields = function(buffer, offset, packet, parent, incremental_refresh_book_legacy_group_index)
+  local index = offset
+
+  -- Implicit Incremental Refresh Book Legacy Group Index
+  if incremental_refresh_book_legacy_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_legacy_group_index, incremental_refresh_book_legacy_group_index)
+    iteration:set_generated()
+  end
+
+  -- Md Entry Px Optional: PRICENULL
+  index, md_entry_px_optional = cme_globex_mdp3_sbe_v1_9.md_entry_px_optional.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Size Short Optional: Int32NULL
+  index, md_entry_size_short_optional = cme_globex_mdp3_sbe_v1_9.md_entry_size_short_optional.dissect(buffer, index, packet, parent)
+
+  -- Security Id: Int32
+  index, security_id = cme_globex_mdp3_sbe_v1_9.security_id.dissect(buffer, index, packet, parent)
+
+  -- Rpt Seq: uInt32
+  index, rpt_seq = cme_globex_mdp3_sbe_v1_9.rpt_seq.dissect(buffer, index, packet, parent)
+
+  -- Number Of Orders Optional: Int32NULL
+  index, number_of_orders_optional = cme_globex_mdp3_sbe_v1_9.number_of_orders_optional.dissect(buffer, index, packet, parent)
+
+  -- Md Price Level: uInt8
+  index, md_price_level = cme_globex_mdp3_sbe_v1_9.md_price_level.dissect(buffer, index, packet, parent)
+
+  -- Md Update Action: MDUpdateAction
+  index, md_update_action = cme_globex_mdp3_sbe_v1_9.md_update_action.dissect(buffer, index, packet, parent)
+
+  -- Md Entry Type Book: MDEntryTypeBook
+  index, md_entry_type_book = cme_globex_mdp3_sbe_v1_9.md_entry_type_book.dissect(buffer, index, packet, parent)
+
+  -- Padding 5: 5 Byte
+  if show.padding then
+    index, padding_5 = cme_globex_mdp3_sbe_v1_9.padding_5.dissect(buffer, index, packet, parent)
+  else
+    index = index + cme_globex_mdp3_sbe_v1_9.padding_5.size
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Book Legacy Group
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_book_legacy_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_legacy_group, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_book_legacy_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_group.fields(buffer, offset, packet, parent, incremental_refresh_book_legacy_group_index)
+  end
+end
+
+-- Incremental Refresh Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_groups = {}
+
+-- Calculate size of: Incremental Refresh Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_mdp3_sbe_v1_9.group_size.size
+
+  -- Calculate field size from count
+  local incremental_refresh_book_legacy_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + incremental_refresh_book_legacy_group_count * 32
+
+  return index
+end
+
+-- Display: Incremental Refresh Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_mdp3_sbe_v1_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Incremental Refresh Book Legacy Group
+  for incremental_refresh_book_legacy_group_index = 1, num_in_group do
+    index, incremental_refresh_book_legacy_group = cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_group.dissect(buffer, index, packet, parent, incremental_refresh_book_legacy_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Book Legacy Groups
+cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.incremental_refresh_book_legacy_groups, buffer(offset, 0))
+    local index = cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Md Incremental Refresh Book Legacy
 cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book_legacy = {}
 
@@ -11055,7 +12205,7 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book_legacy.size = function(buff
 
   index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
 
-  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_groups.size(buffer, offset + index)
+  index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_groups.size(buffer, offset + index)
 
   index = index + cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_order_id_groups.size(buffer, offset + index)
 
@@ -11084,8 +12234,8 @@ cme_globex_mdp3_sbe_v1_9.md_incremental_refresh_book_legacy.fields = function(bu
     index = index + cme_globex_mdp3_sbe_v1_9.padding_2.size
   end
 
-  -- Incremental Refresh Book Groups: Struct of 2 fields
-  index, incremental_refresh_book_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Book Legacy Groups: Struct of 2 fields
+  index, incremental_refresh_book_legacy_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_legacy_groups.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Book Order Id Groups: Struct of 2 fields
   index, incremental_refresh_book_order_id_groups = cme_globex_mdp3_sbe_v1_9.incremental_refresh_book_order_id_groups.dissect(buffer, index, packet, parent)
@@ -13633,6 +14783,9 @@ cme_globex_mdp3_sbe_v1_9.mdpsessionmgmt_message.dissect = function(buffer, offse
     local index = cme_globex_mdp3_sbe_v1_9.mdpsessionmgmt_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = cme_globex_mdp3_sbe_v1_9.mdpsessionmgmt_message.display(packet, parent, length)
     parent:append_text(display)
 
@@ -13730,6 +14883,9 @@ cme_globex_mdp3_sbe_v1_9.mktdata_message.dissect = function(buffer, offset, pack
     local index = cme_globex_mdp3_sbe_v1_9.mktdata_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = cme_globex_mdp3_sbe_v1_9.mktdata_message.display(packet, parent, length)
     parent:append_text(display)
 
@@ -13759,16 +14915,16 @@ cme_globex_mdp3_sbe_v1_9.payload.dissect = function(buffer, offset, packet, pare
   return offset
 end
 
--- Message
-cme_globex_mdp3_sbe_v1_9.message = {}
+-- Mdp3 Message
+cme_globex_mdp3_sbe_v1_9.mdp3_message = {}
 
--- Display: Message
-cme_globex_mdp3_sbe_v1_9.message.display = function(packet, parent, length)
+-- Display: Mdp3 Message
+cme_globex_mdp3_sbe_v1_9.mdp3_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-cme_globex_mdp3_sbe_v1_9.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Mdp3 Message
+cme_globex_mdp3_sbe_v1_9.mdp3_message.fields = function(buffer, offset, packet, parent, size_of_mdp3_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
@@ -13783,30 +14939,30 @@ cme_globex_mdp3_sbe_v1_9.message.fields = function(buffer, offset, packet, paren
   return index
 end
 
--- Dissect: Message
-cme_globex_mdp3_sbe_v1_9.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Mdp3 Message
+cme_globex_mdp3_sbe_v1_9.mdp3_message.dissect = function(buffer, offset, packet, parent, size_of_mdp3_message)
+  local index = offset + size_of_mdp3_message
 
   -- Its fields read only its own bytes: a layout running past them is marked, not raised
   local bounded = buffer(0, math.min(index, buffer:len())):tvb()
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.message, buffer(offset, 0))
-    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_9.message.fields, bounded, offset, packet, parent, size_of_message)
+    parent = parent:add(omi_cme_globex_mdp3_sbe_v1_9.fields.mdp3_message, buffer(offset, 0))
+    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_9.mdp3_message.fields, bounded, offset, packet, parent, size_of_mdp3_message)
     if not decoded then
-      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Mdp3 Message does not decode within its "..size_of_mdp3_message.." bytes")
     end
-    parent:set_len(size_of_message)
-    local display = cme_globex_mdp3_sbe_v1_9.message.display(buffer, packet, parent)
+    parent:set_len(size_of_mdp3_message)
+    local display = cme_globex_mdp3_sbe_v1_9.mdp3_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_9.message.fields, bounded, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_mdp3_sbe_v1_9.mdp3_message.fields, bounded, offset, packet, parent, size_of_mdp3_message)
     if not decoded then
-      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+      undecoded(failure, parent, cme_globex_mdp3_sbe_v1_9.experts.undecoded, "Mdp3 Message does not decode within its "..size_of_mdp3_message.." bytes")
     end
 
     return index
@@ -13872,10 +15028,10 @@ cme_globex_mdp3_sbe_v1_9.udp_packet.dissect = function(buffer, packet, parent)
   -- Binary Packet Header: Struct of 2 fields
   index, binary_packet_header = cme_globex_mdp3_sbe_v1_9.binary_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
+  -- Dependency for Mdp3 Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Mdp3 Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
@@ -13889,8 +15045,8 @@ cme_globex_mdp3_sbe_v1_9.udp_packet.dissect = function(buffer, packet, parent)
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 
-    -- Runtime Size Of: Message
-    index, message = cme_globex_mdp3_sbe_v1_9.message.dissect(buffer, index, packet, parent, message_size)
+    -- Runtime Size Of: Mdp3 Message
+    index, mdp3_message = cme_globex_mdp3_sbe_v1_9.mdp3_message.dissect(buffer, index, packet, parent, message_size)
   end
 
   return index

@@ -16,8 +16,8 @@ local nse_nsecd_dropcopy_nnfdirect_v1_7 = {}
 
 -- Nse NseCd DropCopy NnfDirect 1.7 Fields
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.account_num = ProtoField.new("Account Num", "nse.nsecd.dropcopy.nnfdirect.v1.7.accountnum", ftypes.STRING, nil, nil, nil, "Account number or client code")
-omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.activity_time = ProtoField.new("Activity Time", "nse.nsecd.dropcopy.nnfdirect.v1.7.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the activity occurred")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.activity_time_utc = ProtoField.new("Activity Time", "nse.nsecd.dropcopy.nnfdirect.v1.7.activitytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the activity occurred")
+omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.activity_time = ProtoField.new("Activity Time", "nse.nsecd.dropcopy.nnfdirect.v1.7.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the activity occurred")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.activity_type = ProtoField.new("Activity Type", "nse.nsecd.dropcopy.nnfdirect.v1.7.activitytype", ftypes.STRING, nil, nil, nil, "Type of activity being confirmed")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.additional_order_flags = ProtoField.new("Additional Order Flags", "nse.nsecd.dropcopy.nnfdirect.v1.7.additionalorderflags", ftypes.STRING, nil, nil, nil, "Further terms attached to the order")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.additional_order_flags_reserved_1 = ProtoField.new("Additional Order Flags Reserved 1", "nse.nsecd.dropcopy.nnfdirect.v1.7.additionalorderflagsreserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
@@ -39,8 +39,8 @@ omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.deleted = ProtoField.new("Deleted",
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.disclosed_vol = ProtoField.new("Disclosed Vol", "nse.nsecd.dropcopy.nnfdirect.v1.7.disclosedvol", ftypes.INT32, nil, nil, nil, "Quantity disclosed to the market")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.disclosed_vol_remaining = ProtoField.new("Disclosed Vol Remaining", "nse.nsecd.dropcopy.nnfdirect.v1.7.disclosedvolremaining", ftypes.INT32, nil, nil, nil, "Disclosed volume remaining after the trade")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.error_code = ProtoField.new("Error Code", "nse.nsecd.dropcopy.nnfdirect.v1.7.errorcode", ftypes.INT16, nil, nil, nil, "Zero when the request succeeded, otherwise an Error Response follows")
-omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsecd.dropcopy.nnfdirect.v1.7.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry date of the contract")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.expiry_date_utc = ProtoField.new("Expiry Date", "nse.nsecd.dropcopy.nnfdirect.v1.7.expirydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expiry date of the contract")
+omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsecd.dropcopy.nnfdirect.v1.7.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry date of the contract")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fifth_reserved_1 = ProtoField.new("Fifth Reserved 1", "nse.nsecd.dropcopy.nnfdirect.v1.7.fifthreserved1", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fill_number = ProtoField.new("Fill Number", "nse.nsecd.dropcopy.nnfdirect.v1.7.fillnumber", ftypes.INT32, nil, nil, nil, "Trade number")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.fill_price = ProtoField.new("Fill Price", "nse.nsecd.dropcopy.nnfdirect.v1.7.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the order traded, to be divided by 10000000 to get the price in rupees")
@@ -58,10 +58,10 @@ omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.initiated_by_control = ProtoField.n
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.instrument_name = ProtoField.new("Instrument Name", "nse.nsecd.dropcopy.nnfdirect.v1.7.instrumentname", ftypes.STRING, nil, nil, nil, "Instrument name of the contract")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.ioc = ProtoField.new("Ioc", "nse.nsecd.dropcopy.nnfdirect.v1.7.ioc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200, "Immediate or cancel order")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.last_activity_reference = ProtoField.new("Last Activity Reference", "nse.nsecd.dropcopy.nnfdirect.v1.7.lastactivityreference", ftypes.INT64, nil, nil, nil, "Unique value for the activity, currently in nanoseconds")
-omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.last_modified_date_time = ProtoField.new("Last Modified Date Time", "nse.nsecd.dropcopy.nnfdirect.v1.7.lastmodifieddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order was last modified")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.last_modified_date_time_utc = ProtoField.new("Last Modified Date Time", "nse.nsecd.dropcopy.nnfdirect.v1.7.lastmodifieddatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the order was last modified")
-omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.log_time = ProtoField.new("Log Time", "nse.nsecd.dropcopy.nnfdirect.v1.7.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated by the trading system")
+omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.last_modified_date_time = ProtoField.new("Last Modified Date Time", "nse.nsecd.dropcopy.nnfdirect.v1.7.lastmodifieddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order was last modified")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.log_time_utc = ProtoField.new("Log Time", "nse.nsecd.dropcopy.nnfdirect.v1.7.logtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated by the trading system")
+omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.log_time = ProtoField.new("Log Time", "nse.nsecd.dropcopy.nnfdirect.v1.7.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated by the trading system")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.market = ProtoField.new("Market", "nse.nsecd.dropcopy.nnfdirect.v1.7.market", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000, "Market order")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.matched_ind = ProtoField.new("Matched Ind", "nse.nsecd.dropcopy.nnfdirect.v1.7.matchedind", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "Order has been matched")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.fields.message_length = ProtoField.new("Message Length", "nse.nsecd.dropcopy.nnfdirect.v1.7.messagelength", ftypes.INT16, nil, nil, nil, "Length of the message including the message header, twenty two less than Packet Length")
@@ -157,7 +157,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format = 2
+nse_nsecd_dropcopy_nnfdirect_v1_7.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 nse_nsecd_dropcopy_nnfdirect_v1_7.zone_offset = 0
@@ -191,7 +191,7 @@ omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.show_application_messages = Pref.boo
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_nse_nsecd_dropcopy_nnfdirect_v1_7.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

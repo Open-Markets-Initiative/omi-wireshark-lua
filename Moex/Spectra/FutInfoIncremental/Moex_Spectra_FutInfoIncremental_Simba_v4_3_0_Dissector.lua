@@ -50,26 +50,26 @@ omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.security_id = ProtoField
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.security_mass_status_message_no_related_sym_group = ProtoField.new("Security Mass Status Message No Related Sym Group", "moex.spectra.futinfoincremental.simba.v4.3.0.securitymassstatusmessagenorelatedsymgroup", ftypes.STRING, nil, nil, nil, "NoRelatedSym")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.security_mass_status_message_no_related_sym_groups = ProtoField.new("Security Mass Status Message No Related Sym Groups", "moex.spectra.futinfoincremental.simba.v4.3.0.securitymassstatusmessagenorelatedsymgroups", ftypes.STRING, nil, nil, nil, "NoRelatedSym Block")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.security_trading_status = ProtoField.new("Security Trading Status", "moex.spectra.futinfoincremental.simba.v4.3.0.securitytradingstatus", ftypes.UINT8, nil, nil, nil, "SecurityTradingStatus")
-omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.sending_time = ProtoField.new("Sending Time", "moex.spectra.futinfoincremental.simba.v4.3.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.sending_time_utc = ProtoField.new("Sending Time", "moex.spectra.futinfoincremental.simba.v4.3.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "SendingTime")
+omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.sending_time = ProtoField.new("Sending Time", "moex.spectra.futinfoincremental.simba.v4.3.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.start_of_snapshot = ProtoField.new("Start Of Snapshot", "moex.spectra.futinfoincremental.simba.v4.3.0.startofsnapshot", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "StartOfSnapshot")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.symbol = ProtoField.new("Symbol", "moex.spectra.futinfoincremental.simba.v4.3.0.symbol", ftypes.STRING)
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.template_id = ProtoField.new("Template Id", "moex.spectra.futinfoincremental.simba.v4.3.0.templateid", ftypes.UINT16, nil, nil, nil, "Message template identifier")
-omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time = ProtoField.new("Trad Ses Close Time", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesclosetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TradSesCloseTime")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_utc = ProtoField.new("Trad Ses Close Time", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesclosetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TradSesCloseTime")
-omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_from = ProtoField.new("Trad Ses Close Time From", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesclosetimefrom", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TradSesCloseTimeFrom")
+omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time = ProtoField.new("Trad Ses Close Time", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesclosetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TradSesCloseTime")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_from_utc = ProtoField.new("Trad Ses Close Time From", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesclosetimefrom.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TradSesCloseTimeFrom")
-omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_till = ProtoField.new("Trad Ses Close Time Till", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesclosetimetill", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TradSesCloseTimeTill")
+omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_from = ProtoField.new("Trad Ses Close Time From", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesclosetimefrom", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TradSesCloseTimeFrom")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_till_utc = ProtoField.new("Trad Ses Close Time Till", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesclosetimetill.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TradSesCloseTimeTill")
+omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_till = ProtoField.new("Trad Ses Close Time Till", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesclosetimetill", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TradSesCloseTimeTill")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_event = ProtoField.new("Trad Ses Event", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesevent", ftypes.UINT8, nil, nil, nil, "TradSesEvent")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_interm_clearing_end_time = ProtoField.new("Trad Ses Interm Clearing End Time", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesintermclearingendtime", ftypes.UINT64, nil, nil, nil, "TradSesIntermClearingEndTime")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_interm_clearing_start_time = ProtoField.new("Trad Ses Interm Clearing Start Time", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesintermclearingstarttime", ftypes.UINT64, nil, nil, nil, "TradSesIntermClearingStartTime")
-omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_open_time = ProtoField.new("Trad Ses Open Time", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesopentime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TradSesOpenTime")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_open_time_utc = ProtoField.new("Trad Ses Open Time", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesopentime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TradSesOpenTime")
+omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_open_time = ProtoField.new("Trad Ses Open Time", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesopentime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TradSesOpenTime")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "moex.spectra.futinfoincremental.simba.v4.3.0.tradsesstatus", ftypes.UINT8, nil, nil, nil, "TradSesStatus")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "moex.spectra.futinfoincremental.simba.v4.3.0.tradingsessionid", ftypes.UINT8, nil, nil, nil, "TradingSessionID")
-omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.transact_time = ProtoField.new("Transact Time", "moex.spectra.futinfoincremental.simba.v4.3.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.transact_time_utc = ProtoField.new("Transact Time", "moex.spectra.futinfoincremental.simba.v4.3.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TransactTime")
+omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.transact_time = ProtoField.new("Transact Time", "moex.spectra.futinfoincremental.simba.v4.3.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.underlying_symbol_text = ProtoField.new("Underlying Symbol Text", "moex.spectra.futinfoincremental.simba.v4.3.0.underlyingsymboltext", ftypes.STRING, nil, nil, nil, "UnderlyingSymbolText data struct")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.underlying_symbol_text_data = ProtoField.new("Underlying Symbol Text Data", "moex.spectra.futinfoincremental.simba.v4.3.0.underlyingsymboltextdata", ftypes.STRING)
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.underlying_symbol_text_length = ProtoField.new("Underlying Symbol Text Length", "moex.spectra.futinfoincremental.simba.v4.3.0.underlyingsymboltextlength", ftypes.UINT16)
@@ -105,7 +105,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-moex_spectra_futinfoincremental_simba_v4_3_0.timestamp_format = 2
+moex_spectra_futinfoincremental_simba_v4_3_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -128,7 +128,7 @@ omi_moex_spectra_futinfoincremental_simba_v4_3_0.prefs.show_headers = Pref.bool(
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_moex_spectra_futinfoincremental_simba_v4_3_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_moex_spectra_futinfoincremental_simba_v4_3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_moex_spectra_futinfoincremental_simba_v4_3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_moex_spectra_futinfoincremental_simba_v4_3_0.prefs_changed()
@@ -885,8 +885,8 @@ moex_spectra_futinfoincremental_simba_v4_3_0.trad_ses_close_time.dissect = funct
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time
-  if moex_spectra_futinfoincremental_simba_v4_3_0.timestamp_format == 3 then field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_utc end
+  local field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_utc
+  if moex_spectra_futinfoincremental_simba_v4_3_0.timestamp_format == 2 then field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -932,8 +932,8 @@ moex_spectra_futinfoincremental_simba_v4_3_0.trad_ses_close_time_from.dissect = 
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_from
-  if moex_spectra_futinfoincremental_simba_v4_3_0.timestamp_format == 3 then field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_from_utc end
+  local field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_from_utc
+  if moex_spectra_futinfoincremental_simba_v4_3_0.timestamp_format == 2 then field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_from end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -979,8 +979,8 @@ moex_spectra_futinfoincremental_simba_v4_3_0.trad_ses_close_time_till.dissect = 
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_till
-  if moex_spectra_futinfoincremental_simba_v4_3_0.timestamp_format == 3 then field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_till_utc end
+  local field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_till_utc
+  if moex_spectra_futinfoincremental_simba_v4_3_0.timestamp_format == 2 then field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_close_time_till end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -1111,8 +1111,8 @@ moex_spectra_futinfoincremental_simba_v4_3_0.trad_ses_open_time.dissect = functi
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_open_time
-  if moex_spectra_futinfoincremental_simba_v4_3_0.timestamp_format == 3 then field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_open_time_utc end
+  local field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_open_time_utc
+  if moex_spectra_futinfoincremental_simba_v4_3_0.timestamp_format == 2 then field = omi_moex_spectra_futinfoincremental_simba_v4_3_0.fields.trad_ses_open_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)

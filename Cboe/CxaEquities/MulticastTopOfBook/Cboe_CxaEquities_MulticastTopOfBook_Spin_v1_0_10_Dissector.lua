@@ -37,15 +37,15 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.session_sub_id = Pro
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.side = ProtoField.new("Side", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.side", ftypes.STRING, nil, nil, nil, "Side of the update.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.spin_response_status = ProtoField.new("Spin Response Status", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.spinresponsestatus", ftypes.STRING, nil, nil, nil, "Accepted or reason for reject.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.symbol = ProtoField.new("Symbol", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.symbol", ftypes.STRING, nil, nil, nil, "Symbol (right padded with spaces).")
-omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since epoch.")
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.trading_status = ProtoField.new("Trading Status", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading status of the session for the symbol.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.unit = ProtoField.new("Unit", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.username = ProtoField.new("Username", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.username", ftypes.STRING, nil, nil, nil, "Username supplied by CXA.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value = ProtoField.new("Value", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.value", ftypes.DOUBLE, nil, nil, nil, "The calculated value.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value_category = ProtoField.new("Value Category", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.valuecategory", ftypes.STRING, nil, nil, nil, "Category of the calculated value.")
-omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.valuetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp when the calculated value was generated in nanoseconds since epoch.")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value_timestamp_utc = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.valuetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp when the calculated value was generated in nanoseconds since epoch.")
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.valuetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp when the calculated value was generated in nanoseconds since epoch.")
 
 -- Cboe CxaEquities MulticastTopOfBook Spin 1.0.10 Framing
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.fields.message = ProtoField.new("Message", "cboe.cxaequities.multicasttopofbook.spin.v1.0.10.message", ftypes.STRING)
@@ -79,7 +79,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp_format = 2
+cboe_cxaequities_multicasttopofbook_spin_v1_0_10.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -100,7 +100,7 @@ omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_structs = Pref.b
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cxaequities_multicasttopofbook_spin_v1_0_10.prefs_changed()

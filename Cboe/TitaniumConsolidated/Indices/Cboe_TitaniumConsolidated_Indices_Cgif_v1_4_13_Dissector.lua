@@ -41,8 +41,8 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.msg_seq_num = ProtoFie
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.no_channels = ProtoField.new("No Channels", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nochannels", ftypes.UINT8, nil, nil, nil, "Number of Channels in this message.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.no_md_entries = ProtoField.new("No Md Entries", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.nomdentries", ftypes.UINT8, nil, nil, nil, "Number of MDEntries in this message. Will not exceed 255.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.number_of_messages = ProtoField.new("Number Of Messages", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.numberofmessages", ftypes.UINT8, nil, nil, nil, "The number of messages in this packet.")
-omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.sending_time = ProtoField.new("Sending Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the packet was sent. Millisecond timestamp from midnight January 1, 1970 UTC.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.sending_time_utc = ProtoField.new("Sending Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the packet was sent. Millisecond timestamp from midnight January 1, 1970 UTC.")
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.sending_time = ProtoField.new("Sending Time", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the packet was sent. Millisecond timestamp from midnight January 1, 1970 UTC.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.status = ProtoField.new("Status", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.status", ftypes.UINT8, nil, nil, nil, "Status of index. 1 = Active (loaded and a business day), 2 = Inactive (loaded and not a business day), 3 = Deleted (no longer distributed; removed from the feed after 30 days).")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.summary_type = ProtoField.new("Summary Type", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.summarytype", ftypes.STRING, nil, nil, nil, "Type of summary message.")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.fields.symbol = ProtoField.new("Symbol", "cboe.titaniumconsolidated.indices.cgif.v1.4.13.symbol", ftypes.STRING)
@@ -89,7 +89,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_titaniumconsolidated_indices_cgif_v1_4_13.timestamp_format = 2
+cboe_titaniumconsolidated_indices_cgif_v1_4_13.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -114,7 +114,7 @@ omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_headers = Pref.boo
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_titaniumconsolidated_indices_cgif_v1_4_13.prefs_changed()

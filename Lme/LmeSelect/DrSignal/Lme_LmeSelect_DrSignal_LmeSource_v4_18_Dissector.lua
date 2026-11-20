@@ -22,8 +22,8 @@ omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.msg_size = ProtoField.new("Msg
 omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.msg_type = ProtoField.new("Msg Type", "lme.lmeselect.drsignal.lmesource.v4.18.msgtype", ftypes.UINT16, nil, nil, nil, "Type of message, selecting the payload that follows the message header")
 omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.new_seq_no = ProtoField.new("New Seq No", "lme.lmeselect.drsignal.lmesource.v4.18.newseqno", ftypes.UINT32, nil, nil, nil, "New sequence number. Always set to 1.")
 omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.pkt_size = ProtoField.new("Pkt Size", "lme.lmeselect.drsignal.lmesource.v4.18.pktsize", ftypes.UINT16, nil, nil, nil, "Size of the packet, including this field")
-omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.drsignal.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.drsignal.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.drsignal.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_drsignal_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.drsignal.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 
 -- Lme LmeSelect DrSignal LmeSource 4.18 Framing
@@ -50,7 +50,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lme_lmeselect_drsignal_lmesource_v4_18.timestamp_format = 2
+lme_lmeselect_drsignal_lmesource_v4_18.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -71,7 +71,7 @@ omi_lme_lmeselect_drsignal_lmesource_v4_18.prefs.show_structs = Pref.bool("Show 
 omi_lme_lmeselect_drsignal_lmesource_v4_18.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lme_lmeselect_drsignal_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lme_lmeselect_drsignal_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lme_lmeselect_drsignal_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lme_lmeselect_drsignal_lmesource_v4_18.prefs_changed()

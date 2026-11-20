@@ -27,7 +27,7 @@ omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.event_code = ProtoField.new("Ev
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.iseoptions.tradefeed.itch.v2.1.expirationday", ftypes.UINT8, nil, nil, nil, "Day of the Month of expiration (1-31)")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.iseoptions.tradefeed.itch.v2.1.expirationmonth", ftypes.UINT8, nil, nil, nil, "Expiration Month of the option (1-12)")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.iseoptions.tradefeed.itch.v2.1.expirationyear", ftypes.UINT8, nil, nil, nil, "Last two digits of the year of the option expiration")
-omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.iseoptions.tradefeed.itch.v2.1.explicitstrikeprice", ftypes.UINT32, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.iseoptions.tradefeed.itch.v2.1.explicitstrikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.instrument_id = ProtoField.new("Instrument Id", "nasdaq.iseoptions.tradefeed.itch.v2.1.instrumentid", ftypes.UINT32, nil, nil, nil, "Integer ID of the option, as defined in the Options Directory Message.")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.iseoptions.tradefeed.itch.v2.1.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.iseoptions.tradefeed.itch.v2.1.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
@@ -35,11 +35,11 @@ omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.message_type = ProtoField.new("
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.mpv = ProtoField.new("Mpv", "nasdaq.iseoptions.tradefeed.itch.v2.1.mpv", ftypes.STRING, nil, nil, nil, "Minimum Price Variation for this option.")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.option_type = ProtoField.new("Option Type", "nasdaq.iseoptions.tradefeed.itch.v2.1.optiontype", ftypes.STRING, nil, nil, nil, "Call, Put, or Not Applicable")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.original_cross_id = ProtoField.new("Original Cross Id", "nasdaq.iseoptions.tradefeed.itch.v2.1.originalcrossid", ftypes.UINT32, nil, nil, nil, "Indicates the internal control number (cross id) associated with the given options trade transaction")
-omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.original_price = ProtoField.new("Original Price", "nasdaq.iseoptions.tradefeed.itch.v2.1.originalprice", ftypes.UINT32, nil, nil, nil, "Reported Premium Price of an option contract in the original trade report message on this feed.")
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.original_price = ProtoField.new("Original Price", "nasdaq.iseoptions.tradefeed.itch.v2.1.originalprice", ftypes.DOUBLE, nil, nil, nil, "Reported Premium Price of an option contract in the original trade report message on this feed.")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.iseoptions.tradefeed.itch.v2.1.originalvolume", ftypes.UINT32, nil, nil, nil, "Reported number of contracts in the original trade report message on this feed.")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.iseoptions.tradefeed.itch.v2.1.packetlength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.password = ProtoField.new("Password", "nasdaq.iseoptions.tradefeed.itch.v2.1.password", ftypes.STRING, nil, nil, nil, "Login password")
-omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.price = ProtoField.new("Price", "nasdaq.iseoptions.tradefeed.itch.v2.1.price", ftypes.UINT32, nil, nil, nil, "Reflects the transaction (premium) price on the execution.")
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.price = ProtoField.new("Price", "nasdaq.iseoptions.tradefeed.itch.v2.1.price", ftypes.DOUBLE, nil, nil, nil, "Reflects the transaction (premium) price on the execution.")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.iseoptions.tradefeed.itch.v2.1.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.iseoptions.tradefeed.itch.v2.1.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.iseoptions.tradefeed.itch.v2.1.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
@@ -118,7 +118,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_iseoptions_tradefeed_itch_v2_1.timestamp_format = 2
+nasdaq_iseoptions_tradefeed_itch_v2_1.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -155,7 +155,7 @@ omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_padding = Pref.bool("Show P
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_iseoptions_tradefeed_itch_v2_1.prefs_changed()
@@ -608,11 +608,17 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.explicit_strike_price.display = function(v
   return "Explicit Strike Price: "..value
 end
 
+-- Translate: Explicit Strike Price
+nasdaq_iseoptions_tradefeed_itch_v2_1.explicit_strike_price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Explicit Strike Price
 nasdaq_iseoptions_tradefeed_itch_v2_1.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_tradefeed_itch_v2_1.explicit_strike_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_iseoptions_tradefeed_itch_v2_1.explicit_strike_price.translate(raw)
   local display = nasdaq_iseoptions_tradefeed_itch_v2_1.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.explicit_strike_price, range, value, display)
@@ -812,11 +818,17 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.original_price.display = function(value)
   return "Original Price: "..value
 end
 
+-- Translate: Original Price
+nasdaq_iseoptions_tradefeed_itch_v2_1.original_price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Original Price
 nasdaq_iseoptions_tradefeed_itch_v2_1.original_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_tradefeed_itch_v2_1.original_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_iseoptions_tradefeed_itch_v2_1.original_price.translate(raw)
   local display = nasdaq_iseoptions_tradefeed_itch_v2_1.original_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.original_price, range, value, display)
@@ -904,11 +916,17 @@ nasdaq_iseoptions_tradefeed_itch_v2_1.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+nasdaq_iseoptions_tradefeed_itch_v2_1.price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_iseoptions_tradefeed_itch_v2_1.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_tradefeed_itch_v2_1.price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_iseoptions_tradefeed_itch_v2_1.price.translate(raw)
   local display = nasdaq_iseoptions_tradefeed_itch_v2_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_iseoptions_tradefeed_itch_v2_1.fields.price, range, value, display)

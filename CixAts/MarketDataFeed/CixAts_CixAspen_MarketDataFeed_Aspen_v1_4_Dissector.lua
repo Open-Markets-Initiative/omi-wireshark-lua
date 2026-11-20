@@ -45,8 +45,8 @@ omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.side = ProtoField.new("Side
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.state = ProtoField.new("State", "cixats.cixaspen.marketdatafeed.aspen.v1.4.state", ftypes.STRING, nil, nil, nil, "Symbol trading state")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.symbol = ProtoField.new("Symbol", "cixats.cixaspen.marketdatafeed.aspen.v1.4.symbol", ftypes.STRING, nil, nil, nil, "Stock Symbol")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.symbol_id = ProtoField.new("Symbol Id", "cixats.cixaspen.marketdatafeed.aspen.v1.4.symbolid", ftypes.UINT16, nil, nil, nil, "Symbol Index")
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.timestamp = ProtoField.new("Timestamp", "cixats.cixaspen.marketdatafeed.aspen.v1.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds Since Epoch (UTC)")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.timestamp_utc = ProtoField.new("Timestamp", "cixats.cixaspen.marketdatafeed.aspen.v1.4.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds Since Epoch (UTC)")
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.timestamp = ProtoField.new("Timestamp", "cixats.cixaspen.marketdatafeed.aspen.v1.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds Since Epoch (UTC)")
 
 -- CixAts CixAspen MarketDataFeed Aspen 1.4 Framing
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.fields.message = ProtoField.new("Message", "cixats.cixaspen.marketdatafeed.aspen.v1.4.message", ftypes.STRING)
@@ -86,7 +86,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cixats_cixaspen_marketdatafeed_aspen_v1_4.timestamp_format = 2
+cixats_cixaspen_marketdatafeed_aspen_v1_4.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -107,7 +107,7 @@ omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_structs = Pref.bool("Sh
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cixats_cixaspen_marketdatafeed_aspen_v1_4.prefs_changed()

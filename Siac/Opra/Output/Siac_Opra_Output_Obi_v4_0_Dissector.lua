@@ -38,8 +38,8 @@ omi_siac_opra_output_obi_v4_0.fields.block_checksum = ProtoField.new("Block Chec
 omi_siac_opra_output_obi_v4_0.fields.block_pad_byte = ProtoField.new("Block Pad Byte", "siac.opra.output.obi.v4.0.blockpadbyte", ftypes.UINT8)
 omi_siac_opra_output_obi_v4_0.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.output.obi.v4.0.blocksequencenumber", ftypes.UINT32, nil, nil, nil, "Packet Sequence Number")
 omi_siac_opra_output_obi_v4_0.fields.block_size = ProtoField.new("Block Size", "siac.opra.output.obi.v4.0.blocksize", ftypes.UINT16, nil, nil, nil, "Size in bytes of entire transmission block")
-omi_siac_opra_output_obi_v4_0.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.output.obi.v4.0.blocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_opra_output_obi_v4_0.fields.block_timestamp_utc = ProtoField.new("Block Timestamp", "siac.opra.output.obi.v4.0.blocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_siac_opra_output_obi_v4_0.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.output.obi.v4.0.blocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_opra_output_obi_v4_0.fields.control_category = ProtoField.new("Control Category", "siac.opra.output.obi.v4.0.controlcategory", ftypes.STRING, nil, nil, nil, "Control Message")
 omi_siac_opra_output_obi_v4_0.fields.control_message_type = ProtoField.new("Control Message Type", "siac.opra.output.obi.v4.0.controlmessagetype", ftypes.STRING)
 omi_siac_opra_output_obi_v4_0.fields.data_feed_indicator = ProtoField.new("Data Feed Indicator", "siac.opra.output.obi.v4.0.datafeedindicator", ftypes.STRING, nil, nil, nil, "Value is ‘O’ for OPRA")
@@ -82,8 +82,8 @@ omi_siac_opra_output_obi_v4_0.fields.price = ProtoField.new("Price", "siac.opra.
 omi_siac_opra_output_obi_v4_0.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.output.obi.v4.0.reserved1", ftypes.BYTES, nil, nil, nil, "One reserved byte")
 omi_siac_opra_output_obi_v4_0.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.output.obi.v4.0.reserved4", ftypes.BYTES, nil, nil, nil, "Four reserved bytes")
 omi_siac_opra_output_obi_v4_0.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.opra.output.obi.v4.0.retransmissionindicator", ftypes.STRING, nil, nil, nil, "Contains either a space; not a retransmitted message or V; indicating a retransmission of the block.")
-omi_siac_opra_output_obi_v4_0.fields.seconds = ProtoField.new("Seconds", "siac.opra.output.obi.v4.0.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Contains the number seconds from epoch 1/1/1970, 00:00:00 UTC")
 omi_siac_opra_output_obi_v4_0.fields.seconds_utc = ProtoField.new("Seconds", "siac.opra.output.obi.v4.0.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Contains the number seconds from epoch 1/1/1970, 00:00:00 UTC")
+omi_siac_opra_output_obi_v4_0.fields.seconds = ProtoField.new("Seconds", "siac.opra.output.obi.v4.0.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Contains the number seconds from epoch 1/1/1970, 00:00:00 UTC")
 omi_siac_opra_output_obi_v4_0.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.output.obi.v4.0.securitysymbol", ftypes.STRING, nil, nil, nil, "Identifies the unique symbol assigned to the underlying security.")
 omi_siac_opra_output_obi_v4_0.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.output.obi.v4.0.securitysymbolshort", ftypes.STRING, nil, nil, nil, "Identifies the unique symbol assigned to the underlying security.")
 omi_siac_opra_output_obi_v4_0.fields.session_indicator = ProtoField.new("Session Indicator", "siac.opra.output.obi.v4.0.sessionindicator", ftypes.UINT8, nil, nil, nil, "0x00 for regular trading session")
@@ -128,6 +128,11 @@ omi_siac_opra_output_obi_v4_0.fields.scaled_premium_price = ProtoField.new("Scal
 omi_siac_opra_output_obi_v4_0.fields.scaled_strike_price = ProtoField.new("Scaled Strike Price", "siac.opra.output.obi.v4.0.scaledstrikeprice", ftypes.DOUBLE)
 omi_siac_opra_output_obi_v4_0.fields.scaled_underlying_price = ProtoField.new("Scaled Underlying Price", "siac.opra.output.obi.v4.0.scaledunderlyingprice", ftypes.DOUBLE)
 
+-- Siac Opra Output Obi 4.0 Expert Info
+siac_opra_output_obi_v4_0.experts = {}
+siac_opra_output_obi_v4_0.experts.block_checksum_incorrect = ProtoExpert.new("siac.opra.output.obi.v4.0.blockchecksumincorrect", "Block Checksum incorrect: not the checksum of the bytes it covers", expert.group.CHECKSUM, expert.severity.ERROR)
+omi_siac_opra_output_obi_v4_0.experts = { siac_opra_output_obi_v4_0.experts.block_checksum_incorrect }
+
 -----------------------------------------------------------------------
 -- Siac Opra Output Obi 4.0 Formatting
 -----------------------------------------------------------------------
@@ -139,10 +144,13 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-siac_opra_output_obi_v4_0.timestamp_format = 2
+siac_opra_output_obi_v4_0.timestamp_format = 3
 
 -- Scaled Strike Price format (true = decimal-scaled, false = raw mantissa)
 siac_opra_output_obi_v4_0.format_decimals = true
+
+-- Checksums are verified only where the reader asks
+siac_opra_output_obi_v4_0.verify_checksums = false
 
 
 -----------------------------------------------------------------------
@@ -166,7 +174,9 @@ omi_siac_opra_output_obi_v4_0.prefs.show_padding = Pref.bool("Show Padding", sho
 omi_siac_opra_output_obi_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_siac_opra_output_obi_v4_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_siac_opra_output_obi_v4_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_siac_opra_output_obi_v4_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
+omi_siac_opra_output_obi_v4_0.prefs.verify_checksums = Pref.bool("Verify Checksums", false, "Compute each checksum the protocol carries and compare it with the one sent. Off by default: a capture taken on the sending host often holds checksums filled in after it was captured")
 
 -- Handle changed preferences
 function omi_siac_opra_output_obi_v4_0.prefs_changed()
@@ -193,6 +203,9 @@ function omi_siac_opra_output_obi_v4_0.prefs_changed()
   if siac_opra_output_obi_v4_0.timestamp_format ~= omi_siac_opra_output_obi_v4_0.prefs.timestamp_format then
     siac_opra_output_obi_v4_0.timestamp_format = omi_siac_opra_output_obi_v4_0.prefs.timestamp_format
   end
+  if siac_opra_output_obi_v4_0.verify_checksums ~= omi_siac_opra_output_obi_v4_0.prefs.verify_checksums then
+    siac_opra_output_obi_v4_0.verify_checksums = omi_siac_opra_output_obi_v4_0.prefs.verify_checksums
+  end
 end
 
 
@@ -212,6 +225,19 @@ trim_right_spaces = function(str)
 end
 
 
+-- Sum checksum: every byte of the range added, those of the checksum itself left out, reduced by the modulus
+local function checksum_sum(range, skip, length, modulus)
+  local bytes = range:bytes()
+  local sum = 0
+
+  for index = 0, bytes:len() - 1 do
+    if index < skip or index >= skip + length then
+      sum = sum + bytes:get_index(index)
+    end
+  end
+
+  return sum % modulus
+end
 -----------------------------------------------------------------------
 -- Siac Opra Output Obi 4.0 Fields
 -----------------------------------------------------------------------
@@ -705,7 +731,22 @@ siac_opra_output_obi_v4_0.block_checksum.dissect = function(buffer, offset, pack
   local value = range:uint()
   local display = siac_opra_output_obi_v4_0.block_checksum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_siac_opra_output_obi_v4_0.fields.block_checksum, range, value, display)
+  local item = parent:add(omi_siac_opra_output_obi_v4_0.fields.block_checksum, range, value, display)
+
+  -- Verified only where the reader asks: the sum of the bytes covered, its own left out
+  if siac_opra_output_obi_v4_0.verify_checksums then
+    local start = offset - 19
+    local computed = checksum_sum(buffer(start, buffer:len() - start), offset - start, length, 65536)
+
+    if computed == value then
+      item:append_text(" [correct]")
+    else
+      item:append_text(" [incorrect, should be "..computed.."]")
+      item:add_proto_expert_info(siac_opra_output_obi_v4_0.experts.block_checksum_incorrect, "Block Checksum incorrect: "..value..", should be "..computed)
+    end
+  else
+    item:append_text(" [unverified]")
+  end
 
   return offset + length, value
 end
@@ -4470,8 +4511,8 @@ siac_opra_output_obi_v4_0.block_timestamp.dissect = function(buffer, offset, pac
     local length = siac_opra_output_obi_v4_0.block_timestamp.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_opra_output_obi_v4_0.fields.block_timestamp
-    if siac_opra_output_obi_v4_0.timestamp_format == 3 then field = omi_siac_opra_output_obi_v4_0.fields.block_timestamp_utc end
+    local field = omi_siac_opra_output_obi_v4_0.fields.block_timestamp_utc
+    if siac_opra_output_obi_v4_0.timestamp_format == 2 then field = omi_siac_opra_output_obi_v4_0.fields.block_timestamp end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_opra_output_obi_v4_0.block_timestamp.fields(buffer, offset, packet, parent)
 

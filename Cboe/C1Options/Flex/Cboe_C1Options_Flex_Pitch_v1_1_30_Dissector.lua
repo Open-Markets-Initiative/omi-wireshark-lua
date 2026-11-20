@@ -35,8 +35,8 @@ omi_cboe_c1options_flex_pitch_v1_1_30.fields.day = ProtoField.new("Day", "cboe.c
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.decimal_strike = ProtoField.new("Decimal Strike", "cboe.c1options.flex.pitch.v1.1.30.decimalstrike", ftypes.STRING, nil, nil, nil, "Decimal strike (if not percentage) left padded with zero. If percentage, field is space padded.")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.delta_value = ProtoField.new("Delta Value", "cboe.c1options.flex.pitch.v1.1.30.deltavalue", ftypes.INT16, nil, nil, nil, "Delta value, from -1.0000 to 1.0000 (four implied decimal places).")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.dollar_strike = ProtoField.new("Dollar Strike", "cboe.c1options.flex.pitch.v1.1.30.dollarstrike", ftypes.STRING, nil, nil, nil, "Dollar strike (if not percentage) left padded with zero. If percentage, field is space padded.")
-omi_cboe_c1options_flex_pitch_v1_1_30.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.flex.pitch.v1.1.30.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.flex.pitch.v1.1.30.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.flex.pitch.v1.1.30.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.flex.pitch.v1.1.30.executionid", ftypes.UINT64, nil, nil, nil, "Day specific identifier assigned to this execution")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.exercise_style = ProtoField.new("Exercise Style", "cboe.c1options.flex.pitch.v1.1.30.exercisestyle", ftypes.STRING, nil, nil, nil, "Exercise style indicator")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.flex.pitch.v1.1.30.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
@@ -52,8 +52,8 @@ omi_cboe_c1options_flex_pitch_v1_1_30.fields.message_leg_count = ProtoField.new(
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.flex.pitch.v1.1.30.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.message_number = ProtoField.new("Message Number", "cboe.c1options.flex.pitch.v1.1.30.messagenumber", ftypes.UINT8, nil, nil, nil, "Message number of the message count, e.g. 1 of 5.")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.flex.pitch.v1.1.30.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_cboe_c1options_flex_pitch_v1_1_30.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.flex.pitch.v1.1.30.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.c1options.flex.pitch.v1.1.30.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_flex_pitch_v1_1_30.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.flex.pitch.v1.1.30.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.month = ProtoField.new("Month", "cboe.c1options.flex.pitch.v1.1.30.month", ftypes.STRING, nil, nil, nil, "Two digit month")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.observation_day = ProtoField.new("Observation Day", "cboe.c1options.flex.pitch.v1.1.30.observationday", ftypes.STRING, nil, nil, nil, "Two digit observation day of month. Valid only for Asian and Cliquet options, otherwise space padded.")
 omi_cboe_c1options_flex_pitch_v1_1_30.fields.order_id = ProtoField.new("Order Id", "cboe.c1options.flex.pitch.v1.1.30.orderid", ftypes.UINT64, nil, nil, nil, "Order ID of the executed order.")
@@ -130,7 +130,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_c1options_flex_pitch_v1_1_30.timestamp_format = 2
+cboe_c1options_flex_pitch_v1_1_30.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 cboe_c1options_flex_pitch_v1_1_30.zone_offset = 0
@@ -160,7 +160,7 @@ omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_padding = Pref.bool("Show Paddi
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_c1options_flex_pitch_v1_1_30.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_c1options_flex_pitch_v1_1_30.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_cboe_c1options_flex_pitch_v1_1_30.prefs.zone_offset = Pref.string("America/New York Utc Offset", "", "Offset of America/New York from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

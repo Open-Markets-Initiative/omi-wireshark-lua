@@ -32,10 +32,10 @@ omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.business_rej
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.channel = ProtoField.new("Channel", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.channel", ftypes.UINT16, nil, nil, nil, "Channel number; channels in the same market are not repeated and the data content of one channel is in order")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.channel_no = ProtoField.new("Channel No", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.channelno", ftypes.UINT16, nil, nil, nil, "Channel code")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.checksum = ProtoField.new("Checksum", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.checksum", ftypes.UINT32, nil, nil, nil, "Adler32 checksum calculated from the start of the packet header to the end of the packet body")
-omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_end_time = ProtoField.new("Complex Event End Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.complexeventendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ending time of the cooling-off period")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_end_time_utc = ProtoField.new("Complex Event End Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.complexeventendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Ending time of the cooling-off period")
-omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_start_time = ProtoField.new("Complex Event Start Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.complexeventstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Starting time of the cooling-off period")
+omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_end_time = ProtoField.new("Complex Event End Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.complexeventendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ending time of the cooling-off period")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_start_time_utc = ProtoField.new("Complex Event Start Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.complexeventstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Starting time of the cooling-off period")
+omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_start_time = ProtoField.new("Complex Event Start Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.complexeventstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Starting time of the cooling-off period")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_times = ProtoField.new("Complex Event Times", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.complexeventtimes", ftypes.STRING, nil, nil, nil, "The starting and ending time of each cooling-off period of VCM")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.compress = ProtoField.new("Compress", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.compress", ftypes.UINT16, {[0]="No Compression", [1]="Zlib Compression", [2]="Reserved 2", [3]="Reserved 3"}, base.DEC, 0x0C00, "The mark of compression applied to the packet body")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.compressed_size = ProtoField.new("Compressed Size", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.compressedsize", ftypes.UINT32, nil, nil, nil, "The length of the transmitted packet body after compression")
@@ -94,8 +94,8 @@ omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.offer_appl_s
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.ord_type = ProtoField.new("Ord Type", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.ordtype", ftypes.STRING, nil, nil, nil, "Type of order")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.order_qty = ProtoField.new("Order Qty", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.orderqty", ftypes.DOUBLE, nil, nil, nil, "Quantity of orders")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orders = ProtoField.new("Orders", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.orders", ftypes.STRING, nil, nil, nil, "The individual order quantities disclosed at this price level")
-omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orig_time = ProtoField.new("Orig Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Originated time of data")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orig_time_utc = ProtoField.new("Orig Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Originated time of data")
+omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orig_time = ProtoField.new("Orig Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Originated time of data")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.original_size = ProtoField.new("Original Size", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.originalsize", ftypes.UINT32, nil, nil, nil, "The length of the packet body before compression and encryption")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.packet_trailer = ProtoField.new("Packet Trailer", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.packettrailer", ftypes.STRING, nil, nil, nil, "Szse Mddp Packet Trailer, transmitted without encryption")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.packet_type = ProtoField.new("Packet Type", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.packettype", ftypes.UINT16, {[0]="Management Packet", [1]="Application Packet"}, base.DEC, 0x6000, "Mark of packet type")
@@ -133,10 +133,10 @@ omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.switch = Pro
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.thredhold_amount = ProtoField.new("Thredhold Amount", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.thredholdamount", ftypes.DOUBLE, nil, nil, nil, "Daily initial amount")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.total_value_trade = ProtoField.new("Total Value Trade", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.totalvaluetrade", ftypes.DOUBLE, nil, nil, nil, "Total value of trades")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.total_volume_trade = ProtoField.new("Total Volume Trade", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.totalvolumetrade", ftypes.DOUBLE, nil, nil, nil, "Total volume of trades")
-omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_end_time = ProtoField.new("Trad Ses End Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradsesendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ending time of a trading session, reserved")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_end_time_utc = ProtoField.new("Trad Ses End Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradsesendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Ending time of a trading session, reserved")
-omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_start_time = ProtoField.new("Trad Ses Start Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradsesstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Starting time of a trading session, reserved")
+omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_end_time = ProtoField.new("Trad Ses End Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradsesendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ending time of a trading session, reserved")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_start_time_utc = ProtoField.new("Trad Ses Start Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradsesstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Starting time of a trading session, reserved")
+omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_start_time = ProtoField.new("Trad Ses Start Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradsesstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Starting time of a trading session, reserved")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradsesstatus", ftypes.UINT16, nil, nil, nil, "Trading session status, reserved")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trade_date = ProtoField.new("Trade Date", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradedate", ftypes.UINT32)
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trade_md_entries = ProtoField.new("Trade Md Entries", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.trademdentries", ftypes.STRING, nil, nil, nil, "Market data entries carrying a price and a quantity only")
@@ -145,8 +145,8 @@ omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trading_phas
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trading_session_id = ProtoField.new("Trading Session Id", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradingsessionid", ftypes.STRING)
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradingsessionsubid", ftypes.STRING, nil, nil, nil, "Trading session sub-ID")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trading_type = ProtoField.new("Trading Type", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.tradingtype", ftypes.UINT8)
-omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.transac_time = ProtoField.new("Transac Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.transactime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of order")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.transac_time_utc = ProtoField.new("Transac Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.transactime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of order")
+omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.transac_time = ProtoField.new("Transac Time", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.transactime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of order")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.user_num = ProtoField.new("User Num", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.usernum", ftypes.UINT16, nil, nil, nil, "The number of client users connected to this Vendor Supplied System at the current time")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.version = ProtoField.new("Version", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.version", ftypes.UINT8, nil, nil, nil, "Protocol version number, currently 0x01")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.version_code = ProtoField.new("Version Code", "szse.szsesecurities.multicastmarketdata.szsebinary.v1.17.versioncode", ftypes.STRING, nil, nil, nil, "Code of version")
@@ -217,7 +217,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format = 2
+szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -244,7 +244,7 @@ omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.show_padding 
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.prefs_changed()
@@ -742,8 +742,8 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.complex_event_end_time.
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_end_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_end_time_utc end
+  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_end_time_utc
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_end_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -789,8 +789,8 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.complex_event_start_tim
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_start_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_start_time_utc end
+  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_start_time_utc
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.complex_event_start_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2081,8 +2081,8 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.orig_time.dissect = fun
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orig_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orig_time_utc end
+  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orig_time_utc
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.orig_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2911,8 +2911,8 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.trad_ses_end_time.disse
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_end_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_end_time_utc end
+  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_end_time_utc
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_end_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2958,8 +2958,8 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.trad_ses_start_time.dis
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_start_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_start_time_utc end
+  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_start_time_utc
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.trad_ses_start_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -3199,8 +3199,8 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.transac_time.dissect = 
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.transac_time
-  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 3 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.transac_time_utc end
+  local field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.transac_time_utc
+  if szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.fields.transac_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)

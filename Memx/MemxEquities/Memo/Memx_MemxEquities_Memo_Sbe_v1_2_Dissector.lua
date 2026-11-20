@@ -32,8 +32,8 @@ omi_memx_memxequities_memo_sbe_v1_2.fields.exec_id = ProtoField.new("Exec Id", "
 omi_memx_memxequities_memo_sbe_v1_2.fields.exec_inst = ProtoField.new("Exec Inst", "memx.memxequities.memo.sbe.v1.2.execinst", ftypes.STRING, nil, nil, nil, "ExecInstType bit set")
 omi_memx_memxequities_memo_sbe_v1_2.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "memx.memxequities.memo.sbe.v1.2.execrefid", ftypes.UINT64, nil, nil, nil, "The ExecID of the trade being corrected")
 omi_memx_memxequities_memo_sbe_v1_2.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "memx.memxequities.memo.sbe.v1.2.execrestatementreason", ftypes.UINT8, nil, nil, nil, "The reason for the restatement.")
-omi_memx_memxequities_memo_sbe_v1_2.fields.expire_time = ProtoField.new("Expire Time", "memx.memxequities.memo.sbe.v1.2.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The expiration time of a GoodForTime TimeInForce order. Expiration time must be at least a 1 millisecond in the future. If omitted, expiration time will be set to the end of the MEMX post-market trading session. Specified in UTC timestamp since unix epoch in nanoseconds.")
 omi_memx_memxequities_memo_sbe_v1_2.fields.expire_time_utc = ProtoField.new("Expire Time", "memx.memxequities.memo.sbe.v1.2.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The expiration time of a GoodForTime TimeInForce order. Expiration time must be at least a 1 millisecond in the future. If omitted, expiration time will be set to the end of the MEMX post-market trading session. Specified in UTC timestamp since unix epoch in nanoseconds.")
+omi_memx_memxequities_memo_sbe_v1_2.fields.expire_time = ProtoField.new("Expire Time", "memx.memxequities.memo.sbe.v1.2.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The expiration time of a GoodForTime TimeInForce order. Expiration time must be at least a 1 millisecond in the future. If omitted, expiration time will be set to the end of the MEMX post-market trading session. Specified in UTC timestamp since unix epoch in nanoseconds.")
 omi_memx_memxequities_memo_sbe_v1_2.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "memx.memxequities.memo.sbe.v1.2.externalroutingnotallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "ExternalRoutingNotAllowed")
 omi_memx_memxequities_memo_sbe_v1_2.fields.higher_than_price = ProtoField.new("Higher Than Price", "memx.memxequities.memo.sbe.v1.2.higherthanprice", ftypes.DOUBLE, nil, nil, nil, "For Mass Cancel scenario, Any order with a higher or equal limit price would be included in the cancel filter. This filter can only be used in conjunction with a specific symbol.")
 omi_memx_memxequities_memo_sbe_v1_2.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "memx.memxequities.memo.sbe.v1.2.intermarketsweep", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "IntermarketSweep")
@@ -85,8 +85,8 @@ omi_memx_memxequities_memo_sbe_v1_2.fields.reserved_13 = ProtoField.new("Reserve
 omi_memx_memxequities_memo_sbe_v1_2.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.memxequities.memo.sbe.v1.2.riskgroupid", ftypes.UINT16, nil, nil, nil, "RiskGroupId")
 omi_memx_memxequities_memo_sbe_v1_2.fields.schema_id = ProtoField.new("Schema Id", "memx.memxequities.memo.sbe.v1.2.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_memx_memxequities_memo_sbe_v1_2.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "memx.memxequities.memo.sbe.v1.2.selftradeprevention", ftypes.UINT8, nil, nil, nil, "Defines the desired behavior in the event of a wash. The UINT8 Null (0xFF) value disables self trade prevention.")
-omi_memx_memxequities_memo_sbe_v1_2.fields.sending_time = ProtoField.new("Sending Time", "memx.memxequities.memo.sbe.v1.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the ExecutionReport was sent. UTC timestamp since unix epoch with nanosecond precision.")
 omi_memx_memxequities_memo_sbe_v1_2.fields.sending_time_utc = ProtoField.new("Sending Time", "memx.memxequities.memo.sbe.v1.2.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the ExecutionReport was sent. UTC timestamp since unix epoch with nanosecond precision.")
+omi_memx_memxequities_memo_sbe_v1_2.fields.sending_time = ProtoField.new("Sending Time", "memx.memxequities.memo.sbe.v1.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the ExecutionReport was sent. UTC timestamp since unix epoch with nanosecond precision.")
 omi_memx_memxequities_memo_sbe_v1_2.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxequities.memo.sbe.v1.2.sequencedmessage", ftypes.STRING, nil, nil, nil, "Memx Tcp sequenced message")
 omi_memx_memxequities_memo_sbe_v1_2.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "memx.memxequities.memo.sbe.v1.2.serversbemessage", ftypes.STRING, nil, nil, nil, "Sbe message sent by Memx to the firm")
 omi_memx_memxequities_memo_sbe_v1_2.fields.session_id = ProtoField.new("Session Id", "memx.memxequities.memo.sbe.v1.2.sessionid", ftypes.UINT64, nil, nil, nil, "The identifier for the session for which data is desired")
@@ -107,8 +107,8 @@ omi_memx_memxequities_memo_sbe_v1_2.fields.time_in_force = ProtoField.new("Time 
 omi_memx_memxequities_memo_sbe_v1_2.fields.token = ProtoField.new("Token", "memx.memxequities.memo.sbe.v1.2.token", ftypes.STRING, nil, nil, nil, "Login Token")
 omi_memx_memxequities_memo_sbe_v1_2.fields.token_type = ProtoField.new("Token Type", "memx.memxequities.memo.sbe.v1.2.tokentype", ftypes.STRING, nil, nil, nil, "Login Token type")
 omi_memx_memxequities_memo_sbe_v1_2.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.memxequities.memo.sbe.v1.2.totalsequencecount", ftypes.UINT64, nil, nil, nil, "The count of messages that were sent on this stream")
-omi_memx_memxequities_memo_sbe_v1_2.fields.transact_time = ProtoField.new("Transact Time", "memx.memxequities.memo.sbe.v1.2.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
 omi_memx_memxequities_memo_sbe_v1_2.fields.transact_time_utc = ProtoField.new("Transact Time", "memx.memxequities.memo.sbe.v1.2.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
+omi_memx_memxequities_memo_sbe_v1_2.fields.transact_time = ProtoField.new("Transact Time", "memx.memxequities.memo.sbe.v1.2.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
 omi_memx_memxequities_memo_sbe_v1_2.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.memxequities.memo.sbe.v1.2.trdmatchid", ftypes.UINT64, nil, nil, nil, "Identifier assigned to the Trade by the matching system. In case of executions on orders routed to another exchange, the TrdMatchID field will be filled on a best-effort basis.")
 omi_memx_memxequities_memo_sbe_v1_2.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "memx.memxequities.memo.sbe.v1.2.trdmatchingid", ftypes.UINT64, nil, nil, nil, "TrdMatchingID")
 omi_memx_memxequities_memo_sbe_v1_2.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.memxequities.memo.sbe.v1.2.unsequencedmessage", ftypes.STRING, nil, nil, nil, "Memx Tcp unsequenced message")
@@ -152,7 +152,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-memx_memxequities_memo_sbe_v1_2.timestamp_format = 2
+memx_memxequities_memo_sbe_v1_2.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -181,7 +181,7 @@ omi_memx_memxequities_memo_sbe_v1_2.prefs.show_structs = Pref.bool("Show Structs
 omi_memx_memxequities_memo_sbe_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_memx_memxequities_memo_sbe_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 
-omi_memx_memxequities_memo_sbe_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_memx_memxequities_memo_sbe_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_memx_memxequities_memo_sbe_v1_2.prefs_changed()

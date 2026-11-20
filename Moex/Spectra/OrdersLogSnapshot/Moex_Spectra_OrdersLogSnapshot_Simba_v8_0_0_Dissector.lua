@@ -62,15 +62,15 @@ omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.rpt_seq = ProtoField.new(
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.schema_id = ProtoField.new("Schema Id", "moex.spectra.orderslogsnapshot.simba.v8.0.0.schemaid", ftypes.UINT16, nil, nil, nil, "Message schema identifier")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.second_leg = ProtoField.new("Second Leg", "moex.spectra.orderslogsnapshot.simba.v8.0.0.secondleg", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000000004000, "SecondLeg")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.security_id = ProtoField.new("Security Id", "moex.spectra.orderslogsnapshot.simba.v8.0.0.securityid", ftypes.INT32, nil, nil, nil, "SecurityID")
-omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.sending_time = ProtoField.new("Sending Time", "moex.spectra.orderslogsnapshot.simba.v8.0.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.sending_time_utc = ProtoField.new("Sending Time", "moex.spectra.orderslogsnapshot.simba.v8.0.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "SendingTime")
+omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.sending_time = ProtoField.new("Sending Time", "moex.spectra.orderslogsnapshot.simba.v8.0.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.start_of_snapshot = ProtoField.new("Start Of Snapshot", "moex.spectra.orderslogsnapshot.simba.v8.0.0.startofsnapshot", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "StartOfSnapshot")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.synthetic = ProtoField.new("Synthetic", "moex.spectra.orderslogsnapshot.simba.v8.0.0.synthetic", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000200000000000)
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.synthetic_passive = ProtoField.new("Synthetic Passive", "moex.spectra.orderslogsnapshot.simba.v8.0.0.syntheticpassive", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0200000000000000, "SyntheticPassive")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.template_id = ProtoField.new("Template Id", "moex.spectra.orderslogsnapshot.simba.v8.0.0.templateid", ftypes.UINT16, nil, nil, nil, "Message template identifier")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.trade_id_optional = ProtoField.new("Trade Id Optional", "moex.spectra.orderslogsnapshot.simba.v8.0.0.tradeidoptional", ftypes.INT64, nil, nil, nil, "Trade ID")
-omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.transact_time = ProtoField.new("Transact Time", "moex.spectra.orderslogsnapshot.simba.v8.0.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.transact_time_utc = ProtoField.new("Transact Time", "moex.spectra.orderslogsnapshot.simba.v8.0.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TransactTime")
+omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.transact_time = ProtoField.new("Transact Time", "moex.spectra.orderslogsnapshot.simba.v8.0.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.unused_bit_28 = ProtoField.new("Unused Bit 28", "moex.spectra.orderslogsnapshot.simba.v8.0.0.unusedbit28", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000010000000, "1 unused bit")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.unused_bit_30 = ProtoField.new("Unused Bit 30", "moex.spectra.orderslogsnapshot.simba.v8.0.0.unusedbit30", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x0000000040000000, "1 unused bit")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.fields.unused_bit_61 = ProtoField.new("Unused Bit 61", "moex.spectra.orderslogsnapshot.simba.v8.0.0.unusedbit61", ftypes.UINT64, {[0]="No", [1]="Yes"}, base.DEC, 0x2000000000000000, "1 unused bit")
@@ -111,7 +111,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-moex_spectra_orderslogsnapshot_simba_v8_0_0.timestamp_format = 2
+moex_spectra_orderslogsnapshot_simba_v8_0_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -134,7 +134,7 @@ omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.prefs.show_application_messages 
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_moex_spectra_orderslogsnapshot_simba_v8_0_0.prefs_changed()

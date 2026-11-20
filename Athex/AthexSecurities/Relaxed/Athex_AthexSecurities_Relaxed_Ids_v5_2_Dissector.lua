@@ -20,8 +20,8 @@ omi_athex_athexsecurities_relaxed_ids_v5_2.fields.datf = ProtoField.new("Datf", 
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.deferral_indicator = ProtoField.new("Deferral Indicator", "athex.athexsecurities.relaxed.ids.v5.2.deferralindicator", ftypes.STRING, nil, nil, nil, "Whether publication of the trade is deferred")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.delivery_type = ProtoField.new("Delivery Type", "athex.athexsecurities.relaxed.ids.v5.2.deliverytype", ftypes.STRING, nil, nil, nil, "How the instrument settles. Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.etx = ProtoField.new("Etx", "athex.athexsecurities.relaxed.ids.v5.2.etx", ftypes.INT8, nil, nil, nil, "Signals the end of the packet's text")
-omi_athex_athexsecurities_relaxed_ids_v5_2.fields.event_time = ProtoField.new("Event Time", "athex.athexsecurities.relaxed.ids.v5.2.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the event was processed, expressed as Utc, which may be prior to the current trading date")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.event_time_utc = ProtoField.new("Event Time", "athex.athexsecurities.relaxed.ids.v5.2.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the event was processed, expressed as Utc, which may be prior to the current trading date")
+omi_athex_athexsecurities_relaxed_ids_v5_2.fields.event_time = ProtoField.new("Event Time", "athex.athexsecurities.relaxed.ids.v5.2.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the event was processed, expressed as Utc, which may be prior to the current trading date")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.expiry_date = ProtoField.new("Expiry Date", "athex.athexsecurities.relaxed.ids.v5.2.expirydate", ftypes.STRING, nil, nil, nil, "Expiry date of the instrument. Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.fula = ProtoField.new("Fula", "athex.athexsecurities.relaxed.ids.v5.2.fula", ftypes.STRING, nil, nil, nil, "Mifid II deferral flag FULA")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.fulf = ProtoField.new("Fulf", "athex.athexsecurities.relaxed.ids.v5.2.fulf", ftypes.STRING, nil, nil, nil, "Mifid II deferral flag FULF")
@@ -49,8 +49,8 @@ omi_athex_athexsecurities_relaxed_ids_v5_2.fields.price = ProtoField.new("Price"
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.price_currency = ProtoField.new("Price Currency", "athex.athexsecurities.relaxed.ids.v5.2.pricecurrency", ftypes.STRING, nil, nil, nil, "Currency the price is expressed in. Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.price_multiplier = ProtoField.new("Price Multiplier", "athex.athexsecurities.relaxed.ids.v5.2.pricemultiplier", ftypes.DOUBLE, nil, nil, nil, "Price multiplier of the instrument. Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.price_notation = ProtoField.new("Price Notation", "athex.athexsecurities.relaxed.ids.v5.2.pricenotation", ftypes.STRING, nil, nil, nil, "How the price is expressed")
-omi_athex_athexsecurities_relaxed_ids_v5_2.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "athex.athexsecurities.relaxed.ids.v5.2.publicationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.publication_timestamp_utc = ProtoField.new("Publication Timestamp", "athex.athexsecurities.relaxed.ids.v5.2.publicationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
+omi_athex_athexsecurities_relaxed_ids_v5_2.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "athex.athexsecurities.relaxed.ids.v5.2.publicationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.quantity = ProtoField.new("Quantity", "athex.athexsecurities.relaxed.ids.v5.2.quantity", ftypes.DOUBLE, nil, nil, nil, "Seventeen fraction digits when the quantity is a number of units, and five when it is a monetary or nominal value")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.quantity_currency = ProtoField.new("Quantity Currency", "athex.athexsecurities.relaxed.ids.v5.2.quantitycurrency", ftypes.STRING, nil, nil, nil, "Currency the quantity is expressed in, and spaces when the Quantity expresses units. Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.quantity_in_measurement_unit = ProtoField.new("Quantity In Measurement Unit", "athex.athexsecurities.relaxed.ids.v5.2.quantityinmeasurementunit", ftypes.DOUBLE, nil, nil, nil, "Quantity expressed in the measurement unit. Conditionally required.")
@@ -66,8 +66,8 @@ omi_athex_athexsecurities_relaxed_ids_v5_2.fields.submitting_entity_identificati
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.term_of_the_underlying_index = ProtoField.new("Term Of The Underlying Index", "athex.athexsecurities.relaxed.ids.v5.2.termoftheunderlyingindex", ftypes.STRING, nil, nil, nil, "Three digits of term followed by its unit, DAYS, WEEK, MNTH or YEAR Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.trade_id = ProtoField.new("Trade Id", "athex.athexsecurities.relaxed.ids.v5.2.tradeid", ftypes.STRING, nil, nil, nil, "Identifier of the trade")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.trade_id_indicator = ProtoField.new("Trade Id Indicator", "athex.athexsecurities.relaxed.ids.v5.2.tradeidindicator", ftypes.STRING, nil, nil, nil, "Which system assigned the Trade ID")
-omi_athex_athexsecurities_relaxed_ids_v5_2.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "athex.athexsecurities.relaxed.ids.v5.2.tradingdateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time of the trade, expressed as Utc, which may be prior to the current trading date")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.trading_date_and_time_utc = ProtoField.new("Trading Date And Time", "athex.athexsecurities.relaxed.ids.v5.2.tradingdateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time of the trade, expressed as Utc, which may be prior to the current trading date")
+omi_athex_athexsecurities_relaxed_ids_v5_2.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "athex.athexsecurities.relaxed.ids.v5.2.tradingdateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time of the trade, expressed as Utc, which may be prior to the current trading date")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.transaction_to_be_cleared = ProtoField.new("Transaction To Be Cleared", "athex.athexsecurities.relaxed.ids.v5.2.transactiontobecleared", ftypes.STRING, nil, nil, nil, "Whether the transaction is to be cleared")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.type_emission_allowance = ProtoField.new("Type Emission Allowance", "athex.athexsecurities.relaxed.ids.v5.2.typeemissionallowance", ftypes.STRING, nil, nil, nil, "Type of the emission allowance. Conditionally required.")
 omi_athex_athexsecurities_relaxed_ids_v5_2.fields.underlying_index_name = ProtoField.new("Underlying Index Name", "athex.athexsecurities.relaxed.ids.v5.2.underlyingindexname", ftypes.STRING, nil, nil, nil, "One of the index codes of section 5.1, or free text when the index name is not in that list Conditionally required.")
@@ -103,7 +103,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-athex_athexsecurities_relaxed_ids_v5_2.timestamp_format = 2
+athex_athexsecurities_relaxed_ids_v5_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -122,7 +122,7 @@ omi_athex_athexsecurities_relaxed_ids_v5_2.prefs.show_application_messages = Pre
 omi_athex_athexsecurities_relaxed_ids_v5_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_athex_athexsecurities_relaxed_ids_v5_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
-omi_athex_athexsecurities_relaxed_ids_v5_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_athex_athexsecurities_relaxed_ids_v5_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_athex_athexsecurities_relaxed_ids_v5_2.prefs_changed()
@@ -364,8 +364,8 @@ athex_athexsecurities_relaxed_ids_v5_2.event_time.dissect = function(buffer, off
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.event_time
-  if athex_athexsecurities_relaxed_ids_v5_2.timestamp_format == 3 then field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.event_time_utc end
+  local field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.event_time_utc
+  if athex_athexsecurities_relaxed_ids_v5_2.timestamp_format == 2 then field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.event_time end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros
@@ -1206,8 +1206,8 @@ athex_athexsecurities_relaxed_ids_v5_2.publication_timestamp.dissect = function(
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.publication_timestamp
-  if athex_athexsecurities_relaxed_ids_v5_2.timestamp_format == 3 then field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.publication_timestamp_utc end
+  local field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.publication_timestamp_utc
+  if athex_athexsecurities_relaxed_ids_v5_2.timestamp_format == 2 then field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.publication_timestamp end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros
@@ -1680,8 +1680,8 @@ athex_athexsecurities_relaxed_ids_v5_2.trading_date_and_time.dissect = function(
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.trading_date_and_time
-  if athex_athexsecurities_relaxed_ids_v5_2.timestamp_format == 3 then field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.trading_date_and_time_utc end
+  local field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.trading_date_and_time_utc
+  if athex_athexsecurities_relaxed_ids_v5_2.timestamp_format == 2 then field = omi_athex_athexsecurities_relaxed_ids_v5_2.fields.trading_date_and_time end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros

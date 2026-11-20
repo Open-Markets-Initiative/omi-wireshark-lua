@@ -15,8 +15,8 @@ local hkex_hkexderivatives_literetrans_omd_v2_0 = {}
 -----------------------------------------------------------------------
 
 -- Hkex HkexDerivatives LiteRetrans Omd 2.0 Fields
-omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.literetrans.omd.v2.0.actualstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.actual_start_time_utc = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.literetrans.omd.v2.0.actualstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.actual_start_time = ProtoField.new("Actual Start Time", "hkex.hkexderivatives.literetrans.omd.v2.0.actualstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.aggregate_quantity = ProtoField.new("Aggregate Quantity", "hkex.hkexderivatives.literetrans.omd.v2.0.aggregatequantity", ftypes.UINT64, nil, nil, nil, "Aggregated number of shares")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.alert_id = ProtoField.new("Alert Id", "hkex.hkexderivatives.literetrans.omd.v2.0.alertid", ftypes.UINT64, nil, nil, nil, "The reference ID for this alert, unique for any given day")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.base_currency = ProtoField.new("Base Currency", "hkex.hkexderivatives.literetrans.omd.v2.0.basecurrency", ftypes.STRING, nil, nil, nil, "Defines the trading currency")
@@ -33,10 +33,10 @@ omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.commodity_name = ProtoField
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.compression_mode = ProtoField.new("Compression Mode", "hkex.hkexderivatives.literetrans.omd.v2.0.compressionmode", ftypes.UINT8, nil, nil, nil, "Indicates if compression is applied on messages in the packet")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.content = ProtoField.new("Content", "hkex.hkexderivatives.literetrans.omd.v2.0.content", ftypes.BYTES, nil, nil, nil, "Market Alert Content")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.contract_size = ProtoField.new("Contract Size", "hkex.hkexderivatives.literetrans.omd.v2.0.contractsize", ftypes.UINT32, nil, nil, nil, "Number of Underlying entities per contract")
-omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.literetrans.omd.v2.0.coolingoffendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period ends (UTC timestamp)")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.cooling_off_end_time_utc = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.literetrans.omd.v2.0.coolingoffendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period ends (UTC timestamp)")
-omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.literetrans.omd.v2.0.coolingoffstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period starts (UTC timestamp)")
+omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.cooling_off_end_time = ProtoField.new("Cooling Off End Time", "hkex.hkexderivatives.literetrans.omd.v2.0.coolingoffendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period ends (UTC timestamp)")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.cooling_off_start_time_utc = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.literetrans.omd.v2.0.coolingoffstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the cooling off period starts (UTC timestamp)")
+omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.cooling_off_start_time = ProtoField.new("Cooling Off Start Time", "hkex.hkexderivatives.literetrans.omd.v2.0.coolingoffstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the cooling off period starts (UTC timestamp)")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.day_indicator = ProtoField.new("Day Indicator", "hkex.hkexderivatives.literetrans.omd.v2.0.dayindicator", ftypes.UINT16, nil, nil, nil, "Session indicator used to")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.decimal_in_contract_size = ProtoField.new("Decimal In Contract Size", "hkex.hkexderivatives.literetrans.omd.v2.0.decimalincontractsize", ftypes.UINT16, nil, nil, nil, "Implicit decimals in Contract Size and Price Quotation Factor")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.decimal_in_price = ProtoField.new("Decimal In Price", "hkex.hkexderivatives.literetrans.omd.v2.0.decimalinprice", ftypes.UINT16, nil, nil, nil, "Number of implicit decimals in Price fields and Tick Size")
@@ -55,8 +55,8 @@ omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.filler_4 = ProtoField.new("
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.filler_5 = ProtoField.new("Filler 5", "hkex.hkexderivatives.literetrans.omd.v2.0.filler5", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.filler_6 = ProtoField.new("Filler 6", "hkex.hkexderivatives.literetrans.omd.v2.0.filler6", ftypes.BYTES, nil, nil, nil, "Padding")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.first_trading_date = ProtoField.new("First Trading Date", "hkex.hkexderivatives.literetrans.omd.v2.0.firsttradingdate", ftypes.UINT32, nil, nil, nil, "The first trading date")
-omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.first_trading_time = ProtoField.new("First Trading Time", "hkex.hkexderivatives.literetrans.omd.v2.0.firsttradingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The first trading time (UTC timestamp)")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.first_trading_time_utc = ProtoField.new("First Trading Time", "hkex.hkexderivatives.literetrans.omd.v2.0.firsttradingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The first trading time (UTC timestamp)")
+omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.first_trading_time = ProtoField.new("First Trading Time", "hkex.hkexderivatives.literetrans.omd.v2.0.firsttradingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The first trading time (UTC timestamp)")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.gross_oi = ProtoField.new("Gross Oi", "hkex.hkexderivatives.literetrans.omd.v2.0.grossoi", ftypes.INT32, nil, nil, nil, "If DayIndicator = 1,")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.header = ProtoField.new("Header", "hkex.hkexderivatives.literetrans.omd.v2.0.header", ftypes.BYTES)
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.high_price = ProtoField.new("High Price", "hkex.hkexderivatives.literetrans.omd.v2.0.highprice", ftypes.INT64, nil, nil, nil, "Highest price of normal trades in")
@@ -77,8 +77,8 @@ omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.last_fragment = ProtoField.
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.last_price = ProtoField.new("Last Price", "hkex.hkexderivatives.literetrans.omd.v2.0.lastprice", ftypes.INT64, nil, nil, nil, "Last Traded Price")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.last_seq_num = ProtoField.new("Last Seq Num", "hkex.hkexderivatives.literetrans.omd.v2.0.lastseqnum", ftypes.UINT32, nil, nil, nil, "Sequence number with which")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.last_trading_date = ProtoField.new("Last Trading Date", "hkex.hkexderivatives.literetrans.omd.v2.0.lasttradingdate", ftypes.UINT32, nil, nil, nil, "Last trading date of the instrument")
-omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.last_trading_time = ProtoField.new("Last Trading Time", "hkex.hkexderivatives.literetrans.omd.v2.0.lasttradingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The last trading time of the instrument")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.last_trading_time_utc = ProtoField.new("Last Trading Time", "hkex.hkexderivatives.literetrans.omd.v2.0.lasttradingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The last trading time of the instrument")
+omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.last_trading_time = ProtoField.new("Last Trading Time", "hkex.hkexderivatives.literetrans.omd.v2.0.lasttradingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The last trading time of the instrument")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.leg_orderbook_id = ProtoField.new("Leg Orderbook Id", "hkex.hkexderivatives.literetrans.omd.v2.0.legorderbookid", ftypes.UINT32, nil, nil, nil, "Uniquely identifies a leg instrument")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.leg_ratio = ProtoField.new("Leg Ratio", "hkex.hkexderivatives.literetrans.omd.v2.0.legratio", ftypes.INT32, nil, nil, nil, "Relative numbers of bid and ask contracts between legs")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.leg_side = ProtoField.new("Leg Side", "hkex.hkexderivatives.literetrans.omd.v2.0.legside", ftypes.STRING, nil, nil, nil, "Identifies the leg side within the combination")
@@ -98,8 +98,8 @@ omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.number_of_orders = ProtoFie
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.open_price = ProtoField.new("Open Price", "hkex.hkexderivatives.literetrans.omd.v2.0.openprice", ftypes.INT64, nil, nil, nil, "Price of the first committed")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.orderbook_id = ProtoField.new("Orderbook Id", "hkex.hkexderivatives.literetrans.omd.v2.0.orderbookid", ftypes.UINT32, nil, nil, nil, "Uniquely identifies an instrument available for trading")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.pkt_size = ProtoField.new("Pkt Size", "hkex.hkexderivatives.literetrans.omd.v2.0.pktsize", ftypes.UINT16, nil, nil, nil, "Size of the packet including this field")
-omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.literetrans.omd.v2.0.plannedstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Next planned time")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.planned_start_time_utc = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.literetrans.omd.v2.0.plannedstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Next planned time")
+omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.planned_start_time = ProtoField.new("Planned Start Time", "hkex.hkexderivatives.literetrans.omd.v2.0.plannedstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Next planned time")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.price = ProtoField.new("Price", "hkex.hkexderivatives.literetrans.omd.v2.0.price", ftypes.INT64)
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.price_level = ProtoField.new("Price Level", "hkex.hkexderivatives.literetrans.omd.v2.0.pricelevel", ftypes.UINT8, nil, nil, nil, "Indicates the price level (within")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.price_quotation_factor = ProtoField.new("Price Quotation Factor", "hkex.hkexderivatives.literetrans.omd.v2.0.pricequotationfactor", ftypes.UINT32, nil, nil, nil, "Implies the contracted value of the product")
@@ -107,8 +107,8 @@ omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.priority = ProtoField.new("
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.quote_quantity = ProtoField.new("Quote Quantity", "hkex.hkexderivatives.literetrans.omd.v2.0.quotequantity", ftypes.INT32, nil, nil, nil, "Quantity")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.retrans_status = ProtoField.new("Retrans Status", "hkex.hkexderivatives.literetrans.omd.v2.0.retransstatus", ftypes.UINT8, nil, nil, nil, "Status of the Retransmission response")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.second_filler_3 = ProtoField.new("Second Filler 3", "hkex.hkexderivatives.literetrans.omd.v2.0.secondfiller3", ftypes.BYTES, nil, nil, nil, "Padding")
-omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.literetrans.omd.v2.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.send_time_utc = ProtoField.new("Send Time", "hkex.hkexderivatives.literetrans.omd.v2.0.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
+omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.literetrans.omd.v2.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.literetrans.omd.v2.0.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number field — set to 0 on Tcp retrans per §3.5")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.session = ProtoField.new("Session", "hkex.hkexderivatives.literetrans.omd.v2.0.session", ftypes.UINT8, nil, nil, nil, "Session indicator used to distinguish between the T and T+1 sessions")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.fields.session_status = ProtoField.new("Session Status", "hkex.hkexderivatives.literetrans.omd.v2.0.sessionstatus", ftypes.UINT8, nil, nil, nil, "Status of the session")
@@ -189,7 +189,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-hkex_hkexderivatives_literetrans_omd_v2_0.timestamp_format = 2
+hkex_hkexderivatives_literetrans_omd_v2_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -214,7 +214,7 @@ omi_hkex_hkexderivatives_literetrans_omd_v2_0.prefs.show_headers = Pref.bool("Sh
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_hkex_hkexderivatives_literetrans_omd_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_hkex_hkexderivatives_literetrans_omd_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_hkex_hkexderivatives_literetrans_omd_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_hkex_hkexderivatives_literetrans_omd_v2_0.prefs_changed()

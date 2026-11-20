@@ -38,8 +38,8 @@ omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.mac_enabled = ProtoFie
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.mac_open = ProtoField.new("Mac Open", "asianext.asianextderivatives.snapshot.amd.v1.3.macopen", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "0 = MaC is Closed, 1 = MaC is Open. Not Applicable to AsiaNext")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.mac_run = ProtoField.new("Mac Run", "asianext.asianextderivatives.snapshot.amd.v1.3.macrun", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "0 = MaC is not locked down, 1 = MaC is locked down. Not Applicable to AsiaNext")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.market_flags = ProtoField.new("Market Flags", "asianext.asianextderivatives.snapshot.amd.v1.3.marketflags", ftypes.STRING, nil, nil, nil, "Market status flags")
-omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.maturity_date = ProtoField.new("Maturity Date", "asianext.asianextderivatives.snapshot.amd.v1.3.maturitydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The date and time a futures instrument will expire. Maturity date is not applicable for perpetual futures. The value is defaulted to 7956835200000000000 in Timestamp format, ie, 2222-02-22T00:00:00.0000000Z")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.maturity_date_utc = ProtoField.new("Maturity Date", "asianext.asianextderivatives.snapshot.amd.v1.3.maturitydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The date and time a futures instrument will expire. Maturity date is not applicable for perpetual futures. The value is defaulted to 7956835200000000000 in Timestamp format, ie, 2222-02-22T00:00:00.0000000Z")
+omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.maturity_date = ProtoField.new("Maturity Date", "asianext.asianextderivatives.snapshot.amd.v1.3.maturitydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The date and time a futures instrument will expire. Maturity date is not applicable for perpetual futures. The value is defaulted to 7956835200000000000 in Timestamp format, ie, 2222-02-22T00:00:00.0000000Z")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.message_count = ProtoField.new("Message Count", "asianext.asianextderivatives.snapshot.amd.v1.3.messagecount", ftypes.UINT8, nil, nil, nil, "number of messages (n) in this packet")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.mic = ProtoField.new("Mic", "asianext.asianextderivatives.snapshot.amd.v1.3.mic", ftypes.STRING, nil, nil, nil, "MIC for the security's market of listing")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.msg_length = ProtoField.new("Msg Length", "asianext.asianextderivatives.snapshot.amd.v1.3.msglength", ftypes.UINT8, nil, nil, nil, "Length of market data message, including header")
@@ -64,8 +64,8 @@ omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.test_stock = ProtoFiel
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.threshold = ProtoField.new("Threshold", "asianext.asianextderivatives.snapshot.amd.v1.3.threshold", ftypes.DOUBLE, nil, nil, nil, "The price threshold at which this tick data applies")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.tick_size = ProtoField.new("Tick Size", "asianext.asianextderivatives.snapshot.amd.v1.3.ticksize", ftypes.DOUBLE, nil, nil, nil, "The tick size (price increment)")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.tick_table_id = ProtoField.new("Tick Table Id", "asianext.asianextderivatives.snapshot.amd.v1.3.ticktableid", ftypes.UINT8, nil, nil, nil, "Numeric identifier for this tick table or static tick")
-omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.timestamp = ProtoField.new("Timestamp", "asianext.asianextderivatives.snapshot.amd.v1.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this snapshot")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.timestamp_utc = ProtoField.new("Timestamp", "asianext.asianextderivatives.snapshot.amd.v1.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this snapshot")
+omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.timestamp = ProtoField.new("Timestamp", "asianext.asianextderivatives.snapshot.amd.v1.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this snapshot")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.trading = ProtoField.new("Trading", "asianext.asianextderivatives.snapshot.amd.v1.3.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "0 = Continuous Trading Closed, 1 = Continuous Trading Open")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.trading_phase = ProtoField.new("Trading Phase", "asianext.asianextderivatives.snapshot.amd.v1.3.tradingphase", ftypes.UINT8, nil, nil, nil, "1= Continuous trading")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.fields.trading_status = ProtoField.new("Trading Status", "asianext.asianextderivatives.snapshot.amd.v1.3.tradingstatus", ftypes.UINT8, nil, nil, nil, "See Security Status message")
@@ -113,7 +113,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-asianext_asianextderivatives_snapshot_amd_v1_3.timestamp_format = 2
+asianext_asianextderivatives_snapshot_amd_v1_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -134,7 +134,7 @@ omi_asianext_asianextderivatives_snapshot_amd_v1_3.prefs.show_structs = Pref.boo
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_asianext_asianextderivatives_snapshot_amd_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_asianext_asianextderivatives_snapshot_amd_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_asianext_asianextderivatives_snapshot_amd_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_asianext_asianextderivatives_snapshot_amd_v1_3.prefs_changed()
@@ -2389,19 +2389,11 @@ asianext_asianextderivatives_snapshot_amd_v1_3.packet.dissect = function(buffer,
   -- Packet Header: Struct of 1 fields
   index, packet_header = asianext_asianextderivatives_snapshot_amd_v1_3.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 1, 1):uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Stop where the payload ends inside the next size
-    if index + 1 + 1 > end_of_payload then
-      parent:add_proto_expert_info(asianext_asianextderivatives_snapshot_amd_v1_3.experts.undecoded, "Msg Length runs past the end of the payload")
-      break
-    end
+  -- Repeating: Message
+  for message_index = 1, message_count do
 
     -- Dependency element: Msg Length
     local msg_length = buffer(index + 1, 1):uint()

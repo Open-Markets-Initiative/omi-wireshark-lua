@@ -2206,15 +2206,30 @@ tmx_mx_solamulticast_hsvf_v1_12_2.maximum_number_of_contracts_per_order = {}
 tmx_mx_solamulticast_hsvf_v1_12_2.maximum_number_of_contracts_per_order.size = 6
 
 -- Display: Maximum Number Of Contracts Per Order
-tmx_mx_solamulticast_hsvf_v1_12_2.maximum_number_of_contracts_per_order.display = function(value)
-  return "Maximum Number Of Contracts Per Order: "..value
+tmx_mx_solamulticast_hsvf_v1_12_2.maximum_number_of_contracts_per_order.display = function(value, buffer, offset, packet, parent)
+  return "Maximum Number Of Contracts Per Order: "..string.format("%.0f", value)
 end
 
 -- Dissect: Maximum Number Of Contracts Per Order
 tmx_mx_solamulticast_hsvf_v1_12_2.maximum_number_of_contracts_per_order.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_number_of_contracts_per_order.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = tmx_mx_solamulticast_hsvf_v1_12_2.maximum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.maximum_number_of_contracts_per_order, range, value, display)
@@ -2506,15 +2521,30 @@ tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order = {}
 tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.size = 6
 
 -- Display: Minimum Number Of Contracts Per Order
-tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.display = function(value)
-  return "Minimum Number Of Contracts Per Order: "..value
+tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.display = function(value, buffer, offset, packet, parent)
+  return "Minimum Number Of Contracts Per Order: "..string.format("%.0f", value)
 end
 
 -- Dissect: Minimum Number Of Contracts Per Order
 tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = tmx_mx_solamulticast_hsvf_v1_12_2.minimum_number_of_contracts_per_order.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.minimum_number_of_contracts_per_order, range, value, display)
@@ -2905,22 +2935,29 @@ tmx_mx_solamulticast_hsvf_v1_12_2.open_interest = {}
 tmx_mx_solamulticast_hsvf_v1_12_2.open_interest.size = 7
 
 -- Display: Open Interest
-tmx_mx_solamulticast_hsvf_v1_12_2.open_interest.display = function(value)
-  return "Open Interest: "..value
+tmx_mx_solamulticast_hsvf_v1_12_2.open_interest.display = function(value, buffer, offset, packet, parent)
+  return "Open Interest: "..string.format("%.0f", value)
 end
 
 -- Dissect: Open Interest
 tmx_mx_solamulticast_hsvf_v1_12_2.open_interest.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12_2.open_interest.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
 
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.open_interest, range, value, "Open Interest: Not Applicable")
-    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_12_2.experts.not_a_number, "Open Interest is not a number: '"..range:string().."'")
-    return offset + length, value
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
   end
+
+  value = value * (10 ^ power)
 
   local display = tmx_mx_solamulticast_hsvf_v1_12_2.open_interest.display(value, buffer, offset, packet, parent)
 
@@ -4499,15 +4536,30 @@ tmx_mx_solamulticast_hsvf_v1_12_2.requested_size = {}
 tmx_mx_solamulticast_hsvf_v1_12_2.requested_size.size = 8
 
 -- Display: Requested Size
-tmx_mx_solamulticast_hsvf_v1_12_2.requested_size.display = function(value)
-  return "Requested Size: "..value
+tmx_mx_solamulticast_hsvf_v1_12_2.requested_size.display = function(value, buffer, offset, packet, parent)
+  return "Requested Size: "..string.format("%.0f", value)
 end
 
 -- Dissect: Requested Size
 tmx_mx_solamulticast_hsvf_v1_12_2.requested_size.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12_2.requested_size.size
   local range = buffer(offset, length)
-  local value = range:string()
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
+
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
+  end
+
+  value = value * (10 ^ power)
+
   local display = tmx_mx_solamulticast_hsvf_v1_12_2.requested_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.requested_size, range, value, display)
@@ -5797,22 +5849,29 @@ tmx_mx_solamulticast_hsvf_v1_12_2.volume = {}
 tmx_mx_solamulticast_hsvf_v1_12_2.volume.size = 8
 
 -- Display: Volume
-tmx_mx_solamulticast_hsvf_v1_12_2.volume.display = function(value)
-  return "Volume: "..value
+tmx_mx_solamulticast_hsvf_v1_12_2.volume.display = function(value, buffer, offset, packet, parent)
+  return "Volume: "..string.format("%.0f", value)
 end
 
 -- Dissect: Volume
 tmx_mx_solamulticast_hsvf_v1_12_2.volume.dissect = function(buffer, offset, packet, parent)
   local length = tmx_mx_solamulticast_hsvf_v1_12_2.volume.size
   local range = buffer(offset, length)
-  local value = tonumber(range:string())
+  local text = range:string()
+  local powers = { ["C"] = 2, ["D"] = 3, ["E"] = 4, ["F"] = 5, ["G"] = 6, ["H"] = 7, ["I"] = 8, ["J"] = 9 }
+  local value = 0
+  local power = 0
 
-  if value == nil then
-    value = 0
-    local item = parent:add(omi_tmx_mx_solamulticast_hsvf_v1_12_2.fields.volume, range, value, "Volume: Not Applicable")
-    item:add_proto_expert_info(tmx_mx_solamulticast_hsvf_v1_12_2.experts.not_a_number, "Volume is not a number: '"..range:string().."'")
-    return offset + length, value
+  for index = 1, #text do
+    local character = text:sub(index, index)
+    if powers[character] then
+      power = powers[character]
+    else
+      value = value * 10 + (tonumber(character) or 0)
+    end
   end
+
+  value = value * (10 ^ power)
 
   local display = tmx_mx_solamulticast_hsvf_v1_12_2.volume.display(value, buffer, offset, packet, parent)
 

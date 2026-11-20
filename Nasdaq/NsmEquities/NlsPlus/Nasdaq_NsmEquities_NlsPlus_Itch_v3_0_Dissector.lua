@@ -160,7 +160,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_nsmequities_nlsplus_itch_v3_0.timestamp_format = 2
+nasdaq_nsmequities_nlsplus_itch_v3_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -185,7 +185,7 @@ omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_padding = Pref.bool("Show Pa
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_nlsplus_itch_v3_0.prefs_changed()
@@ -687,7 +687,7 @@ end
 nasdaq_nsmequities_nlsplus_itch_v3_0.corrected_nav_offset_amount.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nlsplus_itch_v3_0.corrected_nav_offset_amount.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nsmequities_nlsplus_itch_v3_0.corrected_nav_offset_amount.translate(raw)
   local display = nasdaq_nsmequities_nlsplus_itch_v3_0.corrected_nav_offset_amount.display(value, buffer, offset, packet, parent)
 
@@ -1802,7 +1802,7 @@ end
 nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount.translate(raw)
   local display = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount.display(value, buffer, offset, packet, parent)
 
@@ -1831,7 +1831,7 @@ end
 nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_closing.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_closing.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_closing.translate(raw)
   local display = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_closing.display(value, buffer, offset, packet, parent)
 
@@ -1860,7 +1860,7 @@ end
 nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_high.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_high.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_high.translate(raw)
   local display = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_high.display(value, buffer, offset, packet, parent)
 
@@ -1889,7 +1889,7 @@ end
 nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_low.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_low.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_low.translate(raw)
   local display = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_low.display(value, buffer, offset, packet, parent)
 
@@ -1918,7 +1918,7 @@ end
 nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_open.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_open.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_open.translate(raw)
   local display = nasdaq_nsmequities_nlsplus_itch_v3_0.nav_offset_amount_open.display(value, buffer, offset, packet, parent)
 
@@ -2037,7 +2037,7 @@ end
 nasdaq_nsmequities_nlsplus_itch_v3_0.original_nav_offset_amount.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_nlsplus_itch_v3_0.original_nav_offset_amount.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nsmequities_nlsplus_itch_v3_0.original_nav_offset_amount.translate(raw)
   local display = nasdaq_nsmequities_nlsplus_itch_v3_0.original_nav_offset_amount.display(value, buffer, offset, packet, parent)
 

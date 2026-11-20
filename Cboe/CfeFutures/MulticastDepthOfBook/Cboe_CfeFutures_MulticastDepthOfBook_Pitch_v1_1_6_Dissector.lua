@@ -48,8 +48,8 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.low_price_valid = P
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.message_count = ProtoField.new("Message Count", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.message_length = ProtoField.new("Message Length", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.message_type = ProtoField.new("Message Type", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.num_elapsed_returns = ProtoField.new("Num Elapsed Returns", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.numelapsedreturns", ftypes.UINT16, nil, nil, nil, "Number of returns elapsed as of the beginning of the trading day")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.num_expected_prices = ProtoField.new("Num Expected Prices", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.numexpectedprices", ftypes.UINT16, nil, nil, nil, "Number of expected SP500 prices to be used for calculating returns during the life of the contract")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.fields.offer_close_valid = ProtoField.new("Offer Close Valid", "cboe.cfefutures.multicastdepthofbook.pitch.v1.1.6.offerclosevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Set if open price and close price contain valid values")
@@ -131,7 +131,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.timestamp_format = 2
+cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.zone_offset = 0
@@ -161,7 +161,7 @@ omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_padding = Pref.
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_cboe_cfefutures_multicastdepthofbook_pitch_v1_1_6.prefs.zone_offset = Pref.string("America/Chicago Utc Offset", "", "Offset of America/Chicago from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

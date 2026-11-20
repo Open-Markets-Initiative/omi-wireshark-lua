@@ -28,8 +28,8 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.call_or_put = ProtoFi
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.closing_time = ProtoField.new("Closing Time", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.closingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 16:15:00")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.event_reason = ProtoField.new("Event Reason", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.eventreason", ftypes.STRING, nil, nil, nil, "Event Reason value")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.expected_event_time_nano_seconds = ProtoField.new("Expected Event Time Nano Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.expectedeventtimenanoseconds", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in “Expected Event Time Seconds” field.")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.expected_event_time_seconds = ProtoField.new("Expected Event Time Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.expectedeventtimeseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.expected_event_time_seconds_utc = ProtoField.new("Expected Event Time Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.expectedeventtimeseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.expected_event_time_seconds = ProtoField.new("Expected Event Time Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.expectedeventtimeseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.expiration_date = ProtoField.new("Expiration Date", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.leg_definition = ProtoField.new("Leg Definition", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.legdefinition", ftypes.STRING, nil, nil, nil, "Complex Strategy Number of Legs")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.legratioqty", ftypes.UINT16, nil, nil, nil, "The ratio of this individual leg. Number of contracts for this leg is: LegRatioQty * OrderQty")
@@ -63,8 +63,8 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.reserved_10 = ProtoFi
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.reserved_16 = ProtoField.new("Reserved 16", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.reserved16", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.restricted_option = ProtoField.new("Restricted Option", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.restrictedoption", ftypes.STRING, nil, nil, nil, "Restricted Option value")
-omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.seconds_utc = ProtoField.new("Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.security_symbol = ProtoField.new("Security Symbol", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this data packet")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.fields.session_id = ProtoField.new("Session Id", "miax.miaxoptions.complextopofmarket.mach.v1.2.b.sessionid", ftypes.UINT32, nil, nil, nil, "MIAX assigned ID for the current trading session")
@@ -128,7 +128,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_miaxoptions_complextopofmarket_mach_v1_2_b.timestamp_format = 2
+miax_miaxoptions_complextopofmarket_mach_v1_2_b.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -153,7 +153,7 @@ omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.prefs.show_headers = Pref.bo
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_complextopofmarket_mach_v1_2_b.prefs_changed()

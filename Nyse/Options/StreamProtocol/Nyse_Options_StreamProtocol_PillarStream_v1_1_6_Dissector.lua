@@ -34,8 +34,8 @@ omi_nyse_options_streamprotocol_pillarstream_v1_1_6.fields.sess = ProtoField.new
 omi_nyse_options_streamprotocol_pillarstream_v1_1_6.fields.start_seq = ProtoField.new("Start Seq", "nyse.options.streamprotocol.pillarstream.v1.1.6.startseq", ftypes.UINT64, nil, nil, nil, "Start sequence number")
 omi_nyse_options_streamprotocol_pillarstream_v1_1_6.fields.status = ProtoField.new("Status", "nyse.options.streamprotocol.pillarstream.v1.1.6.status", ftypes.UINT8, nil, nil, nil, "Pillar Status Code")
 omi_nyse_options_streamprotocol_pillarstream_v1_1_6.fields.stream_id = ProtoField.new("Stream Id", "nyse.options.streamprotocol.pillarstream.v1.1.6.streamid", ftypes.STRING, nil, nil, nil, "Pillar Stream Protocol Stream Identifier")
-omi_nyse_options_streamprotocol_pillarstream_v1_1_6.fields.timestamp = ProtoField.new("Timestamp", "nyse.options.streamprotocol.pillarstream.v1.1.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message timestamp")
 omi_nyse_options_streamprotocol_pillarstream_v1_1_6.fields.timestamp_utc = ProtoField.new("Timestamp", "nyse.options.streamprotocol.pillarstream.v1.1.6.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Message timestamp")
+omi_nyse_options_streamprotocol_pillarstream_v1_1_6.fields.timestamp = ProtoField.new("Timestamp", "nyse.options.streamprotocol.pillarstream.v1.1.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message timestamp")
 omi_nyse_options_streamprotocol_pillarstream_v1_1_6.fields.user = ProtoField.new("User", "nyse.options.streamprotocol.pillarstream.v1.1.6.user", ftypes.UINT32, nil, nil, nil, "Id of stream within session")
 omi_nyse_options_streamprotocol_pillarstream_v1_1_6.fields.username = ProtoField.new("Username", "nyse.options.streamprotocol.pillarstream.v1.1.6.username", ftypes.STRING, nil, nil, nil, "Pillar Username")
 omi_nyse_options_streamprotocol_pillarstream_v1_1_6.fields.version = ProtoField.new("Version", "nyse.options.streamprotocol.pillarstream.v1.1.6.version", ftypes.STRING, nil, nil, nil, "Protocol version, should be 1.1")
@@ -69,7 +69,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_options_streamprotocol_pillarstream_v1_1_6.timestamp_format = 2
+nyse_options_streamprotocol_pillarstream_v1_1_6.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -98,7 +98,7 @@ omi_nyse_options_streamprotocol_pillarstream_v1_1_6.prefs.show_structs = Pref.bo
 omi_nyse_options_streamprotocol_pillarstream_v1_1_6.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nyse_options_streamprotocol_pillarstream_v1_1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_nyse_options_streamprotocol_pillarstream_v1_1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_options_streamprotocol_pillarstream_v1_1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_options_streamprotocol_pillarstream_v1_1_6.prefs_changed()

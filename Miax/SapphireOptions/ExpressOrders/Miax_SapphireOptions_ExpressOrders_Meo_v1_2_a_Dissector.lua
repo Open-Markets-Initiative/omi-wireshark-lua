@@ -30,8 +30,8 @@ omi_miax_sapphireoptions_expressorders_meo_v1_2_a.fields.call_or_put = ProtoFiel
 omi_miax_sapphireoptions_expressorders_meo_v1_2_a.fields.cancel_reason = ProtoField.new("Cancel Reason", "miax.sapphireoptions.expressorders.meo.v1.2.a.cancelreason", ftypes.STRING)
 omi_miax_sapphireoptions_expressorders_meo_v1_2_a.fields.client_message_id = ProtoField.new("Client Message Id", "miax.sapphireoptions.expressorders.meo.v1.2.a.clientmessageid", ftypes.UINT32, nil, nil, nil, "Unique message ID assigned by the firm")
 omi_miax_sapphireoptions_expressorders_meo_v1_2_a.fields.client_order_id = ProtoField.new("Client Order Id", "miax.sapphireoptions.expressorders.meo.v1.2.a.clientorderid", ftypes.UINT32, nil, nil, nil, "Client order ID in Simple Binary Order. Set to zero for Complex Binary order")
-omi_miax_sapphireoptions_expressorders_meo_v1_2_a.fields.client_send_time = ProtoField.new("Client Send Time", "miax.sapphireoptions.expressorders.meo.v1.2.a.clientsendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Firm's send time for the Liquidities. Nanoseconds since Epoch")
 omi_miax_sapphireoptions_expressorders_meo_v1_2_a.fields.client_send_time_utc = ProtoField.new("Client Send Time", "miax.sapphireoptions.expressorders.meo.v1.2.a.clientsendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Firm's send time for the Liquidities. Nanoseconds since Epoch")
+omi_miax_sapphireoptions_expressorders_meo_v1_2_a.fields.client_send_time = ProtoField.new("Client Send Time", "miax.sapphireoptions.expressorders.meo.v1.2.a.clientsendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Firm's send time for the Liquidities. Nanoseconds since Epoch")
 omi_miax_sapphireoptions_expressorders_meo_v1_2_a.fields.closing_time = ProtoField.new("Closing Time", "miax.sapphireoptions.expressorders.meo.v1.2.a.closingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. e.g.: 16:15:00")
 omi_miax_sapphireoptions_expressorders_meo_v1_2_a.fields.computer_id = ProtoField.new("Computer Id", "miax.sapphireoptions.expressorders.meo.v1.2.a.computerid", ftypes.STRING, nil, nil, nil, "ID issued by MIAX during initial setup")
 omi_miax_sapphireoptions_expressorders_meo_v1_2_a.fields.counting_period = ProtoField.new("Counting Period", "miax.sapphireoptions.expressorders.meo.v1.2.a.countingperiod", ftypes.UINT16, nil, nil, nil, "Duration (in number of milliseconds) in which Engagement percentage is calculated in order to determine if the MPID should be put on ARM protection for this underlying. Allowable Range: 100 to 15,000 milliseconds")
@@ -209,7 +209,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_sapphireoptions_expressorders_meo_v1_2_a.timestamp_format = 2
+miax_sapphireoptions_expressorders_meo_v1_2_a.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -236,7 +236,7 @@ omi_miax_sapphireoptions_expressorders_meo_v1_2_a.prefs.show_headers = Pref.bool
 omi_miax_sapphireoptions_expressorders_meo_v1_2_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_sapphireoptions_expressorders_meo_v1_2_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_miax_sapphireoptions_expressorders_meo_v1_2_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_sapphireoptions_expressorders_meo_v1_2_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_sapphireoptions_expressorders_meo_v1_2_a.prefs_changed()

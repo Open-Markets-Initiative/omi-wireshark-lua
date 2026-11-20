@@ -29,8 +29,8 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_m
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_asks_groups = ProtoField.new("Depth Snapshot Stream Event Message Asks Groups", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessageasksgroups", ftypes.STRING, nil, nil, nil, "asks Block")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_group = ProtoField.new("Depth Snapshot Stream Event Message Bids Group", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroup", ftypes.STRING, nil, nil, nil, "bids")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.depth_snapshot_stream_event_message_bids_groups = ProtoField.new("Depth Snapshot Stream Event Message Bids Groups", "binance.binancespot.marketdata.sbe.v1.0.depthsnapshotstreameventmessagebidsgroups", ftypes.STRING, nil, nil, nil, "bids Block")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time = ProtoField.new("Event Time", "binance.binancespot.marketdata.sbe.v1.0.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "eventTime")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time_utc = ProtoField.new("Event Time", "binance.binancespot.marketdata.sbe.v1.0.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "eventTime")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.event_time = ProtoField.new("Event Time", "binance.binancespot.marketdata.sbe.v1.0.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "eventTime")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.first_book_update_id = ProtoField.new("First Book Update Id", "binance.binancespot.marketdata.sbe.v1.0.firstbookupdateid", ftypes.INT64, nil, nil, nil, "firstBookUpdateId")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.group_size_16_encoding = ProtoField.new("Group Size 16 Encoding", "binance.binancespot.marketdata.sbe.v1.0.groupsize16encoding", ftypes.STRING, nil, nil, nil, "groupSize16Encoding")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "binance.binancespot.marketdata.sbe.v1.0.groupsizeencoding", ftypes.STRING, nil, nil, nil, "groupSizeEncoding")
@@ -50,8 +50,8 @@ omi_binance_binancespot_marketdata_sbe_v1_0.fields.symbol_length = ProtoField.ne
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.template_id = ProtoField.new("Template Id", "binance.binancespot.marketdata.sbe.v1.0.templateid", ftypes.UINT16, nil, nil, nil, "Template id of the message")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_group = ProtoField.new("Trades Stream Event Message Trades Group", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroup", ftypes.STRING, nil, nil, nil, "trades")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.trades_stream_event_message_trades_groups = ProtoField.new("Trades Stream Event Message Trades Groups", "binance.binancespot.marketdata.sbe.v1.0.tradesstreameventmessagetradesgroups", ftypes.STRING, nil, nil, nil, "trades Block")
-omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time = ProtoField.new("Transact Time", "binance.binancespot.marketdata.sbe.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time_utc = ProtoField.new("Transact Time", "binance.binancespot.marketdata.sbe.v1.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
+omi_binance_binancespot_marketdata_sbe_v1_0.fields.transact_time = ProtoField.new("Transact Time", "binance.binancespot.marketdata.sbe.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_binance_binancespot_marketdata_sbe_v1_0.fields.version = ProtoField.new("Version", "binance.binancespot.marketdata.sbe.v1.0.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 
 -- Binance BinanceSpot MarketData Sbe 1.0 Framing
@@ -89,7 +89,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-binance_binancespot_marketdata_sbe_v1_0.timestamp_format = 2
+binance_binancespot_marketdata_sbe_v1_0.timestamp_format = 3
 
 -- Price Calculate format (true = decimal-scaled, false = raw mantissa)
 binance_binancespot_marketdata_sbe_v1_0.format_decimals = true
@@ -116,7 +116,7 @@ omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_structs = Pref.bool("Show
 omi_binance_binancespot_marketdata_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_binance_binancespot_marketdata_sbe_v1_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_binance_binancespot_marketdata_sbe_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_binance_binancespot_marketdata_sbe_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_binance_binancespot_marketdata_sbe_v1_0.prefs_changed()

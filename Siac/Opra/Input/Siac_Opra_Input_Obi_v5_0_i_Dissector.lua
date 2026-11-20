@@ -27,8 +27,8 @@ omi_siac_opra_input_obi_v5_0_i.fields.block_pad_byte = ProtoField.new("Block Pad
 omi_siac_opra_input_obi_v5_0_i.fields.block_separator = ProtoField.new("Block Separator", "siac.opra.input.obi.v5.0.i.blockseparator", ftypes.UINT16, nil, nil, nil, "Two byte sequence (Hex 0xA5 0x5A) preceding every block")
 omi_siac_opra_input_obi_v5_0_i.fields.block_sequence_number = ProtoField.new("Block Sequence Number", "siac.opra.input.obi.v5.0.i.blocksequencenumber", ftypes.UINT32, nil, nil, nil, "Last Block Sequence Number received on the input line.")
 omi_siac_opra_input_obi_v5_0_i.fields.block_size = ProtoField.new("Block Size", "siac.opra.input.obi.v5.0.i.blocksize", ftypes.UINT16, nil, nil, nil, "Size In Bytes Of Entire Transmission Block")
-omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Opra block timestamp")
 omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp_utc = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Opra block timestamp")
+omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp = ProtoField.new("Block Timestamp", "siac.opra.input.obi.v5.0.i.blocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Opra block timestamp")
 omi_siac_opra_input_obi_v5_0_i.fields.control_category = ProtoField.new("Control Category", "siac.opra.input.obi.v5.0.i.controlcategory", ftypes.STRING, nil, nil, nil, "Control Message Performs Specified Control Functions Consists Of Standard Message Header Only")
 omi_siac_opra_input_obi_v5_0_i.fields.control_message_type = ProtoField.new("Control Message Type", "siac.opra.input.obi.v5.0.i.controlmessagetype", ftypes.STRING)
 omi_siac_opra_input_obi_v5_0_i.fields.equity_and_index_end_of_day_summary_category = ProtoField.new("Equity And Index End Of Day Summary Category", "siac.opra.input.obi.v5.0.i.equityandindexendofdaysummarycategory", ftypes.STRING, nil, nil, nil, "Equity And Index End Of Day Summary Message Providing Per Symbol Open High Low Last Net Change And Underlying Information")
@@ -70,8 +70,8 @@ omi_siac_opra_input_obi_v5_0_i.fields.reserved_4 = ProtoField.new("Reserved 4", 
 omi_siac_opra_input_obi_v5_0_i.fields.reserved_8 = ProtoField.new("Reserved 8", "siac.opra.input.obi.v5.0.i.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use. Filled with Hex 0x00.")
 omi_siac_opra_input_obi_v5_0_i.fields.second_reserved = ProtoField.new("Second Reserved", "siac.opra.input.obi.v5.0.i.secondreserved", ftypes.UINT8, nil, nil, nil, "Reserved for future use")
 omi_siac_opra_input_obi_v5_0_i.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "siac.opra.input.obi.v5.0.i.secondreserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use. Filled with Hex 0x00.")
-omi_siac_opra_input_obi_v5_0_i.fields.seconds = ProtoField.new("Seconds", "siac.opra.input.obi.v5.0.i.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number Of Seconds From Epoch 1/1/1970 00:00:00 UTC")
 omi_siac_opra_input_obi_v5_0_i.fields.seconds_utc = ProtoField.new("Seconds", "siac.opra.input.obi.v5.0.i.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number Of Seconds From Epoch 1/1/1970 00:00:00 UTC")
+omi_siac_opra_input_obi_v5_0_i.fields.seconds = ProtoField.new("Seconds", "siac.opra.input.obi.v5.0.i.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number Of Seconds From Epoch 1/1/1970 00:00:00 UTC")
 omi_siac_opra_input_obi_v5_0_i.fields.security_symbol = ProtoField.new("Security Symbol", "siac.opra.input.obi.v5.0.i.securitysymbol", ftypes.STRING, nil, nil, nil, "The security symbol is used for Equity and Index options. It identifies the unique symbol assigned to the underlying security. Left justified, space filled.")
 omi_siac_opra_input_obi_v5_0_i.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.input.obi.v5.0.i.securitysymbolshort", ftypes.STRING, nil, nil, nil, "Security Symbol restricted to four characters for short quote messages (category 'q'). Left justified, space filled.")
 omi_siac_opra_input_obi_v5_0_i.fields.sequence_number_status_category = ProtoField.new("Sequence Number Status Category", "siac.opra.input.obi.v5.0.i.sequencenumberstatuscategory", ftypes.STRING, nil, nil, nil, "Sequence Number Status Messages Synchronize Block Sequence Numbers And Retrieve Message Counts")
@@ -125,7 +125,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-siac_opra_input_obi_v5_0_i.timestamp_format = 2
+siac_opra_input_obi_v5_0_i.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -148,7 +148,7 @@ omi_siac_opra_input_obi_v5_0_i.prefs.show_headers = Pref.bool("Show Headers", sh
 omi_siac_opra_input_obi_v5_0_i.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_siac_opra_input_obi_v5_0_i.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_siac_opra_input_obi_v5_0_i.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_siac_opra_input_obi_v5_0_i.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_siac_opra_input_obi_v5_0_i.prefs_changed()
@@ -3500,8 +3500,8 @@ siac_opra_input_obi_v5_0_i.block_timestamp.dissect = function(buffer, offset, pa
     local length = siac_opra_input_obi_v5_0_i.block_timestamp.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp
-    if siac_opra_input_obi_v5_0_i.timestamp_format == 3 then field = omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp_utc end
+    local field = omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp_utc
+    if siac_opra_input_obi_v5_0_i.timestamp_format == 2 then field = omi_siac_opra_input_obi_v5_0_i.fields.block_timestamp end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_opra_input_obi_v5_0_i.block_timestamp.fields(buffer, offset, packet, parent)
 

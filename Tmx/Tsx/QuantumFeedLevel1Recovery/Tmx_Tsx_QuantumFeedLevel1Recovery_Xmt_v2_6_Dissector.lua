@@ -97,8 +97,8 @@ omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.fields.test_symbol = ProtoField.n
 omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.fields.trade_date = ProtoField.new("Trade Date", "tmx.tsx.quantumfeedlevel1recovery.xmt.v2.6.tradedate", ftypes.UINT32, nil, nil, nil, "Effective Date Of The Trade Will Be Filled Only When The Effective Date Is Different From The Current Date")
 omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.fields.trade_number = ProtoField.new("Trade Number", "tmx.tsx.quantumfeedlevel1recovery.xmt.v2.6.tradenumber", ftypes.UINT32, nil, nil, nil, "A Unique Identifier Per Stock Assigned To Each Trade")
 omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.fields.trade_time_stamp = ProtoField.new("Trade Time Stamp", "tmx.tsx.quantumfeedlevel1recovery.xmt.v2.6.tradetimestamp", ftypes.UINT32, nil, nil, nil, "The Time At Which The Trade Occurred Manually Set When A Trade Is Added")
-omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.tsx.quantumfeedlevel1recovery.xmt.v2.6.tradingsystemtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The Time At Which The Event Being Reported Occurred In The Trading Engine")
 omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.fields.trading_system_time_stamp_utc = ProtoField.new("Trading System Time Stamp", "tmx.tsx.quantumfeedlevel1recovery.xmt.v2.6.tradingsystemtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The Time At Which The Event Being Reported Occurred In The Trading Engine")
+omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.fields.trading_system_time_stamp = ProtoField.new("Trading System Time Stamp", "tmx.tsx.quantumfeedlevel1recovery.xmt.v2.6.tradingsystemtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The Time At Which The Event Being Reported Occurred In The Trading Engine")
 omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.fields.volume = ProtoField.new("Volume", "tmx.tsx.quantumfeedlevel1recovery.xmt.v2.6.volume", ftypes.UINT32, nil, nil, nil, "The Quantity Of Shares For An Order Or Trade")
 omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.fields.vwap = ProtoField.new("Vwap", "tmx.tsx.quantumfeedlevel1recovery.xmt.v2.6.vwap", ftypes.DOUBLE, nil, nil, nil, "Volume Weighted Average Price Based On Trades Occurring In The Continuous Market For Moc")
 
@@ -161,7 +161,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.timestamp_format = 2
+tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -194,7 +194,7 @@ omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.prefs.show_headers = Pref.bool("S
 omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_tmx_tsx_quantumfeedlevel1recovery_xmt_v2_6.prefs_changed()

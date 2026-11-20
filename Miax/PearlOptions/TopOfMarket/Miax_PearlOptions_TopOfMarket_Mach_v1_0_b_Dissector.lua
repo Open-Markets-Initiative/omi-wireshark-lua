@@ -26,8 +26,8 @@ omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.closing_time = ProtoField.n
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.correction_number = ProtoField.new("Correction Number", "miax.pearloptions.topofmarket.mach.v1.0.b.correctionnumber", ftypes.UINT8, nil, nil, nil, "Trade correction number. 0 for New trades. Greater than or equal to 0 for trades resulting from corrections/adjustments.")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.event_reason = ProtoField.new("Event Reason", "miax.pearloptions.topofmarket.mach.v1.0.b.eventreason", ftypes.STRING)
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.pearloptions.topofmarket.mach.v1.0.b.expectedeventtimenanosecondspart", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in “Expected Event Time Seconds” field.")
-omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.pearloptions.topofmarket.mach.v1.0.b.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_seconds_part_utc = ProtoField.new("Expected Event Time Seconds Part", "miax.pearloptions.topofmarket.mach.v1.0.b.expectedeventtimesecondspart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.pearloptions.topofmarket.mach.v1.0.b.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.expiration_date = ProtoField.new("Expiration Date", "miax.pearloptions.topofmarket.mach.v1.0.b.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.liquidity_acceptance_increment_indicator = ProtoField.new("Liquidity Acceptance Increment Indicator", "miax.pearloptions.topofmarket.mach.v1.0.b.liquidityacceptanceincrementindicator", ftypes.STRING, nil, nil, nil, "This is the Minimum Price Variation for Quote/Order acceptance as per PEARL rules")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.long_term_option = ProtoField.new("Long Term Option", "miax.pearloptions.topofmarket.mach.v1.0.b.longtermoption", ftypes.STRING)
@@ -51,8 +51,8 @@ omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.reference_correction_number
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.reference_trade_id = ProtoField.new("Reference Trade Id", "miax.pearloptions.topofmarket.mach.v1.0.b.referencetradeid", ftypes.UINT32, nil, nil, nil, "0 (zero) if new trade. Trade ID of the original trade if this trade originated as a correction of the original trade.")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.reserved_12 = ProtoField.new("Reserved 12", "miax.pearloptions.topofmarket.mach.v1.0.b.reserved12", ftypes.BYTES, nil, nil, nil, "** Reserved for future use **")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.restricted_option = ProtoField.new("Restricted Option", "miax.pearloptions.topofmarket.mach.v1.0.b.restrictedoption", ftypes.STRING)
-omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.seconds = ProtoField.new("Seconds", "miax.pearloptions.topofmarket.mach.v1.0.b.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.seconds_utc = ProtoField.new("Seconds", "miax.pearloptions.topofmarket.mach.v1.0.b.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.seconds = ProtoField.new("Seconds", "miax.pearloptions.topofmarket.mach.v1.0.b.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.security_symbol = ProtoField.new("Security Symbol", "miax.pearloptions.topofmarket.mach.v1.0.b.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearloptions.topofmarket.mach.v1.0.b.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this data packet")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.fields.session_id = ProtoField.new("Session Id", "miax.pearloptions.topofmarket.mach.v1.0.b.sessionid", ftypes.UINT32, nil, nil, nil, "PEARL assigned ID for the current trading session")
@@ -120,7 +120,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_pearloptions_topofmarket_mach_v1_0_b.timestamp_format = 2
+miax_pearloptions_topofmarket_mach_v1_0_b.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -141,7 +141,7 @@ omi_miax_pearloptions_topofmarket_mach_v1_0_b.prefs.show_application_messages = 
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_pearloptions_topofmarket_mach_v1_0_b.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_miax_pearloptions_topofmarket_mach_v1_0_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_pearloptions_topofmarket_mach_v1_0_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_pearloptions_topofmarket_mach_v1_0_b.prefs_changed()

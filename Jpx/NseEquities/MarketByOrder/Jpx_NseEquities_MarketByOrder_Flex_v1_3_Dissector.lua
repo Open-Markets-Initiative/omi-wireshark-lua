@@ -53,8 +53,8 @@ omi_jpx_nseequities_marketbyorder_flex_v1_3.fields.stq_reference_price = ProtoFi
 omi_jpx_nseequities_marketbyorder_flex_v1_3.fields.tag_length = ProtoField.new("Tag Length", "jpx.nseequities.marketbyorder.flex.v1.3.taglength", ftypes.UINT8, nil, nil, nil, "Length in bytes of the Tag Data including the Message Type byte")
 omi_jpx_nseequities_marketbyorder_flex_v1_3.fields.test_mode_flag = ProtoField.new("Test Mode Flag", "jpx.nseequities.marketbyorder.flex.v1.3.testmodeflag", ftypes.UINT8, nil, nil, nil, "Indicates production or test")
 omi_jpx_nseequities_marketbyorder_flex_v1_3.fields.time_microseconds = ProtoField.new("Time Microseconds", "jpx.nseequities.marketbyorder.flex.v1.3.timemicroseconds", ftypes.UINT32, nil, nil, nil, "Time to the nearest microsecond")
-omi_jpx_nseequities_marketbyorder_flex_v1_3.fields.time_seconds = ProtoField.new("Time Seconds", "jpx.nseequities.marketbyorder.flex.v1.3.timeseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Set to UNIX time (seconds since 1970-01-01 00:00:00 UTC)")
 omi_jpx_nseequities_marketbyorder_flex_v1_3.fields.time_seconds_utc = ProtoField.new("Time Seconds", "jpx.nseequities.marketbyorder.flex.v1.3.timeseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Set to UNIX time (seconds since 1970-01-01 00:00:00 UTC)")
+omi_jpx_nseequities_marketbyorder_flex_v1_3.fields.time_seconds = ProtoField.new("Time Seconds", "jpx.nseequities.marketbyorder.flex.v1.3.timeseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Set to UNIX time (seconds since 1970-01-01 00:00:00 UTC)")
 omi_jpx_nseequities_marketbyorder_flex_v1_3.fields.total_invalidation = ProtoField.new("Total Invalidation", "jpx.nseequities.marketbyorder.flex.v1.3.totalinvalidation", ftypes.UINT64, nil, nil, nil, "Total volume of invalidated orders in number of shares")
 omi_jpx_nseequities_marketbyorder_flex_v1_3.fields.total_number_of_packets = ProtoField.new("Total Number Of Packets", "jpx.nseequities.marketbyorder.flex.v1.3.totalnumberofpackets", ftypes.UINT8, nil, nil, nil, "Total packet count within a multi packet split set always 0 in arrowhead4 0")
 omi_jpx_nseequities_marketbyorder_flex_v1_3.fields.total_volume = ProtoField.new("Total Volume", "jpx.nseequities.marketbyorder.flex.v1.3.totalvolume", ftypes.UINT64, nil, nil, nil, "Total volume of executed orders in number of shares")
@@ -110,7 +110,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-jpx_nseequities_marketbyorder_flex_v1_3.timestamp_format = 2
+jpx_nseequities_marketbyorder_flex_v1_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -131,7 +131,7 @@ omi_jpx_nseequities_marketbyorder_flex_v1_3.prefs.show_structs = Pref.bool("Show
 omi_jpx_nseequities_marketbyorder_flex_v1_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_jpx_nseequities_marketbyorder_flex_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_jpx_nseequities_marketbyorder_flex_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_jpx_nseequities_marketbyorder_flex_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_jpx_nseequities_marketbyorder_flex_v1_3.prefs_changed()

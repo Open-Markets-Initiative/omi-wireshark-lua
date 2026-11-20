@@ -35,8 +35,8 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved = ProtoField.n
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reserved_bits = ProtoField.new("Reserved Bits", "coinbase.coinbasederivatives.session.tcp.v1.2.reservedbits", ftypes.UINT8, nil, base.DEC, 0xFE, "Bits reserved for future use")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.coinbasederivatives.session.tcp.v1.2.resetseqnum", ftypes.INT8, nil, nil, nil, "resetSeqNum")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.session.tcp.v1.2.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.session.tcp.v1.2.sendtimeepochnanos", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendTimeEpochNanos")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.send_time_epoch_nanos_utc = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.session.tcp.v1.2.sendtimeepochnanos.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "sendTimeEpochNanos")
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.session.tcp.v1.2.sendtimeepochnanos", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendTimeEpochNanos")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.coinbasederivatives.session.tcp.v1.2.sequencenumber", ftypes.UINT32, nil, nil, nil, "Outbound sequence number per session")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.session_flags = ProtoField.new("Session Flags", "coinbase.coinbasederivatives.session.tcp.v1.2.sessionflags", ftypes.STRING, nil, nil, nil, "Uint8 bit set carrying the isResend indicator")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.fields.template_id = ProtoField.new("Template Id", "coinbase.coinbasederivatives.session.tcp.v1.2.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
@@ -76,7 +76,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-coinbase_coinbasederivatives_session_tcp_v1_2.timestamp_format = 2
+coinbase_coinbasederivatives_session_tcp_v1_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -95,7 +95,7 @@ omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_application_message
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
-omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_session_tcp_v1_2.prefs_changed()

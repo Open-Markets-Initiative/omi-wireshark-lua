@@ -31,8 +31,8 @@ omi_tmx_tsx_globalfx_gfx_v1_0.fields.size_tier = ProtoField.new("Size Tier", "tm
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.stream_id = ProtoField.new("Stream Id", "tmx.tsx.globalfx.gfx.v1.0.streamid", ftypes.UINT64, nil, nil, nil, "Stream Id, which changes when the sequence number resets")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.tier_size = ProtoField.new("Tier Size", "tmx.tsx.globalfx.gfx.v1.0.tiersize", ftypes.UINT32, nil, nil, nil, "Size Tier, not shifted")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.tier_status = ProtoField.new("Tier Status", "tmx.tsx.globalfx.gfx.v1.0.tierstatus", ftypes.STRING, nil, nil, nil, "Whether a reference price is available at this size tier")
-omi_tmx_tsx_globalfx_gfx_v1_0.fields.timestamp = ProtoField.new("Timestamp", "tmx.tsx.globalfx.gfx.v1.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in microseconds since Jan 1, 1970")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.timestamp_utc = ProtoField.new("Timestamp", "tmx.tsx.globalfx.gfx.v1.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time in microseconds since Jan 1, 1970")
+omi_tmx_tsx_globalfx_gfx_v1_0.fields.timestamp = ProtoField.new("Timestamp", "tmx.tsx.globalfx.gfx.v1.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in microseconds since Jan 1, 1970")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.unused_1 = ProtoField.new("Unused 1", "tmx.tsx.globalfx.gfx.v1.0.unused1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.unused_2 = ProtoField.new("Unused 2", "tmx.tsx.globalfx.gfx.v1.0.unused2", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_tmx_tsx_globalfx_gfx_v1_0.fields.valid_for_seconds = ProtoField.new("Valid For Seconds", "tmx.tsx.globalfx.gfx.v1.0.validforseconds", ftypes.UINT16, nil, nil, nil, "Time to live for the prices in this datagram, zero if periodic refresh is not enabled")
@@ -57,7 +57,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-tmx_tsx_globalfx_gfx_v1_0.timestamp_format = 2
+tmx_tsx_globalfx_gfx_v1_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -78,7 +78,7 @@ omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_application_messages = Pref.bool("Show 
 omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_tmx_tsx_globalfx_gfx_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_tmx_tsx_globalfx_gfx_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_tmx_tsx_globalfx_gfx_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_tmx_tsx_globalfx_gfx_v1_0.prefs_changed()

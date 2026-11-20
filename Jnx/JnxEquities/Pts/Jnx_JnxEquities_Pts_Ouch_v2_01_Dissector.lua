@@ -113,7 +113,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-jnx_jnxequities_pts_ouch_v2_01.timestamp_format = 2
+jnx_jnxequities_pts_ouch_v2_01.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -146,7 +146,7 @@ omi_jnx_jnxequities_pts_ouch_v2_01.prefs.show_headers = Pref.bool("Show Headers"
 omi_jnx_jnxequities_pts_ouch_v2_01.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_jnx_jnxequities_pts_ouch_v2_01.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_jnx_jnxequities_pts_ouch_v2_01.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_jnx_jnxequities_pts_ouch_v2_01.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_jnx_jnxequities_pts_ouch_v2_01.prefs_changed()

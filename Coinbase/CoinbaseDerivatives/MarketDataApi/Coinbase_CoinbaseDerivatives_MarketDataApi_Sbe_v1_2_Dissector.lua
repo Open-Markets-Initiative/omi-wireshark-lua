@@ -16,8 +16,8 @@ local coinbase_coinbasederivatives_marketdataapi_sbe_v1_2 = {}
 
 -- Coinbase CoinbaseDerivatives MarketDataApi Sbe 1.2 Fields
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.aggressororderid", ftypes.INT64, nil, nil, nil, "aggressorOrderId")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.aggressorreceivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "aggressorReceiveTime")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.aggressor_receive_time_utc = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.aggressorreceivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "aggressorReceiveTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.aggressorreceivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "aggressorReceiveTime")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.beginseqnum", ftypes.INT64, nil, nil, nil, "beginSeqNum")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestaskimpliedprice", ftypes.DOUBLE, nil, nil, nil, "bestAskImpliedPrice")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.best_ask_implied_qty = ProtoField.new("Best Ask Implied Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.bestaskimpliedqty", ftypes.INT32, nil, nil, nil, "bestAskImpliedQty")
@@ -51,8 +51,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.is_prior_settleme
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_instr_seq_num = ProtoField.new("Last Instr Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lastinstrseqnum", ftypes.UINT32, nil, nil, nil, "lastInstrSeqNum")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_price = ProtoField.new("Last Trade Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradeprice", ftypes.DOUBLE, nil, nil, nil, "lastTradePrice")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_qty = ProtoField.new("Last Trade Qty", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradeqty", ftypes.INT32, nil, nil, nil, "lastTradeQty")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "lastTradeTime")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time_utc = ProtoField.new("Last Trade Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "lastTradeTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "lastTradeTime")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.last_trading_session_date = ProtoField.new("Last Trading Session Date", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.lasttradingsessiondate", ftypes.UINT16, nil, nil, nil, "lastTradingSessionDate")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.leg_1_instrument_id = ProtoField.new("Leg 1 Instrument Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.leg1instrumentid", ftypes.INT32, nil, nil, nil, "leg1InstrumentId")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.leg_2_instrument_id = ProtoField.new("Leg 2 Instrument Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.leg2instrumentid", ftypes.INT32, nil, nil, nil, "leg2InstrumentId")
@@ -94,8 +94,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.retransmit = Prot
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.retrydelaynanos", ftypes.INT64, nil, nil, nil, "retryDelayNanos")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sell_order_id = ProtoField.new("Sell Order Id", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sellorderid", ftypes.INT64, nil, nil, nil, "sellOrderId")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time = ProtoField.new("Sending Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since Unix epoch")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time_utc = ProtoField.new("Sending Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since Unix epoch")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.sending_time = ProtoField.new("Sending Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since Unix epoch")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.seq_num = ProtoField.new("Seq Num", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.seqnum", ftypes.INT64, nil, nil, nil, "Sequence number of first message in packet")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.settlement_price = ProtoField.new("Settlement Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.settlementprice", ftypes.DOUBLE, nil, nil, nil, "settlementPrice")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.snapshot = ProtoField.new("Snapshot", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.snapshot", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Snapshot packet indicator (Bit 1)")
@@ -108,8 +108,8 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.template_id = Pro
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.trade_volume = ProtoField.new("Trade Volume", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradevolume", ftypes.INT32, nil, nil, nil, "tradeVolume")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.trading_session_date = ProtoField.new("Trading Session Date", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingsessiondate", ftypes.UINT16, nil, nil, nil, "tradingSessionDate")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.trading_status = ProtoField.new("Trading Status", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.tradingstatus", ftypes.INT8, nil, nil, nil, "tradingStatus")
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time = ProtoField.new("Transact Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time_utc = ProtoField.new("Transact Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.transact_time = ProtoField.new("Transact Time", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.version = ProtoField.new("Version", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwapprice", ftypes.DOUBLE, nil, nil, nil, "vwapPrice")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.fields.vwap_price_optional = ProtoField.new("Vwap Price Optional", "coinbase.coinbasederivatives.marketdataapi.sbe.v1.2.vwappriceoptional", ftypes.DOUBLE, nil, nil, nil, "vwapPrice")
@@ -160,7 +160,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.timestamp_format = 2
+coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -181,7 +181,7 @@ omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_application_m
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_marketdataapi_sbe_v1_2.prefs_changed()

@@ -364,19 +364,11 @@ aquis_aquisequities_udpheader_amd_v1_0.packet.dissect = function(buffer, packet,
   -- Packet Header: Struct of 1 fields
   index, packet_header = aquis_aquisequities_udpheader_amd_v1_0.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 1, 1):uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Stop where the payload ends inside the next size
-    if index + 1 + 1 > end_of_payload then
-      parent:add_proto_expert_info(aquis_aquisequities_udpheader_amd_v1_0.experts.undecoded, "Msg Length runs past the end of the payload")
-      break
-    end
+  -- Repeating: Message
+  for message_index = 1, message_count do
 
     -- Dependency element: Msg Length
     local msg_length = buffer(index + 1, 1):uint()

@@ -56,10 +56,10 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.instrument_update_action =
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_incremental_message_seq = ProtoField.new("Last Incremental Message Seq", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lastincrementalmessageseq", ftypes.INT64, nil, nil, nil, "Last incremental message sequence in this incarnation related to this instrument")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_price = ProtoField.new("Last Trade Price", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradeprice", ftypes.DOUBLE, nil, nil, nil, "Last traded price for the instrument")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_size = ProtoField.new("Last Trade Size", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradesize", ftypes.DOUBLE, nil, nil, nil, "Size of the last trade")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the session last trade")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_utc = ProtoField.new("Last Trade Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of the session last trade")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_optional = ProtoField.new("Last Trade Time Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the last trade for the day")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the session last trade")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_optional_utc = ProtoField.new("Last Trade Time Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of the last trade for the day")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trade_time_optional = ProtoField.new("Last Trade Time Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradetimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the last trade for the day")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.last_trading_session_date = ProtoField.new("Last Trading Session Date", "smallx.smallfutures.orderbookfeed.sbe.v2.2.lasttradingsessiondate", ftypes.UINT16, nil, nil, nil, "Instrument last trading business day")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.leg_instrument_id = ProtoField.new("Leg Instrument Id", "smallx.smallfutures.orderbookfeed.sbe.v2.2.leginstrumentid", ftypes.INT32, nil, nil, nil, "Unique numeric ID of the leg instrument. The ID is used to reference instrument definition message of the leg transmitted in the snapshot line for getting details and all information data fields from it")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.leg_product = ProtoField.new("Leg Product", "smallx.smallfutures.orderbookfeed.sbe.v2.2.legproduct", ftypes.STRING, nil, nil, nil, "Leg instrument product")
@@ -115,8 +115,8 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.strike_price = ProtoField.
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.symbol = ProtoField.new("Symbol", "smallx.smallfutures.orderbookfeed.sbe.v2.2.symbol", ftypes.STRING, nil, nil, nil, "Instrument symbol")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.synthetic = ProtoField.new("Synthetic", "smallx.smallfutures.orderbookfeed.sbe.v2.2.synthetic", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Spread leg fill with calculated synthetic price")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.template_id = ProtoField.new("Template Id", "smallx.smallfutures.orderbookfeed.sbe.v2.2.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.time = ProtoField.new("Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.time", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade timestamp, or the order timestamp in the Order Book Snapshot Message")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.time_utc = ProtoField.new("Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.time.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trade timestamp, or the order timestamp in the Order Book Snapshot Message")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.time = ProtoField.new("Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.time", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade timestamp, or the order timestamp in the Order Book Snapshot Message")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.total_volume = ProtoField.new("Total Volume", "smallx.smallfutures.orderbookfeed.sbe.v2.2.totalvolume", ftypes.DOUBLE, nil, nil, nil, "Total day traded volume for the instrument")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.total_volume_optional = ProtoField.new("Total Volume Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.totalvolumeoptional", ftypes.DOUBLE, nil, nil, nil, "Total traded volume for the instrument session")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_bust_group = ProtoField.new("Trade Bust Group", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradebustgroup", ftypes.STRING, nil, nil, nil, "NoTrades")
@@ -128,8 +128,8 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_id = ProtoField.new(
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_id_optional = ProtoField.new("Trade Id Optional", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradeidoptional", ftypes.INT64, nil, nil, nil, "Id of the trade if this order update is caused by a trade")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trade_update_action = ProtoField.new("Trade Update Action", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradeupdateaction", ftypes.STRING, nil, nil, nil, "Trade update type")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.trading_session_date = ProtoField.new("Trading Session Date", "smallx.smallfutures.orderbookfeed.sbe.v2.2.tradingsessiondate", ftypes.UINT16, nil, nil, nil, "Trading session business date")
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transact_time = ProtoField.new("Transact Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message event timestamp; in snapshot messages, the last instrument incremental message event timestamp; in the Index Snapshot Message, the index value calculation time")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transact_time_utc = ProtoField.new("Transact Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Message event timestamp; in snapshot messages, the last instrument incremental message event timestamp; in the Index Snapshot Message, the index value calculation time")
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transact_time = ProtoField.new("Transact Time", "smallx.smallfutures.orderbookfeed.sbe.v2.2.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message event timestamp; in snapshot messages, the last instrument incremental message event timestamp; in the Index Snapshot Message, the index value calculation time")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transaction_begin = ProtoField.new("Transaction Begin", "smallx.smallfutures.orderbookfeed.sbe.v2.2.transactionbegin", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Set in the first message resulting a single business event processing")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.transaction_end = ProtoField.new("Transaction End", "smallx.smallfutures.orderbookfeed.sbe.v2.2.transactionend", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Set in the last message resulting a single business event processing")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "smallx.smallfutures.orderbookfeed.sbe.v2.2.underlyinginstrumentid", ftypes.INT32, nil, nil, nil, "Option underlying ID. The ID is used to reference instrument definition message of the underlying transmitted in the snapshot line for getting underlying details from it")
@@ -185,7 +185,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format = 2
+smallx_smallfutures_orderbookfeed_sbe_v2_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -208,7 +208,7 @@ omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.show_headers = Pref.bool("S
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_smallx_smallfutures_orderbookfeed_sbe_v2_2.prefs_changed()

@@ -175,7 +175,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_miaxoptions_clearingtradedrop_ctd_v2_4_a.timestamp_format = 2
+miax_miaxoptions_clearingtradedrop_ctd_v2_4_a.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -198,7 +198,7 @@ omi_miax_miaxoptions_clearingtradedrop_ctd_v2_4_a.prefs.show_application_message
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_4_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_miaxoptions_clearingtradedrop_ctd_v2_4_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_miax_miaxoptions_clearingtradedrop_ctd_v2_4_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_miaxoptions_clearingtradedrop_ctd_v2_4_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_clearingtradedrop_ctd_v2_4_a.prefs_changed()

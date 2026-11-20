@@ -29,8 +29,8 @@ omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.exchange_info_alpha_16 
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.exchange_info_alpha_32 = ProtoField.new("Exchange Info Alpha 32", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.exchangeinfoalpha32", ftypes.STRING, nil, nil, nil, "Client account number. Only the first 16 bytes are used. Account Info should use this field for the equity market")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.existing_order_token = ProtoField.new("Existing Order Token", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.existingordertoken", ftypes.STRING, nil, nil, nil, "Should be the Order Token from the original Enter Order, not from any intermediate replaces")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.match_id = ProtoField.new("Match Id", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.matchid", ftypes.BYTES, nil, nil, nil, "Backend-generated identifier, unique per trade message")
-omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.nanoseconds = ProtoField.new("Nanoseconds", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.nanoseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC)")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.nanoseconds_utc = ProtoField.new("Nanoseconds", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.nanoseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC)")
+omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.nanoseconds = ProtoField.new("Nanoseconds", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.nanoseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC)")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.no_quote_entries = ProtoField.new("No Quote Entries", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.noquoteentries", ftypes.UINT16, nil, nil, nil, "Number of double-sided quotes in the following QuoteSet repeating group. Currently restricted to a maximum of 5")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.off_hours = ProtoField.new("Off Hours", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.offhours", ftypes.UINT8, nil, nil, nil, "Off-hours indicator. Used by the derivatives market")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.fields.offer_price = ProtoField.new("Offer Price", "bist.borsaistanbul.geniuminet.ouch.v2025.0206.offerprice", ftypes.DOUBLE, nil, nil, nil, "Offer price. Number of decimals and allowed tick steps are given by the Order book Directory message in ITCH")
@@ -126,7 +126,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-bist_borsaistanbul_geniuminet_ouch_v2025_0206.timestamp_format = 2
+bist_borsaistanbul_geniuminet_ouch_v2025_0206.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -163,7 +163,7 @@ omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.show_repeating_groups = 
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bist_borsaistanbul_geniuminet_ouch_v2025_0206.prefs_changed()

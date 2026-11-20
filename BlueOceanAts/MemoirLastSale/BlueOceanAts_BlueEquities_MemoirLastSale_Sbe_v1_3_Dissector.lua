@@ -51,8 +51,8 @@ omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.fields.short_sale_restrict
 omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.symbol", ftypes.STRING, nil, nil, nil, "The Cms root for the tradable instrument")
 omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.symbolsfx", ftypes.STRING, nil, nil, nil, "The Cms suffix for the tradable instrument")
 omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.templateid", ftypes.UINT8, nil, nil, nil, "T8 Identifier of the message template")
-omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The timestamp when the event occurred, nanoseconds since the unix epoch")
 omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.fields.timestamp_utc = ProtoField.new("Timestamp", "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The timestamp when the event occurred, nanoseconds since the unix epoch")
+omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The timestamp when the event occurred, nanoseconds since the unix epoch")
 omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.fields.trade_id = ProtoField.new("Trade Id", "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.tradeid", ftypes.UINT64, nil, nil, nil, "The unique identifier of the execution message")
 omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.fields.trade_price = ProtoField.new("Trade Price", "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.tradeprice", ftypes.DOUBLE, nil, nil, nil, "The price of the trade, a signed mantissa scaled by a constant exponent of -6")
 omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.fields.trade_qty = ProtoField.new("Trade Qty", "blueoceanats.blueequities.memoirlastsale.sbe.v1.3.tradeqty", ftypes.UINT32, nil, nil, nil, "The quantity of the trade")
@@ -99,7 +99,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-blueoceanats_blueequities_memoirlastsale_sbe_v1_3.timestamp_format = 2
+blueoceanats_blueequities_memoirlastsale_sbe_v1_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -122,7 +122,7 @@ omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.prefs.show_structs = Pref.
 omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_blueoceanats_blueequities_memoirlastsale_sbe_v1_3.prefs_changed()

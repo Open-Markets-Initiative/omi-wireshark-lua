@@ -100,7 +100,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_bxeequities_lastsale_asciipitch_v1_7.timestamp_format = 2
+cboe_bxeequities_lastsale_asciipitch_v1_7.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -117,7 +117,7 @@ show.application_messages = true
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_bxeequities_lastsale_asciipitch_v1_7.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 
-omi_cboe_bxeequities_lastsale_asciipitch_v1_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_bxeequities_lastsale_asciipitch_v1_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_bxeequities_lastsale_asciipitch_v1_7.prefs_changed()

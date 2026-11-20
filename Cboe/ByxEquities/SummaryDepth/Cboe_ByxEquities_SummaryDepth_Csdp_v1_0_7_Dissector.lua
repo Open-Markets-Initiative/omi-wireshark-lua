@@ -93,7 +93,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_byxequities_summarydepth_csdp_v1_0_7.timestamp_format = 2
+cboe_byxequities_summarydepth_csdp_v1_0_7.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -120,7 +120,7 @@ omi_cboe_byxequities_summarydepth_csdp_v1_0_7.prefs.show_padding = Pref.bool("Sh
 omi_cboe_byxequities_summarydepth_csdp_v1_0_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_byxequities_summarydepth_csdp_v1_0_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_byxequities_summarydepth_csdp_v1_0_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_byxequities_summarydepth_csdp_v1_0_7.prefs_changed()
@@ -1516,6 +1516,9 @@ cboe_byxequities_summarydepth_csdp_v1_0_7.adap_block.dissect = function(buffer, 
     local index = cboe_byxequities_summarydepth_csdp_v1_0_7.adap_block.fields(buffer, offset, packet, parent, adap_block_index, adap_block_size)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = cboe_byxequities_summarydepth_csdp_v1_0_7.adap_block.display(packet, parent, length)
     parent:append_text(display)
 

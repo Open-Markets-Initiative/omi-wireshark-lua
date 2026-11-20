@@ -24,8 +24,8 @@ omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_protocol_id = ProtoField
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.message_type = ProtoField.new("Message Type", "iex.iexequities.iextpheader.udp.v1.0.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.payload_length = ProtoField.new("Payload Length", "iex.iexequities.iextpheader.udp.v1.0.payloadlength", ftypes.UINT16, nil, nil, nil, "Byte length of the payload")
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.reserved = ProtoField.new("Reserved", "iex.iexequities.iextpheader.udp.v1.0.reserved", ftypes.BYTES, nil, nil, nil, "Reserved byte")
-omi_iex_iexequities_iextpheader_udp_v1_0.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.iextpheader.udp.v1.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.send_time_utc = ProtoField.new("Send Time", "iex.iexequities.iextpheader.udp.v1.0.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
+omi_iex_iexequities_iextpheader_udp_v1_0.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.iextpheader.udp.v1.0.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.session_id = ProtoField.new("Session Id", "iex.iexequities.iextpheader.udp.v1.0.sessionid", ftypes.UINT32, nil, nil, nil, "Identifies the session")
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.stream_offset = ProtoField.new("Stream Offset", "iex.iexequities.iextpheader.udp.v1.0.streamoffset", ftypes.UINT64, nil, nil, nil, "Byte offset of the data stream")
 omi_iex_iexequities_iextpheader_udp_v1_0.fields.version = ProtoField.new("Version", "iex.iexequities.iextpheader.udp.v1.0.version", ftypes.UINT8, nil, nil, nil, "Version of transport specification")
@@ -50,7 +50,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-iex_iexequities_iextpheader_udp_v1_0.timestamp_format = 2
+iex_iexequities_iextpheader_udp_v1_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -71,7 +71,7 @@ omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_structs = Pref.bool("Show St
 omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_iex_iexequities_iextpheader_udp_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_iex_iexequities_iextpheader_udp_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_iex_iexequities_iextpheader_udp_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_iex_iexequities_iextpheader_udp_v1_0.prefs_changed()

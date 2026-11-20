@@ -62,18 +62,18 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.reserved_2 = ProtoFiel
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.reserved4", ftypes.BYTES, nil, nil, nil, "Future use. Any field content should be ignored.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted")
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Arca, National and American")
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.sessionstate", ftypes.STRING, nil, nil, nil, "Unused. Defaulted to 0x00.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.significant_imbalance = ProtoField.new("Significant Imbalance", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.significantimbalance", ftypes.STRING, nil, nil, nil, "For Auction Types=C or P in NYSE-listed symbols. Using historical closing data for each symbol,NYSE will set this indicator if the Continuous Book Clearing Price is more than a ‘significant’ range away from the Reference Price.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.source_id = ProtoField.new("Source Id", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.sourceid", ftypes.STRING, nil, nil, nil, "The ID of the client requesting this retransmission . This field is up to 9 characters, null terminated.")
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.source_time_utc = ProtoField.new("Source Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.ssrfilingprice", ftypes.UINT32, nil, nil, nil, "For NYSE, the price at which Sell Short interest in the opening auction will be filed if a Sell Short Restriction is in effect for the security.")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.ssr_state = ProtoField.new("Ssr State", "nyse.nyseequities.imbalancesfeed.pillar.v2.2.h.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state, which this msg updates if the Security Status field contains an SSR Code. Valid")
@@ -133,7 +133,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.timestamp_format = 2
+nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -158,7 +158,7 @@ omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_padding = Pref.boo
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.prefs_changed()
@@ -3719,8 +3719,8 @@ nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.send_time.dissect = function(buff
     local length = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.send_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.send_time
-    if nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.timestamp_format == 3 then field = omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.send_time_utc end
+    local field = omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.send_time_utc
+    if nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.timestamp_format == 2 then field = omi_nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.fields.send_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_nyseequities_imbalancesfeed_pillar_v2_2_h.send_time.fields(buffer, offset, packet, parent)
 

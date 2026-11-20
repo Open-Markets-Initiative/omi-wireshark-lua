@@ -72,8 +72,8 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.fields.status_retransmission_status_type
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.status_status_type = ProtoField.new("Status Status Type", "iex.iexoptions.marketdata.sbe.v1.03.statusstatustype", ftypes.INT8, nil, nil, nil, "status")
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.strike_price = ProtoField.new("Strike Price", "iex.iexoptions.marketdata.sbe.v1.03.strikeprice", ftypes.DOUBLE, nil, nil, nil, "strikePrice")
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.template_id = ProtoField.new("Template Id", "iex.iexoptions.marketdata.sbe.v1.03.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
-omi_iex_iexoptions_marketdata_sbe_v1_03.fields.time = ProtoField.new("Time", "iex.iexoptions.marketdata.sbe.v1.03.time", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.time_utc = ProtoField.new("Time", "iex.iexoptions.marketdata.sbe.v1.03.time.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_iex_iexoptions_marketdata_sbe_v1_03.fields.time = ProtoField.new("Time", "iex.iexoptions.marketdata.sbe.v1.03.time", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.total_packet_count = ProtoField.new("Total Packet Count", "iex.iexoptions.marketdata.sbe.v1.03.totalpacketcount", ftypes.UINT32, nil, nil, nil, "totalPacketCount")
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.trade_condition = ProtoField.new("Trade Condition", "iex.iexoptions.marketdata.sbe.v1.03.tradecondition", ftypes.STRING, nil, nil, nil, "tradeCondition")
 omi_iex_iexoptions_marketdata_sbe_v1_03.fields.trade_id = ProtoField.new("Trade Id", "iex.iexoptions.marketdata.sbe.v1.03.tradeid", ftypes.UINT64, nil, nil, nil, "tradeId")
@@ -138,7 +138,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-iex_iexoptions_marketdata_sbe_v1_03.timestamp_format = 2
+iex_iexoptions_marketdata_sbe_v1_03.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -161,7 +161,7 @@ omi_iex_iexoptions_marketdata_sbe_v1_03.prefs.show_headers = Pref.bool("Show Hea
 omi_iex_iexoptions_marketdata_sbe_v1_03.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_iex_iexoptions_marketdata_sbe_v1_03.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_iex_iexoptions_marketdata_sbe_v1_03.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_iex_iexoptions_marketdata_sbe_v1_03.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_iex_iexoptions_marketdata_sbe_v1_03.prefs_changed()

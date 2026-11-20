@@ -75,8 +75,8 @@ omi_athex_athexderivatives_realtime_ids_v5_2.fields.phase_id = ProtoField.new("P
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.pric = ProtoField.new("Pric", "athex.athexderivatives.realtime.ids.v5.2.pric", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x00000008, "Negotiated transaction subject to conditions other than the current market price waiver")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.price = ProtoField.new("Price", "athex.athexderivatives.realtime.ids.v5.2.price", ftypes.DOUBLE, nil, nil, nil, "The trade's price")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.price_flag = ProtoField.new("Price Flag", "athex.athexderivatives.realtime.ids.v5.2.priceflag", ftypes.STRING, nil, nil, nil, "Which of the three prices the message carries")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "athex.athexderivatives.realtime.ids.v5.2.publicationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp_utc = ProtoField.new("Publication Timestamp", "athex.athexderivatives.realtime.ids.v5.2.publicationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "athex.athexderivatives.realtime.ids.v5.2.publicationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Local time the packet was created in the Ids subsystem, as YYYYMMDDHHMMSSdddddd to the microsecond")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.quote_level = ProtoField.new("Quote Level", "athex.athexderivatives.realtime.ids.v5.2.quotelevel", ftypes.STRING, nil, nil, nil, "One Bid and Ask level of the given instrument, repeated as many times as the Quote Levels field states")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.quote_levels = ProtoField.new("Quote Levels", "athex.athexderivatives.realtime.ids.v5.2.quotelevels", ftypes.UINT16, nil, nil, nil, "The number of Bid and Ask levels contained in this message for the given instrument")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.rfpt = ProtoField.new("Rfpt", "athex.athexderivatives.realtime.ids.v5.2.rfpt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x00000001, "Reference price waiver")
@@ -94,8 +94,8 @@ omi_athex_athexderivatives_realtime_ids_v5_2.fields.start_of_day_price = ProtoFi
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.symbol = ProtoField.new("Symbol", "athex.athexderivatives.realtime.ids.v5.2.symbol", ftypes.STRING, nil, nil, nil, "The Instrument's fifteen character symbol")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.text_size_in_english = ProtoField.new("Text Size In English", "athex.athexderivatives.realtime.ids.v5.2.textsizeinenglish", ftypes.UINT24, nil, nil, nil, "The size of the notification Text written in the English language")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.text_size_in_local = ProtoField.new("Text Size In Local", "athex.athexderivatives.realtime.ids.v5.2.textsizeinlocal", ftypes.UINT24, nil, nil, nil, "The size of the notification Text written in the Local language")
-omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp = ProtoField.new("Time Stamp", "athex.athexderivatives.realtime.ids.v5.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was created in the Trading System, as local time to the microsecond")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp_utc = ProtoField.new("Time Stamp", "athex.athexderivatives.realtime.ids.v5.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was created in the Trading System, as local time to the microsecond")
+omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp = ProtoField.new("Time Stamp", "athex.athexderivatives.realtime.ids.v5.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was created in the Trading System, as local time to the microsecond")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.total_value = ProtoField.new("Total Value", "athex.athexderivatives.realtime.ids.v5.2.totalvalue", ftypes.DOUBLE, nil, nil, nil, "The total value traded in the given Market for the given Instrument, during the trading day")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.total_volume = ProtoField.new("Total Volume", "athex.athexderivatives.realtime.ids.v5.2.totalvolume", ftypes.DOUBLE, nil, nil, nil, "The total number of stocks or contracts traded up to that point")
 omi_athex_athexderivatives_realtime_ids_v5_2.fields.trade_number = ProtoField.new("Trade Number", "athex.athexderivatives.realtime.ids.v5.2.tradenumber", ftypes.UINT24, nil, nil, nil, "Unique for the trading day")
@@ -148,7 +148,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-athex_athexderivatives_realtime_ids_v5_2.timestamp_format = 2
+athex_athexderivatives_realtime_ids_v5_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -171,7 +171,7 @@ omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_headers = Pref.bool("Sho
 omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_athex_athexderivatives_realtime_ids_v5_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_athex_athexderivatives_realtime_ids_v5_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_athex_athexderivatives_realtime_ids_v5_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_athex_athexderivatives_realtime_ids_v5_2.prefs_changed()
@@ -2078,8 +2078,8 @@ athex_athexderivatives_realtime_ids_v5_2.publication_timestamp.dissect = functio
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp
-  if athex_athexderivatives_realtime_ids_v5_2.timestamp_format == 3 then field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp_utc end
+  local field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp_utc
+  if athex_athexderivatives_realtime_ids_v5_2.timestamp_format == 2 then field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.publication_timestamp end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros
@@ -2512,8 +2512,8 @@ athex_athexderivatives_realtime_ids_v5_2.time_stamp.dissect = function(buffer, o
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp
-  if athex_athexderivatives_realtime_ids_v5_2.timestamp_format == 3 then field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp_utc end
+  local field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp_utc
+  if athex_athexderivatives_realtime_ids_v5_2.timestamp_format == 2 then field = omi_athex_athexderivatives_realtime_ids_v5_2.fields.time_stamp end
 
   -- Twenty digits read as a date; anything else leaves the parts nil
   local year, month, day, hour, minute, second, micros

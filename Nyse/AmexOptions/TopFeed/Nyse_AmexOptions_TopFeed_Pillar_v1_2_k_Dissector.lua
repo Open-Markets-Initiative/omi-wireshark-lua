@@ -88,12 +88,12 @@ omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.round_lot = ProtoField.new("Ro
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "nyse.amexoptions.topfeed.pillar.v1.2.k.secondreserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.second_reserved_2 = ProtoField.new("Second Reserved 2", "nyse.amexoptions.topfeed.pillar.v1.2.k.secondreserved2", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.second_reserved_4 = ProtoField.new("Second Reserved 4", "nyse.amexoptions.topfeed.pillar.v1.2.k.secondreserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
-omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.topfeed.pillar.v1.2.k.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.seconds_utc = ProtoField.new("Seconds", "nyse.amexoptions.topfeed.pillar.v1.2.k.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
+omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.topfeed.pillar.v1.2.k.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.security_status = ProtoField.new("Security Status", "nyse.amexoptions.topfeed.pillar.v1.2.k.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.security_type = ProtoField.new("Security Type", "nyse.amexoptions.topfeed.pillar.v1.2.k.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Pillar markets.")
-omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.topfeed.pillar.v1.2.k.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexoptions.topfeed.pillar.v1.2.k.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.topfeed.pillar.v1.2.k.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.seq_num = ProtoField.new("Seq Num", "nyse.amexoptions.topfeed.pillar.v1.2.k.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.series_index = ProtoField.new("Series Index", "nyse.amexoptions.topfeed.pillar.v1.2.k.seriesindex", ftypes.UINT32, nil, nil, nil, "The unique ID of this series within this market.")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.series_seq_num = ProtoField.new("Series Seq Num", "nyse.amexoptions.topfeed.pillar.v1.2.k.seriesseqnum", ftypes.UINT32, nil, nil, nil, "The series sequence number.")
@@ -102,8 +102,8 @@ omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.series_type = ProtoField.new("
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.session_state = ProtoField.new("Session State", "nyse.amexoptions.topfeed.pillar.v1.2.k.sessionstate", ftypes.STRING, nil, nil, nil, "Unused. Defaulted to 0x20.")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.side = ProtoField.new("Side", "nyse.amexoptions.topfeed.pillar.v1.2.k.side", ftypes.STRING, nil, nil, nil, "Side of the RFQ")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.source_id = ProtoField.new("Source Id", "nyse.amexoptions.topfeed.pillar.v1.2.k.sourceid", ftypes.STRING, nil, nil, nil, "The ID of the client requesting this retransmission. All trailing characters should be NULL.")
-omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.source_time = ProtoField.new("Source Time", "nyse.amexoptions.topfeed.pillar.v1.2.k.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.source_time_utc = ProtoField.new("Source Time", "nyse.amexoptions.topfeed.pillar.v1.2.k.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.source_time = ProtoField.new("Source Time", "nyse.amexoptions.topfeed.pillar.v1.2.k.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.amexoptions.topfeed.pillar.v1.2.k.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset (UTC Time) from the Time Reference message.")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.ssr_state = ProtoField.new("Ssr State", "nyse.amexoptions.topfeed.pillar.v1.2.k.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state.")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.amexoptions.topfeed.pillar.v1.2.k.ssrtriggeringexchangeid", ftypes.STRING, nil, nil, nil, "Only populated when securityStatus = A and this security is listed on this exchange. Otherwise defaulted to space (0x20).")
@@ -192,7 +192,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_amexoptions_topfeed_pillar_v1_2_k.timestamp_format = 2
+nyse_amexoptions_topfeed_pillar_v1_2_k.timestamp_format = 3
 
 -- Ask Price Calculate format (true = decimal-scaled, false = raw mantissa)
 nyse_amexoptions_topfeed_pillar_v1_2_k.format_decimals = true
@@ -225,7 +225,7 @@ omi_nyse_amexoptions_topfeed_pillar_v1_2_k.prefs.show_indexes = Pref.bool("Show 
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nyse_amexoptions_topfeed_pillar_v1_2_k.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nyse_amexoptions_topfeed_pillar_v1_2_k.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_amexoptions_topfeed_pillar_v1_2_k.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_amexoptions_topfeed_pillar_v1_2_k.prefs_changed()
@@ -6302,8 +6302,8 @@ nyse_amexoptions_topfeed_pillar_v1_2_k.send_time.dissect = function(buffer, offs
     local length = nyse_amexoptions_topfeed_pillar_v1_2_k.send_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.send_time
-    if nyse_amexoptions_topfeed_pillar_v1_2_k.timestamp_format == 3 then field = omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.send_time_utc end
+    local field = omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.send_time_utc
+    if nyse_amexoptions_topfeed_pillar_v1_2_k.timestamp_format == 2 then field = omi_nyse_amexoptions_topfeed_pillar_v1_2_k.fields.send_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_amexoptions_topfeed_pillar_v1_2_k.send_time.fields(buffer, offset, packet, parent)
 

@@ -27,10 +27,10 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.delivery_price = ProtoField.n
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.details = ProtoField.new("Details", "coinbase.deribit.marketdataapi.sbe.v1.0.details", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.end_of_transaction = ProtoField.new("End Of Transaction", "coinbase.deribit.marketdataapi.sbe.v1.0.endoftransaction", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "End of transaction indicator")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.estimated_delivery_price = ProtoField.new("Estimated Delivery Price", "coinbase.deribit.marketdataapi.sbe.v1.0.estimateddeliveryprice", ftypes.DOUBLE, nil, nil, nil, "estimatedDeliveryPrice")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.execution_timestamp = ProtoField.new("Execution Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.executiontimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "executionTimestamp")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.execution_timestamp_utc = ProtoField.new("Execution Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.executiontimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "executionTimestamp")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.expiry_time = ProtoField.new("Expiry Time", "coinbase.deribit.marketdataapi.sbe.v1.0.expirytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "expiryTime")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.execution_timestamp = ProtoField.new("Execution Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.executiontimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "executionTimestamp")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.expiry_time_utc = ProtoField.new("Expiry Time", "coinbase.deribit.marketdataapi.sbe.v1.0.expirytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "expiryTime")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.expiry_time = ProtoField.new("Expiry Time", "coinbase.deribit.marketdataapi.sbe.v1.0.expirytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "expiryTime")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.fill_price = ProtoField.new("Fill Price", "coinbase.deribit.marketdataapi.sbe.v1.0.fillprice", ftypes.DOUBLE, nil, nil, nil, "fillPrice")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.fill_qty_mantissa = ProtoField.new("Fill Qty Mantissa", "coinbase.deribit.marketdataapi.sbe.v1.0.fillqtymantissa", ftypes.INT64, nil, nil, nil, "fillQtyMantissa")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.flags = ProtoField.new("Flags", "coinbase.deribit.marketdataapi.sbe.v1.0.flags", ftypes.STRING, nil, nil, nil, "InstrumentFlags bit set")
@@ -39,8 +39,8 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.group_size_encoding = ProtoFi
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.implied_volatility = ProtoField.new("Implied Volatility", "coinbase.deribit.marketdataapi.sbe.v1.0.impliedvolatility", ftypes.DOUBLE, nil, nil, nil, "impliedVolatility")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.increment_seq_num = ProtoField.new("Increment Seq Num", "coinbase.deribit.marketdataapi.sbe.v1.0.incrementseqnum", ftypes.INT64, nil, nil, nil, "incrementSeqNum")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.incremental_seq_num = ProtoField.new("Incremental Seq Num", "coinbase.deribit.marketdataapi.sbe.v1.0.incrementalseqnum", ftypes.INT64, nil, nil, nil, "incrementalSeqNum")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.incremental_timestamp = ProtoField.new("Incremental Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.incrementaltimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "incrementalTimestamp")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.incremental_timestamp_utc = ProtoField.new("Incremental Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.incrementaltimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "incrementalTimestamp")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.incremental_timestamp = ProtoField.new("Incremental Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.incrementaltimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "incrementalTimestamp")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.incremental_update = ProtoField.new("Incremental Update", "coinbase.deribit.marketdataapi.sbe.v1.0.incrementalupdate", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "Incremental update packet indicator (Bit 0)")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.index_id = ProtoField.new("Index Id", "coinbase.deribit.marketdataapi.sbe.v1.0.indexid", ftypes.INT64, nil, nil, nil, "indexId")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.index_price = ProtoField.new("Index Price", "coinbase.deribit.marketdataapi.sbe.v1.0.indexprice", ftypes.DOUBLE, nil, nil, nil, "indexPrice")
@@ -89,8 +89,8 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.reserved_bits = ProtoField.ne
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.retransmit = ProtoField.new("Retransmit", "coinbase.deribit.marketdataapi.sbe.v1.0.retransmit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "Retransmit packet indicator (Bit 2)")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.deribit.marketdataapi.sbe.v1.0.retrydelaynanos", ftypes.INT64, nil, nil, nil, "retryDelayNanos")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.schema_version = ProtoField.new("Schema Version", "coinbase.deribit.marketdataapi.sbe.v1.0.schemaversion", ftypes.UINT16)
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.sending_time = ProtoField.new("Sending Time", "coinbase.deribit.marketdataapi.sbe.v1.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the packet was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.sending_time_utc = ProtoField.new("Sending Time", "coinbase.deribit.marketdataapi.sbe.v1.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp of when the packet was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.sending_time = ProtoField.new("Sending Time", "coinbase.deribit.marketdataapi.sbe.v1.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the packet was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.seq_num = ProtoField.new("Seq Num", "coinbase.deribit.marketdataapi.sbe.v1.0.seqnum", ftypes.INT64, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.settlement_price = ProtoField.new("Settlement Price", "coinbase.deribit.marketdataapi.sbe.v1.0.settlementprice", ftypes.DOUBLE, nil, nil, nil, "settlementPrice")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.snapshot = ProtoField.new("Snapshot", "coinbase.deribit.marketdataapi.sbe.v1.0.snapshot", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002, "Snapshot packet indicator (Bit 1)")
@@ -103,13 +103,13 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.taker_order_id = ProtoField.n
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.template_id = ProtoField.new("Template Id", "coinbase.deribit.marketdataapi.sbe.v1.0.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.threshold_price = ProtoField.new("Threshold Price", "coinbase.deribit.marketdataapi.sbe.v1.0.thresholdprice", ftypes.DOUBLE, nil, nil, nil, "thresholdPrice")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.tick_size = ProtoField.new("Tick Size", "coinbase.deribit.marketdataapi.sbe.v1.0.ticksize", ftypes.DOUBLE, nil, nil, nil, "tickSize")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.timestamp = ProtoField.new("Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.timestamp_utc = ProtoField.new("Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.timestamp = ProtoField.new("Timestamp", "coinbase.deribit.marketdataapi.sbe.v1.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.total_filled_mantissa = ProtoField.new("Total Filled Mantissa", "coinbase.deribit.marketdataapi.sbe.v1.0.totalfilledmantissa", ftypes.INT64, nil, nil, nil, "totalFilledMantissa")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.trade_count = ProtoField.new("Trade Count", "coinbase.deribit.marketdataapi.sbe.v1.0.tradecount", ftypes.INT32, nil, nil, nil, "tradeCount")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.trading_status = ProtoField.new("Trading Status", "coinbase.deribit.marketdataapi.sbe.v1.0.tradingstatus", ftypes.INT8, nil, nil, nil, "tradingStatus")
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.transact_time = ProtoField.new("Transact Time", "coinbase.deribit.marketdataapi.sbe.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the transaction occurred, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.transact_time_utc = ProtoField.new("Transact Time", "coinbase.deribit.marketdataapi.sbe.v1.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp of when the transaction occurred, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.transact_time = ProtoField.new("Transact Time", "coinbase.deribit.marketdataapi.sbe.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the transaction occurred, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.type = ProtoField.new("Type", "coinbase.deribit.marketdataapi.sbe.v1.0.type", ftypes.INT8)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.underlying = ProtoField.new("Underlying", "coinbase.deribit.marketdataapi.sbe.v1.0.underlying", ftypes.STRING)
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.fields.was_delayed = ProtoField.new("Was Delayed", "coinbase.deribit.marketdataapi.sbe.v1.0.wasdelayed", ftypes.UINT32, {[0]="No", [1]="Yes"}, base.DEC, 0x00000004, "wasDelayed")
@@ -161,7 +161,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-coinbase_deribit_marketdataapi_sbe_v1_0.timestamp_format = 2
+coinbase_deribit_marketdataapi_sbe_v1_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -186,7 +186,7 @@ omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_headers = Pref.bool("Show
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_coinbase_deribit_marketdataapi_sbe_v1_0.prefs_changed()

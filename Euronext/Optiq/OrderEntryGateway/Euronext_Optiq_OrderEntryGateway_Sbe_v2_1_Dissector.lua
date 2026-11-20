@@ -298,8 +298,8 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.rfq_update_type = ProtoFiel
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.schema_id = ProtoField.new("Schema Id", "euronext.optiq.orderentrygateway.sbe.v2.1.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.security_req_id = ProtoField.new("Security Req Id", "euronext.optiq.orderentrygateway.sbe.v2.1.securityreqid", ftypes.INT64, nil, nil, nil, "securityReqID")
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.sell_revision_flag = ProtoField.new("Sell Revision Flag", "euronext.optiq.orderentrygateway.sbe.v2.1.sellrevisionflag", ftypes.UINT8, nil, nil, nil, "sellRevisionFlag")
-omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.sending_time = ProtoField.new("Sending Time", "euronext.optiq.orderentrygateway.sbe.v2.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendingTime")
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.sending_time_utc = ProtoField.new("Sending Time", "euronext.optiq.orderentrygateway.sbe.v2.1.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "sendingTime")
+omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.sending_time = ProtoField.new("Sending Time", "euronext.optiq.orderentrygateway.sbe.v2.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendingTime")
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.sending_time_optional = ProtoField.new("Sending Time Optional", "euronext.optiq.orderentrygateway.sbe.v2.1.sendingtimeoptional", ftypes.UINT64, nil, nil, nil, "sendingTime")
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.session_1 = ProtoField.new("Session 1", "euronext.optiq.orderentrygateway.sbe.v2.1.session1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Session1")
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.fields.session_2 = ProtoField.new("Session 2", "euronext.optiq.orderentrygateway.sbe.v2.1.session2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Session2")
@@ -467,7 +467,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-euronext_optiq_orderentrygateway_sbe_v2_1.timestamp_format = 2
+euronext_optiq_orderentrygateway_sbe_v2_1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -490,7 +490,7 @@ omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_repeating_groups = Pref
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_euronext_optiq_orderentrygateway_sbe_v2_1.prefs_changed()

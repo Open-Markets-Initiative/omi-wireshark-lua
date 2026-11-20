@@ -121,7 +121,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-six_sixswissexchange_snapshot_glimpse_v1_24_0.timestamp_format = 2
+six_sixswissexchange_snapshot_glimpse_v1_24_0.timestamp_format = 3
 
 -- Scaled Order Price format (true = decimal-scaled, false = raw mantissa)
 six_sixswissexchange_snapshot_glimpse_v1_24_0.format_decimals = true
@@ -160,7 +160,7 @@ omi_six_sixswissexchange_snapshot_glimpse_v1_24_0.prefs.show_session_messages = 
 omi_six_sixswissexchange_snapshot_glimpse_v1_24_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_six_sixswissexchange_snapshot_glimpse_v1_24_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_six_sixswissexchange_snapshot_glimpse_v1_24_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_six_sixswissexchange_snapshot_glimpse_v1_24_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_six_sixswissexchange_snapshot_glimpse_v1_24_0.prefs_changed()

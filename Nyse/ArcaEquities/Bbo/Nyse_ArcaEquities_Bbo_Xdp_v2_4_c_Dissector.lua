@@ -55,17 +55,17 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.reserved_4 = ProtoField.new("Reserve
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.arcaequities.bbo.xdp.v2.4.c.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information.")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.round_lot = ProtoField.new("Round Lot", "nyse.arcaequities.bbo.xdp.v2.4.c.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.arcaequities.bbo.xdp.v2.4.c.rpiindicator", ftypes.STRING, nil, nil, nil, "The side(s) where Retail Price Indication orders (RPI orders) exist.")
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.bbo.xdp.v2.4.c.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.seconds_utc = ProtoField.new("Seconds", "nyse.arcaequities.bbo.xdp.v2.4.c.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.bbo.xdp.v2.4.c.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.security_status = ProtoField.new("Security Status", "nyse.arcaequities.bbo.xdp.v2.4.c.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.security_type = ProtoField.new("Security Type", "nyse.arcaequities.bbo.xdp.v2.4.c.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Arca, National and American")
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.bbo.xdp.v2.4.c.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.bbo.xdp.v2.4.c.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.bbo.xdp.v2.4.c.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.arcaequities.bbo.xdp.v2.4.c.sequencenumber", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.session_state = ProtoField.new("Session State", "nyse.arcaequities.bbo.xdp.v2.4.c.sessionstate", ftypes.STRING, nil, nil, nil, "Unused. Defaulted to 0x00.")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_id = ProtoField.new("Source Id", "nyse.arcaequities.bbo.xdp.v2.4.c.sourceid", ftypes.STRING, nil, nil, nil, "The ID of the client requesting this retransmission . This field is up to 9 characters, null terminated.")
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_time_utc = ProtoField.new("Source Time", "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaequities.bbo.xdp.v2.4.c.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ssr_state = ProtoField.new("Ssr State", "nyse.arcaequities.bbo.xdp.v2.4.c.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state, which this msg updates if the Security Status field contains an SSR Code. Valid")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.arcaequities.bbo.xdp.v2.4.c.ssrtriggeringexchangeid", ftypes.STRING, nil, nil, nil, "This field is only populated when securityStatus = A and this security is listed on this exchange. Otherwise it is defaulted to 0x20.")
@@ -104,6 +104,11 @@ omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.trading_session_change_message = Pro
 
 -- Nyse ArcaEquities Bbo Xdp 2.4.c Generated Fields
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.message_index = ProtoField.new("Message Index", "nyse.arcaequities.bbo.xdp.v2.4.c.messageindex", ftypes.UINT16)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ask_price_calculate = ProtoField.new("Ask Price Calculate", "nyse.arcaequities.bbo.xdp.v2.4.c.askpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.bid_price_calculate = ProtoField.new("Bid Price Calculate", "nyse.arcaequities.bbo.xdp.v2.4.c.bidpricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.prev_close_price_calculate = ProtoField.new("Prev Close Price Calculate", "nyse.arcaequities.bbo.xdp.v2.4.c.prevclosepricecalculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.price_1_calculate = ProtoField.new("Price 1 Calculate", "nyse.arcaequities.bbo.xdp.v2.4.c.price1calculate", ftypes.DOUBLE)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.price_2_calculate = ProtoField.new("Price 2 Calculate", "nyse.arcaequities.bbo.xdp.v2.4.c.price2calculate", ftypes.DOUBLE)
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.timestamp = ProtoField.new("Timestamp", "nyse.arcaequities.bbo.xdp.v2.4.c.timestamp", ftypes.UINT64)
 
 -- Nyse ArcaEquities Bbo Xdp 2.4.c Expert Info
@@ -123,7 +128,10 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_arcaequities_bbo_xdp_v2_4_c.timestamp_format = 2
+nyse_arcaequities_bbo_xdp_v2_4_c.timestamp_format = 3
+
+-- Prev Close Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_arcaequities_bbo_xdp_v2_4_c.format_decimals = true
 
 
 -----------------------------------------------------------------------
@@ -133,6 +141,7 @@ nyse_arcaequities_bbo_xdp_v2_4_c.timestamp_format = 2
 local show = {}
 
 -- Nyse ArcaEquities Bbo Xdp 2.4.c Element Dissection Options
+show.records = true
 show.structs = true
 show.application_messages = true
 show.headers = true
@@ -140,18 +149,23 @@ show.padding = false
 show.indexes = true
 
 -- Register Nyse ArcaEquities Bbo Xdp 2.4.c Show Options
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.resolve_records = Pref.bool("Symbol Index Mapping Message", show.records, "Cache records and resolve cross-packet lookups")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs_changed()
 
   -- Check if preferences have changed
+  if show.records ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.resolve_records then
+    show.records = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.resolve_records
+  end
   if show.application_messages ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_application_messages then
     show.application_messages = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_application_messages
   end
@@ -166,6 +180,9 @@ function omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs_changed()
   end
   if show.indexes ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_indexes then
     show.indexes = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.show_indexes
+  end
+  if nyse_arcaequities_bbo_xdp_v2_4_c.format_decimals ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.format_decimals then
+    nyse_arcaequities_bbo_xdp_v2_4_c.format_decimals = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.format_decimals
   end
   if nyse_arcaequities_bbo_xdp_v2_4_c.timestamp_format ~= omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.timestamp_format then
     nyse_arcaequities_bbo_xdp_v2_4_c.timestamp_format = omi_nyse_arcaequities_bbo_xdp_v2_4_c.prefs.timestamp_format
@@ -192,7 +209,7 @@ nyse_arcaequities_bbo_xdp_v2_4_c.conversation.data = function(packet)
   local key = nyse_arcaequities_bbo_xdp_v2_4_c.conversation.key(packet)
   local data = nyse_arcaequities_bbo_xdp_v2_4_c.conversation.flows[key]
   if data == nil then
-    data = { source_time = { last = nil, frames = {} } }
+    data = { source_time = { last = nil, frames = {} }, price_scale_code = { last = nil, frames = {} }, symbol_index_mapping_message = {} }
     nyse_arcaequities_bbo_xdp_v2_4_c.conversation.flows[key] = data
   end
   return data
@@ -1038,6 +1055,16 @@ nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code = {}
 
 -- Size: Price Scale Code
 nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.size = 1
+
+-- Store: Price Scale Code
+nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.current = nil
+
+-- Generated: Price Scale Code
+nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.generated = function(value, range, packet, parent)
+  local display = nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.display(value)
+  local price_scale_code = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.price_scale_code, range, value, display)
+  price_scale_code:set_generated()
+end
 
 -- Display: Price Scale Code
 nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.display = function(value)
@@ -1918,6 +1945,47 @@ nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index = {}
 -- Size: Symbol Index
 nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.size = 4
 
+-- Lookup: Symbol Index
+nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.lookup = function(buffer, offset, packet, parent)
+  local length = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.display(value, buffer, offset, packet, parent)
+
+  if not show.records then
+    nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.current = nil
+    parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index, range, value, display)
+
+    return offset + length, value
+  end
+
+  -- Lookup Symbol Index Mapping Message record
+  local record = nyse_arcaequities_bbo_xdp_v2_4_c.conversation.current.symbol_index_mapping_message[value]
+
+  -- The record as it stood at this frame, however often it is dissected again
+  while record ~= nil and record.record_frame > packet.number do
+    record = record.record_previous
+  end
+
+  -- A key with no record clears the last one, so nothing reads another key's values
+  nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.current = record
+
+  local field_tree = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol_index, range, value, display)
+
+  if record ~= nil then
+    if record.symbol ~= nil then
+      local entry_symbol = field_tree:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.symbol, record.symbol)
+      entry_symbol:set_generated()
+    end
+    if record.price_scale_code ~= nil then
+      local entry_price_scale_code = field_tree:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.price_scale_code, record.price_scale_code)
+      entry_price_scale_code:set_generated()
+    end
+  end
+
+  return offset + length, value, record
+end
+
 -- Display: Symbol Index
 nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.display = function(value)
   return "Symbol Index: "..value
@@ -2083,6 +2151,197 @@ nyse_arcaequities_bbo_xdp_v2_4_c.unit_of_trade.dissect = function(buffer, offset
   return offset + length, value
 end
 
+-- Ask Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.ask_price_calculate = {}
+
+-- Display: Ask Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.ask_price_calculate.display = function(value)
+  return "Ask Price Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Ask Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.ask_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bbo_xdp_v2_4_c.ask_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bbo_xdp_v2_4_c.ask_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ask_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bbo_xdp_v2_4_c.ask_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.ask_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Ask Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.ask_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bbo_xdp_v2_4_c.format_decimals then
+    local record = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bbo_xdp_v2_4_c.ask_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bbo_xdp_v2_4_c.ask_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Bid Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.bid_price_calculate = {}
+
+-- Display: Bid Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.bid_price_calculate.display = function(value)
+  return "Bid Price Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Bid Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.bid_price_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bbo_xdp_v2_4_c.bid_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bbo_xdp_v2_4_c.bid_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.bid_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bbo_xdp_v2_4_c.bid_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.bid_price, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Bid Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.bid_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bbo_xdp_v2_4_c.format_decimals then
+    local record = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bbo_xdp_v2_4_c.bid_price_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bbo_xdp_v2_4_c.bid_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Prev Close Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price_calculate = {}
+
+-- Display: Prev Close Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price_calculate.display = function(value)
+  return "Prev Close Price Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Prev Close Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price_calculate.composite = function(buffer, offset, stored_price_scale_code, packet, parent)
+  local length = nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ stored_price_scale_code)
+  local display = nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.prev_close_price_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.prev_close_price, range, mantissa, mantissa_display)
+
+  local stored_price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(stored_price_scale_code))
+  stored_price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Prev Close Price Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bbo_xdp_v2_4_c.format_decimals then
+    local stored_price_scale_code = nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.current
+
+    if stored_price_scale_code ~= nil then
+      return nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price_calculate.composite(buffer, offset, stored_price_scale_code, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price.dissect(buffer, offset, packet, parent)
+end
+
+-- Price 1 Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.price_1_calculate = {}
+
+-- Display: Price 1 Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.price_1_calculate.display = function(value)
+  return "Price 1 Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Price 1 Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.price_1_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bbo_xdp_v2_4_c.price_1.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bbo_xdp_v2_4_c.price_1_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.price_1_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bbo_xdp_v2_4_c.price_1.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.price_1, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Price 1 Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.price_1_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bbo_xdp_v2_4_c.format_decimals then
+    local record = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bbo_xdp_v2_4_c.price_1_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bbo_xdp_v2_4_c.price_1.dissect(buffer, offset, packet, parent)
+end
+
+-- Price 2 Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.price_2_calculate = {}
+
+-- Display: Price 2 Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.price_2_calculate.display = function(value)
+  return "Price 2 Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Price 2 Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.price_2_calculate.composite = function(buffer, offset, record, packet, parent)
+  local length = nyse_arcaequities_bbo_xdp_v2_4_c.price_2.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ record.price_scale_code)
+  local display = nyse_arcaequities_bbo_xdp_v2_4_c.price_2_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.price_2_calculate, range, value, display)
+  local mantissa_display = nyse_arcaequities_bbo_xdp_v2_4_c.price_2.display(mantissa)
+
+  field_tree:add(omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.price_2, range, mantissa, mantissa_display)
+
+  local price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(record.price_scale_code))
+  price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Price 2 Calculate
+nyse_arcaequities_bbo_xdp_v2_4_c.price_2_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_arcaequities_bbo_xdp_v2_4_c.format_decimals then
+    local record = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.current
+    if record ~= nil and record.price_scale_code ~= nil then
+      return nyse_arcaequities_bbo_xdp_v2_4_c.price_2_calculate.composite(buffer, offset, record, packet, parent)
+    end
+  end
+
+  return nyse_arcaequities_bbo_xdp_v2_4_c.price_2.dissect(buffer, offset, packet, parent)
+end
+
 -- Timestamp
 nyse_arcaequities_bbo_xdp_v2_4_c.timestamp = {}
 
@@ -2164,20 +2423,20 @@ nyse_arcaequities_bbo_xdp_v2_4_c.quote_message.fields = function(buffer, offset,
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_bbo_xdp_v2_4_c.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_seq_num.dissect(buffer, index, packet, parent)
 
   -- Ask Price: Binary
-  index, ask_price = nyse_arcaequities_bbo_xdp_v2_4_c.ask_price.dissect(buffer, index, packet, parent)
+  index, ask_price = nyse_arcaequities_bbo_xdp_v2_4_c.ask_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Ask Volume: Binary
   index, ask_volume = nyse_arcaequities_bbo_xdp_v2_4_c.ask_volume.dissect(buffer, index, packet, parent)
 
   -- Bid Price: Binary
-  index, bid_price = nyse_arcaequities_bbo_xdp_v2_4_c.bid_price.dissect(buffer, index, packet, parent)
+  index, bid_price = nyse_arcaequities_bbo_xdp_v2_4_c.bid_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Bid Volume: Binary
   index, bid_volume = nyse_arcaequities_bbo_xdp_v2_4_c.bid_volume.dissect(buffer, index, packet, parent)
@@ -2369,8 +2628,8 @@ nyse_arcaequities_bbo_xdp_v2_4_c.security_status_message.fields = function(buffe
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_bbo_xdp_v2_4_c.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2389,10 +2648,10 @@ nyse_arcaequities_bbo_xdp_v2_4_c.security_status_message.fields = function(buffe
   end
 
   -- Price 1: Binary
-  index, price_1 = nyse_arcaequities_bbo_xdp_v2_4_c.price_1.dissect(buffer, index, packet, parent)
+  index, price_1 = nyse_arcaequities_bbo_xdp_v2_4_c.price_1_calculate.dissect(buffer, index, packet, parent)
 
   -- Price 2: Binary
-  index, price_2 = nyse_arcaequities_bbo_xdp_v2_4_c.price_2.dissect(buffer, index, packet, parent)
+  index, price_2 = nyse_arcaequities_bbo_xdp_v2_4_c.price_2_calculate.dissect(buffer, index, packet, parent)
 
   -- Ssr Triggering Exchange Id: ASCII
   index, ssr_triggering_exchange_id = nyse_arcaequities_bbo_xdp_v2_4_c.ssr_triggering_exchange_id.dissect(buffer, index, packet, parent)
@@ -2466,8 +2725,8 @@ nyse_arcaequities_bbo_xdp_v2_4_c.trading_session_change_message.fields = functio
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_bbo_xdp_v2_4_c.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Symbol Seq Num: Binary
   index, symbol_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_seq_num.dissect(buffer, index, packet, parent)
@@ -2528,8 +2787,8 @@ nyse_arcaequities_bbo_xdp_v2_4_c.symbol_clear_message.fields = function(buffer, 
   -- Source Time Ns: Binary
   index, source_time_ns = nyse_arcaequities_bbo_xdp_v2_4_c.timestamp.dissect(buffer, index, packet, parent)
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Next Source Seq Num: Binary
   index, next_source_seq_num = nyse_arcaequities_bbo_xdp_v2_4_c.next_source_seq_num.dissect(buffer, index, packet, parent)
@@ -2626,8 +2885,8 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.refresh_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_arcaequities_bbo_xdp_v2_4_c.source_id.dissect(buffer, index, packet, parent)
@@ -2679,8 +2938,8 @@ end
 nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_request_message.fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: Binary
-  index, symbol_index = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.dissect(buffer, index, packet, parent)
+  -- Symbol Index: Binary (record lookup)
+  index, symbol_index, symbol_index_record = nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index.lookup(buffer, index, packet, parent)
 
   -- Source Id: ASCII
   index, source_id = nyse_arcaequities_bbo_xdp_v2_4_c.source_id.dissect(buffer, index, packet, parent)
@@ -2931,6 +3190,13 @@ nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.fields = function(
   -- Price Scale Code: Binary
   index, price_scale_code = nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.dissect(buffer, index, packet, parent)
 
+  -- Store Price Scale Code Value
+  nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.current = price_scale_code
+
+  if not packet.visited then
+    nyse_arcaequities_bbo_xdp_v2_4_c.conversation.current.price_scale_code.last = price_scale_code
+  end
+
   -- Security Type: ASCII
   index, security_type = nyse_arcaequities_bbo_xdp_v2_4_c.security_type.dissect(buffer, index, packet, parent)
 
@@ -2938,7 +3204,7 @@ nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.fields = function(
   index, lot_size = nyse_arcaequities_bbo_xdp_v2_4_c.lot_size.dissect(buffer, index, packet, parent)
 
   -- Prev Close Price: Binary
-  index, prev_close_price = nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price.dissect(buffer, index, packet, parent)
+  index, prev_close_price = nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Prev Close Volume: Binary
   index, prev_close_volume = nyse_arcaequities_bbo_xdp_v2_4_c.prev_close_volume.dissect(buffer, index, packet, parent)
@@ -2960,6 +3226,17 @@ nyse_arcaequities_bbo_xdp_v2_4_c.symbol_index_mapping_message.fields = function(
     index, reserved_2 = nyse_arcaequities_bbo_xdp_v2_4_c.reserved_2.dissect(buffer, index, packet, parent)
   else
     index = index + nyse_arcaequities_bbo_xdp_v2_4_c.reserved_2.size
+  end
+
+  -- Cache Symbol Index Mapping Message record by symbol_index
+  if show.records and not packet.visited then
+    nyse_arcaequities_bbo_xdp_v2_4_c.conversation.current.symbol_index_mapping_message[symbol_index] = {
+      record_frame = packet.number,
+      record_previous = nyse_arcaequities_bbo_xdp_v2_4_c.conversation.current.symbol_index_mapping_message[symbol_index],
+      symbol_index = symbol_index,
+      symbol = symbol,
+      price_scale_code = price_scale_code,
+    }
   end
 
   return index
@@ -3282,8 +3559,8 @@ nyse_arcaequities_bbo_xdp_v2_4_c.send_time.dissect = function(buffer, offset, pa
     local length = nyse_arcaequities_bbo_xdp_v2_4_c.send_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.send_time
-    if nyse_arcaequities_bbo_xdp_v2_4_c.timestamp_format == 3 then field = omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.send_time_utc end
+    local field = omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.send_time_utc
+    if nyse_arcaequities_bbo_xdp_v2_4_c.timestamp_format == 2 then field = omi_nyse_arcaequities_bbo_xdp_v2_4_c.fields.send_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_arcaequities_bbo_xdp_v2_4_c.send_time.fields(buffer, offset, packet, parent)
 
@@ -3365,12 +3642,14 @@ nyse_arcaequities_bbo_xdp_v2_4_c.packet.dissect = function(buffer, packet, paren
   if not packet.visited then
     data.source_time.frames[packet.number] = data.source_time.last
     data.source_time.frames[packet.number] = data.source_time.last
+    data.price_scale_code.frames[packet.number] = data.price_scale_code.last
     data.source_time.frames[packet.number] = data.source_time.last
     data.source_time.frames[packet.number] = data.source_time.last
     data.source_time.frames[packet.number] = data.source_time.last
   end
   nyse_arcaequities_bbo_xdp_v2_4_c.source_time.current = data.source_time.frames[packet.number]
   nyse_arcaequities_bbo_xdp_v2_4_c.source_time.current = data.source_time.frames[packet.number]
+  nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.current = data.price_scale_code.frames[packet.number]
   nyse_arcaequities_bbo_xdp_v2_4_c.source_time.current = data.source_time.frames[packet.number]
   nyse_arcaequities_bbo_xdp_v2_4_c.source_time.current = data.source_time.frames[packet.number]
   nyse_arcaequities_bbo_xdp_v2_4_c.source_time.current = data.source_time.frames[packet.number]
@@ -3413,6 +3692,7 @@ end
 -- Initialize Dissector
 function omi_nyse_arcaequities_bbo_xdp_v2_4_c.init()
   nyse_arcaequities_bbo_xdp_v2_4_c.source_time.current = nil
+  nyse_arcaequities_bbo_xdp_v2_4_c.price_scale_code.current = nil
   nyse_arcaequities_bbo_xdp_v2_4_c.conversation.current = nil
   nyse_arcaequities_bbo_xdp_v2_4_c.conversation.flows = {}
 end

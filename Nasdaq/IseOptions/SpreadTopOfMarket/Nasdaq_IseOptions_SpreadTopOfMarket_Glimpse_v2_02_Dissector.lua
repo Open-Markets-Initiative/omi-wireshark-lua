@@ -124,7 +124,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_02.timestamp_format = 2
+nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_02.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -161,7 +161,7 @@ omi_nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_02.prefs.show_repeating_group
 omi_nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_02.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_02.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_02.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_02.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_iseoptions_spreadtopofmarket_glimpse_v2_02.prefs_changed()

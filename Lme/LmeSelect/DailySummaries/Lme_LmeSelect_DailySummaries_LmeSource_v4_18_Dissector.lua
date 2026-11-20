@@ -43,8 +43,8 @@ omi_lme_lmeselect_dailysummaries_lmesource_v4_18.fields.participant_count = Prot
 omi_lme_lmeselect_dailysummaries_lmesource_v4_18.fields.pkt_size = ProtoField.new("Pkt Size", "lme.lmeselect.dailysummaries.lmesource.v4.18.pktsize", ftypes.UINT16, nil, nil, nil, "Size of the packet, including this field")
 omi_lme_lmeselect_dailysummaries_lmesource_v4_18.fields.product_code = ProtoField.new("Product Code", "lme.lmeselect.dailysummaries.lmesource.v4.18.productcode", ftypes.STRING, nil, nil, nil, "The product code. This identifies the metal for the instrument.")
 omi_lme_lmeselect_dailysummaries_lmesource_v4_18.fields.prompt_date_label = ProtoField.new("Prompt Date Label", "lme.lmeselect.dailysummaries.lmesource.v4.18.promptdatelabel", ftypes.STRING, nil, nil, nil, "Prompt date label.")
-omi_lme_lmeselect_dailysummaries_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.dailysummaries.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_dailysummaries_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.dailysummaries.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_dailysummaries_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.dailysummaries.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_dailysummaries_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.dailysummaries.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_lme_lmeselect_dailysummaries_lmesource_v4_18.fields.short_position_band_count = ProtoField.new("Short Position Band Count", "lme.lmeselect.dailysummaries.lmesource.v4.18.shortpositionbandcount", ftypes.UINT32, nil, nil, nil, "Number of bands for short position.")
 omi_lme_lmeselect_dailysummaries_lmesource_v4_18.fields.short_position_bands = ProtoField.new("Short Position Bands", "lme.lmeselect.dailysummaries.lmesource.v4.18.shortpositionbands", ftypes.STRING, nil, nil, nil, "One short position band, giving the percentage range of Market Open Interest and the prompt dates participants hold short positions in")
@@ -94,7 +94,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lme_lmeselect_dailysummaries_lmesource_v4_18.timestamp_format = 2
+lme_lmeselect_dailysummaries_lmesource_v4_18.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -117,7 +117,7 @@ omi_lme_lmeselect_dailysummaries_lmesource_v4_18.prefs.show_headers = Pref.bool(
 omi_lme_lmeselect_dailysummaries_lmesource_v4_18.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lme_lmeselect_dailysummaries_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lme_lmeselect_dailysummaries_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lme_lmeselect_dailysummaries_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lme_lmeselect_dailysummaries_lmesource_v4_18.prefs_changed()

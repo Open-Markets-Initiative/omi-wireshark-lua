@@ -111,7 +111,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_ntxequities_rash_asciirash_v1_0.timestamp_format = 2
+nasdaq_ntxequities_rash_asciirash_v1_0.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -140,7 +140,7 @@ omi_nasdaq_ntxequities_rash_asciirash_v1_0.prefs.show_application_messages = Pre
 omi_nasdaq_ntxequities_rash_asciirash_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nasdaq_ntxequities_rash_asciirash_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_nasdaq_ntxequities_rash_asciirash_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_ntxequities_rash_asciirash_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_ntxequities_rash_asciirash_v1_0.prefs_changed()

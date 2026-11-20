@@ -137,8 +137,8 @@ omi_bme_meff_retail5_bmegate_v1_6.fields.order_number_of_decimals = ProtoField.n
 omi_bme_meff_retail5_bmegate_v1_6.fields.post_deferral_publication_type = ProtoField.new("Post Deferral Publication Type", "bme.meff.retail5.bmegate.v1.6.postdeferralpublicationtype", ftypes.STRING, nil, nil, nil, "Post-deferral publication type")
 omi_bme_meff_retail5_bmegate_v1_6.fields.pre_trade_transparency_waiver = ProtoField.new("Pre Trade Transparency Waiver", "bme.meff.retail5.bmegate.v1.6.pretradetransparencywaiver", ftypes.STRING, nil, nil, nil, "Pre-trade transparency waiver")
 omi_bme_meff_retail5_bmegate_v1_6.fields.protocol_version = ProtoField.new("Protocol Version", "bme.meff.retail5.bmegate.v1.6.protocolversion", ftypes.STRING, nil, nil, nil, "Identification of the binary protocol version")
-omi_bme_meff_retail5_bmegate_v1_6.fields.publish_date_and_time = ProtoField.new("Publish Date And Time", "bme.meff.retail5.bmegate.v1.6.publishdateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication Date and Time in nanoseconds since 1-jan-1970 UTC")
 omi_bme_meff_retail5_bmegate_v1_6.fields.publish_date_and_time_utc = ProtoField.new("Publish Date And Time", "bme.meff.retail5.bmegate.v1.6.publishdateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publication Date and Time in nanoseconds since 1-jan-1970 UTC")
+omi_bme_meff_retail5_bmegate_v1_6.fields.publish_date_and_time = ProtoField.new("Publish Date And Time", "bme.meff.retail5.bmegate.v1.6.publishdateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication Date and Time in nanoseconds since 1-jan-1970 UTC")
 omi_bme_meff_retail5_bmegate_v1_6.fields.put_or_call = ProtoField.new("Put Or Call", "bme.meff.retail5.bmegate.v1.6.putorcall", ftypes.STRING, nil, nil, nil, "Indicates whether the contract is a put or a call")
 omi_bme_meff_retail5_bmegate_v1_6.fields.quoted_currency = ProtoField.new("Quoted Currency", "bme.meff.retail5.bmegate.v1.6.quotedcurrency", ftypes.STRING)
 omi_bme_meff_retail5_bmegate_v1_6.fields.rfqid = ProtoField.new("Rfqid", "bme.meff.retail5.bmegate.v1.6.rfqid", ftypes.UINT32, nil, nil, nil, "RFQ identifier")
@@ -170,8 +170,8 @@ omi_bme_meff_retail5_bmegate_v1_6.fields.symbol = ProtoField.new("Symbol", "bme.
 omi_bme_meff_retail5_bmegate_v1_6.fields.symbol_isin = ProtoField.new("Symbol Isin", "bme.meff.retail5.bmegate.v1.6.symbolisin", ftypes.STRING, nil, nil, nil, "Instrument ISIN")
 omi_bme_meff_retail5_bmegate_v1_6.fields.test_production_ind = ProtoField.new("Test Production Ind", "bme.meff.retail5.bmegate.v1.6.testproductionind", ftypes.STRING, nil, nil, nil, "T: Test P: Production")
 omi_bme_meff_retail5_bmegate_v1_6.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "bme.meff.retail5.bmegate.v1.6.tradsesstatus", ftypes.UINT8, nil, nil, nil, "Trading session status")
-omi_bme_meff_retail5_bmegate_v1_6.fields.trade_date = ProtoField.new("Trade Date", "bme.meff.retail5.bmegate.v1.6.tradedate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade date and time")
 omi_bme_meff_retail5_bmegate_v1_6.fields.trade_date_utc = ProtoField.new("Trade Date", "bme.meff.retail5.bmegate.v1.6.tradedate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trade date and time")
+omi_bme_meff_retail5_bmegate_v1_6.fields.trade_date = ProtoField.new("Trade Date", "bme.meff.retail5.bmegate.v1.6.tradedate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade date and time")
 omi_bme_meff_retail5_bmegate_v1_6.fields.trade_price_condition = ProtoField.new("Trade Price Condition", "bme.meff.retail5.bmegate.v1.6.tradepricecondition", ftypes.STRING, nil, nil, nil, "MMT 3.8")
 omi_bme_meff_retail5_bmegate_v1_6.fields.trade_session_date = ProtoField.new("Trade Session Date", "bme.meff.retail5.bmegate.v1.6.tradesessiondate", ftypes.INT32)
 omi_bme_meff_retail5_bmegate_v1_6.fields.trade_type = ProtoField.new("Trade Type", "bme.meff.retail5.bmegate.v1.6.tradetype", ftypes.STRING)
@@ -179,8 +179,8 @@ omi_bme_meff_retail5_bmegate_v1_6.fields.trading_obligation = ProtoField.new("Tr
 omi_bme_meff_retail5_bmegate_v1_6.fields.trading_session_id = ProtoField.new("Trading Session Id", "bme.meff.retail5.bmegate.v1.6.tradingsessionid", ftypes.UINT8, nil, nil, nil, "Trading mode")
 omi_bme_meff_retail5_bmegate_v1_6.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "bme.meff.retail5.bmegate.v1.6.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "Session phase")
 omi_bme_meff_retail5_bmegate_v1_6.fields.transaction_category = ProtoField.new("Transaction Category", "bme.meff.retail5.bmegate.v1.6.transactioncategory", ftypes.STRING)
-omi_bme_meff_retail5_bmegate_v1_6.fields.transaction_date_and_time = ProtoField.new("Transaction Date And Time", "bme.meff.retail5.bmegate.v1.6.transactiondateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction Date and Time in nanoseconds since 1-jan-1970 UTC")
 omi_bme_meff_retail5_bmegate_v1_6.fields.transaction_date_and_time_utc = ProtoField.new("Transaction Date And Time", "bme.meff.retail5.bmegate.v1.6.transactiondateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction Date and Time in nanoseconds since 1-jan-1970 UTC")
+omi_bme_meff_retail5_bmegate_v1_6.fields.transaction_date_and_time = ProtoField.new("Transaction Date And Time", "bme.meff.retail5.bmegate.v1.6.transactiondateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction Date and Time in nanoseconds since 1-jan-1970 UTC")
 omi_bme_meff_retail5_bmegate_v1_6.fields.trd_match_id = ProtoField.new("Trd Match Id", "bme.meff.retail5.bmegate.v1.6.trdmatchid", ftypes.UINT32, nil, nil, nil, "System Trade Number")
 omi_bme_meff_retail5_bmegate_v1_6.fields.underlying_asset = ProtoField.new("Underlying Asset", "bme.meff.retail5.bmegate.v1.6.underlyingasset", ftypes.STRING)
 omi_bme_meff_retail5_bmegate_v1_6.fields.underlying_currency = ProtoField.new("Underlying Currency", "bme.meff.retail5.bmegate.v1.6.underlyingcurrency", ftypes.STRING, nil, nil, nil, "Underlying Strike Currency")
@@ -240,7 +240,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-bme_meff_retail5_bmegate_v1_6.timestamp_format = 2
+bme_meff_retail5_bmegate_v1_6.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -261,7 +261,7 @@ omi_bme_meff_retail5_bmegate_v1_6.prefs.show_structs = Pref.bool("Show Structs",
 omi_bme_meff_retail5_bmegate_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_bme_meff_retail5_bmegate_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_bme_meff_retail5_bmegate_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_bme_meff_retail5_bmegate_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bme_meff_retail5_bmegate_v1_6.prefs_changed()

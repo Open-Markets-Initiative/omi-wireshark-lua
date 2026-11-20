@@ -37,13 +37,13 @@ omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.channel_seq_num = 
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.extended_quote_flags = ProtoField.new("Extended Quote Flags", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.extendedquoteflags", ftypes.STRING, nil, nil, nil, "Extended Quote Information")
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "A Heartbeat is sent if no business level message has been published for more than a second")
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.lastupdatemilli", ftypes.UINT64, nil, nil, nil, "Milliseconds since UTC epoch.")
-omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_close = ProtoField.new("Market Close", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketclose", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Anticipated market close time in milliseconds since UTC epoch.")
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_close_utc = ProtoField.new("Market Close", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketclose.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Anticipated market close time in milliseconds since UTC epoch.")
-omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_close_time_milli = ProtoField.new("Market Close Time Milli", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketclosetimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Market close time in milliseconds since UTC epoch midnight.")
+omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_close = ProtoField.new("Market Close", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketclose", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Anticipated market close time in milliseconds since UTC epoch.")
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_close_time_milli_utc = ProtoField.new("Market Close Time Milli", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketclosetimemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Market close time in milliseconds since UTC epoch midnight.")
+omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_close_time_milli = ProtoField.new("Market Close Time Milli", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketclosetimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Market close time in milliseconds since UTC epoch midnight.")
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_msg_ct = ProtoField.new("Market Msg Ct", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketmsgct", ftypes.UINT32, nil, nil, nil, "Total day message count.")
-omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketopen", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Market open time in milliseconds since UTC epoch.")
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_open_utc = ProtoField.new("Market Open", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketopen.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Market open time in milliseconds since UTC epoch.")
+omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.market_open = ProtoField.new("Market Open", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.marketopen", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Market open time in milliseconds since UTC epoch.")
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.message_count = ProtoField.new("Message Count", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages in packet")
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.messagesize", ftypes.UINT16, nil, nil, nil, "Size of message in bytes")
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linkats.quotebookglobalotc.link.v4.10.4.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
@@ -124,7 +124,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.timestamp_format = 2
+otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -147,7 +147,7 @@ omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.prefs.show_headers = Pref
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_otcmarkets_linkats_quotebookglobalotc_link_v4_10_4.prefs_changed()

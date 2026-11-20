@@ -42,8 +42,8 @@ omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.exchange_message_type 
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.exec_id = ProtoField.new("Exec Id", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.execid", ftypes.UINT64, nil, nil, nil, "Execution ID. Unique across all matching units on a given day")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.execinst", ftypes.STRING, nil, nil, nil, "Execution instruction")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.execrefid", ftypes.UINT64, nil, nil, nil, "Refers to the ExecID of the fill being cancelled or corrected")
-omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.expire_time = ProtoField.new("Expire Time", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Required for TimeInForce = 6 orders, specifies the date-time (in UTC) that the order expires")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.expire_time_utc = ProtoField.new("Expire Time", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Required for TimeInForce = 6 orders, specifies the date-time (in UTC) that the order expires")
+omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.expire_time = ProtoField.new("Expire Time", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Required for TimeInForce = 6 orders, specifies the date-time (in UTC) that the order expires")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.ext_exec_inst = ProtoField.new("Ext Exec Inst", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.extexecinst", ftypes.STRING, nil, nil, nil, "Extended execution instruction")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.fee_code = ProtoField.new("Fee Code", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.feecode", ftypes.STRING, nil, nil, nil, "Indicates fee associated with an execution")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.firm_message_type = ProtoField.new("Message Type", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.firmmessagetype", ftypes.UINT16, nil, nil, nil, "type of message")
@@ -71,8 +71,8 @@ omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.order_qty = ProtoField
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.orderrejectreason", ftypes.STRING, nil, nil, nil, "Single character code for an order rejection reason")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.order_restatement_reason = ProtoField.new("Order Restatement Reason", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.orderrestatementreason", ftypes.STRING, nil, nil, nil, "The reason for this Order Restated message")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.origclordid", ftypes.STRING, nil, nil, nil, "Corresponds to OrigClOrdID (41) in Cboe FIX")
-omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.orig_time = ProtoField.new("Orig Time", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The date and time of the original trade, in GMT")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.orig_time_utc = ProtoField.new("Orig Time", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The date and time of the original trade, in GMT")
+omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.orig_time = ProtoField.new("Orig Time", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The date and time of the original trade, in GMT")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.password = ProtoField.new("Password", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.password", ftypes.STRING, nil, nil, nil, "The password associated with the SessionId and SessionSubId.")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.peg_difference = ProtoField.new("Peg Difference", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.pegdifference", ftypes.DOUBLE, nil, nil, nil, "Optional signed value added to the result of peg calculation")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.preventmatch", ftypes.STRING, nil, nil, nil, "Three characters: MTP Modifier, Unique ID Level and Trading Group ID")
@@ -103,8 +103,8 @@ omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.symbol = ProtoField.ne
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.target_matching_unit = ProtoField.new("Target Matching Unit", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.targetmatchingunit", ftypes.UINT8, nil, nil, nil, "Matching unit number the Purge Orders message will be sent toward")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.text = ProtoField.new("Text", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.text", ftypes.STRING, nil, nil, nil, "Human readable text with more information about the reject reason")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.time_in_force = ProtoField.new("Time In Force", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.timeinforce", ftypes.STRING)
-omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.unit_number = ProtoField.new("Unit Number", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.unitnumber", ftypes.UINT8, nil, nil, nil, "A unit number.")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.unitsequence", ftypes.STRING)
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.fields.working_price = ProtoField.new("Working Price", "cboe.byxequities.binaryorderentry.boe3.v1.0.14.workingprice", ftypes.DOUBLE, nil, nil, nil, "If price had to be adjusted to a less aggressive value for some reason, then the adjusted price will be reported here, otherwise equals Price")
@@ -159,7 +159,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_byxequities_binaryorderentry_boe3_v1_0_14.timestamp_format = 2
+cboe_byxequities_binaryorderentry_boe3_v1_0_14.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -194,7 +194,7 @@ omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_session_messages =
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_byxequities_binaryorderentry_boe3_v1_0_14.prefs_changed()

@@ -120,8 +120,8 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.event_exec_w_firm_short_code
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.event_id = ProtoField.new("Event Id", "euronext.optiq.dropcopygateway.sbe.v5.36.eventid", ftypes.UINT64, nil, nil, nil, "eventId")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.event_investor_id = ProtoField.new("Event Investor Id", "euronext.optiq.dropcopygateway.sbe.v5.36.eventinvestorid", ftypes.STRING, nil, nil, nil, "eventInvestorID")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.event_short_code_type = ProtoField.new("Event Short Code Type", "euronext.optiq.dropcopygateway.sbe.v5.36.eventshortcodetype", ftypes.UINT8, nil, nil, nil, "eventShortCodeType")
-omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.event_time = ProtoField.new("Event Time", "euronext.optiq.dropcopygateway.sbe.v5.36.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "eventTime")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.event_time_utc = ProtoField.new("Event Time", "euronext.optiq.dropcopygateway.sbe.v5.36.eventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "eventTime")
+omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.event_time = ProtoField.new("Event Time", "euronext.optiq.dropcopygateway.sbe.v5.36.eventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "eventTime")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.exceptional_market_conditions = ProtoField.new("Exceptional Market Conditions", "euronext.optiq.dropcopygateway.sbe.v5.36.exceptionalmarketconditions", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080, "ExceptionalMarketConditions")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.exec_phase = ProtoField.new("Exec Phase", "euronext.optiq.dropcopygateway.sbe.v5.36.execphase", ftypes.UINT8, nil, nil, nil, "execPhase")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.executed_upon_entry_flag = ProtoField.new("Executed Upon Entry Flag", "euronext.optiq.dropcopygateway.sbe.v5.36.executeduponentryflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "ExecutedUponEntryFlag")
@@ -301,8 +301,8 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.rfq_answer = ProtoField.new(
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.rfq_confirmation = ProtoField.new("Rfq Confirmation", "euronext.optiq.dropcopygateway.sbe.v5.36.rfqconfirmation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "RFQConfirmation")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.rfq_status = ProtoField.new("Rfq Status", "euronext.optiq.dropcopygateway.sbe.v5.36.rfqstatus", ftypes.UINT8, nil, nil, nil, "rFQStatus")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.scheduled_event = ProtoField.new("Scheduled Event", "euronext.optiq.dropcopygateway.sbe.v5.36.scheduledevent", ftypes.UINT8, nil, nil, nil, "scheduledEvent")
-omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.scheduled_event_time = ProtoField.new("Scheduled Event Time", "euronext.optiq.dropcopygateway.sbe.v5.36.scheduledeventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "scheduledEventTime")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.scheduled_event_time_utc = ProtoField.new("Scheduled Event Time", "euronext.optiq.dropcopygateway.sbe.v5.36.scheduledeventtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "scheduledEventTime")
+omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.scheduled_event_time = ProtoField.new("Scheduled Event Time", "euronext.optiq.dropcopygateway.sbe.v5.36.scheduledeventtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "scheduledEventTime")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.schema_id = ProtoField.new("Schema Id", "euronext.optiq.dropcopygateway.sbe.v5.36.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.sell_revision_flag = ProtoField.new("Sell Revision Flag", "euronext.optiq.dropcopygateway.sbe.v5.36.sellrevisionflag", ftypes.UINT8, nil, nil, nil, "sellRevisionFlag")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.fields.sender_location_id = ProtoField.new("Sender Location Id", "euronext.optiq.dropcopygateway.sbe.v5.36.senderlocationid", ftypes.STRING, nil, nil, nil, "senderLocationID")
@@ -442,7 +442,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-euronext_optiq_dropcopygateway_sbe_v5_36.timestamp_format = 2
+euronext_optiq_dropcopygateway_sbe_v5_36.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -465,7 +465,7 @@ omi_euronext_optiq_dropcopygateway_sbe_v5_36.prefs.show_headers = Pref.bool("Sho
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_euronext_optiq_dropcopygateway_sbe_v5_36.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_euronext_optiq_dropcopygateway_sbe_v5_36.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_euronext_optiq_dropcopygateway_sbe_v5_36.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_euronext_optiq_dropcopygateway_sbe_v5_36.prefs_changed()

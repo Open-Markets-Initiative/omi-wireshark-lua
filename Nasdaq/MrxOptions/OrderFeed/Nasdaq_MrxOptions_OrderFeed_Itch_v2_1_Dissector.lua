@@ -34,11 +34,11 @@ omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.executable_order_volume = Proto
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.mrxoptions.orderfeed.itch.v2.1.expirationday", ftypes.UINT8, nil, nil, nil, "Day of the Month of expiration (1-31)")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.mrxoptions.orderfeed.itch.v2.1.expirationmonth", ftypes.UINT8, nil, nil, nil, "Expiration Month of the option (1-12)")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.mrxoptions.orderfeed.itch.v2.1.expirationyear", ftypes.UINT8, nil, nil, nil, "Last two digits of the year of the option expiration")
-omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.mrxoptions.orderfeed.itch.v2.1.explicitstrikeprice", ftypes.UINT32, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
+omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.mrxoptions.orderfeed.itch.v2.1.explicitstrikeprice", ftypes.DOUBLE, nil, nil, nil, "Explicit strike price. Refer to Data Types for field processing notes.")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.giveup = ProtoField.new("Giveup", "nasdaq.mrxoptions.orderfeed.itch.v2.1.giveup", ftypes.STRING, nil, nil, nil, "Attributable Order may provide Give-up to disseminate with order; Spaces when not set")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.mrxoptions.orderfeed.itch.v2.1.imbalancevolume", ftypes.UINT32, nil, nil, nil, "Imbalance volume for opening auction. Will be 0 for other auctions")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.instrument_id = ProtoField.new("Instrument Id", "nasdaq.mrxoptions.orderfeed.itch.v2.1.instrumentid", ftypes.UINT32, nil, nil, nil, "Integer ID of the option, as defined in the Options Directory Message.")
-omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.limit_price = ProtoField.new("Limit Price", "nasdaq.mrxoptions.orderfeed.itch.v2.1.limitprice", ftypes.UINT32, nil, nil, nil, "Original Limit Price of Limit or Stop Order, will not include repricing updates. Otherwise field is zero.")
+omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.limit_price = ProtoField.new("Limit Price", "nasdaq.mrxoptions.orderfeed.itch.v2.1.limitprice", ftypes.DOUBLE, nil, nil, nil, "Original Limit Price of Limit or Stop Order, will not include repricing updates. Otherwise field is zero.")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.message_count = ProtoField.new("Message Count", "nasdaq.mrxoptions.orderfeed.itch.v2.1.messagecount", ftypes.UINT16, nil, nil, nil, "Number of messages to follow this header")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.message_length = ProtoField.new("Message Length", "nasdaq.mrxoptions.orderfeed.itch.v2.1.messagelength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.mrxoptions.orderfeed.itch.v2.1.messagetype", ftypes.STRING, nil, nil, nil, "Code identifying this message type")
@@ -54,7 +54,7 @@ omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.original_order_volume = ProtoFi
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.owner_id = ProtoField.new("Owner Id", "nasdaq.mrxoptions.orderfeed.itch.v2.1.ownerid", ftypes.STRING, nil, nil, nil, "Attributable Order may provide Firm ID to disseminate with order; Spaces when not set")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.mrxoptions.orderfeed.itch.v2.1.packetlength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.password = ProtoField.new("Password", "nasdaq.mrxoptions.orderfeed.itch.v2.1.password", ftypes.STRING, nil, nil, nil, "Login password")
-omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.price = ProtoField.new("Price", "nasdaq.mrxoptions.orderfeed.itch.v2.1.price", ftypes.UINT32, nil, nil, nil, "Price for the auction; hidden prices are set to zero.")
+omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.price = ProtoField.new("Price", "nasdaq.mrxoptions.orderfeed.itch.v2.1.price", ftypes.DOUBLE, nil, nil, nil, "Price for the auction; hidden prices are set to zero.")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.quantity = ProtoField.new("Quantity", "nasdaq.mrxoptions.orderfeed.itch.v2.1.quantity", ftypes.UINT32, nil, nil, nil, "Auction Quantity. Opening auction will present paired quantity in this field.")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.mrxoptions.orderfeed.itch.v2.1.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nasdaq.mrxoptions.orderfeed.itch.v2.1.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
@@ -134,7 +134,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_mrxoptions_orderfeed_itch_v2_1.timestamp_format = 2
+nasdaq_mrxoptions_orderfeed_itch_v2_1.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -171,7 +171,7 @@ omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.prefs.show_padding = Pref.bool("Show P
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.prefs_changed()
@@ -812,11 +812,17 @@ nasdaq_mrxoptions_orderfeed_itch_v2_1.explicit_strike_price.display = function(v
   return "Explicit Strike Price: "..value
 end
 
+-- Translate: Explicit Strike Price
+nasdaq_mrxoptions_orderfeed_itch_v2_1.explicit_strike_price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Explicit Strike Price
 nasdaq_mrxoptions_orderfeed_itch_v2_1.explicit_strike_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_mrxoptions_orderfeed_itch_v2_1.explicit_strike_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_mrxoptions_orderfeed_itch_v2_1.explicit_strike_price.translate(raw)
   local display = nasdaq_mrxoptions_orderfeed_itch_v2_1.explicit_strike_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.explicit_strike_price, range, value, display)
@@ -904,11 +910,17 @@ nasdaq_mrxoptions_orderfeed_itch_v2_1.limit_price.display = function(value)
   return "Limit Price: "..value
 end
 
+-- Translate: Limit Price
+nasdaq_mrxoptions_orderfeed_itch_v2_1.limit_price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Limit Price
 nasdaq_mrxoptions_orderfeed_itch_v2_1.limit_price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_mrxoptions_orderfeed_itch_v2_1.limit_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_mrxoptions_orderfeed_itch_v2_1.limit_price.translate(raw)
   local display = nasdaq_mrxoptions_orderfeed_itch_v2_1.limit_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.limit_price, range, value, display)
@@ -1345,11 +1357,17 @@ nasdaq_mrxoptions_orderfeed_itch_v2_1.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+nasdaq_mrxoptions_orderfeed_itch_v2_1.price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_mrxoptions_orderfeed_itch_v2_1.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_mrxoptions_orderfeed_itch_v2_1.price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:int()
+  local value = nasdaq_mrxoptions_orderfeed_itch_v2_1.price.translate(raw)
   local display = nasdaq_mrxoptions_orderfeed_itch_v2_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_mrxoptions_orderfeed_itch_v2_1.fields.price, range, value, display)

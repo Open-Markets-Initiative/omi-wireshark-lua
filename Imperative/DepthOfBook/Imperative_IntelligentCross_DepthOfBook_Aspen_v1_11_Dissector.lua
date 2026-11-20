@@ -38,8 +38,8 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.side = ProtoField
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.state = ProtoField.new("State", "imperative.intelligentcross.depthofbook.aspen.v1.11.state", ftypes.STRING, nil, nil, nil, "State Values")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.symbol = ProtoField.new("Symbol", "imperative.intelligentcross.depthofbook.aspen.v1.11.symbol", ftypes.STRING, nil, nil, nil, "Stock Symbol")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.symbol_id = ProtoField.new("Symbol Id", "imperative.intelligentcross.depthofbook.aspen.v1.11.symbolid", ftypes.UINT16, nil, nil, nil, "Symbol Index")
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.timestamp = ProtoField.new("Timestamp", "imperative.intelligentcross.depthofbook.aspen.v1.11.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds Since Epoch (UTC)")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.timestamp_utc = ProtoField.new("Timestamp", "imperative.intelligentcross.depthofbook.aspen.v1.11.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds Since Epoch (UTC)")
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.timestamp = ProtoField.new("Timestamp", "imperative.intelligentcross.depthofbook.aspen.v1.11.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds Since Epoch (UTC)")
 
 -- Imperative IntelligentCross DepthOfBook Aspen 1.11 Framing
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.fields.message = ProtoField.new("Message", "imperative.intelligentcross.depthofbook.aspen.v1.11.message", ftypes.STRING)
@@ -79,7 +79,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp_format = 2
+imperative_intelligentcross_depthofbook_aspen_v1_11.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -100,7 +100,7 @@ omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_structs = Pre
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_imperative_intelligentcross_depthofbook_aspen_v1_11.prefs_changed()

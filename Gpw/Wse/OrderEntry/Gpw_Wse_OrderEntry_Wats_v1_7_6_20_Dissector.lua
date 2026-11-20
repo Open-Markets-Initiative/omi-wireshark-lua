@@ -46,8 +46,8 @@ omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.exec_inst = ProtoField.new("Exec In
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.exec_type = ProtoField.new("Exec Type", "gpw.wse.orderentry.wats.v1.7.6.20.exectype", ftypes.UINT8, nil, nil, nil, "Type of execution being reported. Uses subset of ExecType for trade capture reports")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.exec_type_reason = ProtoField.new("Exec Type Reason", "gpw.wse.orderentry.wats.v1.7.6.20.exectypereason", ftypes.UINT8, nil, nil, nil, "Describes why an order was executed and the events related to its lifecycle")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.executing_trader = ProtoField.new("Executing Trader", "gpw.wse.orderentry.wats.v1.7.6.20.executingtrader", ftypes.STRING, nil, nil, nil, "MifidField")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.expire = ProtoField.new("Expire", "gpw.wse.orderentry.wats.v1.7.6.20.expire", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiration time indicating the validity of the order - relevant only when TimeInForce is set to GTD (Good Till Date) or GTT (Good Till Time). Optional: Required for TimeInForce::GTD or TimeInForce::GTT, otherwise 0")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.expire_utc = ProtoField.new("Expire", "gpw.wse.orderentry.wats.v1.7.6.20.expire.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expiration time indicating the validity of the order - relevant only when TimeInForce is set to GTD (Good Till Date) or GTT (Good Till Time). Optional: Required for TimeInForce::GTD or TimeInForce::GTT, otherwise 0")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.expire = ProtoField.new("Expire", "gpw.wse.orderentry.wats.v1.7.6.20.expire", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiration time indicating the validity of the order - relevant only when TimeInForce is set to GTD (Good Till Date) or GTT (Good Till Time). Optional: Required for TimeInForce::GTD or TimeInForce::GTT, otherwise 0")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.fee_structure_id = ProtoField.new("Fee Structure Id", "gpw.wse.orderentry.wats.v1.7.6.20.feestructureid", ftypes.UINT8, nil, nil, nil, "Optional identifier of a fee scheme for billing purposes. Optional: Never required, if unused 0")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.filled = ProtoField.new("Filled", "gpw.wse.orderentry.wats.v1.7.6.20.filled", ftypes.UINT64, nil, nil, nil, "Indicates the quantity of the order which has already been filled")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.flags = ProtoField.new("Flags", "gpw.wse.orderentry.wats.v1.7.6.20.flags", ftypes.STRING, nil, nil, nil, "Order related flags")
@@ -110,21 +110,21 @@ omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.session_id_order_id = ProtoField.ne
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.settlement_date = ProtoField.new("Settlement Date", "gpw.wse.orderentry.wats.v1.7.6.20.settlementdate", ftypes.UINT32, nil, nil, nil, "Settlement date of the trade is equal to current date plus actual settlement offset calendar days")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.short_code = ProtoField.new("Short Code", "gpw.wse.orderentry.wats.v1.7.6.20.shortcode", ftypes.UINT32, nil, nil, nil, "Short code of MiFID participant")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.side = ProtoField.new("Side", "gpw.wse.orderentry.wats.v1.7.6.20.side", ftypes.UINT8, nil, nil, nil, "Indicates the order's side (buy or sell)")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.source_timestamp = ProtoField.new("Source Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.sourcetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the business event that triggered or generated the message, in nanoseconds since the Unix epoch")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.source_timestamp_utc = ProtoField.new("Source Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.sourcetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the business event that triggered or generated the message, in nanoseconds since the Unix epoch")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.source_timestamp = ProtoField.new("Source Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.sourcetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the business event that triggered or generated the message, in nanoseconds since the Unix epoch")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.stp_id = ProtoField.new("Stp Id", "gpw.wse.orderentry.wats.v1.7.6.20.stpid", ftypes.UINT8, nil, nil, nil, "ID assigned by the client used in the Self Trade Prevention mechanism. Optional: Never required, can be 0 to disable stp")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.target_party_id = ProtoField.new("Target Party Id", "gpw.wse.orderentry.wats.v1.7.6.20.targetpartyid", ftypes.UINT32, nil, nil, nil, "Used to identify the party targeted for the action specified in the message. Optional: Required for TargetPartyRole::SenderLocation/ClientID/ExecutingTrader/InvestmentDecisionMaker, otherwise 0")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.target_party_role = ProtoField.new("Target Party Role", "gpw.wse.orderentry.wats.v1.7.6.20.targetpartyrole", ftypes.UINT8, nil, nil, nil, "Target party role filter selection field")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.target_timestamp = ProtoField.new("Target Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.targettimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Test timestamp (e.g. the send time of a message)")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.target_timestamp_utc = ProtoField.new("Target Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.targettimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Test timestamp (e.g. the send time of a message)")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.target_timestamp = ProtoField.new("Target Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.targettimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Test timestamp (e.g. the send time of a message)")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_party = ProtoField.new("Tcr Party", "gpw.wse.orderentry.wats.v1.7.6.20.tcrparty", ftypes.STRING, nil, nil, nil, "TcrParty")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_party_buy = ProtoField.new("Tcr Party Buy", "gpw.wse.orderentry.wats.v1.7.6.20.tcrpartybuy", ftypes.STRING, nil, nil, nil, "TcrParty")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_party_sell = ProtoField.new("Tcr Party Sell", "gpw.wse.orderentry.wats.v1.7.6.20.tcrpartysell", ftypes.STRING, nil, nil, nil, "TcrParty")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_rejection_reason = ProtoField.new("Tcr Rejection Reason", "gpw.wse.orderentry.wats.v1.7.6.20.tcrrejectionreason", ftypes.UINT16, nil, nil, nil, "Reason for rejecting the given TCR")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.tcr_status = ProtoField.new("Tcr Status", "gpw.wse.orderentry.wats.v1.7.6.20.tcrstatus", ftypes.UINT8, nil, nil, nil, "Status of the given order")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.time_in_force = ProtoField.new("Time In Force", "gpw.wse.orderentry.wats.v1.7.6.20.timeinforce", ftypes.UINT8, nil, nil, nil, "Indicates the order's time in force (e.g. GTC)")
-omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.timestamp = ProtoField.new("Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Sending time, in nanoseconds since the Unix epoch. Section 4.12 states the type and the unit, a 64 bit unsigned integer given within nanosecond accuracy, and section 4.6.3.4 the zone, an expiry time being a UTC timestamp")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.timestamp_utc = ProtoField.new("Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Sending time, in nanoseconds since the Unix epoch. Section 4.12 states the type and the unit, a 64 bit unsigned integer given within nanosecond accuracy, and section 4.6.3.4 the zone, an expiry time being a UTC timestamp")
+omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.timestamp = ProtoField.new("Timestamp", "gpw.wse.orderentry.wats.v1.7.6.20.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Sending time, in nanoseconds since the Unix epoch. Section 4.12 states the type and the unit, a 64 bit unsigned integer given within nanosecond accuracy, and section 4.6.3.4 the zone, an expiry time being a UTC timestamp")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.token = ProtoField.new("Token", "gpw.wse.orderentry.wats.v1.7.6.20.token", ftypes.STRING, nil, nil, nil, "The security data required for authentication, which is a token received by the exchange member during the registration process")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "gpw.wse.orderentry.wats.v1.7.6.20.totalaffectedorders", ftypes.UINT64, nil, nil, nil, "Total number of orders affected by the mass cancel request")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.fields.total_bid_size = ProtoField.new("Total Bid Size", "gpw.wse.orderentry.wats.v1.7.6.20.totalbidsize", ftypes.UINT64, nil, nil, nil, "Specifies the total bid size")
@@ -192,7 +192,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-gpw_wse_orderentry_wats_v1_7_6_20.timestamp_format = 2
+gpw_wse_orderentry_wats_v1_7_6_20.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -215,7 +215,7 @@ omi_gpw_wse_orderentry_wats_v1_7_6_20.prefs.show_repeating_groups = Pref.bool("S
 omi_gpw_wse_orderentry_wats_v1_7_6_20.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_gpw_wse_orderentry_wats_v1_7_6_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_gpw_wse_orderentry_wats_v1_7_6_20.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_gpw_wse_orderentry_wats_v1_7_6_20.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_gpw_wse_orderentry_wats_v1_7_6_20.prefs_changed()

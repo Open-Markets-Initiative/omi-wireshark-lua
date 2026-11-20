@@ -45,20 +45,20 @@ omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.order_ref = ProtoField.n
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_price = ProtoField.new("Orig Price", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origprice", ftypes.DOUBLE, nil, nil, nil, "Previous accepted trade report message (not necessarily the initial trade report message) execution price")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_quantity = ProtoField.new("Orig Quantity", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origquantity", ftypes.UINT32, nil, nil, nil, "Previous accepted trade report message (not necessarily the initial trade report message) number of shares traded")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_security_id = ProtoField.new("Orig Security Id", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origsecurityid", ftypes.UINT16, nil, nil, nil, "Previous accepted trade report message (not necessarily the initial trade report message) numeric identifier of the relevant security")
-omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_timestamp = ProtoField.new("Orig Timestamp", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Previous accepted trade report message (not necessarily the initial trade report message) timestamp of market data event")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_timestamp_utc = ProtoField.new("Orig Timestamp", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Previous accepted trade report message (not necessarily the initial trade report message) timestamp of market data event")
+omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_timestamp = ProtoField.new("Orig Timestamp", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Previous accepted trade report message (not necessarily the initial trade report message) timestamp of market data event")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_trade_ref = ProtoField.new("Orig Trade Ref", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origtraderef", ftypes.UINT32, nil, nil, nil, "Previous accepted trade report message (not necessarily the initial trade report message) reference number")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_trade_type = ProtoField.new("Orig Trade Type", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origtradetype", ftypes.UINT8, nil, nil, nil, "Previous accepted trade report message (not necessarily the initial trade report message) code identifying type of trade, see section 3.6.2 for values")
-omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_transact_time = ProtoField.new("Orig Transact Time", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origtransacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time when the original transaction occurred")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_transact_time_utc = ProtoField.new("Orig Transact Time", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origtransacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time when the original transaction occurred")
+omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.orig_transact_time = ProtoField.new("Orig Transact Time", "aquis.aquisstockexchange.realtime.amd.v1.2.3.origtransacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time when the original transaction occurred")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.pre_open_close = ProtoField.new("pre-open/close", "aquis.aquisstockexchange.realtime.amd.v1.2.3.preopenclose", ftypes.UINT8, {[0]="Not A Pre Phase", [1]="Pre Phase"}, base.DEC, 0x08, "Pre-open or pre-close market phase, read with the trading bit: pre-open when trading is closed, pre-close when it is open")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.price = ProtoField.new("Price", "aquis.aquisstockexchange.realtime.amd.v1.2.3.price", ftypes.DOUBLE, nil, nil, nil, "The price of the order")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.price_formation_discovery_process = ProtoField.new("Price Formation Discovery Process", "aquis.aquisstockexchange.realtime.amd.v1.2.3.priceformationdiscoveryprocess", ftypes.UINT32, {[1]="Plain Vanilla", [2]="Non Price Forming", [3]="Trade Not Contributing To Price Discovery", [4]="Price Not Currently Available But Pending"}, base.DEC, 0x00E00000, "Price formation or discovery process")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.price_type = ProtoField.new("Price Type", "aquis.aquisstockexchange.realtime.amd.v1.2.3.pricetype", ftypes.UINT8, nil, nil, nil, "Whether the price is the opening or the closing price")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.publication_mode_post_trade_deferral = ProtoField.new("Publication Mode Post Trade Deferral", "aquis.aquisstockexchange.realtime.amd.v1.2.3.publicationmodeposttradedeferral", ftypes.UINT32, {[1]="Immediate Publication", [2]="Non Immediate Publication", [3]="Lrgs", [4]="Ilqd", [5]="Size", [6]="Ilqd And Size", [7]="Ilqd And Lrgs"}, base.DEC, 0x0E000000, "Publication mode or post-trade deferral")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.quantity = ProtoField.new("Quantity", "aquis.aquisstockexchange.realtime.amd.v1.2.3.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book")
-omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.received_timestamp = ProtoField.new("Timestamp", "aquis.aquisstockexchange.realtime.amd.v1.2.3.receivedtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "System received timestamp")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.received_timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisstockexchange.realtime.amd.v1.2.3.receivedtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "System received timestamp")
+omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.received_timestamp = ProtoField.new("Timestamp", "aquis.aquisstockexchange.realtime.amd.v1.2.3.receivedtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "System received timestamp")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.remaining_quantity = ProtoField.new("Quantity", "aquis.aquisstockexchange.realtime.amd.v1.2.3.remainingquantity", ftypes.UINT32, nil, nil, nil, "Number of shares remaining in the book")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.security_id = ProtoField.new("Security Id", "aquis.aquisstockexchange.realtime.amd.v1.2.3.securityid", ftypes.UINT16, nil, nil, nil, "Numeric identifier of the relevant security")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.sender_id = ProtoField.new("Sender Id", "aquis.aquisstockexchange.realtime.amd.v1.2.3.senderid", ftypes.STRING, nil, nil, nil, "SenderID of the trader")
@@ -68,8 +68,8 @@ omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.statistics_price = Proto
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.threshold = ProtoField.new("Threshold", "aquis.aquisstockexchange.realtime.amd.v1.2.3.threshold", ftypes.DOUBLE, nil, nil, nil, "The price threshold at which this tick data applies")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.tick_size = ProtoField.new("Tick Size", "aquis.aquisstockexchange.realtime.amd.v1.2.3.ticksize", ftypes.DOUBLE, nil, nil, nil, "The tick size (price increment)")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.tick_table_id = ProtoField.new("Tick Table Id", "aquis.aquisstockexchange.realtime.amd.v1.2.3.ticktableid", ftypes.UINT8, nil, nil, nil, "Numeric identifier for this tick table or static tick")
-omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisstockexchange.realtime.amd.v1.2.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this market data event")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.timestamp_utc = ProtoField.new("Timestamp", "aquis.aquisstockexchange.realtime.amd.v1.2.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this market data event")
+omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.timestamp = ProtoField.new("Timestamp", "aquis.aquisstockexchange.realtime.amd.v1.2.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this market data event")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.trade_ref = ProtoField.new("Trade Ref", "aquis.aquisstockexchange.realtime.amd.v1.2.3.traderef", ftypes.UINT32, nil, nil, nil, "Trade reference number")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.trade_type = ProtoField.new("Trade Type", "aquis.aquisstockexchange.realtime.amd.v1.2.3.tradetype", ftypes.UINT8, nil, nil, nil, "Code identifying type of trade")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.traded_quantity = ProtoField.new("Quantity", "aquis.aquisstockexchange.realtime.amd.v1.2.3.tradedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares traded")
@@ -77,8 +77,8 @@ omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.trader_id = ProtoField.n
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.trading = ProtoField.new("Trading", "aquis.aquisstockexchange.realtime.amd.v1.2.3.trading", ftypes.UINT8, {[0]="Continuous Trading Closed", [1]="Continuous Trading Open"}, base.DEC, 0x01, "Continuous trading open or closed, which also states whether AoD is available")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.trading_mode = ProtoField.new("Trading Mode", "aquis.aquisstockexchange.realtime.amd.v1.2.3.tradingmode", ftypes.UINT32, {[1]="Undefined Auction", [2]="Opening Auction", [3]="Closing Auction", [4]="Intraday Auction", [5]="Unscheduled Auction", [6]="Continuous Trading", [7]="At Market Close", [8]="Out Of Main Session", [9]="On Exchange Trade Reporting", [10]="Off Exchange Trade Reporting", [11]="Systematic Internalizer Trade Reporting"}, base.DEC, 0x00000078)
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.trading_status = ProtoField.new("Trading Status", "aquis.aquisstockexchange.realtime.amd.v1.2.3.tradingstatus", ftypes.UINT8, nil, nil, nil, "Trading status of the security")
-omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.transact_time = ProtoField.new("Transact Time", "aquis.aquisstockexchange.realtime.amd.v1.2.3.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time when the transaction occurred")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.transact_time_utc = ProtoField.new("Transact Time", "aquis.aquisstockexchange.realtime.amd.v1.2.3.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time when the transaction occurred")
+omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.transact_time = ProtoField.new("Transact Time", "aquis.aquisstockexchange.realtime.amd.v1.2.3.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time when the transaction occurred")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.transaction_category = ProtoField.new("Transaction Category", "aquis.aquisstockexchange.realtime.amd.v1.2.3.transactioncategory", ftypes.UINT32, {[1]="Dark Trade", [2]="Trade That Has Received Price Improvement", [3]="Package Trade", [4]="Exchange For Physicals", [5]="None Apply"}, base.DEC, 0x00000380)
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.umtf = ProtoField.new("Umtf", "aquis.aquisstockexchange.realtime.amd.v1.2.3.umtf", ftypes.STRING, nil, nil, nil, "This field is not applicable to AQSE")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.fields.unused_2 = ProtoField.new("Unused 2", "aquis.aquisstockexchange.realtime.amd.v1.2.3.unused2", ftypes.UINT32, nil, base.DEC, 0xC0000000, "Spare")
@@ -128,7 +128,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-aquis_aquisstockexchange_realtime_amd_v1_2_3.timestamp_format = 2
+aquis_aquisstockexchange_realtime_amd_v1_2_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -149,7 +149,7 @@ omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.prefs.show_structs = Pref.bool(
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_aquis_aquisstockexchange_realtime_amd_v1_2_3.prefs_changed()
@@ -2692,19 +2692,11 @@ aquis_aquisstockexchange_realtime_amd_v1_2_3.packet.dissect = function(buffer, p
   -- Packet Header: Struct of 1 fields
   index, packet_header = aquis_aquisstockexchange_realtime_amd_v1_2_3.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
-  local end_of_payload = buffer:len()
+  -- Dependency element: Message Count
+  local message_count = buffer(index - 1, 1):uint()
 
-  -- Message: Struct of 2 fields
-  local message_index = 0
-  while index < end_of_payload do
-    message_index = message_index + 1
-
-    -- Stop where the payload ends inside the next size
-    if index + 1 + 1 > end_of_payload then
-      parent:add_proto_expert_info(aquis_aquisstockexchange_realtime_amd_v1_2_3.experts.undecoded, "Msg Length runs past the end of the payload")
-      break
-    end
+  -- Repeating: Message
+  for message_index = 1, message_count do
 
     -- Dependency element: Msg Length
     local msg_length = buffer(index + 1, 1):uint()

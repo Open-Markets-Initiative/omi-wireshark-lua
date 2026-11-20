@@ -33,8 +33,8 @@ omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.short_sell_price_c
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.sideindicator", ftypes.STRING, nil, nil, nil, "Side of the order.")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.symbol = ProtoField.new("Symbol", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.symbol", ftypes.STRING, nil, nil, nil, "Symbol (right padded with spaces).")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.tick_direction = ProtoField.new("Tick Direction", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.tickdirection", ftypes.STRING, nil, nil, nil, "The tick direction of this trade.")
-omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch.")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since epoch.")
+omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch.")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.trading_status = ProtoField.new("Trading Status", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading status of the session for the symbol.")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.trading_status_flags = ProtoField.new("Trading Status Flags", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.tradingstatusflags", ftypes.STRING, nil, nil, nil, "Trading status flags.")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.fields.unit = ProtoField.new("Unit", "cboe.cxjequities.multicastdepthofbook.pitch.v1.0.6.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
@@ -73,7 +73,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.timestamp_format = 2
+cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -96,7 +96,7 @@ omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.show_headers = Pref
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cxjequities_multicastdepthofbook_pitch_v1_0_6.prefs_changed()

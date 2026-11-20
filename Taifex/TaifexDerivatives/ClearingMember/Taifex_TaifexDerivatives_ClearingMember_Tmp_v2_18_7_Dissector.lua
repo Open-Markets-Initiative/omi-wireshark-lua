@@ -29,11 +29,11 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.encrypt_method = 
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.end_out_bound_num = ProtoField.new("End Out Bound Num", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.endoutboundnum", ftypes.UINT32, nil, nil, nil, "The last end message No, the number of the last valid response message Taifex sent the futures commission merchant.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.exec_type = ProtoField.new("Exec Type", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.exectype", ftypes.STRING, nil, nil, nil, "Execution type.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.fcm_id = ProtoField.new("Fcm Id", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.fcmid", ftypes.UINT16, nil, nil, nil, "FCM ID, read from the FCM ID Mapping File P06.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_epoch_s = ProtoField.new("Header Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.headerepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_epoch_s_utc = ProtoField.new("Header Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.headerepochs.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_epoch_s = ProtoField.new("Header Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.headerepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_ms = ProtoField.new("Header Ms", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.headerms", ftypes.UINT16, nil, nil, nil, "One thousandth of a second, the millisecond fraction of the second carried beside it")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_time = ProtoField.new("Header Time", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.headertime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message time, the Tmp time format of section 2.1 carried by the common message header")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_time_utc = ProtoField.new("Header Time", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.headertime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Message time, the Tmp time format of section 2.1 carried by the common message header")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_time = ProtoField.new("Header Time", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.headertime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message time, the Tmp time format of section 2.1 carried by the common message header")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.heartbtint", ftypes.UINT8, nil, nil, nil, "Seconds in synchronization, whose default is 30.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.investor_acno = ProtoField.new("Investor Acno", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.investoracno", ftypes.UINT32, nil, nil, nil, "Investor account No.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.investor_flag = ProtoField.new("Investor Flag", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.investorflag", ftypes.STRING, nil, nil, nil, "Investor ID code.")
@@ -58,11 +58,11 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.message_type = Pr
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.ms = ProtoField.new("Ms", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.ms", ftypes.UINT16, nil, nil, nil, "One thousandth of a second.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_length = ProtoField.new("Msg Length", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msglength", ftypes.UINT16, nil, nil, nil, "Message length, the total number of bytes behind the msg_length field up to before the CheckSum field")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgseqnum", ftypes.UINT32, nil, nil, nil, "Message sequence number, assigned to each new order, cancel or change order message as a unique identification code and entered as zero on the messages that carry none")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_epoch_s = ProtoField.new("Msg Time Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimeepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_epoch_s_utc = ProtoField.new("Msg Time Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimeepochs.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_epoch_s = ProtoField.new("Msg Time Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimeepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_ns = ProtoField.new("Msg Time Ns", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimens", ftypes.UINT32, nil, nil, nil, "Nanosecond-level timing details for the msg_time field in the hdr, of which currently only data at the microsecond level is available.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_x_epoch_s = ProtoField.new("Msg Time X Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimexepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_x_epoch_s_utc = ProtoField.new("Msg Time X Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimexepochs.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_time_x_epoch_s = ProtoField.new("Msg Time X Epoch S", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtimexepochs", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since the epoch, the number of seconds from 1970/01/01 0:0 UTC.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.msg_type_ext = ProtoField.new("Msg Type Ext", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.msgtypeext", ftypes.UINT8, nil, nil, nil, "Expanded MessageType, by which additional subcategories of a MessageType assign different functionalities based on each specific definition.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.multi_leg_num = ProtoField.new("Multi Leg Num", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.multilegnum", ftypes.STRING, nil, nil, nil, "Multi leg FLEX product named by numeric product serial numbers, which section 2.17.1 lays out as a number of legs, the multi leg order code and one block per leg")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.multi_leg_txt = ProtoField.new("Multi Leg Txt", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.multilegtxt", ftypes.STRING, nil, nil, nil, "Multi leg FLEX product named by textual product symbols, which section 2.17.1 lays out as a number of legs, the multi leg order code and one block per leg")
@@ -71,10 +71,10 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.no_leg = ProtoFie
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.ord_id = ProtoField.new("Ord Id", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.ordid", ftypes.UINT32, nil, nil, nil, "Order serial No, a number of at most seven digits.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.ord_type = ProtoField.new("Ord Type", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.ordtype", ftypes.UINT8, nil, nil, nil, "Order type.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.order_no = ProtoField.new("Order No", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.orderno", ftypes.STRING, nil, nil, nil, "Order No, whose five characters may all be alphanumeric.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time = ProtoField.new("Org Trans Time Msg Time", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.orgtranstimemsgtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_utc = ProtoField.new("Org Trans Time Msg Time", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.orgtranstimemsgtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_x = ProtoField.new("Org Trans Time Msg Time X", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.orgtranstimemsgtimex", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time = ProtoField.new("Org Trans Time Msg Time", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.orgtranstimemsgtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_x_utc = ProtoField.new("Org Trans Time Msg Time X", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.orgtranstimemsgtimex.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_x = ProtoField.new("Org Trans Time Msg Time X", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.orgtranstimemsgtimex", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.part_id = ProtoField.new("Part Id", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.partid", ftypes.UINT8, nil, nil, nil, "Partition ID, referring to Section 3.6.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.position_effect = ProtoField.new("Position Effect", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.positioneffect", ftypes.STRING, nil, nil, nil, "Open/offset code.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.preserve = ProtoField.new("Preserve", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.preserve", ftypes.UINT8, nil, nil, nil, "Preserve, whose default is 0.")
@@ -110,10 +110,10 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.symbol_type = Pro
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.system_type = ProtoField.new("System Type", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.systemtype", ftypes.UINT8, nil, nil, nil, "System type, naming the market and the trading session.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.target_id = ProtoField.new("Target Id", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.targetid", ftypes.UINT8, nil, nil, nil, "Target ID, naming the report this message carries and the line it is sent on.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.time_in_force = ProtoField.new("Time In Force", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.timeinforce", ftypes.UINT8, nil, nil, nil, "Order condition.")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time = ProtoField.new("Transact Time Msg Time", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.transacttimemsgtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_utc = ProtoField.new("Transact Time Msg Time", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.transacttimemsgtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_x = ProtoField.new("Transact Time Msg Time X", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.transacttimemsgtimex", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time = ProtoField.new("Transact Time Msg Time", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.transacttimemsgtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp time format, the seconds since the epoch and the thousandth of a second")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_x_utc = ProtoField.new("Transact Time Msg Time X", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.transacttimemsgtimex.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_x = ProtoField.new("Transact Time Msg Time X", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.transacttimemsgtimex", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Tmp Expanded Time Format, the seconds since the epoch and the billionth of a second, which the FLEX reports carry in place of msg_time")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.uniq_id = ProtoField.new("Uniq Id", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.uniqid", ftypes.UINT32, nil, nil, nil, "Unique ID, a system unique No assigned to the order reply of each order.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.user_define = ProtoField.new("User Define", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.userdefine", ftypes.STRING, nil, nil, nil, "FCM defined variable, which the trading system updates in the order status when it adds, cancels or changes an order.")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.version = ProtoField.new("Version", "taifex.taifexderivatives.clearingmember.tmp.v2.18.7.version", ftypes.UINT8, nil, nil, nil, "Version, indicating the message version, with 1 denoting the use of the new FLEX message.")
@@ -162,7 +162,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format = 2
+taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -187,7 +187,7 @@ omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.prefs.show_repeating_gro
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.prefs_changed()
@@ -2744,8 +2744,8 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time_x.dis
     local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time_x.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_x
-    if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_x_utc end
+    local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_x_utc
+    if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 2 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_x end
     parent = parent:add(field, buffer(offset, length), NSTime.new(msg_time_x_epoch_s, nanosecond))
     local index = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time_x.fields(buffer, offset, packet, parent)
 
@@ -2806,8 +2806,8 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time_x.di
     local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time_x.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_x
-    if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_x_utc end
+    local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_x_utc
+    if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 2 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_x end
     parent = parent:add(field, buffer(offset, length), NSTime.new(msg_time_x_epoch_s, nanosecond))
     local index = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time_x.fields(buffer, offset, packet, parent)
 
@@ -3490,8 +3490,8 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time.disse
     local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time
-    if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_utc end
+    local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time_utc
+    if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 2 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.transact_time_msg_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(msg_time_epoch_s, ms * 1000000))
     local index = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.transact_time_msg_time.fields(buffer, offset, packet, parent)
 
@@ -3552,8 +3552,8 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.diss
     local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time
-    if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_utc end
+    local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time_utc
+    if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 2 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.org_trans_time_msg_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(msg_time_epoch_s, ms * 1000000))
     local index = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.org_trans_time_msg_time.fields(buffer, offset, packet, parent)
 
@@ -5021,8 +5021,8 @@ taifex_taifexderivatives_clearingmember_tmp_v2_18_7.header_time.dissect = functi
     local length = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.header_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_time
-    if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 3 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_time_utc end
+    local field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_time_utc
+    if taifex_taifexderivatives_clearingmember_tmp_v2_18_7.timestamp_format == 2 then field = omi_taifex_taifexderivatives_clearingmember_tmp_v2_18_7.fields.header_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(header_epoch_s, header_ms * 1000000))
     local index = taifex_taifexderivatives_clearingmember_tmp_v2_18_7.header_time.fields(buffer, offset, packet, parent)
 

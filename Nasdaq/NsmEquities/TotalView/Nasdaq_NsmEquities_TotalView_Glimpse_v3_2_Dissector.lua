@@ -29,7 +29,7 @@ omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.message_type = ProtoField.n
 omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.millisecond = ProtoField.new("Millisecond", "nasdaq.nsmequities.totalview.glimpse.v3.2.millisecond", ftypes.UINT16, nil, nil, nil, "Number of milliseconds since last second.")
 omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.totalview.glimpse.v3.2.orderreferencenumber", ftypes.UINT64, nil, nil, nil, "The unique reference number assigned to the new order. The order reference number is increasing, but not necessarily sequential.")
 omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.totalview.glimpse.v3.2.password", ftypes.STRING, nil, nil, nil, "Login password")
-omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.glimpse.v3.2.price", ftypes.UINT64, nil, nil, nil, "The display price of the new order. Refer to Data Types for field processing notes.")
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.glimpse.v3.2.price", ftypes.DOUBLE, nil, nil, nil, "The display price of the new order. Refer to Data Types for field processing notes.")
 omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.totalview.glimpse.v3.2.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason.")
 omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.totalview.glimpse.v3.2.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
 omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.glimpse.v3.2.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
@@ -96,7 +96,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_nsmequities_totalview_glimpse_v3_2.timestamp_format = 2
+nasdaq_nsmequities_totalview_glimpse_v3_2.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -127,7 +127,7 @@ omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_structs = Pref.bool("Sh
 omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
-omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_glimpse_v3_2.prefs_changed()
@@ -175,6 +175,58 @@ trim_left_spaces = function(str)
   end
 
   return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- is every character a digit
+is_digits = function(str)
+  if str:len() == 0 then
+    return false
+  end
+
+  for index = 1, str:len() do
+    local byte = str:byte(index)
+
+    if byte < 0x30 or byte > 0x39 then
+      return false
+    end
+  end
+
+  return true
+end
+
+-- the number a digit run of implied decimal places spells
+format_implied_decimal_text = function(str, places)
+  local digits = trim_left_spaces(str)
+  local sign = ""
+  local first = digits:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    digits = digits:sub(2)
+  end
+
+  if not is_digits(digits) then
+    return nil
+  end
+
+  digits = trim_left_zeros(digits)
+
+  while digits:len() <= places do
+    digits = "0"..digits
+  end
+
+  return sign..digits:sub(1, digits:len() - places).."."..digits:sub(-places)
 end
 
 -- ascii digits as an unsigned 64 bit value, nil when the run is no number
@@ -636,22 +688,29 @@ nasdaq_nsmequities_totalview_glimpse_v3_2.price = {}
 nasdaq_nsmequities_totalview_glimpse_v3_2.price.size = 10
 
 -- Display: Price
-nasdaq_nsmequities_totalview_glimpse_v3_2.price.display = function(value)
-  return "Price: "..value
+nasdaq_nsmequities_totalview_glimpse_v3_2.price.display = function(value, buffer, offset, packet, parent)
+  local text = format_implied_decimal_text(buffer(offset, nasdaq_nsmequities_totalview_glimpse_v3_2.price.size):string(), 4)
+
+  if text == nil then
+    return "Price: "..tostring(value)
+  end
+
+  return "Price: "..text
 end
 
 -- Dissect: Price
 nasdaq_nsmequities_totalview_glimpse_v3_2.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_glimpse_v3_2.price.size
   local range = buffer(offset, length)
-  local value = ascii_to_uint64(range:string())
+  local value = tonumber(range:string())
 
   if value == nil then
-    value = UInt64.new("0")
+    value = 0
     local item = parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v3_2.fields.price, range, value, "Price: Not Applicable")
     item:add_proto_expert_info(nasdaq_nsmequities_totalview_glimpse_v3_2.experts.not_a_number, "Price is not a number: '"..range:string().."'")
     return offset + length, value
   end
+  value = value/10000
 
   local display = nasdaq_nsmequities_totalview_glimpse_v3_2.price.display(value, buffer, offset, packet, parent)
 

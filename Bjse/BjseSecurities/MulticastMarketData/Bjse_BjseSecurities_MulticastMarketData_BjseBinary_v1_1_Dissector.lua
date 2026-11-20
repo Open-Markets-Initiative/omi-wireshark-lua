@@ -69,8 +69,8 @@ omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.number_of_ord
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.ord_type = ProtoField.new("Ord Type", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.ordtype", ftypes.STRING, nil, nil, nil, "Order type")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.order_qty = ProtoField.new("Order Qty", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.orderqty", ftypes.DOUBLE, nil, nil, nil, "Order quantity")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.orders = ProtoField.new("Orders", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.orders", ftypes.STRING, nil, nil, nil, "The individual order quantities disclosed at this price level")
-omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.orig_time = ProtoField.new("Orig Time", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the channel heartbeat was generated")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.orig_time_utc = ProtoField.new("Orig Time", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the channel heartbeat was generated")
+omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.orig_time = ProtoField.new("Orig Time", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the channel heartbeat was generated")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.original_size = ProtoField.new("Original Size", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.originalsize", ftypes.UINT32, nil, nil, nil, "The length of the packet body before compression and encryption")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.packet_trailer = ProtoField.new("Packet Trailer", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.packettrailer", ftypes.STRING, nil, nil, nil, "Bjse Mddp Packet Trailer, transmitted without encryption")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.packet_type = ProtoField.new("Packet Type", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.packettype", ftypes.UINT16, {[0]="Management Packet", [1]="Application Packet"}, base.DEC, 0x6000, "Mark of packet type")
@@ -108,12 +108,12 @@ omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.total_volume_
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_money = ProtoField.new("Trade Money", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.trademoney", ftypes.DOUBLE, nil, nil, nil, "Trade value in yuan")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_price = ProtoField.new("Trade Price", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.tradeprice", ftypes.DOUBLE)
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_qty = ProtoField.new("Trade Qty", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.tradeqty", ftypes.DOUBLE, nil, nil, nil, "Trade quantity")
-omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_time = ProtoField.new("Trade Time", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the most recent trade")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_time_utc = ProtoField.new("Trade Time", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the most recent trade")
+omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_time = ProtoField.new("Trade Time", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the most recent trade")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trading_phase_code = ProtoField.new("Trading Phase Code", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.tradingphasecode", ftypes.STRING, nil, nil, nil, "Trading phase code of the product. Only the first two characters are used: character 0 is the phase, S = start before the open, O = opening call auction, T = continuous trading, E = closed, H = temporary halt, V = volatility interruption; character 1 is 0 = cannot trade normally (before the open, suspended all day or after the close) or 1 = can trade normally")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trading_type = ProtoField.new("Trading Type", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.tradingtype", ftypes.UINT8)
-omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.transact_time = ProtoField.new("Transact Time", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Order time")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.transact_time_utc = ProtoField.new("Transact Time", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Order time")
+omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.transact_time = ProtoField.new("Transact Time", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Order time")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.version = ProtoField.new("Version", "bjse.bjsesecurities.multicastmarketdata.bjsebinary.v1.1.version", ftypes.UINT8, nil, nil, nil, "Protocol version number, currently 0x01")
 
 -- Bjse BjseSecurities MulticastMarketData BjseBinary 1.1 Framing
@@ -169,7 +169,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format = 2
+bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -196,7 +196,7 @@ omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.prefs.show_padding =
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.prefs_changed()
@@ -1411,8 +1411,8 @@ bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.orig_time.dissect = func
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.orig_time
-  if bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format == 3 then field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.orig_time_utc end
+  local field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.orig_time_utc
+  if bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format == 2 then field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.orig_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2240,8 +2240,8 @@ bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.trade_time.dissect = fun
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_time
-  if bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format == 3 then field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_time_utc end
+  local field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_time_utc
+  if bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format == 2 then field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2341,8 +2341,8 @@ bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.transact_time.dissect = 
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.transact_time
-  if bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format == 3 then field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.transact_time_utc end
+  local field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.transact_time_utc
+  if bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format == 2 then field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.transact_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)

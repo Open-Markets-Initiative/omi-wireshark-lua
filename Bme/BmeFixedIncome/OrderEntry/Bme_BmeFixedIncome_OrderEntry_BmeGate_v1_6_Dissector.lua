@@ -163,8 +163,8 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.price_type = ProtoField.ne
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.priority = ProtoField.new("Priority", "bme.bmefixedincome.orderentry.bmegate.v1.6.priority", ftypes.UINT32)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.priority_2 = ProtoField.new("Priority 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.priority2", ftypes.UINT32, nil, nil, nil, "Priority")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.protocol_version = ProtoField.new("Protocol Version", "bme.bmefixedincome.orderentry.bmegate.v1.6.protocolversion", ftypes.STRING, nil, nil, nil, "Identification of the binary protocol version")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.publish_date_and_time = ProtoField.new("Publish Date And Time", "bme.bmefixedincome.orderentry.bmegate.v1.6.publishdateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication Date and Time in nanoseconds since 1-jan- 1970 UTC")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.publish_date_and_time_utc = ProtoField.new("Publish Date And Time", "bme.bmefixedincome.orderentry.bmegate.v1.6.publishdateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publication Date and Time in nanoseconds since 1-jan- 1970 UTC")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.publish_date_and_time = ProtoField.new("Publish Date And Time", "bme.bmefixedincome.orderentry.bmegate.v1.6.publishdateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication Date and Time in nanoseconds since 1-jan- 1970 UTC")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.received_dept_id = ProtoField.new("Received Dept Id", "bme.bmefixedincome.orderentry.bmegate.v1.6.receiveddeptid", ftypes.STRING)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.received_dept_id_2 = ProtoField.new("Received Dept Id 2", "bme.bmefixedincome.orderentry.bmegate.v1.6.receiveddeptid2", ftypes.STRING)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.ref_msg_type = ProtoField.new("Ref Msg Type", "bme.bmefixedincome.orderentry.bmegate.v1.6.refmsgtype", ftypes.UINT8, nil, nil, nil, "Type of message responded to")
@@ -210,8 +210,8 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.text_c_58 = ProtoField.new
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.text_c_65 = ProtoField.new("Text C 65", "bme.bmefixedincome.orderentry.bmegate.v1.6.textc65", ftypes.STRING, nil, nil, nil, "Explanation of rejection. When BusinessRejectReason = 31, the first two characters of this string will contain the specific sponsored access reject code as specified in \"Sponsored Access User Manual\"")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.time_in_force = ProtoField.new("Time In Force", "bme.bmefixedincome.orderentry.bmegate.v1.6.timeinforce", ftypes.STRING, nil, nil, nil, "GTD orders are not supported")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradsesstatus", ftypes.UINT8, nil, nil, nil, "Trading session status")
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_date = ProtoField.new("Trade Date", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradedate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade date and time")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_date_utc = ProtoField.new("Trade Date", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradedate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trade date and time")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_date = ProtoField.new("Trade Date", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradedate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade date and time")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_price_condition = ProtoField.new("Trade Price Condition", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradepricecondition", ftypes.STRING, nil, nil, nil, "MMT 3.8")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_session_date = ProtoField.new("Trade Session Date", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradesessiondate", ftypes.INT32)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trade_type = ProtoField.new("Trade Type", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradetype", ftypes.STRING)
@@ -223,8 +223,8 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trading_session_id = Proto
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "Session phase")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trading_unit = ProtoField.new("Trading Unit", "bme.bmefixedincome.orderentry.bmegate.v1.6.tradingunit", ftypes.UINT8, nil, nil, nil, "Trading unit ID in the central systems")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.transaction_category = ProtoField.new("Transaction Category", "bme.bmefixedincome.orderentry.bmegate.v1.6.transactioncategory", ftypes.STRING)
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.transaction_date_and_time = ProtoField.new("Transaction Date And Time", "bme.bmefixedincome.orderentry.bmegate.v1.6.transactiondateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction Date and Time in nanoseconds since 1-jan-1970 UTC")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.transaction_date_and_time_utc = ProtoField.new("Transaction Date And Time", "bme.bmefixedincome.orderentry.bmegate.v1.6.transactiondateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction Date and Time in nanoseconds since 1-jan-1970 UTC")
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.transaction_date_and_time = ProtoField.new("Transaction Date And Time", "bme.bmefixedincome.orderentry.bmegate.v1.6.transactiondateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction Date and Time in nanoseconds since 1-jan-1970 UTC")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.trd_match_id = ProtoField.new("Trd Match Id", "bme.bmefixedincome.orderentry.bmegate.v1.6.trdmatchid", ftypes.UINT32, nil, nil, nil, "System Trade Number")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.type_of_redemption = ProtoField.new("Type Of Redemption", "bme.bmefixedincome.orderentry.bmegate.v1.6.typeofredemption", ftypes.STRING)
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.fields.username = ProtoField.new("Username", "bme.bmefixedincome.orderentry.bmegate.v1.6.username", ftypes.STRING, nil, nil, nil, "Identifier of the user as assigned by BME")
@@ -296,7 +296,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-bme_bmefixedincome_orderentry_bmegate_v1_6.timestamp_format = 2
+bme_bmefixedincome_orderentry_bmegate_v1_6.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -317,7 +317,7 @@ omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_structs = Pref.bool("S
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bme_bmefixedincome_orderentry_bmegate_v1_6.prefs_changed()

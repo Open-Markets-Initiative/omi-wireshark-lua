@@ -68,8 +68,8 @@ omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_7_a = ProtoField.new("Rese
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_7_b = ProtoField.new("Reserved 7 B", "sgx.titandt.depthofbook.itch.v1.4.reserved7b", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_bits_1_to_13 = ProtoField.new("Reserved Bits 1 To 13", "sgx.titandt.depthofbook.itch.v1.4.reservedbits1to13", ftypes.UINT16, nil, base.DEC, 0x1FFF, "Reserved")
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.reserved_bits_15_to_16 = ProtoField.new("Reserved Bits 15 To 16", "sgx.titandt.depthofbook.itch.v1.4.reservedbits15to16", ftypes.UINT16, nil, base.DEC, 0xC000, "Reserved")
-omi_sgx_titandt_depthofbook_itch_v1_4.fields.second = ProtoField.new("Second", "sgx.titandt.depthofbook.itch.v1.4.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time")
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.second_utc = ProtoField.new("Second", "sgx.titandt.depthofbook.itch.v1.4.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time")
+omi_sgx_titandt_depthofbook_itch_v1_4.fields.second = ProtoField.new("Second", "sgx.titandt.depthofbook.itch.v1.4.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time")
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "sgx.titandt.depthofbook.itch.v1.4.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.session = ProtoField.new("Session", "sgx.titandt.depthofbook.itch.v1.4.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_sgx_titandt_depthofbook_itch_v1_4.fields.side = ProtoField.new("Side", "sgx.titandt.depthofbook.itch.v1.4.side", ftypes.STRING, nil, nil, nil, "The type of order being added")
@@ -121,7 +121,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-sgx_titandt_depthofbook_itch_v1_4.timestamp_format = 2
+sgx_titandt_depthofbook_itch_v1_4.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -146,7 +146,7 @@ omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_padding = Pref.bool("Show Paddi
 omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_sgx_titandt_depthofbook_itch_v1_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_sgx_titandt_depthofbook_itch_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_sgx_titandt_depthofbook_itch_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_sgx_titandt_depthofbook_itch_v1_4.prefs_changed()

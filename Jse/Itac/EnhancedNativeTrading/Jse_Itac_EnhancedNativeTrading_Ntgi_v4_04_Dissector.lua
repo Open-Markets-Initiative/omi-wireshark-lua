@@ -87,11 +87,11 @@ omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.text = ProtoField.new("Text
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.time_in_force = ProtoField.new("Time In Force", "jse.itac.enhancednativetrading.ntgi.v4.04.timeinforce", ftypes.UINT8, nil, nil, nil, "How long the order remains in effect")
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.trader_mnemonic = ProtoField.new("Trader Mnemonic", "jse.itac.enhancednativetrading.ntgi.v4.04.tradermnemonic", ftypes.STRING, nil, nil, nil, "Concatenated identifier of the Trader Group and the JSE Trader ID")
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.trailing_offset = ProtoField.new("Trailing Offset", "jse.itac.enhancednativetrading.ntgi.v4.04.trailingoffset", ftypes.DOUBLE, nil, nil, nil, "Trailing offset for trailing stop or stop limit orders")
-omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time = ProtoField.new("Transact Time", "jse.itac.enhancednativetrading.ntgi.v4.04.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the Execution Report was generated")
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time_utc = ProtoField.new("Transact Time", "jse.itac.enhancednativetrading.ntgi.v4.04.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the Execution Report was generated")
+omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time = ProtoField.new("Transact Time", "jse.itac.enhancednativetrading.ntgi.v4.04.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the Execution Report was generated")
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time_nanoseconds = ProtoField.new("Transact Time Nanoseconds", "jse.itac.enhancednativetrading.ntgi.v4.04.transacttimenanoseconds", ftypes.UINT32, nil, nil, nil, "Nanoseconds elapsed since the second, the last four bytes of Transact Time. The document names them microseconds and states accuracy up to nanoseconds, the last three digits being zero")
-omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time_seconds = ProtoField.new("Transact Time Seconds", "jse.itac.enhancednativetrading.ntgi.v4.04.transacttimeseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds elapsed since midnight UTC of 1 January 1970, the first four bytes of Transact Time")
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time_seconds_utc = ProtoField.new("Transact Time Seconds", "jse.itac.enhancednativetrading.ntgi.v4.04.transacttimeseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds elapsed since midnight UTC of 1 January 1970, the first four bytes of Transact Time")
+omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time_seconds = ProtoField.new("Transact Time Seconds", "jse.itac.enhancednativetrading.ntgi.v4.04.transacttimeseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds elapsed since midnight UTC of 1 January 1970, the first four bytes of Transact Time")
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transmission_status = ProtoField.new("Transmission Status", "jse.itac.enhancednativetrading.ntgi.v4.04.transmissionstatus", ftypes.UINT8, nil, nil, nil, "Outcome of the missed message transmission")
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.underlyings = ProtoField.new("Underlyings", "jse.itac.enhancednativetrading.ntgi.v4.04.underlyings", ftypes.STRING, nil, nil, nil, "Pipe separated list of symbols of underlyings the instruments relate to")
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.urgency = ProtoField.new("Urgency", "jse.itac.enhancednativetrading.ntgi.v4.04.urgency", ftypes.STRING, nil, nil, nil, "Urgency of the announcement")
@@ -142,7 +142,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-jse_itac_enhancednativetrading_ntgi_v4_04.timestamp_format = 2
+jse_itac_enhancednativetrading_ntgi_v4_04.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -161,7 +161,7 @@ omi_jse_itac_enhancednativetrading_ntgi_v4_04.prefs.show_application_messages = 
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_jse_itac_enhancednativetrading_ntgi_v4_04.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_jse_itac_enhancednativetrading_ntgi_v4_04.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_jse_itac_enhancednativetrading_ntgi_v4_04.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_jse_itac_enhancednativetrading_ntgi_v4_04.prefs_changed()
@@ -2703,8 +2703,8 @@ jse_itac_enhancednativetrading_ntgi_v4_04.transact_time.dissect = function(buffe
     local length = jse_itac_enhancednativetrading_ntgi_v4_04.transact_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time
-    if jse_itac_enhancednativetrading_ntgi_v4_04.timestamp_format == 3 then field = omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time_utc end
+    local field = omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time_utc
+    if jse_itac_enhancednativetrading_ntgi_v4_04.timestamp_format == 2 then field = omi_jse_itac_enhancednativetrading_ntgi_v4_04.fields.transact_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(transact_time_seconds, transact_time_nanoseconds))
     local index = jse_itac_enhancednativetrading_ntgi_v4_04.transact_time.fields(buffer, offset, packet, parent)
 

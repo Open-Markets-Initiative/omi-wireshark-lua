@@ -22,8 +22,8 @@ omi_nse_nseix_mtbtndal_tbt_v1_5.fields.contract_stream_id = ProtoField.new("Stre
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.daily_contract_indicator = ProtoField.new("Daily Contract Indicator", "nse.nseix.mtbtndal.tbt.v1.5.dailycontractindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the contract is categorized as a Daily contract")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.day_high_price_diff_range = ProtoField.new("Day High Price Diff Range", "nse.nseix.mtbtndal.tbt.v1.5.dayhighpricediffrange", ftypes.DOUBLE, nil, nil, nil, "Day high price difference range for the combination, which may be changed intraday; divided by 10000 to get the actual price")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.day_low_price_diff_range = ProtoField.new("Day Low Price Diff Range", "nse.nseix.mtbtndal.tbt.v1.5.daylowpricediffrange", ftypes.DOUBLE, nil, nil, nil, "Day low price difference range for the combination, which may be changed intraday; divided by 10000 to get the actual price")
-omi_nse_nseix_mtbtndal_tbt_v1_5.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nseix.mtbtndal.tbt.v1.5.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry date of contract in seconds from 01-Jan-1980 00:00:00")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.expiry_date_utc = ProtoField.new("Expiry Date", "nse.nseix.mtbtndal.tbt.v1.5.expirydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expiry date of contract in seconds from 01-Jan-1980 00:00:00")
+omi_nse_nseix_mtbtndal_tbt_v1_5.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nseix.mtbtndal.tbt.v1.5.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry date of contract in seconds from 01-Jan-1980 00:00:00")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.high_price_range = ProtoField.new("High Price Range", "nse.nseix.mtbtndal.tbt.v1.5.highpricerange", ftypes.INT32, nil, nil, nil, "Maximum price at which an order can be placed without causing a price freeze; divided by 10000 for all contracts except INRUSD, which is divided by 100")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.identifier = ProtoField.new("Identifier", "nse.nseix.mtbtndal.tbt.v1.5.identifier", ftypes.STRING, nil, nil, nil, "Whether the open price or the close price is being determined")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.indicative_price = ProtoField.new("Indicative Price", "nse.nseix.mtbtndal.tbt.v1.5.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "Indicative open or close price, in multiples of the tick size; divided by 10000 for converting into USD")
@@ -53,8 +53,8 @@ omi_nse_nseix_mtbtndal_tbt_v1_5.fields.status = ProtoField.new("Status", "nse.ns
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.stream_id = ProtoField.new("Stream Id", "nse.nseix.mtbtndal.tbt.v1.5.streamid", ftypes.INT16, nil, nil, nil, "Identifies a particular stream")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.strike_price = ProtoField.new("Strike Price", "nse.nseix.mtbtndal.tbt.v1.5.strikeprice", ftypes.DOUBLE, nil, nil, nil, "Strike Price of Contract (In Cents), divided by 10000 for converting into USD; zero for a futures contract")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.symbol = ProtoField.new("Symbol", "nse.nseix.mtbtndal.tbt.v1.5.symbol", ftypes.STRING, nil, nil, nil, "Contract Symbol")
-omi_nse_nseix_mtbtndal_tbt_v1_5.fields.timestamp = ProtoField.new("Timestamp", "nse.nseix.mtbtndal.tbt.v1.5.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.timestamp_utc = ProtoField.new("Timestamp", "nse.nseix.mtbtndal.tbt.v1.5.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nseix_mtbtndal_tbt_v1_5.fields.timestamp = ProtoField.new("Timestamp", "nse.nseix.mtbtndal.tbt.v1.5.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.token = ProtoField.new("Token", "nse.nseix.mtbtndal.tbt.v1.5.token", ftypes.INT32, nil, nil, nil, "Unique Contract Identifier")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.token_1 = ProtoField.new("Token 1", "nse.nseix.mtbtndal.tbt.v1.5.token1", ftypes.INT32, nil, nil, nil, "Token No. of First Spread Contract")
 omi_nse_nseix_mtbtndal_tbt_v1_5.fields.token_2 = ProtoField.new("Token 2", "nse.nseix.mtbtndal.tbt.v1.5.token2", ftypes.INT32, nil, nil, nil, "Token No. of Second Spread Contract")
@@ -105,7 +105,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nse_nseix_mtbtndal_tbt_v1_5.timestamp_format = 2
+nse_nseix_mtbtndal_tbt_v1_5.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 nse_nseix_mtbtndal_tbt_v1_5.zone_offset = 0
@@ -129,7 +129,7 @@ omi_nse_nseix_mtbtndal_tbt_v1_5.prefs.show_structs = Pref.bool("Show Structs", s
 omi_nse_nseix_mtbtndal_tbt_v1_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nseix_mtbtndal_tbt_v1_5.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nse_nseix_mtbtndal_tbt_v1_5.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nseix_mtbtndal_tbt_v1_5.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_nse_nseix_mtbtndal_tbt_v1_5.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

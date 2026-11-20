@@ -93,7 +93,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_nysebonds_trades_abp_v1_07_a.timestamp_format = 2
+nyse_nysebonds_trades_abp_v1_07_a.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -124,7 +124,7 @@ omi_nyse_nysebonds_trades_abp_v1_07_a.prefs.show_structs = Pref.bool("Show Struc
 omi_nyse_nysebonds_trades_abp_v1_07_a.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nyse_nysebonds_trades_abp_v1_07_a.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 
-omi_nyse_nysebonds_trades_abp_v1_07_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_nysebonds_trades_abp_v1_07_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nysebonds_trades_abp_v1_07_a.prefs_changed()

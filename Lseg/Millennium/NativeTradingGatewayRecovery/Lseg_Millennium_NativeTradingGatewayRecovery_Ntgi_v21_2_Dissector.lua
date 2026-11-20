@@ -48,8 +48,8 @@ omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.execution_rep
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.execution_report_pegged_exec_inst = ProtoField.new("Execution Report Pegged Exec Inst", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.executionreportpeggedexecinst", ftypes.UINT8, nil, nil, nil, "The instruction for permissioning to trade against mid-priced pegged orders.")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.execution_report_ref_id = ProtoField.new("Execution Report Ref Id", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.executionreportrefid", ftypes.STRING, nil, nil, nil, "Reference to the trade being cancelled or corrected.")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.execution_type = ProtoField.new("Execution Type", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.executiontype", ftypes.STRING)
-omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.expire_time = ProtoField.new("Expire Time", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Indicates the date or the time the RFQ expires, in Unix (Posix) time format (number of seconds after 1 January 1970).")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.expire_time_utc = ProtoField.new("Expire Time", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Indicates the date or the time the RFQ expires, in Unix (Posix) time format (number of seconds after 1 January 1970).")
+omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.expire_time = ProtoField.new("Expire Time", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Indicates the date or the time the RFQ expires, in Unix (Posix) time format (number of seconds after 1 January 1970).")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.expire_time_milliseconds = ProtoField.new("Expire Time Milliseconds", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.expiretimemilliseconds", ftypes.UINT32, nil, nil, nil, "Indicates the number of milliseconds to be added to the date or the time the RFQ expires on specified in the ‘Expire Time’ field.")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.fourthreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for Future use")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.ilqd = ProtoField.new("Ilqd", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.ilqd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Waiver flag: illiquid instrument")
@@ -124,8 +124,8 @@ omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.rfq_execution
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.rfq_id = ProtoField.new("Rfq Id", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.rfqid", ftypes.STRING, nil, nil, nil, "The unique identifier of the initial RFQ automatically generated via the server.")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.rfq_min_quotes = ProtoField.new("Rfq Min Quotes", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.rfqminquotes", ftypes.UINT8, nil, nil, nil, "The minimum number of market maker quotes to be available for the RFQ execution to be triggered automatically.")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.secondreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for Future use")
-omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds elapsed since midnight 1 January 1970 UTC, not counting leap seconds")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.seconds_utc = ProtoField.new("Seconds", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds elapsed since midnight 1 January 1970 UTC, not counting leap seconds")
+omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.seconds = ProtoField.new("Seconds", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds elapsed since midnight 1 January 1970 UTC, not counting leap seconds")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.sequence_no = ProtoField.new("Sequence No", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.sequenceno", ftypes.INT32, nil, nil, nil, "Sequence number of the message.")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.sequencenumber", ftypes.INT32, nil, nil, nil, "The server will stamp the message sequence number of the matching partition.")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.side = ProtoField.new("Side", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.side", ftypes.UINT8, nil, nil, nil, "Side of the order.")
@@ -133,8 +133,8 @@ omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.start_of_mess
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for Future use")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.trade_liquidity_indicator = ProtoField.new("Trade Liquidity Indicator", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.tradeliquidityindicator", ftypes.STRING, nil, nil, nil, "Whether the order added or removed liquidity.")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.trade_match_id = ProtoField.new("Trade Match Id", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.tradematchid", ftypes.UINT64, nil, nil, nil, "Identifier of the trade.")
-omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.transact_time = ProtoField.new("Transact Time", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Composite")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.transact_time_utc = ProtoField.new("Transact Time", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Composite")
+omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.transact_time = ProtoField.new("Transact Time", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Composite")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.type_of_trade = ProtoField.new("Type Of Trade", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.typeoftrade", ftypes.UINT8, nil, nil, nil, "Indicates whether the executed portion of a passive order during continuous trading session is visible or hidden.")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.user_name = ProtoField.new("User Name", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.username", ftypes.STRING)
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.waiver_flags = ProtoField.new("Waiver Flags", "lseg.millennium.nativetradinggatewayrecovery.ntgi.v21.2.waiverflags", ftypes.STRING, nil, nil, nil, "Pre-trade waiver flags")
@@ -181,7 +181,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.timestamp_format = 2
+lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -202,7 +202,7 @@ omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_structs =
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.prefs_changed()
@@ -3251,8 +3251,8 @@ lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.transact_time.dissect = 
     local length = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.transact_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.transact_time
-    if lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.timestamp_format == 3 then field = omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.transact_time_utc end
+    local field = omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.transact_time_utc
+    if lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.timestamp_format == 2 then field = omi_lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.fields.transact_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = lseg_millennium_nativetradinggatewayrecovery_ntgi_v21_2.transact_time.fields(buffer, offset, packet, parent)
 

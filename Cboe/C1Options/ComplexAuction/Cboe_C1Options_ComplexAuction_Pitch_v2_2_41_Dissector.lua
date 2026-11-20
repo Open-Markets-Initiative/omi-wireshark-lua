@@ -30,8 +30,8 @@ omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.complex_leg = ProtoField.
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.c1options.complexauction.pitch.v2.2.41.compositemarketbidprice", ftypes.DOUBLE, nil, nil, nil, "Not used for Complex series. Will contain zero value.")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.c1options.complexauction.pitch.v2.2.41.compositemarketofferprice", ftypes.DOUBLE, nil, nil, nil, "Not used for complex series. Will contain zero value.")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.complexauction.pitch.v2.2.41.customerindicator", ftypes.STRING, nil, nil, nil, "N = Non-Customer, C = Customer.")
-omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complexauction.pitch.v2.2.41.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.complexauction.pitch.v2.2.41.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complexauction.pitch.v2.2.41.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.complexauction.pitch.v2.2.41.executionid", ftypes.UINT64, nil, nil, nil, "Day specific identifier assigned to this execution.")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.complexauction.pitch.v2.2.41.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.c1options.complexauction.pitch.v2.2.41.indicativeprice", ftypes.DOUBLE, nil, nil, nil, "SNBBO Collared Volume Maximizing Imbalance Minimizing Price computed on combined Auction-Only and Continuous Book (if any).")
@@ -43,8 +43,8 @@ omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.length = ProtoField.new("
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.message_count = ProtoField.new("Message Count", "cboe.c1options.complexauction.pitch.v2.2.41.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.message_length = ProtoField.new("Message Length", "cboe.c1options.complexauction.pitch.v2.2.41.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.message_type = ProtoField.new("Message Type", "cboe.c1options.complexauction.pitch.v2.2.41.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.complexauction.pitch.v2.2.41.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.c1options.complexauction.pitch.v2.2.41.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1options.complexauction.pitch.v2.2.41.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.c1options.complexauction.pitch.v2.2.41.openingcondition", ftypes.STRING, nil, nil, nil, "Not used for Complex series. Will contain zero value.")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.options_auction_update_auction_type = ProtoField.new("Options Auction Update Auction Type", "cboe.c1options.complexauction.pitch.v2.2.41.optionsauctionupdateauctiontype", ftypes.STRING, nil, nil, nil, "G = GTH Opening (C1 Only), O = RTH Opening (C1 Only), H = Halt Re-Opening.")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.c1options.complexauction.pitch.v2.2.41.osisymbol", ftypes.STRING, nil, nil, nil, "OSI Symbol.")
@@ -100,7 +100,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_c1options_complexauction_pitch_v2_2_41.timestamp_format = 2
+cboe_c1options_complexauction_pitch_v2_2_41.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 cboe_c1options_complexauction_pitch_v2_2_41.zone_offset = 0
@@ -128,7 +128,7 @@ omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs.show_headers = Pref.bool("
 omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_cboe_c1options_complexauction_pitch_v2_2_41.prefs.zone_offset = Pref.string("America/New York Utc Offset", "", "Offset of America/New York from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

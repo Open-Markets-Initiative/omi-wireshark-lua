@@ -29,8 +29,8 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.instrument_guid = ProtoField.new("Instrume
 omi_cme_ebs_spectrum_sbe_v12_0.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.ebs.spectrum.sbe.v12.0.matcheventindicator", ftypes.STRING, nil, nil, nil, "EventIndicator bit set")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.ebs.spectrum.sbe.v12.0.mdentrypx", ftypes.DOUBLE, nil, nil, nil, "Market Data entry price")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.ebs.spectrum.sbe.v12.0.mdentrysize", ftypes.UINT64, nil, nil, nil, "Market Data entry size")
-omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.ebs.spectrum.sbe.v12.0.mdentrytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the last market event that contributed to element calculation or publication")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_time_utc = ProtoField.new("Md Entry Time", "cme.ebs.spectrum.sbe.v12.0.mdentrytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the last market event that contributed to element calculation or publication")
+omi_cme_ebs_spectrum_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.ebs.spectrum.sbe.v12.0.mdentrytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the last market event that contributed to element calculation or publication")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.ebs.spectrum.sbe.v12.0.messagesequencenumber", ftypes.UINT32, nil, nil, nil, "Packet Sequence Number")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message_size = ProtoField.new("Message Size", "cme.ebs.spectrum.sbe.v12.0.messagesize", ftypes.UINT16)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.num_in_group = ProtoField.new("Num In Group", "cme.ebs.spectrum.sbe.v12.0.numingroup", ftypes.UINT8)
@@ -40,8 +40,8 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.recovery_message = ProtoField.new("Recover
 omi_cme_ebs_spectrum_sbe_v12_0.fields.schema_id = ProtoField.new("Schema Id", "cme.ebs.spectrum.sbe.v12.0.schemaid", ftypes.UINT16)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.security_id = ProtoField.new("Security Id", "cme.ebs.spectrum.sbe.v12.0.securityid", ftypes.INT32, nil, nil, nil, "SecurityID as referenced in MDP3 and Ilink3 protocols")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.ebs.spectrum.sbe.v12.0.securitytradingevent", ftypes.UINT8, nil, nil, nil, "Signals the start of the next Global day or a Global day roll")
-omi_cme_ebs_spectrum_sbe_v12_0.fields.sending_time = ProtoField.new("Sending Time", "cme.ebs.spectrum.sbe.v12.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.ebs.spectrum.sbe.v12.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
+omi_cme_ebs_spectrum_sbe_v12_0.fields.sending_time = ProtoField.new("Sending Time", "cme.ebs.spectrum.sbe.v12.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.simple_binary_header = ProtoField.new("Simple Binary Header", "cme.ebs.spectrum.sbe.v12.0.simplebinaryheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_group = ProtoField.new("Snapshot Refresh Spectrum Group", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshspectrumgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.snapshot_refresh_spectrum_groups = ProtoField.new("Snapshot Refresh Spectrum Groups", "cme.ebs.spectrum.sbe.v12.0.snapshotrefreshspectrumgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
@@ -53,14 +53,14 @@ omi_cme_ebs_spectrum_sbe_v12_0.fields.tcp_sending_time = ProtoField.new("Tcp Sen
 omi_cme_ebs_spectrum_sbe_v12_0.fields.template_id = ProtoField.new("Template Id", "cme.ebs.spectrum.sbe.v12.0.templateid", ftypes.UINT16)
 omi_cme_ebs_spectrum_sbe_v12_0.fields.ticker_md_entry_type = ProtoField.new("Ticker Md Entry Type", "cme.ebs.spectrum.sbe.v12.0.tickermdentrytype", ftypes.STRING, nil, nil, nil, "Market Data entry type, identifies the element")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "cme.ebs.spectrum.sbe.v12.0.tradingsessionid", ftypes.UINT8, nil, nil, nil, "The associated region market hours considered for the calculation of the element. The element is calculated from market events occurring during the region's open-close hours")
-omi_cme_ebs_spectrum_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.ebs.spectrum.sbe.v12.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.ebs.spectrum.sbe.v12.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
+omi_cme_ebs_spectrum_sbe_v12_0.fields.transact_time = ProtoField.new("Transact Time", "cme.ebs.spectrum.sbe.v12.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Publication event time, sent in number of nanoseconds since Unix epoch")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.unused_bits_0_to_5 = ProtoField.new("Unused Bits 0 To 5", "cme.ebs.spectrum.sbe.v12.0.unusedbits0to5", ftypes.UINT8, nil, base.DEC, 0x3F, "6 unused bits")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.version = ProtoField.new("Version", "cme.ebs.spectrum.sbe.v12.0.version", ftypes.UINT16)
 
 -- Cme Ebs Spectrum Sbe 12.0 Framing
 omi_cme_ebs_spectrum_sbe_v12_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.ebs.spectrum.sbe.v12.0.binarypacketheader", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet Header")
-omi_cme_ebs_spectrum_sbe_v12_0.fields.message = ProtoField.new("Message", "cme.ebs.spectrum.sbe.v12.0.message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
+omi_cme_ebs_spectrum_sbe_v12_0.fields.mdp3_message = ProtoField.new("Mdp3 Message", "cme.ebs.spectrum.sbe.v12.0.mdp3message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.message_header = ProtoField.new("Message Header", "cme.ebs.spectrum.sbe.v12.0.messageheader", ftypes.STRING, nil, nil, nil, "Message Size followed by the Simple Binary Header")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.tcp_frame = ProtoField.new("Tcp Frame", "cme.ebs.spectrum.sbe.v12.0.tcpframe", ftypes.STRING, nil, nil, nil, "One technical header framed Cme Sbe message")
 omi_cme_ebs_spectrum_sbe_v12_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.ebs.spectrum.sbe.v12.0.tcpmessage", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
@@ -100,7 +100,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cme_ebs_spectrum_sbe_v12_0.timestamp_format = 2
+cme_ebs_spectrum_sbe_v12_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -123,7 +123,7 @@ omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_structs = Pref.bool("Show Structs", sh
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_ebs_spectrum_sbe_v12_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cme_ebs_spectrum_sbe_v12_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cme_ebs_spectrum_sbe_v12_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cme_ebs_spectrum_sbe_v12_0.prefs_changed()
@@ -2199,16 +2199,16 @@ cme_ebs_spectrum_sbe_v12_0.tcp_packet.dissect = function(buffer, packet, parent)
   return index
 end
 
--- Message
-cme_ebs_spectrum_sbe_v12_0.message = {}
+-- Mdp3 Message
+cme_ebs_spectrum_sbe_v12_0.mdp3_message = {}
 
--- Display: Message
-cme_ebs_spectrum_sbe_v12_0.message.display = function(packet, parent, length)
+-- Display: Mdp3 Message
+cme_ebs_spectrum_sbe_v12_0.mdp3_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-cme_ebs_spectrum_sbe_v12_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Mdp3 Message
+cme_ebs_spectrum_sbe_v12_0.mdp3_message.fields = function(buffer, offset, packet, parent, size_of_mdp3_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
@@ -2223,30 +2223,30 @@ cme_ebs_spectrum_sbe_v12_0.message.fields = function(buffer, offset, packet, par
   return index
 end
 
--- Dissect: Message
-cme_ebs_spectrum_sbe_v12_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Mdp3 Message
+cme_ebs_spectrum_sbe_v12_0.mdp3_message.dissect = function(buffer, offset, packet, parent, size_of_mdp3_message)
+  local index = offset + size_of_mdp3_message
 
   -- Its fields read only its own bytes: a layout running past them is marked, not raised
   local bounded = buffer(0, math.min(index, buffer:len())):tvb()
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.message, buffer(offset, 0))
-    local decoded, failure = pcall(cme_ebs_spectrum_sbe_v12_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    parent = parent:add(omi_cme_ebs_spectrum_sbe_v12_0.fields.mdp3_message, buffer(offset, 0))
+    local decoded, failure = pcall(cme_ebs_spectrum_sbe_v12_0.mdp3_message.fields, bounded, offset, packet, parent, size_of_mdp3_message)
     if not decoded then
-      undecoded(failure, parent, cme_ebs_spectrum_sbe_v12_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+      undecoded(failure, parent, cme_ebs_spectrum_sbe_v12_0.experts.undecoded, "Mdp3 Message does not decode within its "..size_of_mdp3_message.." bytes")
     end
-    parent:set_len(size_of_message)
-    local display = cme_ebs_spectrum_sbe_v12_0.message.display(buffer, packet, parent)
+    parent:set_len(size_of_mdp3_message)
+    local display = cme_ebs_spectrum_sbe_v12_0.mdp3_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    local decoded, failure = pcall(cme_ebs_spectrum_sbe_v12_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_ebs_spectrum_sbe_v12_0.mdp3_message.fields, bounded, offset, packet, parent, size_of_mdp3_message)
     if not decoded then
-      undecoded(failure, parent, cme_ebs_spectrum_sbe_v12_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+      undecoded(failure, parent, cme_ebs_spectrum_sbe_v12_0.experts.undecoded, "Mdp3 Message does not decode within its "..size_of_mdp3_message.." bytes")
     end
 
     return index
@@ -2312,10 +2312,10 @@ cme_ebs_spectrum_sbe_v12_0.udp_packet.dissect = function(buffer, packet, parent)
   -- Binary Packet Header: Struct of 2 fields
   index, binary_packet_header = cme_ebs_spectrum_sbe_v12_0.binary_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
+  -- Dependency for Mdp3 Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Mdp3 Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
@@ -2329,8 +2329,8 @@ cme_ebs_spectrum_sbe_v12_0.udp_packet.dissect = function(buffer, packet, parent)
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 
-    -- Runtime Size Of: Message
-    index, message = cme_ebs_spectrum_sbe_v12_0.message.dissect(buffer, index, packet, parent, message_size)
+    -- Runtime Size Of: Mdp3 Message
+    index, mdp3_message = cme_ebs_spectrum_sbe_v12_0.mdp3_message.dissect(buffer, index, packet, parent, message_size)
   end
 
   return index

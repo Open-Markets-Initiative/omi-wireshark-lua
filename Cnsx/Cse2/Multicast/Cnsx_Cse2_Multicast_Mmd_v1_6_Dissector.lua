@@ -29,8 +29,8 @@ omi_cnsx_cse2_multicast_mmd_v1_6.fields.cross_type = ProtoField.new("Cross Type"
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.currency = ProtoField.new("Currency", "cnsx.cse2.multicast.mmd.v1.6.currency", ftypes.STRING, nil, nil, nil, "Trading currency.")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.cusip = ProtoField.new("Cusip", "cnsx.cse2.multicast.mmd.v1.6.cusip", ftypes.STRING, nil, nil, nil, "CUSIP code.")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.event_code = ProtoField.new("Event Code", "cnsx.cse2.multicast.mmd.v1.6.eventcode", ftypes.STRING, nil, nil, nil, "Event Code (see System Event Codes).")
-omi_cnsx_cse2_multicast_mmd_v1_6.fields.exchange_timestamp = ProtoField.new("Exchange Timestamp", "cnsx.cse2.multicast.mmd.v1.6.exchangetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Official exchange time. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.exchange_timestamp_utc = ProtoField.new("Exchange Timestamp", "cnsx.cse2.multicast.mmd.v1.6.exchangetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Official exchange time. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
+omi_cnsx_cse2_multicast_mmd_v1_6.fields.exchange_timestamp = ProtoField.new("Exchange Timestamp", "cnsx.cse2.multicast.mmd.v1.6.exchangetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Official exchange time. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.executed_quantity = ProtoField.new("Executed Quantity", "cnsx.cse2.multicast.mmd.v1.6.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares executed.")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.execution_price = ProtoField.new("Execution Price", "cnsx.cse2.multicast.mmd.v1.6.executionprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the execution occurred.")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.expiry = ProtoField.new("Expiry", "cnsx.cse2.multicast.mmd.v1.6.expiry", ftypes.UINT64, nil, nil, nil, "YYYYMMDD. 0 represents no expiry date.")
@@ -57,8 +57,8 @@ omi_cnsx_cse2_multicast_mmd_v1_6.fields.order_number = ProtoField.new("Order Num
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.order_verb = ProtoField.new("Order Verb", "cnsx.cse2.multicast.mmd.v1.6.orderverb", ftypes.STRING, nil, nil, nil, "\"B\" Buy, \"S\" Sell.")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.previous_closing_price = ProtoField.new("Previous Closing Price", "cnsx.cse2.multicast.mmd.v1.6.previousclosingprice", ftypes.DOUBLE, nil, nil, nil, "Adjusted previous closing price.")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.price = ProtoField.new("Price", "cnsx.cse2.multicast.mmd.v1.6.price", ftypes.DOUBLE, nil, nil, nil, "Price of the new order.")
-omi_cnsx_cse2_multicast_mmd_v1_6.fields.priority_timestamp = ProtoField.new("Priority Timestamp", "cnsx.cse2.multicast.mmd.v1.6.prioritytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Priority timestamp. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.priority_timestamp_utc = ProtoField.new("Priority Timestamp", "cnsx.cse2.multicast.mmd.v1.6.prioritytimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Priority timestamp. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
+omi_cnsx_cse2_multicast_mmd_v1_6.fields.priority_timestamp = ProtoField.new("Priority Timestamp", "cnsx.cse2.multicast.mmd.v1.6.prioritytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Priority timestamp. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.quantity = ProtoField.new("Quantity", "cnsx.cse2.multicast.mmd.v1.6.quantity", ftypes.UINT32, nil, nil, nil, "Total quantity of the order being added to the book.")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.reason = ProtoField.new("Reason", "cnsx.cse2.multicast.mmd.v1.6.reason", ftypes.STRING, nil, nil, nil, "Reason the trade was broken (see Broken Trade Reasons).")
 omi_cnsx_cse2_multicast_mmd_v1_6.fields.sec_name = ProtoField.new("Sec Name", "cnsx.cse2.multicast.mmd.v1.6.secname", ftypes.STRING, nil, nil, nil, "Short security name.")
@@ -118,7 +118,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cnsx_cse2_multicast_mmd_v1_6.timestamp_format = 2
+cnsx_cse2_multicast_mmd_v1_6.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -141,7 +141,7 @@ omi_cnsx_cse2_multicast_mmd_v1_6.prefs.show_structs = Pref.bool("Show Structs", 
 omi_cnsx_cse2_multicast_mmd_v1_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cnsx_cse2_multicast_mmd_v1_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cnsx_cse2_multicast_mmd_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cnsx_cse2_multicast_mmd_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cnsx_cse2_multicast_mmd_v1_6.prefs_changed()

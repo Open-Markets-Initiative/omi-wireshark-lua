@@ -52,8 +52,8 @@ omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.short_sale_restriction = Pro
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "24x.24xequities.memoirlastsale.sbe.v1.3.symbol", ftypes.STRING)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "24x.24xequities.memoirlastsale.sbe.v1.3.symbolsfx", ftypes.STRING, nil, nil, nil, "SymbolSfx")
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "24x.24xequities.memoirlastsale.sbe.v1.3.templateid", ftypes.UINT8, nil, nil, nil, "T8 Identifier of the message template")
-omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "24x.24xequities.memoirlastsale.sbe.v1.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.timestamp_utc = ProtoField.new("Timestamp", "24x.24xequities.memoirlastsale.sbe.v1.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "24x.24xequities.memoirlastsale.sbe.v1.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.trade_id = ProtoField.new("Trade Id", "24x.24xequities.memoirlastsale.sbe.v1.3.tradeid", ftypes.UINT64, nil, nil, nil, "TradeID")
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.trade_price = ProtoField.new("Trade Price", "24x.24xequities.memoirlastsale.sbe.v1.3.tradeprice", ftypes.DOUBLE, nil, nil, nil, "TradePrice")
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.fields.trade_qty = ProtoField.new("Trade Qty", "24x.24xequities.memoirlastsale.sbe.v1.3.tradeqty", ftypes.UINT32, nil, nil, nil, "TradeQty")
@@ -98,7 +98,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-n24x_24xequities_memoirlastsale_sbe_v1_3.timestamp_format = 2
+n24x_24xequities_memoirlastsale_sbe_v1_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -119,7 +119,7 @@ omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.show_application_messages = P
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_n24x_24xequities_memoirlastsale_sbe_v1_3.prefs_changed()

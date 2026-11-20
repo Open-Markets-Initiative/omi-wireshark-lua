@@ -20,23 +20,23 @@ omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.auction_indicator = ProtoField
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.buy = ProtoField.new("Buy", "bmv.bmvmarketdata.product11.intra.v1.1.buy", ftypes.STRING, nil, nil, nil, "Buyers’ brokerage house short key")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.concertation_type = ProtoField.new("Concertation Type", "bmv.bmvmarketdata.product11.intra.v1.1.concertationtype", ftypes.STRING, nil, nil, nil, "See the table of Concertation Type Catalog on the Connections and Appendix document")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.currency_type = ProtoField.new("Currency Type", "bmv.bmvmarketdata.product11.intra.v1.1.currencytype", ftypes.STRING, nil, nil, nil, "N – Mexican currency D-Dollar")
-omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.datetime = ProtoField.new("Datetime", "bmv.bmvmarketdata.product11.intra.v1.1.datetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time the packet is created")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.datetime_utc = ProtoField.new("Datetime", "bmv.bmvmarketdata.product11.intra.v1.1.datetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time the packet is created")
+omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.datetime = ProtoField.new("Datetime", "bmv.bmvmarketdata.product11.intra.v1.1.datetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time the packet is created")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.discount_rate_or_price = ProtoField.new("Discount Rate Or Price", "bmv.bmvmarketdata.product11.intra.v1.1.discountrateorprice", ftypes.DOUBLE)
-omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.ending_time = ProtoField.new("Ending Time", "bmv.bmvmarketdata.product11.intra.v1.1.endingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Recess official ending time. Only used when an official recess or automatic recess occurred.")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.ending_time_utc = ProtoField.new("Ending Time", "bmv.bmvmarketdata.product11.intra.v1.1.endingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Recess official ending time. Only used when an official recess or automatic recess occurred.")
+omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.ending_time = ProtoField.new("Ending Time", "bmv.bmvmarketdata.product11.intra.v1.1.endingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Recess official ending time. Only used when an official recess or automatic recess occurred.")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.event_code = ProtoField.new("Event Code", "bmv.bmvmarketdata.product11.intra.v1.1.eventcode", ftypes.STRING, nil, nil, nil, "See the table of System Event Codes Catalog on the Connections and Appendix document")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.firm = ProtoField.new("Firm", "bmv.bmvmarketdata.product11.intra.v1.1.firm", ftypes.STRING, nil, nil, nil, "Managing Brokerage Firm")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.income = ProtoField.new("Income", "bmv.bmvmarketdata.product11.intra.v1.1.income", ftypes.STRING, nil, nil, nil, "V-Variable income F-Fixed Income W-Warrants")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.instrument_number = ProtoField.new("Instrument Number", "bmv.bmvmarketdata.product11.intra.v1.1.instrumentnumber", ftypes.INT32, nil, nil, nil, "Always zero")
-omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.issue_date = ProtoField.new("Issue Date", "bmv.bmvmarketdata.product11.intra.v1.1.issuedate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.issue_date_utc = ProtoField.new("Issue Date", "bmv.bmvmarketdata.product11.intra.v1.1.issuedate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.issue_date = ProtoField.new("Issue Date", "bmv.bmvmarketdata.product11.intra.v1.1.issuedate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.issuer = ProtoField.new("Issuer", "bmv.bmvmarketdata.product11.intra.v1.1.issuer", ftypes.STRING, nil, nil, nil, "Issuers code")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.length = ProtoField.new("Length", "bmv.bmvmarketdata.product11.intra.v1.1.length", ftypes.INT16, nil, nil, nil, "Packet length, including header and all attached messages")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.market = ProtoField.new("Market", "bmv.bmvmarketdata.product11.intra.v1.1.market", ftypes.STRING, nil, nil, nil, "See the table of Markets Catalog (only used when there is an official recess) on the Connections and Appendix document")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.market_data_group = ProtoField.new("Market Data Group", "bmv.bmvmarketdata.product11.intra.v1.1.marketdatagroup", ftypes.INT8, nil, nil, nil, "See Market Data Groups Catalog")
-omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.maturity_date = ProtoField.new("Maturity Date", "bmv.bmvmarketdata.product11.intra.v1.1.maturitydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.maturity_date_utc = ProtoField.new("Maturity Date", "bmv.bmvmarketdata.product11.intra.v1.1.maturitydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.maturity_date = ProtoField.new("Maturity Date", "bmv.bmvmarketdata.product11.intra.v1.1.maturitydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.maximum_volume = ProtoField.new("Maximum Volume", "bmv.bmvmarketdata.product11.intra.v1.1.maximumvolume", ftypes.INT64)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.message_length = ProtoField.new("Message Length", "bmv.bmvmarketdata.product11.intra.v1.1.messagelength", ftypes.INT16, nil, nil, nil, "Indicates message length contained in this message block")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.message_type = ProtoField.new("Message Type", "bmv.bmvmarketdata.product11.intra.v1.1.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying the message")
@@ -44,27 +44,27 @@ omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.movement = ProtoField.new("Mov
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.number = ProtoField.new("Number", "bmv.bmvmarketdata.product11.intra.v1.1.number", ftypes.INT32, nil, nil, nil, "Virtual trade number")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.offer_type = ProtoField.new("Offer Type", "bmv.bmvmarketdata.product11.intra.v1.1.offertype", ftypes.STRING, nil, nil, nil, "See the Public Offerings Catalog on the Connections and Appendix document")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.operation_type = ProtoField.new("Operation Type", "bmv.bmvmarketdata.product11.intra.v1.1.operationtype", ftypes.STRING, nil, nil, nil, "See the table of Type of Operation Catalog on the Connections and Appendix document")
-omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.placement_date = ProtoField.new("Placement Date", "bmv.bmvmarketdata.product11.intra.v1.1.placementdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.placement_date_utc = ProtoField.new("Placement Date", "bmv.bmvmarketdata.product11.intra.v1.1.placementdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.placement_date = ProtoField.new("Placement Date", "bmv.bmvmarketdata.product11.intra.v1.1.placementdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.price = ProtoField.new("Price", "bmv.bmvmarketdata.product11.intra.v1.1.price", ftypes.DOUBLE, nil, nil, nil, "Operation price")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.price_rate = ProtoField.new("Price Rate", "bmv.bmvmarketdata.product11.intra.v1.1.pricerate", ftypes.DOUBLE, nil, nil, nil, "Operation registry price")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.price_setter = ProtoField.new("Price Setter", "bmv.bmvmarketdata.product11.intra.v1.1.pricesetter", ftypes.STRING, nil, nil, nil, "For value equal to 1, be taken as true; otherwise, false.")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.rate_of_return = ProtoField.new("Rate Of Return", "bmv.bmvmarketdata.product11.intra.v1.1.rateofreturn", ftypes.DOUBLE)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.registered_volume = ProtoField.new("Registered Volume", "bmv.bmvmarketdata.product11.intra.v1.1.registeredvolume", ftypes.INT64)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.sell = ProtoField.new("Sell", "bmv.bmvmarketdata.product11.intra.v1.1.sell", ftypes.STRING, nil, nil, nil, "Seller’s brokerage house short key")
-omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.sending_time = ProtoField.new("Sending Time", "bmv.bmvmarketdata.product11.intra.v1.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Recess’s official sending time. Only used when official recess has occurred.")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.sending_time_utc = ProtoField.new("Sending Time", "bmv.bmvmarketdata.product11.intra.v1.1.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Recess’s official sending time. Only used when official recess has occurred.")
+omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.sending_time = ProtoField.new("Sending Time", "bmv.bmvmarketdata.product11.intra.v1.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Recess’s official sending time. Only used when official recess has occurred.")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "bmv.bmvmarketdata.product11.intra.v1.1.sequencenumber", ftypes.INT32, nil, nil, nil, "Sequence number of the first message attached to header")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.series = ProtoField.new("Series", "bmv.bmvmarketdata.product11.intra.v1.1.series", ftypes.STRING, nil, nil, nil, "Series code")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.session = ProtoField.new("Session", "bmv.bmvmarketdata.product11.intra.v1.1.session", ftypes.INT8, nil, nil, nil, "Current session identifier")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.settlement = ProtoField.new("Settlement", "bmv.bmvmarketdata.product11.intra.v1.1.settlement", ftypes.STRING, nil, nil, nil, "See the table of Settlement Type Catalog on the Connections and Appendix document")
-omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.settlement_date = ProtoField.new("Settlement Date", "bmv.bmvmarketdata.product11.intra.v1.1.settlementdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.settlement_date_utc = ProtoField.new("Settlement Date", "bmv.bmvmarketdata.product11.intra.v1.1.settlementdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.settlement_date = ProtoField.new("Settlement Date", "bmv.bmvmarketdata.product11.intra.v1.1.settlementdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.term_days = ProtoField.new("Term Days", "bmv.bmvmarketdata.product11.intra.v1.1.termdays", ftypes.INT16)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.total_messages = ProtoField.new("Total Messages", "bmv.bmvmarketdata.product11.intra.v1.1.totalmessages", ftypes.INT8, nil, nil, nil, "Number of messages after the header")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.trade_number = ProtoField.new("Trade Number", "bmv.bmvmarketdata.product11.intra.v1.1.tradenumber", ftypes.INT32, nil, nil, nil, "Stamp number by instrument")
-omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.trade_time = ProtoField.new("Trade Time", "bmv.bmvmarketdata.product11.intra.v1.1.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the operation was carried out")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.trade_time_utc = ProtoField.new("Trade Time", "bmv.bmvmarketdata.product11.intra.v1.1.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the operation was carried out")
+omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.trade_time = ProtoField.new("Trade Time", "bmv.bmvmarketdata.product11.intra.v1.1.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the operation was carried out")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.value_type = ProtoField.new("Value Type", "bmv.bmvmarketdata.product11.intra.v1.1.valuetype", ftypes.STRING)
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.volume = ProtoField.new("Volume", "bmv.bmvmarketdata.product11.intra.v1.1.volume", ftypes.INT32, nil, nil, nil, "Traded stocks")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.fields.volume_long = ProtoField.new("Volume Long", "bmv.bmvmarketdata.product11.intra.v1.1.volumelong", ftypes.INT64, nil, nil, nil, "Traded volume")
@@ -104,7 +104,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-bmv_bmvmarketdata_product11_intra_v1_1.timestamp_format = 2
+bmv_bmvmarketdata_product11_intra_v1_1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -125,7 +125,7 @@ omi_bmv_bmvmarketdata_product11_intra_v1_1.prefs.show_headers = Pref.bool("Show 
 omi_bmv_bmvmarketdata_product11_intra_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bmv_bmvmarketdata_product11_intra_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_bmv_bmvmarketdata_product11_intra_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_bmv_bmvmarketdata_product11_intra_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bmv_bmvmarketdata_product11_intra_v1_1.prefs_changed()

@@ -22,11 +22,11 @@ omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.msg_type = ProtoField.n
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.new_seq_no = ProtoField.new("New Seq No", "lme.lmeselect.tradestatistics.lmesource.v4.18.newseqno", ftypes.UINT32, nil, nil, nil, "New sequence number. Always set to 1.")
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.open_price = ProtoField.new("Open Price", "lme.lmeselect.tradestatistics.lmesource.v4.18.openprice", ftypes.DOUBLE, nil, nil, nil, "Opening trade price for the current day, in implicit six decimal place format.")
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.pkt_size = ProtoField.new("Pkt Size", "lme.lmeselect.tradestatistics.lmesource.v4.18.pktsize", ftypes.UINT16, nil, nil, nil, "Size of the packet, including this field")
-omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.tradestatistics.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.tradestatistics.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.tradestatistics.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.tradestatistics.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
-omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.tradestatistics.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time LMEselect computed or derived the designated price.")
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.time_of_event_utc = ProtoField.new("Time Of Event", "lme.lmeselect.tradestatistics.lmesource.v4.18.timeofevent.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time LMEselect computed or derived the designated price.")
+omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.tradestatistics.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time LMEselect computed or derived the designated price.")
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.tradable_instrument_id = ProtoField.new("Tradable Instrument Id", "lme.lmeselect.tradestatistics.lmesource.v4.18.tradableinstrumentid", ftypes.UINT64, nil, nil, nil, "Tradable Instrument ID.")
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.trade_high = ProtoField.new("Trade High", "lme.lmeselect.tradestatistics.lmesource.v4.18.tradehigh", ftypes.DOUBLE, nil, nil, nil, "Highest trade price for the current day, in implicit six decimal place format.")
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.fields.trade_low = ProtoField.new("Trade Low", "lme.lmeselect.tradestatistics.lmesource.v4.18.tradelow", ftypes.DOUBLE, nil, nil, nil, "Lowest trade price for the current day, in implicit six decimal place format.")
@@ -56,7 +56,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lme_lmeselect_tradestatistics_lmesource_v4_18.timestamp_format = 2
+lme_lmeselect_tradestatistics_lmesource_v4_18.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -77,7 +77,7 @@ omi_lme_lmeselect_tradestatistics_lmesource_v4_18.prefs.show_headers = Pref.bool
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_lme_lmeselect_tradestatistics_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lme_lmeselect_tradestatistics_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lme_lmeselect_tradestatistics_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lme_lmeselect_tradestatistics_lmesource_v4_18.prefs_changed()

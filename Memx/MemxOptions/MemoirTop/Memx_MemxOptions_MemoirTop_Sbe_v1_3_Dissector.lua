@@ -21,8 +21,8 @@ omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.bid_price_short = ProtoField.new(
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "memx.memxoptions.memoirtop.sbe.v1.3.blocklength", ftypes.UINT16, nil, nil, nil, "Memx Udp Message Type")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.capacity = ProtoField.new("Capacity", "memx.memxoptions.memoirtop.sbe.v1.3.capacity", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.closing_only = ProtoField.new("Closing Only", "memx.memxoptions.memoirtop.sbe.v1.3.closingonly", ftypes.UINT8, nil, nil, nil, "ClosingOnly")
-omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.closing_time = ProtoField.new("Closing Time", "memx.memxoptions.memoirtop.sbe.v1.3.closingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "ClosingTime")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.closing_time_utc = ProtoField.new("Closing Time", "memx.memxoptions.memoirtop.sbe.v1.3.closingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "ClosingTime")
+omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.closing_time = ProtoField.new("Closing Time", "memx.memxoptions.memoirtop.sbe.v1.3.closingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "ClosingTime")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.corrected_price = ProtoField.new("Corrected Price", "memx.memxoptions.memoirtop.sbe.v1.3.correctedprice", ftypes.DOUBLE, nil, nil, nil, "CorrectedPrice")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "memx.memxoptions.memoirtop.sbe.v1.3.correctedquantity", ftypes.UINT32, nil, nil, nil, "CorrectedQuantity")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.cust_bid_size = ProtoField.new("Cust Bid Size", "memx.memxoptions.memoirtop.sbe.v1.3.custbidsize", ftypes.UINT32, nil, nil, nil, "CustBidSize")
@@ -58,8 +58,8 @@ omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.strike_price = ProtoField.new("St
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.strike_put_or_call = ProtoField.new("Strike Put Or Call", "memx.memxoptions.memoirtop.sbe.v1.3.strikeputorcall", ftypes.UINT8, nil, nil, nil, "StrikePutOrCall")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "memx.memxoptions.memoirtop.sbe.v1.3.symbol", ftypes.STRING)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "memx.memxoptions.memoirtop.sbe.v1.3.templateid", ftypes.UINT8, nil, nil, nil, "T8 Identifier of the message template")
-omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "memx.memxoptions.memoirtop.sbe.v1.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.timestamp_utc = ProtoField.new("Timestamp", "memx.memxoptions.memoirtop.sbe.v1.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "memx.memxoptions.memoirtop.sbe.v1.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.total_bid_size = ProtoField.new("Total Bid Size", "memx.memxoptions.memoirtop.sbe.v1.3.totalbidsize", ftypes.UINT32, nil, nil, nil, "TotalBidSize")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.total_bid_size_short = ProtoField.new("Total Bid Size Short", "memx.memxoptions.memoirtop.sbe.v1.3.totalbidsizeshort", ftypes.UINT16, nil, nil, nil, "TotalBidSize")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.fields.total_offer_size = ProtoField.new("Total Offer Size", "memx.memxoptions.memoirtop.sbe.v1.3.totaloffersize", ftypes.UINT32, nil, nil, nil, "TotalOfferSize")
@@ -115,7 +115,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-memx_memxoptions_memoirtop_sbe_v1_3.timestamp_format = 2
+memx_memxoptions_memoirtop_sbe_v1_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -138,7 +138,7 @@ omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_structs = Pref.bool("Show Str
 omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_memx_memxoptions_memoirtop_sbe_v1_3.prefs_changed()

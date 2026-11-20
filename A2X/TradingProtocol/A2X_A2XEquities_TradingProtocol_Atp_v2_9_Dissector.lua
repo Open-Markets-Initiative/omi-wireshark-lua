@@ -17,13 +17,13 @@ local a2x_a2xequities_tradingprotocol_atp_v2_9 = {}
 -- A2X A2XEquities TradingProtocol Atp 2.9 Fields
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.account = ProtoField.new("Account", "a2x.a2xequities.tradingprotocol.atp.v2.9.account", ftypes.UINT16, nil, nil, nil, "Clearing account identifier")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.atp_seq_no = ProtoField.new("Atp Seq No", "a2x.a2xequities.tradingprotocol.atp.v2.9.atpseqno", ftypes.UINT32, nil, nil, nil, "The next sequence number from A2X that the trading Member is expecting. After a drop or break in the session this can be used by A2X to identify a gap and trigger any missed messages to be re-sent (see Login Response).")
-omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.bust_timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.busttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the trade was busted by A2X Market Operations")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.bust_timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.busttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the trade was busted by A2X Market Operations")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.bust_timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.busttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the trade was busted by A2X Market Operations")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.buy_account = ProtoField.new("Buy Account", "a2x.a2xequities.tradingprotocol.atp.v2.9.buyaccount", ftypes.UINT16, nil, nil, nil, "Clearing account identifier of the buy side")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.buy_order_capacity = ProtoField.new("Buy Order Capacity", "a2x.a2xequities.tradingprotocol.atp.v2.9.buyordercapacity", ftypes.UINT8, nil, nil, nil, "Order capacity of the buy side")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.cancel_reason = ProtoField.new("Cancel Reason", "a2x.a2xequities.tradingprotocol.atp.v2.9.cancelreason", ftypes.UINT8, {[1]="Member Request", [2]="A2X Forced Cancel", [3]="Market Close", [4]="Expired", [5]="Reserved", [6]="Aborted", [7]="Self Trade Prevention", [8]="Cancel On Disconnect", [9]="Post Only Cancel", [10]="Cancel Residual Quantity", [11]="Post Only Cancel Resting", [12]="Minimum Resting Value"}, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
-omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.cancellation_timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.cancellationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the cancellation was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.cancellation_timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.cancellationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the cancellation was accepted or rejected by the A2X system")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.cancellation_timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.cancellationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the cancellation was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.ccp_code = ProtoField.new("Ccp Code", "a2x.a2xequities.tradingprotocol.atp.v2.9.ccpcode", ftypes.UINT8, nil, nil, nil, "Clearing CCP code")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.client_seq_no = ProtoField.new("Client Seq No", "a2x.a2xequities.tradingprotocol.atp.v2.9.clientseqno", ftypes.UINT32, nil, nil, nil, "Next sequence number A2X expects to receive")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.display_quantity = ProtoField.new("Display Quantity", "a2x.a2xequities.tradingprotocol.atp.v2.9.displayquantity", ftypes.UINT32, nil, nil, nil, "Display quantity for an iceberg order")
@@ -34,8 +34,8 @@ omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.logout_reason_code = ProtoFi
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.market_data_id = ProtoField.new("Market Data Id", "a2x.a2xequities.tradingprotocol.atp.v2.9.marketdataid", ftypes.UINT32, nil, nil, nil, "The id of this order as seen in the A2X market data")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.min_qty = ProtoField.new("Min Qty", "a2x.a2xequities.tradingprotocol.atp.v2.9.minqty", ftypes.UINT32, nil, nil, nil, "Minimum quantity (shares) of an order to be executed. Only valid when OrderType = 2 or 3")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.modification_reason = ProtoField.new("Modification Reason", "a2x.a2xequities.tradingprotocol.atp.v2.9.modificationreason", ftypes.UINT8, {[1]="Modification Accepted", [2]="Order Cancelled"}, base.DEC, 0x1F, "Reason code if rejected or cancelled; otherwise zero")
-omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.modification_timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.modificationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the modification was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.modification_timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.modificationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the modification was accepted or rejected by the A2X system")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.modification_timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.modificationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the modification was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.msg_seq_no = ProtoField.new("Msg Seq No", "a2x.a2xequities.tradingprotocol.atp.v2.9.msgseqno", ftypes.UINT32, nil, nil, nil, "Message sequence number from the user or A2X")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.msg_type = ProtoField.new("Msg Type", "a2x.a2xequities.tradingprotocol.atp.v2.9.msgtype", ftypes.UINT8, nil, nil, nil, "Message type")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.new_a2x_ord_id = ProtoField.new("New A2X Ord Id", "a2x.a2xequities.tradingprotocol.atp.v2.9.newa2xordid", ftypes.UINT32, nil, nil, nil, "The ID of the Iceberg order refresh as seen in the A2X market data")
@@ -75,12 +75,12 @@ omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.status_cancel_reason = Proto
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.status_modification_reason = ProtoField.new("Status Modification Reason", "a2x.a2xequities.tradingprotocol.atp.v2.9.statusmodificationreason", ftypes.STRING, nil, nil, nil, "Order status and reason code")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.status_reject_reason = ProtoField.new("Status Reject Reason", "a2x.a2xequities.tradingprotocol.atp.v2.9.statusrejectreason", ftypes.STRING, nil, nil, nil, "Order status and reason code")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.time_in_force = ProtoField.new("Time In Force", "a2x.a2xequities.tradingprotocol.atp.v2.9.timeinforce", ftypes.UINT8, nil, nil, nil, "Time in force for this order")
-omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the order was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the order was accepted or rejected by the A2X system")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the order was accepted or rejected by the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.trade_capture_type = ProtoField.new("Trade Capture Type", "a2x.a2xequities.tradingprotocol.atp.v2.9.tradecapturetype", ftypes.UINT8)
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.trade_ref = ProtoField.new("Trade Ref", "a2x.a2xequities.tradingprotocol.atp.v2.9.traderef", ftypes.UINT32, nil, nil, nil, "Trade reference number.")
-omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.trade_timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.tradetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the trade occurred on the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.trade_timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.tradetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the trade occurred on the A2X system")
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.trade_timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.tradingprotocol.atp.v2.9.tradetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the trade occurred on the A2X system")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.traded_quantity = ProtoField.new("Traded Quantity", "a2x.a2xequities.tradingprotocol.atp.v2.9.tradedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares traded if any")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.fields.user_tag = ProtoField.new("User Tag", "a2x.a2xequities.tradingprotocol.atp.v2.9.usertag", ftypes.UINT64, nil, nil, nil, "Free form tag assigned by trading Member")
 
@@ -125,7 +125,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-a2x_a2xequities_tradingprotocol_atp_v2_9.timestamp_format = 2
+a2x_a2xequities_tradingprotocol_atp_v2_9.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -146,7 +146,7 @@ omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_structs = Pref.bool("Sho
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_a2x_a2xequities_tradingprotocol_atp_v2_9.prefs_changed()

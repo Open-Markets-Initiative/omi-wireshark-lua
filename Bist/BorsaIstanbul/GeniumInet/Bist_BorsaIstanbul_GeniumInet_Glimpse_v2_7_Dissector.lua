@@ -49,8 +49,8 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.price_to = ProtoField.new(
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.put_or_call = ProtoField.new("Put Or Call", "bist.borsaistanbul.geniuminet.glimpse.v2.7.putorcall", ftypes.UINT8, nil, nil, nil, "Option type. A value of 0 indicates that Put or Call is undefined for the order book")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.quantity = ProtoField.new("Quantity", "bist.borsaistanbul.geniuminet.glimpse.v2.7.quantity", ftypes.UINT64, nil, nil, nil, "The visible quantity of the order. Orders with an undisclosed quantity will have this field set to 0")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_sequence_number = ProtoField.new("Ranking Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingsequencenumber", ftypes.UINT32, nil, nil, nil, "Transaction-based and sequential number starting from 1. Used only in ranking logic with ranking time. Does not show order book position")
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ranking timestamp, in nanoseconds")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time_utc = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Ranking timestamp, in nanoseconds")
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_time = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ranking timestamp, in nanoseconds")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.ranking_type = ProtoField.new("Ranking Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rankingtype", ftypes.UINT8, nil, nil, nil, "Specifies what ranking type should be used. 1 = Price Time")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "bist.borsaistanbul.geniuminet.glimpse.v2.7.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
@@ -59,8 +59,8 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reserved_13 = ProtoField.n
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reserved_2 = ProtoField.new("Reserved 2", "bist.borsaistanbul.geniuminet.glimpse.v2.7.reserved2", ftypes.UINT16, nil, base.DEC, 0xC000, "Reserved")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.reserved_4 = ProtoField.new("Reserved 4", "bist.borsaistanbul.geniuminet.glimpse.v2.7.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.round_lot_size = ProtoField.new("Round Lot Size", "bist.borsaistanbul.geniuminet.glimpse.v2.7.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the quantity that represents a round lot for the issue")
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second = ProtoField.new("Second", "bist.borsaistanbul.geniuminet.glimpse.v2.7.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second_utc = ProtoField.new("Second", "bist.borsaistanbul.geniuminet.glimpse.v2.7.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.second = ProtoField.new("Second", "bist.borsaistanbul.geniuminet.glimpse.v2.7.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.sequence_number = ProtoField.new("Sequence Number", "bist.borsaistanbul.geniuminet.glimpse.v2.7.sequencenumber", ftypes.STRING, nil, nil, nil, "Genium INET ITCH SoupBinTCP sequence number when the snapshot was taken. To be used when logging in to the SoupBinTCP ITCH feed. While GLIMPSE is a binary feed, the SoupBinTCP sequence number is represented using ASCII characters")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.fields.server_packet_type = ProtoField.new("Packet Type", "bist.borsaistanbul.geniuminet.glimpse.v2.7.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -129,7 +129,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp_format = 2
+bist_borsaistanbul_geniuminet_glimpse_v2_7.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -164,7 +164,7 @@ omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_session_messages = Pre
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bist_borsaistanbul_geniuminet_glimpse_v2_7.prefs_changed()

@@ -37,8 +37,8 @@ omi_miax_miaxoptions_mpf_mach_v1_0.fields.refresh_message_type = ProtoField.new(
 omi_miax_miaxoptions_mpf_mach_v1_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "miax.miaxoptions.mpf.mach.v1.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies client requested sequence number")
 omi_miax_miaxoptions_mpf_mach_v1_0.fields.requested_trading_session_id = ProtoField.new("Requested Trading Session Id", "miax.miaxoptions.mpf.mach.v1.0.requestedtradingsessionid", ftypes.UINT8, nil, nil, nil, "Specifies the session the client would like to log into, or zero to log into the currently active session")
 omi_miax_miaxoptions_mpf_mach_v1_0.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.miaxoptions.mpf.mach.v1.0.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The SesM client uses this packet to request a retransmission server to retransmit a range of packets")
-omi_miax_miaxoptions_mpf_mach_v1_0.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.mpf.mach.v1.0.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_mpf_mach_v1_0.fields.seconds_utc = ProtoField.new("Seconds", "miax.miaxoptions.mpf.mach.v1.0.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_miaxoptions_mpf_mach_v1_0.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.mpf.mach.v1.0.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_mpf_mach_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.mpf.mach.v1.0.sequencenumber", ftypes.UINT64, nil, nil, nil, "Original sequence number from the live feed.")
 omi_miax_miaxoptions_mpf_mach_v1_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.miaxoptions.mpf.mach.v1.0.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The SesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
 omi_miax_miaxoptions_mpf_mach_v1_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.miaxoptions.mpf.mach.v1.0.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Market-data application message type carried over the SesM sequenced channel (matches the MACH UDP Message Type byte; Miax Options uses Ascii message codes)")
@@ -97,7 +97,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_miaxoptions_mpf_mach_v1_0.timestamp_format = 2
+miax_miaxoptions_mpf_mach_v1_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -116,7 +116,7 @@ omi_miax_miaxoptions_mpf_mach_v1_0.prefs.show_structs = Pref.bool("Show Structs"
 omi_miax_miaxoptions_mpf_mach_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_miax_miaxoptions_mpf_mach_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_miax_miaxoptions_mpf_mach_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_miaxoptions_mpf_mach_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_mpf_mach_v1_0.prefs_changed()

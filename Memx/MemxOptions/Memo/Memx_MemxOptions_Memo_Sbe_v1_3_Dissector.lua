@@ -29,7 +29,9 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_allocations_
 omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_parties_group = ProtoField.new("Allocation Report Message Parties Group", "memx.memxoptions.memo.sbe.v1.3.allocationreportmessagepartiesgroup", ftypes.STRING, nil, nil, nil, "Parties")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_parties_groups = ProtoField.new("Allocation Report Message Parties Groups", "memx.memxoptions.memo.sbe.v1.3.allocationreportmessagepartiesgroups", ftypes.STRING, nil, nil, nil, "Parties Block")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.bid_px = ProtoField.new("Bid Px", "memx.memxoptions.memo.sbe.v1.3.bidpx", ftypes.DOUBLE, nil, nil, nil, "Bid side price of the quote. Price per unit of quantity.")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.bid_px_price_type = ProtoField.new("Bid Px Price Type", "memx.memxoptions.memo.sbe.v1.3.bidpxpricetype", ftypes.DOUBLE, nil, nil, nil, "BidPx")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.bid_size = ProtoField.new("Bid Size", "memx.memxoptions.memo.sbe.v1.3.bidsize", ftypes.UINT16, nil, nil, nil, "Bid side quantity of the quote.")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.bid_size_uint_32 = ProtoField.new("Bid Size Uint 32", "memx.memxoptions.memo.sbe.v1.3.bidsizeuint32", ftypes.UINT32, nil, nil, nil, "BidSize")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "memx.memxoptions.memo.sbe.v1.3.blocklength", ftypes.UINT16, nil, nil, nil, "Memx Udp Message Type")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.block_length_short = ProtoField.new("Block Length Short", "memx.memxoptions.memo.sbe.v1.3.blocklengthshort", ftypes.UINT8, nil, nil, nil, "blockLength")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "memx.memxoptions.memo.sbe.v1.3.cancelgroupid", ftypes.UINT16, nil, nil, nil, "Unique identifier of custom cancel group.")
@@ -65,6 +67,10 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.login_accepted_message = ProtoField.ne
 omi_memx_memxoptions_memo_sbe_v1_3.fields.login_reject_code = ProtoField.new("Login Reject Code", "memx.memxoptions.memo.sbe.v1.3.loginrejectcode", ftypes.STRING, nil, nil, nil, "The code for the rejection type")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "memx.memxoptions.memo.sbe.v1.3.loginrejectedmessage", ftypes.STRING, nil, nil, nil, "Memx Tcp Login Rejected Message")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.login_request_message = ProtoField.new("Login Request Message", "memx.memxoptions.memo.sbe.v1.3.loginrequestmessage", ftypes.STRING, nil, nil, nil, "Memx Tcp Login message")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.long_one_sided_quotes_group = ProtoField.new("Long One Sided Quotes Group", "memx.memxoptions.memo.sbe.v1.3.longonesidedquotesgroup", ftypes.STRING, nil, nil, nil, "Quotes")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.long_one_sided_quotes_groups = ProtoField.new("Long One Sided Quotes Groups", "memx.memxoptions.memo.sbe.v1.3.longonesidedquotesgroups", ftypes.STRING, nil, nil, nil, "Quotes Block")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.long_two_sided_quotes_group = ProtoField.new("Long Two Sided Quotes Group", "memx.memxoptions.memo.sbe.v1.3.longtwosidedquotesgroup", ftypes.STRING, nil, nil, nil, "Quotes")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.long_two_sided_quotes_groups = ProtoField.new("Long Two Sided Quotes Groups", "memx.memxoptions.memo.sbe.v1.3.longtwosidedquotesgroups", ftypes.STRING, nil, nil, nil, "Quotes Block")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "memx.memxoptions.memo.sbe.v1.3.masscancelinst", ftypes.STRING, nil, nil, nil, "MassCancelInstType bit set")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "memx.memxoptions.memo.sbe.v1.3.masscancelrejectreason", ftypes.UINT16, nil, nil, nil, "Reason code for order rejection.")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.match_trade_prevention = ProtoField.new("Match Trade Prevention", "memx.memxoptions.memo.sbe.v1.3.matchtradeprevention", ftypes.UINT8, nil, nil, nil, "Defines the desired behavior in the event of a wash. The UINT8 Null (0xFF) value disables match trade prevention.")
@@ -80,11 +86,15 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.num_groups = ProtoField.new("Num Group
 omi_memx_memxoptions_memo_sbe_v1_3.fields.num_in_group = ProtoField.new("Num In Group", "memx.memxoptions.memo.sbe.v1.3.numingroup", ftypes.UINT8, nil, nil, nil, "numInGroup")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.number_of_orders = ProtoField.new("Number Of Orders", "memx.memxoptions.memo.sbe.v1.3.numberoforders", ftypes.UINT8, nil, nil, nil, "The number of orders/quote entries in the request. NoPartyIDs - - RepeatingGroupDimensions 453 Y The dimensions of the Repeating Group. Parties - - Parties Group N/A Y The parties associated with the quotes. MEMO for Options - SBE - v1.10 COPYRIGHT MEMX LLC 2025. ALL RIGHTS RESERVED. 55 5.2.1.3 ExecutionReport_BulkQuote_ComponentNew The ExecutionReport_BulkQuote_ComponentNew is a response to bulk quote requests (ShortTwoSidedBulkQuote, LongTwoSidedBulkQuote, ShortOneSidedBulkQuote, LongOneSidedBulkQuote). This message gives state information about an individual single sided quote within the bulk quote request. The requester will receive a component new message for each side of a two-sided entry. This message echos back to the requester fields configured on the individual single sided quote with additional information about the state of the individual quote handling. Field Offset Length Type Tag Ref Num Req'd Description SBE Header 0 7 SBE Header N/A Y SBE Header with templateID = 13")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.offer_px = ProtoField.new("Offer Px", "memx.memxoptions.memo.sbe.v1.3.offerpx", ftypes.DOUBLE, nil, nil, nil, "Ask side price of the quote. Price per unit of quantity. 3.3.3 Long Two Sided Quote Group The Two Sided Quote repeating group allows for up to 20 two sided quotes in messages. This group is used within the LongTwoSidedBulkQuote message. All quotes in a Long Two Sided Quote repeating group must be for the same Underlier. The OptionsSecurityID of the first quote in the repeating group identifies the Underlier that is used to validate all of the following quotes in the repeating group. This group is always preceded by a RepeatingGroupDimensions field that denotes the length of this group and the number of them expected in the message. Field Offset Length Type Tag Ref Num Req'd Description")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.offer_px_price_type = ProtoField.new("Offer Px Price Type", "memx.memxoptions.memo.sbe.v1.3.offerpxpricetype", ftypes.DOUBLE, nil, nil, nil, "OfferPx")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.offer_size = ProtoField.new("Offer Size", "memx.memxoptions.memo.sbe.v1.3.offersize", ftypes.UINT16, nil, nil, nil, "Ask side quantity of the quote.")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.offer_size_uint_32 = ProtoField.new("Offer Size Uint 32", "memx.memxoptions.memo.sbe.v1.3.offersizeuint32", ftypes.UINT32, nil, nil, nil, "OfferSize")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.one_sided_quotes_group = ProtoField.new("One Sided Quotes Group", "memx.memxoptions.memo.sbe.v1.3.onesidedquotesgroup", ftypes.STRING, nil, nil, nil, "Quotes")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.one_sided_quotes_groups = ProtoField.new("One Sided Quotes Groups", "memx.memxoptions.memo.sbe.v1.3.onesidedquotesgroups", ftypes.STRING, nil, nil, nil, "Quotes Block")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.open_or_close = ProtoField.new("Open Or Close", "memx.memxoptions.memo.sbe.v1.3.openorclose", ftypes.STRING, nil, nil, nil, "OpenOrClose")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.open_or_close_optional = ProtoField.new("Open Or Close Optional", "memx.memxoptions.memo.sbe.v1.3.openorcloseoptional", ftypes.STRING, nil, nil, nil, "OpenOrClose")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.options_security_id_long_one_sided_bulk_quote_options_security_id = ProtoField.new("Options Security Id Long One Sided Bulk Quote Options Security Id", "memx.memxoptions.memo.sbe.v1.3.optionssecurityidlongonesidedbulkquoteoptionssecurityid", ftypes.STRING, nil, nil, nil, "OptionsSecurityID")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.options_security_id_long_two_sided_bulk_quote_options_security_id = ProtoField.new("Options Security Id Long Two Sided Bulk Quote Options Security Id", "memx.memxoptions.memo.sbe.v1.3.optionssecurityidlongtwosidedbulkquoteoptionssecurityid", ftypes.STRING, nil, nil, nil, "OptionsSecurityID")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.options_security_id_optional = ProtoField.new("Options Security Id Optional", "memx.memxoptions.memo.sbe.v1.3.optionssecurityidoptional", ftypes.STRING, nil, nil, nil, "The OptionsSecurityID of the tradable options product for the quote. The Underlier for all quotes in the repeating group must match the Underlier of the first quote in the repeating group.")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.ord_status = ProtoField.new("Ord Status", "memx.memxoptions.memo.sbe.v1.3.ordstatus", ftypes.STRING, nil, nil, nil, "The status of the order.")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.ord_type = ProtoField.new("Ord Type", "memx.memxoptions.memo.sbe.v1.3.ordtype", ftypes.STRING, nil, nil, nil, "Type of the order.")
@@ -101,6 +111,7 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.party_id = ProtoField.new("Party Id", 
 omi_memx_memxoptions_memo_sbe_v1_3.fields.party_id_source = ProtoField.new("Party Id Source", "memx.memxoptions.memo.sbe.v1.3.partyidsource", ftypes.STRING, nil, nil, nil, "Identifies class or source of the PartyID (448) value. The exchange currently accepts the following values for this field: - 'D' for Proprietary/Custom Code")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.party_role = ProtoField.new("Party Role", "memx.memxoptions.memo.sbe.v1.3.partyrole", ftypes.UINT8, nil, nil, nil, "Identifies the type or role of the PartyID (448) specified. MEMO for Options - SBE - v1.10 COPYRIGHT MEMX LLC 2025. ALL RIGHTS RESERVED. 14 3.3.7 Execution Allocations Group (Repeating Group 124) The Execution Allocations Group repeating group allows for identification of the original Exchange Trade that post trade allocations are occurring on. Though this is denoted as a repeating group, at the current time, this group will always contain a single entry. This group is always preceded by RepeatingGroupDimensions field that denotes the length of this group and the number of the items in the group in the message. (Always set to 1) Field Offset Length Type Tag Ref Num Req'd Description")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.memxoptions.memo.sbe.v1.3.pendingmessagecount", ftypes.UINT32, nil, nil, nil, "The number of messages to be delivered in this replay")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.memxoptions.memo.sbe.v1.3.price", ftypes.DOUBLE)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.price_optional = ProtoField.new("Price Optional", "memx.memxoptions.memo.sbe.v1.3.priceoptional", ftypes.DOUBLE, nil, nil, nil, "Price of the quote. Price per unit of quantity. MEMO for Options - SBE - v1.10 COPYRIGHT MEMX LLC 2025. ALL RIGHTS RESERVED. 13 3.3.5 Long One Sided Quote Group The One Sided Quote repeating group allows for up to 20 one sided quotes in messages. This group is used within the LongOneSidedBulkQuote message. All quotes in a Long One Sided Quote repeating group must be for the same Underlier. The OptionsSecurityID of the first quote in the repeating group identifies the Underlier that is used to validate all of the following quotes in the repeating group. This group is always preceded by RepeatingGroupDimensions field that denotes the length of this group and the number of them expected in the message. Field Offset Length Type Tag Ref Num Req'd Description")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.price_short = ProtoField.new("Price Short", "memx.memxoptions.memo.sbe.v1.3.priceshort", ftypes.DOUBLE, nil, nil, nil, "Price of the quote. Price per unit of quantity. MEMO for Options - SBE - v1.10 COPYRIGHT MEMX LLC 2025. ALL RIGHTS RESERVED. 13 3.3.5 Long One Sided Quote Group The One Sided Quote repeating group allows for up to 20 one sided quotes in messages. This group is used within the LongOneSidedBulkQuote message. All quotes in a Long One Sided Quote repeating group must be for the same Underlier. The OptionsSecurityID of the first quote in the repeating group identifies the Underlier that is used to validate all of the following quotes in the repeating group. This group is always preceded by RepeatingGroupDimensions field that denotes the length of this group and the number of them expected in the message. Field Offset Length Type Tag Ref Num Req'd Description")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.memxoptions.memo.sbe.v1.3.quantity", ftypes.UINT16, nil, nil, nil, "Contracts in the quote.")
@@ -122,8 +133,8 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.risk_group_id = ProtoField.new("Risk G
 omi_memx_memxoptions_memo_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.memxoptions.memo.sbe.v1.3.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "memx.memxoptions.memo.sbe.v1.3.securityid", ftypes.STRING, nil, nil, nil, "The OptionsSecurityID of the tradable options product for the quote. The Underlier for all quotes in the repeating group must match the Underlier of the first quote in the repeating group.")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.send_cancels = ProtoField.new("Send Cancels", "memx.memxoptions.memo.sbe.v1.3.sendcancels", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "SendCancels")
-omi_memx_memxoptions_memo_sbe_v1_3.fields.sending_time = ProtoField.new("Sending Time", "memx.memxoptions.memo.sbe.v1.3.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of message transmission always expressed in UTC (Universal Time Coordinated, also known as GMT)")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.sending_time_utc = ProtoField.new("Sending Time", "memx.memxoptions.memo.sbe.v1.3.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of message transmission always expressed in UTC (Universal Time Coordinated, also known as GMT)")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.sending_time = ProtoField.new("Sending Time", "memx.memxoptions.memo.sbe.v1.3.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of message transmission always expressed in UTC (Universal Time Coordinated, also known as GMT)")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.memxoptions.memo.sbe.v1.3.sequencedmessage", ftypes.STRING, nil, nil, nil, "Memx Tcp sequenced message")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "memx.memxoptions.memo.sbe.v1.3.serversbemessage", ftypes.STRING, nil, nil, nil, "Sbe message sent by Memx to the firm")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.session_id = ProtoField.new("Session Id", "memx.memxoptions.memo.sbe.v1.3.sessionid", ftypes.UINT64, nil, nil, nil, "The identifier for the session for which data is desired")
@@ -145,8 +156,8 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.total_affected_orders = ProtoField.new
 omi_memx_memxoptions_memo_sbe_v1_3.fields.total_sequence_count = ProtoField.new("Total Sequence Count", "memx.memxoptions.memo.sbe.v1.3.totalsequencecount", ftypes.UINT64, nil, nil, nil, "The count of messages that were sent on this stream")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.trade_date = ProtoField.new("Trade Date", "memx.memxoptions.memo.sbe.v1.3.tradedate", ftypes.STRING, nil, nil, nil, "YYYYMMDD NoExecs - - RepeatingGroupDimensions 124 Y Number of Trades being allocated (always 1) MEMO for Options - SBE - v1.10 COPYRIGHT MEMX LLC 2025. ALL RIGHTS RESERVED. 77 Field Offset Length Type Tag Ref Num Req'd Description ExecutionAllocations - - ExecutionAllocationsGroup N/A Y Specifies the Trade being allocated NoAllocs - - RepeatingGroupDimensions 78 Y The dimensions of the Allocations Repeating Group. ReportedAllocations - - ReportAllocationsGroup N/A Y The allocations assigned to the trade - NOTE: this group contains IndividualAllocIDs for each unit of allocation, used to make further changes on those units. 5.2.12 UserNotification The UserNotification message is used to notify the user of an event or information about the exchange. This message will be used to provide a logical session shutdown warning. This message corresponds to FIX message type CB Field Offset Length Type Tag Ref Num Req’d Meaning SBE Header 0 7 SBE Header Y SBE Header templateID = 29")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.trading_capacity = ProtoField.new("Trading Capacity", "memx.memxoptions.memo.sbe.v1.3.tradingcapacity", ftypes.UINT8, nil, nil, nil, "Trading Capacity of allocation")
-omi_memx_memxoptions_memo_sbe_v1_3.fields.transact_time = ProtoField.new("Transact Time", "memx.memxoptions.memo.sbe.v1.3.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.transact_time_utc = ProtoField.new("Transact Time", "memx.memxoptions.memo.sbe.v1.3.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
+omi_memx_memxoptions_memo_sbe_v1_3.fields.transact_time = ProtoField.new("Transact Time", "memx.memxoptions.memo.sbe.v1.3.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the transaction occurred. UTC timestamp since epoch with nanosecond precision.")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.memxoptions.memo.sbe.v1.3.trdmatchid", ftypes.UINT64, nil, nil, nil, "Identifier assigned to the Trade by the matching system.")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.two_sided_quotes_group = ProtoField.new("Two Sided Quotes Group", "memx.memxoptions.memo.sbe.v1.3.twosidedquotesgroup", ftypes.STRING, nil, nil, nil, "Quotes")
 omi_memx_memxoptions_memo_sbe_v1_3.fields.two_sided_quotes_groups = ProtoField.new("Two Sided Quotes Groups", "memx.memxoptions.memo.sbe.v1.3.twosidedquotesgroups", ftypes.STRING, nil, nil, nil, "Quotes Block")
@@ -199,6 +210,8 @@ omi_memx_memxoptions_memo_sbe_v1_3.fields.user_notification_message = ProtoField
 omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_instruction_message_allocations_group_index = ProtoField.new("Allocation Instruction Message Allocations Group Index", "memx.memxoptions.memo.sbe.v1.3.allocationinstructionmessageallocationsgroupindex", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_allocations_group_index = ProtoField.new("Allocation Report Message Allocations Group Index", "memx.memxoptions.memo.sbe.v1.3.allocationreportmessageallocationsgroupindex", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.allocation_report_message_parties_group_index = ProtoField.new("Allocation Report Message Parties Group Index", "memx.memxoptions.memo.sbe.v1.3.allocationreportmessagepartiesgroupindex", ftypes.UINT16)
+omi_memx_memxoptions_memo_sbe_v1_3.fields.long_one_sided_quotes_group_index = ProtoField.new("Long One Sided Quotes Group Index", "memx.memxoptions.memo.sbe.v1.3.longonesidedquotesgroupindex", ftypes.UINT16)
+omi_memx_memxoptions_memo_sbe_v1_3.fields.long_two_sided_quotes_group_index = ProtoField.new("Long Two Sided Quotes Group Index", "memx.memxoptions.memo.sbe.v1.3.longtwosidedquotesgroupindex", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.nested_parties_group_index = ProtoField.new("Nested Parties Group Index", "memx.memxoptions.memo.sbe.v1.3.nestedpartiesgroupindex", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.one_sided_quotes_group_index = ProtoField.new("One Sided Quotes Group Index", "memx.memxoptions.memo.sbe.v1.3.onesidedquotesgroupindex", ftypes.UINT16)
 omi_memx_memxoptions_memo_sbe_v1_3.fields.parties_group_index = ProtoField.new("Parties Group Index", "memx.memxoptions.memo.sbe.v1.3.partiesgroupindex", ftypes.UINT16)
@@ -215,7 +228,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-memx_memxoptions_memo_sbe_v1_3.timestamp_format = 2
+memx_memxoptions_memo_sbe_v1_3.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -248,7 +261,7 @@ omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_headers = Pref.bool("Show Headers"
 omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_memx_memxoptions_memo_sbe_v1_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_memx_memxoptions_memo_sbe_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_memx_memxoptions_memo_sbe_v1_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_memx_memxoptions_memo_sbe_v1_3.prefs_changed()
@@ -523,6 +536,35 @@ memx_memxoptions_memo_sbe_v1_3.bid_px.dissect = function(buffer, offset, packet,
   return offset + length, value
 end
 
+-- Bid Px Price Type
+memx_memxoptions_memo_sbe_v1_3.bid_px_price_type = {}
+
+-- Size: Bid Px Price Type
+memx_memxoptions_memo_sbe_v1_3.bid_px_price_type.size = 8
+
+-- Display: Bid Px Price Type
+memx_memxoptions_memo_sbe_v1_3.bid_px_price_type.display = function(value)
+  return "Bid Px Price Type: "..value
+end
+
+-- Translate: Bid Px Price Type
+memx_memxoptions_memo_sbe_v1_3.bid_px_price_type.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Bid Px Price Type
+memx_memxoptions_memo_sbe_v1_3.bid_px_price_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memo_sbe_v1_3.bid_px_price_type.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_memxoptions_memo_sbe_v1_3.bid_px_price_type.translate(raw)
+  local display = memx_memxoptions_memo_sbe_v1_3.bid_px_price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.bid_px_price_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Bid Size
 memx_memxoptions_memo_sbe_v1_3.bid_size = {}
 
@@ -542,6 +584,29 @@ memx_memxoptions_memo_sbe_v1_3.bid_size.dissect = function(buffer, offset, packe
   local display = memx_memxoptions_memo_sbe_v1_3.bid_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Size Uint 32
+memx_memxoptions_memo_sbe_v1_3.bid_size_uint_32 = {}
+
+-- Size: Bid Size Uint 32
+memx_memxoptions_memo_sbe_v1_3.bid_size_uint_32.size = 4
+
+-- Display: Bid Size Uint 32
+memx_memxoptions_memo_sbe_v1_3.bid_size_uint_32.display = function(value)
+  return "Bid Size Uint 32: "..value
+end
+
+-- Dissect: Bid Size Uint 32
+memx_memxoptions_memo_sbe_v1_3.bid_size_uint_32.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memo_sbe_v1_3.bid_size_uint_32.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_memxoptions_memo_sbe_v1_3.bid_size_uint_32.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.bid_size_uint_32, range, value, display)
 
   return offset + length, value
 end
@@ -1726,6 +1791,35 @@ memx_memxoptions_memo_sbe_v1_3.offer_px.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Offer Px Price Type
+memx_memxoptions_memo_sbe_v1_3.offer_px_price_type = {}
+
+-- Size: Offer Px Price Type
+memx_memxoptions_memo_sbe_v1_3.offer_px_price_type.size = 8
+
+-- Display: Offer Px Price Type
+memx_memxoptions_memo_sbe_v1_3.offer_px_price_type.display = function(value)
+  return "Offer Px Price Type: "..value
+end
+
+-- Translate: Offer Px Price Type
+memx_memxoptions_memo_sbe_v1_3.offer_px_price_type.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Offer Px Price Type
+memx_memxoptions_memo_sbe_v1_3.offer_px_price_type.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memo_sbe_v1_3.offer_px_price_type.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_memxoptions_memo_sbe_v1_3.offer_px_price_type.translate(raw)
+  local display = memx_memxoptions_memo_sbe_v1_3.offer_px_price_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.offer_px_price_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Offer Size
 memx_memxoptions_memo_sbe_v1_3.offer_size = {}
 
@@ -1745,6 +1839,29 @@ memx_memxoptions_memo_sbe_v1_3.offer_size.dissect = function(buffer, offset, pac
   local display = memx_memxoptions_memo_sbe_v1_3.offer_size.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Size Uint 32
+memx_memxoptions_memo_sbe_v1_3.offer_size_uint_32 = {}
+
+-- Size: Offer Size Uint 32
+memx_memxoptions_memo_sbe_v1_3.offer_size_uint_32.size = 4
+
+-- Display: Offer Size Uint 32
+memx_memxoptions_memo_sbe_v1_3.offer_size_uint_32.display = function(value)
+  return "Offer Size Uint 32: "..value
+end
+
+-- Dissect: Offer Size Uint 32
+memx_memxoptions_memo_sbe_v1_3.offer_size_uint_32.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memo_sbe_v1_3.offer_size_uint_32.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_memxoptions_memo_sbe_v1_3.offer_size_uint_32.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.offer_size_uint_32, range, value, display)
 
   return offset + length, value
 end
@@ -1840,6 +1957,84 @@ memx_memxoptions_memo_sbe_v1_3.open_or_close_optional.dissect = function(buffer,
   local display = memx_memxoptions_memo_sbe_v1_3.open_or_close_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.open_or_close_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Options Security Id Long One Sided Bulk Quote Options Security Id
+memx_memxoptions_memo_sbe_v1_3.options_security_id_long_one_sided_bulk_quote_options_security_id = {}
+
+-- Size: Options Security Id Long One Sided Bulk Quote Options Security Id
+memx_memxoptions_memo_sbe_v1_3.options_security_id_long_one_sided_bulk_quote_options_security_id.size = 8
+
+-- Display: Options Security Id Long One Sided Bulk Quote Options Security Id
+memx_memxoptions_memo_sbe_v1_3.options_security_id_long_one_sided_bulk_quote_options_security_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Options Security Id Long One Sided Bulk Quote Options Security Id: No Value"
+  end
+
+  return "Options Security Id Long One Sided Bulk Quote Options Security Id: "..value
+end
+
+-- Dissect: Options Security Id Long One Sided Bulk Quote Options Security Id
+memx_memxoptions_memo_sbe_v1_3.options_security_id_long_one_sided_bulk_quote_options_security_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memo_sbe_v1_3.options_security_id_long_one_sided_bulk_quote_options_security_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_memo_sbe_v1_3.options_security_id_long_one_sided_bulk_quote_options_security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.options_security_id_long_one_sided_bulk_quote_options_security_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Options Security Id Long Two Sided Bulk Quote Options Security Id
+memx_memxoptions_memo_sbe_v1_3.options_security_id_long_two_sided_bulk_quote_options_security_id = {}
+
+-- Size: Options Security Id Long Two Sided Bulk Quote Options Security Id
+memx_memxoptions_memo_sbe_v1_3.options_security_id_long_two_sided_bulk_quote_options_security_id.size = 8
+
+-- Display: Options Security Id Long Two Sided Bulk Quote Options Security Id
+memx_memxoptions_memo_sbe_v1_3.options_security_id_long_two_sided_bulk_quote_options_security_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Options Security Id Long Two Sided Bulk Quote Options Security Id: No Value"
+  end
+
+  return "Options Security Id Long Two Sided Bulk Quote Options Security Id: "..value
+end
+
+-- Dissect: Options Security Id Long Two Sided Bulk Quote Options Security Id
+memx_memxoptions_memo_sbe_v1_3.options_security_id_long_two_sided_bulk_quote_options_security_id.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memo_sbe_v1_3.options_security_id_long_two_sided_bulk_quote_options_security_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = memx_memxoptions_memo_sbe_v1_3.options_security_id_long_two_sided_bulk_quote_options_security_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.options_security_id_long_two_sided_bulk_quote_options_security_id, range, value, display)
 
   return offset + length, value
 end
@@ -2384,6 +2579,35 @@ memx_memxoptions_memo_sbe_v1_3.pending_message_count.dissect = function(buffer, 
   local display = memx_memxoptions_memo_sbe_v1_3.pending_message_count.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.pending_message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+memx_memxoptions_memo_sbe_v1_3.price = {}
+
+-- Size: Price
+memx_memxoptions_memo_sbe_v1_3.price.size = 8
+
+-- Display: Price
+memx_memxoptions_memo_sbe_v1_3.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+memx_memxoptions_memo_sbe_v1_3.price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price
+memx_memxoptions_memo_sbe_v1_3.price.dissect = function(buffer, offset, packet, parent)
+  local length = memx_memxoptions_memo_sbe_v1_3.price.size
+  local range = buffer(offset, length)
+  local raw = range:uint64()
+  local value = memx_memxoptions_memo_sbe_v1_3.price.translate(raw)
+  local display = memx_memxoptions_memo_sbe_v1_3.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -6940,6 +7164,220 @@ memx_memxoptions_memo_sbe_v1_3.order_cancel_replace_request_message.dissect = fu
   end
 end
 
+-- Long One Sided Quotes Group
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_group = {}
+
+-- Size: Long One Sided Quotes Group
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_group.size =
+  memx_memxoptions_memo_sbe_v1_3.list_seq_no.size + 
+  memx_memxoptions_memo_sbe_v1_3.options_security_id_long_one_sided_bulk_quote_options_security_id.size + 
+  memx_memxoptions_memo_sbe_v1_3.side.size + 
+  memx_memxoptions_memo_sbe_v1_3.quantity_long.size + 
+  memx_memxoptions_memo_sbe_v1_3.price.size
+
+-- Display: Long One Sided Quotes Group
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Long One Sided Quotes Group
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_group.fields = function(buffer, offset, packet, parent, long_one_sided_quotes_group_index)
+  local index = offset
+
+  -- Implicit Long One Sided Quotes Group Index
+  if long_one_sided_quotes_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.long_one_sided_quotes_group_index, long_one_sided_quotes_group_index)
+    iteration:set_generated()
+  end
+
+  -- List Seq No: uint8
+  index, list_seq_no = memx_memxoptions_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Options Security Id Long One Sided Bulk Quote Options Security Id: LongOneSidedBulkQuoteOptionsSecurityID
+  index, options_security_id_long_one_sided_bulk_quote_options_security_id = memx_memxoptions_memo_sbe_v1_3.options_security_id_long_one_sided_bulk_quote_options_security_id.dissect(buffer, index, packet, parent)
+
+  -- Side: SideType
+  index, side = memx_memxoptions_memo_sbe_v1_3.side.dissect(buffer, index, packet, parent)
+
+  -- Quantity Long: uint32
+  index, quantity_long = memx_memxoptions_memo_sbe_v1_3.quantity_long.dissect(buffer, index, packet, parent)
+
+  -- Price: PriceType
+  index, price = memx_memxoptions_memo_sbe_v1_3.price.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Long One Sided Quotes Group
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_group.dissect = function(buffer, offset, packet, parent, long_one_sided_quotes_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.long_one_sided_quotes_group, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_group.fields(buffer, offset, packet, parent, long_one_sided_quotes_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_group.fields(buffer, offset, packet, parent, long_one_sided_quotes_group_index)
+  end
+end
+
+-- Long One Sided Quotes Groups
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_groups = {}
+
+-- Calculate size of: Long One Sided Quotes Groups
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.repeating_group_dimensions.size
+
+  -- Calculate field size from count
+  local long_one_sided_quotes_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + long_one_sided_quotes_group_count * 22
+
+  return index
+end
+
+-- Display: Long One Sided Quotes Groups
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Long One Sided Quotes Groups
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Repeating Group Dimensions: Struct of 2 fields
+  index, repeating_group_dimensions = memx_memxoptions_memo_sbe_v1_3.repeating_group_dimensions.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Long One Sided Quotes Group
+  for long_one_sided_quotes_group_index = 1, num_in_group do
+    index, long_one_sided_quotes_group = memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_group.dissect(buffer, index, packet, parent, long_one_sided_quotes_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Long One Sided Quotes Groups
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.long_one_sided_quotes_groups, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Long One Sided Bulk Quote Message
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message = {}
+
+-- Calculate size of: Long One Sided Bulk Quote Message
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.sending_time.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.clordid.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.time_in_force.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.exec_inst.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.trading_capacity.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.mtp_group_id.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.match_trade_prevention.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.cancel_group_id.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.risk_group_id.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.parties_groups.size(buffer, offset + index)
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Long One Sided Bulk Quote Message
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Long One Sided Bulk Quote Message
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_memxoptions_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_memxoptions_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: TimeInForceType
+  index, time_in_force = memx_memxoptions_memo_sbe_v1_3.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: Struct of 4 fields
+  index, exec_inst = memx_memxoptions_memo_sbe_v1_3.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: TradingCapacityType
+  index, trading_capacity = memx_memxoptions_memo_sbe_v1_3.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Mtp Group Id: uint16
+  index, mtp_group_id = memx_memxoptions_memo_sbe_v1_3.mtp_group_id.dissect(buffer, index, packet, parent)
+
+  -- Match Trade Prevention: MatchTradePreventionType
+  index, match_trade_prevention = memx_memxoptions_memo_sbe_v1_3.match_trade_prevention.dissect(buffer, index, packet, parent)
+
+  -- Cancel Group Id: uint16
+  index, cancel_group_id = memx_memxoptions_memo_sbe_v1_3.cancel_group_id.dissect(buffer, index, packet, parent)
+
+  -- Risk Group Id: uint16
+  index, risk_group_id = memx_memxoptions_memo_sbe_v1_3.risk_group_id.dissect(buffer, index, packet, parent)
+
+  -- Parties Groups: Struct of 2 fields
+  index, parties_groups = memx_memxoptions_memo_sbe_v1_3.parties_groups.dissect(buffer, index, packet, parent)
+
+  -- Long One Sided Quotes Groups: Struct of 2 fields
+  index, long_one_sided_quotes_groups = memx_memxoptions_memo_sbe_v1_3.long_one_sided_quotes_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Long One Sided Bulk Quote Message
+memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.long_one_sided_bulk_quote_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- One Sided Quotes Group
 memx_memxoptions_memo_sbe_v1_3.one_sided_quotes_group = {}
 
@@ -7059,101 +7497,6 @@ memx_memxoptions_memo_sbe_v1_3.one_sided_quotes_groups.dissect = function(buffer
   end
 end
 
--- Long One Sided Bulk Quote Message
-memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message = {}
-
--- Calculate size of: Long One Sided Bulk Quote Message
-memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.sending_time.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.clordid.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.time_in_force.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.exec_inst.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.trading_capacity.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.mtp_group_id.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.match_trade_prevention.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.cancel_group_id.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.risk_group_id.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.parties_groups.size(buffer, offset + index)
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.one_sided_quotes_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Long One Sided Bulk Quote Message
-memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Long One Sided Bulk Quote Message
-memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_memxoptions_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_memxoptions_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: TimeInForceType
-  index, time_in_force = memx_memxoptions_memo_sbe_v1_3.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: Struct of 4 fields
-  index, exec_inst = memx_memxoptions_memo_sbe_v1_3.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: TradingCapacityType
-  index, trading_capacity = memx_memxoptions_memo_sbe_v1_3.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Mtp Group Id: uint16
-  index, mtp_group_id = memx_memxoptions_memo_sbe_v1_3.mtp_group_id.dissect(buffer, index, packet, parent)
-
-  -- Match Trade Prevention: MatchTradePreventionType
-  index, match_trade_prevention = memx_memxoptions_memo_sbe_v1_3.match_trade_prevention.dissect(buffer, index, packet, parent)
-
-  -- Cancel Group Id: uint16
-  index, cancel_group_id = memx_memxoptions_memo_sbe_v1_3.cancel_group_id.dissect(buffer, index, packet, parent)
-
-  -- Risk Group Id: uint16
-  index, risk_group_id = memx_memxoptions_memo_sbe_v1_3.risk_group_id.dissect(buffer, index, packet, parent)
-
-  -- Parties Groups: Struct of 2 fields
-  index, parties_groups = memx_memxoptions_memo_sbe_v1_3.parties_groups.dissect(buffer, index, packet, parent)
-
-  -- One Sided Quotes Groups: Struct of 2 fields
-  index, one_sided_quotes_groups = memx_memxoptions_memo_sbe_v1_3.one_sided_quotes_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long One Sided Bulk Quote Message
-memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.long_one_sided_bulk_quote_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_3.long_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Short One Sided Bulk Quote Message
 memx_memxoptions_memo_sbe_v1_3.short_one_sided_bulk_quote_message = {}
 
@@ -7246,6 +7589,224 @@ memx_memxoptions_memo_sbe_v1_3.short_one_sided_bulk_quote_message.dissect = func
   else
     -- Skip element, add fields directly
     return memx_memxoptions_memo_sbe_v1_3.short_one_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Long Two Sided Quotes Group
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_group = {}
+
+-- Size: Long Two Sided Quotes Group
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_group.size =
+  memx_memxoptions_memo_sbe_v1_3.list_seq_no.size + 
+  memx_memxoptions_memo_sbe_v1_3.options_security_id_long_two_sided_bulk_quote_options_security_id.size + 
+  memx_memxoptions_memo_sbe_v1_3.bid_size_uint_32.size + 
+  memx_memxoptions_memo_sbe_v1_3.bid_px_price_type.size + 
+  memx_memxoptions_memo_sbe_v1_3.offer_size_uint_32.size + 
+  memx_memxoptions_memo_sbe_v1_3.offer_px_price_type.size
+
+-- Display: Long Two Sided Quotes Group
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Long Two Sided Quotes Group
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_group.fields = function(buffer, offset, packet, parent, long_two_sided_quotes_group_index)
+  local index = offset
+
+  -- Implicit Long Two Sided Quotes Group Index
+  if long_two_sided_quotes_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.long_two_sided_quotes_group_index, long_two_sided_quotes_group_index)
+    iteration:set_generated()
+  end
+
+  -- List Seq No: uint8
+  index, list_seq_no = memx_memxoptions_memo_sbe_v1_3.list_seq_no.dissect(buffer, index, packet, parent)
+
+  -- Options Security Id Long Two Sided Bulk Quote Options Security Id: LongTwoSidedBulkQuoteOptionsSecurityID
+  index, options_security_id_long_two_sided_bulk_quote_options_security_id = memx_memxoptions_memo_sbe_v1_3.options_security_id_long_two_sided_bulk_quote_options_security_id.dissect(buffer, index, packet, parent)
+
+  -- Bid Size Uint 32: uint32
+  index, bid_size_uint_32 = memx_memxoptions_memo_sbe_v1_3.bid_size_uint_32.dissect(buffer, index, packet, parent)
+
+  -- Bid Px Price Type: PriceType
+  index, bid_px_price_type = memx_memxoptions_memo_sbe_v1_3.bid_px_price_type.dissect(buffer, index, packet, parent)
+
+  -- Offer Size Uint 32: uint32
+  index, offer_size_uint_32 = memx_memxoptions_memo_sbe_v1_3.offer_size_uint_32.dissect(buffer, index, packet, parent)
+
+  -- Offer Px Price Type: PriceType
+  index, offer_px_price_type = memx_memxoptions_memo_sbe_v1_3.offer_px_price_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Long Two Sided Quotes Group
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_group.dissect = function(buffer, offset, packet, parent, long_two_sided_quotes_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.long_two_sided_quotes_group, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_group.fields(buffer, offset, packet, parent, long_two_sided_quotes_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_group.fields(buffer, offset, packet, parent, long_two_sided_quotes_group_index)
+  end
+end
+
+-- Long Two Sided Quotes Groups
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_groups = {}
+
+-- Calculate size of: Long Two Sided Quotes Groups
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.repeating_group_dimensions.size
+
+  -- Calculate field size from count
+  local long_two_sided_quotes_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + long_two_sided_quotes_group_count * 33
+
+  return index
+end
+
+-- Display: Long Two Sided Quotes Groups
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Long Two Sided Quotes Groups
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Repeating Group Dimensions: Struct of 2 fields
+  index, repeating_group_dimensions = memx_memxoptions_memo_sbe_v1_3.repeating_group_dimensions.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):uint()
+
+  -- Repeating: Long Two Sided Quotes Group
+  for long_two_sided_quotes_group_index = 1, num_in_group do
+    index, long_two_sided_quotes_group = memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_group.dissect(buffer, index, packet, parent, long_two_sided_quotes_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Long Two Sided Quotes Groups
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.long_two_sided_quotes_groups, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Long Two Sided Bulk Quote Message
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message = {}
+
+-- Calculate size of: Long Two Sided Bulk Quote Message
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.size = function(buffer, offset)
+  local index = 0
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.sending_time.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.clordid.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.time_in_force.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.exec_inst.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.trading_capacity.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.mtp_group_id.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.match_trade_prevention.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.cancel_group_id.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.risk_group_id.size
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.parties_groups.size(buffer, offset + index)
+
+  index = index + memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_groups.size(buffer, offset + index)
+
+  return index
+end
+
+-- Display: Long Two Sided Bulk Quote Message
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Long Two Sided Bulk Quote Message
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Sending Time: UTCTimestampNanos
+  index, sending_time = memx_memxoptions_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
+
+  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
+  index, clordid = memx_memxoptions_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
+
+  -- Time In Force: TimeInForceType
+  index, time_in_force = memx_memxoptions_memo_sbe_v1_3.time_in_force.dissect(buffer, index, packet, parent)
+
+  -- Exec Inst: Struct of 4 fields
+  index, exec_inst = memx_memxoptions_memo_sbe_v1_3.exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Trading Capacity: TradingCapacityType
+  index, trading_capacity = memx_memxoptions_memo_sbe_v1_3.trading_capacity.dissect(buffer, index, packet, parent)
+
+  -- Mtp Group Id: uint16
+  index, mtp_group_id = memx_memxoptions_memo_sbe_v1_3.mtp_group_id.dissect(buffer, index, packet, parent)
+
+  -- Match Trade Prevention: MatchTradePreventionType
+  index, match_trade_prevention = memx_memxoptions_memo_sbe_v1_3.match_trade_prevention.dissect(buffer, index, packet, parent)
+
+  -- Cancel Group Id: uint16
+  index, cancel_group_id = memx_memxoptions_memo_sbe_v1_3.cancel_group_id.dissect(buffer, index, packet, parent)
+
+  -- Risk Group Id: uint16
+  index, risk_group_id = memx_memxoptions_memo_sbe_v1_3.risk_group_id.dissect(buffer, index, packet, parent)
+
+  -- Parties Groups: Struct of 2 fields
+  index, parties_groups = memx_memxoptions_memo_sbe_v1_3.parties_groups.dissect(buffer, index, packet, parent)
+
+  -- Long Two Sided Quotes Groups: Struct of 2 fields
+  index, long_two_sided_quotes_groups = memx_memxoptions_memo_sbe_v1_3.long_two_sided_quotes_groups.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Long Two Sided Bulk Quote Message
+memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.long_two_sided_bulk_quote_message, buffer(offset, 0))
+    local index = memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7369,101 +7930,6 @@ memx_memxoptions_memo_sbe_v1_3.two_sided_quotes_groups.dissect = function(buffer
   else
     -- Skip element, add fields directly
     return memx_memxoptions_memo_sbe_v1_3.two_sided_quotes_groups.fields(buffer, offset, packet, parent)
-  end
-end
-
--- Long Two Sided Bulk Quote Message
-memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message = {}
-
--- Calculate size of: Long Two Sided Bulk Quote Message
-memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.size = function(buffer, offset)
-  local index = 0
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.sending_time.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.clordid.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.time_in_force.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.exec_inst.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.trading_capacity.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.mtp_group_id.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.match_trade_prevention.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.cancel_group_id.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.risk_group_id.size
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.parties_groups.size(buffer, offset + index)
-
-  index = index + memx_memxoptions_memo_sbe_v1_3.two_sided_quotes_groups.size(buffer, offset + index)
-
-  return index
-end
-
--- Display: Long Two Sided Bulk Quote Message
-memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Long Two Sided Bulk Quote Message
-memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Sending Time: UTCTimestampNanos
-  index, sending_time = memx_memxoptions_memo_sbe_v1_3.sending_time.dissect(buffer, index, packet, parent)
-
-  -- ClOrdId: ExecutionReport_BulkQuote_ComponentNewClOrdID
-  index, clordid = memx_memxoptions_memo_sbe_v1_3.clordid.dissect(buffer, index, packet, parent)
-
-  -- Time In Force: TimeInForceType
-  index, time_in_force = memx_memxoptions_memo_sbe_v1_3.time_in_force.dissect(buffer, index, packet, parent)
-
-  -- Exec Inst: Struct of 4 fields
-  index, exec_inst = memx_memxoptions_memo_sbe_v1_3.exec_inst.dissect(buffer, index, packet, parent)
-
-  -- Trading Capacity: TradingCapacityType
-  index, trading_capacity = memx_memxoptions_memo_sbe_v1_3.trading_capacity.dissect(buffer, index, packet, parent)
-
-  -- Mtp Group Id: uint16
-  index, mtp_group_id = memx_memxoptions_memo_sbe_v1_3.mtp_group_id.dissect(buffer, index, packet, parent)
-
-  -- Match Trade Prevention: MatchTradePreventionType
-  index, match_trade_prevention = memx_memxoptions_memo_sbe_v1_3.match_trade_prevention.dissect(buffer, index, packet, parent)
-
-  -- Cancel Group Id: uint16
-  index, cancel_group_id = memx_memxoptions_memo_sbe_v1_3.cancel_group_id.dissect(buffer, index, packet, parent)
-
-  -- Risk Group Id: uint16
-  index, risk_group_id = memx_memxoptions_memo_sbe_v1_3.risk_group_id.dissect(buffer, index, packet, parent)
-
-  -- Parties Groups: Struct of 2 fields
-  index, parties_groups = memx_memxoptions_memo_sbe_v1_3.parties_groups.dissect(buffer, index, packet, parent)
-
-  -- Two Sided Quotes Groups: Struct of 2 fields
-  index, two_sided_quotes_groups = memx_memxoptions_memo_sbe_v1_3.two_sided_quotes_groups.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Long Two Sided Bulk Quote Message
-memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_memx_memxoptions_memo_sbe_v1_3.fields.long_two_sided_bulk_quote_message, buffer(offset, 0))
-    local index = memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return memx_memxoptions_memo_sbe_v1_3.long_two_sided_bulk_quote_message.fields(buffer, offset, packet, parent)
   end
 end
 

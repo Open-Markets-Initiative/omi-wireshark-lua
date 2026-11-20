@@ -25,8 +25,8 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.computer_id = ProtoFie
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.end_sequence_number = ProtoField.new("End Sequence Number", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.endsequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the last packet to be retransmitted")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.event_reason = ProtoField.new("Event Reason", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.eventreason", ftypes.STRING, nil, nil, nil, "Event Reason value")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.expectedeventtimenanosecondspart", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in \"Expected Event Time Seconds\" field.")
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.expected_event_time_seconds_part_utc = ProtoField.new("Expected Event Time Seconds Part", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.expectedeventtimesecondspart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.expiration_date = ProtoField.new("Expiration Date", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
@@ -72,8 +72,8 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.reserved_8 = ProtoFiel
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.restricted_option = ProtoField.new("Restricted Option", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.restrictedoption", ftypes.STRING, nil, nil, nil, "Restricted Option value")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The SesM client uses this packet to request a retransmission server to retransmit a range of packets")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.sapphire_bbo_posting_increment_indicator = ProtoField.new("Sapphire Bbo Posting Increment Indicator", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.sapphirebbopostingincrementindicator", ftypes.STRING, nil, nil, nil, "This is the Minimum Price Variation as agreed to by the Options industry (penny pilot program) and as published by Sapphire")
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.seconds = ProtoField.new("Seconds", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.seconds_utc = ProtoField.new("Seconds", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.seconds = ProtoField.new("Seconds", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.security_symbol = ProtoField.new("Security Symbol", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.sequence_number = ProtoField.new("Sequence Number", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.sequencenumber", ftypes.UINT64, nil, nil, nil, "Original sequence number from the live feed (for P/U/S/C refreshes); for Order Book Refresh, the last sequence number on the live feed at the time of the refresh request.")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.sapphireoptions.liquidityfeed.mach.v1.0.b.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The SesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
@@ -148,7 +148,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_sapphireoptions_liquidityfeed_mach_v1_0_b.timestamp_format = 2
+miax_sapphireoptions_liquidityfeed_mach_v1_0_b.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -173,7 +173,7 @@ omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.prefs.show_headers = Pref.boo
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_sapphireoptions_liquidityfeed_mach_v1_0_b.prefs_changed()

@@ -33,8 +33,8 @@ omi_eurex_t7_edci_fbe_v14_1.fields.cust_order_handling_inst = ProtoField.new("Cu
 omi_eurex_t7_edci_fbe_v14_1.fields.cxl_qty = ProtoField.new("Cxl Qty", "eurex.t7.edci.fbe.v14.1.cxlqty", ftypes.DOUBLE)
 omi_eurex_t7_edci_fbe_v14_1.fields.default_cstm_appl_ver_id = ProtoField.new("Default Cstm Appl Ver Id", "eurex.t7.edci.fbe.v14.1.defaultcstmapplverid", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.default_cstm_appl_ver_sub_id = ProtoField.new("Default Cstm Appl Ver Sub Id", "eurex.t7.edci.fbe.v14.1.defaultcstmapplversubid", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v14_1.fields.exec_id = ProtoField.new("Exec Id", "eurex.t7.edci.fbe.v14.1.execid", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_edci_fbe_v14_1.fields.exec_id_utc = ProtoField.new("Exec Id", "eurex.t7.edci.fbe.v14.1.execid.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_edci_fbe_v14_1.fields.exec_id = ProtoField.new("Exec Id", "eurex.t7.edci.fbe.v14.1.execid", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_edci_fbe_v14_1.fields.exec_inst = ProtoField.new("Exec Inst", "eurex.t7.edci.fbe.v14.1.execinst", ftypes.UINT8)
 omi_eurex_t7_edci_fbe_v14_1.fields.exec_type = ProtoField.new("Exec Type", "eurex.t7.edci.fbe.v14.1.exectype", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.executing_trader = ProtoField.new("Executing Trader", "eurex.t7.edci.fbe.v14.1.executingtrader", ftypes.UINT64)
@@ -92,13 +92,13 @@ omi_eurex_t7_edci_fbe_v14_1.fields.price = ProtoField.new("Price", "eurex.t7.edc
 omi_eurex_t7_edci_fbe_v14_1.fields.product_complex = ProtoField.new("Product Complex", "eurex.t7.edci.fbe.v14.1.productcomplex", ftypes.UINT8)
 omi_eurex_t7_edci_fbe_v14_1.fields.rbc_header_comp = ProtoField.new("Rbc Header Comp", "eurex.t7.edci.fbe.v14.1.rbcheadercomp", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.request_header_comp = ProtoField.new("Request Header Comp", "eurex.t7.edci.fbe.v14.1.requestheadercomp", ftypes.STRING)
-omi_eurex_t7_edci_fbe_v14_1.fields.request_time = ProtoField.new("Request Time", "eurex.t7.edci.fbe.v14.1.requesttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_edci_fbe_v14_1.fields.request_time_utc = ProtoField.new("Request Time", "eurex.t7.edci.fbe.v14.1.requesttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_edci_fbe_v14_1.fields.request_time = ProtoField.new("Request Time", "eurex.t7.edci.fbe.v14.1.requesttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_edci_fbe_v14_1.fields.response_header_comp = ProtoField.new("Response Header Comp", "eurex.t7.edci.fbe.v14.1.responseheadercomp", ftypes.STRING)
 omi_eurex_t7_edci_fbe_v14_1.fields.security_id = ProtoField.new("Security Id", "eurex.t7.edci.fbe.v14.1.securityid", ftypes.INT64)
 omi_eurex_t7_edci_fbe_v14_1.fields.self_match_prevention_instruction = ProtoField.new("Self Match Prevention Instruction", "eurex.t7.edci.fbe.v14.1.selfmatchpreventioninstruction", ftypes.UINT8)
-omi_eurex_t7_edci_fbe_v14_1.fields.sending_time = ProtoField.new("Sending Time", "eurex.t7.edci.fbe.v14.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_edci_fbe_v14_1.fields.sending_time_utc = ProtoField.new("Sending Time", "eurex.t7.edci.fbe.v14.1.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_edci_fbe_v14_1.fields.sending_time = ProtoField.new("Sending Time", "eurex.t7.edci.fbe.v14.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_edci_fbe_v14_1.fields.session_instance_id = ProtoField.new("Session Instance Id", "eurex.t7.edci.fbe.v14.1.sessioninstanceid", ftypes.UINT32)
 omi_eurex_t7_edci_fbe_v14_1.fields.session_mode = ProtoField.new("Session Mode", "eurex.t7.edci.fbe.v14.1.sessionmode", ftypes.UINT8)
 omi_eurex_t7_edci_fbe_v14_1.fields.session_reject_reason = ProtoField.new("Session Reject Reason", "eurex.t7.edci.fbe.v14.1.sessionrejectreason", ftypes.UINT32)
@@ -161,7 +161,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-eurex_t7_edci_fbe_v14_1.timestamp_format = 2
+eurex_t7_edci_fbe_v14_1.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -196,7 +196,7 @@ omi_eurex_t7_edci_fbe_v14_1.prefs.show_headers = Pref.bool("Show Headers", show.
 omi_eurex_t7_edci_fbe_v14_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_eurex_t7_edci_fbe_v14_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_eurex_t7_edci_fbe_v14_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_eurex_t7_edci_fbe_v14_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_eurex_t7_edci_fbe_v14_1.prefs_changed()

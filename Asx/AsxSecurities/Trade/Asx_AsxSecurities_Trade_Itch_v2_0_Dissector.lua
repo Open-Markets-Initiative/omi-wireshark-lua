@@ -70,8 +70,8 @@ omi_asx_asxsecurities_trade_itch_v2_0.fields.reserved_10_bits = ProtoField.new("
 omi_asx_asxsecurities_trade_itch_v2_0.fields.reserved_2_bits = ProtoField.new("Reserved 2 Bits", "asx.asxsecurities.trade.itch.v2.0.reserved2bits", ftypes.UINT16, nil, base.DEC, 0x0003, "Reserved")
 omi_asx_asxsecurities_trade_itch_v2_0.fields.reserved_bit = ProtoField.new("Reserved Bit", "asx.asxsecurities.trade.itch.v2.0.reservedbit", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0010)
 omi_asx_asxsecurities_trade_itch_v2_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "asx.asxsecurities.trade.itch.v2.0.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the number of shares that represent a round lot for the order book.")
-omi_asx_asxsecurities_trade_itch_v2_0.fields.second = ProtoField.new("Second", "asx.asxsecurities.trade.itch.v2.0.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
 omi_asx_asxsecurities_trade_itch_v2_0.fields.second_utc = ProtoField.new("Second", "asx.asxsecurities.trade.itch.v2.0.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
+omi_asx_asxsecurities_trade_itch_v2_0.fields.second = ProtoField.new("Second", "asx.asxsecurities.trade.itch.v2.0.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
 omi_asx_asxsecurities_trade_itch_v2_0.fields.sequence_number = ProtoField.new("Sequence Number", "asx.asxsecurities.trade.itch.v2.0.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_asx_asxsecurities_trade_itch_v2_0.fields.session = ProtoField.new("Session", "asx.asxsecurities.trade.itch.v2.0.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_asx_asxsecurities_trade_itch_v2_0.fields.side = ProtoField.new("Side", "asx.asxsecurities.trade.itch.v2.0.side", ftypes.STRING, nil, nil, nil, "The type of order being added.")
@@ -125,7 +125,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-asx_asxsecurities_trade_itch_v2_0.timestamp_format = 2
+asx_asxsecurities_trade_itch_v2_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -148,7 +148,7 @@ omi_asx_asxsecurities_trade_itch_v2_0.prefs.show_headers = Pref.bool("Show Heade
 omi_asx_asxsecurities_trade_itch_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_asx_asxsecurities_trade_itch_v2_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_asx_asxsecurities_trade_itch_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_asx_asxsecurities_trade_itch_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_asx_asxsecurities_trade_itch_v2_0.prefs_changed()

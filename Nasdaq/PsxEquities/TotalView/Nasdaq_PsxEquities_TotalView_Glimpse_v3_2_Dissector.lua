@@ -85,6 +85,17 @@ omi_nasdaq_psxequities_totalview_glimpse_v3_2.experts = { nasdaq_psxequities_tot
 -- Nasdaq PsxEquities TotalView Glimpse 3.2 Formatting
 -----------------------------------------------------------------------
 
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
+nasdaq_psxequities_totalview_glimpse_v3_2.timestamp_format = 3
+
 -- assumed connection role
 local role_enum = {
   { 1, "Resolve from the conversation", 0 },
@@ -114,6 +125,8 @@ omi_nasdaq_psxequities_totalview_glimpse_v3_2.prefs.show_structs = Pref.bool("Sh
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_psxequities_totalview_glimpse_v3_2.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
+omi_nasdaq_psxequities_totalview_glimpse_v3_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_nasdaq_psxequities_totalview_glimpse_v3_2.prefs_changed()
 
@@ -129,6 +142,9 @@ function omi_nasdaq_psxequities_totalview_glimpse_v3_2.prefs_changed()
   end
   if show.structs ~= omi_nasdaq_psxequities_totalview_glimpse_v3_2.prefs.show_structs then
     show.structs = omi_nasdaq_psxequities_totalview_glimpse_v3_2.prefs.show_structs
+  end
+  if nasdaq_psxequities_totalview_glimpse_v3_2.timestamp_format ~= omi_nasdaq_psxequities_totalview_glimpse_v3_2.prefs.timestamp_format then
+    nasdaq_psxequities_totalview_glimpse_v3_2.timestamp_format = omi_nasdaq_psxequities_totalview_glimpse_v3_2.prefs.timestamp_format
   end
 end
 
@@ -920,8 +936,37 @@ nasdaq_psxequities_totalview_glimpse_v3_2.second = {}
 nasdaq_psxequities_totalview_glimpse_v3_2.second.size = 5
 
 -- Display: Second
-nasdaq_psxequities_totalview_glimpse_v3_2.second.display = function(value)
-  return "Second: "..value
+nasdaq_psxequities_totalview_glimpse_v3_2.second.display = function(value, buffer, offset, packet, parent)
+  -- A field wide enough for a 64 bit ftype reads as a UInt64 object, a narrow one as a number
+  local count = type(value) == "number" and value or tonumber(tostring(value))
+
+  -- Digits no reader could make a number of
+  if count == nil then
+    return "Second: "..tostring(value)
+  end
+
+  if nasdaq_psxequities_totalview_glimpse_v3_2.timestamp_format == 0 then
+    return "Second: "..value
+  end
+
+  local seconds = count
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if nasdaq_psxequities_totalview_glimpse_v3_2.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local format = nasdaq_psxequities_totalview_glimpse_v3_2.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S" or "%Y-%m-%d %H:%M:%S"
+      return "Second: "..os.date(format, settled + seconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Second: "..os.date("!%H:%M:%S", seconds)
 end
 
 -- Dissect: Second

@@ -27,8 +27,8 @@ omi_six_sixswissexchange_totalview_itch_v1_24_0.fields.delisting_time = ProtoFie
 omi_six_sixswissexchange_totalview_itch_v1_24_0.fields.event_code = ProtoField.new("Event Code", "six.sixswissexchange.totalview.itch.v1.24.0.eventcode", ftypes.STRING)
 omi_six_sixswissexchange_totalview_itch_v1_24_0.fields.executed_quantity = ProtoField.new("Executed Quantity", "six.sixswissexchange.totalview.itch.v1.24.0.executedquantity", ftypes.UINT32, nil, nil, nil, "The number of units executed")
 omi_six_sixswissexchange_totalview_itch_v1_24_0.fields.execution_price = ProtoField.new("Execution Price", "six.sixswissexchange.totalview.itch.v1.24.0.executionprice", ftypes.UINT32, nil, nil, nil, "The price at which the execution occurred")
-omi_six_sixswissexchange_totalview_itch_v1_24_0.fields.execution_time = ProtoField.new("Execution Time", "six.sixswissexchange.totalview.itch.v1.24.0.executiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "In case of delayed trade publication the nanoseconds since epoch (UTC); 0 in case of immediate trade publication")
 omi_six_sixswissexchange_totalview_itch_v1_24_0.fields.execution_time_utc = ProtoField.new("Execution Time", "six.sixswissexchange.totalview.itch.v1.24.0.executiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "In case of delayed trade publication the nanoseconds since epoch (UTC); 0 in case of immediate trade publication")
+omi_six_sixswissexchange_totalview_itch_v1_24_0.fields.execution_time = ProtoField.new("Execution Time", "six.sixswissexchange.totalview.itch.v1.24.0.executiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "In case of delayed trade publication the nanoseconds since epoch (UTC); 0 in case of immediate trade publication")
 omi_six_sixswissexchange_totalview_itch_v1_24_0.fields.far_price = ProtoField.new("Far Price", "six.sixswissexchange.totalview.itch.v1.24.0.farprice", ftypes.UINT32, nil, nil, nil, "Worst price executed in the matching cycle in CLOB/QDM")
 omi_six_sixswissexchange_totalview_itch_v1_24_0.fields.far_quantity_remaining = ProtoField.new("Far Quantity Remaining", "six.sixswissexchange.totalview.itch.v1.24.0.farquantityremaining", ftypes.UINT32, nil, nil, nil, "The CLOB/QDM quantity remaining at Far Price")
 omi_six_sixswissexchange_totalview_itch_v1_24_0.fields.far_side = ProtoField.new("Far Side", "six.sixswissexchange.totalview.itch.v1.24.0.farside", ftypes.STRING, nil, nil, nil, "Indicates the side of the CLOB/QDM orderbook for Far Price and Far Quantity Remaining")
@@ -125,7 +125,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-six_sixswissexchange_totalview_itch_v1_24_0.timestamp_format = 2
+six_sixswissexchange_totalview_itch_v1_24_0.timestamp_format = 3
 
 -- Scaled Order Price format (true = decimal-scaled, false = raw mantissa)
 six_sixswissexchange_totalview_itch_v1_24_0.format_decimals = true
@@ -154,7 +154,7 @@ omi_six_sixswissexchange_totalview_itch_v1_24_0.prefs.show_indexes = Pref.bool("
 omi_six_sixswissexchange_totalview_itch_v1_24_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_six_sixswissexchange_totalview_itch_v1_24_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_six_sixswissexchange_totalview_itch_v1_24_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_six_sixswissexchange_totalview_itch_v1_24_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_six_sixswissexchange_totalview_itch_v1_24_0.prefs_changed()

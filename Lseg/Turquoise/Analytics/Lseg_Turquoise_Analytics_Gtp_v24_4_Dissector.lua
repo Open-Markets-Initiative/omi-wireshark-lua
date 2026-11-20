@@ -26,8 +26,8 @@ omi_lseg_turquoise_analytics_gtp_v24_4.fields.buy_order_size = ProtoField.new("B
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.currency = ProtoField.new("Currency", "lseg.turquoise.analytics.gtp.v24.4.currency", ftypes.STRING, nil, nil, nil, "Currency Code as per ISO 4217.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.turquoise.analytics.gtp.v24.4.dynamiccircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Dynamic Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.turquoise.analytics.gtp.v24.4.electronicorderbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
-omi_lseg_turquoise_analytics_gtp_v24_4.fields.end_time = ProtoField.new("End Time", "lseg.turquoise.analytics.gtp.v24.4.endtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message ended.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.end_time_utc = ProtoField.new("End Time", "lseg.turquoise.analytics.gtp.v24.4.endtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the calculation of the statistics on this message ended.")
+omi_lseg_turquoise_analytics_gtp_v24_4.fields.end_time = ProtoField.new("End Time", "lseg.turquoise.analytics.gtp.v24.4.endtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message ended.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.event_code = ProtoField.new("Event Code", "lseg.turquoise.analytics.gtp.v24.4.eventcode", ftypes.STRING)
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.instrument = ProtoField.new("Instrument", "lseg.turquoise.analytics.gtp.v24.4.instrument", ftypes.UINT64, nil, nil, nil, "GTP Instrument identifier.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.isin = ProtoField.new("Isin", "lseg.turquoise.analytics.gtp.v24.4.isin", ftypes.STRING, nil, nil, nil, "ISIN Code of an instrument.")
@@ -55,13 +55,13 @@ omi_lseg_turquoise_analytics_gtp_v24_4.fields.sell_order_size = ProtoField.new("
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.turquoise.analytics.gtp.v24.4.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the first payload message")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.turquoise.analytics.gtp.v24.4.sessionchangereason", ftypes.UINT8, nil, nil, nil, "Reason the trading session changed.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.source_venue = ProtoField.new("Source Venue", "lseg.turquoise.analytics.gtp.v24.4.sourcevenue", ftypes.UINT16, nil, nil, nil, "Venue from which market data is received for the instrument")
-omi_lseg_turquoise_analytics_gtp_v24_4.fields.start_time = ProtoField.new("Start Time", "lseg.turquoise.analytics.gtp.v24.4.starttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message began.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.start_time_utc = ProtoField.new("Start Time", "lseg.turquoise.analytics.gtp.v24.4.starttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the calculation of the statistics on this message began.")
+omi_lseg_turquoise_analytics_gtp_v24_4.fields.start_time = ProtoField.new("Start Time", "lseg.turquoise.analytics.gtp.v24.4.starttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message began.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.turquoise.analytics.gtp.v24.4.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Static Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.turquoise.analytics.gtp.v24.4.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.analytics.gtp.v24.4.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_turquoise_analytics_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.analytics.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.turquoise.analytics.gtp.v24.4.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_turquoise_analytics_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.analytics.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.analytics.gtp.v24.4.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status of the instrument.")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.analytics.gtp.v24.4.unused3", ftypes.UINT8, nil, base.DEC, 0x07, "Unused")
 omi_lseg_turquoise_analytics_gtp_v24_4.fields.unused_4 = ProtoField.new("Unused 4", "lseg.turquoise.analytics.gtp.v24.4.unused4", ftypes.UINT8, nil, base.DEC, 0xF0, "Unused")
@@ -100,7 +100,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_turquoise_analytics_gtp_v24_4.timestamp_format = 2
+lseg_turquoise_analytics_gtp_v24_4.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -123,7 +123,7 @@ omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_headers = Pref.bool("Show Head
 omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_turquoise_analytics_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_turquoise_analytics_gtp_v24_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_turquoise_analytics_gtp_v24_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_turquoise_analytics_gtp_v24_4.prefs_changed()

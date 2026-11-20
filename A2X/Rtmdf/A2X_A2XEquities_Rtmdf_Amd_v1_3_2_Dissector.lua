@@ -45,8 +45,8 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.test_stock = ProtoField.new("Test St
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.threshold = ProtoField.new("Threshold", "a2x.a2xequities.rtmdf.amd.v1.3.2.threshold", ftypes.DOUBLE, nil, nil, nil, "The price threshold at which this tick data applies")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.tick_size = ProtoField.new("Tick Size", "a2x.a2xequities.rtmdf.amd.v1.3.2.ticksize", ftypes.DOUBLE, nil, nil, nil, "The tick size (price increment)")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.tick_table_id = ProtoField.new("Tick Table Id", "a2x.a2xequities.rtmdf.amd.v1.3.2.ticktableid", ftypes.UINT8, nil, nil, nil, "Numeric identifier for this tick table or static tick")
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.rtmdf.amd.v1.3.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this market data event")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp_utc = ProtoField.new("Timestamp", "a2x.a2xequities.rtmdf.amd.v1.3.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of this market data event")
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.timestamp = ProtoField.new("Timestamp", "a2x.a2xequities.rtmdf.amd.v1.3.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of this market data event")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_ref = ProtoField.new("Trade Ref", "a2x.a2xequities.rtmdf.amd.v1.3.2.traderef", ftypes.UINT32, nil, nil, nil, "Trade reference number")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.trade_type = ProtoField.new("Trade Type", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradetype", ftypes.UINT8, nil, nil, nil, "Code identifying type of trade")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.fields.traded_quantity = ProtoField.new("Quantity", "a2x.a2xequities.rtmdf.amd.v1.3.2.tradedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares traded")
@@ -94,7 +94,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp_format = 2
+a2x_a2xequities_rtmdf_amd_v1_3_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -115,7 +115,7 @@ omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_structs = Pref.bool("Show Struct
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_a2x_a2xequities_rtmdf_amd_v1_3_2.prefs_changed()

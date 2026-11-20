@@ -28,8 +28,8 @@ omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.client_sequence = Prot
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.company_id = ProtoField.new("Company Id", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.companyid", ftypes.STRING, nil, nil, nil, "Up to 4 alphanumeric characters to identify the order entry firm. This field is not validated")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.exchange_message_type = ProtoField.new("Message Type", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.exchangemessagetype", ftypes.UINT16, nil, nil, nil, "type of message")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.exec_id = ProtoField.new("Exec Id", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.execid", ftypes.UINT64, nil, nil, nil, "Execution Id. Unique across all matching units on a given day")
-omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.expire_time = ProtoField.new("Expire Time", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Required for GTD order (TimeInForce = 6), ExpireTime specifies the date-time (in UTC) when the order expires")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.expire_time_utc = ProtoField.new("Expire Time", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Required for GTD order (TimeInForce = 6), ExpireTime specifies the date-time (in UTC) when the order expires")
+omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.expire_time = ProtoField.new("Expire Time", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Required for GTD order (TimeInForce = 6), ExpireTime specifies the date-time (in UTC) when the order expires")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.firm_message_type = ProtoField.new("Message Type", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.firmmessagetype", ftypes.UINT16, nil, nil, nil, "type of message")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.last_capacity = ProtoField.new("Last Capacity", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.lastcapacity", ftypes.STRING, nil, nil, nil, "Capacity of the order")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.last_px = ProtoField.new("Last Px", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.lastpx", ftypes.DOUBLE, nil, nil, nil, "Price of this fill")
@@ -73,8 +73,8 @@ omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.symbol = ProtoField.ne
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.text = ProtoField.new("Text", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.text", ftypes.STRING, nil, nil, nil, "Human readable text with more information")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.time_in_force = ProtoField.new("Time In Force", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.timeinforce", ftypes.STRING)
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.trading_firm = ProtoField.new("Trading Firm", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.tradingfirm", ftypes.STRING, nil, nil, nil, "The four-character identifier of the trading firm")
-omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the Matching Engine (not the time the message was sent)")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the Matching Engine (not the time the message was sent)")
+omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the Matching Engine (not the time the message was sent)")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.unit_number = ProtoField.new("Unit Number", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.unitnumber", ftypes.UINT8, nil, nil, nil, "A unit number.")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.cxjequities.binaryorderentry.boe3.v1.0.12.unitsequence", ftypes.STRING)
 
@@ -124,7 +124,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_cxjequities_binaryorderentry_boe3_v1_0_12.timestamp_format = 2
+cboe_cxjequities_binaryorderentry_boe3_v1_0_12.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -159,7 +159,7 @@ omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_session_messages =
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cxjequities_binaryorderentry_boe3_v1_0_12.prefs_changed()

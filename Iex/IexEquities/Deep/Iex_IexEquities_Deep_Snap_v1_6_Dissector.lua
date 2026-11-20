@@ -56,12 +56,12 @@ omi_iex_iexequities_deep_snap_v1_6.fields.reserved = ProtoField.new("Reserved", 
 omi_iex_iexequities_deep_snap_v1_6.fields.retail_liquidity_indicator = ProtoField.new("Retail Liquidity Indicator", "iex.iexequities.deep.snap.v1.6.retailliquidityindicator", ftypes.STRING, nil, nil, nil, "Retail Liquidity Indicator identifier")
 omi_iex_iexequities_deep_snap_v1_6.fields.round_lot_size = ProtoField.new("Round Lot Size", "iex.iexequities.deep.snap.v1.6.roundlotsize", ftypes.UINT32, nil, nil, nil, "Number of shares that represent a round lot")
 omi_iex_iexequities_deep_snap_v1_6.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.iexequities.deep.snap.v1.6.saleconditionflags", ftypes.STRING)
-omi_iex_iexequities_deep_snap_v1_6.fields.scheduled_auction_time = ProtoField.new("Scheduled Auction Time", "iex.iexequities.deep.snap.v1.6.scheduledauctiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Projected time of the auction match")
 omi_iex_iexequities_deep_snap_v1_6.fields.scheduled_auction_time_utc = ProtoField.new("Scheduled Auction Time", "iex.iexequities.deep.snap.v1.6.scheduledauctiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Projected time of the auction match")
+omi_iex_iexequities_deep_snap_v1_6.fields.scheduled_auction_time = ProtoField.new("Scheduled Auction Time", "iex.iexequities.deep.snap.v1.6.scheduledauctiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Projected time of the auction match")
 omi_iex_iexequities_deep_snap_v1_6.fields.security_directory_flags = ProtoField.new("Security Directory Flags", "iex.iexequities.deep.snap.v1.6.securitydirectoryflags", ftypes.STRING)
 omi_iex_iexequities_deep_snap_v1_6.fields.security_event = ProtoField.new("Security Event", "iex.iexequities.deep.snap.v1.6.securityevent", ftypes.STRING, nil, nil, nil, "Security event identifier")
-omi_iex_iexequities_deep_snap_v1_6.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.deep.snap.v1.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_iex_iexequities_deep_snap_v1_6.fields.send_time_utc = ProtoField.new("Send Time", "iex.iexequities.deep.snap.v1.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
+omi_iex_iexequities_deep_snap_v1_6.fields.send_time = ProtoField.new("Send Time", "iex.iexequities.deep.snap.v1.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_iex_iexequities_deep_snap_v1_6.fields.session_id = ProtoField.new("Session Id", "iex.iexequities.deep.snap.v1.6.sessionid", ftypes.UINT32, nil, nil, nil, "Session identifier from the Deep feed IexTp header")
 omi_iex_iexequities_deep_snap_v1_6.fields.short_sale_price_test_status = ProtoField.new("Short Sale Price Test Status", "iex.iexequities.deep.snap.v1.6.shortsalepriceteststatus", ftypes.UINT8, nil, nil, nil, "Reg. SHO short sale price test restriction status")
 omi_iex_iexequities_deep_snap_v1_6.fields.single_price_cross_trade = ProtoField.new("Single Price Cross Trade", "iex.iexequities.deep.snap.v1.6.singlepricecrosstrade", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Trade resulting from a single-price cross")
@@ -72,8 +72,8 @@ omi_iex_iexequities_deep_snap_v1_6.fields.stream_offset = ProtoField.new("Stream
 omi_iex_iexequities_deep_snap_v1_6.fields.symbol = ProtoField.new("Symbol", "iex.iexequities.deep.snap.v1.6.symbol", ftypes.STRING, nil, nil, nil, "Security identifier")
 omi_iex_iexequities_deep_snap_v1_6.fields.system_event = ProtoField.new("System Event", "iex.iexequities.deep.snap.v1.6.systemevent", ftypes.STRING, nil, nil, nil, "System event identifier")
 omi_iex_iexequities_deep_snap_v1_6.fields.test_security = ProtoField.new("Test Security", "iex.iexequities.deep.snap.v1.6.testsecurity", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Symbol is a test security")
-omi_iex_iexequities_deep_snap_v1_6.fields.timestamp = ProtoField.new("Timestamp", "iex.iexequities.deep.snap.v1.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamp of the system event")
 omi_iex_iexequities_deep_snap_v1_6.fields.timestamp_utc = ProtoField.new("Timestamp", "iex.iexequities.deep.snap.v1.6.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time stamp of the system event")
+omi_iex_iexequities_deep_snap_v1_6.fields.timestamp = ProtoField.new("Timestamp", "iex.iexequities.deep.snap.v1.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamp of the system event")
 omi_iex_iexequities_deep_snap_v1_6.fields.trade_id = ProtoField.new("Trade Id", "iex.iexequities.deep.snap.v1.6.tradeid", ftypes.UINT64, nil, nil, nil, "IEX Generated Identifier. Trade ID is also")
 omi_iex_iexequities_deep_snap_v1_6.fields.trade_through_exempt = ProtoField.new("Trade Through Exempt", "iex.iexequities.deep.snap.v1.6.tradethroughexempt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Trade is not subject to Rule 611")
 omi_iex_iexequities_deep_snap_v1_6.fields.trading_status = ProtoField.new("Trading Status", "iex.iexequities.deep.snap.v1.6.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading status identifier")
@@ -124,7 +124,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-iex_iexequities_deep_snap_v1_6.timestamp_format = 2
+iex_iexequities_deep_snap_v1_6.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -145,7 +145,7 @@ omi_iex_iexequities_deep_snap_v1_6.prefs.show_structs = Pref.bool("Show Structs"
 omi_iex_iexequities_deep_snap_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_iex_iexequities_deep_snap_v1_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_iex_iexequities_deep_snap_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_iex_iexequities_deep_snap_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_iex_iexequities_deep_snap_v1_6.prefs_changed()

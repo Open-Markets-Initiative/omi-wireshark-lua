@@ -16,8 +16,8 @@ local b3_b3derivatives_binaryumdf_sbe_v2_3 = {}
 
 -- B3 B3Derivatives BinaryUmdf Sbe 2.3 Fields
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.aggressor_side = ProtoField.new("Aggressor Side", "b3.b3derivatives.binaryumdf.sbe.v2.3.aggressorside", ftypes.UINT8, nil, nil, nil, "aggressorSide")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.aggressor_time = ProtoField.new("Aggressor Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.aggressortime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "aggressorTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.aggressor_time_utc = ProtoField.new("Aggressor Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.aggressortime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "aggressorTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.aggressor_time = ProtoField.new("Aggressor Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.aggressortime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "aggressorTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.asset = ProtoField.new("Asset", "b3.b3derivatives.binaryumdf.sbe.v2.3.asset", ftypes.STRING)
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.avg_daily_traded_qty = ProtoField.new("Avg Daily Traded Qty", "b3.b3derivatives.binaryumdf.sbe.v2.3.avgdailytradedqty", ftypes.INT64, nil, nil, nil, "avgDailyTradedQty")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.block_length = ProtoField.new("Block Length", "b3.b3derivatives.binaryumdf.sbe.v2.3.blocklength", ftypes.UINT16, nil, nil, nil, "blockLength")
@@ -89,12 +89,12 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_entry_prev_size = ProtoField.
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_entry_seller = ProtoField.new("Md Entry Seller", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdentryseller", ftypes.UINT32, nil, nil, nil, "mDEntrySeller")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_entry_size = ProtoField.new("Md Entry Size", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdentrysize", ftypes.INT64, nil, nil, nil, "mDEntrySize")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_entry_size_optional = ProtoField.new("Md Entry Size Optional", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdentrysizeoptional", ftypes.INT64, nil, nil, nil, "mDEntrySize")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_entry_timestamp = ProtoField.new("Md Entry Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdentrytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "mDEntryTimestamp")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_entry_timestamp_utc = ProtoField.new("Md Entry Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdentrytimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "mDEntryTimestamp")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_entry_timestamp = ProtoField.new("Md Entry Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdentrytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "mDEntryTimestamp")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_entry_type = ProtoField.new("Md Entry Type", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdentrytype", ftypes.STRING, nil, nil, nil, "mDEntryType")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_future_price = ProtoField.new("Md Future Price", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdfutureprice", ftypes.DOUBLE, nil, nil, nil, "mDEntryPx")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_insert_timestamp = ProtoField.new("Md Insert Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdinserttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "mDInsertTimestamp")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_insert_timestamp_utc = ProtoField.new("Md Insert Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdinserttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "mDInsertTimestamp")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_insert_timestamp = ProtoField.new("Md Insert Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdinserttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "mDInsertTimestamp")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.md_update_action = ProtoField.new("Md Update Action", "b3.b3derivatives.binaryumdf.sbe.v2.3.mdupdateaction", ftypes.UINT8, nil, nil, nil, "mDUpdateAction")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.message_length = ProtoField.new("Message Length", "b3.b3derivatives.binaryumdf.sbe.v2.3.messagelength", ftypes.UINT16, nil, nil, nil, "Overall message length including framing and SBE headers")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.min_cross_qty = ProtoField.new("Min Cross Qty", "b3.b3derivatives.binaryumdf.sbe.v2.3.mincrossqty", ftypes.INT64, nil, nil, nil, "minCrossQty")
@@ -130,8 +130,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.open_close_settl_flag = ProtoFie
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.open_close_settl_flag_optional = ProtoField.new("Open Close Settl Flag Optional", "b3.b3derivatives.binaryumdf.sbe.v2.3.openclosesettlflagoptional", ftypes.UINT8, nil, nil, nil, "openCloseSettlFlag")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.opening_price = ProtoField.new("Opening Price", "b3.b3derivatives.binaryumdf.sbe.v2.3.openingprice", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "OpeningPrice")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.opt_payout_type = ProtoField.new("Opt Payout Type", "b3.b3derivatives.binaryumdf.sbe.v2.3.optpayouttype", ftypes.UINT8, nil, nil, nil, "optPayoutType")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "origTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.orig_time_utc = ProtoField.new("Orig Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "origTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "origTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.out_of_sequence = ProtoField.new("Out Of Sequence", "b3.b3derivatives.binaryumdf.sbe.v2.3.outofsequence", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "OutOfSequence")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.packet_reserved = ProtoField.new("Packet Reserved", "b3.b3derivatives.binaryumdf.sbe.v2.3.packetreserved", ftypes.UINT8, nil, nil, nil, "Packet Reserved Field")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.padding_2 = ProtoField.new("Padding 2", "b3.b3derivatives.binaryumdf.sbe.v2.3.padding2", ftypes.BYTES, nil, nil, nil, "2 bytes padding")
@@ -169,8 +169,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.security_type = ProtoField.new("
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.security_update_action = ProtoField.new("Security Update Action", "b3.b3derivatives.binaryumdf.sbe.v2.3.securityupdateaction", ftypes.STRING, nil, nil, nil, "securityUpdateAction")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.security_validity_timestamp = ProtoField.new("Security Validity Timestamp", "b3.b3derivatives.binaryumdf.sbe.v2.3.securityvaliditytimestamp", ftypes.INT64, nil, nil, nil, "securityValidityTimestamp")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.seller_days = ProtoField.new("Seller Days", "b3.b3derivatives.binaryumdf.sbe.v2.3.sellerdays", ftypes.UINT16, nil, nil, nil, "sellerDays")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.sending_time_utc = ProtoField.new("Sending Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.sequence_number = ProtoField.new("Sequence Number", "b3.b3derivatives.binaryumdf.sbe.v2.3.sequencenumber", ftypes.UINT32, nil, nil, nil, "Packet Sequence Number")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.sequence_version = ProtoField.new("Sequence Version", "b3.b3derivatives.binaryumdf.sbe.v2.3.sequenceversion", ftypes.UINT16, nil, nil, nil, "Packet Sequence Version")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.settl_currency = ProtoField.new("Settl Currency", "b3.b3derivatives.binaryumdf.sbe.v2.3.settlcurrency", ftypes.STRING, nil, nil, nil, "settlCurrency")
@@ -195,8 +195,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.tot_num_offers = ProtoField.new(
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "b3.b3derivatives.binaryumdf.sbe.v2.3.totnumreports", ftypes.UINT32, nil, nil, nil, "totNumReports")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.tot_num_stats = ProtoField.new("Tot Num Stats", "b3.b3derivatives.binaryumdf.sbe.v2.3.totnumstats", ftypes.UINT16, nil, nil, nil, "totNumStats")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.total_text_length = ProtoField.new("Total Text Length", "b3.b3derivatives.binaryumdf.sbe.v2.3.totaltextlength", ftypes.UINT32, nil, nil, nil, "totalTextLength")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.trad_ses_open_time = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.tradsesopentime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "tradSesOpenTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.trad_ses_open_time_utc = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.tradsesopentime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "tradSesOpenTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.trad_ses_open_time = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.tradsesopentime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "tradSesOpenTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.trade_condition = ProtoField.new("Trade Condition", "b3.b3derivatives.binaryumdf.sbe.v2.3.tradecondition", ftypes.STRING, nil, nil, nil, "TradeCondition bit set")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.trade_date = ProtoField.new("Trade Date", "b3.b3derivatives.binaryumdf.sbe.v2.3.tradedate", ftypes.UINT16, nil, nil, nil, "tradeDate")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.trade_id = ProtoField.new("Trade Id", "b3.b3derivatives.binaryumdf.sbe.v2.3.tradeid", ftypes.UINT32, nil, nil, nil, "tradeID")
@@ -206,8 +206,8 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.traded_hidden_qty = ProtoField.n
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "b3.b3derivatives.binaryumdf.sbe.v2.3.tradingreferenceprice", ftypes.DOUBLE, nil, nil, nil, "tradingReferencePrice")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.trading_session_id = ProtoField.new("Trading Session Id", "b3.b3derivatives.binaryumdf.sbe.v2.3.tradingsessionid", ftypes.UINT8, nil, nil, nil, "tradingSessionID")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "b3.b3derivatives.binaryumdf.sbe.v2.3.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "tradingSessionSubID")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.transact_time = ProtoField.new("Transact Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.transact_time_utc = ProtoField.new("Transact Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.transact_time = ProtoField.new("Transact Time", "b3.b3derivatives.binaryumdf.sbe.v2.3.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "b3.b3derivatives.binaryumdf.sbe.v2.3.trdsubtype", ftypes.UINT8, nil, nil, nil, "trdSubType")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "b3.b3derivatives.binaryumdf.sbe.v2.3.underlyingsecurityid", ftypes.UINT64, nil, nil, nil, "Underlying instrument's security ID.")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "b3.b3derivatives.binaryumdf.sbe.v2.3.underlyingsymbol", ftypes.STRING, nil, nil, nil, "Underlying instrument's ticker symbol.")
@@ -286,7 +286,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-b3_b3derivatives_binaryumdf_sbe_v2_3.timestamp_format = 2
+b3_b3derivatives_binaryumdf_sbe_v2_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -311,7 +311,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_3.prefs.show_headers = Pref.bool("Show He
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_b3_b3derivatives_binaryumdf_sbe_v2_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_b3_b3derivatives_binaryumdf_sbe_v2_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_b3_b3derivatives_binaryumdf_sbe_v2_3.prefs_changed()

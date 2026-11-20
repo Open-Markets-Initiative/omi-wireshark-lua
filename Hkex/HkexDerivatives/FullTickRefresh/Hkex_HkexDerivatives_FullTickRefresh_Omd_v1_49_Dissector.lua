@@ -31,10 +31,10 @@ omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.contract_size = ProtoF
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.contract_size_extended = ProtoField.new("Contract Size Extended", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.contractsizeextended", ftypes.INT64, nil, nil, nil, "Number of Underlying entities per contract")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.convert_to_aggressive = ProtoField.new("Convert To Aggressive", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.converttoaggressive", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000)
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.country = ProtoField.new("Country", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.country", ftypes.UINT8, nil, nil, nil, "Country Identifier")
-omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.date_time_first_trading = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.datetimefirsttrading", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The first trading date/time of the Series in UTC timestamp (nanoseconds since 1970), precision to the nearest second. 0 = Not Applicable.")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.date_time_first_trading_utc = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.datetimefirsttrading.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The first trading date/time of the Series in UTC timestamp (nanoseconds since 1970), precision to the nearest second. 0 = Not Applicable.")
-omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.date_time_last_trading = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.datetimelasttrading", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The last trading date/time of the Series in UTC timestamp (nanoseconds since 1970), precision to the nearest second. 0 = Not Applicable.")
+omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.date_time_first_trading = ProtoField.new("Date Time First Trading", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.datetimefirsttrading", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The first trading date/time of the Series in UTC timestamp (nanoseconds since 1970), precision to the nearest second. 0 = Not Applicable.")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.date_time_last_trading_utc = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.datetimelasttrading.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The last trading date/time of the Series in UTC timestamp (nanoseconds since 1970), precision to the nearest second. 0 = Not Applicable.")
+omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.date_time_last_trading = ProtoField.new("Date Time Last Trading", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.datetimelasttrading", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The last trading date/time of the Series in UTC timestamp (nanoseconds since 1970), precision to the nearest second. 0 = Not Applicable.")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.decimal_in_contract_size = ProtoField.new("Decimal In Contract Size", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.decimalincontractsize", ftypes.UINT16, nil, nil, nil, "in the Contract Size and the")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.decimal_in_premium = ProtoField.new("Decimal In Premium", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.decimalinpremium", ftypes.UINT16, nil, nil, nil, "The number of decimals")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.decimal_in_strike_price = ProtoField.new("Decimal In Strike Price", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.decimalinstrikeprice", ftypes.UINT16, nil, nil, nil, "Number of implicit decimals")
@@ -96,8 +96,8 @@ omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.put_or_call = ProtoFie
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.quantity = ProtoField.new("Quantity", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.quantity", ftypes.UINT64, nil, nil, nil, "Shows the quantity available at Calculated Opening Price")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.ranking_type = ProtoField.new("Ranking Type", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.rankingtype", ftypes.UINT16, nil, nil, nil, "This identifies how the instrument is ranked")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.seconds_to_state_change = ProtoField.new("Seconds To State Change", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.secondstostatechange", ftypes.UINT16, nil, nil, nil, "Number of seconds to the next")
-omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.send_time_utc = ProtoField.new("Send Time", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of segment")
+omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.send_time = ProtoField.new("Send Time", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of segment")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.seq_num = ProtoField.new("Seq Num", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.series_status = ProtoField.new("Series Status", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.seriesstatus", ftypes.UINT8, nil, nil, nil, "The actual status of the series")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.fields.settlement_currency_id = ProtoField.new("Settlement Currency Id", "hkex.hkexderivatives.fulltickrefresh.omd.v1.49.settlementcurrencyid", ftypes.STRING, nil, nil, nil, "Full descriptive name of the")
@@ -166,7 +166,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-hkex_hkexderivatives_fulltickrefresh_omd_v1_49.timestamp_format = 2
+hkex_hkexderivatives_fulltickrefresh_omd_v1_49.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -189,7 +189,7 @@ omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.prefs.show_headers = Pref.boo
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_hkex_hkexderivatives_fulltickrefresh_omd_v1_49.prefs_changed()

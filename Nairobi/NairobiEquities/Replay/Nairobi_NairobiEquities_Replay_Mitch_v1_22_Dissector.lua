@@ -203,7 +203,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nairobi_nairobiequities_replay_mitch_v1_22.timestamp_format = 2
+nairobi_nairobiequities_replay_mitch_v1_22.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -226,7 +226,7 @@ omi_nairobi_nairobiequities_replay_mitch_v1_22.prefs.show_headers = Pref.bool("S
 omi_nairobi_nairobiequities_replay_mitch_v1_22.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nairobi_nairobiequities_replay_mitch_v1_22.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nairobi_nairobiequities_replay_mitch_v1_22.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nairobi_nairobiequities_replay_mitch_v1_22.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nairobi_nairobiequities_replay_mitch_v1_22.prefs_changed()

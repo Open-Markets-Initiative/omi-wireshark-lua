@@ -213,8 +213,8 @@ omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.product_summary_multiplier = Proto
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.product_type = ProtoField.new("Product Type", "gpw.wse.snapshotbbo.wats.v1.7.6.20.producttype", ftypes.UINT8, nil, nil, nil, "Type of the product")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.public_product_identification = ProtoField.new("Public Product Identification", "gpw.wse.snapshotbbo.wats.v1.7.6.20.publicproductidentification", ftypes.STRING, nil, nil, nil, "PublicProductIdentification")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.publication_order = ProtoField.new("Publication Order", "gpw.wse.snapshotbbo.wats.v1.7.6.20.publicationorder", ftypes.UINT16, nil, nil, nil, "Index publication presentation order")
-omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.publicationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time when the transaction was published by a trading venue")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.publication_timestamp_utc = ProtoField.new("Publication Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.publicationtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time when the transaction was published by a trading venue")
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.publication_timestamp = ProtoField.new("Publication Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.publicationtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time when the transaction was published by a trading venue")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.quantity = ProtoField.new("Quantity", "gpw.wse.snapshotbbo.wats.v1.7.6.20.quantity", ftypes.UINT64, nil, nil, nil, "Auction quantity (final auction volume)")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.quotation_system = ProtoField.new("Quotation System", "gpw.wse.snapshotbbo.wats.v1.7.6.20.quotationsystem", ftypes.UINT8, nil, nil, nil, "The field informing about the system of listing the instrument")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.ref_data = ProtoField.new("Ref Data", "gpw.wse.snapshotbbo.wats.v1.7.6.20.refdata", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Enable ref_data")
@@ -244,8 +244,8 @@ omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.settlement_price = ProtoField.new(
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.settlement_type = ProtoField.new("Settlement Type", "gpw.wse.snapshotbbo.wats.v1.7.6.20.settlementtype", ftypes.UINT8, nil, nil, nil, "Identifier of settlement type")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.settlement_value = ProtoField.new("Settlement Value", "gpw.wse.snapshotbbo.wats.v1.7.6.20.settlementvalue", ftypes.DOUBLE)
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.side = ProtoField.new("Side", "gpw.wse.snapshotbbo.wats.v1.7.6.20.side", ftypes.UINT8, nil, nil, nil, "Side (buy or sell)")
-omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.source_timestamp = ProtoField.new("Source Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.sourcetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time the source system generated the event, in nanoseconds since the Unix epoch")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.source_timestamp_utc = ProtoField.new("Source Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.sourcetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time the source system generated the event, in nanoseconds since the Unix epoch")
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.source_timestamp = ProtoField.new("Source Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.sourcetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time the source system generated the event, in nanoseconds since the Unix epoch")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.split = ProtoField.new("Split", "gpw.wse.snapshotbbo.wats.v1.7.6.20.split", ftypes.UINT8, nil, nil, nil, "The positive field value (true) informs that the instruments are traded the first time after the change of the nominal value of shares")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.static_collar_volatility_auction_id = ProtoField.new("Static Collar Volatility Auction Id", "gpw.wse.snapshotbbo.wats.v1.7.6.20.staticcollarvolatilityauctionid", ftypes.UINT32)
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.status = ProtoField.new("Status", "gpw.wse.snapshotbbo.wats.v1.7.6.20.status", ftypes.UINT8, nil, nil, nil, "Instrument status")
@@ -261,8 +261,8 @@ omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.threshold_max = ProtoField.new("Th
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.threshold_min = ProtoField.new("Threshold Min", "gpw.wse.snapshotbbo.wats.v1.7.6.20.thresholdmin", ftypes.DOUBLE, nil, nil, nil, "lower threshold for leveraged instruments")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.tick_size = ProtoField.new("Tick Size", "gpw.wse.snapshotbbo.wats.v1.7.6.20.ticksize", ftypes.DOUBLE, nil, nil, nil, "Size of the tick")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.tick_table_id = ProtoField.new("Tick Table Id", "gpw.wse.snapshotbbo.wats.v1.7.6.20.ticktableid", ftypes.UINT32)
-omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.timestamp = ProtoField.new("Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Exact date and time of the event, in nanoseconds since the Unix epoch. Section 12.1 states the zone, that GPW WATS runs on UTC time, and the worked example of section 6.1.4.2 states the unit, 1717902001730705137 being 9 June 2024")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.timestamp_utc = ProtoField.new("Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Exact date and time of the event, in nanoseconds since the Unix epoch. Section 12.1 states the zone, that GPW WATS runs on UTC time, and the worked example of section 6.1.4.2 states the unit, 1717902001730705137 being 9 June 2024")
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.timestamp = ProtoField.new("Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Exact date and time of the event, in nanoseconds since the Unix epoch. Section 12.1 states the zone, that GPW WATS runs on UTC time, and the worked example of section 6.1.4.2 states the unit, 1717902001730705137 being 9 June 2024")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.title = ProtoField.new("Title", "gpw.wse.snapshotbbo.wats.v1.7.6.20.title", ftypes.STRING, nil, nil, nil, "News title, unique per message")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.token = ProtoField.new("Token", "gpw.wse.snapshotbbo.wats.v1.7.6.20.token", ftypes.STRING, nil, nil, nil, "Client token")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.total = ProtoField.new("Total", "gpw.wse.snapshotbbo.wats.v1.7.6.20.total", ftypes.UINT8, nil, nil, nil, "Total number of news entries")
@@ -281,13 +281,13 @@ omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_currency = ProtoField.new(
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_phase_id = ProtoField.new("Trading Phase Id", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingphaseid", ftypes.UINT32)
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_phase_max_block_settlement_cycle = ProtoField.new("Trading Phase Max Block Settlement Cycle", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingphasemaxblocksettlementcycle", ftypes.UINT8, nil, nil, nil, "Max settlement cycle for block transactions")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_phase_settlement_cycle = ProtoField.new("Trading Phase Settlement Cycle", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingphasesettlementcycle", ftypes.UINT8, nil, nil, nil, "Settlement cycle for transactions made during a continuous phase")
-omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_phase_start_time = ProtoField.new("Trading Phase Start Time", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingphasestarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_phase_start_time_utc = ProtoField.new("Trading Phase Start Time", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingphasestarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_phase_start_time = ProtoField.new("Trading Phase Start Time", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingphasestarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_phase_type = ProtoField.new("Trading Phase Type", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingphasetype", ftypes.UINT8, nil, nil, nil, "Type of matching algorithm")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_schedule_id = ProtoField.new("Trading Schedule Id", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingscheduleid", ftypes.UINT32)
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_session_event = ProtoField.new("Trading Session Event", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingsessionevent", ftypes.UINT8, nil, nil, nil, "Identifies an event related to the trading status of a trading session")
-omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_timestamp = ProtoField.new("Trading Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time when the transaction was executed")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_timestamp_utc = ProtoField.new("Trading Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingtimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time when the transaction was executed")
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_timestamp = ProtoField.new("Trading Timestamp", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingtimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time when the transaction was executed")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_value = ProtoField.new("Trading Value", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingvalue", ftypes.DOUBLE, nil, nil, nil, "Value of trading in the instruments from the given index")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.trading_value_currency = ProtoField.new("Trading Value Currency", "gpw.wse.snapshotbbo.wats.v1.7.6.20.tradingvaluecurrency", ftypes.DOUBLE, nil, nil, nil, "The field comprises the trading value expressed in trading currency")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.fields.uncrossing = ProtoField.new("Uncrossing", "gpw.wse.snapshotbbo.wats.v1.7.6.20.uncrossing", ftypes.UINT8, nil, nil, nil, "True if the phase includes an uncrossing")
@@ -373,7 +373,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-gpw_wse_snapshotbbo_wats_v1_7_6_20.timestamp_format = 2
+gpw_wse_snapshotbbo_wats_v1_7_6_20.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -396,7 +396,7 @@ omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.prefs.show_repeating_groups = Pref.bool("
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_gpw_wse_snapshotbbo_wats_v1_7_6_20.prefs_changed()

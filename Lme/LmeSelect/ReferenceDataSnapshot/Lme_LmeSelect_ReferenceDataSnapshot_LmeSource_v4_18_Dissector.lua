@@ -52,8 +52,8 @@ omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.price_code = Prot
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.product_code = ProtoField.new("Product Code", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.productcode", ftypes.STRING, nil, nil, nil, "Product code.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.prompt_date_label = ProtoField.new("Prompt Date Label", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.promptdatelabel", ftypes.STRING, nil, nil, nil, "Prompt Date Label.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.prompt_type = ProtoField.new("Prompt Type", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.prompttype", ftypes.STRING, nil, nil, nil, "Identifies whether the prompt is single or a range.")
-omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.send_time_utc = ProtoField.new("Send Time", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
+omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.send_time = ProtoField.new("Send Time", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp for the time this packet was sent, in nanoseconds since epoch, provided to the nearest microsecond")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.seq_num = ProtoField.new("Seq Num", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.settlement_pricing_method = ProtoField.new("Settlement Pricing Method", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.settlementpricingmethod", ftypes.STRING, nil, nil, nil, "Settlement Pricing Method.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.settlement_type = ProtoField.new("Settlement Type", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.settlementtype", ftypes.STRING, nil, nil, nil, "Settlement Type.")
@@ -62,15 +62,15 @@ omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.strategy_legs = P
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.strategy_type_code = ProtoField.new("Strategy Type Code", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.strategytypecode", ftypes.UINT32, nil, nil, nil, "Strategy Type.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.strike_price = ProtoField.new("Strike Price", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.strikeprice", ftypes.DOUBLE, nil, nil, nil, "The strike price for this tradable instrument, in implicit six decimal place format. Null for futures.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.tick_size_id = ProtoField.new("Tick Size Id", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.ticksizeid", ftypes.UINT32, nil, nil, nil, "Tick Size ID.")
-omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time LMEselect computed or derived the designated price.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.time_of_event_utc = ProtoField.new("Time Of Event", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.timeofevent.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time LMEselect computed or derived the designated price.")
+omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.time_of_event = ProtoField.new("Time Of Event", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.timeofevent", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time LMEselect computed or derived the designated price.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.tradable_instrument_id = ProtoField.new("Tradable Instrument Id", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.tradableinstrumentid", ftypes.UINT64, nil, nil, nil, "The id of the security for which trades in this tradable instrument are held.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.trade_high = ProtoField.new("Trade High", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.tradehigh", ftypes.DOUBLE, nil, nil, nil, "Highest trade price for the current day, in implicit six decimal place format.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.trade_low = ProtoField.new("Trade Low", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.tradelow", ftypes.DOUBLE, nil, nil, nil, "Lowest trade price for the current day, in implicit six decimal place format.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.trading_currency = ProtoField.new("Trading Currency", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.tradingcurrency", ftypes.STRING, nil, nil, nil, "The currency code according to ISO 4217.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.trading_venue = ProtoField.new("Trading Venue", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.tradingvenue", ftypes.STRING, nil, nil, nil, "Trading venue.")
-omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.transaction_time = ProtoField.new("Transaction Time", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the price limits were created.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.transaction_time_utc = ProtoField.new("Transaction Time", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time at which the price limits were created.")
+omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.transaction_time = ProtoField.new("Transaction Time", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time at which the price limits were created.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.underlying_contract_code = ProtoField.new("Underlying Contract Code", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.underlyingcontractcode", ftypes.STRING, nil, nil, nil, "Reference to the underlying contract.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.underlying_type = ProtoField.new("Underlying Type", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.underlyingtype", ftypes.STRING, nil, nil, nil, "Underlying Type.")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "lme.lmeselect.referencedatasnapshot.lmesource.v4.18.upperpricelimit", ftypes.DOUBLE, nil, nil, nil, "Upper price limit for the outright tradable instrument for the current trading day, in implicit six decimal place format.")
@@ -105,7 +105,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lme_lmeselect_referencedatasnapshot_lmesource_v4_18.timestamp_format = 2
+lme_lmeselect_referencedatasnapshot_lmesource_v4_18.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -128,7 +128,7 @@ omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.show_headers = Pre
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lme_lmeselect_referencedatasnapshot_lmesource_v4_18.prefs_changed()

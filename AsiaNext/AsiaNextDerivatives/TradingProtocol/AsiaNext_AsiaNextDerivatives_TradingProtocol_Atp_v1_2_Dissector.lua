@@ -78,8 +78,8 @@ omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.table_select_1 
 omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.table_select_2 = ProtoField.new("Table Select 2", "asianext.asianextderivatives.tradingprotocol.atp.v1.2.tableselect2", ftypes.STRING, nil, nil, nil, "Party role qualifier and role")
 omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.table_select_3 = ProtoField.new("Table Select 3", "asianext.asianextderivatives.tradingprotocol.atp.v1.2.tableselect3", ftypes.STRING, nil, nil, nil, "Party role qualifier and role")
 omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.time_in_force = ProtoField.new("Time In Force", "asianext.asianextderivatives.tradingprotocol.atp.v1.2.timeinforce", ftypes.UINT8)
-omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.timestamp = ProtoField.new("Timestamp", "asianext.asianextderivatives.tradingprotocol.atp.v1.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the order was accepted or rejected by the AsiaNext system")
 omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.timestamp_utc = ProtoField.new("Timestamp", "asianext.asianextderivatives.tradingprotocol.atp.v1.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time that the order was accepted or rejected by the AsiaNext system")
+omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.timestamp = ProtoField.new("Timestamp", "asianext.asianextderivatives.tradingprotocol.atp.v1.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time that the order was accepted or rejected by the AsiaNext system")
 omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.trade_flags = ProtoField.new("Trade Flags", "asianext.asianextderivatives.tradingprotocol.atp.v1.2.tradeflags", ftypes.STRING, nil, nil, nil, "Reserved")
 omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.trade_ref = ProtoField.new("Trade Ref", "asianext.asianextderivatives.tradingprotocol.atp.v1.2.traderef", ftypes.UINT64, nil, nil, nil, "Trade reference number. Corresponds to the TVTIC (RTS 24 Art.12 & RTS 22 Field 3 Table 2).")
 omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.fields.traded_quantity = ProtoField.new("Traded Quantity", "asianext.asianextderivatives.tradingprotocol.atp.v1.2.tradedquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts traded, if any")
@@ -130,7 +130,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-asianext_asianextderivatives_tradingprotocol_atp_v1_2.timestamp_format = 2
+asianext_asianextderivatives_tradingprotocol_atp_v1_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -149,7 +149,7 @@ omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.prefs.show_structs = P
 omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_asianext_asianextderivatives_tradingprotocol_atp_v1_2.prefs_changed()

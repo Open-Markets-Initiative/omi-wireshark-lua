@@ -73,8 +73,8 @@ omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.fields.time = ProtoField.n
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.fields.time_offset = ProtoField.new("Time Offset", "cboe.cxeequities.multicastdepthofbook.pitch.v6.20.timeoffset", ftypes.UINT32, nil, nil, nil, "Nanosecond offset from last unit timestamp")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.fields.trade_flags = ProtoField.new("Trade Flags", "cboe.cxeequities.multicastdepthofbook.pitch.v6.20.tradeflags", ftypes.STRING)
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.fields.trade_id = ProtoField.new("Trade Id", "cboe.cxeequities.multicastdepthofbook.pitch.v6.20.tradeid", ftypes.UINT64, nil, nil, nil, "Bats generated identifier of this trade. This identifier is guaranteed to be unique for at least 7 calendar days.")
-omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.fields.trade_timestamp = ProtoField.new("Trade Timestamp", "cboe.cxeequities.multicastdepthofbook.pitch.v6.20.tradetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date/Time on which the trade occurred, encoded as the number of nanoseconds since the January 1st 1970 UTC (also known as the Unix epoch).")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.fields.trade_timestamp_utc = ProtoField.new("Trade Timestamp", "cboe.cxeequities.multicastdepthofbook.pitch.v6.20.tradetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date/Time on which the trade occurred, encoded as the number of nanoseconds since the January 1st 1970 UTC (also known as the Unix epoch).")
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.fields.trade_timestamp = ProtoField.new("Trade Timestamp", "cboe.cxeequities.multicastdepthofbook.pitch.v6.20.tradetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date/Time on which the trade occurred, encoded as the number of nanoseconds since the January 1st 1970 UTC (also known as the Unix epoch).")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.fields.trading_mode = ProtoField.new("Trading Mode", "cboe.cxeequities.multicastdepthofbook.pitch.v6.20.tradingmode", ftypes.STRING, nil, nil, nil, "MMT Level 2")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.cxeequities.multicastdepthofbook.pitch.v6.20.transactioncategory", ftypes.STRING, nil, nil, nil, "MMT Level 3.1")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.fields.unit = ProtoField.new("Unit", "cboe.cxeequities.multicastdepthofbook.pitch.v6.20.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
@@ -128,7 +128,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_cxeequities_multicastdepthofbook_pitch_v6_20.timestamp_format = 2
+cboe_cxeequities_multicastdepthofbook_pitch_v6_20.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -153,7 +153,7 @@ omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.prefs.show_padding = Pref.
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cxeequities_multicastdepthofbook_pitch_v6_20.prefs_changed()

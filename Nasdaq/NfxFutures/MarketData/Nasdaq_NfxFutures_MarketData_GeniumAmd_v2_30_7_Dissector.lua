@@ -59,12 +59,12 @@ omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.strategy_subtype = Pro
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.strikeprice", ftypes.INT32, nil, nil, nil, "NOTE: Only applicable for derivative instruments.")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.symbol = ProtoField.new("Symbol", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.symbol", ftypes.STRING, nil, nil, nil, "Security short name.")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.tick_size = ProtoField.new("Tick Size", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.ticksize", ftypes.INT64, nil, nil, nil, "Tick Size for the give price range")
-omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement = ProtoField.new("Time Of Trade Agreement", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeagreement", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement_utc = ProtoField.new("Time Of Trade Agreement", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeagreement.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination = ProtoField.new("Time Of Trade Dissemination", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradedissemination", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement = ProtoField.new("Time Of Trade Agreement", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeagreement", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination_utc = ProtoField.new("Time Of Trade Dissemination", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradedissemination.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution = ProtoField.new("Time Of Trade Execution", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeexecution", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination = ProtoField.new("Time Of Trade Dissemination", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradedissemination", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution_utc = ProtoField.new("Time Of Trade Execution", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeexecution.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution = ProtoField.new("Time Of Trade Execution", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timeoftradeexecution", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.timestampnanoseconds", ftypes.UINT32, nil, nil, nil, "Nanoseconds portion of the timestamp.")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.tradeprice", ftypes.INT32)
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.trade_type = ProtoField.new("Trade Type", "nasdaq.nfxfutures.marketdata.geniumamd.v2.30.7.tradetype", ftypes.UINT16, nil, nil, nil, "Values: 1 = Block Trade 2 = Exchange for Physical 11 = Exchange for Risk 14 = Exchange for Options")
@@ -114,7 +114,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format = 2
+nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format = 3
 
 -- Scaled Tick Size format (true = decimal-scaled, false = raw mantissa)
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.format_decimals = true
@@ -143,7 +143,7 @@ omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_indexes = Pref.boo
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.prefs_changed()
@@ -1350,8 +1350,8 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_agreement.dissect =
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement
-  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format == 3 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement_utc end
+  local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement_utc
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format == 2 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -1397,8 +1397,8 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination.disse
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination
-  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format == 3 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination_utc end
+  local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination_utc
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format == 2 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -1444,8 +1444,8 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_execution.dissect =
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution
-  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format == 3 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution_utc end
+  local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution_utc
+  if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format == 2 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)

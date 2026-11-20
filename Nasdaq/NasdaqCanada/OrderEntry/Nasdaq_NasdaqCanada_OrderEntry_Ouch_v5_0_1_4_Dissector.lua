@@ -189,7 +189,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.timestamp_format = 2
+nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -222,7 +222,7 @@ omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.prefs.show_headers = Pref.bool(
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nasdaqcanada_orderentry_ouch_v5_0_1_4.prefs_changed()

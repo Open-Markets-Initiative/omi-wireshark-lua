@@ -73,7 +73,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp_format = 2
+cboe_bxeequities_auctionfeed_asciipitch_v1_4.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -92,7 +92,7 @@ omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_application_messages
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_bxeequities_auctionfeed_asciipitch_v1_4.prefs_changed()

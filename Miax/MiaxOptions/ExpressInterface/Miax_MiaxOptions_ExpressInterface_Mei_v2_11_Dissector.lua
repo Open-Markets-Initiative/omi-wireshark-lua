@@ -29,8 +29,8 @@ omi_miax_miaxoptions_expressinterface_mei_v2_11.fields.bulk_quote_status = Proto
 omi_miax_miaxoptions_expressinterface_mei_v2_11.fields.call_or_put = ProtoField.new("Call Or Put", "miax.miaxoptions.expressinterface.mei.v2.11.callorput", ftypes.STRING, nil, nil, nil, "Option Type")
 omi_miax_miaxoptions_expressinterface_mei_v2_11.fields.cancel_reason = ProtoField.new("Cancel Reason", "miax.miaxoptions.expressinterface.mei.v2.11.cancelreason", ftypes.STRING)
 omi_miax_miaxoptions_expressinterface_mei_v2_11.fields.client_message_id = ProtoField.new("Client Message Id", "miax.miaxoptions.expressinterface.mei.v2.11.clientmessageid", ftypes.UINT32, nil, nil, nil, "Unique message ID assigned by the firm")
-omi_miax_miaxoptions_expressinterface_mei_v2_11.fields.client_send_time = ProtoField.new("Client Send Time", "miax.miaxoptions.expressinterface.mei.v2.11.clientsendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Firm’s send time for the Quotes. Nanoseconds since Epoch.")
 omi_miax_miaxoptions_expressinterface_mei_v2_11.fields.client_send_time_utc = ProtoField.new("Client Send Time", "miax.miaxoptions.expressinterface.mei.v2.11.clientsendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Firm’s send time for the Quotes. Nanoseconds since Epoch.")
+omi_miax_miaxoptions_expressinterface_mei_v2_11.fields.client_send_time = ProtoField.new("Client Send Time", "miax.miaxoptions.expressinterface.mei.v2.11.clientsendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Firm’s send time for the Quotes. Nanoseconds since Epoch.")
 omi_miax_miaxoptions_expressinterface_mei_v2_11.fields.closing_time = ProtoField.new("Closing Time", "miax.miaxoptions.expressinterface.mei.v2.11.closingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 16:15:00")
 omi_miax_miaxoptions_expressinterface_mei_v2_11.fields.complex_event_id = ProtoField.new("Complex Event Id", "miax.miaxoptions.expressinterface.mei.v2.11.complexeventid", ftypes.UINT32, nil, nil, nil, "When complex eQuote Type = “A”: For Auction events, Event ID must match the Event ID of the event in progress (MIAX Event ID that was published in the Complex Liquidity seeking event notification) When complex eQuote Type is other than “A”: MIAX will ignore Event ID. Firms can send an Event ID of zero.")
 omi_miax_miaxoptions_expressinterface_mei_v2_11.fields.complex_liquidity_protection_reset_status = ProtoField.new("Complex Liquidity Protection Reset Status", "miax.miaxoptions.expressinterface.mei.v2.11.complexliquidityprotectionresetstatus", ftypes.STRING)
@@ -229,7 +229,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_miaxoptions_expressinterface_mei_v2_11.timestamp_format = 2
+miax_miaxoptions_expressinterface_mei_v2_11.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -256,7 +256,7 @@ omi_miax_miaxoptions_expressinterface_mei_v2_11.prefs.show_headers = Pref.bool("
 omi_miax_miaxoptions_expressinterface_mei_v2_11.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_miaxoptions_expressinterface_mei_v2_11.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_miax_miaxoptions_expressinterface_mei_v2_11.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_miaxoptions_expressinterface_mei_v2_11.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_expressinterface_mei_v2_11.prefs_changed()

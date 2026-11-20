@@ -15,8 +15,8 @@ local siac_cqs_output_cta_v2_9 = {}
 -----------------------------------------------------------------------
 
 -- Siac Cqs Output Cta 2.9 Fields
-omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "siac.cqs.output.cta.v2.9.adftimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp_utc = ProtoField.new("Adf Timestamp", "siac.cqs.output.cta.v2.9.adftimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp = ProtoField.new("Adf Timestamp", "siac.cqs.output.cta.v2.9.adftimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cqs_output_cta_v2_9.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cqs.output.cta.v2.9.auctioncollarlowerthresholdprice", ftypes.DOUBLE, nil, nil, nil, "Represents the latest lower threshold price of the Auction Collar")
 omi_siac_cqs_output_cta_v2_9.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cqs.output.cta.v2.9.auctioncollarreferenceprice", ftypes.DOUBLE, nil, nil, nil, "The Auction Collar Reference Price represents the price used by the exchange to establish the Auction Collar.")
 omi_siac_cqs_output_cta_v2_9.fields.auction_collar_upper_threshold_price = ProtoField.new("Auction Collar Upper Threshold Price", "siac.cqs.output.cta.v2.9.auctioncollarupperthresholdprice", ftypes.DOUBLE, nil, nil, nil, "Represents the latest upper threshold price of the Auction Collar")
@@ -85,8 +85,8 @@ omi_siac_cqs_output_cta_v2_9.fields.offer_size_long = ProtoField.new("Offer Size
 omi_siac_cqs_output_cta_v2_9.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.cqs.output.cta.v2.9.offersizeshort", ftypes.UINT16, nil, nil, nil, "The Offer Size identifies the number of round-lots, for a security")
 omi_siac_cqs_output_cta_v2_9.fields.participant_id = ProtoField.new("Participant Id", "siac.cqs.output.cta.v2.9.participantid", ftypes.STRING, nil, nil, nil, "Participant or Processor that generated the message")
 omi_siac_cqs_output_cta_v2_9.fields.participant_reference_number = ProtoField.new("Participant Reference Number", "siac.cqs.output.cta.v2.9.participantreferencenumber", ftypes.INT64, nil, nil, nil, "Participant Reference Number is a pass-thru of the inbound Participant Reference number assigned to a transaction")
-omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "siac.cqs.output.cta.v2.9.participanttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp_utc = ProtoField.new("Participant Timestamp", "siac.cqs.output.cta.v2.9.participanttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp = ProtoField.new("Participant Timestamp", "siac.cqs.output.cta.v2.9.participanttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cqs_output_cta_v2_9.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cqs.output.cta.v2.9.primarylistingmarketparticipantid", ftypes.STRING, nil, nil, nil, "Identifies the Primary Listing Market for a security")
 omi_siac_cqs_output_cta_v2_9.fields.quote_condition = ProtoField.new("Quote Condition", "siac.cqs.output.cta.v2.9.quotecondition", ftypes.STRING, nil, nil, nil, "Denotes a particular condition applicable to the quote.")
 omi_siac_cqs_output_cta_v2_9.fields.quote_message = ProtoField.new("Quote Message", "siac.cqs.output.cta.v2.9.quotemessage", ftypes.STRING, nil, nil, nil, "Quote Messages")
@@ -94,15 +94,15 @@ omi_siac_cqs_output_cta_v2_9.fields.quote_message_type = ProtoField.new("Quote M
 omi_siac_cqs_output_cta_v2_9.fields.reserved = ProtoField.new("Reserved", "siac.cqs.output.cta.v2.9.reserved", ftypes.BYTES, nil, nil, nil, "Field is reserved for future use.")
 omi_siac_cqs_output_cta_v2_9.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.output.cta.v2.9.retailinterestindicator", ftypes.STRING, nil, nil, nil, "When Retail Price Improvement (RPI) interest is priced better than the Protected Best Bid or Offer (PBBO) by a minimum of $0.001, an indication of interest on the Bid, Offer, or both the Bid and Offer will identify that interest will be eligible to interact with incoming Retail Order interest.")
 omi_siac_cqs_output_cta_v2_9.fields.retransmission_indicator = ProtoField.new("Retransmission Indicator", "siac.cqs.output.cta.v2.9.retransmissionindicator", ftypes.STRING, nil, nil, nil, "Indicates an original message or a retransmitted block")
-omi_siac_cqs_output_cta_v2_9.fields.seconds = ProtoField.new("Seconds", "siac.cqs.output.cta.v2.9.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
 omi_siac_cqs_output_cta_v2_9.fields.seconds_utc = ProtoField.new("Seconds", "siac.cqs.output.cta.v2.9.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
+omi_siac_cqs_output_cta_v2_9.fields.seconds = ProtoField.new("Seconds", "siac.cqs.output.cta.v2.9.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "contains the number of seconds from Epoch 1/1/1970, 00:00:00 UTC")
 omi_siac_cqs_output_cta_v2_9.fields.security_status_indicator = ProtoField.new("Security Status Indicator", "siac.cqs.output.cta.v2.9.securitystatusindicator", ftypes.STRING, nil, nil, nil, "The Security Status Indicator field is used to report trading suspensions in a security, price indications, trading range indications, LULD Price Bands and Market Wide Circuit Breaker activity")
 omi_siac_cqs_output_cta_v2_9.fields.security_symbol_long = ProtoField.new("Security Symbol Long", "siac.cqs.output.cta.v2.9.securitysymbollong", ftypes.STRING, nil, nil, nil, "Contains the security symbol")
 omi_siac_cqs_output_cta_v2_9.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.cqs.output.cta.v2.9.securitysymbolshort", ftypes.STRING, nil, nil, nil, "Contains the security symbol")
 omi_siac_cqs_output_cta_v2_9.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.output.cta.v2.9.settlementcondition", ftypes.STRING, nil, nil, nil, "Identifies the settlement condition for a security")
 omi_siac_cqs_output_cta_v2_9.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.output.cta.v2.9.shortsalerestrictionindicator", ftypes.STRING, nil, nil, nil, "Identifies whether or not a Short Sale Restriction is in effect")
-omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v2.9.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp_utc = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v2.9.sipblocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.output.cta.v2.9.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cqs_output_cta_v2_9.fields.sip_generated_message_identifier = ProtoField.new("Sip Generated Message Identifier", "siac.cqs.output.cta.v2.9.sipgeneratedmessageidentifier", ftypes.STRING, nil, nil, nil, "Identifies CQS as the originator of a message")
 omi_siac_cqs_output_cta_v2_9.fields.transaction_id = ProtoField.new("Transaction Id", "siac.cqs.output.cta.v2.9.transactionid", ftypes.UINT32, nil, nil, nil, "The Transaction Id will be populated by CQS and is Reserved for Internal Use only")
 omi_siac_cqs_output_cta_v2_9.fields.version = ProtoField.new("Version", "siac.cqs.output.cta.v2.9.version", ftypes.UINT8, nil, nil, nil, "CQS binary protocol version")
@@ -147,7 +147,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-siac_cqs_output_cta_v2_9.timestamp_format = 2
+siac_cqs_output_cta_v2_9.timestamp_format = 3
 
 -- Checksums are verified only where the reader asks
 siac_cqs_output_cta_v2_9.verify_checksums = false
@@ -173,7 +173,7 @@ omi_siac_cqs_output_cta_v2_9.prefs.show_headers = Pref.bool("Show Headers", show
 omi_siac_cqs_output_cta_v2_9.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_siac_cqs_output_cta_v2_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_siac_cqs_output_cta_v2_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_siac_cqs_output_cta_v2_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 omi_siac_cqs_output_cta_v2_9.prefs.verify_checksums = Pref.bool("Verify Checksums", false, "Compute each checksum the protocol carries and compare it with the one sent. Off by default: a capture taken on the sending host often holds checksums filled in after it was captured")
 
@@ -3079,8 +3079,8 @@ siac_cqs_output_cta_v2_9.adf_timestamp.dissect = function(buffer, offset, packet
     local length = siac_cqs_output_cta_v2_9.adf_timestamp.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp
-    if siac_cqs_output_cta_v2_9.timestamp_format == 3 then field = omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp_utc end
+    local field = omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp_utc
+    if siac_cqs_output_cta_v2_9.timestamp_format == 2 then field = omi_siac_cqs_output_cta_v2_9.fields.adf_timestamp end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cqs_output_cta_v2_9.adf_timestamp.fields(buffer, offset, packet, parent)
 
@@ -3141,8 +3141,8 @@ siac_cqs_output_cta_v2_9.participant_timestamp.dissect = function(buffer, offset
     local length = siac_cqs_output_cta_v2_9.participant_timestamp.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp
-    if siac_cqs_output_cta_v2_9.timestamp_format == 3 then field = omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp_utc end
+    local field = omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp_utc
+    if siac_cqs_output_cta_v2_9.timestamp_format == 2 then field = omi_siac_cqs_output_cta_v2_9.fields.participant_timestamp end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cqs_output_cta_v2_9.participant_timestamp.fields(buffer, offset, packet, parent)
 
@@ -4805,8 +4805,8 @@ siac_cqs_output_cta_v2_9.sip_block_timestamp.dissect = function(buffer, offset, 
     local length = siac_cqs_output_cta_v2_9.sip_block_timestamp.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp
-    if siac_cqs_output_cta_v2_9.timestamp_format == 3 then field = omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp_utc end
+    local field = omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp_utc
+    if siac_cqs_output_cta_v2_9.timestamp_format == 2 then field = omi_siac_cqs_output_cta_v2_9.fields.sip_block_timestamp end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cqs_output_cta_v2_9.sip_block_timestamp.fields(buffer, offset, packet, parent)
 

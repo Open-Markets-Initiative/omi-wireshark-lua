@@ -19,8 +19,8 @@ omi_nasdaq_utp_input_utp_v4_0.fields.accepted_sequence_number = ProtoField.new("
 omi_nasdaq_utp_input_utp_v4_0.fields.accepted_session = ProtoField.new("Accepted Session", "nasdaq.utp.input.utp.v4.0.acceptedsession", ftypes.STRING, nil, nil, nil, "The session ID of the session that is now logged into, left padded with spaces")
 omi_nasdaq_utp_input_utp_v4_0.fields.action = ProtoField.new("Action", "nasdaq.utp.input.utp.v4.0.action", ftypes.STRING, nil, nil, nil, "Trading Action Code (H/Q/T/P)")
 omi_nasdaq_utp_input_utp_v4_0.fields.action_sequence = ProtoField.new("Action Sequence", "nasdaq.utp.input.utp.v4.0.actionsequence", ftypes.UINT32, nil, nil, nil, "Trading Action Sequence Number — per-symbol sequence")
-omi_nasdaq_utp_input_utp_v4_0.fields.action_time = ProtoField.new("Action Time", "nasdaq.utp.input.utp.v4.0.actiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time Action occurred (may be prior day)")
 omi_nasdaq_utp_input_utp_v4_0.fields.action_time_utc = ProtoField.new("Action Time", "nasdaq.utp.input.utp.v4.0.actiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time Action occurred (may be prior day)")
+omi_nasdaq_utp_input_utp_v4_0.fields.action_time = ProtoField.new("Action Time", "nasdaq.utp.input.utp.v4.0.actiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time Action occurred (may be prior day)")
 omi_nasdaq_utp_input_utp_v4_0.fields.ask_long = ProtoField.new("Ask Long", "nasdaq.utp.input.utp.v4.0.asklong", ftypes.DOUBLE, nil, nil, nil, "Ask Price (long form, implied 6 decimal precision)")
 omi_nasdaq_utp_input_utp_v4_0.fields.ask_short = ProtoField.new("Ask Short", "nasdaq.utp.input.utp.v4.0.askshort", ftypes.DOUBLE, nil, nil, nil, "Ask Price (short form, implied 2 decimal precision)")
 omi_nasdaq_utp_input_utp_v4_0.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.utp.input.utp.v4.0.asksizelong", ftypes.UINT32, nil, nil, nil, "Ask Size (long form)")
@@ -108,8 +108,8 @@ omi_nasdaq_utp_input_utp_v4_0.fields.rii = ProtoField.new("Rii", "nasdaq.utp.inp
 omi_nasdaq_utp_input_utp_v4_0.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.utp.input.utp.v4.0.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying the SoupBinTCP packet type sent by the server")
 omi_nasdaq_utp_input_utp_v4_0.fields.side = ProtoField.new("Side", "nasdaq.utp.input.utp.v4.0.side", ftypes.STRING, nil, nil, nil, "Side of execution")
 omi_nasdaq_utp_input_utp_v4_0.fields.sip_state = ProtoField.new("Sip State", "nasdaq.utp.input.utp.v4.0.sipstate", ftypes.STRING, nil, nil, nil, "Present SIP State (N=Before SOD, S=After SOD, E=After EOD)")
-omi_nasdaq_utp_input_utp_v4_0.fields.sip_time = ProtoField.new("Sip Time", "nasdaq.utp.input.utp.v4.0.siptime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SIP Timestamp")
 omi_nasdaq_utp_input_utp_v4_0.fields.sip_time_utc = ProtoField.new("Sip Time", "nasdaq.utp.input.utp.v4.0.siptime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "SIP Timestamp")
+omi_nasdaq_utp_input_utp_v4_0.fields.sip_time = ProtoField.new("Sip Time", "nasdaq.utp.input.utp.v4.0.siptime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SIP Timestamp")
 omi_nasdaq_utp_input_utp_v4_0.fields.ssday = ProtoField.new("Ssday", "nasdaq.utp.input.utp.v4.0.ssday", ftypes.UINT16, nil, nil, nil, "Seller Sales Day")
 omi_nasdaq_utp_input_utp_v4_0.fields.symbol_long = ProtoField.new("Symbol Long", "nasdaq.utp.input.utp.v4.0.symbollong", ftypes.STRING, nil, nil, nil, "Security Identifier (long form)")
 omi_nasdaq_utp_input_utp_v4_0.fields.symbol_short = ProtoField.new("Symbol Short", "nasdaq.utp.input.utp.v4.0.symbolshort", ftypes.STRING, nil, nil, nil, "Security Identifier (short form, 5 chars)")
@@ -117,13 +117,13 @@ omi_nasdaq_utp_input_utp_v4_0.fields.symbol_state = ProtoField.new("Symbol State
 omi_nasdaq_utp_input_utp_v4_0.fields.syntax_violation = ProtoField.new("Syntax Violation", "nasdaq.utp.input.utp.v4.0.syntaxviolation", ftypes.STRING, nil, nil, nil, "Syntax Violation Flag (Y/N)")
 omi_nasdaq_utp_input_utp_v4_0.fields.text = ProtoField.new("Text", "nasdaq.utp.input.utp.v4.0.text", ftypes.STRING, nil, nil, nil, "Text body (length contained in textLen, max 300)")
 omi_nasdaq_utp_input_utp_v4_0.fields.text_len = ProtoField.new("Text Len", "nasdaq.utp.input.utp.v4.0.textlen", ftypes.UINT16, nil, nil, nil, "Text Length")
-omi_nasdaq_utp_input_utp_v4_0.fields.timestamp_1 = ProtoField.new("Timestamp 1", "nasdaq.utp.input.utp.v4.0.timestamp1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Participant-provided timestamp, nanoseconds since Epoch")
 omi_nasdaq_utp_input_utp_v4_0.fields.timestamp_1_utc = ProtoField.new("Timestamp 1", "nasdaq.utp.input.utp.v4.0.timestamp1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Participant-provided timestamp, nanoseconds since Epoch")
-omi_nasdaq_utp_input_utp_v4_0.fields.timestamp_2 = ProtoField.new("Timestamp 2", "nasdaq.utp.input.utp.v4.0.timestamp2", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "FINRA-provided timestamp")
+omi_nasdaq_utp_input_utp_v4_0.fields.timestamp_1 = ProtoField.new("Timestamp 1", "nasdaq.utp.input.utp.v4.0.timestamp1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Participant-provided timestamp, nanoseconds since Epoch")
 omi_nasdaq_utp_input_utp_v4_0.fields.timestamp_2_utc = ProtoField.new("Timestamp 2", "nasdaq.utp.input.utp.v4.0.timestamp2.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "FINRA-provided timestamp")
+omi_nasdaq_utp_input_utp_v4_0.fields.timestamp_2 = ProtoField.new("Timestamp 2", "nasdaq.utp.input.utp.v4.0.timestamp2", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "FINRA-provided timestamp")
 omi_nasdaq_utp_input_utp_v4_0.fields.trade_id = ProtoField.new("Trade Id", "nasdaq.utp.input.utp.v4.0.tradeid", ftypes.UINT32, nil, nil, nil, "Trade Identifier — per-symbol sequence starting at 1")
-omi_nasdaq_utp_input_utp_v4_0.fields.trade_time = ProtoField.new("Trade Time", "nasdaq.utp.input.utp.v4.0.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of trade (may be prior day, nanoseconds since Epoch)")
 omi_nasdaq_utp_input_utp_v4_0.fields.trade_time_utc = ProtoField.new("Trade Time", "nasdaq.utp.input.utp.v4.0.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of trade (may be prior day, nanoseconds since Epoch)")
+omi_nasdaq_utp_input_utp_v4_0.fields.trade_time = ProtoField.new("Trade Time", "nasdaq.utp.input.utp.v4.0.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of trade (may be prior day, nanoseconds since Epoch)")
 omi_nasdaq_utp_input_utp_v4_0.fields.trcond = ProtoField.new("Trcond", "nasdaq.utp.input.utp.v4.0.trcond", ftypes.STRING, nil, nil, nil, "Sale Condition (4-byte positional)")
 omi_nasdaq_utp_input_utp_v4_0.fields.tt_exempt = ProtoField.new("Tt Exempt", "nasdaq.utp.input.utp.v4.0.ttexempt", ftypes.STRING, nil, nil, nil, "Trade Through Exempt Flag")
 omi_nasdaq_utp_input_utp_v4_0.fields.username = ProtoField.new("Username", "nasdaq.utp.input.utp.v4.0.username", ftypes.STRING, nil, nil, nil, "The SoupBinTCP login username, padded on the right with spaces")
@@ -219,7 +219,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_utp_input_utp_v4_0.timestamp_format = 2
+nasdaq_utp_input_utp_v4_0.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -254,7 +254,7 @@ omi_nasdaq_utp_input_utp_v4_0.prefs.show_session_messages = Pref.bool("Show Sess
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_nasdaq_utp_input_utp_v4_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nasdaq_utp_input_utp_v4_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_utp_input_utp_v4_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_utp_input_utp_v4_0.prefs_changed()

@@ -41,8 +41,8 @@ omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.sequence = ProtoFie
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.shares = ProtoField.new("Shares", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.shares", ftypes.UINT32, nil, nil, nil, "Cumulative number of shares executed during the auction.")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.side = ProtoField.new("Side", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.side", ftypes.STRING, nil, nil, nil, "Side of the update.")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.symbol = ProtoField.new("Symbol", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.symbol", ftypes.STRING, nil, nil, nil, "Symbol (right padded with spaces).")
-omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch.")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since epoch.")
+omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.timestamp = ProtoField.new("Timestamp", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch.")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.total_volume = ProtoField.new("Total Volume", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.totalvolume", ftypes.UINT32, nil, nil, nil, "Total number of shares executed on the CXA book, or off-exchange reported trades, for the symbol on the current business day (may decrease if the Flags field indicates a trade break).")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.trade_break = ProtoField.new("Trade Break", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.tradebreak", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "0 = Normal trade, 1 = Trade break.")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.trade_designation = ProtoField.new("Trade Designation", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.tradedesignation", ftypes.STRING, nil, nil, nil, "Trade designation. Valid only for on-exchange executions, space otherwise.")
@@ -55,8 +55,8 @@ omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.unit = ProtoField.n
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.unused_6 = ProtoField.new("Unused 6", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.unused6", ftypes.UINT8, nil, base.DEC, 0xFC, "Unused.")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value = ProtoField.new("Value", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.value", ftypes.DOUBLE, nil, nil, nil, "The calculated value.")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_category = ProtoField.new("Value Category", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.valuecategory", ftypes.STRING, nil, nil, nil, "Category of the calculated value.")
-omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.valuetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp when the calculated value was generated in nanoseconds since epoch.")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_timestamp_utc = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.valuetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp when the calculated value was generated in nanoseconds since epoch.")
+omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.value_timestamp = ProtoField.new("Value Timestamp", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.valuetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp when the calculated value was generated in nanoseconds since epoch.")
 
 -- Cboe CxaEquities MulticastTopOfBook Pitch 1.0.10 Framing
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.fields.message = ProtoField.new("Message", "cboe.cxaequities.multicasttopofbook.pitch.v1.0.10.message", ftypes.STRING)
@@ -90,7 +90,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.timestamp_format = 2
+cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -113,7 +113,7 @@ omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.prefs.show_headers = Pref.
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cxaequities_multicasttopofbook_pitch_v1_0_10.prefs_changed()

@@ -45,8 +45,8 @@ omi_siac_cts_output_cta_v2_11_b.fields.consolidated_total_volume = ProtoField.ne
 omi_siac_cts_output_cta_v2_11_b.fields.control_message = ProtoField.new("Control Message", "siac.cts.output.cta.v2.11.b.controlmessage", ftypes.STRING, nil, nil, nil, "Control Category")
 omi_siac_cts_output_cta_v2_11_b.fields.control_message_type = ProtoField.new("Control Message Type", "siac.cts.output.cta.v2.11.b.controlmessagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of Control message")
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_fractional_trade_volume = ProtoField.new("Corrected Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.correctedfractionaltradevolume", ftypes.DOUBLE, nil, nil, nil, "Corrected total number of shares which traded in a single transaction. Has implied 6 decimal places")
-omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time = ProtoField.new("Corrected Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.correctedpriordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The corrected prior day trade date and time")
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time_utc = ProtoField.new("Corrected Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.correctedpriordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The corrected prior day trade date and time")
+omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time = ProtoField.new("Corrected Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.correctedpriordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The corrected prior day trade date and time")
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_sale_condition = ProtoField.new("Corrected Sale Condition", "siac.cts.output.cta.v2.11.b.correctedsalecondition", ftypes.STRING, nil, nil, nil, "Corrected sale condition associated with a trade")
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_sellers_sale_days = ProtoField.new("Corrected Sellers Sale Days", "siac.cts.output.cta.v2.11.b.correctedsellerssaledays", ftypes.UINT8, nil, nil, nil, "Corrected number of days that may elapse before delivery of the security")
 omi_siac_cts_output_cta_v2_11_b.fields.corrected_short_sale_restriction_indicator = ProtoField.new("Corrected Short Sale Restriction Indicator", "siac.cts.output.cta.v2.11.b.correctedshortsalerestrictionindicator", ftypes.STRING)
@@ -99,8 +99,8 @@ omi_siac_cts_output_cta_v2_11_b.fields.offer_index_value = ProtoField.new("Offer
 omi_siac_cts_output_cta_v2_11_b.fields.open_price = ProtoField.new("Open Price", "siac.cts.output.cta.v2.11.b.openprice", ftypes.DOUBLE, nil, nil, nil, "Represents the first qualifying price paid for a security during the trading day. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.original_fractional_trade_volume = ProtoField.new("Original Fractional Trade Volume", "siac.cts.output.cta.v2.11.b.originalfractionaltradevolume", ftypes.DOUBLE, nil, nil, nil, "Original total number of shares which traded in a single transaction. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.original_participant_reference_number = ProtoField.new("Original Participant Reference Number", "siac.cts.output.cta.v2.11.b.originalparticipantreferencenumber", ftypes.INT64, nil, nil, nil, "Contains the Participant Reference Number of transaction to be corrected, cancelled or errored")
-omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time = ProtoField.new("Original Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.originalpriordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The original prior day trade date and time")
 omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time_utc = ProtoField.new("Original Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.originalpriordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The original prior day trade date and time")
+omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time = ProtoField.new("Original Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.originalpriordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The original prior day trade date and time")
 omi_siac_cts_output_cta_v2_11_b.fields.original_sale_condition = ProtoField.new("Original Sale Condition", "siac.cts.output.cta.v2.11.b.originalsalecondition", ftypes.STRING, nil, nil, nil, "Original sale condition associated with a trade")
 omi_siac_cts_output_cta_v2_11_b.fields.original_sellers_sale_days = ProtoField.new("Original Sellers Sale Days", "siac.cts.output.cta.v2.11.b.originalsellerssaledays", ftypes.UINT8, nil, nil, nil, "Original number of days that may elapse before delivery of the security")
 omi_siac_cts_output_cta_v2_11_b.fields.original_short_sale_restriction_indicator = ProtoField.new("Original Short Sale Restriction Indicator", "siac.cts.output.cta.v2.11.b.originalshortsalerestrictionindicator", ftypes.STRING)
@@ -126,8 +126,8 @@ omi_siac_cts_output_cta_v2_11_b.fields.primary_listing_market_participant_id = P
 omi_siac_cts_output_cta_v2_11_b.fields.primary_listing_market_previous_closing_price = ProtoField.new("Primary Listing Market Previous Closing Price", "siac.cts.output.cta.v2.11.b.primarylistingmarketpreviousclosingprice", ftypes.DOUBLE, nil, nil, nil, "Represents the previous closing price for the primary listing market. Has implied 6 decimal places")
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_message = ProtoField.new("Prior Day Message", "siac.cts.output.cta.v2.11.b.priordaymessage", ftypes.STRING, nil, nil, nil, "Prior Day Category Prior Day Messages Are Used To Report Cta Eligible Equity Local Issue Or Bond Trades Corrections Cancels Or Errors For Transactions That Occurred Earlier Than The Current Trading Day And Had Not Been Reported")
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_message_type = ProtoField.new("Prior Day Message Type", "siac.cts.output.cta.v2.11.b.priordaymessagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of Prior Day message")
-omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.priordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The date and time the prior day trade was executed")
 omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time_utc = ProtoField.new("Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.priordaytradedateandtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The date and time the prior day trade was executed")
+omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time = ProtoField.new("Prior Day Trade Date and Time", "siac.cts.output.cta.v2.11.b.priordaytradedateandtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The date and time the prior day trade was executed")
 omi_siac_cts_output_cta_v2_11_b.fields.prior_security_symbol = ProtoField.new("Prior Security Symbol", "siac.cts.output.cta.v2.11.b.priorsecuritysymbol", ftypes.STRING, nil, nil, nil, "Contains the prior Security Symbol")
 omi_siac_cts_output_cta_v2_11_b.fields.reserved = ProtoField.new("Reserved", "siac.cts.output.cta.v2.11.b.reserved", ftypes.BYTES, nil, nil, nil, "Space-filled. Field is reserved for future use")
 omi_siac_cts_output_cta_v2_11_b.fields.reserved_128 = ProtoField.new("Reserved 128", "siac.cts.output.cta.v2.11.b.reserved128", ftypes.BYTES, nil, nil, nil, "Space-filled. Field is reserved for future use")
@@ -138,26 +138,26 @@ omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_1 = ProtoField.new("Sale C
 omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_4 = ProtoField.new("Sale Condition 4", "siac.cts.output.cta.v2.11.b.salecondition4", ftypes.STRING)
 omi_siac_cts_output_cta_v2_11_b.fields.sale_condition_category = ProtoField.new("Sale Condition Category", "siac.cts.output.cta.v2.11.b.saleconditioncategory", ftypes.STRING, nil, nil, nil, "In the Short Trade format, identifies the Sale Condition Category level associated with a trade")
 omi_siac_cts_output_cta_v2_11_b.fields.second_reserved = ProtoField.new("Second Reserved", "siac.cts.output.cta.v2.11.b.secondreserved", ftypes.BYTES, nil, nil, nil, "Space-filled. Field is reserved for future use")
-omi_siac_cts_output_cta_v2_11_b.fields.seconds = ProtoField.new("Seconds", "siac.cts.output.cta.v2.11.b.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
 omi_siac_cts_output_cta_v2_11_b.fields.seconds_utc = ProtoField.new("Seconds", "siac.cts.output.cta.v2.11.b.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
+omi_siac_cts_output_cta_v2_11_b.fields.seconds = ProtoField.new("Seconds", "siac.cts.output.cta.v2.11.b.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
 omi_siac_cts_output_cta_v2_11_b.fields.security_status = ProtoField.new("Security Status", "siac.cts.output.cta.v2.11.b.securitystatus", ftypes.STRING, nil, nil, nil, "Identifies the trading status applicable to the transaction")
 omi_siac_cts_output_cta_v2_11_b.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cts.output.cta.v2.11.b.securitysymbol", ftypes.STRING, nil, nil, nil, "Identifies the Security Symbol. Left justified, space-filled")
 omi_siac_cts_output_cta_v2_11_b.fields.security_symbol_5 = ProtoField.new("Security Symbol 5", "siac.cts.output.cta.v2.11.b.securitysymbol5", ftypes.STRING, nil, nil, nil, "Identifies the Security Symbol. Left justified, space-filled")
 omi_siac_cts_output_cta_v2_11_b.fields.sell_volume = ProtoField.new("Sell Volume", "siac.cts.output.cta.v2.11.b.sellvolume", ftypes.UINT32, nil, nil, nil, "Represents the reported imbalance of sell orders without matching buy orders for the security for a Participant")
 omi_siac_cts_output_cta_v2_11_b.fields.sellers_sale_days = ProtoField.new("Sellers Sale Days", "siac.cts.output.cta.v2.11.b.sellerssaledays", ftypes.UINT8, nil, nil, nil, "Specifies the number of days that may elapse before delivery of the security. Allowed values 2 through 60 days")
 omi_siac_cts_output_cta_v2_11_b.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cts.output.cta.v2.11.b.shortsalerestrictionindicator", ftypes.STRING, nil, nil, nil, "Identifies whether or not a Short Sale Restriction is in effect for a security")
-omi_siac_cts_output_cta_v2_11_b.fields.sip_block_timestamp = ProtoField.new("SIP Block Timestamp", "siac.cts.output.cta.v2.11.b.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Cta packet timestamp")
 omi_siac_cts_output_cta_v2_11_b.fields.sip_block_timestamp_utc = ProtoField.new("SIP Block Timestamp", "siac.cts.output.cta.v2.11.b.sipblocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Cta packet timestamp")
+omi_siac_cts_output_cta_v2_11_b.fields.sip_block_timestamp = ProtoField.new("SIP Block Timestamp", "siac.cts.output.cta.v2.11.b.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Cta packet timestamp")
 omi_siac_cts_output_cta_v2_11_b.fields.stop_stock_indicator = ProtoField.new("Stop Stock Indicator", "siac.cts.output.cta.v2.11.b.stopstockindicator", ftypes.STRING, nil, nil, nil, "Identifies whether the transaction constituted a stopped order")
 omi_siac_cts_output_cta_v2_11_b.fields.summary_message = ProtoField.new("Summary Message", "siac.cts.output.cta.v2.11.b.summarymessage", ftypes.STRING, nil, nil, nil, "Summary Category Summary Messages Are Used To Provide Cta Eligible Equity Local Issue And Bond Summary Information By Security")
 omi_siac_cts_output_cta_v2_11_b.fields.summary_message_type = ProtoField.new("Summary Message Type", "siac.cts.output.cta.v2.11.b.summarymessagetype", ftypes.STRING, nil, nil, nil, "Identifies the type of Summary message")
 omi_siac_cts_output_cta_v2_11_b.fields.summary_participant_id = ProtoField.new("Summary Participant Id", "siac.cts.output.cta.v2.11.b.summaryparticipantid", ftypes.STRING, nil, nil, nil, "Identifies the Participant whose summary information is provided")
 omi_siac_cts_output_cta_v2_11_b.fields.test = ProtoField.new("Test", "siac.cts.output.cta.v2.11.b.test", ftypes.STRING, nil, nil, nil, "Identifies whether the security symbol is a test symbol")
 omi_siac_cts_output_cta_v2_11_b.fields.tick = ProtoField.new("Tick", "siac.cts.output.cta.v2.11.b.tick", ftypes.STRING, nil, nil, nil, "Represents for a Participant the upward, downward or unchanged price movement in a security's trades")
-omi_siac_cts_output_cta_v2_11_b.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.output.cta.v2.11.b.timestamp1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cts_output_cta_v2_11_b.fields.timestamp_1_utc = ProtoField.new("Timestamp 1", "siac.cts.output.cta.v2.11.b.timestamp1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_siac_cts_output_cta_v2_11_b.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v2.11.b.timestamp2", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_siac_cts_output_cta_v2_11_b.fields.timestamp_1 = ProtoField.new("Timestamp 1", "siac.cts.output.cta.v2.11.b.timestamp1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cts_output_cta_v2_11_b.fields.timestamp_2_utc = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v2.11.b.timestamp2.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_siac_cts_output_cta_v2_11_b.fields.timestamp_2 = ProtoField.new("Timestamp 2", "siac.cts.output.cta.v2.11.b.timestamp2", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_siac_cts_output_cta_v2_11_b.fields.total_trades = ProtoField.new("Total Trades", "siac.cts.output.cta.v2.11.b.totaltrades", ftypes.UINT32, nil, nil, nil, "Contains the total number of trade transactions executed from a Market Center")
 omi_siac_cts_output_cta_v2_11_b.fields.total_volume = ProtoField.new("Total Volume", "siac.cts.output.cta.v2.11.b.totalvolume", ftypes.UINT64, nil, nil, nil, "Contains Total Volume of shares traded in a security either on a Consolidated or an individual Participant basis at the time it is disseminated")
 omi_siac_cts_output_cta_v2_11_b.fields.trade_message = ProtoField.new("Trade Message", "siac.cts.output.cta.v2.11.b.trademessage", ftypes.STRING, nil, nil, nil, "Trade Category Trade Messages Are Used To Report Cta Eligible Equity Local Issue Or Bond Information")
@@ -242,7 +242,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-siac_cts_output_cta_v2_11_b.timestamp_format = 2
+siac_cts_output_cta_v2_11_b.timestamp_format = 3
 
 -- Checksums are verified only where the reader asks
 siac_cts_output_cta_v2_11_b.verify_checksums = false
@@ -272,7 +272,7 @@ omi_siac_cts_output_cta_v2_11_b.prefs.show_padding = Pref.bool("Show Padding", s
 omi_siac_cts_output_cta_v2_11_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_siac_cts_output_cta_v2_11_b.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_siac_cts_output_cta_v2_11_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_siac_cts_output_cta_v2_11_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 omi_siac_cts_output_cta_v2_11_b.prefs.verify_checksums = Pref.bool("Verify Checksums", false, "Compute each checksum the protocol carries and compare it with the one sent. Off by default: a capture taken on the sending host often holds checksums filled in after it was captured")
 
@@ -4407,8 +4407,8 @@ siac_cts_output_cta_v2_11_b.timestamp_2.dissect = function(buffer, offset, packe
     local length = siac_cts_output_cta_v2_11_b.timestamp_2.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_cts_output_cta_v2_11_b.fields.timestamp_2
-    if siac_cts_output_cta_v2_11_b.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_11_b.fields.timestamp_2_utc end
+    local field = omi_siac_cts_output_cta_v2_11_b.fields.timestamp_2_utc
+    if siac_cts_output_cta_v2_11_b.timestamp_format == 2 then field = omi_siac_cts_output_cta_v2_11_b.fields.timestamp_2 end
     if seconds == 0 and nanoseconds == 0 then
       -- Null: the field keeps its type, and the line says so instead
       parent = parent:add(field, buffer(offset, length), NSTime.new(0, 0))
@@ -4527,8 +4527,8 @@ siac_cts_output_cta_v2_11_b.timestamp_1.dissect = function(buffer, offset, packe
     local length = siac_cts_output_cta_v2_11_b.timestamp_1.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_cts_output_cta_v2_11_b.fields.timestamp_1
-    if siac_cts_output_cta_v2_11_b.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_11_b.fields.timestamp_1_utc end
+    local field = omi_siac_cts_output_cta_v2_11_b.fields.timestamp_1_utc
+    if siac_cts_output_cta_v2_11_b.timestamp_format == 2 then field = omi_siac_cts_output_cta_v2_11_b.fields.timestamp_1 end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_output_cta_v2_11_b.timestamp_1.fields(buffer, offset, packet, parent)
 
@@ -6673,8 +6673,8 @@ siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time.dissect = function(buf
     local length = siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time
-    if siac_cts_output_cta_v2_11_b.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time_utc end
+    local field = omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time_utc
+    if siac_cts_output_cta_v2_11_b.timestamp_format == 2 then field = omi_siac_cts_output_cta_v2_11_b.fields.prior_day_trade_date_and_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_output_cta_v2_11_b.prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
 
@@ -7243,8 +7243,8 @@ siac_cts_output_cta_v2_11_b.original_prior_day_trade_date_and_time.dissect = fun
     local length = siac_cts_output_cta_v2_11_b.original_prior_day_trade_date_and_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time
-    if siac_cts_output_cta_v2_11_b.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time_utc end
+    local field = omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time_utc
+    if siac_cts_output_cta_v2_11_b.timestamp_format == 2 then field = omi_siac_cts_output_cta_v2_11_b.fields.original_prior_day_trade_date_and_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_output_cta_v2_11_b.original_prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
 
@@ -7305,8 +7305,8 @@ siac_cts_output_cta_v2_11_b.corrected_prior_day_trade_date_and_time.dissect = fu
     local length = siac_cts_output_cta_v2_11_b.corrected_prior_day_trade_date_and_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time
-    if siac_cts_output_cta_v2_11_b.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time_utc end
+    local field = omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time_utc
+    if siac_cts_output_cta_v2_11_b.timestamp_format == 2 then field = omi_siac_cts_output_cta_v2_11_b.fields.corrected_prior_day_trade_date_and_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_output_cta_v2_11_b.corrected_prior_day_trade_date_and_time.fields(buffer, offset, packet, parent)
 
@@ -9273,8 +9273,8 @@ siac_cts_output_cta_v2_11_b.sip_block_timestamp.dissect = function(buffer, offse
     local length = siac_cts_output_cta_v2_11_b.sip_block_timestamp.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_cts_output_cta_v2_11_b.fields.sip_block_timestamp
-    if siac_cts_output_cta_v2_11_b.timestamp_format == 3 then field = omi_siac_cts_output_cta_v2_11_b.fields.sip_block_timestamp_utc end
+    local field = omi_siac_cts_output_cta_v2_11_b.fields.sip_block_timestamp_utc
+    if siac_cts_output_cta_v2_11_b.timestamp_format == 2 then field = omi_siac_cts_output_cta_v2_11_b.fields.sip_block_timestamp end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cts_output_cta_v2_11_b.sip_block_timestamp.fields(buffer, offset, packet, parent)
 

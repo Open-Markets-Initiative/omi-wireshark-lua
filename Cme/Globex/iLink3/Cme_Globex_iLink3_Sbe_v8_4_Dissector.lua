@@ -224,8 +224,8 @@ omi_cme_globex_ilink3_sbe_v8_4.fields.request_legs_group = ProtoField.new("Reque
 omi_cme_globex_ilink3_sbe_v8_4.fields.request_legs_groups = ProtoField.new("Request Legs Groups", "cme.globex.ilink3.sbe.v8.4.requestlegsgroups", ftypes.STRING, nil, nil, nil, "NoLegs Block")
 omi_cme_globex_ilink3_sbe_v8_4.fields.request_result = ProtoField.new("Request Result", "cme.globex.ilink3.sbe.v8.4.requestresult", ftypes.UINT8, nil, nil, nil, "Status of party details list request")
 omi_cme_globex_ilink3_sbe_v8_4.fields.request_time = ProtoField.new("Request Time", "cme.globex.ilink3.sbe.v8.4.requesttime", ftypes.UINT64, nil, nil, nil, "Information carried on a response to convey the time (UTC) when the request was received by the MSGW application. UTC timestamps are sent in number of nanoseconds since the UNIX epoch with microsecond precision")
-omi_cme_globex_ilink3_sbe_v8_4.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.ilink3.sbe.v8.4.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request; recommended to use timestamp as number of nanoseconds since epoch (Jan 1, 1970)")
 omi_cme_globex_ilink3_sbe_v8_4.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "cme.globex.ilink3.sbe.v8.4.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of request; recommended to use timestamp as number of nanoseconds since epoch (Jan 1, 1970)")
+omi_cme_globex_ilink3_sbe_v8_4.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.ilink3.sbe.v8.4.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request; recommended to use timestamp as number of nanoseconds since epoch (Jan 1, 1970)")
 omi_cme_globex_ilink3_sbe_v8_4.fields.requesting_party_id = ProtoField.new("Requesting Party Id", "cme.globex.ilink3.sbe.v8.4.requestingpartyid", ftypes.STRING, nil, nil, nil, "Party identifier for the requesting party. Required when NoRequestingPartyIDs(1657) > 0")
 omi_cme_globex_ilink3_sbe_v8_4.fields.requesting_party_id_source = ProtoField.new("Requesting Party Id Source", "cme.globex.ilink3.sbe.v8.4.requestingpartyidsource", ftypes.STRING, nil, nil, nil, "Identifies the source of the RequestingPartyID(1658) value. Required when NoRequestingPartyIDs(1657) > 0. Constant value")
 omi_cme_globex_ilink3_sbe_v8_4.fields.requesting_party_ids_group = ProtoField.new("Requesting Party Ids Group", "cme.globex.ilink3.sbe.v8.4.requestingpartyidsgroup", ftypes.STRING, nil, nil, nil, "Number of requesting party identifiers. Will be zero if specific PartyDetailsDefinitionID's are being requested. Will be populated only if all PartyDetailsDefinitions are being requested for a specific Firm")
@@ -250,8 +250,8 @@ omi_cme_globex_ilink3_sbe_v8_4.fields.self_match_prevention_id = ProtoField.new(
 omi_cme_globex_ilink3_sbe_v8_4.fields.self_match_prevention_instruction = ProtoField.new("Self Match Prevention Instruction", "cme.globex.ilink3.sbe.v8.4.selfmatchpreventioninstruction", ftypes.STRING, nil, nil, nil, "Used to act upon the outcome when a self-match is detected and an order is prevented from trading against another order with the same SelfMatchPreventionID (Tag 2362). 1=Cancel newest signifies that incoming order is cancelled. 2=Cancel Oldest signifies that the resting order is cancelled. Absence of this field (with Tag 2362) is interpreted as cancel oldest")
 omi_cme_globex_ilink3_sbe_v8_4.fields.sender_id = ProtoField.new("Sender Id", "cme.globex.ilink3.sbe.v8.4.senderid", ftypes.STRING, nil, nil, nil, "Operator ID. Should be unique per Firm ID. Assigned value used to identify specific message originator. Represents last individual or team in charge of the system which modifies the order before submission to the Globex platform, or if not modified from initiator (party role=118), last individual or team in charge of the system, which submit the order to the Globex platform")
 omi_cme_globex_ilink3_sbe_v8_4.fields.sender_id_optional = ProtoField.new("Sender Id Optional", "cme.globex.ilink3.sbe.v8.4.senderidoptional", ftypes.STRING, nil, nil, nil, "Operator ID. Should be unique per Firm ID. Assigned value used to identify specific message originator. Represents last individual or team in charge of the system which modifies the order before submission to the Globex platform, or if not modified from initiator (party role=118), last individual or team in charge of the system, which submit the order to the Globex platform")
-omi_cme_globex_ilink3_sbe_v8_4.fields.sending_time_epoch = ProtoField.new("Sending Time Epoch", "cme.globex.ilink3.sbe.v8.4.sendingtimeepoch", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the message is sent. 64-bit integer expressing the number of nano seconds since midnight January 1, 1970.")
 omi_cme_globex_ilink3_sbe_v8_4.fields.sending_time_epoch_utc = ProtoField.new("Sending Time Epoch", "cme.globex.ilink3.sbe.v8.4.sendingtimeepoch.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the message is sent. 64-bit integer expressing the number of nano seconds since midnight January 1, 1970.")
+omi_cme_globex_ilink3_sbe_v8_4.fields.sending_time_epoch = ProtoField.new("Sending Time Epoch", "cme.globex.ilink3.sbe.v8.4.sendingtimeepoch", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the message is sent. 64-bit integer expressing the number of nano seconds since midnight January 1, 1970.")
 omi_cme_globex_ilink3_sbe_v8_4.fields.seq_num = ProtoField.new("Seq Num", "cme.globex.ilink3.sbe.v8.4.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number as assigned to message")
 omi_cme_globex_ilink3_sbe_v8_4.fields.session = ProtoField.new("Session", "cme.globex.ilink3.sbe.v8.4.session", ftypes.STRING, nil, nil, nil, "Session ID")
 omi_cme_globex_ilink3_sbe_v8_4.fields.short_sale_type = ProtoField.new("Short Sale Type", "cme.globex.ilink3.sbe.v8.4.shortsaletype", ftypes.UINT8, nil, nil, nil, "Indicates the type of short sale. Will not be used for Buy orders but Sell orders should have this tag populated for MiFID")
@@ -296,8 +296,8 @@ omi_cme_globex_ilink3_sbe_v8_4.fields.trading_system_name = ProtoField.new("Trad
 omi_cme_globex_ilink3_sbe_v8_4.fields.trading_system_vendor = ProtoField.new("Trading System Vendor", "cme.globex.ilink3.sbe.v8.4.tradingsystemvendor", ftypes.STRING, nil, nil, nil, "Provides the vendor of the application system")
 omi_cme_globex_ilink3_sbe_v8_4.fields.trading_system_version = ProtoField.new("Trading System Version", "cme.globex.ilink3.sbe.v8.4.tradingsystemversion", ftypes.STRING, nil, nil, nil, "Provides the version of the application system being used to initiate FIX application messages.")
 omi_cme_globex_ilink3_sbe_v8_4.fields.trans_bkd_time = ProtoField.new("Trans Bkd Time", "cme.globex.ilink3.sbe.v8.4.transbkdtime", ftypes.UINT64, nil, nil, nil, "For derivatives a date and time stamp to indicate when this order was booked with the agent prior to submission to the exchange. Indicates the time at which the order was finalized between the buyer and seller prior to submission. Expressed as nanoseconds since epoch time")
-omi_cme_globex_ilink3_sbe_v8_4.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.ilink3.sbe.v8.4.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the transaction represented by this ExecutionReport (35=8) occurred. Expressed as nanoseconds since epoch time")
 omi_cme_globex_ilink3_sbe_v8_4.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.globex.ilink3.sbe.v8.4.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the transaction represented by this ExecutionReport (35=8) occurred. Expressed as nanoseconds since epoch time")
+omi_cme_globex_ilink3_sbe_v8_4.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.ilink3.sbe.v8.4.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the transaction represented by this ExecutionReport (35=8) occurred. Expressed as nanoseconds since epoch time")
 omi_cme_globex_ilink3_sbe_v8_4.fields.trd_reg_publication_reason = ProtoField.new("Trd Reg Publication Reason", "cme.globex.ilink3.sbe.v8.4.trdregpublicationreason", ftypes.UINT8, nil, nil, nil, "Additional reason for trade publication type specified in TrdRegPublicationType (2669). Reasons may be specific to regulatory trade publication rules. 12=Exempted due to European System of Central Banks (ESCB) policy transaction")
 omi_cme_globex_ilink3_sbe_v8_4.fields.trd_reg_publication_type = ProtoField.new("Trd Reg Publication Type", "cme.globex.ilink3.sbe.v8.4.trdregpublicationtype", ftypes.UINT8, nil, nil, nil, "Specifies the type of regulatory trade publication. Additional reasons for the publication type will be specified in TrdRegPublicationReason (2670). 2=Exempt from Publication. There are allowable exemptions for the post-trade publication of trade transactions")
 omi_cme_globex_ilink3_sbe_v8_4.fields.trd_reg_publications_group = ProtoField.new("Trd Reg Publications Group", "cme.globex.ilink3.sbe.v8.4.trdregpublicationsgroup", ftypes.STRING, nil, nil, nil, "Number of regulatory publication rules in repeating group. Should always be \"1\" if being used otherwise set to 0")
@@ -410,7 +410,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cme_globex_ilink3_sbe_v8_4.timestamp_format = 2
+cme_globex_ilink3_sbe_v8_4.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -443,7 +443,7 @@ omi_cme_globex_ilink3_sbe_v8_4.prefs.show_application_messages = Pref.bool("Show
 omi_cme_globex_ilink3_sbe_v8_4.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_cme_globex_ilink3_sbe_v8_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cme_globex_ilink3_sbe_v8_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cme_globex_ilink3_sbe_v8_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cme_globex_ilink3_sbe_v8_4.prefs_changed()
@@ -6710,16 +6710,27 @@ cme_globex_ilink3_sbe_v8_4.time_in_force = {}
 cme_globex_ilink3_sbe_v8_4.time_in_force.size = 1
 
 -- Display: Time In Force
-cme_globex_ilink3_sbe_v8_4.time_in_force.labels = {
-  [0] = "Time In Force: Day (0)",
-  [1] = "Time In Force: Good Till Cancel (1)",
-  [3] = "Time In Force: Fill And Kill (3)",
-  [4] = "Time In Force: Fill Or Kill (4)",
-  [6] = "Time In Force: Good Till Date (6)",
-}
-
 cme_globex_ilink3_sbe_v8_4.time_in_force.display = function(value)
-  return cme_globex_ilink3_sbe_v8_4.time_in_force.labels[value] or "Time In Force: Unknown("..value..")"
+  if value == 0 then
+    return "Time In Force: Day (0)"
+  end
+  if value == 1 then
+    return "Time In Force: Good Till Cancel (1)"
+  end
+  if value == 3 then
+    return "Time In Force: Fill And Kill (3)"
+  end
+  if value == 4 then
+    return "Time In Force: Fill Or Kill (4)"
+  end
+  if value == 6 then
+    return "Time In Force: Good Till Date (6)"
+  end
+  if value == 255 then
+    return "Time In Force: No Value"
+  end
+
+  return "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force

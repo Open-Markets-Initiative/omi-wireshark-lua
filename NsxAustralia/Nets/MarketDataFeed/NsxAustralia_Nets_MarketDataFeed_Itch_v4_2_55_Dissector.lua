@@ -35,21 +35,21 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.event_code = ProtoField
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.event_status = ProtoField.new("Event Status", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.eventstatus", ftypes.STRING, nil, nil, nil, "Current status of the event.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.executed_quantity = ProtoField.new("Executed Quantity", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.executedquantity", ftypes.UINT64, nil, nil, nil, "The quantity executed.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.execution_price = ProtoField.new("Execution Price", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.executionprice", ftypes.INT64, nil, nil, nil, "The price at which the execution occurred.")
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry = ProtoField.new("Expiry", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.expiry", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry/delist date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry_utc = ProtoField.new("Expiry", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.expiry.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expiry/delist date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry = ProtoField.new("Expiry", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.expiry", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry/delist date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.firm_code = ProtoField.new("Firm Code", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.firmcode", ftypes.STRING, nil, nil, nil, "The firm's text identifier.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.firm_id = ProtoField.new("Firm Id", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.firmid", ftypes.UINT32, nil, nil, nil, "Unique firm identifier.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.group = ProtoField.new("Group", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.group", ftypes.STRING, nil, nil, nil, "Identifies the Board for which this event applies. Left blank if not at Board level.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.index_orderbook = ProtoField.new("Index Orderbook", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.indexorderbook", ftypes.UINT32, nil, nil, nil, "Unique orderbook identifier for the index.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.index_value = ProtoField.new("Index Value", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.indexvalue", ftypes.UINT64, nil, nil, nil, "Value for the index, using the price decimals for the orderbook.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.isin = ProtoField.new("Isin", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.isin", ftypes.STRING, nil, nil, nil, "ISIN Code. Left blank if not applicable.")
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing = ProtoField.new("Listing", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.listing", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Listing date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing_utc = ProtoField.new("Listing", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.listing.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Listing date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing = ProtoField.new("Listing", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.listing", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Listing date/time in YYYYMMDDHHMMSS format. Zero indicates none.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.match_number = ProtoField.new("Match Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.matchnumber", ftypes.UINT64, nil, nil, nil, "The day unique match identifier.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.member_orderbook = ProtoField.new("Member Orderbook", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.memberorderbook", ftypes.UINT32, nil, nil, nil, "Unique orderbook identifier for the index member.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.minimumquantity", ftypes.UINT64, nil, nil, nil, "Minimum order quantity. Maximum value indicates non-tradeable.")
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond = ProtoField.new("Nanosecond", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.nanosecond", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since Epoch.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond_utc = ProtoField.new("Nanosecond", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.nanosecond.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since Epoch.")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.nanosecond = ProtoField.new("Nanosecond", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.nanosecond", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since Epoch.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.new_order_number = ProtoField.new("New Order Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.newordernumber", ftypes.UINT64, nil, nil, nil, "The new reference number for the order following its replacement.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.news_id = ProtoField.new("News Id", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.newsid", ftypes.UINT32, nil, nil, nil, "Unique news item identifier.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.news_text = ProtoField.new("News Text", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.newstext", ftypes.STRING, nil, nil, nil, "News data. Null-terminated string, maximum 512 characters.")
@@ -76,8 +76,8 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.reject_reason_code = Pr
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.remarks = ProtoField.new("Remarks", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.remarks", ftypes.STRING, nil, nil, nil, "Security board remarks for conditional markets.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.requested_session = ProtoField.new("Requested Session", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.requestedsession", ftypes.STRING, nil, nil, nil, "Specifies the session the client would like to log into, or all blanks to log into the currently active session.")
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time = ProtoField.new("Scheduled Time", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.scheduledtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Event trigger time in nanoseconds since Epoch (UTC).")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time_utc = ProtoField.new("Scheduled Time", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.scheduledtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Event trigger time in nanoseconds since Epoch (UTC).")
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.scheduled_time = ProtoField.new("Scheduled Time", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.scheduledtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Event trigger time in nanoseconds since Epoch (UTC).")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.security_code = ProtoField.new("Security Code", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.securitycode", ftypes.STRING, nil, nil, nil, "Unique text identifier for the security.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.security_name = ProtoField.new("Security Name", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.securityname", ftypes.STRING, nil, nil, nil, "Descriptive name for the security.")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.sell_firm_id = ProtoField.new("Sell Firm Id", "nsxaustralia.nets.marketdatafeed.itch.v4.2.55.sellfirmid", ftypes.UINT32, nil, nil, nil, "Firm ID of sell-side counterparty.")
@@ -161,7 +161,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format = 2
+nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -194,7 +194,7 @@ omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_headers = Pref.bool
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.prefs_changed()
@@ -845,8 +845,8 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.expiry.dissect = function(buffer, 
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry
-  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format == 3 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry_utc end
+  local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry_utc
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format == 2 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.expiry end
 
   local year = math.floor(packed / 10000000000)
   local month = math.floor(packed / 100000000) % 100
@@ -1027,8 +1027,8 @@ nsxaustralia_nets_marketdatafeed_itch_v4_2_55.listing.dissect = function(buffer,
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing
-  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format == 3 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing_utc end
+  local field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing_utc
+  if nsxaustralia_nets_marketdatafeed_itch_v4_2_55.timestamp_format == 2 then field = omi_nsxaustralia_nets_marketdatafeed_itch_v4_2_55.fields.listing end
 
   local year = math.floor(packed / 10000000000)
   local month = math.floor(packed / 100000000) % 100

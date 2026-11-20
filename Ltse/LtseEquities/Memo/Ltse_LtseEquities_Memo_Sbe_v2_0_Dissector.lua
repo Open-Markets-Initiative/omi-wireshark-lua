@@ -37,8 +37,8 @@ omi_ltse_ltseequities_memo_sbe_v2_0.fields.exec_inst = ProtoField.new("Exec Inst
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "ltse.ltseequities.memo.sbe.v2.0.execrefid", ftypes.UINT64, nil, nil, nil, "ExecRefID")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "ltse.ltseequities.memo.sbe.v2.0.execrestatementreason", ftypes.UINT8, nil, nil, nil, "ExecRestatementReason")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.execution_details = ProtoField.new("Execution Details", "ltse.ltseequities.memo.sbe.v2.0.executiondetails", ftypes.STRING, nil, nil, nil, "ExecutionDetailsType bit set")
-omi_ltse_ltseequities_memo_sbe_v2_0.fields.expire_time = ProtoField.new("Expire Time", "ltse.ltseequities.memo.sbe.v2.0.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "ExpireTime")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.expire_time_utc = ProtoField.new("Expire Time", "ltse.ltseequities.memo.sbe.v2.0.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "ExpireTime")
+omi_ltse_ltseequities_memo_sbe_v2_0.fields.expire_time = ProtoField.new("Expire Time", "ltse.ltseequities.memo.sbe.v2.0.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "ExpireTime")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "ltse.ltseequities.memo.sbe.v2.0.extendedexecinst", ftypes.STRING, nil, nil, nil, "ExtendedExecInstType bit set")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.extended_restatement_reason = ProtoField.new("Extended Restatement Reason", "ltse.ltseequities.memo.sbe.v2.0.extendedrestatementreason", ftypes.UINT8, nil, nil, nil, "ExtendedRestatementReason")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "ltse.ltseequities.memo.sbe.v2.0.externalroutingnotallowed", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "ExternalRoutingNotAllowed")
@@ -114,8 +114,8 @@ omi_ltse_ltseequities_memo_sbe_v2_0.fields.risk_group_id = ProtoField.new("Risk 
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.schema_id = ProtoField.new("Schema Id", "ltse.ltseequities.memo.sbe.v2.0.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.security_group = ProtoField.new("Security Group", "ltse.ltseequities.memo.sbe.v2.0.securitygroup", ftypes.STRING, nil, nil, nil, "SecurityGroup")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "ltse.ltseequities.memo.sbe.v2.0.selftradeprevention", ftypes.UINT8, nil, nil, nil, "SelfTradePrevention")
-omi_ltse_ltseequities_memo_sbe_v2_0.fields.sending_time = ProtoField.new("Sending Time", "ltse.ltseequities.memo.sbe.v2.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.sending_time_utc = ProtoField.new("Sending Time", "ltse.ltseequities.memo.sbe.v2.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "SendingTime")
+omi_ltse_ltseequities_memo_sbe_v2_0.fields.sending_time = ProtoField.new("Sending Time", "ltse.ltseequities.memo.sbe.v2.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "SendingTime")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.sequenced_message = ProtoField.new("Sequenced Message", "ltse.ltseequities.memo.sbe.v2.0.sequencedmessage", ftypes.STRING, nil, nil, nil, "Ltse Tcp sequenced message")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "ltse.ltseequities.memo.sbe.v2.0.serversbemessage", ftypes.STRING, nil, nil, nil, "Sbe message sent by Ltse to the firm")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.session_id = ProtoField.new("Session Id", "ltse.ltseequities.memo.sbe.v2.0.sessionid", ftypes.UINT64, nil, nil, nil, "The identifier for the session for which data is desired")
@@ -139,8 +139,8 @@ omi_ltse_ltseequities_memo_sbe_v2_0.fields.total_sequence_count = ProtoField.new
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.traded_against_hidden = ProtoField.new("Traded Against Hidden", "ltse.ltseequities.memo.sbe.v2.0.tradedagainsthidden", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0800, "TradedAgainstHidden")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.traded_against_retail = ProtoField.new("Traded Against Retail", "ltse.ltseequities.memo.sbe.v2.0.tradedagainstretail", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "TradedAgainstRetail")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.traded_at_midpoint = ProtoField.new("Traded At Midpoint", "ltse.ltseequities.memo.sbe.v2.0.tradedatmidpoint", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0100, "TradedAtMidpoint")
-omi_ltse_ltseequities_memo_sbe_v2_0.fields.transact_time = ProtoField.new("Transact Time", "ltse.ltseequities.memo.sbe.v2.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.transact_time_utc = ProtoField.new("Transact Time", "ltse.ltseequities.memo.sbe.v2.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "TransactTime")
+omi_ltse_ltseequities_memo_sbe_v2_0.fields.transact_time = ProtoField.new("Transact Time", "ltse.ltseequities.memo.sbe.v2.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "TransactTime")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.trd_match_id = ProtoField.new("Trd Match Id", "ltse.ltseequities.memo.sbe.v2.0.trdmatchid", ftypes.UINT64, nil, nil, nil, "TrdMatchID")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.trd_matching_id = ProtoField.new("Trd Matching Id", "ltse.ltseequities.memo.sbe.v2.0.trdmatchingid", ftypes.UINT64, nil, nil, nil, "TrdMatchingID")
 omi_ltse_ltseequities_memo_sbe_v2_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "ltse.ltseequities.memo.sbe.v2.0.unsequencedmessage", ftypes.STRING, nil, nil, nil, "Ltse Tcp unsequenced message")
@@ -186,7 +186,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-ltse_ltseequities_memo_sbe_v2_0.timestamp_format = 2
+ltse_ltseequities_memo_sbe_v2_0.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -219,7 +219,7 @@ omi_ltse_ltseequities_memo_sbe_v2_0.prefs.show_application_messages = Pref.bool(
 omi_ltse_ltseequities_memo_sbe_v2_0.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_ltse_ltseequities_memo_sbe_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_ltse_ltseequities_memo_sbe_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_ltse_ltseequities_memo_sbe_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_ltse_ltseequities_memo_sbe_v2_0.prefs_changed()

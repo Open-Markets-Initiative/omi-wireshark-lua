@@ -55,8 +55,8 @@ omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.source_venue = ProtoFiel
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.tradeecho.level2incremental.gtp.v26.1.2.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to TRADEcho")
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.tradeecho.level2incremental.gtp.v26.1.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.level2incremental.gtp.v26.1.2.tickid", ftypes.STRING, nil, nil, nil, "Not Applicable to TRADEcho")
-omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incremental.gtp.v26.1.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.tradeecho.level2incremental.gtp.v26.1.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.level2incremental.gtp.v26.1.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.level2incremental.gtp.v26.1.2.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status of the instrument.")
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.tradeecho.level2incremental.gtp.v26.1.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved for future use")
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.fields.unused_6 = ProtoField.new("Unused 6", "lseg.tradeecho.level2incremental.gtp.v26.1.2.unused6", ftypes.UINT8, nil, base.DEC, 0xFC, "Reserved for future use")
@@ -96,7 +96,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_tradeecho_level2incremental_gtp_v26_1_2.timestamp_format = 2
+lseg_tradeecho_level2incremental_gtp_v26_1_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -119,7 +119,7 @@ omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.prefs.show_headers = Pref.bool(
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_tradeecho_level2incremental_gtp_v26_1_2.prefs_changed()

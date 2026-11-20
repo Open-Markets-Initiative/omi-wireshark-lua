@@ -22,8 +22,8 @@ omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.complex_instrumen
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.complex_instrument_type = ProtoField.new("Complex Instrument Type", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.complexinstrumenttype", ftypes.STRING, nil, nil, nil, "4 character field; each field describes a characteristic. Character 1: Complex Option Type O = All legs are options Characters 2-4: Reserved")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.complex_instrument_underlying = ProtoField.new("Complex Instrument Underlying", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.complexinstrumentunderlying", ftypes.STRING, nil, nil, nil, "Complex Instrument Underlying right padded with spaces.")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.ecrp_volume = ProtoField.new("Ecrp Volume", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.ecrpvolume", ftypes.UINT32, nil, nil, nil, "Always zero.")
-omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.feedsymbol", ftypes.STRING, nil, nil, nil, "Option symbol. Six character, base 62.")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.filler = ProtoField.new("Filler", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.filler", ftypes.STRING, nil, nil, nil, "(space filled)")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.futures_expiration = ProtoField.new("Futures Expiration", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.futuresexpiration", ftypes.UINT32, nil, nil, nil, "Underlying futures contract expiration date.")
@@ -47,8 +47,8 @@ omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.low_price_valid =
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.message_count = ProtoField.new("Message Count", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.message_length = ProtoField.new("Message Length", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.message_type = ProtoField.new("Message Type", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Central Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.open_close_valid = ProtoField.new("Open Close Valid", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.openclosevalid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Set if both Open Price and Close Price fields contain valid values.")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.open_interest = ProtoField.new("Open Interest", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.openinterest", ftypes.UINT32, nil, nil, nil, "Prior Trade Date Open Interest for this symbol.")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.fields.open_price = ProtoField.new("Open Price", "cboe.cfefutures.oofmulticastdepthofbook.spin.v1.0.8.openprice", ftypes.DOUBLE, nil, nil, nil, "The first trade on the day (in any session) will set the Open Price for the day (valid only if Total Volume > 0). Block trades (Trade Condition = B or E) do not update Open Price.")
@@ -126,7 +126,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.timestamp_format = 2
+cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.zone_offset = 0
@@ -152,7 +152,7 @@ omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.prefs.show_headers = Pre
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_cboe_cfefutures_oofmulticastdepthofbook_spin_v1_0_8.prefs.zone_offset = Pref.string("America/Chicago Utc Offset", "", "Offset of America/Chicago from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

@@ -16,8 +16,8 @@ local bse_bseindia_eobi_fbe_v1_4 = {}
 
 -- Bse BseIndia Eobi Fbe 1.4 Fields
 omi_bse_bseindia_eobi_fbe_v1_4.fields.aggressor_side = ProtoField.new("Aggressor Side", "bse.bseindia.eobi.fbe.v1.4.aggressorside", ftypes.UINT8, nil, nil, nil, "Side of the incoming order.")
-omi_bse_bseindia_eobi_fbe_v1_4.fields.aggressor_timestamp = ProtoField.new("Aggressor Timestamp", "bse.bseindia.eobi.fbe.v1.4.aggressortimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Always identical to the matching engine in timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.aggressor_timestamp_utc = ProtoField.new("Aggressor Timestamp", "bse.bseindia.eobi.fbe.v1.4.aggressortimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Always identical to the matching engine in timestamp.")
+omi_bse_bseindia_eobi_fbe_v1_4.fields.aggressor_timestamp = ProtoField.new("Aggressor Timestamp", "bse.bseindia.eobi.fbe.v1.4.aggressortimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Always identical to the matching engine in timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "bse.bseindia.eobi.fbe.v1.4.applseqnum", ftypes.UINT32, nil, nil, nil, "Packet sequence number, contiguous and incremented per multicast address and port")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.appl_seq_reset_indicator = ProtoField.new("Appl Seq Reset Indicator", "bse.bseindia.eobi.fbe.v1.4.applseqresetindicator", ftypes.UINT8, nil, nil, nil, "Set in the first packet header after a market data fail over or restart, 0 No Reset and 1 Reset")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.bid_px = ProtoField.new("Bid Px", "bse.bseindia.eobi.fbe.v1.4.bidpx", ftypes.DOUBLE, nil, nil, nil, "Bid price/rate.")
@@ -26,16 +26,16 @@ omi_bse_bseindia_eobi_fbe_v1_4.fields.close_price = ProtoField.new("Close Price"
 omi_bse_bseindia_eobi_fbe_v1_4.fields.completion_indicator = ProtoField.new("Completion Indicator", "bse.bseindia.eobi.fbe.v1.4.completionindicator", ftypes.UINT8, nil, nil, nil, "Indicates whether a unit of work fits into a single datagram, 0 Incomplete and 1 Complete")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.display_qty = ProtoField.new("Display Qty", "bse.bseindia.eobi.fbe.v1.4.displayqty", ftypes.INT64, nil, nil, nil, "Quantity.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.eobi_header = ProtoField.new("Eobi Header", "bse.bseindia.eobi.fbe.v1.4.eobiheader", ftypes.STRING, nil, nil, nil, "Body Len, Template Id, and Msg Seq Num opening the Packet Header")
-omi_bse_bseindia_eobi_fbe_v1_4.fields.exec_id = ProtoField.new("Exec Id", "bse.bseindia.eobi.fbe.v1.4.execid", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Matching timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.exec_id_utc = ProtoField.new("Exec Id", "bse.bseindia.eobi.fbe.v1.4.execid.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Matching timestamp.")
+omi_bse_bseindia_eobi_fbe_v1_4.fields.exec_id = ProtoField.new("Exec Id", "bse.bseindia.eobi.fbe.v1.4.execid", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Matching timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "bse.bseindia.eobi.fbe.v1.4.fastmarketindicator", ftypes.UINT8, nil, nil, nil, "Indicates if product is in the state Fast Market.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.implied_market_indicator = ProtoField.new("Implied Market Indicator", "bse.bseindia.eobi.fbe.v1.4.impliedmarketindicator", ftypes.UINT8, nil, nil, nil, "Indicates that an implied market to be created for either the legs of a multi-leg instrument or for the multi-leg instrument based on the existence of the legs.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.instrmt_leg_grp = ProtoField.new("Instrmt Leg Grp", "bse.bseindia.eobi.fbe.v1.4.instrmtleggrp", ftypes.STRING, nil, nil, nil, "Leg definitions repeated NoLegs times in the Add Complex Instrument Message.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "bse.bseindia.eobi.fbe.v1.4.lastmsgseqnumprocessed", ftypes.UINT32, nil, nil, nil, "Last Message Sequence number that was processed.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.last_px = ProtoField.new("Last Px", "bse.bseindia.eobi.fbe.v1.4.lastpx", ftypes.DOUBLE, nil, nil, nil, "Indicating the potential Auction price for a crossed order book.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.last_qty = ProtoField.new("Last Qty", "bse.bseindia.eobi.fbe.v1.4.lastqty", ftypes.INT64, nil, nil, nil, "The potential matchable quantity for the auction.")
-omi_bse_bseindia_eobi_fbe_v1_4.fields.last_update_time = ProtoField.new("Last Update Time", "bse.bseindia.eobi.fbe.v1.4.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Last update time of the corresponding order book.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.last_update_time_utc = ProtoField.new("Last Update Time", "bse.bseindia.eobi.fbe.v1.4.lastupdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Last update time of the corresponding order book.")
+omi_bse_bseindia_eobi_fbe_v1_4.fields.last_update_time = ProtoField.new("Last Update Time", "bse.bseindia.eobi.fbe.v1.4.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Last update time of the corresponding order book.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "bse.bseindia.eobi.fbe.v1.4.legratioqty", ftypes.INT32, nil, nil, nil, "The ratio of quantity for this individual leg relative to the entire multi-leg security.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.leg_security_id = ProtoField.new("Leg Security Id", "bse.bseindia.eobi.fbe.v1.4.legsecurityid", ftypes.INT64, nil, nil, nil, "Instrument identifier of the leg security.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.leg_side = ProtoField.new("Leg Side", "bse.bseindia.eobi.fbe.v1.4.legside", ftypes.UINT8, nil, nil, nil, "The side of the individual leg of a strategy as defined in signature.")
@@ -78,17 +78,17 @@ omi_bse_bseindia_eobi_fbe_v1_4.fields.trade_condition = ProtoField.new("Trade Co
 omi_bse_bseindia_eobi_fbe_v1_4.fields.trade_volume = ProtoField.new("Trade Volume", "bse.bseindia.eobi.fbe.v1.4.tradevolume", ftypes.INT64, nil, nil, nil, "Cumulative volume of units traded in the day.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.trading_session_id = ProtoField.new("Trading Session Id", "bse.bseindia.eobi.fbe.v1.4.tradingsessionid", ftypes.UINT8, nil, nil, nil, "Miscellaneous state information.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "bse.bseindia.eobi.fbe.v1.4.tradingsessionsubid", ftypes.UINT8, nil, nil, nil, "Product state information.")
-omi_bse_bseindia_eobi_fbe_v1_4.fields.transact_time = ProtoField.new("Transact Time", "bse.bseindia.eobi.fbe.v1.4.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.transact_time_utc = ProtoField.new("Transact Time", "bse.bseindia.eobi.fbe.v1.4.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction timestamp.")
+omi_bse_bseindia_eobi_fbe_v1_4.fields.transact_time = ProtoField.new("Transact Time", "bse.bseindia.eobi.fbe.v1.4.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_match_id = ProtoField.new("Trd Match Id", "bse.bseindia.eobi.fbe.v1.4.trdmatchid", ftypes.UINT32, nil, nil, nil, "Unique identifier for each price level of a match event.")
-omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_execution_time = ProtoField.new("Trd Reg Ts Execution Time", "bse.bseindia.eobi.fbe.v1.4.trdregtsexecutiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Last matching execution timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_execution_time_utc = ProtoField.new("Trd Reg Ts Execution Time", "bse.bseindia.eobi.fbe.v1.4.trdregtsexecutiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Last matching execution timestamp.")
-omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_prev_time_priority = ProtoField.new("Trd Reg Ts Prev Time Priority", "bse.bseindia.eobi.fbe.v1.4.trdregtsprevtimepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Previous order priority timestamp.")
+omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_execution_time = ProtoField.new("Trd Reg Ts Execution Time", "bse.bseindia.eobi.fbe.v1.4.trdregtsexecutiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Last matching execution timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_prev_time_priority_utc = ProtoField.new("Trd Reg Ts Prev Time Priority", "bse.bseindia.eobi.fbe.v1.4.trdregtsprevtimepriority.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Previous order priority timestamp.")
-omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg Ts Time In", "bse.bseindia.eobi.fbe.v1.4.trdregtstimein", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Matching engine In timestamp.")
+omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_prev_time_priority = ProtoField.new("Trd Reg Ts Prev Time Priority", "bse.bseindia.eobi.fbe.v1.4.trdregtsprevtimepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Previous order priority timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_time_in_utc = ProtoField.new("Trd Reg Ts Time In", "bse.bseindia.eobi.fbe.v1.4.trdregtstimein.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Matching engine In timestamp.")
-omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "bse.bseindia.eobi.fbe.v1.4.trdregtstimepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Priority timestamp.")
+omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_time_in = ProtoField.new("Trd Reg Ts Time In", "bse.bseindia.eobi.fbe.v1.4.trdregtstimein", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Matching engine In timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_time_priority_utc = ProtoField.new("Trd Reg Ts Time Priority", "bse.bseindia.eobi.fbe.v1.4.trdregtstimepriority.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Priority timestamp.")
+omi_bse_bseindia_eobi_fbe_v1_4.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "bse.bseindia.eobi.fbe.v1.4.trdregtstimepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Priority timestamp.")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.upper_ckt_limit = ProtoField.new("Upper Ckt Limit", "bse.bseindia.eobi.fbe.v1.4.uppercktlimit", ftypes.DOUBLE, nil, nil, nil, "Upper Circuit Limit Price")
 omi_bse_bseindia_eobi_fbe_v1_4.fields.upper_exec_limit = ProtoField.new("Upper Exec Limit", "bse.bseindia.eobi.fbe.v1.4.upperexeclimit", ftypes.DOUBLE, nil, nil, nil, "Upper Limit Execution Price")
 
@@ -142,7 +142,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-bse_bseindia_eobi_fbe_v1_4.timestamp_format = 2
+bse_bseindia_eobi_fbe_v1_4.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -167,7 +167,7 @@ omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_headers = Pref.bool("Show Headers", sh
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_bse_bseindia_eobi_fbe_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_bse_bseindia_eobi_fbe_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_bse_bseindia_eobi_fbe_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bse_bseindia_eobi_fbe_v1_4.prefs_changed()

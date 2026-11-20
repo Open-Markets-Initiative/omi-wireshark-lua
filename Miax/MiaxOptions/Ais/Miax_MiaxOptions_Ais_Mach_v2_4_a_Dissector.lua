@@ -28,8 +28,8 @@ omi_miax_miaxoptions_ais_mach_v2_4_a.fields.event_id = ProtoField.new("Event Id"
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.event_reason = ProtoField.new("Event Reason", "miax.miaxoptions.ais.mach.v2.4.a.eventreason", ftypes.STRING, nil, nil, nil, "Event Reason value")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.event_type = ProtoField.new("Event Type", "miax.miaxoptions.ais.mach.v2.4.a.eventtype", ftypes.STRING, nil, nil, nil, "Type of Event")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.expected_event_time_nano_seconds_part = ProtoField.new("Expected Event Time Nano Seconds Part", "miax.miaxoptions.ais.mach.v2.4.a.expectedeventtimenanosecondspart", ftypes.UINT32, nil, nil, nil, "Nano-seconds portion of the expected time of the event. Specifies number of nano-seconds since the seconds specified in \"Expected Event Time Seconds\" field.")
-omi_miax_miaxoptions_ais_mach_v2_4_a.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.ais.mach.v2.4.a.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.expected_event_time_seconds_part_utc = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.ais.mach.v2.4.a.expectedeventtimesecondspart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
+omi_miax_miaxoptions_ais_mach_v2_4_a.fields.expected_event_time_seconds_part = ProtoField.new("Expected Event Time Seconds Part", "miax.miaxoptions.ais.mach.v2.4.a.expectedeventtimesecondspart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds portion of the expected time of the event. Always use in conjunction with the Nano-seconds part field.")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.expiration_date = ProtoField.new("Expiration Date", "miax.miaxoptions.ais.mach.v2.4.a.expirationdate", ftypes.STRING, nil, nil, nil, "Expiration date of the option in YYYYMMDD format")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.goodbye_packet = ProtoField.new("Goodbye Packet", "miax.miaxoptions.ais.mach.v2.4.a.goodbyepacket", ftypes.STRING, nil, nil, nil, "The server may send a GoodBye packet to inform the client a reason for termination of the connection just before it terminates the connection")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.highest_sequence_number = ProtoField.new("Highest Sequence Number", "miax.miaxoptions.ais.mach.v2.4.a.highestsequencenumber", ftypes.UINT64, nil, nil, nil, "the highest sequence number that the server currently has for the client")
@@ -73,8 +73,8 @@ omi_miax_miaxoptions_ais_mach_v2_4_a.fields.reserved_10 = ProtoField.new("Reserv
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.ais.mach.v2.4.a.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.restricted_option = ProtoField.new("Restricted Option", "miax.miaxoptions.ais.mach.v2.4.a.restrictedoption", ftypes.STRING, nil, nil, nil, "Restricted Option value")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.retransmission_request = ProtoField.new("Retransmission Request", "miax.miaxoptions.ais.mach.v2.4.a.retransmissionrequest", ftypes.STRING, nil, nil, nil, "The SesM client uses this packet to request a retransmission server to retransmit a range of packets")
-omi_miax_miaxoptions_ais_mach_v2_4_a.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.ais.mach.v2.4.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.seconds_utc = ProtoField.new("Seconds", "miax.miaxoptions.ais.mach.v2.4.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_miaxoptions_ais_mach_v2_4_a.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.ais.mach.v2.4.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.security_symbol = ProtoField.new("Security Symbol", "miax.miaxoptions.ais.mach.v2.4.a.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.ais.mach.v2.4.a.sequencenumber", ftypes.UINT64, nil, nil, nil, "Original sequence number from the live feed.")
 omi_miax_miaxoptions_ais_mach_v2_4_a.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.miaxoptions.ais.mach.v2.4.a.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The SesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
@@ -146,7 +146,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_miaxoptions_ais_mach_v2_4_a.timestamp_format = 2
+miax_miaxoptions_ais_mach_v2_4_a.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -171,7 +171,7 @@ omi_miax_miaxoptions_ais_mach_v2_4_a.prefs.show_headers = Pref.bool("Show Header
 omi_miax_miaxoptions_ais_mach_v2_4_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_miaxoptions_ais_mach_v2_4_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_miax_miaxoptions_ais_mach_v2_4_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_miaxoptions_ais_mach_v2_4_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_ais_mach_v2_4_a.prefs_changed()

@@ -59,8 +59,8 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_4_b = ProtoField.new("R
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_4_c = ProtoField.new("Reserved 4 C", "sgx.titandt.depthofbook.glimpse.v1.4.reserved4c", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_bits_1_to_13 = ProtoField.new("Reserved Bits 1 To 13", "sgx.titandt.depthofbook.glimpse.v1.4.reservedbits1to13", ftypes.UINT16, nil, base.DEC, 0x1FFF, "Reserved")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.reserved_bits_15_to_16 = ProtoField.new("Reserved Bits 15 To 16", "sgx.titandt.depthofbook.glimpse.v1.4.reservedbits15to16", ftypes.UINT16, nil, base.DEC, 0xC000, "Reserved")
-omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second = ProtoField.new("Second", "sgx.titandt.depthofbook.glimpse.v1.4.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second_utc = ProtoField.new("Second", "sgx.titandt.depthofbook.glimpse.v1.4.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time")
+omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.second = ProtoField.new("Second", "sgx.titandt.depthofbook.glimpse.v1.4.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "sgx.titandt.depthofbook.glimpse.v1.4.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.server_packet_type = ProtoField.new("Packet Type", "sgx.titandt.depthofbook.glimpse.v1.4.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.fields.side = ProtoField.new("Side", "sgx.titandt.depthofbook.glimpse.v1.4.side", ftypes.STRING, nil, nil, nil, "The type of order being added")
@@ -123,7 +123,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-sgx_titandt_depthofbook_glimpse_v1_4.timestamp_format = 2
+sgx_titandt_depthofbook_glimpse_v1_4.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -158,7 +158,7 @@ omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.show_session_messages = Pref.bool
 omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_sgx_titandt_depthofbook_glimpse_v1_4.prefs_changed()

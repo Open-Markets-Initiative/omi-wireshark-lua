@@ -31,8 +31,8 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.sequence_number = Pr
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.session = ProtoField.new("Session", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.stock = ProtoField.new("Stock", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.stock", ftypes.STRING, nil, nil, nil, "The security symbol for the issue, in Nasdaq symbology.")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.stock_locate = ProtoField.new("Stock Locate", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.stocklocate", ftypes.UINT16, nil, nil, nil, "Always 0")
-omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.timestamp = ProtoField.new("Timestamp", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamp")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.timestamp_utc = ProtoField.new("Timestamp", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time stamp")
+omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.timestamp = ProtoField.new("Timestamp", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamp")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.fields.trading_state = ProtoField.new("Trading State", "bruceats.bruceequities.bestbidandoffer.itch.v3.3.tradingstate", ftypes.STRING, nil, nil, nil, "The current trading state for the issue.")
 
 -- BruceAts BruceEquities BestBidAndOffer Itch 3.3 Framing
@@ -67,7 +67,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-bruceats_bruceequities_bestbidandoffer_itch_v3_3.timestamp_format = 2
+bruceats_bruceequities_bestbidandoffer_itch_v3_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -90,7 +90,7 @@ omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.show_application_mess
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bruceats_bruceequities_bestbidandoffer_itch_v3_3.prefs_changed()

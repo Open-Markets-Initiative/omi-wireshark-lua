@@ -16,8 +16,8 @@ local eurex_t7_eobi_fbe_v11_0 = {}
 
 -- Eurex T7 Eobi Fbe 11.0 Fields
 omi_eurex_t7_eobi_fbe_v11_0.fields.aggressor_side = ProtoField.new("Aggressor Side", "eurex.t7.eobi.fbe.v11.0.aggressorside", ftypes.UINT8)
-omi_eurex_t7_eobi_fbe_v11_0.fields.aggressor_time = ProtoField.new("Aggressor Time", "eurex.t7.eobi.fbe.v11.0.aggressortime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.aggressor_time_utc = ProtoField.new("Aggressor Time", "eurex.t7.eobi.fbe.v11.0.aggressortime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_eobi_fbe_v11_0.fields.aggressor_time = ProtoField.new("Aggressor Time", "eurex.t7.eobi.fbe.v11.0.aggressortime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.algorithmic_trade_indicator = ProtoField.new("Algorithmic Trade Indicator", "eurex.t7.eobi.fbe.v11.0.algorithmictradeindicator", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v11_0.fields.appl_seq_num = ProtoField.new("Appl Seq Num", "eurex.t7.eobi.fbe.v11.0.applseqnum", ftypes.UINT32, nil, nil, nil, "Application sequence number per Market Segment / Partition")
 omi_eurex_t7_eobi_fbe_v11_0.fields.appl_seq_reset_indicator = ProtoField.new("Appl Seq Reset Indicator", "eurex.t7.eobi.fbe.v11.0.applseqresetindicator", ftypes.UINT8, nil, nil, nil, "Indicates whether Application Sequence Number was reset for this Market Segment")
@@ -30,8 +30,8 @@ omi_eurex_t7_eobi_fbe_v11_0.fields.cross_request_type = ProtoField.new("Cross Re
 omi_eurex_t7_eobi_fbe_v11_0.fields.display_qty = ProtoField.new("Display Qty", "eurex.t7.eobi.fbe.v11.0.displayqty", ftypes.DOUBLE)
 omi_eurex_t7_eobi_fbe_v11_0.fields.dscp = ProtoField.new("DSCP", "eurex.t7.eobi.fbe.v11.0.dscp", ftypes.UINT8, nil, nil, nil, "Copy of DSCP from IP protocol header")
 omi_eurex_t7_eobi_fbe_v11_0.fields.eobi_header = ProtoField.new("Eobi Header", "eurex.t7.eobi.fbe.v11.0.eobiheader", ftypes.STRING, nil, nil, nil, "EOBI PacketHeader MessageHeaderComp (BodyLen + TemplateID + MsgSeqNum) — first 8 bytes of every Eurex T7 EOBI packet.")
-omi_eurex_t7_eobi_fbe_v11_0.fields.exec_id = ProtoField.new("Exec Id", "eurex.t7.eobi.fbe.v11.0.execid", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.exec_id_utc = ProtoField.new("Exec Id", "eurex.t7.eobi.fbe.v11.0.execid.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_eobi_fbe_v11_0.fields.exec_id = ProtoField.new("Exec Id", "eurex.t7.eobi.fbe.v11.0.execid", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.exercise_style = ProtoField.new("Exercise Style", "eurex.t7.eobi.fbe.v11.0.exercisestyle", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v11_0.fields.fast_market_indicator = ProtoField.new("Fast Market Indicator", "eurex.t7.eobi.fbe.v11.0.fastmarketindicator", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v11_0.fields.hhi_indicator = ProtoField.new("Hhi Indicator", "eurex.t7.eobi.fbe.v11.0.hhiindicator", ftypes.INT8)
@@ -42,11 +42,11 @@ omi_eurex_t7_eobi_fbe_v11_0.fields.input_source = ProtoField.new("Input Source",
 omi_eurex_t7_eobi_fbe_v11_0.fields.instrmt_leg_grp_comp = ProtoField.new("Instrmt Leg Grp Comp", "eurex.t7.eobi.fbe.v11.0.instrmtleggrpcomp", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v11_0.fields.instrument_scope_product_complex = ProtoField.new("Instrument Scope Product Complex", "eurex.t7.eobi.fbe.v11.0.instrumentscopeproductcomplex", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v11_0.fields.last_fragment = ProtoField.new("Last Fragment", "eurex.t7.eobi.fbe.v11.0.lastfragment", ftypes.UINT8)
-omi_eurex_t7_eobi_fbe_v11_0.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.t7.eobi.fbe.v11.0.lastmsgseqnumprocessed", ftypes.UINT32)
+omi_eurex_t7_eobi_fbe_v11_0.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "eurex.t7.eobi.fbe.v11.0.lastmsgseqnumprocessed", ftypes.UINT32, nil, nil, nil, "Last message sequence number that was processed, regardless of message type")
 omi_eurex_t7_eobi_fbe_v11_0.fields.last_px = ProtoField.new("Last Px", "eurex.t7.eobi.fbe.v11.0.lastpx", ftypes.DOUBLE)
-omi_eurex_t7_eobi_fbe_v11_0.fields.last_qty = ProtoField.new("Last Qty", "eurex.t7.eobi.fbe.v11.0.lastqty", ftypes.DOUBLE)
-omi_eurex_t7_eobi_fbe_v11_0.fields.last_update_time = ProtoField.new("Last Update Time", "eurex.t7.eobi.fbe.v11.0.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_eurex_t7_eobi_fbe_v11_0.fields.last_qty = ProtoField.new("Last Qty", "eurex.t7.eobi.fbe.v11.0.lastqty", ftypes.DOUBLE, nil, nil, nil, "Total executed matched quantity of this match event")
 omi_eurex_t7_eobi_fbe_v11_0.fields.last_update_time_utc = ProtoField.new("Last Update Time", "eurex.t7.eobi.fbe.v11.0.lastupdatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_eobi_fbe_v11_0.fields.last_update_time = ProtoField.new("Last Update Time", "eurex.t7.eobi.fbe.v11.0.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.leg_price = ProtoField.new("Leg Price", "eurex.t7.eobi.fbe.v11.0.legprice", ftypes.DOUBLE)
 omi_eurex_t7_eobi_fbe_v11_0.fields.leg_ratio_multiplier = ProtoField.new("Leg Ratio Multiplier", "eurex.t7.eobi.fbe.v11.0.legratiomultiplier", ftypes.UINT32)
 omi_eurex_t7_eobi_fbe_v11_0.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "eurex.t7.eobi.fbe.v11.0.legratioqty", ftypes.INT32)
@@ -99,13 +99,13 @@ omi_eurex_t7_eobi_fbe_v11_0.fields.prev_price_hhi_indicator = ProtoField.new("Pr
 omi_eurex_t7_eobi_fbe_v11_0.fields.price = ProtoField.new("Price", "eurex.t7.eobi.fbe.v11.0.price", ftypes.DOUBLE)
 omi_eurex_t7_eobi_fbe_v11_0.fields.product_complex = ProtoField.new("Product Complex", "eurex.t7.eobi.fbe.v11.0.productcomplex", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v11_0.fields.put_or_call = ProtoField.new("Put Or Call", "eurex.t7.eobi.fbe.v11.0.putorcall", ftypes.UINT8)
-omi_eurex_t7_eobi_fbe_v11_0.fields.request_time = ProtoField.new("Request Time", "eurex.t7.eobi.fbe.v11.0.requesttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.request_time_utc = ProtoField.new("Request Time", "eurex.t7.eobi.fbe.v11.0.requesttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_eobi_fbe_v11_0.fields.request_time = ProtoField.new("Request Time", "eurex.t7.eobi.fbe.v11.0.requesttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.resting_cxl_qty = ProtoField.new("Resting Cxl Qty", "eurex.t7.eobi.fbe.v11.0.restingcxlqty", ftypes.DOUBLE)
 omi_eurex_t7_eobi_fbe_v11_0.fields.resting_hidden_qty = ProtoField.new("Resting Hidden Qty", "eurex.t7.eobi.fbe.v11.0.restinghiddenqty", ftypes.DOUBLE)
 omi_eurex_t7_eobi_fbe_v11_0.fields.sec_mass_stat_grp_comp = ProtoField.new("Sec Mass Stat Grp Comp", "eurex.t7.eobi.fbe.v11.0.secmassstatgrpcomp", ftypes.STRING)
 omi_eurex_t7_eobi_fbe_v11_0.fields.security_desc = ProtoField.new("Security Desc", "eurex.t7.eobi.fbe.v11.0.securitydesc", ftypes.STRING)
-omi_eurex_t7_eobi_fbe_v11_0.fields.security_id = ProtoField.new("Security Id", "eurex.t7.eobi.fbe.v11.0.securityid", ftypes.INT64)
+omi_eurex_t7_eobi_fbe_v11_0.fields.security_id = ProtoField.new("Security Id", "eurex.t7.eobi.fbe.v11.0.securityid", ftypes.INT64, nil, nil, nil, "Unique instrument identifier")
 omi_eurex_t7_eobi_fbe_v11_0.fields.security_mass_status = ProtoField.new("Security Mass Status", "eurex.t7.eobi.fbe.v11.0.securitymassstatus", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v11_0.fields.security_mass_trading_event = ProtoField.new("Security Mass Trading Event", "eurex.t7.eobi.fbe.v11.0.securitymasstradingevent", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v11_0.fields.security_mass_trading_status = ProtoField.new("Security Mass Trading Status", "eurex.t7.eobi.fbe.v11.0.securitymasstradingstatus", ftypes.UINT8)
@@ -128,15 +128,15 @@ omi_eurex_t7_eobi_fbe_v11_0.fields.trade_condition = ProtoField.new("Trade Condi
 omi_eurex_t7_eobi_fbe_v11_0.fields.trading_hhi_indicator = ProtoField.new("Trading Hhi Indicator", "eurex.t7.eobi.fbe.v11.0.tradinghhiindicator", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v11_0.fields.trading_session_id = ProtoField.new("Trading Session Id", "eurex.t7.eobi.fbe.v11.0.tradingsessionid", ftypes.UINT8)
 omi_eurex_t7_eobi_fbe_v11_0.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "eurex.t7.eobi.fbe.v11.0.tradingsessionsubid", ftypes.UINT8)
-omi_eurex_t7_eobi_fbe_v11_0.fields.transact_time = ProtoField.new("Transact Time", "eurex.t7.eobi.fbe.v11.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Matching-engine transaction time in nanoseconds since Unix epoch")
 omi_eurex_t7_eobi_fbe_v11_0.fields.transact_time_utc = ProtoField.new("Transact Time", "eurex.t7.eobi.fbe.v11.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Matching-engine transaction time in nanoseconds since Unix epoch")
+omi_eurex_t7_eobi_fbe_v11_0.fields.transact_time = ProtoField.new("Transact Time", "eurex.t7.eobi.fbe.v11.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Matching-engine transaction time in nanoseconds since Unix epoch")
 omi_eurex_t7_eobi_fbe_v11_0.fields.trd_match_id = ProtoField.new("Trd Match Id", "eurex.t7.eobi.fbe.v11.0.trdmatchid", ftypes.UINT32)
-omi_eurex_t7_eobi_fbe_v11_0.fields.trd_reg_ts_execution_time = ProtoField.new("Trd Reg Ts Execution Time", "eurex.t7.eobi.fbe.v11.0.trdregtsexecutiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.trd_reg_ts_execution_time_utc = ProtoField.new("Trd Reg Ts Execution Time", "eurex.t7.eobi.fbe.v11.0.trdregtsexecutiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_eurex_t7_eobi_fbe_v11_0.fields.trd_reg_ts_prev_time_priority = ProtoField.new("Trd Reg Ts Prev Time Priority", "eurex.t7.eobi.fbe.v11.0.trdregtsprevtimepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_eurex_t7_eobi_fbe_v11_0.fields.trd_reg_ts_execution_time = ProtoField.new("Trd Reg Ts Execution Time", "eurex.t7.eobi.fbe.v11.0.trdregtsexecutiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.trd_reg_ts_prev_time_priority_utc = ProtoField.new("Trd Reg Ts Prev Time Priority", "eurex.t7.eobi.fbe.v11.0.trdregtsprevtimepriority.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
-omi_eurex_t7_eobi_fbe_v11_0.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.t7.eobi.fbe.v11.0.trdregtstimepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
+omi_eurex_t7_eobi_fbe_v11_0.fields.trd_reg_ts_prev_time_priority = ProtoField.new("Trd Reg Ts Prev Time Priority", "eurex.t7.eobi.fbe.v11.0.trdregtsprevtimepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.trd_reg_ts_time_priority_utc = ProtoField.new("Trd Reg Ts Time Priority", "eurex.t7.eobi.fbe.v11.0.trdregtstimepriority.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_eurex_t7_eobi_fbe_v11_0.fields.trd_reg_ts_time_priority = ProtoField.new("Trd Reg Ts Time Priority", "eurex.t7.eobi.fbe.v11.0.trdregtstimepriority", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_eurex_t7_eobi_fbe_v11_0.fields.trd_type = ProtoField.new("Trd Type", "eurex.t7.eobi.fbe.v11.0.trdtype", ftypes.UINT16)
 
 -- Eurex T7 Eobi Fbe 11.0 Framing
@@ -193,7 +193,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-eurex_t7_eobi_fbe_v11_0.timestamp_format = 2
+eurex_t7_eobi_fbe_v11_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -218,7 +218,7 @@ omi_eurex_t7_eobi_fbe_v11_0.prefs.show_headers = Pref.bool("Show Headers", show.
 omi_eurex_t7_eobi_fbe_v11_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_eurex_t7_eobi_fbe_v11_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_eurex_t7_eobi_fbe_v11_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_eurex_t7_eobi_fbe_v11_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_eurex_t7_eobi_fbe_v11_0.prefs_changed()

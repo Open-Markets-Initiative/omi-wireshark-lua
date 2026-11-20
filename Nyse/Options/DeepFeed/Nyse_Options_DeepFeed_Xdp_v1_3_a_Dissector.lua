@@ -46,17 +46,17 @@ omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_customer_volume = Proto
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_price = ProtoField.new("Second Level Price", "nyse.options.deepfeed.xdp.v1.3.a.secondlevelprice", ftypes.INT32, nil, nil, nil, "Price of second buy level")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_level_volume = ProtoField.new("Second Level Volume", "nyse.options.deepfeed.xdp.v1.3.a.secondlevelvolume", ftypes.UINT16, nil, nil, nil, "Total volume at second price level")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.second_volume = ProtoField.new("Second Volume", "nyse.options.deepfeed.xdp.v1.3.a.secondvolume", ftypes.UINT16, nil, nil, nil, "Total volume at Second price level")
-omi_nyse_options_deepfeed_xdp_v1_3_a.fields.seconds = ProtoField.new("Seconds", "nyse.options.deepfeed.xdp.v1.3.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.seconds_utc = ProtoField.new("Seconds", "nyse.options.deepfeed.xdp.v1.3.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_options_deepfeed_xdp_v1_3_a.fields.seconds = ProtoField.new("Seconds", "nyse.options.deepfeed.xdp.v1.3.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.options.deepfeed.xdp.v1.3.a.securitystatus", ftypes.STRING, nil, nil, nil, "SecurityStatus value")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.security_type = ProtoField.new("Security Type", "nyse.options.deepfeed.xdp.v1.3.a.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security")
-omi_nyse_options_deepfeed_xdp_v1_3_a.fields.send_time = ProtoField.new("Send Time", "nyse.options.deepfeed.xdp.v1.3.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.options.deepfeed.xdp.v1.3.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_options_deepfeed_xdp_v1_3_a.fields.send_time = ProtoField.new("Send Time", "nyse.options.deepfeed.xdp.v1.3.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.options.deepfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.series_index = ProtoField.new("Series Index", "nyse.options.deepfeed.xdp.v1.3.a.seriesindex", ftypes.UINT32, nil, nil, nil, "The unique ID of the symbol in the Series Index message")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_ns = ProtoField.new("Source Ns", "nyse.options.deepfeed.xdp.v1.3.a.sourcens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime.")
-omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.options.deepfeed.xdp.v1.3.a.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_time_utc = ProtoField.new("Source Time", "nyse.options.deepfeed.xdp.v1.3.a.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.options.deepfeed.xdp.v1.3.a.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.options.deepfeed.xdp.v1.3.a.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime.")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.stream_id = ProtoField.new("Stream Id", "nyse.options.deepfeed.xdp.v1.3.a.streamid", ftypes.UINT16, nil, nil, nil, "Identifies Stream on which this symbol will be updated")
 omi_nyse_options_deepfeed_xdp_v1_3_a.fields.strike_price = ProtoField.new("Strike Price", "nyse.options.deepfeed.xdp.v1.3.a.strikeprice", ftypes.STRING, nil, nil, nil, "Strike price. ASCII 0-9 with optional decimal point. EG: 51.75, 123")
@@ -109,7 +109,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_options_deepfeed_xdp_v1_3_a.timestamp_format = 2
+nyse_options_deepfeed_xdp_v1_3_a.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -132,7 +132,7 @@ omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_application_messages = Pref.bool
 omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_options_deepfeed_xdp_v1_3_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_options_deepfeed_xdp_v1_3_a.prefs_changed()
@@ -2801,8 +2801,8 @@ nyse_options_deepfeed_xdp_v1_3_a.send_time.dissect = function(buffer, offset, pa
     local length = nyse_options_deepfeed_xdp_v1_3_a.send_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_options_deepfeed_xdp_v1_3_a.fields.send_time
-    if nyse_options_deepfeed_xdp_v1_3_a.timestamp_format == 3 then field = omi_nyse_options_deepfeed_xdp_v1_3_a.fields.send_time_utc end
+    local field = omi_nyse_options_deepfeed_xdp_v1_3_a.fields.send_time_utc
+    if nyse_options_deepfeed_xdp_v1_3_a.timestamp_format == 2 then field = omi_nyse_options_deepfeed_xdp_v1_3_a.fields.send_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_options_deepfeed_xdp_v1_3_a.send_time.fields(buffer, offset, packet, parent)
 

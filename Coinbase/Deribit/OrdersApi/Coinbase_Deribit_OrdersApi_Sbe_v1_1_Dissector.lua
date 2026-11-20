@@ -60,8 +60,8 @@ omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.flags_multi_part_event_flags = Pr
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.flags_order_flags = ProtoField.new("Flags Order Flags", "coinbase.deribit.ordersapi.sbe.v1.1.flagsorderflags", ftypes.STRING, nil, nil, nil, "OrderFlags bit set")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.flags_replace_order_flags = ProtoField.new("Flags Replace Order Flags", "coinbase.deribit.ordersapi.sbe.v1.1.flagsreplaceorderflags", ftypes.STRING, nil, nil, nil, "ReplaceOrderFlags bit set")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.1.fromsequencenumber", ftypes.INT64, nil, nil, nil, "fromSequenceNumber")
-omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.frozen_until = ProtoField.new("Frozen Until", "coinbase.deribit.ordersapi.sbe.v1.1.frozenuntil", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "frozenUntil")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.frozen_until_utc = ProtoField.new("Frozen Until", "coinbase.deribit.ordersapi.sbe.v1.1.frozenuntil.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "frozenUntil")
+omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.frozen_until = ProtoField.new("Frozen Until", "coinbase.deribit.ordersapi.sbe.v1.1.frozenuntil", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "frozenUntil")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "coinbase.deribit.ordersapi.sbe.v1.1.groupsizeencoding", ftypes.STRING, nil, nil, nil, "groupSizeEncoding")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.deribit.ordersapi.sbe.v1.1.heartbeatintervalseconds", ftypes.INT32, nil, nil, nil, "heartbeatIntervalSeconds")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.deribit.ordersapi.sbe.v1.1.instrumentid", ftypes.INT64, nil, nil, nil, "instrumentId")
@@ -128,8 +128,8 @@ omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.quote_id = ProtoField.new("Quote 
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.reason = ProtoField.new("Reason", "coinbase.deribit.ordersapi.sbe.v1.1.reason", ftypes.STRING, nil, nil, nil, "reason data struct")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.reason_data = ProtoField.new("Reason Data", "coinbase.deribit.ordersapi.sbe.v1.1.reasondata", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.reason_length = ProtoField.new("Reason Length", "coinbase.deribit.ordersapi.sbe.v1.1.reasonlength", ftypes.UINT8)
-omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.receive_time = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.1.receivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "receiveTime")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.receive_time_utc = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.1.receivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "receiveTime")
+omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.receive_time = ProtoField.new("Receive Time", "coinbase.deribit.ordersapi.sbe.v1.1.receivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "receiveTime")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.ref_sequence_number = ProtoField.new("Ref Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.1.refsequencenumber", ftypes.INT64, nil, nil, nil, "refSequenceNumber")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.reject_reason = ProtoField.new("Reject Reason", "coinbase.deribit.ordersapi.sbe.v1.1.rejectreason", ftypes.INT8, nil, nil, nil, "reason")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.reserved_10 = ProtoField.new("Reserved 10", "coinbase.deribit.ordersapi.sbe.v1.1.reserved10", ftypes.UINT16, nil, base.DEC, 0xFFC0, "10 reserved bits")
@@ -143,8 +143,8 @@ omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.schema_version = ProtoField.new("
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.secret = ProtoField.new("Secret", "coinbase.deribit.ordersapi.sbe.v1.1.secret", ftypes.STRING)
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.self_match_prevention_id = ProtoField.new("Self Match Prevention Id", "coinbase.deribit.ordersapi.sbe.v1.1.selfmatchpreventionid", ftypes.INT64, nil, nil, nil, "selfMatchPreventionId")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.self_trading_mode = ProtoField.new("Self Trading Mode", "coinbase.deribit.ordersapi.sbe.v1.1.selftradingmode", ftypes.INT8, nil, nil, nil, "selfTradingMode")
-omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.send_time_ns = ProtoField.new("Send Time Ns", "coinbase.deribit.ordersapi.sbe.v1.1.sendtimens", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the message was sent from the gateway, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.send_time_ns_utc = ProtoField.new("Send Time Ns", "coinbase.deribit.ordersapi.sbe.v1.1.sendtimens.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp of when the message was sent from the gateway, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
+omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.send_time_ns = ProtoField.new("Send Time Ns", "coinbase.deribit.ordersapi.sbe.v1.1.sendtimens", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the message was sent from the gateway, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.1.sequencenumber", ftypes.INT64, nil, nil, nil, "Outbound sequence number per session")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.session_flags = ProtoField.new("Session Flags", "coinbase.deribit.ordersapi.sbe.v1.1.sessionflags", ftypes.STRING, nil, nil, nil, "Uint8 bit set carrying the isResend indicator")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.show_qty = ProtoField.new("Show Qty", "coinbase.deribit.ordersapi.sbe.v1.1.showqty", ftypes.STRING, nil, nil, nil, "NewOrderRequestMessage")
@@ -152,8 +152,8 @@ omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.side = ProtoField.new("Side", "co
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.status = ProtoField.new("Status", "coinbase.deribit.ordersapi.sbe.v1.1.status", ftypes.INT8)
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.template_id = ProtoField.new("Template Id", "coinbase.deribit.ordersapi.sbe.v1.1.templateid", ftypes.UINT16, nil, nil, nil, "Identifier of the message type")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.time_in_force = ProtoField.new("Time In Force", "coinbase.deribit.ordersapi.sbe.v1.1.timeinforce", ftypes.INT8, nil, nil, nil, "timeInForce")
-omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.timestamp = ProtoField.new("Timestamp", "coinbase.deribit.ordersapi.sbe.v1.1.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.timestamp_utc = ProtoField.new("Timestamp", "coinbase.deribit.ordersapi.sbe.v1.1.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.timestamp = ProtoField.new("Timestamp", "coinbase.deribit.ordersapi.sbe.v1.1.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.to_sequence_number = ProtoField.new("To Sequence Number", "coinbase.deribit.ordersapi.sbe.v1.1.tosequencenumber", ftypes.INT64, nil, nil, nil, "toSequenceNumber")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.total_filled = ProtoField.new("Total Filled", "coinbase.deribit.ordersapi.sbe.v1.1.totalfilled", ftypes.STRING, nil, nil, nil, "NewOrderResponseMessage")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.fields.total_order_count = ProtoField.new("Total Order Count", "coinbase.deribit.ordersapi.sbe.v1.1.totalordercount", ftypes.INT32, nil, nil, nil, "totalOrderCount")
@@ -238,7 +238,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-coinbase_deribit_ordersapi_sbe_v1_1.timestamp_format = 2
+coinbase_deribit_ordersapi_sbe_v1_1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -261,7 +261,7 @@ omi_coinbase_deribit_ordersapi_sbe_v1_1.prefs.show_headers = Pref.bool("Show Hea
 omi_coinbase_deribit_ordersapi_sbe_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_coinbase_deribit_ordersapi_sbe_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_coinbase_deribit_ordersapi_sbe_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_coinbase_deribit_ordersapi_sbe_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_coinbase_deribit_ordersapi_sbe_v1_1.prefs_changed()

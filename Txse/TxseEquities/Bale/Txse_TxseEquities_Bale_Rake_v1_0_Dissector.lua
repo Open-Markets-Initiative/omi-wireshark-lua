@@ -18,8 +18,8 @@ local txse_txseequities_bale_rake_v1_0 = {}
 omi_txse_txseequities_bale_rake_v1_0.fields.ask_price = ProtoField.new("Ask Price", "txse.txseequities.bale.rake.v1.0.askprice", ftypes.DOUBLE, nil, nil, nil, "Best ask price. Zero when cumulative displayed ask liquidity does not reach a round lot.")
 omi_txse_txseequities_bale_rake_v1_0.fields.ask_qty = ProtoField.new("Ask Qty", "txse.txseequities.bale.rake.v1.0.askqty", ftypes.INT32, nil, nil, nil, "Total cumulative displayed quantity at the BBO ask price and all more aggressive ask prices. Zero when cumulative displayed ask liquidity does not reach a round lot. Capped at the maximum value of a 32-bit signed integer; when the cumulative displayed quantity reaches this cap, the field indicates at least that many shares rather than an exact count.")
 omi_txse_txseequities_bale_rake_v1_0.fields.auction_price = ProtoField.new("Auction Price", "txse.txseequities.bale.rake.v1.0.auctionprice", ftypes.DOUBLE, nil, nil, nil, "Auction clearing price.")
-omi_txse_txseequities_bale_rake_v1_0.fields.auction_start = ProtoField.new("Auction Start", "txse.txseequities.bale.rake.v1.0.auctionstart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Scheduled cross time for this auction, expressed as nanoseconds since the Unix epoch (UTC). For Opening and Closing auctions, reflects the Exchange's published session schedule. For Halt and IPO auctions, reflects the cross time announced for this specific event.")
 omi_txse_txseequities_bale_rake_v1_0.fields.auction_start_utc = ProtoField.new("Auction Start", "txse.txseequities.bale.rake.v1.0.auctionstart.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Scheduled cross time for this auction, expressed as nanoseconds since the Unix epoch (UTC). For Opening and Closing auctions, reflects the Exchange's published session schedule. For Halt and IPO auctions, reflects the cross time announced for this specific event.")
+omi_txse_txseequities_bale_rake_v1_0.fields.auction_start = ProtoField.new("Auction Start", "txse.txseequities.bale.rake.v1.0.auctionstart", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Scheduled cross time for this auction, expressed as nanoseconds since the Unix epoch (UTC). For Opening and Closing auctions, reflects the Exchange's published session schedule. For Halt and IPO auctions, reflects the cross time announced for this specific event.")
 omi_txse_txseequities_bale_rake_v1_0.fields.auction_type = ProtoField.new("Auction Type", "txse.txseequities.bale.rake.v1.0.auctiontype", ftypes.INT8, nil, nil, nil, "Enum AuctionType. Type of auction event.")
 omi_txse_txseequities_bale_rake_v1_0.fields.bid_price = ProtoField.new("Bid Price", "txse.txseequities.bale.rake.v1.0.bidprice", ftypes.DOUBLE, nil, nil, nil, "Best bid price. Zero when cumulative displayed bid liquidity does not reach a round lot.")
 omi_txse_txseequities_bale_rake_v1_0.fields.bid_qty = ProtoField.new("Bid Qty", "txse.txseequities.bale.rake.v1.0.bidqty", ftypes.INT32, nil, nil, nil, "Total cumulative displayed quantity at the BBO bid price and all more aggressive bid prices. Zero when cumulative displayed bid liquidity does not reach a round lot. Capped at the maximum value of a 32-bit signed integer; when the cumulative displayed quantity reaches this cap, the field indicates at least that many shares rather than an exact count.")
@@ -67,8 +67,8 @@ omi_txse_txseequities_bale_rake_v1_0.fields.trade_through_exemption_reason = Pro
 omi_txse_txseequities_bale_rake_v1_0.fields.trading_session_status_operational_halt_reason = ProtoField.new("Trading Session Status Operational Halt Reason", "txse.txseequities.bale.rake.v1.0.tradingsessionstatusoperationalhaltreason", ftypes.INT8, nil, nil, nil, "Enum TradingSessionStatusOperationalHaltReason. Operational and technical reasons for trading halts initiated by the Exchange.")
 omi_txse_txseequities_bale_rake_v1_0.fields.trading_session_status_presence_bits = ProtoField.new("Trading Session Status Presence Bits", "txse.txseequities.bale.rake.v1.0.tradingsessionstatuspresencebits", ftypes.STRING, nil, nil, nil, "Presence bit flags for optional fields in the enclosing message.")
 omi_txse_txseequities_bale_rake_v1_0.fields.trading_session_status_regulatory_halt_reason = ProtoField.new("Trading Session Status Regulatory Halt Reason", "txse.txseequities.bale.rake.v1.0.tradingsessionstatusregulatoryhaltreason", ftypes.INT8, nil, nil, nil, "Enum TradingSessionStatusRegulatoryHaltReason. Regulatory reasons for trading halts and pauses.")
-omi_txse_txseequities_bale_rake_v1_0.fields.transact_time = ProtoField.new("Transact Time", "txse.txseequities.bale.rake.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction time")
 omi_txse_txseequities_bale_rake_v1_0.fields.transact_time_utc = ProtoField.new("Transact Time", "txse.txseequities.bale.rake.v1.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction time")
+omi_txse_txseequities_bale_rake_v1_0.fields.transact_time = ProtoField.new("Transact Time", "txse.txseequities.bale.rake.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction time")
 omi_txse_txseequities_bale_rake_v1_0.fields.upper_participation_band = ProtoField.new("Upper Participation Band", "txse.txseequities.bale.rake.v1.0.upperparticipationband", ftypes.DOUBLE, nil, nil, nil, "Price of the upper boundary of the Participation Band. Auction-Only buy orders entered during the Band Window and priced above this value have their price adjusted to this price.")
 
 -- Txse TxseEquities Bale Rake 1.0 Framing
@@ -105,7 +105,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-txse_txseequities_bale_rake_v1_0.timestamp_format = 2
+txse_txseequities_bale_rake_v1_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -126,7 +126,7 @@ omi_txse_txseequities_bale_rake_v1_0.prefs.show_structs = Pref.bool("Show Struct
 omi_txse_txseequities_bale_rake_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_txse_txseequities_bale_rake_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_txse_txseequities_bale_rake_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_txse_txseequities_bale_rake_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_txse_txseequities_bale_rake_v1_0.prefs_changed()

@@ -60,16 +60,16 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.printable = ProtoField.new(
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.put_or_call = ProtoField.new("Put Or Call", "bist.borsaistanbul.geniuminet.itch.v21.12.putorcall", ftypes.UINT8, nil, nil, nil, "Option type. A value of 0 indicates that Put or Call is undefined for the order book")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.quantity = ProtoField.new("Quantity", "bist.borsaistanbul.geniuminet.itch.v21.12.quantity", ftypes.UINT64, nil, nil, nil, "The visible quantity of the order. Orders with an undisclosed quantity will have this field set to 0")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.ranking_sequence_number = ProtoField.new("Ranking Sequence Number", "bist.borsaistanbul.geniuminet.itch.v21.12.rankingsequencenumber", ftypes.UINT32, nil, nil, nil, "Transaction-based and sequential number starting from 1. Used only in ranking logic with ranking time. Does not show order book position")
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.ranking_time = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.itch.v21.12.rankingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ranking timestamp, in nanoseconds")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.ranking_time_utc = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.itch.v21.12.rankingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Ranking timestamp, in nanoseconds")
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.ranking_time = ProtoField.new("Ranking Time", "bist.borsaistanbul.geniuminet.itch.v21.12.rankingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ranking timestamp, in nanoseconds")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.ranking_type = ProtoField.new("Ranking Type", "bist.borsaistanbul.geniuminet.itch.v21.12.rankingtype", ftypes.UINT8, nil, nil, nil, "Specifies what ranking type should be used. 1 = Price Time")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_13 = ProtoField.new("Reserved 13", "bist.borsaistanbul.geniuminet.itch.v21.12.reserved13", ftypes.UINT16, nil, base.DEC, 0x1FFF, "Reserved")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_14 = ProtoField.new("Reserved 14", "bist.borsaistanbul.geniuminet.itch.v21.12.reserved14", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_2 = ProtoField.new("Reserved 2", "bist.borsaistanbul.geniuminet.itch.v21.12.reserved2", ftypes.UINT16, nil, base.DEC, 0xC000, "Reserved")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.reserved_4 = ProtoField.new("Reserved 4", "bist.borsaistanbul.geniuminet.itch.v21.12.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.round_lot_size = ProtoField.new("Round Lot Size", "bist.borsaistanbul.geniuminet.itch.v21.12.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the quantity that represents a round lot for the issue")
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.second = ProtoField.new("Second", "bist.borsaistanbul.geniuminet.itch.v21.12.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix seconds")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.second_utc = ProtoField.new("Second", "bist.borsaistanbul.geniuminet.itch.v21.12.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix seconds")
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.second = ProtoField.new("Second", "bist.borsaistanbul.geniuminet.itch.v21.12.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix seconds")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.sequence_number = ProtoField.new("Sequence Number", "bist.borsaistanbul.geniuminet.itch.v21.12.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.session = ProtoField.new("Session", "bist.borsaistanbul.geniuminet.itch.v21.12.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "bist.borsaistanbul.geniuminet.itch.v21.12.shortsalerestriction", ftypes.UINT8, nil, nil, nil, "Specifies Short Sell status and what Short Sell validation rule should be used")
@@ -127,7 +127,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-bist_borsaistanbul_geniuminet_itch_v21_12.timestamp_format = 2
+bist_borsaistanbul_geniuminet_itch_v21_12.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -152,7 +152,7 @@ omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_padding = Pref.bool("Sh
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bist_borsaistanbul_geniuminet_itch_v21_12.prefs_changed()

@@ -79,8 +79,8 @@ omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.special_dividend_indicator = Proto
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.lse.mifid2posttrade.gtp.v26.2.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Static Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse.mifid2posttrade.gtp.v26.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse.mifid2posttrade.gtp.v26.2.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.mifid2posttrade.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse.mifid2posttrade.gtp.v26.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.mifid2posttrade.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.lse.mifid2posttrade.gtp.v26.2.tradequalifier", ftypes.STRING, nil, nil, nil, "Qualifier of the trade.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "lseg.lse.mifid2posttrade.gtp.v26.2.tradingdateandtime", ftypes.STRING, nil, nil, nil, "Date and time when the transaction was executed/agreed upon. If a trade is cancelled or amended, this field will contain the Trading Date and Time of the original trade.")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.fields.trading_mode = ProtoField.new("Trading Mode", "lseg.lse.mifid2posttrade.gtp.v26.2.tradingmode", ftypes.STRING, nil, nil, nil, "Trading mode the trade was executed under.")
@@ -124,7 +124,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_lse_mifid2posttrade_gtp_v26_2.timestamp_format = 2
+lseg_lse_mifid2posttrade_gtp_v26_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -147,7 +147,7 @@ omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.show_headers = Pref.bool("Show Head
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_lse_mifid2posttrade_gtp_v26_2.prefs_changed()

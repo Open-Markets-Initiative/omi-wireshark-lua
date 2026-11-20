@@ -106,8 +106,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.long_qty = ProtoField.new(
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.long_qty_optional = ProtoField.new("Long Qty Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.longqtyoptional", ftypes.UINT64, nil, nil, nil, "Long Quantity.")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.market_segment_id = ProtoField.new("Market Segment Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.marketsegmentid", ftypes.UINT8, nil, nil, nil, "marketSegmentID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.market_segment_id_optional = ProtoField.new("Market Segment Id Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.marketsegmentidoptional", ftypes.UINT8, nil, nil, nil, "marketSegmentID")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.market_segment_received_time = ProtoField.new("Market Segment Received Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.marketsegmentreceivedtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "marketSegmentReceivedTime")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.market_segment_received_time_utc = ProtoField.new("Market Segment Received Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.marketsegmentreceivedtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "marketSegmentReceivedTime")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.market_segment_received_time = ProtoField.new("Market Segment Received Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.marketsegmentreceivedtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "marketSegmentReceivedTime")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.mass_action_reject_reason = ProtoField.new("Mass Action Reject Reason", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.massactionrejectreason", ftypes.UINT8, nil, nil, nil, "massActionRejectReason")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.mass_action_report_id = ProtoField.new("Mass Action Report Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.massactionreportid", ftypes.UINT64, nil, nil, nil, "massActionReportID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.mass_action_report_id_optional = ProtoField.new("Mass Action Report Id Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.massactionreportidoptional", ftypes.UINT64, nil, nil, nil, "massActionReportID")
@@ -184,8 +184,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.quote_status = ProtoField.
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.quote_status_response_to = ProtoField.new("Quote Status Response To", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.quotestatusresponseto", ftypes.STRING, nil, nil, nil, "quoteStatusResponseTo")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.ref_msg_type = ProtoField.new("Ref Msg Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.refmsgtype", ftypes.UINT8, nil, nil, nil, "refMsgType")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.ref_seq_num = ProtoField.new("Ref Seq Num", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.refseqnum", ftypes.UINT32, nil, nil, nil, "refSeqNum")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.request_timestamp = ProtoField.new("Request Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "requestTimestamp")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "requestTimestamp")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.request_timestamp = ProtoField.new("Request Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "requestTimestamp")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.retransmit_reject_code = ProtoField.new("Retransmit Reject Code", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.retransmitrejectcode", ftypes.UINT8, nil, nil, nil, "retransmitRejectCode")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.routing_instruction = ProtoField.new("Routing Instruction", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.routinginstruction", ftypes.UINT8, nil, nil, nil, "routingInstruction")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.schema_id = ProtoField.new("Schema Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
@@ -200,8 +200,8 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.security_response_type = P
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.security_strategy_type = ProtoField.new("Security Strategy Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.securitystrategytype", ftypes.STRING, nil, nil, nil, "securityStrategyType")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.self_trade_prevention_instruction = ProtoField.new("Self Trade Prevention Instruction", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.selftradepreventioninstruction", ftypes.UINT8, nil, nil, nil, "selfTradePreventionInstruction")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.sender_location = ProtoField.new("Sender Location", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.senderlocation", ftypes.STRING, nil, nil, nil, "senderLocation")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendingTime")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.sending_time_utc = ProtoField.new("Sending Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "sendingTime")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "sendingTime")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.session_id = ProtoField.new("Session Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sessionid", ftypes.UINT32, nil, nil, nil, "sessionID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.session_ver_id = ProtoField.new("Session Ver Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.sessionverid", ftypes.UINT64, nil, nil, nil, "sessionVerID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.settl_type = ProtoField.new("Settl Type", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.settltype", ftypes.STRING, nil, nil, nil, "settlType")
@@ -224,15 +224,15 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.threshold_amount = ProtoFi
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.time_in_force = ProtoField.new("Time In Force", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.timeinforce", ftypes.STRING, nil, nil, nil, "timeInForce")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.time_in_force_optional = ProtoField.new("Time In Force Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.timeinforceoptional", ftypes.STRING, nil, nil, nil, "timeInForce")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.time_in_force_simple = ProtoField.new("Time In Force Simple", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.timeinforcesimple", ftypes.STRING, nil, nil, nil, "timeInForce")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.timestamp = ProtoField.new("Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.timestamp_utc = ProtoField.new("Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.timestamp = ProtoField.new("Timestamp", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.tot_no_related_sym = ProtoField.new("Tot No Related Sym", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.totnorelatedsym", ftypes.UINT8, nil, nil, nil, "totNoRelatedSym")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.trade_date = ProtoField.new("Trade Date", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.tradedate", ftypes.UINT16, nil, nil, nil, "tradeDate")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.trade_date_optional = ProtoField.new("Trade Date Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.tradedateoptional", ftypes.UINT16, nil, nil, nil, "tradeDate")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.trade_id = ProtoField.new("Trade Id", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.tradeid", ftypes.UINT32, nil, nil, nil, "tradeID")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.trade_id_optional = ProtoField.new("Trade Id Optional", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.tradeidoptional", ftypes.UINT32, nil, nil, nil, "tradeID")
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.transact_time = ProtoField.new("Transact Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.transact_time_utc = ProtoField.new("Transact Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "transactTime")
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.transact_time = ProtoField.new("Transact Time", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "transactTime")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.version = ProtoField.new("Version", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.version", ftypes.UINT16, nil, nil, nil, "Schema version")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.fields.working_indicator = ProtoField.new("Working Indicator", "b3.b3derivatives.binaryentrypoint.sbe.v8.0.workingindicator", ftypes.UINT8, nil, nil, nil, "workingIndicator")
 
@@ -305,7 +305,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-b3_b3derivatives_binaryentrypoint_sbe_v8_0.timestamp_format = 2
+b3_b3derivatives_binaryentrypoint_sbe_v8_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -330,7 +330,7 @@ omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.show_headers = Pref.bool("S
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_b3_b3derivatives_binaryentrypoint_sbe_v8_0.prefs_changed()

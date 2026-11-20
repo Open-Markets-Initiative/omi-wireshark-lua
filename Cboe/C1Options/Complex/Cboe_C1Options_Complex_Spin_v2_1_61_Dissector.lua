@@ -23,8 +23,8 @@ omi_cboe_c1options_complex_spin_v2_1_61.fields.complex_symbol_id = ProtoField.ne
 omi_cboe_c1options_complex_spin_v2_1_61.fields.edci_subtype = ProtoField.new("Edci Subtype", "cboe.c1options.complex.spin.v2.1.61.edcisubtype", ftypes.STRING, nil, nil, nil, "Exchange Designated Complex Instrument subtype right padded with spaces.")
 omi_cboe_c1options_complex_spin_v2_1_61.fields.edci_type = ProtoField.new("Edci Type", "cboe.c1options.complex.spin.v2.1.61.edcitype", ftypes.STRING, nil, nil, nil, "Exchange Designated Complex Instrument type right padded with spaces.")
 omi_cboe_c1options_complex_spin_v2_1_61.fields.edcid_leg = ProtoField.new("Edcid Leg", "cboe.c1options.complex.spin.v2.1.61.edcidleg", ftypes.STRING, nil, nil, nil, "Repeating leg definition group inside the Exchange Designated Complex Instrument Definition message. Repeats Leg Count times.")
-omi_cboe_c1options_complex_spin_v2_1_61.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complex.spin.v2.1.61.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_complex_spin_v2_1_61.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.complex.spin.v2.1.61.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_complex_spin_v2_1_61.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complex.spin.v2.1.61.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_complex_spin_v2_1_61.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.complex.spin.v2.1.61.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
 omi_cboe_c1options_complex_spin_v2_1_61.fields.filler = ProtoField.new("Filler", "cboe.c1options.complex.spin.v2.1.61.filler", ftypes.STRING, nil, nil, nil, "(space filled)")
 omi_cboe_c1options_complex_spin_v2_1_61.fields.gth_trading_status = ProtoField.new("Gth Trading Status", "cboe.c1options.complex.spin.v2.1.61.gthtradingstatus", ftypes.STRING, nil, nil, nil, "C1 Only. H = Halted, Q = Quote-Only, T = Trading.")
@@ -106,7 +106,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_c1options_complex_spin_v2_1_61.timestamp_format = 2
+cboe_c1options_complex_spin_v2_1_61.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -131,7 +131,7 @@ omi_cboe_c1options_complex_spin_v2_1_61.prefs.show_headers = Pref.bool("Show Hea
 omi_cboe_c1options_complex_spin_v2_1_61.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c1options_complex_spin_v2_1_61.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_c1options_complex_spin_v2_1_61.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_c1options_complex_spin_v2_1_61.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_c1options_complex_spin_v2_1_61.prefs_changed()

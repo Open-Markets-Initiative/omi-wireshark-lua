@@ -60,8 +60,8 @@ omi_cme_globex_settlements_sbe_v7_0.fields.schema_id = ProtoField.new("Schema Id
 omi_cme_globex_settlements_sbe_v7_0.fields.security_exchange = ProtoField.new("Security Exchange", "cme.globex.settlements.sbe.v7.0.securityexchange", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.security_id = ProtoField.new("Security Id", "cme.globex.settlements.sbe.v7.0.securityid", ftypes.UINT32)
 omi_cme_globex_settlements_sbe_v7_0.fields.security_type = ProtoField.new("Security Type", "cme.globex.settlements.sbe.v7.0.securitytype", ftypes.STRING)
-omi_cme_globex_settlements_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.settlements.sbe.v7.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_globex_settlements_sbe_v7_0.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.settlements.sbe.v7.0.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
+omi_cme_globex_settlements_sbe_v7_0.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.settlements.sbe.v7.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_globex_settlements_sbe_v7_0.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.globex.settlements.sbe.v7.0.settlpricetype", ftypes.STRING, nil, nil, nil, "SettlPriceType bit set")
 omi_cme_globex_settlements_sbe_v7_0.fields.simple_binary_header = ProtoField.new("Simple Binary Header", "cme.globex.settlements.sbe.v7.0.simplebinaryheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
 omi_cme_globex_settlements_sbe_v7_0.fields.strike_price = ProtoField.new("Strike Price", "cme.globex.settlements.sbe.v7.0.strikeprice", ftypes.STRING, nil, nil, nil, "Number of data blocks")
@@ -69,8 +69,8 @@ omi_cme_globex_settlements_sbe_v7_0.fields.symbol = ProtoField.new("Symbol", "cm
 omi_cme_globex_settlements_sbe_v7_0.fields.tcp_sending_time = ProtoField.new("Tcp Sending Time", "cme.globex.settlements.sbe.v7.0.tcpsendingtime", ftypes.UINT64, nil, nil, nil, "Packet Sending Time")
 omi_cme_globex_settlements_sbe_v7_0.fields.template_id = ProtoField.new("Template Id", "cme.globex.settlements.sbe.v7.0.templateid", ftypes.UINT16)
 omi_cme_globex_settlements_sbe_v7_0.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.globex.settlements.sbe.v7.0.tradingreferencedate", ftypes.UINT16, nil, nil, nil, "Business date corresponding to a statistic entry")
-omi_cme_globex_settlements_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.settlements.sbe.v7.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Event processing time (UTC), sent in number of nanoseconds since Unix epoch")
 omi_cme_globex_settlements_sbe_v7_0.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.globex.settlements.sbe.v7.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Event processing time (UTC), sent in number of nanoseconds since Unix epoch")
+omi_cme_globex_settlements_sbe_v7_0.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.settlements.sbe.v7.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Event processing time (UTC), sent in number of nanoseconds since Unix epoch")
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_clearing_product_code = ProtoField.new("Underlying Clearing Product Code", "cme.globex.settlements.sbe.v7.0.underlyingclearingproductcode", ftypes.STRING)
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_maturity_month_year = ProtoField.new("Underlying Maturity Month Year", "cme.globex.settlements.sbe.v7.0.underlyingmaturitymonthyear", ftypes.STRING, nil, nil, nil, "Number of data blocks")
 omi_cme_globex_settlements_sbe_v7_0.fields.underlying_product_guid = ProtoField.new("Underlying Product Guid", "cme.globex.settlements.sbe.v7.0.underlyingproductguid", ftypes.UINT64)
@@ -83,7 +83,7 @@ omi_cme_globex_settlements_sbe_v7_0.fields.year = ProtoField.new("Year", "cme.gl
 
 -- Cme Globex Settlements Sbe 7.0 Framing
 omi_cme_globex_settlements_sbe_v7_0.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.settlements.sbe.v7.0.binarypacketheader", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet Header")
-omi_cme_globex_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.globex.settlements.sbe.v7.0.message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
+omi_cme_globex_settlements_sbe_v7_0.fields.mdp3_message = ProtoField.new("Mdp3 Message", "cme.globex.settlements.sbe.v7.0.mdp3message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
 omi_cme_globex_settlements_sbe_v7_0.fields.message_header = ProtoField.new("Message Header", "cme.globex.settlements.sbe.v7.0.messageheader", ftypes.STRING, nil, nil, nil, "Message Size followed by the Simple Binary Header")
 omi_cme_globex_settlements_sbe_v7_0.fields.tcp_frame = ProtoField.new("Tcp Frame", "cme.globex.settlements.sbe.v7.0.tcpframe", ftypes.STRING, nil, nil, nil, "One technical header framed Cme Sbe message")
 omi_cme_globex_settlements_sbe_v7_0.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.settlements.sbe.v7.0.tcpmessage", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
@@ -120,7 +120,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cme_globex_settlements_sbe_v7_0.timestamp_format = 2
+cme_globex_settlements_sbe_v7_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -143,7 +143,7 @@ omi_cme_globex_settlements_sbe_v7_0.prefs.show_repeating_groups = Pref.bool("Sho
 omi_cme_globex_settlements_sbe_v7_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cme_globex_settlements_sbe_v7_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cme_globex_settlements_sbe_v7_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cme_globex_settlements_sbe_v7_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cme_globex_settlements_sbe_v7_0.prefs_changed()
@@ -2910,16 +2910,16 @@ cme_globex_settlements_sbe_v7_0.tcp_packet.dissect = function(buffer, packet, pa
   return index
 end
 
--- Message
-cme_globex_settlements_sbe_v7_0.message = {}
+-- Mdp3 Message
+cme_globex_settlements_sbe_v7_0.mdp3_message = {}
 
--- Display: Message
-cme_globex_settlements_sbe_v7_0.message.display = function(packet, parent, length)
+-- Display: Mdp3 Message
+cme_globex_settlements_sbe_v7_0.mdp3_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-cme_globex_settlements_sbe_v7_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Mdp3 Message
+cme_globex_settlements_sbe_v7_0.mdp3_message.fields = function(buffer, offset, packet, parent, size_of_mdp3_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
@@ -2934,30 +2934,30 @@ cme_globex_settlements_sbe_v7_0.message.fields = function(buffer, offset, packet
   return index
 end
 
--- Dissect: Message
-cme_globex_settlements_sbe_v7_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Mdp3 Message
+cme_globex_settlements_sbe_v7_0.mdp3_message.dissect = function(buffer, offset, packet, parent, size_of_mdp3_message)
+  local index = offset + size_of_mdp3_message
 
   -- Its fields read only its own bytes: a layout running past them is marked, not raised
   local bounded = buffer(0, math.min(index, buffer:len())):tvb()
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.message, buffer(offset, 0))
-    local decoded, failure = pcall(cme_globex_settlements_sbe_v7_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    parent = parent:add(omi_cme_globex_settlements_sbe_v7_0.fields.mdp3_message, buffer(offset, 0))
+    local decoded, failure = pcall(cme_globex_settlements_sbe_v7_0.mdp3_message.fields, bounded, offset, packet, parent, size_of_mdp3_message)
     if not decoded then
-      undecoded(failure, parent, cme_globex_settlements_sbe_v7_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+      undecoded(failure, parent, cme_globex_settlements_sbe_v7_0.experts.undecoded, "Mdp3 Message does not decode within its "..size_of_mdp3_message.." bytes")
     end
-    parent:set_len(size_of_message)
-    local display = cme_globex_settlements_sbe_v7_0.message.display(buffer, packet, parent)
+    parent:set_len(size_of_mdp3_message)
+    local display = cme_globex_settlements_sbe_v7_0.mdp3_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    local decoded, failure = pcall(cme_globex_settlements_sbe_v7_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_settlements_sbe_v7_0.mdp3_message.fields, bounded, offset, packet, parent, size_of_mdp3_message)
     if not decoded then
-      undecoded(failure, parent, cme_globex_settlements_sbe_v7_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+      undecoded(failure, parent, cme_globex_settlements_sbe_v7_0.experts.undecoded, "Mdp3 Message does not decode within its "..size_of_mdp3_message.." bytes")
     end
 
     return index
@@ -3023,10 +3023,10 @@ cme_globex_settlements_sbe_v7_0.udp_packet.dissect = function(buffer, packet, pa
   -- Binary Packet Header: Struct of 2 fields
   index, binary_packet_header = cme_globex_settlements_sbe_v7_0.binary_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
+  -- Dependency for Mdp3 Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Mdp3 Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
@@ -3040,8 +3040,8 @@ cme_globex_settlements_sbe_v7_0.udp_packet.dissect = function(buffer, packet, pa
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 
-    -- Runtime Size Of: Message
-    index, message = cme_globex_settlements_sbe_v7_0.message.dissect(buffer, index, packet, parent, message_size)
+    -- Runtime Size Of: Mdp3 Message
+    index, mdp3_message = cme_globex_settlements_sbe_v7_0.mdp3_message.dissect(buffer, index, packet, parent, message_size)
   end
 
   return index

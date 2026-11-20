@@ -103,7 +103,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_nysebonds_depthofbook_abp_v4_01_b.timestamp_format = 2
+nyse_nysebonds_depthofbook_abp_v4_01_b.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -134,7 +134,7 @@ omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.show_headers = Pref.bool("Show 
 omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 
-omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nysebonds_depthofbook_abp_v4_01_b.prefs_changed()

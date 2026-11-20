@@ -82,8 +82,8 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.symbol = ProtoField.new("Symb
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "lseg.turquoise.mifid2pretrade.gtp.v26.3.thirdreserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.turquoise.mifid2pretrade.gtp.v26.3.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.mifid2pretrade.gtp.v26.3.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.mifid2pretrade.gtp.v26.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.turquoise.mifid2pretrade.gtp.v26.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.mifid2pretrade.gtp.v26.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.mifid2pretrade.gtp.v26.3.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status of the instrument.")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.trading_system = ProtoField.new("Trading System", "lseg.turquoise.mifid2pretrade.gtp.v26.3.tradingsystem", ftypes.STRING, nil, nil, nil, "Type of trading system where the order is advertised")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.fields.trading_system_phase = ProtoField.new("Trading System Phase", "lseg.turquoise.mifid2pretrade.gtp.v26.3.tradingsystemphase", ftypes.STRING, nil, nil, nil, "Type of trading system phase where the order is advertised")
@@ -128,7 +128,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_turquoise_mifid2pretrade_gtp_v26_3.timestamp_format = 2
+lseg_turquoise_mifid2pretrade_gtp_v26_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -151,7 +151,7 @@ omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.prefs.show_headers = Pref.bool("Show
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_turquoise_mifid2pretrade_gtp_v26_3.prefs_changed()

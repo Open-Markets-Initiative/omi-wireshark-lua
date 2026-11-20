@@ -30,7 +30,7 @@ omi_odx_odxequities_pts_glimpse_v2_0.fields.orderbook_code = ProtoField.new("Ord
 omi_odx_odxequities_pts_glimpse_v2_0.fields.orderbook_id = ProtoField.new("Orderbook Id", "odx.odxequities.pts.glimpse.v2.0.orderbookid", ftypes.STRING, nil, nil, nil, "4 digit Quick code")
 omi_odx_odxequities_pts_glimpse_v2_0.fields.packet_length = ProtoField.new("Packet Length", "odx.odxequities.pts.glimpse.v2.0.packetlength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_odx_odxequities_pts_glimpse_v2_0.fields.password = ProtoField.new("Password", "odx.odxequities.pts.glimpse.v2.0.password", ftypes.STRING, nil, nil, nil, "Login password")
-omi_odx_odxequities_pts_glimpse_v2_0.fields.price = ProtoField.new("Price", "odx.odxequities.pts.glimpse.v2.0.price", ftypes.DOUBLE, nil, nil, nil, "Price of the order For a reference price update, a value of 214,748,364.7 (7FFFFFFF hex) denotes no reference price available")
+omi_odx_odxequities_pts_glimpse_v2_0.fields.price = ProtoField.new("Price", "odx.odxequities.pts.glimpse.v2.0.price", ftypes.DOUBLE, nil, nil, nil, "Price of the order")
 omi_odx_odxequities_pts_glimpse_v2_0.fields.price_decimals = ProtoField.new("Price Decimals", "odx.odxequities.pts.glimpse.v2.0.pricedecimals", ftypes.UINT32, nil, nil, nil, "Number of decimal places in price fields Value is 1")
 omi_odx_odxequities_pts_glimpse_v2_0.fields.price_start = ProtoField.new("Price Start", "odx.odxequities.pts.glimpse.v2.0.pricestart", ftypes.DOUBLE, nil, nil, nil, "Start of price range for this price tick size")
 omi_odx_odxequities_pts_glimpse_v2_0.fields.price_tick_size = ProtoField.new("Price Tick Size", "odx.odxequities.pts.glimpse.v2.0.priceticksize", ftypes.DOUBLE)
@@ -106,7 +106,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-odx_odxequities_pts_glimpse_v2_0.timestamp_format = 2
+odx_odxequities_pts_glimpse_v2_0.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -139,7 +139,7 @@ omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_session_messages = Pref.bool("Sh
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_odx_odxequities_pts_glimpse_v2_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_odx_odxequities_pts_glimpse_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_odx_odxequities_pts_glimpse_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_odx_odxequities_pts_glimpse_v2_0.prefs_changed()
@@ -638,12 +638,22 @@ odx_odxequities_pts_glimpse_v2_0.price = {}
 odx_odxequities_pts_glimpse_v2_0.price.size = 4
 
 -- Display: Price
-odx_odxequities_pts_glimpse_v2_0.price.display = function(value)
+odx_odxequities_pts_glimpse_v2_0.price.display = function(raw, value)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return "Price: No Reference Price"
+  end
+
   return "Price: "..value
 end
 
 -- Translate: Price
 odx_odxequities_pts_glimpse_v2_0.price.translate = function(raw)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return 0/0
+  end
+
   return raw/10
 end
 
@@ -653,7 +663,7 @@ odx_odxequities_pts_glimpse_v2_0.price.dissect = function(buffer, offset, packet
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = odx_odxequities_pts_glimpse_v2_0.price.translate(raw)
-  local display = odx_odxequities_pts_glimpse_v2_0.price.display(value, buffer, offset, packet, parent)
+  local display = odx_odxequities_pts_glimpse_v2_0.price.display(raw, value, buffer, offset, packet, parent)
 
   parent:add(omi_odx_odxequities_pts_glimpse_v2_0.fields.price, range, value, display)
 

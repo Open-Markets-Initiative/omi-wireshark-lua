@@ -59,7 +59,7 @@ omi_qse_qsecash_marketdata_xdp_v2_6.fields.first_settlement_date = ProtoField.ne
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.first_time = ProtoField.new("First Time", "qse.qsecash.marketdata.xdp.v2.6.firsttime", ftypes.UINT32, nil, nil, nil, "Time of provisional first index level")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.fix_price_tick = ProtoField.new("Fix Price Tick", "qse.qsecash.marketdata.xdp.v2.6.fixpricetick", ftypes.UINT32, nil, nil, nil, "Indicates the amount of the fixed tick size, if it has been defined at the instrument level")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.fix_price_tick_scale_code = ProtoField.new("Fix Price Tick Scale Code", "qse.qsecash.marketdata.xdp.v2.6.fixpricetickscalecode", ftypes.UINT8, nil, nil, nil, "To be combined with FixPriceTick")
-omi_qse_qsecash_marketdata_xdp_v2_6.fields.forerunner_level = ProtoField.new("Forerunner Level", "qse.qsecash.marketdata.xdp.v2.6.forerunnerlevel", ftypes.UINT32, nil, nil, nil, "The percentage of variation of the last Forerunner level for the index (signed) that is the subject of this message, if any (To be calculated with the LevelScaleCode)")
+omi_qse_qsecash_marketdata_xdp_v2_6.fields.forerunner_level = ProtoField.new("Forerunner Level", "qse.qsecash.marketdata.xdp.v2.6.forerunnerlevel", ftypes.INT32, nil, nil, nil, "The percentage of variation of the last Forerunner level for the index that is the subject of this message, if any (To be calculated with the LevelScaleCode)")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.halt_reason = ProtoField.new("Halt Reason", "qse.qsecash.marketdata.xdp.v2.6.haltreason", ftypes.STRING, nil, nil, nil, "Indicates the origin of halting for an instrument")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.heading_number = ProtoField.new("Heading Number", "qse.qsecash.marketdata.xdp.v2.6.headingnumber", ftypes.UINT16, nil, nil, nil, "Gives the heading in which the security is in the Bulletin de la Cote Officielle. Used in Euronext only")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.high_collar = ProtoField.new("High Collar", "qse.qsecash.marketdata.xdp.v2.6.highcollar", ftypes.UINT32, nil, nil, nil, "Higher bound of the collar price range (To be calculated with the HighScaleCode)")
@@ -143,7 +143,7 @@ omi_qse_qsecash_marketdata_xdp_v2_6.fields.original_trade_id_number = ProtoField
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.packet_length = ProtoField.new("Packet Length", "qse.qsecash.marketdata.xdp.v2.6.packetlength", ftypes.UINT16, nil, nil, nil, "Length of the packet in bytes, including the 16 byte packet header")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "qse.qsecash.marketdata.xdp.v2.6.packetsequencenumber", ftypes.UINT32, nil, nil, nil, "The packet sequence number, unique for each broadcast stream and used for gap detection. It increases serially and monotonically and is reset to 1 at the beginning of each trading day. It is unique for packets containing market data only, and heartbeats inherit it from the last market data packet or packet sequence number reset packet")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.packet_type = ProtoField.new("Packet Type", "qse.qsecash.marketdata.xdp.v2.6.packettype", ftypes.UINT16, nil, nil, nil, "Identifier for the type of data contained in the packet. If all messages within a packet are of the same message type the packet type equals that message type, and if not it is set to the generic packet type of the feed")
-omi_qse_qsecash_marketdata_xdp_v2_6.fields.percent_variation_prev_clos = ProtoField.new("Percent Variation Prev Clos", "qse.qsecash.marketdata.xdp.v2.6.percentvariationprevclos", ftypes.UINT32, nil, nil, nil, "Percentage of variation for last index level vs")
+omi_qse_qsecash_marketdata_xdp_v2_6.fields.percent_variation_prev_clos = ProtoField.new("Percent Variation Prev Clos", "qse.qsecash.marketdata.xdp.v2.6.percentvariationprevclos", ftypes.INT32, nil, nil, nil, "Percentage of variation for last index level vs. previous day's closing (To be calculated with the VariationScaleCode).")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.percentage_of_capitalization = ProtoField.new("Percentage Of Capitalization", "qse.qsecash.marketdata.xdp.v2.6.percentageofcapitalization", ftypes.UINT32, nil, nil, nil, "Percentage of capitalization for the active instruments in the index (To be calculated with the PercentageScaleCode)")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.percentage_scale_code = ProtoField.new("Percentage Scale Code", "qse.qsecash.marketdata.xdp.v2.6.percentagescalecode", ftypes.UINT8, nil, nil, nil, "To be combined with PercentageOfCapitalization")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.period_indicator = ProtoField.new("Period Indicator", "qse.qsecash.marketdata.xdp.v2.6.periodindicator", ftypes.STRING, nil, nil, nil, "Indicates for which day the characteristics of the instrument will be effective")
@@ -209,7 +209,7 @@ omi_qse_qsecash_marketdata_xdp_v2_6.fields.title = ProtoField.new("Title", "qse.
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.trad_cond_2 = ProtoField.new("Trad Cond 2", "qse.qsecash.marketdata.xdp.v2.6.tradcond2", ftypes.STRING, nil, nil, nil, "Sequencing related conditions, Last of a series of trades at the same price")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.trad_cond_3 = ProtoField.new("Trad Cond 3", "qse.qsecash.marketdata.xdp.v2.6.tradcond3", ftypes.STRING, nil, nil, nil, "Trade related conditions, Cross trade indicator")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.trade_id_number = ProtoField.new("Trade Id Number", "qse.qsecash.marketdata.xdp.v2.6.tradeidnumber", ftypes.UINT32, nil, nil, nil, "Unique numeric and increasing Identifier of the trade, set by the trading engine")
-omi_qse_qsecash_marketdata_xdp_v2_6.fields.trade_origin = ProtoField.new("Trade Origin", "qse.qsecash.marketdata.xdp.v2.6.tradeorigin", ftypes.STRING, nil, nil, nil, "QATAR EXCHANGE ONLY: Field Name Offset Size Format Description (Bytes) This field indicates the origin of the trade")
+omi_qse_qsecash_marketdata_xdp_v2_6.fields.trade_origin = ProtoField.new("Trade Origin", "qse.qsecash.marketdata.xdp.v2.6.tradeorigin", ftypes.STRING, nil, nil, nil, "QATAR EXCHANGE ONLY: This field indicates the origin of the trade")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.trading_code = ProtoField.new("Trading Code", "qse.qsecash.marketdata.xdp.v2.6.tradingcode", ftypes.STRING, nil, nil, nil, "Trading code of the instrument")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.trading_currency = ProtoField.new("Trading Currency", "qse.qsecash.marketdata.xdp.v2.6.tradingcurrency", ftypes.STRING, nil, nil, nil, "Code of the currency in which the instrument is traded")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.trading_currency_indicator = ProtoField.new("Trading Currency Indicator", "qse.qsecash.marketdata.xdp.v2.6.tradingcurrencyindicator", ftypes.UINT8, nil, nil, nil, "Change rate indicator for currency of Instrument Traded Price: Indicates if the change rate will be applied to the currency defined for traded prices of the instrument")
@@ -228,9 +228,9 @@ omi_qse_qsecash_marketdata_xdp_v2_6.fields.type_of_unit_exp = ProtoField.new("Ty
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.underlying_repo_isin_code = ProtoField.new("Underlying Repo Isin Code", "qse.qsecash.marketdata.xdp.v2.6.underlyingrepoisincode", ftypes.STRING, nil, nil, nil, "Underlying security (security used in the loan quotation system) for loan contracts at given value on centralized lending market")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.underlying_wisin_code = ProtoField.new("Underlying Wisin Code", "qse.qsecash.marketdata.xdp.v2.6.underlyingwisincode", ftypes.STRING, nil, nil, nil, "Gives the trading code of the underlying listed security of a warrant")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.us_indicators = ProtoField.new("Us Indicators", "qse.qsecash.marketdata.xdp.v2.6.usindicators", ftypes.STRING, nil, nil, nil, "Not used")
-omi_qse_qsecash_marketdata_xdp_v2_6.fields.variation = ProtoField.new("Variation", "qse.qsecash.marketdata.xdp.v2.6.variation", ftypes.UINT32, nil, nil, nil, "Percentage variation of the last IMP against the previous day’s (signed) reference price for the stock concerned, ie the last known price can be the last adjusted closing price or the last price indication (if an indication was entered after the last traded price).(To be calculated with the VariationScaleCode)")
-omi_qse_qsecash_marketdata_xdp_v2_6.fields.variation_from_previous_days_price = ProtoField.new("Variation From Previous Days Price", "qse.qsecash.marketdata.xdp.v2.6.variationfrompreviousdaysprice", ftypes.INT32, nil, nil, nil, "Percentage of variation for day's index / Previous day's reference (To sPrice (signed) be calculated with the VariationScaleCode) Field Name Offset Size Format Description (Bytes)")
-omi_qse_qsecash_marketdata_xdp_v2_6.fields.variation_last_price = ProtoField.new("Variation Last Price", "qse.qsecash.marketdata.xdp.v2.6.variationlastprice", ftypes.UINT32, nil, nil, nil, "Percentage variation of today’s price/last reference price(To be (signed) calculated with the VariationScaleCode)")
+omi_qse_qsecash_marketdata_xdp_v2_6.fields.variation = ProtoField.new("Variation", "qse.qsecash.marketdata.xdp.v2.6.variation", ftypes.INT32, nil, nil, nil, "Percentage variation of the last IMP against the previous day’s reference price for the stock concerned, ie the last known price can be the last adjusted closing price or the last price indication (if an indication was entered after the last traded price).(To be calculated with the VariationScaleCode)")
+omi_qse_qsecash_marketdata_xdp_v2_6.fields.variation_from_previous_days_price = ProtoField.new("Variation From Previous Days Price", "qse.qsecash.marketdata.xdp.v2.6.variationfrompreviousdaysprice", ftypes.INT32, nil, nil, nil, "Percentage of variation for day's index / Previous day's reference (To be calculated with the VariationScaleCode)")
+omi_qse_qsecash_marketdata_xdp_v2_6.fields.variation_last_price = ProtoField.new("Variation Last Price", "qse.qsecash.marketdata.xdp.v2.6.variationlastprice", ftypes.INT32, nil, nil, nil, "Percentage variation of today’s price/last reference price(To be calculated with the VariationScaleCode)")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.variation_scale_code = ProtoField.new("Variation Scale Code", "qse.qsecash.marketdata.xdp.v2.6.variationscalecode", ftypes.UINT8, nil, nil, nil, "To be combined with Variation")
 omi_qse_qsecash_marketdata_xdp_v2_6.fields.volume = ProtoField.new("Volume", "qse.qsecash.marketdata.xdp.v2.6.volume", ftypes.UINT32, nil, nil, nil, "Number of shares transacted in this trade")
 
@@ -287,7 +287,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-qse_qsecash_marketdata_xdp_v2_6.timestamp_format = 2
+qse_qsecash_marketdata_xdp_v2_6.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -310,7 +310,7 @@ omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_headers = Pref.bool("Show Headers
 omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_qse_qsecash_marketdata_xdp_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_qse_qsecash_marketdata_xdp_v2_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_qse_qsecash_marketdata_xdp_v2_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_qse_qsecash_marketdata_xdp_v2_6.prefs_changed()
@@ -1672,7 +1672,7 @@ end
 qse_qsecash_marketdata_xdp_v2_6.forerunner_level.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.forerunner_level.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = qse_qsecash_marketdata_xdp_v2_6.forerunner_level.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.forerunner_level, range, value, display)
@@ -4050,7 +4050,7 @@ end
 qse_qsecash_marketdata_xdp_v2_6.percent_variation_prev_clos.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.percent_variation_prev_clos.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = qse_qsecash_marketdata_xdp_v2_6.percent_variation_prev_clos.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.percent_variation_prev_clos, range, value, display)
@@ -6589,7 +6589,7 @@ end
 qse_qsecash_marketdata_xdp_v2_6.variation.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.variation.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = qse_qsecash_marketdata_xdp_v2_6.variation.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.variation, range, value, display)
@@ -6635,7 +6635,7 @@ end
 qse_qsecash_marketdata_xdp_v2_6.variation_last_price.dissect = function(buffer, offset, packet, parent)
   local length = qse_qsecash_marketdata_xdp_v2_6.variation_last_price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = qse_qsecash_marketdata_xdp_v2_6.variation_last_price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_qse_qsecash_marketdata_xdp_v2_6.fields.variation_last_price, range, value, display)
@@ -6932,7 +6932,7 @@ qse_qsecash_marketdata_xdp_v2_6.index_summary_message.fields = function(buffer, 
   -- Closing Reference Time: Binary Int.
   index, closing_reference_time = qse_qsecash_marketdata_xdp_v2_6.closing_reference_time.dissect(buffer, index, packet, parent)
 
-  -- Percent Variation Prev Clos: Binary Int.
+  -- Percent Variation Prev Clos: Binary Int. (signed)
   index, percent_variation_prev_clos = qse_qsecash_marketdata_xdp_v2_6.percent_variation_prev_clos.dissect(buffer, index, packet, parent)
 
   -- High Level: Binary Int.
@@ -7044,7 +7044,7 @@ qse_qsecash_marketdata_xdp_v2_6.real_time_index_message.fields = function(buffer
   -- Index Level: Binary Int.
   index, index_level = qse_qsecash_marketdata_xdp_v2_6.index_level.dissect(buffer, index, packet, parent)
 
-  -- Forerunner Level: Binary Int.
+  -- Forerunner Level: Binary Int. (signed)
   index, forerunner_level = qse_qsecash_marketdata_xdp_v2_6.forerunner_level.dissect(buffer, index, packet, parent)
 
   -- Session High: Binary Int.
@@ -7553,7 +7553,7 @@ qse_qsecash_marketdata_xdp_v2_6.auction_summary_message.fields = function(buffer
   -- Cumulative Quantity: Binary Int.
   index, cumulative_quantity = qse_qsecash_marketdata_xdp_v2_6.cumulative_quantity.dissect(buffer, index, packet, parent)
 
-  -- Variation: Binary Int.
+  -- Variation: Binary Int. (signed)
   index, variation = qse_qsecash_marketdata_xdp_v2_6.variation.dissect(buffer, index, packet, parent)
 
   -- System Id: Binary Int.
@@ -7644,7 +7644,7 @@ qse_qsecash_marketdata_xdp_v2_6.price_update_message.fields = function(buffer, o
   -- Lowest Price: Binary Int.
   index, lowest_price = qse_qsecash_marketdata_xdp_v2_6.lowest_price.dissect(buffer, index, packet, parent)
 
-  -- Variation Last Price: Binary Int.
+  -- Variation Last Price: Binary Int. (signed)
   index, variation_last_price = qse_qsecash_marketdata_xdp_v2_6.variation_last_price.dissect(buffer, index, packet, parent)
 
   -- System Id: Binary Int.
@@ -7757,7 +7757,7 @@ qse_qsecash_marketdata_xdp_v2_6.trade_full_information_message.fields = function
   -- Lowest Price: Binary Int.
   index, lowest_price = qse_qsecash_marketdata_xdp_v2_6.lowest_price.dissect(buffer, index, packet, parent)
 
-  -- Variation Last Price: Binary Int.
+  -- Variation Last Price: Binary Int. (signed)
   index, variation_last_price = qse_qsecash_marketdata_xdp_v2_6.variation_last_price.dissect(buffer, index, packet, parent)
 
   -- System Id: Binary Int.
@@ -8731,7 +8731,7 @@ qse_qsecash_marketdata_xdp_v2_6.indicative_matching_price_message.fields = funct
   -- Im Price: Binary Int.
   index, im_price = qse_qsecash_marketdata_xdp_v2_6.im_price.dissect(buffer, index, packet, parent)
 
-  -- Variation: Binary Int.
+  -- Variation: Binary Int. (signed)
   index, variation = qse_qsecash_marketdata_xdp_v2_6.variation.dissect(buffer, index, packet, parent)
 
   -- System Id: Binary Int.

@@ -84,8 +84,8 @@ omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.statistic_type = ProtoFiel
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.tcp_unit = ProtoField.new("Tcp Unit", "lseg.lse.level2incrementalreplay.gtp.v26.2.tcpunit", ftypes.STRING, nil, nil, nil, "One unit on the tcp stream: the unit header and its payload messages")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse.level2incrementalreplay.gtp.v26.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse.level2incrementalreplay.gtp.v26.2.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.level2incrementalreplay.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse.level2incrementalreplay.gtp.v26.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.level2incrementalreplay.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.total_executed_quantity = ProtoField.new("Total Executed Quantity", "lseg.lse.level2incrementalreplay.gtp.v26.2.totalexecutedquantity", ftypes.DOUBLE, nil, nil, nil, "Total quantity executed (visible & hidden quantity).")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.total_hidden_executed_quantity = ProtoField.new("Total Hidden Executed Quantity", "lseg.lse.level2incrementalreplay.gtp.v26.2.totalhiddenexecutedquantity", ftypes.DOUBLE, nil, nil, nil, "Total hidden order quantity executed (hidden quantity).")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.trade_cancellation = ProtoField.new("Trade Cancellation", "lseg.lse.level2incrementalreplay.gtp.v26.2.tradecancellation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
@@ -96,8 +96,8 @@ omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.trade_qualifier = ProtoFie
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.trade_summary_side = ProtoField.new("Trade Summary Side", "lseg.lse.level2incrementalreplay.gtp.v26.2.tradesummaryside", ftypes.STRING, nil, nil, nil, "The side of the visible passive order(s) that triggered the trade summary.")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.trade_type = ProtoField.new("Trade Type", "lseg.lse.level2incrementalreplay.gtp.v26.2.tradetype", ftypes.UINT8, nil, nil, nil, "Type of the trade.")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.lse.level2incrementalreplay.gtp.v26.2.tradingstatus", ftypes.STRING, nil, nil, nil, "Current Trading status of the Instrument. Populated only when the message is sent at the end of individual order book snapshots during a trading session.")
-omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.lse.level2incrementalreplay.gtp.v26.2.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction execution timestamp as reported by the upstream system.")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.transaction_time_utc = ProtoField.new("Transaction Time", "lseg.lse.level2incrementalreplay.gtp.v26.2.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction execution timestamp as reported by the upstream system.")
+omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.lse.level2incrementalreplay.gtp.v26.2.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction execution timestamp as reported by the upstream system.")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.turnover = ProtoField.new("Turnover", "lseg.lse.level2incrementalreplay.gtp.v26.2.turnover", ftypes.DOUBLE, nil, nil, nil, "Turnover of all trades for the day.")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.turnover_on_book_only = ProtoField.new("Turnover On Book Only", "lseg.lse.level2incrementalreplay.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Turnover for the day excluding off-book trades.")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse.level2incrementalreplay.gtp.v26.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
@@ -154,7 +154,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_lse_level2incrementalreplay_gtp_v26_2.timestamp_format = 2
+lseg_lse_level2incrementalreplay_gtp_v26_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -177,7 +177,7 @@ omi_lseg_lse_level2incrementalreplay_gtp_v26_2.prefs.show_headers = Pref.bool("S
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_lse_level2incrementalreplay_gtp_v26_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_lse_level2incrementalreplay_gtp_v26_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_lse_level2incrementalreplay_gtp_v26_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_lse_level2incrementalreplay_gtp_v26_2.prefs_changed()

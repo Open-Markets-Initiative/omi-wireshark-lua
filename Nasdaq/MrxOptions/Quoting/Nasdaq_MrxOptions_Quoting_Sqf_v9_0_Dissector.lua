@@ -99,8 +99,8 @@ omi_nasdaq_mrxoptions_quoting_sqf_v9_0.fields.reserved_8 = ProtoField.new("Reser
 omi_nasdaq_mrxoptions_quoting_sqf_v9_0.fields.reserved_9 = ProtoField.new("Reserved 9", "nasdaq.mrxoptions.quoting.sqf.v9.0.reserved9", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_nasdaq_mrxoptions_quoting_sqf_v9_0.fields.seconds = ProtoField.new("Seconds", "nasdaq.mrxoptions.quoting.sqf.v9.0.seconds", ftypes.UINT32, nil, nil, nil, "Seconds portion of the timestamp: whole seconds after midnight, US Eastern Time (0 to 86399)")
 omi_nasdaq_mrxoptions_quoting_sqf_v9_0.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.mrxoptions.quoting.sqf.v9.0.securitysymbol", ftypes.STRING, nil, nil, nil, "Industry assigned security symbol for the option contract")
-omi_nasdaq_mrxoptions_quoting_sqf_v9_0.fields.sent_timestamp = ProtoField.new("Sent Timestamp", "nasdaq.mrxoptions.quoting.sqf.v9.0.senttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX epoch time in nanoseconds. Time the message is sent to the Exchange; passed to CAT")
 omi_nasdaq_mrxoptions_quoting_sqf_v9_0.fields.sent_timestamp_utc = ProtoField.new("Sent Timestamp", "nasdaq.mrxoptions.quoting.sqf.v9.0.senttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UNIX epoch time in nanoseconds. Time the message is sent to the Exchange; passed to CAT")
+omi_nasdaq_mrxoptions_quoting_sqf_v9_0.fields.sent_timestamp = ProtoField.new("Sent Timestamp", "nasdaq.mrxoptions.quoting.sqf.v9.0.senttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX epoch time in nanoseconds. Time the message is sent to the Exchange; passed to CAT")
 omi_nasdaq_mrxoptions_quoting_sqf_v9_0.fields.sequence = ProtoField.new("Sequence", "nasdaq.mrxoptions.quoting.sqf.v9.0.sequence", ftypes.UINT64, nil, nil, nil, "Relative sequence of the underlying purge processed by the matching engine. Quotes/purges with higher sequence number occur after quotes/purges with lower sequence number")
 omi_nasdaq_mrxoptions_quoting_sqf_v9_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.mrxoptions.quoting.sqf.v9.0.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Two character SQF Message Type (Type/Subtype) of the sequenced message")
 omi_nasdaq_mrxoptions_quoting_sqf_v9_0.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.mrxoptions.quoting.sqf.v9.0.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -223,7 +223,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_mrxoptions_quoting_sqf_v9_0.timestamp_format = 2
+nasdaq_mrxoptions_quoting_sqf_v9_0.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -262,7 +262,7 @@ omi_nasdaq_mrxoptions_quoting_sqf_v9_0.prefs.show_padding = Pref.bool("Show Padd
 omi_nasdaq_mrxoptions_quoting_sqf_v9_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_mrxoptions_quoting_sqf_v9_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_mrxoptions_quoting_sqf_v9_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_mrxoptions_quoting_sqf_v9_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_mrxoptions_quoting_sqf_v9_0.prefs_changed()

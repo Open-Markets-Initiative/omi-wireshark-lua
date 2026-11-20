@@ -28,8 +28,8 @@ omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.halt_status = ProtoField.ne
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.last_price = ProtoField.new("Last Price", "cboe.byxequities.summarydepth.csdp.v1.0.9.lastprice", ftypes.DOUBLE, nil, nil, nil, "Last trade price.")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.last_quantity = ProtoField.new("Last Quantity", "cboe.byxequities.summarydepth.csdp.v1.0.9.lastquantity", ftypes.UINT64, nil, nil, nil, "Last trade quantity.")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.last_sale_eligible = ProtoField.new("Last Sale Eligible", "cboe.byxequities.summarydepth.csdp.v1.0.9.lastsaleeligible", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "0: Trade is not last-sale eligible. 1: Trade is last-sale eligible.")
-omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.byxequities.summarydepth.csdp.v1.0.9.lastupdatetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe Summary Depth server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.last_update_timestamp_utc = ProtoField.new("Last Update Timestamp", "cboe.byxequities.summarydepth.csdp.v1.0.9.lastupdatetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe Summary Depth server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.last_update_timestamp = ProtoField.new("Last Update Timestamp", "cboe.byxequities.summarydepth.csdp.v1.0.9.lastupdatetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of the last matching engine message that updated the quote information for this symbol in the Cboe Summary Depth server's cache. Encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.length = ProtoField.new("Length", "cboe.byxequities.summarydepth.csdp.v1.0.9.length", ftypes.UINT16, nil, nil, nil, "Length of entire block of messages. Includes this header and Message Count messages to follow")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.long_update_adap_block = ProtoField.new("Long Update Adap Block", "cboe.byxequities.summarydepth.csdp.v1.0.9.longupdateadapblock", ftypes.STRING)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.market_status = ProtoField.new("Market Status", "cboe.byxequities.summarydepth.csdp.v1.0.9.marketstatus", ftypes.STRING)
@@ -51,12 +51,12 @@ omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.side = ProtoField.new("Side
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.spare_5 = ProtoField.new("Spare 5", "cboe.byxequities.summarydepth.csdp.v1.0.9.spare5", ftypes.UINT8, nil, base.DEC, 0xF8, "Spare")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.spare_reserved_1 = ProtoField.new("Spare Reserved 1", "cboe.byxequities.summarydepth.csdp.v1.0.9.sparereserved1", ftypes.BYTES, nil, nil, nil, "Spare")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.symbol = ProtoField.new("Symbol", "cboe.byxequities.summarydepth.csdp.v1.0.9.symbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
-omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.timestamp = ProtoField.new("Timestamp", "cboe.byxequities.summarydepth.csdp.v1.0.9.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the Market Status changed, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.byxequities.summarydepth.csdp.v1.0.9.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Timestamp of when the Market Status changed, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.timestamp = ProtoField.new("Timestamp", "cboe.byxequities.summarydepth.csdp.v1.0.9.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Timestamp of when the Market Status changed, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.trade_break_flags = ProtoField.new("Trade Break Flags", "cboe.byxequities.summarydepth.csdp.v1.0.9.tradebreakflags", ftypes.STRING)
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.trade_flags = ProtoField.new("Trade Flags", "cboe.byxequities.summarydepth.csdp.v1.0.9.tradeflags", ftypes.STRING)
-omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.byxequities.summarydepth.csdp.v1.0.9.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the trade occurred, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.byxequities.summarydepth.csdp.v1.0.9.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the trade occurred, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
+omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.byxequities.summarydepth.csdp.v1.0.9.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the trade occurred, encoded as the number of nanoseconds since midnight (effective 11/02/26, since epoch).")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.unit = ProtoField.new("Unit", "cboe.byxequities.summarydepth.csdp.v1.0.9.unit", ftypes.UINT8, nil, nil, nil, "Unit that applies to messages included in this header")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.unused_1 = ProtoField.new("Unused 1", "cboe.byxequities.summarydepth.csdp.v1.0.9.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.fields.unused_6 = ProtoField.new("Unused 6", "cboe.byxequities.summarydepth.csdp.v1.0.9.unused6", ftypes.UINT8, nil, base.DEC, 0xFC, "Reserved")
@@ -93,7 +93,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_byxequities_summarydepth_csdp_v1_0_9.timestamp_format = 2
+cboe_byxequities_summarydepth_csdp_v1_0_9.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -120,7 +120,7 @@ omi_cboe_byxequities_summarydepth_csdp_v1_0_9.prefs.show_padding = Pref.bool("Sh
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_byxequities_summarydepth_csdp_v1_0_9.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_byxequities_summarydepth_csdp_v1_0_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_byxequities_summarydepth_csdp_v1_0_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_byxequities_summarydepth_csdp_v1_0_9.prefs_changed()
@@ -1426,6 +1426,9 @@ cboe_byxequities_summarydepth_csdp_v1_0_9.adap_block.dissect = function(buffer, 
     local index = cboe_byxequities_summarydepth_csdp_v1_0_9.adap_block.fields(buffer, offset, packet, parent, adap_block_index, adap_block_size)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = cboe_byxequities_summarydepth_csdp_v1_0_9.adap_block.display(packet, parent, length)
     parent:append_text(display)
 

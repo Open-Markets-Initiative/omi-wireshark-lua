@@ -34,8 +34,8 @@ omi_otcmarkets_overnight_retransmission_link_v1_0.fields.execution_id = ProtoFie
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.firm_id = ProtoField.new("Firm Id", "otcmarkets.overnight.retransmission.link.v1.0.firmid", ftypes.STRING, nil, nil, nil, "Firm's MPID.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.full_closing_price = ProtoField.new("Full Closing Price", "otcmarkets.overnight.retransmission.link.v1.0.fullclosingprice", ftypes.DOUBLE, nil, nil, nil, "The calculated closing price. The long value represents the price scaled by 1,000,000 (6 decimal places).")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.last_seq_num = ProtoField.new("Last Seq Num", "otcmarkets.overnight.retransmission.link.v1.0.lastseqnum", ftypes.UINT32, nil, nil, nil, "Snapshot last sequence number to sync up with real time data. Start processing real time data from LastSeqNum + 1.")
-omi_otcmarkets_overnight_retransmission_link_v1_0.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.overnight.retransmission.link.v1.0.lastupdatemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds from UTC epoch.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.last_update_milli_utc = ProtoField.new("Last Update Milli", "otcmarkets.overnight.retransmission.link.v1.0.lastupdatemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds from UTC epoch.")
+omi_otcmarkets_overnight_retransmission_link_v1_0.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.overnight.retransmission.link.v1.0.lastupdatemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds from UTC epoch.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.login_status = ProtoField.new("Login Status", "otcmarkets.overnight.retransmission.link.v1.0.loginstatus", ftypes.UINT8, nil, nil, nil, "Always \"Y\". If it is an invalid userid, system will close socket after 5 seconds without sending back a login response. Field renamed from \"Status\" in the PDF to disambiguate from sibling Status fields.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.message_size = ProtoField.new("Message Size", "otcmarkets.overnight.retransmission.link.v1.0.messagesize", ftypes.UINT16, nil, nil, nil, "Size of message plus header size in bytes")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.message_type = ProtoField.new("Message Type", "otcmarkets.overnight.retransmission.link.v1.0.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
@@ -50,8 +50,8 @@ omi_otcmarkets_overnight_retransmission_link_v1_0.fields.piggyback_flag = ProtoF
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.price = ProtoField.new("Price", "otcmarkets.overnight.retransmission.link.v1.0.price", ftypes.DOUBLE, nil, nil, nil, "The limit order price. The long value represents the price scaled by 1,000,000 (6 decimal places).")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.qib_only_144_a = ProtoField.new("Qib Only 144 A", "otcmarkets.overnight.retransmission.link.v1.0.qibonly144a", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "\"144A QIB Only\" in the PDF. Indicates that the security may only be purchased or sold by Qualified Institutional Buyers (QIBs) or agents acting on behalf of QIBs.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.quantity = ProtoField.new("Quantity", "otcmarkets.overnight.retransmission.link.v1.0.quantity", ftypes.UINT32, nil, nil, nil, "Number of shares being added to the book.")
-omi_otcmarkets_overnight_retransmission_link_v1_0.fields.recovery_start_time = ProtoField.new("Recovery Start Time", "otcmarkets.overnight.retransmission.link.v1.0.recoverystarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expected time recovery spin will start.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.recovery_start_time_utc = ProtoField.new("Recovery Start Time", "otcmarkets.overnight.retransmission.link.v1.0.recoverystarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expected time recovery spin will start.")
+omi_otcmarkets_overnight_retransmission_link_v1_0.fields.recovery_start_time = ProtoField.new("Recovery Start Time", "otcmarkets.overnight.retransmission.link.v1.0.recoverystarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expected time recovery spin will start.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.recovery_type = ProtoField.new("Recovery Type", "otcmarkets.overnight.retransmission.link.v1.0.recoverytype", ftypes.UINT8, nil, nil, nil, "Recovery event type.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "otcmarkets.overnight.retransmission.link.v1.0.remainingquantity", ftypes.UINT32, nil, nil, nil, "Number of shares remaining after the execution. Will be zero if fully filled.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.reporting_status = ProtoField.new("Reporting Status", "otcmarkets.overnight.retransmission.link.v1.0.reportingstatus", ftypes.STRING, nil, nil, nil, "Reporting status of the security.")
@@ -63,15 +63,15 @@ omi_otcmarkets_overnight_retransmission_link_v1_0.fields.security_action = Proto
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.security_flags = ProtoField.new("Security Flags", "otcmarkets.overnight.retransmission.link.v1.0.securityflags", ftypes.STRING, nil, nil, nil, "This flag notes security level attributes and is only included in the Security Message.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.security_id = ProtoField.new("Security Id", "otcmarkets.overnight.retransmission.link.v1.0.securityid", ftypes.UINT32, nil, nil, nil, "Unique security ID issued by OTC Markets.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.security_status = ProtoField.new("Security Status", "otcmarkets.overnight.retransmission.link.v1.0.securitystatus", ftypes.STRING, nil, nil, nil, "Security trading status.")
-omi_otcmarkets_overnight_retransmission_link_v1_0.fields.session_time = ProtoField.new("Session Time", "otcmarkets.overnight.retransmission.link.v1.0.sessiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.session_time_utc = ProtoField.new("Session Time", "otcmarkets.overnight.retransmission.link.v1.0.sessiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
+omi_otcmarkets_overnight_retransmission_link_v1_0.fields.session_time = ProtoField.new("Session Time", "otcmarkets.overnight.retransmission.link.v1.0.sessiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.side_indicator = ProtoField.new("Side Indicator", "otcmarkets.overnight.retransmission.link.v1.0.sideindicator", ftypes.STRING, nil, nil, nil, "\"B\" = Buy Order, \"S\" = Sell Order.")
-omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_end_time_milli = ProtoField.new("Spin End Time Milli", "otcmarkets.overnight.retransmission.link.v1.0.spinendtimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_end_time_milli_utc = ProtoField.new("Spin End Time Milli", "otcmarkets.overnight.retransmission.link.v1.0.spinendtimemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_end_time_milli = ProtoField.new("Spin End Time Milli", "otcmarkets.overnight.retransmission.link.v1.0.spinendtimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_last_seq_num = ProtoField.new("Spin Last Seq Num", "otcmarkets.overnight.retransmission.link.v1.0.spinlastseqnum", ftypes.UINT32, nil, nil, nil, "Ignore, not used.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_msg_ct = ProtoField.new("Spin Msg Ct", "otcmarkets.overnight.retransmission.link.v1.0.spinmsgct", ftypes.UINT32, nil, nil, nil, "Total messages in spin.")
-omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otcmarkets.overnight.retransmission.link.v1.0.spinstarttimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_start_time_milli_utc = ProtoField.new("Spin Start Time Milli", "otcmarkets.overnight.retransmission.link.v1.0.spinstarttimemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otcmarkets.overnight.retransmission.link.v1.0.spinstarttimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_status = ProtoField.new("Spin Status", "otcmarkets.overnight.retransmission.link.v1.0.spinstatus", ftypes.UINT8, nil, nil, nil, "\"S\" Start of Spin or \"E\" End of Spin. Field renamed from \"Status\" in the PDF to disambiguate from sibling Status fields.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.spin_type = ProtoField.new("Spin Type", "otcmarkets.overnight.retransmission.link.v1.0.spintype", ftypes.UINT8, nil, nil, nil, "Spin type.")
 omi_otcmarkets_overnight_retransmission_link_v1_0.fields.start_sequence = ProtoField.new("Start Sequence", "otcmarkets.overnight.retransmission.link.v1.0.startsequence", ftypes.UINT32, nil, nil, nil, "Start sequence number.")
@@ -131,7 +131,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-otcmarkets_overnight_retransmission_link_v1_0.timestamp_format = 2
+otcmarkets_overnight_retransmission_link_v1_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -150,7 +150,7 @@ omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_application_message
 omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_otcmarkets_overnight_retransmission_link_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_otcmarkets_overnight_retransmission_link_v1_0.prefs_changed()

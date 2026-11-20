@@ -70,10 +70,10 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.password = ProtoField
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.post_only = ProtoField.new("Post Only", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.postonly", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "postOnly")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.protocolid", ftypes.UINT8, nil, nil, nil, "Coinbase protocol identifier")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.quantity = ProtoField.new("Quantity", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.quantity", ftypes.INT32, nil, nil, nil, "Quantity with 0 decimal places")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.receive_time = ProtoField.new("Receive Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.receivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "receiveTime")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.receive_time_utc = ProtoField.new("Receive Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.receivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "receiveTime")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.request_time = ProtoField.new("Request Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.requesttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "requestTime")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.receive_time = ProtoField.new("Receive Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.receivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "receiveTime")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.request_time_utc = ProtoField.new("Request Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.requesttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "requestTime")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.request_time = ProtoField.new("Request Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.requesttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "requestTime")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.request_trading_lock = ProtoField.new("Request Trading Lock", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.requesttradinglock", ftypes.INT8, nil, nil, nil, "requestTradingLock")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.resend_reject_reason = ProtoField.new("Resend Reject Reason", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.resendrejectreason", ftypes.INT8, nil, nil, nil, "rejectReason")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.resent_event_count = ProtoField.new("Resent Event Count", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.resenteventcount", ftypes.INT32, nil, nil, nil, "resentEventCount")
@@ -84,18 +84,18 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reserved_byte = Proto
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.resetseqnum", ftypes.INT8, nil, nil, nil, "resetSeqNum")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.schema_id = ProtoField.new("Schema Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.schemaid", ftypes.UINT16, nil, nil, nil, "Identifier of the schema publishing the message")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.security_type = ProtoField.new("Security Type", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.securitytype", ftypes.UINT8, nil, nil, nil, "securityType")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.sendtimeepochnanos", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the message was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.send_time_epoch_nanos_utc = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.sendtimeepochnanos.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UTC timestamp of when the message was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.sendtimeepochnanos", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UTC timestamp of when the message was sent, nanoseconds since Unix epoch (January 1st, 1970, 00:00:00 GMT)")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.sequencenumber", ftypes.UINT32, nil, nil, nil, "Outbound sequence number per session")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.server_time = ProtoField.new("Server Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.servertime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "serverTime")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.server_time_utc = ProtoField.new("Server Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.servertime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "serverTime")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.server_time = ProtoField.new("Server Time", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.servertime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "serverTime")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.session_flags = ProtoField.new("Session Flags", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.sessionflags", ftypes.STRING, nil, nil, nil, "Uint8 bit set carrying the isResend indicator")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.side = ProtoField.new("Side", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.side", ftypes.INT8, nil, nil, nil, "1 buy, -1 sell")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.symbol = ProtoField.new("Symbol", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.symbol", ftypes.STRING, nil, nil, nil, "Instrument symbol")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.template_id = ProtoField.new("Template Id", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.templateid", ftypes.UINT16, nil, nil, nil, "Template ID used to encode the message")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.time_in_force = ProtoField.new("Time In Force", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.timeinforce", ftypes.INT8, nil, nil, nil, "timeInForce")
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.timestamp = ProtoField.new("Timestamp", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.timestamp_utc = ProtoField.new("Timestamp", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds since epoch")
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.timestamp = ProtoField.new("Timestamp", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds since epoch")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.to_sequence_number = ProtoField.new("To Sequence Number", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.tosequencenumber", ftypes.UINT32, nil, nil, nil, "toSequenceNumber")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.total_filled = ProtoField.new("Total Filled", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.totalfilled", ftypes.INT32, nil, nil, nil, "totalFilled")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.fields.trader = ProtoField.new("Trader", "coinbase.coinbasederivatives.ordersapi.sbe.v1.7.trader", ftypes.STRING, nil, nil, nil, "Trader, a zero padded ascii string")
@@ -169,7 +169,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-coinbase_coinbasederivatives_ordersapi_sbe_v1_7.timestamp_format = 2
+coinbase_coinbasederivatives_ordersapi_sbe_v1_7.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -190,7 +190,7 @@ omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.prefs.show_structs = Pref.bo
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.prefs.show_schema_messages = Pref.bool("Show Schema Messages", show.schema_messages, "Parse and add Schema Messages to protocol tree")
 
-omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_coinbase_coinbasederivatives_ordersapi_sbe_v1_7.prefs_changed()
@@ -4272,6 +4272,9 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_7.order_message.dissect = function
     local index = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.order_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.order_message.display(packet, parent, length)
     parent:append_text(display)
 
@@ -4684,6 +4687,9 @@ coinbase_coinbasederivatives_ordersapi_sbe_v1_7.session_message.dissect = functi
     local index = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.session_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = coinbase_coinbasederivatives_ordersapi_sbe_v1_7.session_message.display(packet, parent, length)
     parent:append_text(display)
 

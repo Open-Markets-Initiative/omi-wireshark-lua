@@ -32,8 +32,8 @@ omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.fields.reserved_4 = ProtoField.n
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.fields.sell_broker_number = ProtoField.new("Sell Broker Number", "cboe.matchnow.multicasttrades.pitch.v1.0.13.sellbrokernumber", ftypes.UINT16, nil, nil, nil, "Broker number of the seller of the trade (or 1 for anonymous).")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.fields.sequence = ProtoField.new("Sequence", "cboe.matchnow.multicasttrades.pitch.v1.0.13.sequence", ftypes.UINT32, nil, nil, nil, "Sequence Number of the first message to follow this header")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.fields.symbol = ProtoField.new("Symbol", "cboe.matchnow.multicasttrades.pitch.v1.0.13.symbol", ftypes.STRING, nil, nil, nil, "Symbol (right padded with spaces).")
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.fields.timestamp = ProtoField.new("Timestamp", "cboe.matchnow.multicasttrades.pitch.v1.0.13.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.matchnow.multicasttrades.pitch.v1.0.13.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.fields.timestamp = ProtoField.new("Timestamp", "cboe.matchnow.multicasttrades.pitch.v1.0.13.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.fields.total_volume = ProtoField.new("Total Volume", "cboe.matchnow.multicasttrades.pitch.v1.0.13.totalvolume", ftypes.UINT32, nil, nil, nil, "Total number of shares traded in this symbol during the current trading session (may decrease if the Trade Condition field indicates a trade break).")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.matchnow.multicasttrades.pitch.v1.0.13.tradecondition", ftypes.STRING, nil, nil, nil, "Trade condition code.")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.fields.trade_flags = ProtoField.new("Trade Flags", "cboe.matchnow.multicasttrades.pitch.v1.0.13.tradeflags", ftypes.STRING, nil, nil, nil, "Trade flags.")
@@ -68,7 +68,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_matchnow_multicasttrades_pitch_v1_0_13.timestamp_format = 2
+cboe_matchnow_multicasttrades_pitch_v1_0_13.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -93,7 +93,7 @@ omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.prefs.show_padding = Pref.bool("
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_matchnow_multicasttrades_pitch_v1_0_13.prefs_changed()

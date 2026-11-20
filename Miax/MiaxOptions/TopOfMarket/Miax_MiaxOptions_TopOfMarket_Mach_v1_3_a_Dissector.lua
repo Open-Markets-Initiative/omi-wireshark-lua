@@ -52,8 +52,8 @@ omi_miax_miaxoptions_topofmarket_mach_v1_3_a.fields.reserved_2 = ProtoField.new(
 omi_miax_miaxoptions_topofmarket_mach_v1_3_a.fields.reserved_4 = ProtoField.new("Reserved 4", "miax.miaxoptions.topofmarket.mach.v1.3.a.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_miaxoptions_topofmarket_mach_v1_3_a.fields.reserved_8 = ProtoField.new("Reserved 8", "miax.miaxoptions.topofmarket.mach.v1.3.a.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use")
 omi_miax_miaxoptions_topofmarket_mach_v1_3_a.fields.restricted_option = ProtoField.new("Restricted Option", "miax.miaxoptions.topofmarket.mach.v1.3.a.restrictedoption", ftypes.STRING, nil, nil, nil, "Restricted Option value")
-omi_miax_miaxoptions_topofmarket_mach_v1_3_a.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.topofmarket.mach.v1.3.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_topofmarket_mach_v1_3_a.fields.seconds_utc = ProtoField.new("Seconds", "miax.miaxoptions.topofmarket.mach.v1.3.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_miaxoptions_topofmarket_mach_v1_3_a.fields.seconds = ProtoField.new("Seconds", "miax.miaxoptions.topofmarket.mach.v1.3.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_miaxoptions_topofmarket_mach_v1_3_a.fields.security_symbol = ProtoField.new("Security Symbol", "miax.miaxoptions.topofmarket.mach.v1.3.a.securitysymbol", ftypes.STRING, nil, nil, nil, "Option Security Symbol")
 omi_miax_miaxoptions_topofmarket_mach_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "miax.miaxoptions.topofmarket.mach.v1.3.a.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of this data packet")
 omi_miax_miaxoptions_topofmarket_mach_v1_3_a.fields.session_id = ProtoField.new("Session Id", "miax.miaxoptions.topofmarket.mach.v1.3.a.sessionid", ftypes.UINT32, nil, nil, nil, "MIAX assigned ID for the current trading session")
@@ -109,7 +109,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_miaxoptions_topofmarket_mach_v1_3_a.timestamp_format = 2
+miax_miaxoptions_topofmarket_mach_v1_3_a.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -130,7 +130,7 @@ omi_miax_miaxoptions_topofmarket_mach_v1_3_a.prefs.show_application_messages = P
 omi_miax_miaxoptions_topofmarket_mach_v1_3_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_miax_miaxoptions_topofmarket_mach_v1_3_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_miax_miaxoptions_topofmarket_mach_v1_3_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_miaxoptions_topofmarket_mach_v1_3_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_topofmarket_mach_v1_3_a.prefs_changed()

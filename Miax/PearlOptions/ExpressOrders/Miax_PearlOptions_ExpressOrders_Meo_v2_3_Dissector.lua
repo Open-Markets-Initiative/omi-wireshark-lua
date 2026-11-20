@@ -34,8 +34,8 @@ omi_miax_pearloptions_expressorders_meo_v2_3.fields.cancel_reason = ProtoField.n
 omi_miax_pearloptions_expressorders_meo_v2_3.fields.clearing_account = ProtoField.new("Clearing Account", "miax.pearloptions.expressorders.meo.v2.3.clearingaccount", ftypes.STRING, nil, nil, nil, "OCC Sub account (Multi-account) for non-MM orders or MM MPID for EEMs sending MM orders (in which case MPID field above becomes Executing MPID)")
 omi_miax_pearloptions_expressorders_meo_v2_3.fields.client_message_id = ProtoField.new("Client Message Id", "miax.pearloptions.expressorders.meo.v2.3.clientmessageid", ftypes.UINT32, nil, nil, nil, "Unique message ID assigned by the firm")
 omi_miax_pearloptions_expressorders_meo_v2_3.fields.client_order_id = ProtoField.new("Client Order Id", "miax.pearloptions.expressorders.meo.v2.3.clientorderid", ftypes.UINT32)
-omi_miax_pearloptions_expressorders_meo_v2_3.fields.client_send_time = ProtoField.new("Client Send Time", "miax.pearloptions.expressorders.meo.v2.3.clientsendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Firm's send time for the Liquidities. Nanoseconds since Epoch")
 omi_miax_pearloptions_expressorders_meo_v2_3.fields.client_send_time_utc = ProtoField.new("Client Send Time", "miax.pearloptions.expressorders.meo.v2.3.clientsendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Firm's send time for the Liquidities. Nanoseconds since Epoch")
+omi_miax_pearloptions_expressorders_meo_v2_3.fields.client_send_time = ProtoField.new("Client Send Time", "miax.pearloptions.expressorders.meo.v2.3.clientsendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Firm's send time for the Liquidities. Nanoseconds since Epoch")
 omi_miax_pearloptions_expressorders_meo_v2_3.fields.closing_time = ProtoField.new("Closing Time", "miax.pearloptions.expressorders.meo.v2.3.closingtime", ftypes.STRING, nil, nil, nil, "Expressed in HH:MM:SS format. Eg: 16:15:00")
 omi_miax_pearloptions_expressorders_meo_v2_3.fields.cmta = ProtoField.new("Cmta", "miax.pearloptions.expressorders.meo.v2.3.cmta", ftypes.UINT32, nil, nil, nil, "CMTA sent in the order")
 omi_miax_pearloptions_expressorders_meo_v2_3.fields.computer_id = ProtoField.new("Computer Id", "miax.pearloptions.expressorders.meo.v2.3.computerid", ftypes.STRING, nil, nil, nil, "ID issued by MIAX during initial setup")
@@ -211,7 +211,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_pearloptions_expressorders_meo_v2_3.timestamp_format = 2
+miax_pearloptions_expressorders_meo_v2_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -238,7 +238,7 @@ omi_miax_pearloptions_expressorders_meo_v2_3.prefs.show_headers = Pref.bool("Sho
 omi_miax_pearloptions_expressorders_meo_v2_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_pearloptions_expressorders_meo_v2_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_miax_pearloptions_expressorders_meo_v2_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_pearloptions_expressorders_meo_v2_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_pearloptions_expressorders_meo_v2_3.prefs_changed()

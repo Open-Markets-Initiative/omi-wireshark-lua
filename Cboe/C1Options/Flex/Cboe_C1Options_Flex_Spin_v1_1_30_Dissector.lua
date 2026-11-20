@@ -24,8 +24,8 @@ omi_cboe_c1options_flex_spin_v1_1_30.fields.creation_day = ProtoField.new("Creat
 omi_cboe_c1options_flex_spin_v1_1_30.fields.day = ProtoField.new("Day", "cboe.c1options.flex.spin.v1.1.30.day", ftypes.STRING, nil, nil, nil, "Two digit day")
 omi_cboe_c1options_flex_spin_v1_1_30.fields.decimal_strike = ProtoField.new("Decimal Strike", "cboe.c1options.flex.spin.v1.1.30.decimalstrike", ftypes.STRING, nil, nil, nil, "Decimal strike (if not percentage) left padded with zero. If percentage, field is space padded.")
 omi_cboe_c1options_flex_spin_v1_1_30.fields.dollar_strike = ProtoField.new("Dollar Strike", "cboe.c1options.flex.spin.v1.1.30.dollarstrike", ftypes.STRING, nil, nil, nil, "Dollar strike (if not percentage) left padded with zero. If percentage, field is space padded.")
-omi_cboe_c1options_flex_spin_v1_1_30.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.flex.spin.v1.1.30.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_flex_spin_v1_1_30.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.flex.spin.v1.1.30.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_flex_spin_v1_1_30.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.flex.spin.v1.1.30.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_flex_spin_v1_1_30.fields.exercise_style = ProtoField.new("Exercise Style", "cboe.c1options.flex.spin.v1.1.30.exercisestyle", ftypes.STRING, nil, nil, nil, "Exercise style indicator")
 omi_cboe_c1options_flex_spin_v1_1_30.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.flex.spin.v1.1.30.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
 omi_cboe_c1options_flex_spin_v1_1_30.fields.filler = ProtoField.new("Filler", "cboe.c1options.flex.spin.v1.1.30.filler", ftypes.STRING, nil, nil, nil, "(space filled)")
@@ -110,7 +110,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_c1options_flex_spin_v1_1_30.timestamp_format = 2
+cboe_c1options_flex_spin_v1_1_30.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -135,7 +135,7 @@ omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_headers = Pref.bool("Show Header
 omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c1options_flex_spin_v1_1_30.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_c1options_flex_spin_v1_1_30.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_c1options_flex_spin_v1_1_30.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_c1options_flex_spin_v1_1_30.prefs_changed()

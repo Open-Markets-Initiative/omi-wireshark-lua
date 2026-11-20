@@ -114,7 +114,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_psxequities_totalview_glimpse_v5_0_2022.timestamp_format = 2
+nasdaq_psxequities_totalview_glimpse_v5_0_2022.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -149,7 +149,7 @@ omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_session_messages =
 omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_psxequities_totalview_glimpse_v5_0_2022.prefs_changed()
@@ -991,7 +991,7 @@ end
 nasdaq_psxequities_totalview_glimpse_v5_0_2022.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_psxequities_totalview_glimpse_v5_0_2022.price.size
   local range = buffer(offset, length)
-  local raw = range:int()
+  local raw = range:uint()
   local value = nasdaq_psxequities_totalview_glimpse_v5_0_2022.price.translate(raw)
   local display = nasdaq_psxequities_totalview_glimpse_v5_0_2022.price.display(value, buffer, offset, packet, parent)
 

@@ -87,10 +87,10 @@ omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.submitting_pbuid = Pro
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.target_comp_id = ProtoField.new("Target Comp Id", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.targetcompid", ftypes.STRING, nil, nil, nil, "Receiver code")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.text = ProtoField.new("Text", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.text", ftypes.STRING, nil, nil, nil, "Further explanation of the logout reason, up to 200 bytes that may include Chinese characters")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.time_in_force = ProtoField.new("Time In Force", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.timeinforce", ftypes.STRING, nil, nil, nil, "Time in force type")
-omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_end_time = ProtoField.new("Trad Ses End Time", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradsesendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trading session end time, reserved")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_end_time_utc = ProtoField.new("Trad Ses End Time", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradsesendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trading session end time, reserved")
-omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_start_time = ProtoField.new("Trad Ses Start Time", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradsesstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trading session start time, reserved")
+omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_end_time = ProtoField.new("Trad Ses End Time", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradsesendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trading session end time, reserved")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_start_time_utc = ProtoField.new("Trad Ses Start Time", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradsesstarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trading session start time, reserved")
+omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_start_time = ProtoField.new("Trad Ses Start Time", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradsesstarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trading session start time, reserved")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradsesstatus", ftypes.UINT16, nil, nil, nil, "Trading session status, reserved")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trade_handling_instr = ProtoField.new("Trade Handling Instr", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradehandlinginstr", ftypes.STRING, nil, nil, nil, "Trade report mode")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trade_id = ProtoField.new("Trade Id", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradeid", ftypes.STRING, nil, nil, nil, "Exchange trade report number, unique across trading days")
@@ -102,8 +102,8 @@ omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trade_report_type = Pr
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trader_code = ProtoField.new("Trader Code", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradercode", ftypes.STRING, nil, nil, nil, "Own trader code")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trading_session_id = ProtoField.new("Trading Session Id", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradingsessionid", ftypes.STRING, nil, nil, nil, "Trading session ID, reserved")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.tradingsessionsubid", ftypes.STRING, nil, nil, nil, "Trading session sub ID, a numeric string")
-omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.transact_time = ProtoField.new("Transact Time", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Report time")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.transact_time_utc = ProtoField.new("Transact Time", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Report time")
+omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.transact_time = ProtoField.new("Transact Time", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Report time")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trd_ack_status = ProtoField.new("Trd Ack Status", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.trdackstatus", ftypes.UINT8, nil, nil, nil, "Trade report acknowledgement status")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trd_rpt_status = ProtoField.new("Trd Rpt Status", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.trdrptstatus", ftypes.UINT8, nil, nil, nil, "Trade report status")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "neeq.neeqsecurities.orderentry.bjsebinary.v1.1.trdsubtype", ftypes.UINT16, nil, nil, nil, "Trade report business sub type")
@@ -179,7 +179,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-neeq_neeqsecurities_orderentry_bjsebinary_v1_1.timestamp_format = 2
+neeq_neeqsecurities_orderentry_bjsebinary_v1_1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -202,7 +202,7 @@ omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.prefs.show_headers = Pref.boo
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.prefs_changed()
@@ -2458,8 +2458,8 @@ neeq_neeqsecurities_orderentry_bjsebinary_v1_1.trad_ses_end_time.dissect = funct
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_end_time
-  if neeq_neeqsecurities_orderentry_bjsebinary_v1_1.timestamp_format == 3 then field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_end_time_utc end
+  local field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_end_time_utc
+  if neeq_neeqsecurities_orderentry_bjsebinary_v1_1.timestamp_format == 2 then field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_end_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2505,8 +2505,8 @@ neeq_neeqsecurities_orderentry_bjsebinary_v1_1.trad_ses_start_time.dissect = fun
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_start_time
-  if neeq_neeqsecurities_orderentry_bjsebinary_v1_1.timestamp_format == 3 then field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_start_time_utc end
+  local field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_start_time_utc
+  if neeq_neeqsecurities_orderentry_bjsebinary_v1_1.timestamp_format == 2 then field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.trad_ses_start_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)
@@ -2970,8 +2970,8 @@ neeq_neeqsecurities_orderentry_bjsebinary_v1_1.transact_time.dissect = function(
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.transact_time
-  if neeq_neeqsecurities_orderentry_bjsebinary_v1_1.timestamp_format == 3 then field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.transact_time_utc end
+  local field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.transact_time_utc
+  if neeq_neeqsecurities_orderentry_bjsebinary_v1_1.timestamp_format == 2 then field = omi_neeq_neeqsecurities_orderentry_bjsebinary_v1_1.fields.transact_time end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)

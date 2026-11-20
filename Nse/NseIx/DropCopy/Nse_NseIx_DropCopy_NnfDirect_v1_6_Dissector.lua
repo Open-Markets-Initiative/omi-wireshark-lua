@@ -18,8 +18,8 @@ local nse_nseix_dropcopy_nnfdirect_v1_6 = {}
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.account_num = ProtoField.new("Account Num", "nse.nseix.dropcopy.nnfdirect.v1.6.accountnum", ftypes.STRING, nil, nil, nil, "Account number or client code")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.account_number = ProtoField.new("Account Number", "nse.nseix.dropcopy.nnfdirect.v1.6.accountnumber", ftypes.STRING, nil, nil, nil, "Trader account number when the order is entered on behalf of a trader, blank for a broker's own order")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.account_number_1 = ProtoField.new("Account Number 1", "nse.nseix.dropcopy.nnfdirect.v1.6.accountnumber1", ftypes.STRING, nil, nil, nil, "Trader account number when the order is entered on behalf of a trader, blank for a broker's own order")
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.activity_time = ProtoField.new("Activity Time", "nse.nseix.dropcopy.nnfdirect.v1.6.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the activity took place")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.activity_time_utc = ProtoField.new("Activity Time", "nse.nseix.dropcopy.nnfdirect.v1.6.activitytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the activity took place")
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.activity_time = ProtoField.new("Activity Time", "nse.nseix.dropcopy.nnfdirect.v1.6.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the activity took place")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.activity_type = ProtoField.new("Activity Type", "nse.nseix.dropcopy.nnfdirect.v1.6.activitytype", ftypes.STRING, nil, nil, nil, "Type of activity being confirmed")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.additional_order_flags = ProtoField.new("Additional Order Flags", "nse.nseix.dropcopy.nnfdirect.v1.6.additionalorderflags", ftypes.STRING, nil, nil, nil, "Further attributes of the order")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.additional_order_flags_reserved_1 = ProtoField.new("Additional Order Flags Reserved 1", "nse.nseix.dropcopy.nnfdirect.v1.6.additionalorderflagsreserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
@@ -60,13 +60,13 @@ omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.disclosed_volume = ProtoField.new("
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.disclosed_volume_remaining = ProtoField.new("Disclosed Volume Remaining", "nse.nseix.dropcopy.nnfdirect.v1.6.disclosedvolumeremaining", ftypes.INT32, nil, nil, nil, "Disclosed volume remaining from the original disclosed volume after trades")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.echo_back = ProtoField.new("Echo Back", "nse.nseix.dropcopy.nnfdirect.v1.6.echoback", ftypes.STRING, nil, nil, nil, "Sixteen character echo back field for members, which should carry the Algo Id issued by the exchange; blank for a non algo order")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.end_alpha_1 = ProtoField.new("End Alpha 1", "nse.nseix.dropcopy.nnfdirect.v1.6.endalpha1", ftypes.STRING, nil, nil, nil, "EndAlpha1")
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.entry_date_time = ProtoField.new("Entry Date Time", "nse.nseix.dropcopy.nnfdirect.v1.6.entrydatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time the order entered the system")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.entry_date_time_utc = ProtoField.new("Entry Date Time", "nse.nseix.dropcopy.nnfdirect.v1.6.entrydatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time the order entered the system")
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.entry_date_time_1 = ProtoField.new("Entry Date Time 1", "nse.nseix.dropcopy.nnfdirect.v1.6.entrydatetime1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order first entered the trading system")
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.entry_date_time = ProtoField.new("Entry Date Time", "nse.nseix.dropcopy.nnfdirect.v1.6.entrydatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time the order entered the system")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.entry_date_time_1_utc = ProtoField.new("Entry Date Time 1", "nse.nseix.dropcopy.nnfdirect.v1.6.entrydatetime1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the order first entered the trading system")
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.entry_date_time_1 = ProtoField.new("Entry Date Time 1", "nse.nseix.dropcopy.nnfdirect.v1.6.entrydatetime1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order first entered the trading system")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.error_code = ProtoField.new("Error Code", "nse.nseix.dropcopy.nnfdirect.v1.6.errorcode", ftypes.INT16, nil, nil, nil, "Zero when the request succeeded, otherwise an Error Response follows")
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nseix.dropcopy.nnfdirect.v1.6.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry date of the contract")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.expiry_date_utc = ProtoField.new("Expiry Date", "nse.nseix.dropcopy.nnfdirect.v1.6.expirydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expiry date of the contract")
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nseix.dropcopy.nnfdirect.v1.6.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry date of the contract")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.fifth_reserved_1 = ProtoField.new("Fifth Reserved 1", "nse.nseix.dropcopy.nnfdirect.v1.6.fifthreserved1", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.fill_number = ProtoField.new("Fill Number", "nse.nseix.dropcopy.nnfdirect.v1.6.fillnumber", ftypes.INT32, nil, nil, nil, "Trade number")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.fill_price = ProtoField.new("Fill Price", "nse.nseix.dropcopy.nnfdirect.v1.6.fillprice", ftypes.INT32, nil, nil, nil, "Price at which the order traded, to be divided by 10000 for a contract traded in USD or by 100 for a contract traded in cents to get the actual price")
@@ -89,10 +89,10 @@ omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.give_up_trade = ProtoField.new("Giv
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.giveup_flag = ProtoField.new("Giveup Flag", "nse.nseix.dropcopy.nnfdirect.v1.6.giveupflag", ftypes.STRING, nil, nil, nil, "Give up flag, A when the give up is approved")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.giveup_flag_1 = ProtoField.new("Giveup Flag 1", "nse.nseix.dropcopy.nnfdirect.v1.6.giveupflag1", ftypes.STRING, nil, nil, nil, "Not used")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.giveup_flag_2 = ProtoField.new("Giveup Flag 2", "nse.nseix.dropcopy.nnfdirect.v1.6.giveupflag2", ftypes.STRING, nil, nil, nil, "Not used")
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.good_till_date = ProtoField.new("Good Till Date", "nse.nseix.dropcopy.nnfdirect.v1.6.goodtilldate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date until which the GTD order is retained in the system")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.good_till_date_utc = ProtoField.new("Good Till Date", "nse.nseix.dropcopy.nnfdirect.v1.6.goodtilldate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date until which the GTD order is retained in the system")
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.good_till_date_1 = ProtoField.new("Good Till Date 1", "nse.nseix.dropcopy.nnfdirect.v1.6.goodtilldate1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Not used")
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.good_till_date = ProtoField.new("Good Till Date", "nse.nseix.dropcopy.nnfdirect.v1.6.goodtilldate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date until which the GTD order is retained in the system")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.good_till_date_1_utc = ProtoField.new("Good Till Date 1", "nse.nseix.dropcopy.nnfdirect.v1.6.goodtilldate1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Not used")
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.good_till_date_1 = ProtoField.new("Good Till Date 1", "nse.nseix.dropcopy.nnfdirect.v1.6.goodtilldate1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Not used")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.gtc = ProtoField.new("Gtc", "nse.nseix.dropcopy.nnfdirect.v1.6.gtc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Good till cancel")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.gtd = ProtoField.new("Gtd", "nse.nseix.dropcopy.nnfdirect.v1.6.gtd", ftypes.INT32, nil, nil, nil, "Number of days for a GTD order")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nseix.dropcopy.nnfdirect.v1.6.headertimestamp", ftypes.INT64, nil, nil, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
@@ -100,14 +100,14 @@ omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.initiated_by_control = ProtoField.n
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.instrument_name = ProtoField.new("Instrument Name", "nse.nseix.dropcopy.nnfdirect.v1.6.instrumentname", ftypes.STRING, nil, nil, nil, "Instrument name of the contract")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.ioc = ProtoField.new("Ioc", "nse.nseix.dropcopy.nnfdirect.v1.6.ioc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200, "Immediate or cancel")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.last_activity_reference = ProtoField.new("Last Activity Reference", "nse.nseix.dropcopy.nnfdirect.v1.6.lastactivityreference", ftypes.INT64, nil, nil, nil, "Unique value for the activity, currently in nanoseconds")
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.last_modified = ProtoField.new("Last Modified", "nse.nseix.dropcopy.nnfdirect.v1.6.lastmodified", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Entry date time on an order entry, then the time the order was last modified, in seconds from midnight 1 January 1980")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.last_modified_utc = ProtoField.new("Last Modified", "nse.nseix.dropcopy.nnfdirect.v1.6.lastmodified.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Entry date time on an order entry, then the time the order was last modified, in seconds from midnight 1 January 1980")
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.last_modified_1 = ProtoField.new("Last Modified 1", "nse.nseix.dropcopy.nnfdirect.v1.6.lastmodified1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order was last modified, in seconds from midnight 1 January 1980")
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.last_modified = ProtoField.new("Last Modified", "nse.nseix.dropcopy.nnfdirect.v1.6.lastmodified", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Entry date time on an order entry, then the time the order was last modified, in seconds from midnight 1 January 1980")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.last_modified_1_utc = ProtoField.new("Last Modified 1", "nse.nseix.dropcopy.nnfdirect.v1.6.lastmodified1.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the order was last modified, in seconds from midnight 1 January 1980")
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.last_modified_date_time = ProtoField.new("Last Modified Date Time", "nse.nseix.dropcopy.nnfdirect.v1.6.lastmodifieddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the last activity on the order, which could be order entry, order modification or the last trade, in seconds from midnight 1 January 1980")
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.last_modified_1 = ProtoField.new("Last Modified 1", "nse.nseix.dropcopy.nnfdirect.v1.6.lastmodified1", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order was last modified, in seconds from midnight 1 January 1980")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.last_modified_date_time_utc = ProtoField.new("Last Modified Date Time", "nse.nseix.dropcopy.nnfdirect.v1.6.lastmodifieddatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the last activity on the order, which could be order entry, order modification or the last trade, in seconds from midnight 1 January 1980")
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.log_time = ProtoField.new("Log Time", "nse.nseix.dropcopy.nnfdirect.v1.6.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated by the trading system")
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.last_modified_date_time = ProtoField.new("Last Modified Date Time", "nse.nseix.dropcopy.nnfdirect.v1.6.lastmodifieddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the last activity on the order, which could be order entry, order modification or the last trade, in seconds from midnight 1 January 1980")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.log_time_utc = ProtoField.new("Log Time", "nse.nseix.dropcopy.nnfdirect.v1.6.logtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated by the trading system")
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.log_time = ProtoField.new("Log Time", "nse.nseix.dropcopy.nnfdirect.v1.6.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated by the trading system")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.market = ProtoField.new("Market", "nse.nseix.dropcopy.nnfdirect.v1.6.market", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000, "Market order")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.matched_ind = ProtoField.new("Matched Ind", "nse.nseix.dropcopy.nnfdirect.v1.6.matchedind", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "A negotiated trade order has found a matching order")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.fields.message_length = ProtoField.new("Message Length", "nse.nseix.dropcopy.nnfdirect.v1.6.messagelength", ftypes.INT16, nil, nil, nil, "Length of the message including the message header, twenty two less than Packet Length")
@@ -296,7 +296,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nse_nseix_dropcopy_nnfdirect_v1_6.timestamp_format = 2
+nse_nseix_dropcopy_nnfdirect_v1_6.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 nse_nseix_dropcopy_nnfdirect_v1_6.zone_offset = 0
@@ -330,7 +330,7 @@ omi_nse_nseix_dropcopy_nnfdirect_v1_6.prefs.show_application_messages = Pref.boo
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_nse_nseix_dropcopy_nnfdirect_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nseix_dropcopy_nnfdirect_v1_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_nse_nseix_dropcopy_nnfdirect_v1_6.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

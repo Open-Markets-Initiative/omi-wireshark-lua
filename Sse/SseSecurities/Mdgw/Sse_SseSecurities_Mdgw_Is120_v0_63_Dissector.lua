@@ -70,8 +70,8 @@ omi_sse_ssesecurities_mdgw_is120_v0_63.fields.retransmission_message_channelno =
 omi_sse_ssesecurities_mdgw_is120_v0_63.fields.secondaryorderid = ProtoField.new("SecondaryOrderID", "sse.ssesecurities.mdgw.is120.v0.63.secondaryorderid", ftypes.STRING, nil, nil, nil, "Order number that the response price declaration corresponds to (that is, the competitive bidding declaration number)")
 omi_sse_ssesecurities_mdgw_is120_v0_63.fields.securityid = ProtoField.new("SecurityID", "sse.ssesecurities.mdgw.is120.v0.63.securityid", ftypes.STRING, nil, nil, nil, "Product code")
 omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sendercompid = ProtoField.new("SenderCompID", "sse.ssesecurities.mdgw.is120.v0.63.sendercompid", ftypes.STRING, nil, nil, nil, "Sender code")
-omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sendingtime = ProtoField.new("SendingTime", "sse.ssesecurities.mdgw.is120.v0.63.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Sending time, format: YYYYMMDDHHmmSSsss")
 omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sendingtime_utc = ProtoField.new("SendingTime", "sse.ssesecurities.mdgw.is120.v0.63.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Sending time, format: YYYYMMDDHHmmSSsss")
+omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sendingtime = ProtoField.new("SendingTime", "sse.ssesecurities.mdgw.is120.v0.63.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Sending time, format: YYYYMMDDHHmmSSsss")
 omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sessionstatus = ProtoField.new("SessionStatus", "sse.ssesecurities.mdgw.is120.v0.63.sessionstatus", ftypes.UINT32, nil, nil, nil, "Session status at logout. 1–999 = Logout in general circumstances, reconnecting can recover; 1000–9999 = Logout in serious circumstances, switching servers is recommended.")
 omi_sse_ssesecurities_mdgw_is120_v0_63.fields.settltype = ProtoField.new("SettlType", "sse.ssesecurities.mdgw.is120.v0.63.settltype", ftypes.UINT8, nil, nil, nil, "Settlement method")
 omi_sse_ssesecurities_mdgw_is120_v0_63.fields.side = ProtoField.new("Side", "sse.ssesecurities.mdgw.is120.v0.63.side", ftypes.STRING)
@@ -137,7 +137,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-sse_ssesecurities_mdgw_is120_v0_63.timestamp_format = 2
+sse_ssesecurities_mdgw_is120_v0_63.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -162,7 +162,7 @@ omi_sse_ssesecurities_mdgw_is120_v0_63.prefs.show_session_messages = Pref.bool("
 omi_sse_ssesecurities_mdgw_is120_v0_63.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_sse_ssesecurities_mdgw_is120_v0_63.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_sse_ssesecurities_mdgw_is120_v0_63.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_sse_ssesecurities_mdgw_is120_v0_63.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_sse_ssesecurities_mdgw_is120_v0_63.prefs_changed()
@@ -1591,8 +1591,8 @@ sse_ssesecurities_mdgw_is120_v0_63.sendingtime.dissect = function(buffer, offset
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
-  local field = omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sendingtime
-  if sse_ssesecurities_mdgw_is120_v0_63.timestamp_format == 3 then field = omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sendingtime_utc end
+  local field = omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sendingtime_utc
+  if sse_ssesecurities_mdgw_is120_v0_63.timestamp_format == 2 then field = omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sendingtime end
 
   local millis = packed % 1000
   local civil = math.floor(packed / 1000)

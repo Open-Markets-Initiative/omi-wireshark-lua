@@ -137,7 +137,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.timestamp_format = 2
+nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -160,7 +160,7 @@ omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.prefs.show_header
 omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.prefs_changed()
@@ -381,7 +381,7 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.corrected_nav_premium_discount_amount.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.corrected_nav_premium_discount_amount.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.corrected_nav_premium_discount_amount.translate(raw)
   local display = nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.corrected_nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
 
@@ -1482,7 +1482,7 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.nav_premium_discount_amount.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.nav_premium_discount_amount.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.nav_premium_discount_amount.translate(raw)
   local display = nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
 
@@ -1601,7 +1601,7 @@ end
 nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.original_nav_premium_discount_amount.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.original_nav_premium_discount_amount.size
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.original_nav_premium_discount_amount.translate(raw)
   local display = nasdaq_nsmequities_lastsaletradesfilterview_itch_v2_1_2025.original_nav_premium_discount_amount.display(value, buffer, offset, packet, parent)
 

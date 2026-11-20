@@ -34,14 +34,14 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.paired_qty = ProtoField.new("P
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.arcaequities.arcabook.pillar.v2.1.pktsize", ftypes.UINT16, nil, nil, nil, "The size of the packet in bytes, including this 16 byte packet header")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.price = ProtoField.new("Price", "nyse.arcaequities.arcabook.pillar.v2.1.price", ftypes.UINT32, nil, nil, nil, "This field contains the price point. Use the Price scale from the symbol-mapping index.")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.reason_code = ProtoField.new("Reason Code", "nyse.arcaequities.arcabook.pillar.v2.1.reasoncode", ftypes.UINT8, nil, nil, nil, "Modify Reason")
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.arcabook.pillar.v2.1.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds_utc = ProtoField.new("Seconds", "nyse.arcaequities.arcabook.pillar.v2.1.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seconds = ProtoField.new("Seconds", "nyse.arcaequities.arcabook.pillar.v2.1.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time_utc = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time = ProtoField.new("Send Time", "nyse.arcaequities.arcabook.pillar.v2.1.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.seq_num = ProtoField.new("Seq Num", "nyse.arcaequities.arcabook.pillar.v2.1.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.side = ProtoField.new("Side", "nyse.arcaequities.arcabook.pillar.v2.1.side", ftypes.STRING, nil, nil, nil, "This field indicates the side of the order.")
-omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.arcabook.pillar.v2.1.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.source_time_utc = ProtoField.new("Source Time", "nyse.arcaequities.arcabook.pillar.v2.1.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.source_time = ProtoField.new("Source Time", "nyse.arcaequities.arcabook.pillar.v2.1.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.arcaequities.arcabook.pillar.v2.1.sourcetimens", ftypes.UINT32, nil, nil, nil, "This field represents the nanosecond offset from the time reference second in UTC time (EPOCH)")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.arcaequities.arcabook.pillar.v2.1.ssrfilingprice", ftypes.UINT32, nil, nil, nil, "Not supported, defaulted to 0.")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.arcaequities.arcabook.pillar.v2.1.symbolindex", ftypes.UINT32, nil, nil, nil, "This field identifies the numerical representation of the symbol.")
@@ -87,7 +87,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_arcaequities_arcabook_pillar_v2_1.timestamp_format = 2
+nyse_arcaequities_arcabook_pillar_v2_1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -110,7 +110,7 @@ omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_headers = Pref.bool("Show 
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_arcaequities_arcabook_pillar_v2_1.prefs_changed()
@@ -1908,8 +1908,8 @@ nyse_arcaequities_arcabook_pillar_v2_1.send_time.dissect = function(buffer, offs
     local length = nyse_arcaequities_arcabook_pillar_v2_1.send_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time
-    if nyse_arcaequities_arcabook_pillar_v2_1.timestamp_format == 3 then field = omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time_utc end
+    local field = omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time_utc
+    if nyse_arcaequities_arcabook_pillar_v2_1.timestamp_format == 2 then field = omi_nyse_arcaequities_arcabook_pillar_v2_1.fields.send_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_arcaequities_arcabook_pillar_v2_1.send_time.fields(buffer, offset, packet, parent)
 

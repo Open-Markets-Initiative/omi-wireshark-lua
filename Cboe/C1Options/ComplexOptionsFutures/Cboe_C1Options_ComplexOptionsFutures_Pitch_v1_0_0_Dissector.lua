@@ -32,8 +32,8 @@ omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.fields.complex_symbol_id =
 omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.c1options.complexoptionsfutures.pitch.v1.0.0.compositemarketbidprice", ftypes.DOUBLE, nil, nil, nil, "Not used for Complex series. Will contain zero value.")
 omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.c1options.complexoptionsfutures.pitch.v1.0.0.compositemarketofferprice", ftypes.DOUBLE, nil, nil, nil, "Not used for complex series. Will contain zero value.")
 omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.complexoptionsfutures.pitch.v1.0.0.customerindicator", ftypes.STRING, nil, nil, nil, "N = Non-Customer C = Customer")
-omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complexoptionsfutures.pitch.v1.0.0.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.complexoptionsfutures.pitch.v1.0.0.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.complexoptionsfutures.pitch.v1.0.0.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.c1options.complexoptionsfutures.pitch.v1.0.0.executedquantity", ftypes.UINT32, nil, nil, nil, "Instrument quantity executed")
 omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.complexoptionsfutures.pitch.v1.0.0.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution.")
 omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1options.complexoptionsfutures.pitch.v1.0.0.feedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
@@ -134,7 +134,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_c1options_complexoptionsfutures_pitch_v1_0_0.timestamp_format = 2
+cboe_c1options_complexoptionsfutures_pitch_v1_0_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -161,7 +161,7 @@ omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.prefs.show_padding = Pref.
 omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_c1options_complexoptionsfutures_pitch_v1_0_0.prefs_changed()

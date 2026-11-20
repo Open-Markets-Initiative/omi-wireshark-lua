@@ -25,8 +25,8 @@ omi_euronext_optiq_marketdatapacket_udp_v1.fields.has_status_message = ProtoFiel
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.mdg_restart_count = ProtoField.new("Mdg Restart Count", "euronext.optiq.marketdatapacket.udp.v1.mdgrestartcount", ftypes.UINT16, nil, base.DEC, 0x000E, "Will be set to 0 every morning and incremented for each restart of MDG in the same day")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_flags = ProtoField.new("Packet Flags", "euronext.optiq.marketdatapacket.udp.v1.packetflags", ftypes.STRING)
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_sequence_number = ProtoField.new("Packet Sequence Number", "euronext.optiq.marketdatapacket.udp.v1.packetsequencenumber", ftypes.UINT32, nil, nil, nil, "Each channel has its own PSN sequence")
-omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_time = ProtoField.new("Packet Time", "euronext.optiq.marketdatapacket.udp.v1.packettime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the packet is pushed to the clients")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_time_utc = ProtoField.new("Packet Time", "euronext.optiq.marketdatapacket.udp.v1.packettime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time when the packet is pushed to the clients")
+omi_euronext_optiq_marketdatapacket_udp_v1.fields.packet_time = ProtoField.new("Packet Time", "euronext.optiq.marketdatapacket.udp.v1.packettime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time when the packet is pushed to the clients")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.payload = ProtoField.new("Payload", "euronext.optiq.marketdatapacket.udp.v1.payload", ftypes.BYTES, nil, nil, nil, "Raw message bytes")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.psn_high_weight = ProtoField.new("Psn High Weight", "euronext.optiq.marketdatapacket.udp.v1.psnhighweight", ftypes.UINT16, nil, base.DEC, 0x0070, "Packet Sequence Number goes over (2^32)-1. They are PSN high weight bits")
 omi_euronext_optiq_marketdatapacket_udp_v1.fields.reserved_bits = ProtoField.new("Reserved Bits", "euronext.optiq.marketdatapacket.udp.v1.reservedbits", ftypes.UINT16, nil, base.DEC, 0xFC00, "Bits Reserved for future use")
@@ -56,7 +56,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-euronext_optiq_marketdatapacket_udp_v1.timestamp_format = 2
+euronext_optiq_marketdatapacket_udp_v1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -73,7 +73,7 @@ show.structs = true
 omi_euronext_optiq_marketdatapacket_udp_v1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_euronext_optiq_marketdatapacket_udp_v1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 
-omi_euronext_optiq_marketdatapacket_udp_v1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_euronext_optiq_marketdatapacket_udp_v1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_euronext_optiq_marketdatapacket_udp_v1.prefs_changed()

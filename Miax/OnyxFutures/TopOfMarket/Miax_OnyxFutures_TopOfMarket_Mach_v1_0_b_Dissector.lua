@@ -55,8 +55,8 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.spread_type = ProtoField.new
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.strategy_id = ProtoField.new("Strategy Id", "miax.onyxfutures.topofmarket.mach.v1.0.b.strategyid", ftypes.UINT32, nil, nil, nil, "Unique ID assigned by MIAX Futures Onyx for a Complex instrument and is permanent for the life of an instrument")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.system_status = ProtoField.new("System Status", "miax.onyxfutures.topofmarket.mach.v1.0.b.systemstatus", ftypes.STRING)
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.tick = ProtoField.new("Tick", "miax.onyxfutures.topofmarket.mach.v1.0.b.tick", ftypes.DOUBLE, nil, nil, nil, "Order Entry Price Tick of the Product")
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.timestamp = ProtoField.new("Timestamp", "miax.onyxfutures.topofmarket.mach.v1.0.b.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Matching Engine time")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.timestamp_utc = ProtoField.new("Timestamp", "miax.onyxfutures.topofmarket.mach.v1.0.b.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Matching Engine time")
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.timestamp = ProtoField.new("Timestamp", "miax.onyxfutures.topofmarket.mach.v1.0.b.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Matching Engine time")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.tom_version = ProtoField.new("Tom Version", "miax.onyxfutures.topofmarket.mach.v1.0.b.tomversion", ftypes.STRING, nil, nil, nil, "Protocol Version")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.total_volume = ProtoField.new("Total Volume", "miax.onyxfutures.topofmarket.mach.v1.0.b.totalvolume", ftypes.UINT32, nil, nil, nil, "The aggregate amount of volume that has traded from the prior Trading Day")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.fields.trade_date = ProtoField.new("Trade Date", "miax.onyxfutures.topofmarket.mach.v1.0.b.tradedate", ftypes.UINT16, nil, nil, nil, "Business Trade Date")
@@ -107,7 +107,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp_format = 2
+miax_onyxfutures_topofmarket_mach_v1_0_b.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -132,7 +132,7 @@ omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_headers = Pref.bool("Sho
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_onyxfutures_topofmarket_mach_v1_0_b.prefs_changed()

@@ -97,8 +97,8 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.risk_group_id = ProtoField.n
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.schema_id = ProtoField.new("Schema Id", "blueoceanats.blueequities.memo.sbe.v1.13.schemaid", ftypes.UINT8, nil, nil, nil, "The identifier of a message schema")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.security_group = ProtoField.new("Security Group", "blueoceanats.blueequities.memo.sbe.v1.13.securitygroup", ftypes.STRING, nil, nil, nil, "Security listing tape indicator, A, B or C")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "blueoceanats.blueequities.memo.sbe.v1.13.selftradeprevention", ftypes.UINT8, nil, nil, nil, "The desired behavior in the event of a wash; the null value disables self trade prevention")
-omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "blueoceanats.blueequities.memo.sbe.v1.13.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the message was sent, nanoseconds since the unix epoch")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sending_time_utc = ProtoField.new("Sending Time", "blueoceanats.blueequities.memo.sbe.v1.13.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the message was sent, nanoseconds since the unix epoch")
+omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sending_time = ProtoField.new("Sending Time", "blueoceanats.blueequities.memo.sbe.v1.13.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the message was sent, nanoseconds since the unix epoch")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.sequenced_message = ProtoField.new("Sequenced Message", "blueoceanats.blueequities.memo.sbe.v1.13.sequencedmessage", ftypes.STRING, nil, nil, nil, "BlueOceanAts Tcp sequenced message")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.server_sbe_message = ProtoField.new("Server Sbe Message", "blueoceanats.blueequities.memo.sbe.v1.13.serversbemessage", ftypes.STRING, nil, nil, nil, "Sbe message sent by BlueOceanAts to the firm")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.fields.session_id = ProtoField.new("Session Id", "blueoceanats.blueequities.memo.sbe.v1.13.sessionid", ftypes.UINT64, nil, nil, nil, "The identifier for the session for which data is desired")
@@ -166,7 +166,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-blueoceanats_blueequities_memo_sbe_v1_13.timestamp_format = 2
+blueoceanats_blueequities_memo_sbe_v1_13.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -199,7 +199,7 @@ omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_application_messages = P
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_blueoceanats_blueequities_memo_sbe_v1_13.prefs_changed()

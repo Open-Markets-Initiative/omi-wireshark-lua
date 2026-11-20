@@ -34,14 +34,14 @@ omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.paired_qty = ProtoField.new("Pa
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.price = ProtoField.new("Price", "nyse.nyseequities.openbook.xdp.v1.9.a.price", ftypes.UINT32, nil, nil, nil, "This field contains the price point. Use the Price scale from the symbol-mapping index.")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.reason_code = ProtoField.new("Reason Code", "nyse.nyseequities.openbook.xdp.v1.9.a.reasoncode", ftypes.UINT8, nil, nil, nil, "Modify Reason: 5 - Change (lost position in book), 6 - Routed (keep position in book), 7 - Modify Fill keep position. Reason Code 7 not applicable to NYSE or NYSE MKT. This field is left as a future enhancement. The default value is currently set as 0, which has no underlying meaning.")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.reference_price = ProtoField.new("Reference Price", "nyse.nyseequities.openbook.xdp.v1.9.a.referenceprice", ftypes.UINT32, nil, nil, nil, "The Reference Price is the Last Sale if the last sale is at or between the current best quote. Otherwise the Reference Price is the Bid Price if last sale is lower than Bid price, or the Offer price if last sale is higher than Offer price.")
-omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.openbook.xdp.v1.9.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseequities.openbook.xdp.v1.9.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
-omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.openbook.xdp.v1.9.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.openbook.xdp.v1.9.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.openbook.xdp.v1.9.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.openbook.xdp.v1.9.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.nyseequities.openbook.xdp.v1.9.a.sequencenumber", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.side = ProtoField.new("Side", "nyse.nyseequities.openbook.xdp.v1.9.a.side", ftypes.STRING, nil, nil, nil, "This field indicates the side of the order Buy/Sell.")
-omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.openbook.xdp.v1.9.a.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field specifies the time when the msg was generated in the order book. The number represents the number of seconds in UTC time (EPOCH)")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.source_time_utc = ProtoField.new("Source Time", "nyse.nyseequities.openbook.xdp.v1.9.a.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "This field specifies the time when the msg was generated in the order book. The number represents the number of seconds in UTC time (EPOCH)")
+omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.openbook.xdp.v1.9.a.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "This field specifies the time when the msg was generated in the order book. The number represents the number of seconds in UTC time (EPOCH)")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.nyseequities.openbook.xdp.v1.9.a.sourcetimens", ftypes.UINT32, nil, nil, nil, "This field represents the nanosecond offset from the time reference second in UTC time (EPOCH)")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.ssr_filing_price = ProtoField.new("Ssr Filing Price", "nyse.nyseequities.openbook.xdp.v1.9.a.ssrfilingprice", ftypes.UINT32, nil, nil, nil, "This field contains the SSR Filing Price, the price at which Sell Short interest will be filed in the matching in the event a Sell Short Restriction is in effect for the security. It is based on the National Best Bid at 9:30am and remains static after it has been determined. This field is a future enhancement for NYSE Arca and will have a '0' value until such time. This field is not yet implemented and is left as a future release.")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.nyseequities.openbook.xdp.v1.9.a.symbolindex", ftypes.UINT32, nil, nil, nil, "This field identifies the numerical representation of the symbol.")
@@ -88,7 +88,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_nyseequities_openbook_xdp_v1_9_a.timestamp_format = 2
+nyse_nyseequities_openbook_xdp_v1_9_a.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -109,7 +109,7 @@ omi_nyse_nyseequities_openbook_xdp_v1_9_a.prefs.show_structs = Pref.bool("Show S
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_openbook_xdp_v1_9_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nyse_nyseequities_openbook_xdp_v1_9_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_nyseequities_openbook_xdp_v1_9_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_openbook_xdp_v1_9_a.prefs_changed()
@@ -1890,8 +1890,8 @@ nyse_nyseequities_openbook_xdp_v1_9_a.send_time.dissect = function(buffer, offse
     local length = nyse_nyseequities_openbook_xdp_v1_9_a.send_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.send_time
-    if nyse_nyseequities_openbook_xdp_v1_9_a.timestamp_format == 3 then field = omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.send_time_utc end
+    local field = omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.send_time_utc
+    if nyse_nyseequities_openbook_xdp_v1_9_a.timestamp_format == 2 then field = omi_nyse_nyseequities_openbook_xdp_v1_9_a.fields.send_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_nyseequities_openbook_xdp_v1_9_a.send_time.fields(buffer, offset, packet, parent)
 

@@ -60,8 +60,8 @@ omi_asx_asxsecurities_trade_ouch_v2_0.fields.server_packet_type = ProtoField.new
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.short_sell_quantity = ProtoField.new("Short Sell Quantity", "asx.asxsecurities.trade.ouch.v2.0.shortsellquantity", ftypes.UINT64, nil, nil, nil, "For short sell orders, the portion of the quantity that is short.")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.side = ProtoField.new("Side", "asx.asxsecurities.trade.ouch.v2.0.side", ftypes.STRING, nil, nil, nil, "The type of order being entered.")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.time_in_force = ProtoField.new("Time In Force", "asx.asxsecurities.trade.ouch.v2.0.timeinforce", ftypes.UINT8, nil, nil, nil, "The time validity of the order.")
-omi_asx_asxsecurities_trade_ouch_v2_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.asxsecurities.trade.ouch.v2.0.timestampnanoseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC).")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.timestamp_nanoseconds_utc = ProtoField.new("Timestamp Nanoseconds", "asx.asxsecurities.trade.ouch.v2.0.timestampnanoseconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC).")
+omi_asx_asxsecurities_trade_ouch_v2_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.asxsecurities.trade.ouch.v2.0.timestampnanoseconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "UNIX time (number of nanoseconds since 1970-01-01 00:00:00 UTC).")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.trade_price = ProtoField.new("Trade Price", "asx.asxsecurities.trade.ouch.v2.0.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Price that the order traded at (signed integer). Note: Number of decimals is specified in the ITCH Order Book Directory message: ASX Trade ITCH and Glimpse Specification. The number of decimal places for prices in ASX Trade OUCH is universally set to two decimal places, regardless of the configured number of decimal places for the instrument in ASX Trade.")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.traded_quantity = ProtoField.new("Traded Quantity", "asx.asxsecurities.trade.ouch.v2.0.tradedquantity", ftypes.UINT64, nil, nil, nil, "Quantity that traded.")
 omi_asx_asxsecurities_trade_ouch_v2_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "asx.asxsecurities.trade.ouch.v2.0.unsequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying unsequenced message type")
@@ -118,7 +118,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-asx_asxsecurities_trade_ouch_v2_0.timestamp_format = 2
+asx_asxsecurities_trade_ouch_v2_0.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -151,7 +151,7 @@ omi_asx_asxsecurities_trade_ouch_v2_0.prefs.show_headers = Pref.bool("Show Heade
 omi_asx_asxsecurities_trade_ouch_v2_0.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_asx_asxsecurities_trade_ouch_v2_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_asx_asxsecurities_trade_ouch_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_asx_asxsecurities_trade_ouch_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_asx_asxsecurities_trade_ouch_v2_0.prefs_changed()

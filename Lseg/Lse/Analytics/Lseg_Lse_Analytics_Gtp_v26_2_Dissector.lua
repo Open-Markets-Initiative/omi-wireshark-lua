@@ -26,8 +26,8 @@ omi_lseg_lse_analytics_gtp_v26_2.fields.buy_order_size = ProtoField.new("Buy Ord
 omi_lseg_lse_analytics_gtp_v26_2.fields.currency = ProtoField.new("Currency", "lseg.lse.analytics.gtp.v26.2.currency", ftypes.STRING, nil, nil, nil, "Currency Code as per ISO 4217.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.lse.analytics.gtp.v26.2.dynamiccircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Dynamic Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.lse.analytics.gtp.v26.2.electronicorderbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
-omi_lseg_lse_analytics_gtp_v26_2.fields.end_time = ProtoField.new("End Time", "lseg.lse.analytics.gtp.v26.2.endtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message ended.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.end_time_utc = ProtoField.new("End Time", "lseg.lse.analytics.gtp.v26.2.endtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the calculation of the statistics on this message ended.")
+omi_lseg_lse_analytics_gtp_v26_2.fields.end_time = ProtoField.new("End Time", "lseg.lse.analytics.gtp.v26.2.endtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message ended.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.event_code = ProtoField.new("Event Code", "lseg.lse.analytics.gtp.v26.2.eventcode", ftypes.STRING, nil, nil, nil, "Start or end of day event code.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.firm_quote_book = ProtoField.new("Firm Quote Book", "lseg.lse.analytics.gtp.v26.2.firmquotebook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_lseg_lse_analytics_gtp_v26_2.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.lse.analytics.gtp.v26.2.fourthreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
@@ -58,13 +58,13 @@ omi_lseg_lse_analytics_gtp_v26_2.fields.sell_order_size = ProtoField.new("Sell O
 omi_lseg_lse_analytics_gtp_v26_2.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.lse.analytics.gtp.v26.2.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the first payload message")
 omi_lseg_lse_analytics_gtp_v26_2.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.lse.analytics.gtp.v26.2.sessionchangereason", ftypes.UINT8, nil, nil, nil, "Reason the trading session changed.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.source_venue = ProtoField.new("Source Venue", "lseg.lse.analytics.gtp.v26.2.sourcevenue", ftypes.UINT16, nil, nil, nil, "Venue from which market data is received for the instrument.")
-omi_lseg_lse_analytics_gtp_v26_2.fields.start_time = ProtoField.new("Start Time", "lseg.lse.analytics.gtp.v26.2.starttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message began.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.start_time_utc = ProtoField.new("Start Time", "lseg.lse.analytics.gtp.v26.2.starttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the calculation of the statistics on this message began.")
+omi_lseg_lse_analytics_gtp_v26_2.fields.start_time = ProtoField.new("Start Time", "lseg.lse.analytics.gtp.v26.2.starttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message began.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.lse.analytics.gtp.v26.2.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Static Circuit Breaker Tolerance (%) of the instrument.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse.analytics.gtp.v26.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse.analytics.gtp.v26.2.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_lse_analytics_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.analytics.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse.analytics.gtp.v26.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_lse_analytics_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.analytics.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.lse.analytics.gtp.v26.2.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status of the instrument.")
 omi_lseg_lse_analytics_gtp_v26_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse.analytics.gtp.v26.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
 omi_lseg_lse_analytics_gtp_v26_2.fields.unused_3 = ProtoField.new("Unused 3", "lseg.lse.analytics.gtp.v26.2.unused3", ftypes.UINT8, nil, base.DEC, 0xE0, "Reserved")
@@ -103,7 +103,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_lse_analytics_gtp_v26_2.timestamp_format = 2
+lseg_lse_analytics_gtp_v26_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -126,7 +126,7 @@ omi_lseg_lse_analytics_gtp_v26_2.prefs.show_headers = Pref.bool("Show Headers", 
 omi_lseg_lse_analytics_gtp_v26_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_lse_analytics_gtp_v26_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_lse_analytics_gtp_v26_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_lse_analytics_gtp_v26_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_lse_analytics_gtp_v26_2.prefs_changed()

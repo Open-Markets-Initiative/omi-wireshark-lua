@@ -46,8 +46,8 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.state = ProtoField.new("State", 
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.successful_login_message = ProtoField.new("Successful Login Message", "cixats.cixaspen.snapshot.tcpout.v1.1.successfulloginmessage", ftypes.STRING, nil, nil, nil, "Sent by the server to accept a Login Message")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.symbol = ProtoField.new("Symbol", "cixats.cixaspen.snapshot.tcpout.v1.1.symbol", ftypes.STRING, nil, nil, nil, "Stock Symbol")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.symbol_id = ProtoField.new("Symbol Id", "cixats.cixaspen.snapshot.tcpout.v1.1.symbolid", ftypes.UINT16, nil, nil, nil, "Symbol Index")
-omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp = ProtoField.new("Timestamp", "cixats.cixaspen.snapshot.tcpout.v1.1.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds Since Epoch (UTC)")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp_utc = ProtoField.new("Timestamp", "cixats.cixaspen.snapshot.tcpout.v1.1.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Nanoseconds Since Epoch (UTC)")
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.timestamp = ProtoField.new("Timestamp", "cixats.cixaspen.snapshot.tcpout.v1.1.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Nanoseconds Since Epoch (UTC)")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.fields.user = ProtoField.new("User", "cixats.cixaspen.snapshot.tcpout.v1.1.user", ftypes.STRING, nil, nil, nil, "Username")
 
 -- CixAts CixAspen Snapshot TcpOut 1.1 Framing
@@ -82,7 +82,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cixats_cixaspen_snapshot_tcpout_v1_1.timestamp_format = 2
+cixats_cixaspen_snapshot_tcpout_v1_1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -101,7 +101,7 @@ omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_structs = Pref.bool("Show St
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 
-omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cixats_cixaspen_snapshot_tcpout_v1_1.prefs_changed()

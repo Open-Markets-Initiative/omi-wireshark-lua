@@ -29,7 +29,7 @@ omi_nasdaq_nsmequities_totalview_glimpse_v4_1.fields.market_category = ProtoFiel
 omi_nasdaq_nsmequities_totalview_glimpse_v4_1.fields.order_reference_number = ProtoField.new("Order Reference Number", "nasdaq.nsmequities.totalview.glimpse.v4.1.orderreferencenumber", ftypes.UINT64, nil, nil, nil, "The unique reference number assigned to the new order. The order reference number is increasing, but not necessarily sequential.")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_1.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.nsmequities.totalview.glimpse.v4.1.packetlength", ftypes.UINT16, nil, nil, nil, "Length of data message not including this field")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_1.fields.password = ProtoField.new("Password", "nasdaq.nsmequities.totalview.glimpse.v4.1.password", ftypes.STRING, nil, nil, nil, "Login password")
-omi_nasdaq_nsmequities_totalview_glimpse_v4_1.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.glimpse.v4.1.price", ftypes.UINT32, nil, nil, nil, "The display price of the new order. Refer to Data Types for field processing notes.")
+omi_nasdaq_nsmequities_totalview_glimpse_v4_1.fields.price = ProtoField.new("Price", "nasdaq.nsmequities.totalview.glimpse.v4.1.price", ftypes.DOUBLE, nil, nil, nil, "The display price of the new order. Refer to Data Types for field processing notes.")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_1.fields.reason = ProtoField.new("Reason", "nasdaq.nsmequities.totalview.glimpse.v4.1.reason", ftypes.STRING, nil, nil, nil, "Trading Action reason.")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_1.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.nsmequities.totalview.glimpse.v4.1.regshoaction", ftypes.STRING, nil, nil, nil, "Denotes the Reg SHO Short Sale Price Test Restriction status for the issue at the time of the message dissemination.")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_1.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.nsmequities.totalview.glimpse.v4.1.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
@@ -100,7 +100,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_nsmequities_totalview_glimpse_v4_1.timestamp_format = 2
+nasdaq_nsmequities_totalview_glimpse_v4_1.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -135,7 +135,7 @@ omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.show_session_messages = Pref
 omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nsmequities_totalview_glimpse_v4_1.prefs_changed()
@@ -656,11 +656,17 @@ nasdaq_nsmequities_totalview_glimpse_v4_1.price.display = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+nasdaq_nsmequities_totalview_glimpse_v4_1.price.translate = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_nsmequities_totalview_glimpse_v4_1.price.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nsmequities_totalview_glimpse_v4_1.price.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = nasdaq_nsmequities_totalview_glimpse_v4_1.price.translate(raw)
   local display = nasdaq_nsmequities_totalview_glimpse_v4_1.price.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nasdaq_nsmequities_totalview_glimpse_v4_1.fields.price, range, value, display)

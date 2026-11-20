@@ -165,7 +165,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_miaxoptions_expressinterface_mei_v1_7_c.timestamp_format = 2
+miax_miaxoptions_expressinterface_mei_v1_7_c.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -192,7 +192,7 @@ omi_miax_miaxoptions_expressinterface_mei_v1_7_c.prefs.show_repeating_groups = P
 omi_miax_miaxoptions_expressinterface_mei_v1_7_c.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_miaxoptions_expressinterface_mei_v1_7_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_miax_miaxoptions_expressinterface_mei_v1_7_c.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_miaxoptions_expressinterface_mei_v1_7_c.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_miaxoptions_expressinterface_mei_v1_7_c.prefs_changed()

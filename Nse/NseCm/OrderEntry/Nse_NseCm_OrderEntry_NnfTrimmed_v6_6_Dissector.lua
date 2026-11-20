@@ -17,8 +17,8 @@ local nse_nsecm_orderentry_nnftrimmed_v6_6 = {}
 -- Nse NseCm OrderEntry NnfTrimmed 6.6 Fields
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.account_num = ProtoField.new("Account Num", "nse.nsecm.orderentry.nnftrimmed.v6.6.accountnum", ftypes.STRING, nil, nil, nil, "Trader account number for an order on behalf of a trader, or the broker code for a broker's own order")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.account_number = ProtoField.new("Account Number", "nse.nsecm.orderentry.nnftrimmed.v6.6.accountnumber", ftypes.STRING, nil, nil, nil, "Trader account number for an order on behalf of a trader, or the broker code for a broker's own order")
-omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.activity_time = ProtoField.new("Activity Time", "nse.nsecm.orderentry.nnftrimmed.v6.6.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the activity, seconds from midnight January 1 1980")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.activity_time_utc = ProtoField.new("Activity Time", "nse.nsecm.orderentry.nnftrimmed.v6.6.activitytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the activity, seconds from midnight January 1 1980")
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.activity_time = ProtoField.new("Activity Time", "nse.nsecm.orderentry.nnftrimmed.v6.6.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the activity, seconds from midnight January 1 1980")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.activity_type = ProtoField.new("Activity Type", "nse.nsecm.orderentry.nnftrimmed.v6.6.activitytype", ftypes.STRING, nil, nil, nil, "Type of the activity")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.algo_id = ProtoField.new("Algo Id", "nse.nsecm.orderentry.nnftrimmed.v6.6.algoid", ftypes.INT32, nil, nil, nil, "Algorithm Id of an algorithmic order")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.aon = ProtoField.new("Aon", "nse.nsecm.orderentry.nnftrimmed.v6.6.aon", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200, "All or none order")
@@ -30,8 +30,8 @@ omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.buy_sell = ProtoField.new("Buy S
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.day = ProtoField.new("Day", "nse.nsecm.orderentry.nnftrimmed.v6.6.day", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x1000, "Day order")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.disclosed_vol = ProtoField.new("Disclosed Vol", "nse.nsecm.orderentry.nnftrimmed.v6.6.disclosedvol", ftypes.INT32, nil, nil, nil, "Quantity to be disclosed to the market")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.disclosed_vol_remaining = ProtoField.new("Disclosed Vol Remaining", "nse.nsecm.orderentry.nnftrimmed.v6.6.disclosedvolremaining", ftypes.INT32, nil, nil, nil, "Disclosed quantity remaining")
-omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.entry_date_time = ProtoField.new("Entry Date Time", "nse.nsecm.orderentry.nnftrimmed.v6.6.entrydatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order entered the system, seconds from midnight January 1 1980")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.entry_date_time_utc = ProtoField.new("Entry Date Time", "nse.nsecm.orderentry.nnftrimmed.v6.6.entrydatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the order entered the system, seconds from midnight January 1 1980")
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.entry_date_time = ProtoField.new("Entry Date Time", "nse.nsecm.orderentry.nnftrimmed.v6.6.entrydatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order entered the system, seconds from midnight January 1 1980")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.error_code = ProtoField.new("Error Code", "nse.nsecm.orderentry.nnftrimmed.v6.6.errorcode", ftypes.INT16, nil, nil, nil, "Type of error, zero while sending to the host")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.fill_number = ProtoField.new("Fill Number", "nse.nsecm.orderentry.nnftrimmed.v6.6.fillnumber", ftypes.INT32, nil, nil, nil, "Number of the fill")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.fill_price = ProtoField.new("Fill Price", "nse.nsecm.orderentry.nnftrimmed.v6.6.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price of the fill, in paise")
@@ -41,10 +41,10 @@ omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.good_till_date = ProtoField.new(
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.gtc = ProtoField.new("Gtc", "nse.nsecm.orderentry.nnftrimmed.v6.6.gtc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0800, "Good till cancelled order")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.ioc = ProtoField.new("Ioc", "nse.nsecm.orderentry.nnftrimmed.v6.6.ioc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Immediate or cancel order")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.last_activity_reference = ProtoField.new("Last Activity Reference", "nse.nsecm.orderentry.nnftrimmed.v6.6.lastactivityreference", ftypes.INT64, nil, nil, nil, "Reference of the last activity on the order")
-omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.last_modified = ProtoField.new("Last Modified", "nse.nsecm.orderentry.nnftrimmed.v6.6.lastmodified", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order was last modified, seconds from midnight January 1 1980")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.last_modified_utc = ProtoField.new("Last Modified", "nse.nsecm.orderentry.nnftrimmed.v6.6.lastmodified.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the order was last modified, seconds from midnight January 1 1980")
-omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.log_time = ProtoField.new("Log Time", "nse.nsecm.orderentry.nnftrimmed.v6.6.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was logged, seconds from midnight January 1 1980")
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.last_modified = ProtoField.new("Last Modified", "nse.nsecm.orderentry.nnftrimmed.v6.6.lastmodified", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order was last modified, seconds from midnight January 1 1980")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.log_time_utc = ProtoField.new("Log Time", "nse.nsecm.orderentry.nnftrimmed.v6.6.logtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was logged, seconds from midnight January 1 1980")
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.log_time = ProtoField.new("Log Time", "nse.nsecm.orderentry.nnftrimmed.v6.6.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was logged, seconds from midnight January 1 1980")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.matched_ind = ProtoField.new("Matched Ind", "nse.nsecm.orderentry.nnftrimmed.v6.6.matchedind", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0080, "Order has been matched")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.message = ProtoField.new("Message", "nse.nsecm.orderentry.nnftrimmed.v6.6.message", ftypes.STRING, nil, nil, nil, "Nnf trimmed message")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.message_length = ProtoField.new("Message Length", "nse.nsecm.orderentry.nnftrimmed.v6.6.messagelength", ftypes.INT16, nil, nil, nil, "Length of the entire message")
@@ -82,8 +82,8 @@ omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.symbol = ProtoField.new("Symbol"
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1 = ProtoField.new("Time Stamp 1", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp1", ftypes.INT64, nil, nil, nil, "Time the message arrives at the trading system host")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_1_char = ProtoField.new("Time Stamp 1 Char", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp1char", ftypes.STRING, nil, nil, nil, "Time the message arrives at the trading system host")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.time_stamp_2 = ProtoField.new("Time Stamp 2", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp2", ftypes.STRING, nil, nil, nil, "Reserved for the host")
-omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamped at the matching engine, in nanoseconds from January 1 1980 for the transaction codes the appendix lists")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp_utc = ProtoField.new("Timestamp", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time stamped at the matching engine, in nanoseconds from January 1 1980 for the transaction codes the appendix lists")
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.timestamp = ProtoField.new("Timestamp", "nse.nsecm.orderentry.nnftrimmed.v6.6.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time stamped at the matching engine, in nanoseconds from January 1 1980 for the transaction codes the appendix lists")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.total_vol_remaining = ProtoField.new("Total Vol Remaining", "nse.nsecm.orderentry.nnftrimmed.v6.6.totalvolremaining", ftypes.INT32, nil, nil, nil, "Total quantity remaining")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.traded = ProtoField.new("Traded", "nse.nsecm.orderentry.nnftrimmed.v6.6.traded", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "Order has traded at least partly")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.fields.trader_id = ProtoField.new("Trader Id", "nse.nsecm.orderentry.nnftrimmed.v6.6.traderid", ftypes.INT32, nil, nil, nil, "User ID of the user entering the order")
@@ -123,7 +123,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp_format = 2
+nse_nsecm_orderentry_nnftrimmed_v6_6.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 nse_nsecm_orderentry_nnftrimmed_v6_6.zone_offset = 0
@@ -145,7 +145,7 @@ omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_structs = Pref.bool("Show St
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_nse_nsecm_orderentry_nnftrimmed_v6_6.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

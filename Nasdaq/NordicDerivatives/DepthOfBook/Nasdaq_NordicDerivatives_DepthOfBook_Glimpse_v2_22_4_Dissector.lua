@@ -65,8 +65,8 @@ omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.requested_sessio
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.reserved_bits_14_to_16 = ProtoField.new("Reserved Bits 14 To 16", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.reservedbits14to16", ftypes.UINT16, nil, base.DEC, 0xE000, "Reserved, values 8192 and above are not stated")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.reserved_bits_7_to_10 = ProtoField.new("Reserved Bits 7 To 10", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.reservedbits7to10", ftypes.UINT16, nil, base.DEC, 0x03C0, "Reserved, values 64 through 512 are not stated")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the quantity that represents a round lot for the issue")
-omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second = ProtoField.new("Second", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second_utc = ProtoField.new("Second", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.second = ProtoField.new("Second", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.sequencenumber", ftypes.STRING, nil, nil, nil, "Genium INET ITCH SoupBinTCP sequence number when the snapshot was taken. To be used when logging in to the SoupBinTCP ITCH feed. NOTE: While GLIMPSE is a binary feed, the SoupBinTCP uses ASCII characters to represent the sequence number")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.fields.server_packet_type = ProtoField.new("Packet Type", "nasdaq.nordicderivatives.depthofbook.glimpse.v2.22.4.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
@@ -133,7 +133,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp_format = 2
+nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -166,7 +166,7 @@ omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_headers = Pr
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_session_messages = Pref.bool("Show Session Messages", show.session_messages, "Parse and add Session Messages to protocol tree")
 omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nordicderivatives_depthofbook_glimpse_v2_22_4.prefs_changed()

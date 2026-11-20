@@ -26,7 +26,7 @@ omi_currenex_currenexforex_esp_cbp_v9.fields.message_type = ProtoField.new("Mess
 omi_currenex_currenexforex_esp_cbp_v9.fields.min_amount = ProtoField.new("Min Amount", "currenex.currenexforex.esp.cbp.v9.minamount", ftypes.DOUBLE, nil, nil, nil, "The minimum amount being offered at this Price")
 omi_currenex_currenexforex_esp_cbp_v9.fields.password = ProtoField.new("Password", "currenex.currenexforex.esp.cbp.v9.password", ftypes.STRING, nil, nil, nil, "User password")
 omi_currenex_currenexforex_esp_cbp_v9.fields.price = ProtoField.new("Price", "currenex.currenexforex.esp.cbp.v9.price", ftypes.DOUBLE, nil, nil, nil, "Price rate")
-omi_currenex_currenexforex_esp_cbp_v9.fields.price_id = ProtoField.new("Price Id", "currenex.currenexforex.esp.cbp.v9.priceid", ftypes.INT8, nil, nil, nil, "Id assigned to the price, unique across all currency pairs for the scope of the session")
+omi_currenex_currenexforex_esp_cbp_v9.fields.price_id = ProtoField.new("Price Id", "currenex.currenexforex.esp.cbp.v9.priceid", ftypes.INT32, nil, nil, nil, "Id assigned to the price, unique across all currency pairs for the scope of the session")
 omi_currenex_currenexforex_esp_cbp_v9.fields.price_provider = ProtoField.new("Price Provider", "currenex.currenexforex.esp.cbp.v9.priceprovider", ftypes.STRING, nil, nil, nil, "Market maker id")
 omi_currenex_currenexforex_esp_cbp_v9.fields.rate = ProtoField.new("Rate", "currenex.currenexforex.esp.cbp.v9.rate", ftypes.DOUBLE, nil, nil, nil, "Trade execution rate")
 omi_currenex_currenexforex_esp_cbp_v9.fields.reason = ProtoField.new("Reason", "currenex.currenexforex.esp.cbp.v9.reason", ftypes.STRING, nil, nil, nil, "Optional text")
@@ -35,13 +35,15 @@ omi_currenex_currenexforex_esp_cbp_v9.fields.reject_reason = ProtoField.new("Rej
 omi_currenex_currenexforex_esp_cbp_v9.fields.reply_type = ProtoField.new("Reply Type", "currenex.currenexforex.esp.cbp.v9.replytype", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.sequence_number = ProtoField.new("Sequence Number", "currenex.currenexforex.esp.cbp.v9.sequencenumber", ftypes.UINT32, nil, nil, nil, "Directional session based sequence number")
 omi_currenex_currenexforex_esp_cbp_v9.fields.session_id = ProtoField.new("Session Id", "currenex.currenexforex.esp.cbp.v9.sessionid", ftypes.INT32, nil, nil, nil, "Unique session id provided by Currenex")
-omi_currenex_currenexforex_esp_cbp_v9.fields.settlement_date = ProtoField.new("Settlement Date", "currenex.currenexforex.esp.cbp.v9.settlementdate", ftypes.INT64, nil, nil, nil, "Settlement date in milliseconds since midnight 01 January 1900 GMT")
+omi_currenex_currenexforex_esp_cbp_v9.fields.settlement_date_utc = ProtoField.new("Settlement Date", "currenex.currenexforex.esp.cbp.v9.settlementdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Settlement date in milliseconds since midnight 01 January 1900 GMT")
+omi_currenex_currenexforex_esp_cbp_v9.fields.settlement_date = ProtoField.new("Settlement Date", "currenex.currenexforex.esp.cbp.v9.settlementdate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Settlement date in milliseconds since midnight 01 January 1900 GMT")
 omi_currenex_currenexforex_esp_cbp_v9.fields.side = ProtoField.new("Side", "currenex.currenexforex.esp.cbp.v9.side", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.subscribe_to_ticker = ProtoField.new("Subscribe To Ticker", "currenex.currenexforex.esp.cbp.v9.subscribetoticker", ftypes.STRING, nil, nil, nil, "Subscribe to Trade Ticker message")
 omi_currenex_currenexforex_esp_cbp_v9.fields.subscription_type = ProtoField.new("Subscription Type", "currenex.currenexforex.esp.cbp.v9.subscriptiontype", ftypes.STRING)
 omi_currenex_currenexforex_esp_cbp_v9.fields.ticker_type = ProtoField.new("Ticker Type", "currenex.currenexforex.esp.cbp.v9.tickertype", ftypes.STRING, nil, nil, nil, "Trade execution rate")
-omi_currenex_currenexforex_esp_cbp_v9.fields.timestamp = ProtoField.new("Timestamp", "currenex.currenexforex.esp.cbp.v9.timestamp", ftypes.UINT32, nil, nil, nil, "Time in milliseconds since midnight GMT")
-omi_currenex_currenexforex_esp_cbp_v9.fields.transact_time = ProtoField.new("Transact Time", "currenex.currenexforex.esp.cbp.v9.transacttime", ftypes.INT64, nil, nil, nil, "Trade transaction time in epoch time GMT")
+omi_currenex_currenexforex_esp_cbp_v9.fields.timestamp = ProtoField.new("Timestamp", "currenex.currenexforex.esp.cbp.v9.timestamp", ftypes.INT32, nil, nil, nil, "Time in milliseconds since midnight GMT")
+omi_currenex_currenexforex_esp_cbp_v9.fields.transact_time_utc = ProtoField.new("Transact Time", "currenex.currenexforex.esp.cbp.v9.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Trade transaction time in epoch time GMT")
+omi_currenex_currenexforex_esp_cbp_v9.fields.transact_time = ProtoField.new("Transact Time", "currenex.currenexforex.esp.cbp.v9.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Trade transaction time in epoch time GMT")
 omi_currenex_currenexforex_esp_cbp_v9.fields.user_id = ProtoField.new("User Id", "currenex.currenexforex.esp.cbp.v9.userid", ftypes.STRING, nil, nil, nil, "User session login id")
 
 -- Currenex CurrenexForex Esp Cbp 9 Framing
@@ -63,6 +65,22 @@ omi_currenex_currenexforex_esp_cbp_v9.fields.subscription_request = ProtoField.n
 omi_currenex_currenexforex_esp_cbp_v9.fields.trade_ticker_message = ProtoField.new("Trade Ticker Message", "currenex.currenexforex.esp.cbp.v9.tradetickermessage", ftypes.STRING, nil, nil, nil, "A MP can subscribe to TradeTicker messages by setting SubscribeToTicker=0 in the SubscriptionRequest message")
 
 -----------------------------------------------------------------------
+-- Currenex CurrenexForex Esp Cbp 9 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "Raw", 0 },
+  { 2, "Time of Day", 1 },
+  { 3, "DateTime Local", 2 },
+  { 4, "DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
+currenex_currenexforex_esp_cbp_v9.timestamp_format = 3
+
+
+-----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
@@ -80,6 +98,8 @@ omi_currenex_currenexforex_esp_cbp_v9.prefs.show_structs = Pref.bool("Show Struc
 omi_currenex_currenexforex_esp_cbp_v9.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_currenex_currenexforex_esp_cbp_v9.prefs.show_delimiters = Pref.bool("Show Delimiters", show.delimiters, "Parse and add Delimiters to protocol tree")
 
+omi_currenex_currenexforex_esp_cbp_v9.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
 -- Handle changed preferences
 function omi_currenex_currenexforex_esp_cbp_v9.prefs_changed()
 
@@ -95,6 +115,9 @@ function omi_currenex_currenexforex_esp_cbp_v9.prefs_changed()
   end
   if show.structs ~= omi_currenex_currenexforex_esp_cbp_v9.prefs.show_structs then
     show.structs = omi_currenex_currenexforex_esp_cbp_v9.prefs.show_structs
+  end
+  if currenex_currenexforex_esp_cbp_v9.timestamp_format ~= omi_currenex_currenexforex_esp_cbp_v9.prefs.timestamp_format then
+    currenex_currenexforex_esp_cbp_v9.timestamp_format = omi_currenex_currenexforex_esp_cbp_v9.prefs.timestamp_format
   end
 end
 
@@ -452,7 +475,7 @@ end
 currenex_currenexforex_esp_cbp_v9.price_id = {}
 
 -- Size: Price Id
-currenex_currenexforex_esp_cbp_v9.price_id.size = 1
+currenex_currenexforex_esp_cbp_v9.price_id.size = 4
 
 -- Display: Price Id
 currenex_currenexforex_esp_cbp_v9.price_id.display = function(value)
@@ -700,19 +723,20 @@ currenex_currenexforex_esp_cbp_v9.settlement_date = {}
 -- Size: Settlement Date
 currenex_currenexforex_esp_cbp_v9.settlement_date.size = 8
 
--- Display: Settlement Date
-currenex_currenexforex_esp_cbp_v9.settlement_date.display = function(value)
-  return "Settlement Date: "..value
-end
-
 -- Dissect: Settlement Date
 currenex_currenexforex_esp_cbp_v9.settlement_date.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_esp_cbp_v9.settlement_date.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = currenex_currenexforex_esp_cbp_v9.settlement_date.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.settlement_date, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_currenex_currenexforex_esp_cbp_v9.fields.settlement_date
+  if currenex_currenexforex_esp_cbp_v9.timestamp_format == 3 then field = omi_currenex_currenexforex_esp_cbp_v9.fields.settlement_date_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -899,15 +923,39 @@ currenex_currenexforex_esp_cbp_v9.timestamp = {}
 currenex_currenexforex_esp_cbp_v9.timestamp.size = 4
 
 -- Display: Timestamp
-currenex_currenexforex_esp_cbp_v9.timestamp.display = function(value)
-  return "Timestamp: "..value
+currenex_currenexforex_esp_cbp_v9.timestamp.display = function(value, buffer, offset, packet, parent)
+  -- Raw display mode
+  if currenex_currenexforex_esp_cbp_v9.timestamp_format == 0 then
+    return "Timestamp: "..value
+  end
+
+  -- Parse milliseconds since midnight
+  local seconds = math.floor(value / 1000)
+  local milliseconds = value % 1000
+
+  -- Full datetime mode (the day the frame that carried it settled on)
+  if currenex_currenexforex_esp_cbp_v9.timestamp_format >= 2 and packet then
+    local capture_time = type(packet.abs_ts) == "number" and packet.abs_ts or packet.abs_ts:tonumber()
+
+    -- A frame a file handler read states no instant and reads as the epoch
+    if capture_time >= 86400 then
+      -- The venue's midnight: the frame's instant less the time of day it states
+      local settled = math.floor((capture_time - seconds) / 900 + 0.5) * 900
+
+      local format = currenex_currenexforex_esp_cbp_v9.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+      return "Timestamp: "..os.date(format, settled + seconds)..string.format("%03d", milliseconds)
+    end
+  end
+
+  -- Time of day mode
+  return "Timestamp: "..os.date("!%H:%M:%S.", seconds)..string.format("%03d", milliseconds)
 end
 
 -- Dissect: Timestamp
 currenex_currenexforex_esp_cbp_v9.timestamp.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_esp_cbp_v9.timestamp.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = currenex_currenexforex_esp_cbp_v9.timestamp.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.timestamp, range, value, display)
@@ -921,19 +969,20 @@ currenex_currenexforex_esp_cbp_v9.transact_time = {}
 -- Size: Transact Time
 currenex_currenexforex_esp_cbp_v9.transact_time.size = 8
 
--- Display: Transact Time
-currenex_currenexforex_esp_cbp_v9.transact_time.display = function(value)
-  return "Transact Time: "..value
-end
-
 -- Dissect: Transact Time
 currenex_currenexforex_esp_cbp_v9.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = currenex_currenexforex_esp_cbp_v9.transact_time.size
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = currenex_currenexforex_esp_cbp_v9.transact_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_currenex_currenexforex_esp_cbp_v9.fields.transact_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_currenex_currenexforex_esp_cbp_v9.fields.transact_time
+  if currenex_currenexforex_esp_cbp_v9.timestamp_format == 3 then field = omi_currenex_currenexforex_esp_cbp_v9.fields.transact_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end
@@ -1567,7 +1616,7 @@ currenex_currenexforex_esp_cbp_v9.message_header.fields = function(buffer, offse
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, sequence_number = currenex_currenexforex_esp_cbp_v9.sequence_number.dissect(buffer, index, packet, parent)
 
-  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  -- Timestamp: 4 Byte Signed Fixed Width Integer
   index, timestamp = currenex_currenexforex_esp_cbp_v9.timestamp.dissect(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 11 values

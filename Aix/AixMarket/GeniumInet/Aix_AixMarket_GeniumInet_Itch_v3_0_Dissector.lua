@@ -55,8 +55,8 @@ omi_aix_aixmarket_geniuminet_itch_v3_0.fields.printable = ProtoField.new("Printa
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.put_or_call = ProtoField.new("Put Or Call", "aix.aixmarket.geniuminet.itch.v3.0.putorcall", ftypes.UINT8, nil, nil, nil, "Option type.")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.quantity = ProtoField.new("Quantity", "aix.aixmarket.geniuminet.itch.v3.0.quantity", ftypes.UINT64, nil, nil, nil, "The visible quantity of the order.")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.ranking_sequence_number = ProtoField.new("Ranking Sequence Number", "aix.aixmarket.geniuminet.itch.v3.0.rankingsequencenumber", ftypes.UINT32, nil, nil, nil, "Transaction-based and sequential number starting from 1.")
-omi_aix_aixmarket_geniuminet_itch_v3_0.fields.ranking_time = ProtoField.new("Ranking Time", "aix.aixmarket.geniuminet.itch.v3.0.rankingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ranking timestamp - Nanosecond")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.ranking_time_utc = ProtoField.new("Ranking Time", "aix.aixmarket.geniuminet.itch.v3.0.rankingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Ranking timestamp - Nanosecond")
+omi_aix_aixmarket_geniuminet_itch_v3_0.fields.ranking_time = ProtoField.new("Ranking Time", "aix.aixmarket.geniuminet.itch.v3.0.rankingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Ranking timestamp - Nanosecond")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.ranking_type = ProtoField.new("Ranking Type", "aix.aixmarket.geniuminet.itch.v3.0.rankingtype", ftypes.UINT8, nil, nil, nil, "Specify what ranking type should be used.")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "aix.aixmarket.geniuminet.itch.v3.0.rejectreasoncode", ftypes.STRING, nil, nil, nil, "Login Reject Codes")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.requested_sequence_number = ProtoField.new("Requested Sequence Number", "aix.aixmarket.geniuminet.itch.v3.0.requestedsequencenumber", ftypes.UINT64, nil, nil, nil, "Specifies the next sequence number in ASCII the client wants to receive upon connection, or 0 to start receiving the most recently generated message.")
@@ -67,8 +67,8 @@ omi_aix_aixmarket_geniuminet_itch_v3_0.fields.reserved_14 = ProtoField.new("Rese
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.reserved_18 = ProtoField.new("Reserved 18", "aix.aixmarket.geniuminet.itch.v3.0.reserved18", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.reserved_4 = ProtoField.new("Reserved 4", "aix.aixmarket.geniuminet.itch.v3.0.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "aix.aixmarket.geniuminet.itch.v3.0.roundlotsize", ftypes.UINT32, nil, nil, nil, "Indicates the quantity that represents a round lot for the issue")
-omi_aix_aixmarket_geniuminet_itch_v3_0.fields.second = ProtoField.new("Second", "aix.aixmarket.geniuminet.itch.v3.0.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.second_utc = ProtoField.new("Second", "aix.aixmarket.geniuminet.itch.v3.0.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
+omi_aix_aixmarket_geniuminet_itch_v3_0.fields.second = ProtoField.new("Second", "aix.aixmarket.geniuminet.itch.v3.0.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC)")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "aix.aixmarket.geniuminet.itch.v3.0.sequencedmessagetype", ftypes.STRING, nil, nil, nil, "Value identifying sequenced message type")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.server_packet_type = ProtoField.new("Packet Type", "aix.aixmarket.geniuminet.itch.v3.0.serverpackettype", ftypes.STRING, nil, nil, nil, "Code identifying this packet type sent by the server")
 omi_aix_aixmarket_geniuminet_itch_v3_0.fields.short_sale_restriction = ProtoField.new("Short Sale Restriction", "aix.aixmarket.geniuminet.itch.v3.0.shortsalerestriction", ftypes.UINT8, nil, nil, nil, "Specify Short Sell status and what Short Sell validation rule that should be used.")
@@ -152,7 +152,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-aix_aixmarket_geniuminet_itch_v3_0.timestamp_format = 2
+aix_aixmarket_geniuminet_itch_v3_0.timestamp_format = 3
 
 -- Scaled Nominal Value format (true = decimal-scaled, false = raw mantissa)
 aix_aixmarket_geniuminet_itch_v3_0.format_decimals = true
@@ -193,7 +193,7 @@ omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_padding = Pref.bool("Show Padd
 omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_aix_aixmarket_geniuminet_itch_v3_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_aix_aixmarket_geniuminet_itch_v3_0.prefs_changed()

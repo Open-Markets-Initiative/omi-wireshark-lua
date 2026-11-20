@@ -68,8 +68,8 @@ omi_lseg_turquoise_level1_gtp_v24_4.fields.statistic_size = ProtoField.new("Stat
 omi_lseg_turquoise_level1_gtp_v24_4.fields.statistic_type = ProtoField.new("Statistic Type", "lseg.turquoise.level1.gtp.v24.4.statistictype", ftypes.UINT16, nil, nil, nil, "The statistic that is disseminated with this message instance:")
 omi_lseg_turquoise_level1_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.turquoise.level1.gtp.v24.4.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_turquoise_level1_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.level1.gtp.v24.4.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_turquoise_level1_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.level1.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_turquoise_level1_gtp_v24_4.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.turquoise.level1.gtp.v24.4.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_turquoise_level1_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.level1.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_turquoise_level1_gtp_v24_4.fields.top_of_book_flags = ProtoField.new("Top Of Book Flags", "lseg.turquoise.level1.gtp.v24.4.topofbookflags", ftypes.STRING)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.trade_cancellation = ProtoField.new("Trade Cancellation", "lseg.turquoise.level1.gtp.v24.4.tradecancellation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_lseg_turquoise_level1_gtp_v24_4.fields.trade_flags = ProtoField.new("Trade Flags", "lseg.turquoise.level1.gtp.v24.4.tradeflags", ftypes.STRING)
@@ -77,8 +77,8 @@ omi_lseg_turquoise_level1_gtp_v24_4.fields.trade_id = ProtoField.new("Trade Id",
 omi_lseg_turquoise_level1_gtp_v24_4.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.turquoise.level1.gtp.v24.4.tradequalifier", ftypes.STRING, nil, nil, nil, "Qualifier of the trade.")
 omi_lseg_turquoise_level1_gtp_v24_4.fields.trade_type = ProtoField.new("Trade Type", "lseg.turquoise.level1.gtp.v24.4.tradetype", ftypes.UINT8, nil, nil, nil, "Type of the trade.")
 omi_lseg_turquoise_level1_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.turquoise.level1.gtp.v24.4.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status of the instrument.")
-omi_lseg_turquoise_level1_gtp_v24_4.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.level1.gtp.v24.4.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Execution timestamp as reported by the supported market.")
 omi_lseg_turquoise_level1_gtp_v24_4.fields.transaction_time_utc = ProtoField.new("Transaction Time", "lseg.turquoise.level1.gtp.v24.4.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Execution timestamp as reported by the supported market.")
+omi_lseg_turquoise_level1_gtp_v24_4.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.level1.gtp.v24.4.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Execution timestamp as reported by the supported market.")
 omi_lseg_turquoise_level1_gtp_v24_4.fields.turnover = ProtoField.new("Turnover", "lseg.turquoise.level1.gtp.v24.4.turnover", ftypes.DOUBLE, nil, nil, nil, "Turnover of all trades for the day.")
 omi_lseg_turquoise_level1_gtp_v24_4.fields.turnover_on_book_only = ProtoField.new("Turnover On Book Only", "lseg.turquoise.level1.gtp.v24.4.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Turnover for the day excluding off-book trades.")
 omi_lseg_turquoise_level1_gtp_v24_4.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.level1.gtp.v24.4.unused3", ftypes.UINT8, nil, base.DEC, 0x07, "Unused")
@@ -127,7 +127,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_turquoise_level1_gtp_v24_4.timestamp_format = 2
+lseg_turquoise_level1_gtp_v24_4.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -150,7 +150,7 @@ omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_headers = Pref.bool("Show Headers
 omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_turquoise_level1_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_turquoise_level1_gtp_v24_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_turquoise_level1_gtp_v24_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_turquoise_level1_gtp_v24_4.prefs_changed()

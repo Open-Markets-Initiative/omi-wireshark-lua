@@ -129,7 +129,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-tradelogiq_omegaats_tcplevel2_itch_v2_01.timestamp_format = 2
+tradelogiq_omegaats_tcplevel2_itch_v2_01.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -164,7 +164,7 @@ omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_session_messages = Pref.
 omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_tradelogiq_omegaats_tcplevel2_itch_v2_01.prefs_changed()

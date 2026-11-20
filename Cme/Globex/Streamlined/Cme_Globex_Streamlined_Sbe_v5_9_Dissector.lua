@@ -38,6 +38,8 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.eris_feed_types_groups = ProtoField.n
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_group = ProtoField.new("Eris Group", "cme.globex.streamlined.sbe.v5.9.erisgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_groups = ProtoField.new("Eris Groups", "cme.globex.streamlined.sbe.v5.9.erisgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_leg_ratio_qty = ProtoField.new("Eris Leg Ratio Qty", "cme.globex.streamlined.sbe.v5.9.erislegratioqty", ftypes.INT32, nil, nil, nil, "The ratio of quantity for this individual leg relative to the entire multi-leg instrument.")
+omi_cme_globex_streamlined_sbe_v5_9.fields.eris_leg_security_alt_id_group = ProtoField.new("Eris Leg Security Alt Id Group", "cme.globex.streamlined.sbe.v5.9.erislegsecurityaltidgroup", ftypes.STRING, nil, nil, nil, "Multileg instrument's individual security's NoSecurityAltID.")
+omi_cme_globex_streamlined_sbe_v5_9.fields.eris_leg_security_alt_id_groups = ProtoField.new("Eris Leg Security Alt Id Groups", "cme.globex.streamlined.sbe.v5.9.erislegsecurityaltidgroups", ftypes.STRING, nil, nil, nil, "NoLegSecurityAltID Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_legs_group = ProtoField.new("Eris Legs Group", "cme.globex.streamlined.sbe.v5.9.erislegsgroup", ftypes.STRING, nil, nil, nil, "Number of legs (repeating groups)")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_legs_groups = ProtoField.new("Eris Legs Groups", "cme.globex.streamlined.sbe.v5.9.erislegsgroups", ftypes.STRING, nil, nil, nil, "NoLegs Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_original_group = ProtoField.new("Eris Original Group", "cme.globex.streamlined.sbe.v5.9.erisoriginalgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
@@ -45,9 +47,14 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.eris_original_groups = ProtoField.new
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_pai = ProtoField.new("Eris Pai", "cme.globex.streamlined.sbe.v5.9.erispai", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_reference_data_group = ProtoField.new("Eris Reference Data Group", "cme.globex.streamlined.sbe.v5.9.erisreferencedatagroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_reference_data_groups = ProtoField.new("Eris Reference Data Groups", "cme.globex.streamlined.sbe.v5.9.erisreferencedatagroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_streamlined_sbe_v5_9.fields.eris_reference_data_security_alt_id_group = ProtoField.new("Eris Reference Data Security Alt Id Group", "cme.globex.streamlined.sbe.v5.9.erisreferencedatasecurityaltidgroup", ftypes.STRING, nil, nil, nil, "Number of entries in AltID group.")
+omi_cme_globex_streamlined_sbe_v5_9.fields.eris_reference_data_security_alt_id_groups = ProtoField.new("Eris Reference Data Security Alt Id Groups", "cme.globex.streamlined.sbe.v5.9.erisreferencedatasecurityaltidgroups", ftypes.STRING, nil, nil, nil, "NoSecurityAltID Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_security_alt_id_group = ProtoField.new("Eris Security Alt Id Group", "cme.globex.streamlined.sbe.v5.9.erissecurityaltidgroup", ftypes.STRING, nil, nil, nil, "Number of entries in AltID group.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_security_alt_id_groups = ProtoField.new("Eris Security Alt Id Groups", "cme.globex.streamlined.sbe.v5.9.erissecurityaltidgroups", ftypes.STRING, nil, nil, nil, "NoSecurityAltID Block")
+omi_cme_globex_streamlined_sbe_v5_9.fields.event_time = ProtoField.new("Event Time", "cme.globex.streamlined.sbe.v5.9.eventtime", ftypes.UINT64, nil, nil, nil, "Time of event. This is number of days since unix epoch")
 omi_cme_globex_streamlined_sbe_v5_9.fields.event_time_optional = ProtoField.new("Event Time Optional", "cme.globex.streamlined.sbe.v5.9.eventtimeoptional", ftypes.UINT64, nil, nil, nil, "Time of event. This is number of days since unix epoch")
+omi_cme_globex_streamlined_sbe_v5_9.fields.event_type = ProtoField.new("Event Type", "cme.globex.streamlined.sbe.v5.9.eventtype", ftypes.UINT8, nil, nil, nil, "Code to represent the type of event.")
+omi_cme_globex_streamlined_sbe_v5_9.fields.event_type_indices = ProtoField.new("Event Type Indices", "cme.globex.streamlined.sbe.v5.9.eventtypeindices", ftypes.UINT8, nil, nil, nil, "Code to represent the type of event.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.event_type_optional = ProtoField.new("Event Type Optional", "cme.globex.streamlined.sbe.v5.9.eventtypeoptional", ftypes.UINT8, nil, nil, nil, "Code to represent the type of event")
 omi_cme_globex_streamlined_sbe_v5_9.fields.events_group = ProtoField.new("Events Group", "cme.globex.streamlined.sbe.v5.9.eventsgroup", ftypes.STRING, nil, nil, nil, "Number of repeating EventType entries.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.events_groups = ProtoField.new("Events Groups", "cme.globex.streamlined.sbe.v5.9.eventsgroups", ftypes.STRING, nil, nil, nil, "NoEvents Block")
@@ -66,10 +73,15 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.group_size = ProtoField.new("Group Si
 omi_cme_globex_streamlined_sbe_v5_9.fields.group_size_encoding = ProtoField.new("Group Size Encoding", "cme.globex.streamlined.sbe.v5.9.groupsizeencoding", ftypes.STRING, nil, nil, nil, "Repeating group dimensions")
 omi_cme_globex_streamlined_sbe_v5_9.fields.headline = ProtoField.new("Headline", "cme.globex.streamlined.sbe.v5.9.headline", ftypes.STRING, nil, nil, nil, "The headline of a News message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "cme.globex.streamlined.sbe.v5.9.heartbtint", ftypes.INT8, nil, nil, nil, "Heartbeat interval (seconds)")
+omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_eris_events_group = ProtoField.new("Incremental Refresh Eris Events Group", "cme.globex.streamlined.sbe.v5.9.incrementalrefresheriseventsgroup", ftypes.STRING, nil, nil, nil, "Number of repeating EventType entries.")
+omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_eris_events_groups = ProtoField.new("Incremental Refresh Eris Events Groups", "cme.globex.streamlined.sbe.v5.9.incrementalrefresheriseventsgroups", ftypes.STRING, nil, nil, nil, "NoEvents Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_eris_related_instruments_group = ProtoField.new("Incremental Refresh Eris Related Instruments Group", "cme.globex.streamlined.sbe.v5.9.incrementalrefresherisrelatedinstrumentsgroup", ftypes.STRING, nil, nil, nil, "Number of related instruments group")
 omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_eris_related_instruments_groups = ProtoField.new("Incremental Refresh Eris Related Instruments Groups", "cme.globex.streamlined.sbe.v5.9.incrementalrefresherisrelatedinstrumentsgroups", ftypes.STRING, nil, nil, nil, "NoRelatedInstruments Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_indices_group = ProtoField.new("Incremental Refresh Indices Group", "cme.globex.streamlined.sbe.v5.9.incrementalrefreshindicesgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message")
 omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_indices_groups = ProtoField.new("Incremental Refresh Indices Groups", "cme.globex.streamlined.sbe.v5.9.incrementalrefreshindicesgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
+omi_cme_globex_streamlined_sbe_v5_9.fields.indices_events_group = ProtoField.new("Indices Events Group", "cme.globex.streamlined.sbe.v5.9.indiceseventsgroup", ftypes.STRING, nil, nil, nil, "Number of repeating EventType entries.")
+omi_cme_globex_streamlined_sbe_v5_9.fields.indices_events_groups = ProtoField.new("Indices Events Groups", "cme.globex.streamlined.sbe.v5.9.indiceseventsgroups", ftypes.STRING, nil, nil, nil, "NoEvents Block")
+omi_cme_globex_streamlined_sbe_v5_9.fields.indices_open_close_settl_flag = ProtoField.new("Indices Open Close Settl Flag", "cme.globex.streamlined.sbe.v5.9.indicesopenclosesettlflag", ftypes.INT8, nil, nil, nil, "Indicates whether the price is preliminary or previous day")
 omi_cme_globex_streamlined_sbe_v5_9.fields.inst_attrib_group = ProtoField.new("Inst Attrib Group", "cme.globex.streamlined.sbe.v5.9.instattribgroup", ftypes.STRING, nil, nil, nil, "Number of repeating InstrAttribType entries.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.inst_attrib_groups = ProtoField.new("Inst Attrib Groups", "cme.globex.streamlined.sbe.v5.9.instattribgroups", ftypes.STRING, nil, nil, nil, "NoInstAttrib Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.inst_attrib_type = ProtoField.new("Inst Attrib Type", "cme.globex.streamlined.sbe.v5.9.instattribtype", ftypes.UINT8, nil, nil, nil, "Code to represent the type of instrument attribute.")
@@ -93,6 +105,8 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.leg_purchase_rate = ProtoField.new("L
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_put_or_call = ProtoField.new("Leg Put Or Call", "cme.globex.streamlined.sbe.v5.9.legputorcall", ftypes.UINT8, nil, nil, nil, "Multileg instrument's individual security's leg option put or call")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.globex.streamlined.sbe.v5.9.legratioqty", ftypes.UINT16, nil, nil, nil, "The ratio of quantity for this individual leg relative to the entire multileg security")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_ref_id = ProtoField.new("Leg Ref Id", "cme.globex.streamlined.sbe.v5.9.legrefid", ftypes.STRING, nil, nil, nil, "Used to correlate leg instrument definitions with their executions. Cross referenced to Tag 1788")
+omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_alt_id = ProtoField.new("Leg Security Alt Id", "cme.globex.streamlined.sbe.v5.9.legsecurityaltid", ftypes.STRING, nil, nil, nil, "Multileg instrument's individual security's SecurityAltID.")
+omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_alt_id_source = ProtoField.new("Leg Security Alt Id Source", "cme.globex.streamlined.sbe.v5.9.legsecurityaltidsource", ftypes.UINT8, nil, nil, nil, "Multileg instrument's individual security's SecurityAltIDSource.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_exchange = ProtoField.new("Leg Security Exchange", "cme.globex.streamlined.sbe.v5.9.legsecurityexchange", ftypes.STRING, nil, nil, nil, "Multileg instrument's individual security's leg SecurityExchange")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_group = ProtoField.new("Leg Security Group", "cme.globex.streamlined.sbe.v5.9.legsecuritygroup", ftypes.STRING, nil, nil, nil, "Leg equivalent of body tag 1151-SecurityGroup (i.e. leg 'product code')")
 omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.globex.streamlined.sbe.v5.9.legsecurityid", ftypes.UINT64, nil, nil, nil, "Multileg instrument's individual security's SecurityID.")
@@ -153,10 +167,10 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.null_value = ProtoField.new("Null Val
 omi_cme_globex_streamlined_sbe_v5_9.fields.num_in_group = ProtoField.new("Num In Group", "cme.globex.streamlined.sbe.v5.9.numingroup", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.num_in_group_8 = ProtoField.new("Num In Group 8", "cme.globex.streamlined.sbe.v5.9.numingroup8", ftypes.UINT8)
 omi_cme_globex_streamlined_sbe_v5_9.fields.number_of_orders = ProtoField.new("Number Of Orders", "cme.globex.streamlined.sbe.v5.9.numberoforders", ftypes.INT32, nil, nil, nil, "The total number of real orders per instrument that participated in a match step within a match event")
-omi_cme_globex_streamlined_sbe_v5_9.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.globex.streamlined.sbe.v5.9.openclosesettlflag", ftypes.INT8, nil, nil, nil, "Indicates whether the price is preliminary or previous day")
+omi_cme_globex_streamlined_sbe_v5_9.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.globex.streamlined.sbe.v5.9.openclosesettlflag", ftypes.UINT8, nil, nil, nil, "Flag that identifies a market data entry")
 omi_cme_globex_streamlined_sbe_v5_9.fields.order_qty = ProtoField.new("Order Qty", "cme.globex.streamlined.sbe.v5.9.orderqty", ftypes.UINT64, nil, nil, nil, "Quantity Requested")
-omi_cme_globex_streamlined_sbe_v5_9.fields.orig_time = ProtoField.new("Orig Time", "cme.globex.streamlined.sbe.v5.9.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of message origination expressed as number of nanoseconds since unix epoch")
 omi_cme_globex_streamlined_sbe_v5_9.fields.orig_time_utc = ProtoField.new("Orig Time", "cme.globex.streamlined.sbe.v5.9.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of message origination expressed as number of nanoseconds since unix epoch")
+omi_cme_globex_streamlined_sbe_v5_9.fields.orig_time = ProtoField.new("Orig Time", "cme.globex.streamlined.sbe.v5.9.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of message origination expressed as number of nanoseconds since unix epoch")
 omi_cme_globex_streamlined_sbe_v5_9.fields.otc_group = ProtoField.new("Otc Group", "cme.globex.streamlined.sbe.v5.9.otcgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.otc_groups = ProtoField.new("Otc Groups", "cme.globex.streamlined.sbe.v5.9.otcgroups", ftypes.STRING, nil, nil, nil, "NoMDEntries Block")
 omi_cme_globex_streamlined_sbe_v5_9.fields.otc_original_group = ProtoField.new("Otc Original Group", "cme.globex.streamlined.sbe.v5.9.otcoriginalgroup", ftypes.STRING, nil, nil, nil, "Number of entries in Market Data message.")
@@ -213,8 +227,8 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.security_sub_type = ProtoField.new("S
 omi_cme_globex_streamlined_sbe_v5_9.fields.security_type = ProtoField.new("Security Type", "cme.globex.streamlined.sbe.v5.9.securitytype", ftypes.STRING, nil, nil, nil, "Indicates type of security")
 omi_cme_globex_streamlined_sbe_v5_9.fields.security_type_4 = ProtoField.new("Security Type 4", "cme.globex.streamlined.sbe.v5.9.securitytype4", ftypes.STRING, nil, nil, nil, "Identifies the type of instrument.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.security_update_action = ProtoField.new("Security Update Action", "cme.globex.streamlined.sbe.v5.9.securityupdateaction", ftypes.STRING, nil, nil, nil, "Included on the message when a modification or deletion occurs.")
-omi_cme_globex_streamlined_sbe_v5_9.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.streamlined.sbe.v5.9.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_globex_streamlined_sbe_v5_9.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.streamlined.sbe.v5.9.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time")
+omi_cme_globex_streamlined_sbe_v5_9.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.streamlined.sbe.v5.9.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time")
 omi_cme_globex_streamlined_sbe_v5_9.fields.seniority = ProtoField.new("Seniority", "cme.globex.streamlined.sbe.v5.9.seniority", ftypes.STRING, nil, nil, nil, "Specifies which issue (underlying bond) will receive payment priority in the event of a default")
 omi_cme_globex_streamlined_sbe_v5_9.fields.settl_date = ProtoField.new("Settl Date", "cme.globex.streamlined.sbe.v5.9.settldate", ftypes.UINT16, nil, nil, nil, "Indicates date of settlement")
 omi_cme_globex_streamlined_sbe_v5_9.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.globex.streamlined.sbe.v5.9.settlpricetype", ftypes.STRING, nil, nil, nil, "SettlPriceType bit set")
@@ -246,10 +260,10 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.trade_blocks_underlyings_groups = Pro
 omi_cme_globex_streamlined_sbe_v5_9.fields.trade_date = ProtoField.new("Trade Date", "cme.globex.streamlined.sbe.v5.9.tradedate", ftypes.UINT16, nil, nil, nil, "Indicates date of trade referenced in this message in YYYYMMDD format (expressed in local time at place of trade). Returned only in trade and trade cancel execution reports.")
 omi_cme_globex_streamlined_sbe_v5_9.fields.trade_id = ProtoField.new("Trade Id", "cme.globex.streamlined.sbe.v5.9.tradeid", ftypes.INT32, nil, nil, nil, "Unique Trade Entry ID per Instrument and Trading Date")
 omi_cme_globex_streamlined_sbe_v5_9.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.globex.streamlined.sbe.v5.9.tradingreferencedate", ftypes.UINT16, nil, nil, nil, "Indicates the business date for previous settlement price")
-omi_cme_globex_streamlined_sbe_v5_9.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.streamlined.sbe.v5.9.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
 omi_cme_globex_streamlined_sbe_v5_9.fields.transact_time_utc = ProtoField.new("Transact Time", "cme.globex.streamlined.sbe.v5.9.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
-omi_cme_globex_streamlined_sbe_v5_9.fields.transact_time_optional = ProtoField.new("Transact Time Optional", "cme.globex.streamlined.sbe.v5.9.transacttimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start of event processing time in number of nanoseconds since Unix epoch. Not present for EFP (828=2) and EFR (828=11) transactions")
+omi_cme_globex_streamlined_sbe_v5_9.fields.transact_time = ProtoField.new("Transact Time", "cme.globex.streamlined.sbe.v5.9.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start of event processing time in number of nanoseconds since Unix epoch")
 omi_cme_globex_streamlined_sbe_v5_9.fields.transact_time_optional_utc = ProtoField.new("Transact Time Optional", "cme.globex.streamlined.sbe.v5.9.transacttimeoptional.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Start of event processing time in number of nanoseconds since Unix epoch. Not present for EFP (828=2) and EFR (828=11) transactions")
+omi_cme_globex_streamlined_sbe_v5_9.fields.transact_time_optional = ProtoField.new("Transact Time Optional", "cme.globex.streamlined.sbe.v5.9.transacttimeoptional", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Start of event processing time in number of nanoseconds since Unix epoch. Not present for EFP (828=2) and EFR (828=11) transactions")
 omi_cme_globex_streamlined_sbe_v5_9.fields.trd_type = ProtoField.new("Trd Type", "cme.globex.streamlined.sbe.v5.9.trdtype", ftypes.UINT8, nil, nil, nil, "Valid trade types for intraday trade")
 omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_maturity_month_year = ProtoField.new("Underlying Maturity Month Year", "cme.globex.streamlined.sbe.v5.9.underlyingmaturitymonthyear", ftypes.STRING, nil, nil, nil, "Number of underlying legs that make up the security")
 omi_cme_globex_streamlined_sbe_v5_9.fields.underlying_security_exchange = ProtoField.new("Underlying Security Exchange", "cme.globex.streamlined.sbe.v5.9.underlyingsecurityexchange", ftypes.STRING, nil, nil, nil, "Underlying Security's SecurityExchange")
@@ -272,7 +286,7 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.yield_type = ProtoField.new("Yield Ty
 
 -- Cme Globex Streamlined Sbe 5.9 Framing
 omi_cme_globex_streamlined_sbe_v5_9.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.globex.streamlined.sbe.v5.9.binarypacketheader", ftypes.STRING, nil, nil, nil, "Cme Mdp Packet Header")
-omi_cme_globex_streamlined_sbe_v5_9.fields.message = ProtoField.new("Message", "cme.globex.streamlined.sbe.v5.9.message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
+omi_cme_globex_streamlined_sbe_v5_9.fields.mdp3_message = ProtoField.new("Mdp3 Message", "cme.globex.streamlined.sbe.v5.9.mdp3message", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
 omi_cme_globex_streamlined_sbe_v5_9.fields.message_header = ProtoField.new("Message Header", "cme.globex.streamlined.sbe.v5.9.messageheader", ftypes.STRING, nil, nil, nil, "Message Size followed by the Simple Binary Header")
 omi_cme_globex_streamlined_sbe_v5_9.fields.tcp_frame = ProtoField.new("Tcp Frame", "cme.globex.streamlined.sbe.v5.9.tcpframe", ftypes.STRING, nil, nil, nil, "One technical header framed Cme Sbe message")
 omi_cme_globex_streamlined_sbe_v5_9.fields.tcp_message = ProtoField.new("Tcp Message", "cme.globex.streamlined.sbe.v5.9.tcpmessage", ftypes.STRING, nil, nil, nil, "Cme Market Data Message")
@@ -303,13 +317,17 @@ omi_cme_globex_streamlined_sbe_v5_9.fields.quote_request = ProtoField.new("Quote
 -- Cme Globex Streamlined Sbe 5.9 Generated Fields
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_feed_types_group_index = ProtoField.new("Eris Feed Types Group Index", "cme.globex.streamlined.sbe.v5.9.erisfeedtypesgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_group_index = ProtoField.new("Eris Group Index", "cme.globex.streamlined.sbe.v5.9.erisgroupindex", ftypes.UINT16)
+omi_cme_globex_streamlined_sbe_v5_9.fields.eris_leg_security_alt_id_group_index = ProtoField.new("Eris Leg Security Alt Id Group Index", "cme.globex.streamlined.sbe.v5.9.erislegsecurityaltidgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_legs_group_index = ProtoField.new("Eris Legs Group Index", "cme.globex.streamlined.sbe.v5.9.erislegsgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_original_group_index = ProtoField.new("Eris Original Group Index", "cme.globex.streamlined.sbe.v5.9.erisoriginalgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_reference_data_group_index = ProtoField.new("Eris Reference Data Group Index", "cme.globex.streamlined.sbe.v5.9.erisreferencedatagroupindex", ftypes.UINT16)
+omi_cme_globex_streamlined_sbe_v5_9.fields.eris_reference_data_security_alt_id_group_index = ProtoField.new("Eris Reference Data Security Alt Id Group Index", "cme.globex.streamlined.sbe.v5.9.erisreferencedatasecurityaltidgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.eris_security_alt_id_group_index = ProtoField.new("Eris Security Alt Id Group Index", "cme.globex.streamlined.sbe.v5.9.erissecurityaltidgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.events_group_index = ProtoField.new("Events Group Index", "cme.globex.streamlined.sbe.v5.9.eventsgroupindex", ftypes.UINT16)
+omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_eris_events_group_index = ProtoField.new("Incremental Refresh Eris Events Group Index", "cme.globex.streamlined.sbe.v5.9.incrementalrefresheriseventsgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_eris_related_instruments_group_index = ProtoField.new("Incremental Refresh Eris Related Instruments Group Index", "cme.globex.streamlined.sbe.v5.9.incrementalrefresherisrelatedinstrumentsgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_indices_group_index = ProtoField.new("Incremental Refresh Indices Group Index", "cme.globex.streamlined.sbe.v5.9.incrementalrefreshindicesgroupindex", ftypes.UINT16)
+omi_cme_globex_streamlined_sbe_v5_9.fields.indices_events_group_index = ProtoField.new("Indices Events Group Index", "cme.globex.streamlined.sbe.v5.9.indiceseventsgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.inst_attrib_group_index = ProtoField.new("Inst Attrib Group Index", "cme.globex.streamlined.sbe.v5.9.instattribgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.lines_of_text_group_index = ProtoField.new("Lines Of Text Group Index", "cme.globex.streamlined.sbe.v5.9.linesoftextgroupindex", ftypes.UINT16)
 omi_cme_globex_streamlined_sbe_v5_9.fields.news_indices_related_sym_group_index = ProtoField.new("News Indices Related Sym Group Index", "cme.globex.streamlined.sbe.v5.9.newsindicesrelatedsymgroupindex", ftypes.UINT16)
@@ -342,7 +360,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cme_globex_streamlined_sbe_v5_9.timestamp_format = 2
+cme_globex_streamlined_sbe_v5_9.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -365,7 +383,7 @@ omi_cme_globex_streamlined_sbe_v5_9.prefs.show_headers = Pref.bool("Show Headers
 omi_cme_globex_streamlined_sbe_v5_9.prefs.show_repeating_groups = Pref.bool("Show Repeating Groups", show.repeating_groups, "Parse and add Repeating Groups to protocol tree")
 omi_cme_globex_streamlined_sbe_v5_9.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cme_globex_streamlined_sbe_v5_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cme_globex_streamlined_sbe_v5_9.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cme_globex_streamlined_sbe_v5_9.prefs_changed()
@@ -736,6 +754,29 @@ cme_globex_streamlined_sbe_v5_9.eris_leg_ratio_qty.dissect = function(buffer, of
   return offset + length, value
 end
 
+-- Event Time
+cme_globex_streamlined_sbe_v5_9.event_time = {}
+
+-- Size: Event Time
+cme_globex_streamlined_sbe_v5_9.event_time.size = 8
+
+-- Display: Event Time
+cme_globex_streamlined_sbe_v5_9.event_time.display = function(value)
+  return "Event Time: "..value
+end
+
+-- Dissect: Event Time
+cme_globex_streamlined_sbe_v5_9.event_time.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.event_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = cme_globex_streamlined_sbe_v5_9.event_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.event_time, range, value, display)
+
+  return offset + length, value
+end
+
 -- Event Time Optional
 cme_globex_streamlined_sbe_v5_9.event_time_optional = {}
 
@@ -760,6 +801,58 @@ cme_globex_streamlined_sbe_v5_9.event_time_optional.dissect = function(buffer, o
   local display = cme_globex_streamlined_sbe_v5_9.event_time_optional.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.event_time_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Type
+cme_globex_streamlined_sbe_v5_9.event_type = {}
+
+-- Size: Event Type
+cme_globex_streamlined_sbe_v5_9.event_type.size = 1
+
+-- Display: Event Type
+cme_globex_streamlined_sbe_v5_9.event_type.display = function(value)
+  return "Event Type: "..value
+end
+
+-- Dissect: Event Type
+cme_globex_streamlined_sbe_v5_9.event_type.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.event_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cme_globex_streamlined_sbe_v5_9.event_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.event_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Type Indices
+cme_globex_streamlined_sbe_v5_9.event_type_indices = {}
+
+-- Size: Event Type Indices
+cme_globex_streamlined_sbe_v5_9.event_type_indices.size = 1
+
+-- Display: Event Type Indices
+cme_globex_streamlined_sbe_v5_9.event_type_indices.labels = {
+  [5] = "Event Type Indices: Activation (5)",
+  [6] = "Event Type Indices: Deletion (6)",
+  [120] = "Event Type Indices: Modification (120)",
+}
+
+cme_globex_streamlined_sbe_v5_9.event_type_indices.display = function(value)
+  return cme_globex_streamlined_sbe_v5_9.event_type_indices.labels[value] or "Event Type Indices: Unknown("..value..")"
+end
+
+-- Dissect: Event Type Indices
+cme_globex_streamlined_sbe_v5_9.event_type_indices.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.event_type_indices.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cme_globex_streamlined_sbe_v5_9.event_type_indices.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.event_type_indices, range, value, display)
 
   return offset + length, value
 end
@@ -929,6 +1022,34 @@ cme_globex_streamlined_sbe_v5_9.heart_bt_int.dissect = function(buffer, offset, 
   local display = cme_globex_streamlined_sbe_v5_9.heart_bt_int.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.heart_bt_int, range, value, display)
+
+  return offset + length, value
+end
+
+-- Indices Open Close Settl Flag
+cme_globex_streamlined_sbe_v5_9.indices_open_close_settl_flag = {}
+
+-- Size: Indices Open Close Settl Flag
+cme_globex_streamlined_sbe_v5_9.indices_open_close_settl_flag.size = 1
+
+-- Display: Indices Open Close Settl Flag
+cme_globex_streamlined_sbe_v5_9.indices_open_close_settl_flag.display = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Indices Open Close Settl Flag: No Value"
+  end
+
+  return "Indices Open Close Settl Flag: "..value
+end
+
+-- Dissect: Indices Open Close Settl Flag
+cme_globex_streamlined_sbe_v5_9.indices_open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.indices_open_close_settl_flag.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = cme_globex_streamlined_sbe_v5_9.indices_open_close_settl_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.indices_open_close_settl_flag, range, value, display)
 
   return offset + length, value
 end
@@ -1337,6 +1458,73 @@ cme_globex_streamlined_sbe_v5_9.leg_ref_id.dissect = function(buffer, offset, pa
   local display = cme_globex_streamlined_sbe_v5_9.leg_ref_id.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.leg_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Security Alt Id
+cme_globex_streamlined_sbe_v5_9.leg_security_alt_id = {}
+
+-- Size: Leg Security Alt Id
+cme_globex_streamlined_sbe_v5_9.leg_security_alt_id.size = 26
+
+-- Display: Leg Security Alt Id
+cme_globex_streamlined_sbe_v5_9.leg_security_alt_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Leg Security Alt Id: No Value"
+  end
+
+  return "Leg Security Alt Id: "..value
+end
+
+-- Dissect: Leg Security Alt Id
+cme_globex_streamlined_sbe_v5_9.leg_security_alt_id.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.leg_security_alt_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = cme_globex_streamlined_sbe_v5_9.leg_security_alt_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_alt_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leg Security Alt Id Source
+cme_globex_streamlined_sbe_v5_9.leg_security_alt_id_source = {}
+
+-- Size: Leg Security Alt Id Source
+cme_globex_streamlined_sbe_v5_9.leg_security_alt_id_source.size = 1
+
+-- Display: Leg Security Alt Id Source
+cme_globex_streamlined_sbe_v5_9.leg_security_alt_id_source.display = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Leg Security Alt Id Source: No Value"
+  end
+
+  return "Leg Security Alt Id Source: "..value
+end
+
+-- Dissect: Leg Security Alt Id Source
+cme_globex_streamlined_sbe_v5_9.leg_security_alt_id_source.dissect = function(buffer, offset, packet, parent)
+  local length = cme_globex_streamlined_sbe_v5_9.leg_security_alt_id_source.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = cme_globex_streamlined_sbe_v5_9.leg_security_alt_id_source.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.leg_security_alt_id_source, range, value, display)
 
   return offset + length, value
 end
@@ -2727,7 +2915,7 @@ cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.size = 1
 -- Display: Open Close Settl Flag
 cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.display = function(value)
   -- Check if field has value
-  if value == 127 then
+  if value == 255 then
     return "Open Close Settl Flag: No Value"
   end
 
@@ -2738,7 +2926,7 @@ end
 cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.dissect = function(buffer, offset, packet, parent)
   local length = cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.size
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:uint()
   local display = cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.open_close_settl_flag, range, value, display)
@@ -5813,7 +6001,7 @@ cme_globex_streamlined_sbe_v5_9.otc_group.fields = function(buffer, offset, pack
   -- Md Entry Date: Int32NULL
   index, md_entry_date = cme_globex_streamlined_sbe_v5_9.md_entry_date.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: Int8NULL
+  -- Open Close Settl Flag: uInt8NULL
   index, open_close_settl_flag = cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Price Type: uInt16NULL
@@ -6955,79 +7143,79 @@ cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_trade_blocks_365.dissect 
   end
 end
 
--- Eris Security Alt Id Group
-cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group = {}
+-- Eris Leg Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_group = {}
 
--- Size: Eris Security Alt Id Group
-cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.size =
-  cme_globex_streamlined_sbe_v5_9.security_alt_id.size + 
-  cme_globex_streamlined_sbe_v5_9.security_alt_id_source_optional.size
+-- Size: Eris Leg Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_group.size =
+  cme_globex_streamlined_sbe_v5_9.leg_security_alt_id.size + 
+  cme_globex_streamlined_sbe_v5_9.leg_security_alt_id_source.size
 
--- Display: Eris Security Alt Id Group
-cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.display = function(packet, parent, length)
+-- Display: Eris Leg Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_group.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Eris Security Alt Id Group
-cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.fields = function(buffer, offset, packet, parent, eris_security_alt_id_group_index)
+-- Dissect Fields: Eris Leg Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_group.fields = function(buffer, offset, packet, parent, eris_leg_security_alt_id_group_index)
   local index = offset
 
-  -- Implicit Eris Security Alt Id Group Index
-  if eris_security_alt_id_group_index ~= nil and show.indexes then
-    local iteration = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_security_alt_id_group_index, eris_security_alt_id_group_index)
+  -- Implicit Eris Leg Security Alt Id Group Index
+  if eris_leg_security_alt_id_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_leg_security_alt_id_group_index, eris_leg_security_alt_id_group_index)
     iteration:set_generated()
   end
 
-  -- Security Alt Id: StringLength26
-  index, security_alt_id = cme_globex_streamlined_sbe_v5_9.security_alt_id.dissect(buffer, index, packet, parent)
+  -- Leg Security Alt Id: StringLength26
+  index, leg_security_alt_id = cme_globex_streamlined_sbe_v5_9.leg_security_alt_id.dissect(buffer, index, packet, parent)
 
-  -- Security Alt Id Source Optional: charNULL
-  index, security_alt_id_source_optional = cme_globex_streamlined_sbe_v5_9.security_alt_id_source_optional.dissect(buffer, index, packet, parent)
+  -- Leg Security Alt Id Source: uInt8NULL
+  index, leg_security_alt_id_source = cme_globex_streamlined_sbe_v5_9.leg_security_alt_id_source.dissect(buffer, index, packet, parent)
 
   return index
 end
 
--- Dissect: Eris Security Alt Id Group
-cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.dissect = function(buffer, offset, packet, parent, eris_security_alt_id_group_index)
+-- Dissect: Eris Leg Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_group.dissect = function(buffer, offset, packet, parent, eris_leg_security_alt_id_group_index)
   if show.repeating_groups then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_security_alt_id_group, buffer(offset, 0))
-    local index = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.fields(buffer, offset, packet, parent, eris_security_alt_id_group_index)
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_leg_security_alt_id_group, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_group.fields(buffer, offset, packet, parent, eris_leg_security_alt_id_group_index)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.display(packet, parent, length)
+    local display = cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_group.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.fields(buffer, offset, packet, parent, eris_security_alt_id_group_index)
+    return cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_group.fields(buffer, offset, packet, parent, eris_leg_security_alt_id_group_index)
   end
 end
 
--- Eris Security Alt Id Groups
-cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups = {}
+-- Eris Leg Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_groups = {}
 
--- Calculate size of: Eris Security Alt Id Groups
-cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.size = function(buffer, offset)
+-- Calculate size of: Eris Leg Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_groups.size = function(buffer, offset)
   local index = 0
 
   index = index + cme_globex_streamlined_sbe_v5_9.group_size.size
 
   -- Calculate field size from count
-  local eris_security_alt_id_group_count = buffer(offset + index - 1, 1):uint()
-  index = index + eris_security_alt_id_group_count * 27
+  local eris_leg_security_alt_id_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + eris_leg_security_alt_id_group_count * 27
 
   return index
 end
 
--- Display: Eris Security Alt Id Groups
-cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.display = function(packet, parent, length)
+-- Display: Eris Leg Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_groups.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Eris Security Alt Id Groups
-cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Eris Leg Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_groups.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size: Struct of 2 fields
@@ -7036,29 +7224,29 @@ cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields = function(bu
   -- Dependency element: Num In Group 8
   local num_in_group_8 = buffer(index - 1, 1):uint()
 
-  -- Repeating: Eris Security Alt Id Group
-  for eris_security_alt_id_group_index = 1, num_in_group_8 do
-    index, eris_security_alt_id_group = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.dissect(buffer, index, packet, parent, eris_security_alt_id_group_index)
+  -- Repeating: Eris Leg Security Alt Id Group
+  for eris_leg_security_alt_id_group_index = 1, num_in_group_8 do
+    index, eris_leg_security_alt_id_group = cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_group.dissect(buffer, index, packet, parent, eris_leg_security_alt_id_group_index)
   end
 
   return index
 end
 
--- Dissect: Eris Security Alt Id Groups
-cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.dissect = function(buffer, offset, packet, parent)
+-- Dissect: Eris Leg Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_groups.dissect = function(buffer, offset, packet, parent)
   if show.headers then
     -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_security_alt_id_groups, buffer(offset, 0))
-    local index = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields(buffer, offset, packet, parent)
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_leg_security_alt_id_groups, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_groups.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
-    local display = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.display(packet, parent, length)
+    local display = cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_groups.display(packet, parent, length)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    return cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields(buffer, offset, packet, parent)
+    return cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -7203,7 +7391,7 @@ cme_globex_streamlined_sbe_v5_9.eris_legs_group.size = function(buffer, offset)
 
   index = index + cme_globex_streamlined_sbe_v5_9.interpolation_factor.size
 
-  index = index + cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.size(buffer, offset + index)
+  index = index + cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_groups.size(buffer, offset + index)
 
   return index
 end
@@ -7262,8 +7450,8 @@ cme_globex_streamlined_sbe_v5_9.eris_legs_group.fields = function(buffer, offset
   -- Interpolation Factor: Struct of 2 fields
   index, interpolation_factor = cme_globex_streamlined_sbe_v5_9.interpolation_factor.dissect(buffer, index, packet, parent)
 
-  -- Eris Security Alt Id Groups: Struct of 2 fields
-  index, eris_security_alt_id_groups = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.dissect(buffer, index, packet, parent)
+  -- Eris Leg Security Alt Id Groups: Struct of 2 fields
+  index, eris_leg_security_alt_id_groups = cme_globex_streamlined_sbe_v5_9.eris_leg_security_alt_id_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -7341,6 +7529,113 @@ cme_globex_streamlined_sbe_v5_9.eris_legs_groups.dissect = function(buffer, offs
   else
     -- Skip element, add fields directly
     return cme_globex_streamlined_sbe_v5_9.eris_legs_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Eris Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group = {}
+
+-- Size: Eris Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.size =
+  cme_globex_streamlined_sbe_v5_9.security_alt_id.size + 
+  cme_globex_streamlined_sbe_v5_9.security_alt_id_source.size
+
+-- Display: Eris Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Eris Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.fields = function(buffer, offset, packet, parent, eris_security_alt_id_group_index)
+  local index = offset
+
+  -- Implicit Eris Security Alt Id Group Index
+  if eris_security_alt_id_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_security_alt_id_group_index, eris_security_alt_id_group_index)
+    iteration:set_generated()
+  end
+
+  -- Security Alt Id: StringLength26
+  index, security_alt_id = cme_globex_streamlined_sbe_v5_9.security_alt_id.dissect(buffer, index, packet, parent)
+
+  -- Security Alt Id Source: CHAR
+  index, security_alt_id_source = cme_globex_streamlined_sbe_v5_9.security_alt_id_source.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Eris Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.dissect = function(buffer, offset, packet, parent, eris_security_alt_id_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_security_alt_id_group, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.fields(buffer, offset, packet, parent, eris_security_alt_id_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.fields(buffer, offset, packet, parent, eris_security_alt_id_group_index)
+  end
+end
+
+-- Eris Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups = {}
+
+-- Calculate size of: Eris Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_streamlined_sbe_v5_9.group_size.size
+
+  -- Calculate field size from count
+  local eris_security_alt_id_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + eris_security_alt_id_group_count * 27
+
+  return index
+end
+
+-- Display: Eris Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Eris Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_streamlined_sbe_v5_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group 8
+  local num_in_group_8 = buffer(index - 1, 1):uint()
+
+  -- Repeating: Eris Security Alt Id Group
+  for eris_security_alt_id_group_index = 1, num_in_group_8 do
+    index, eris_security_alt_id_group = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_group.dissect(buffer, index, packet, parent, eris_security_alt_id_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Eris Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_security_alt_id_groups, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -8001,7 +8296,7 @@ cme_globex_streamlined_sbe_v5_9.otc_original_group.fields = function(buffer, off
   -- Md Entry Date: Int32NULL
   index, md_entry_date = cme_globex_streamlined_sbe_v5_9.md_entry_date.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: Int8NULL
+  -- Open Close Settl Flag: uInt8NULL
   index, open_close_settl_flag = cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Price Type: uInt16NULL
@@ -8184,6 +8479,113 @@ cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_ot_c_356.dissect = functi
   end
 end
 
+-- Incremental Refresh Eris Events Group
+cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_group = {}
+
+-- Size: Incremental Refresh Eris Events Group
+cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_group.size =
+  cme_globex_streamlined_sbe_v5_9.event_type.size + 
+  cme_globex_streamlined_sbe_v5_9.event_time_optional.size
+
+-- Display: Incremental Refresh Eris Events Group
+cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Eris Events Group
+cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_group.fields = function(buffer, offset, packet, parent, incremental_refresh_eris_events_group_index)
+  local index = offset
+
+  -- Implicit Incremental Refresh Eris Events Group Index
+  if incremental_refresh_eris_events_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_eris_events_group_index, incremental_refresh_eris_events_group_index)
+    iteration:set_generated()
+  end
+
+  -- Event Type: uInt8
+  index, event_type = cme_globex_streamlined_sbe_v5_9.event_type.dissect(buffer, index, packet, parent)
+
+  -- Event Time Optional: uInt64NULL
+  index, event_time_optional = cme_globex_streamlined_sbe_v5_9.event_time_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Eris Events Group
+cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_group.dissect = function(buffer, offset, packet, parent, incremental_refresh_eris_events_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_eris_events_group, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_group.fields(buffer, offset, packet, parent, incremental_refresh_eris_events_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_group.fields(buffer, offset, packet, parent, incremental_refresh_eris_events_group_index)
+  end
+end
+
+-- Incremental Refresh Eris Events Groups
+cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups = {}
+
+-- Calculate size of: Incremental Refresh Eris Events Groups
+cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_streamlined_sbe_v5_9.group_size.size
+
+  -- Calculate field size from count
+  local incremental_refresh_eris_events_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + incremental_refresh_eris_events_group_count * 9
+
+  return index
+end
+
+-- Display: Incremental Refresh Eris Events Groups
+cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Incremental Refresh Eris Events Groups
+cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_streamlined_sbe_v5_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group 8
+  local num_in_group_8 = buffer(index - 1, 1):uint()
+
+  -- Repeating: Incremental Refresh Eris Events Group
+  for incremental_refresh_eris_events_group_index = 1, num_in_group_8 do
+    index, incremental_refresh_eris_events_group = cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_group.dissect(buffer, index, packet, parent, incremental_refresh_eris_events_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Incremental Refresh Eris Events Groups
+cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.incremental_refresh_eris_events_groups, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Cal Fut Px
 cme_globex_streamlined_sbe_v5_9.cal_fut_px = {}
 
@@ -8337,7 +8739,7 @@ cme_globex_streamlined_sbe_v5_9.eris_group.size = function(buffer, offset)
 
   index = index + cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_streamlined_sbe_v5_9.events_groups.size(buffer, offset + index)
+  index = index + cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.size(buffer, offset + index)
 
   return index
 end
@@ -8414,8 +8816,8 @@ cme_globex_streamlined_sbe_v5_9.eris_group.fields = function(buffer, offset, pac
   -- Eris Security Alt Id Groups: Struct of 2 fields
   index, eris_security_alt_id_groups = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.dissect(buffer, index, packet, parent)
 
-  -- Events Groups: Struct of 2 fields
-  index, events_groups = cme_globex_streamlined_sbe_v5_9.events_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Eris Events Groups: Struct of 2 fields
+  index, incremental_refresh_eris_events_groups = cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -8599,7 +9001,7 @@ cme_globex_streamlined_sbe_v5_9.eris_original_group.size = function(buffer, offs
 
   index = index + cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_streamlined_sbe_v5_9.events_groups.size(buffer, offset + index)
+  index = index + cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.size(buffer, offset + index)
 
   return index
 end
@@ -8673,8 +9075,8 @@ cme_globex_streamlined_sbe_v5_9.eris_original_group.fields = function(buffer, of
   -- Eris Security Alt Id Groups: Struct of 2 fields
   index, eris_security_alt_id_groups = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.dissect(buffer, index, packet, parent)
 
-  -- Events Groups: Struct of 2 fields
-  index, events_groups = cme_globex_streamlined_sbe_v5_9.events_groups.dissect(buffer, index, packet, parent)
+  -- Incremental Refresh Eris Events Groups: Struct of 2 fields
+  index, incremental_refresh_eris_events_groups = cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_events_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -9529,7 +9931,7 @@ cme_globex_streamlined_sbe_v5_9.incremental_refresh_indices_group.size =
   cme_globex_streamlined_sbe_v5_9.md_entry_px_decimal.size + 
   cme_globex_streamlined_sbe_v5_9.md_entry_size_optional.size + 
   cme_globex_streamlined_sbe_v5_9.symbol.size + 
-  cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.size + 
+  cme_globex_streamlined_sbe_v5_9.indices_open_close_settl_flag.size + 
   cme_globex_streamlined_sbe_v5_9.yield_type.size + 
   cme_globex_streamlined_sbe_v5_9.yield.size + 
   cme_globex_streamlined_sbe_v5_9.net_chg_prev_day.size + 
@@ -9570,8 +9972,8 @@ cme_globex_streamlined_sbe_v5_9.incremental_refresh_indices_group.fields = funct
   -- Symbol: StringLength50
   index, symbol = cme_globex_streamlined_sbe_v5_9.symbol.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: Int8NULL
-  index, open_close_settl_flag = cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
+  -- Indices Open Close Settl Flag: Int8NULL
+  index, indices_open_close_settl_flag = cme_globex_streamlined_sbe_v5_9.indices_open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Yield Type: String8
   index, yield_type = cme_globex_streamlined_sbe_v5_9.yield_type.dissect(buffer, index, packet, parent)
@@ -9743,6 +10145,157 @@ cme_globex_streamlined_sbe_v5_9.md_incremental_refresh_indices.dissect = functio
   end
 end
 
+-- Indices Events Group
+cme_globex_streamlined_sbe_v5_9.indices_events_group = {}
+
+-- Size: Indices Events Group
+cme_globex_streamlined_sbe_v5_9.indices_events_group.size =
+  cme_globex_streamlined_sbe_v5_9.event_type_indices.size + 
+  cme_globex_streamlined_sbe_v5_9.event_time.size
+
+-- Display: Indices Events Group
+cme_globex_streamlined_sbe_v5_9.indices_events_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Indices Events Group
+cme_globex_streamlined_sbe_v5_9.indices_events_group.fields = function(buffer, offset, packet, parent, indices_events_group_index)
+  local index = offset
+
+  -- Implicit Indices Events Group Index
+  if indices_events_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.indices_events_group_index, indices_events_group_index)
+    iteration:set_generated()
+  end
+
+  -- Event Type Indices: EventTypeIndices
+  index, event_type_indices = cme_globex_streamlined_sbe_v5_9.event_type_indices.dissect(buffer, index, packet, parent)
+
+  -- Event Time: uInt64
+  index, event_time = cme_globex_streamlined_sbe_v5_9.event_time.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Indices Events Group
+cme_globex_streamlined_sbe_v5_9.indices_events_group.dissect = function(buffer, offset, packet, parent, indices_events_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.indices_events_group, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.indices_events_group.fields(buffer, offset, packet, parent, indices_events_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_streamlined_sbe_v5_9.indices_events_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_streamlined_sbe_v5_9.indices_events_group.fields(buffer, offset, packet, parent, indices_events_group_index)
+  end
+end
+
+-- Group Size Encoding
+cme_globex_streamlined_sbe_v5_9.group_size_encoding = {}
+
+-- Size: Group Size Encoding
+cme_globex_streamlined_sbe_v5_9.group_size_encoding.size =
+  cme_globex_streamlined_sbe_v5_9.block_length.size + 
+  cme_globex_streamlined_sbe_v5_9.num_in_group.size
+
+-- Display: Group Size Encoding
+cme_globex_streamlined_sbe_v5_9.group_size_encoding.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Group Size Encoding
+cme_globex_streamlined_sbe_v5_9.group_size_encoding.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Block Length: uint16
+  index, block_length = cme_globex_streamlined_sbe_v5_9.block_length.dissect(buffer, index, packet, parent)
+
+  -- Num In Group: uint16
+  index, num_in_group = cme_globex_streamlined_sbe_v5_9.num_in_group.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Group Size Encoding
+cme_globex_streamlined_sbe_v5_9.group_size_encoding.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.group_size_encoding, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.group_size_encoding.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_streamlined_sbe_v5_9.group_size_encoding.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_streamlined_sbe_v5_9.group_size_encoding.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Indices Events Groups
+cme_globex_streamlined_sbe_v5_9.indices_events_groups = {}
+
+-- Calculate size of: Indices Events Groups
+cme_globex_streamlined_sbe_v5_9.indices_events_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_streamlined_sbe_v5_9.group_size_encoding.size
+
+  -- Calculate field size from count
+  local indices_events_group_count = buffer(offset + index - 2, 2):le_uint()
+  index = index + indices_events_group_count * 9
+
+  return index
+end
+
+-- Display: Indices Events Groups
+cme_globex_streamlined_sbe_v5_9.indices_events_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Indices Events Groups
+cme_globex_streamlined_sbe_v5_9.indices_events_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size Encoding: Struct of 2 fields
+  index, group_size_encoding = cme_globex_streamlined_sbe_v5_9.group_size_encoding.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 2, 2):le_uint()
+
+  -- Repeating: Indices Events Group
+  for indices_events_group_index = 1, num_in_group do
+    index, indices_events_group = cme_globex_streamlined_sbe_v5_9.indices_events_group.dissect(buffer, index, packet, parent, indices_events_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Indices Events Groups
+cme_globex_streamlined_sbe_v5_9.indices_events_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.indices_events_groups, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.indices_events_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_streamlined_sbe_v5_9.indices_events_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_streamlined_sbe_v5_9.indices_events_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Inst Attrib Group
 cme_globex_streamlined_sbe_v5_9.inst_attrib_group = {}
 
@@ -9790,50 +10343,6 @@ cme_globex_streamlined_sbe_v5_9.inst_attrib_group.dissect = function(buffer, off
   else
     -- Skip element, add fields directly
     return cme_globex_streamlined_sbe_v5_9.inst_attrib_group.fields(buffer, offset, packet, parent, inst_attrib_group_index)
-  end
-end
-
--- Group Size Encoding
-cme_globex_streamlined_sbe_v5_9.group_size_encoding = {}
-
--- Size: Group Size Encoding
-cme_globex_streamlined_sbe_v5_9.group_size_encoding.size =
-  cme_globex_streamlined_sbe_v5_9.block_length.size + 
-  cme_globex_streamlined_sbe_v5_9.num_in_group.size
-
--- Display: Group Size Encoding
-cme_globex_streamlined_sbe_v5_9.group_size_encoding.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Group Size Encoding
-cme_globex_streamlined_sbe_v5_9.group_size_encoding.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Block Length: uint16
-  index, block_length = cme_globex_streamlined_sbe_v5_9.block_length.dissect(buffer, index, packet, parent)
-
-  -- Num In Group: uint16
-  index, num_in_group = cme_globex_streamlined_sbe_v5_9.num_in_group.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Group Size Encoding
-cme_globex_streamlined_sbe_v5_9.group_size_encoding.dissect = function(buffer, offset, packet, parent)
-  if show.structs then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.group_size_encoding, buffer(offset, 0))
-    local index = cme_globex_streamlined_sbe_v5_9.group_size_encoding.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = cme_globex_streamlined_sbe_v5_9.group_size_encoding.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return cme_globex_streamlined_sbe_v5_9.group_size_encoding.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -9917,7 +10426,7 @@ cme_globex_streamlined_sbe_v5_9.md_instrument_definition_indices.size = function
 
   index = index + cme_globex_streamlined_sbe_v5_9.inst_attrib_groups.size(buffer, offset + index)
 
-  index = index + cme_globex_streamlined_sbe_v5_9.events_groups.size(buffer, offset + index)
+  index = index + cme_globex_streamlined_sbe_v5_9.indices_events_groups.size(buffer, offset + index)
 
   return index
 end
@@ -9955,8 +10464,8 @@ cme_globex_streamlined_sbe_v5_9.md_instrument_definition_indices.fields = functi
   -- Inst Attrib Groups: Struct of 2 fields
   index, inst_attrib_groups = cme_globex_streamlined_sbe_v5_9.inst_attrib_groups.dissect(buffer, index, packet, parent)
 
-  -- Events Groups: Struct of 2 fields
-  index, events_groups = cme_globex_streamlined_sbe_v5_9.events_groups.dissect(buffer, index, packet, parent)
+  -- Indices Events Groups: Struct of 2 fields
+  index, indices_events_groups = cme_globex_streamlined_sbe_v5_9.indices_events_groups.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -10896,6 +11405,113 @@ cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_gro
   else
     -- Skip element, add fields directly
     return cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Eris Reference Data Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_group = {}
+
+-- Size: Eris Reference Data Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_group.size =
+  cme_globex_streamlined_sbe_v5_9.security_alt_id.size + 
+  cme_globex_streamlined_sbe_v5_9.security_alt_id_source_optional.size
+
+-- Display: Eris Reference Data Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_group.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Eris Reference Data Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_group.fields = function(buffer, offset, packet, parent, eris_reference_data_security_alt_id_group_index)
+  local index = offset
+
+  -- Implicit Eris Reference Data Security Alt Id Group Index
+  if eris_reference_data_security_alt_id_group_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_reference_data_security_alt_id_group_index, eris_reference_data_security_alt_id_group_index)
+    iteration:set_generated()
+  end
+
+  -- Security Alt Id: StringLength26
+  index, security_alt_id = cme_globex_streamlined_sbe_v5_9.security_alt_id.dissect(buffer, index, packet, parent)
+
+  -- Security Alt Id Source Optional: charNULL
+  index, security_alt_id_source_optional = cme_globex_streamlined_sbe_v5_9.security_alt_id_source_optional.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Eris Reference Data Security Alt Id Group
+cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_group.dissect = function(buffer, offset, packet, parent, eris_reference_data_security_alt_id_group_index)
+  if show.repeating_groups then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_reference_data_security_alt_id_group, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_group.fields(buffer, offset, packet, parent, eris_reference_data_security_alt_id_group_index)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_group.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_group.fields(buffer, offset, packet, parent, eris_reference_data_security_alt_id_group_index)
+  end
+end
+
+-- Eris Reference Data Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_groups = {}
+
+-- Calculate size of: Eris Reference Data Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_groups.size = function(buffer, offset)
+  local index = 0
+
+  index = index + cme_globex_streamlined_sbe_v5_9.group_size.size
+
+  -- Calculate field size from count
+  local eris_reference_data_security_alt_id_group_count = buffer(offset + index - 1, 1):uint()
+  index = index + eris_reference_data_security_alt_id_group_count * 27
+
+  return index
+end
+
+-- Display: Eris Reference Data Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_groups.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Eris Reference Data Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_groups.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Group Size: Struct of 2 fields
+  index, group_size = cme_globex_streamlined_sbe_v5_9.group_size.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Num In Group 8
+  local num_in_group_8 = buffer(index - 1, 1):uint()
+
+  -- Repeating: Eris Reference Data Security Alt Id Group
+  for eris_reference_data_security_alt_id_group_index = 1, num_in_group_8 do
+    index, eris_reference_data_security_alt_id_group = cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_group.dissect(buffer, index, packet, parent, eris_reference_data_security_alt_id_group_index)
+  end
+
+  return index
+end
+
+-- Dissect: Eris Reference Data Security Alt Id Groups
+cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_groups.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.eris_reference_data_security_alt_id_groups, buffer(offset, 0))
+    local index = cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_groups.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_groups.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_groups.fields(buffer, offset, packet, parent)
   end
 end
 
@@ -12309,7 +12925,7 @@ cme_globex_streamlined_sbe_v5_9.eris_reference_data_group.size = function(buffer
 
   index = index + cme_globex_streamlined_sbe_v5_9.security_description.size
 
-  index = index + cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.size(buffer, offset + index)
+  index = index + cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_groups.size(buffer, offset + index)
 
   index = index + cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.size(buffer, offset + index)
 
@@ -12345,7 +12961,7 @@ cme_globex_streamlined_sbe_v5_9.eris_reference_data_group.fields = function(buff
   -- Md Entry Px Decimal Optional: Struct of 2 fields
   index, md_entry_px_decimal_optional = cme_globex_streamlined_sbe_v5_9.md_entry_px_decimal_optional.dissect(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: Int8NULL
+  -- Open Close Settl Flag: uInt8NULL
   index, open_close_settl_flag = cme_globex_streamlined_sbe_v5_9.open_close_settl_flag.dissect(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
@@ -12468,8 +13084,8 @@ cme_globex_streamlined_sbe_v5_9.eris_reference_data_group.fields = function(buff
   -- Security Description: String30
   index, security_description = cme_globex_streamlined_sbe_v5_9.security_description.dissect(buffer, index, packet, parent)
 
-  -- Eris Security Alt Id Groups: Struct of 2 fields
-  index, eris_security_alt_id_groups = cme_globex_streamlined_sbe_v5_9.eris_security_alt_id_groups.dissect(buffer, index, packet, parent)
+  -- Eris Reference Data Security Alt Id Groups: Struct of 2 fields
+  index, eris_reference_data_security_alt_id_groups = cme_globex_streamlined_sbe_v5_9.eris_reference_data_security_alt_id_groups.dissect(buffer, index, packet, parent)
 
   -- Incremental Refresh Eris Related Instruments Groups: Struct of 2 fields
   index, incremental_refresh_eris_related_instruments_groups = cme_globex_streamlined_sbe_v5_9.incremental_refresh_eris_related_instruments_groups.dissect(buffer, index, packet, parent)
@@ -13056,16 +13672,16 @@ cme_globex_streamlined_sbe_v5_9.tcp_packet.dissect = function(buffer, packet, pa
   return index
 end
 
--- Message
-cme_globex_streamlined_sbe_v5_9.message = {}
+-- Mdp3 Message
+cme_globex_streamlined_sbe_v5_9.mdp3_message = {}
 
--- Display: Message
-cme_globex_streamlined_sbe_v5_9.message.display = function(packet, parent, length)
+-- Display: Mdp3 Message
+cme_globex_streamlined_sbe_v5_9.mdp3_message.display = function(packet, parent, length)
   return ""
 end
 
--- Dissect Fields: Message
-cme_globex_streamlined_sbe_v5_9.message.fields = function(buffer, offset, packet, parent, size_of_message)
+-- Dissect Fields: Mdp3 Message
+cme_globex_streamlined_sbe_v5_9.mdp3_message.fields = function(buffer, offset, packet, parent, size_of_mdp3_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
@@ -13080,30 +13696,30 @@ cme_globex_streamlined_sbe_v5_9.message.fields = function(buffer, offset, packet
   return index
 end
 
--- Dissect: Message
-cme_globex_streamlined_sbe_v5_9.message.dissect = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset + size_of_message
+-- Dissect: Mdp3 Message
+cme_globex_streamlined_sbe_v5_9.mdp3_message.dissect = function(buffer, offset, packet, parent, size_of_mdp3_message)
+  local index = offset + size_of_mdp3_message
 
   -- Its fields read only its own bytes: a layout running past them is marked, not raised
   local bounded = buffer(0, math.min(index, buffer:len())):tvb()
 
   -- Optionally add group/struct element to protocol tree
   if show.structs then
-    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.message, buffer(offset, 0))
-    local decoded, failure = pcall(cme_globex_streamlined_sbe_v5_9.message.fields, bounded, offset, packet, parent, size_of_message)
+    parent = parent:add(omi_cme_globex_streamlined_sbe_v5_9.fields.mdp3_message, buffer(offset, 0))
+    local decoded, failure = pcall(cme_globex_streamlined_sbe_v5_9.mdp3_message.fields, bounded, offset, packet, parent, size_of_mdp3_message)
     if not decoded then
-      undecoded(failure, parent, cme_globex_streamlined_sbe_v5_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+      undecoded(failure, parent, cme_globex_streamlined_sbe_v5_9.experts.undecoded, "Mdp3 Message does not decode within its "..size_of_mdp3_message.." bytes")
     end
-    parent:set_len(size_of_message)
-    local display = cme_globex_streamlined_sbe_v5_9.message.display(buffer, packet, parent)
+    parent:set_len(size_of_mdp3_message)
+    local display = cme_globex_streamlined_sbe_v5_9.mdp3_message.display(buffer, packet, parent)
     parent:append_text(display)
 
     return index, parent
   else
     -- Skip element, add fields directly
-    local decoded, failure = pcall(cme_globex_streamlined_sbe_v5_9.message.fields, bounded, offset, packet, parent, size_of_message)
+    local decoded, failure = pcall(cme_globex_streamlined_sbe_v5_9.mdp3_message.fields, bounded, offset, packet, parent, size_of_mdp3_message)
     if not decoded then
-      undecoded(failure, parent, cme_globex_streamlined_sbe_v5_9.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+      undecoded(failure, parent, cme_globex_streamlined_sbe_v5_9.experts.undecoded, "Mdp3 Message does not decode within its "..size_of_mdp3_message.." bytes")
     end
 
     return index
@@ -13169,10 +13785,10 @@ cme_globex_streamlined_sbe_v5_9.udp_packet.dissect = function(buffer, packet, pa
   -- Binary Packet Header: Struct of 2 fields
   index, binary_packet_header = cme_globex_streamlined_sbe_v5_9.binary_packet_header.dissect(buffer, index, packet, parent)
 
-  -- Dependency for Message
+  -- Dependency for Mdp3 Message
   local end_of_payload = buffer:len()
 
-  -- Message: Struct of 2 fields
+  -- Mdp3 Message: Struct of 2 fields
   local message_index = 0
   while index < end_of_payload do
     message_index = message_index + 1
@@ -13186,8 +13802,8 @@ cme_globex_streamlined_sbe_v5_9.udp_packet.dissect = function(buffer, packet, pa
     -- Dependency element: Message Size
     local message_size = buffer(index, 2):le_uint()
 
-    -- Runtime Size Of: Message
-    index, message = cme_globex_streamlined_sbe_v5_9.message.dissect(buffer, index, packet, parent, message_size)
+    -- Runtime Size Of: Mdp3 Message
+    index, mdp3_message = cme_globex_streamlined_sbe_v5_9.mdp3_message.dissect(buffer, index, packet, parent, message_size)
   end
 
   return index

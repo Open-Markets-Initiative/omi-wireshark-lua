@@ -41,16 +41,16 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.product_id = ProtoField.new("
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.quote_condition = ProtoField.new("Quote Condition", "nyse.amexoptions.complexfeed.xdp.v1.3.a.quotecondition", ftypes.STRING, nil, nil, nil, "QuoteCondition value")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.reserved_1 = ProtoField.new("Reserved 1", "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved1", ftypes.BYTES, nil, nil, nil, "Filler")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.reserved_2 = ProtoField.new("Reserved 2", "nyse.amexoptions.complexfeed.xdp.v1.3.a.reserved2", ftypes.BYTES, nil, nil, nil, "Filler")
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.complexfeed.xdp.v1.3.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.seconds_utc = ProtoField.new("Seconds", "nyse.amexoptions.complexfeed.xdp.v1.3.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.seconds = ProtoField.new("Seconds", "nyse.amexoptions.complexfeed.xdp.v1.3.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.security_status = ProtoField.new("Security Status", "nyse.amexoptions.complexfeed.xdp.v1.3.a.securitystatus", ftypes.STRING, nil, nil, nil, "SecurityStatus value")
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.send_time = ProtoField.new("Send Time", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sequencenumber", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.side = ProtoField.new("Side", "nyse.amexoptions.complexfeed.xdp.v1.3.a.side", ftypes.STRING, nil, nil, nil, "Side of the RFQ")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.source_ns = ProtoField.new("Source Ns", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sourcens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime.")
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.source_time_utc = ProtoField.new("Source Time", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.source_time = ProtoField.new("Source Time", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.amexoptions.complexfeed.xdp.v1.3.a.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime.")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.stream_id = ProtoField.new("Stream Id", "nyse.amexoptions.complexfeed.xdp.v1.3.a.streamid", ftypes.UINT16, nil, nil, nil, "Identifies Stream on which this symbol will be updated")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.symbol_index = ProtoField.new("Symbol Index", "nyse.amexoptions.complexfeed.xdp.v1.3.a.symbolindex", ftypes.UINT32, nil, nil, nil, "Series index if Security type is Option. Underlying index if Security type is Equity")
@@ -102,7 +102,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_amexoptions_complexfeed_xdp_v1_3_a.timestamp_format = 2
+nyse_amexoptions_complexfeed_xdp_v1_3_a.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -127,7 +127,7 @@ omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_headers = Pref.bool("Show
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.prefs_changed()
@@ -2478,8 +2478,8 @@ nyse_amexoptions_complexfeed_xdp_v1_3_a.send_time.dissect = function(buffer, off
     local length = nyse_amexoptions_complexfeed_xdp_v1_3_a.send_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.send_time
-    if nyse_amexoptions_complexfeed_xdp_v1_3_a.timestamp_format == 3 then field = omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.send_time_utc end
+    local field = omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.send_time_utc
+    if nyse_amexoptions_complexfeed_xdp_v1_3_a.timestamp_format == 2 then field = omi_nyse_amexoptions_complexfeed_xdp_v1_3_a.fields.send_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_amexoptions_complexfeed_xdp_v1_3_a.send_time.fields(buffer, offset, packet, parent)
 

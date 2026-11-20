@@ -76,13 +76,13 @@ omi_siac_cqs_snapshot_cta_v2_1.fields.reserved = ProtoField.new("Reserved", "sia
 omi_siac_cqs_snapshot_cta_v2_1.fields.retail_interest_indicator = ProtoField.new("Retail Interest Indicator", "siac.cqs.snapshot.cta.v2.1.retailinterestindicator", ftypes.STRING, nil, nil, nil, "Indicates Retail Price Improvement (RPI) interest priced better than the Protected Best Bid or Offer (PBBO) by a minimum of $0.001")
 omi_siac_cqs_snapshot_cta_v2_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "siac.cqs.snapshot.cta.v2.1.roundlotsize", ftypes.UINT16, nil, nil, nil, "Round-lot size for a symbol can consist of 1, 10, 40 or 100 shares")
 omi_siac_cqs_snapshot_cta_v2_1.fields.second_reserved = ProtoField.new("Second Reserved", "siac.cqs.snapshot.cta.v2.1.secondreserved", ftypes.BYTES, nil, nil, nil, "Space-filled, reserved for future use")
-omi_siac_cqs_snapshot_cta_v2_1.fields.seconds = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v2.1.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
 omi_siac_cqs_snapshot_cta_v2_1.fields.seconds_utc = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v2.1.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
+omi_siac_cqs_snapshot_cta_v2_1.fields.seconds = ProtoField.new("Seconds", "siac.cqs.snapshot.cta.v2.1.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Contains The Number Seconds From Epoch 111970000000 Utc")
 omi_siac_cqs_snapshot_cta_v2_1.fields.security_symbol = ProtoField.new("Security Symbol", "siac.cqs.snapshot.cta.v2.1.securitysymbol", ftypes.STRING, nil, nil, nil, "Contains the security symbol, left justified, space filled")
 omi_siac_cqs_snapshot_cta_v2_1.fields.settlement_condition = ProtoField.new("Settlement Condition", "siac.cqs.snapshot.cta.v2.1.settlementcondition", ftypes.STRING, nil, nil, nil, "Identifies the settlement condition for a security")
 omi_siac_cqs_snapshot_cta_v2_1.fields.short_sale_restriction_indicator = ProtoField.new("Short Sale Restriction Indicator", "siac.cqs.snapshot.cta.v2.1.shortsalerestrictionindicator", ftypes.STRING, nil, nil, nil, "Identifies whether a Short Sale Restriction is in effect")
-omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v2.1.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Cqs packet timestamp")
 omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp_utc = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v2.1.sipblocktimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Cqs packet timestamp")
+omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp = ProtoField.new("Sip Block Timestamp", "siac.cqs.snapshot.cta.v2.1.sipblocktimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Cqs packet timestamp")
 omi_siac_cqs_snapshot_cta_v2_1.fields.snapshot_message = ProtoField.new("Snapshot Message", "siac.cqs.snapshot.cta.v2.1.snapshotmessage", ftypes.STRING, nil, nil, nil, "Snapshot Messages")
 omi_siac_cqs_snapshot_cta_v2_1.fields.snapshot_message_type = ProtoField.new("Snapshot Message Type", "siac.cqs.snapshot.cta.v2.1.snapshotmessagetype", ftypes.STRING)
 omi_siac_cqs_snapshot_cta_v2_1.fields.test = ProtoField.new("Test", "siac.cqs.snapshot.cta.v2.1.test", ftypes.STRING, nil, nil, nil, "Identifies whether the security symbol is a test symbol")
@@ -123,7 +123,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-siac_cqs_snapshot_cta_v2_1.timestamp_format = 2
+siac_cqs_snapshot_cta_v2_1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -146,7 +146,7 @@ omi_siac_cqs_snapshot_cta_v2_1.prefs.show_structs = Pref.bool("Show Structs", sh
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_siac_cqs_snapshot_cta_v2_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_siac_cqs_snapshot_cta_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_siac_cqs_snapshot_cta_v2_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_siac_cqs_snapshot_cta_v2_1.prefs_changed()
@@ -3038,8 +3038,8 @@ siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.dissect = function(buffer, offset
     local length = siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp
-    if siac_cqs_snapshot_cta_v2_1.timestamp_format == 3 then field = omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp_utc end
+    local field = omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp_utc
+    if siac_cqs_snapshot_cta_v2_1.timestamp_format == 2 then field = omi_siac_cqs_snapshot_cta_v2_1.fields.sip_block_timestamp end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = siac_cqs_snapshot_cta_v2_1.sip_block_timestamp.fields(buffer, offset, packet, parent)
 

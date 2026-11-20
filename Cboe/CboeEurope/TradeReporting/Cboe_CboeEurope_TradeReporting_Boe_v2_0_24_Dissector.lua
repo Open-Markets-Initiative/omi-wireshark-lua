@@ -406,14 +406,14 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.quote_v_2_bitfield_1_secur
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.quote_v_2_bitfield_1_security_id = ProtoField.new("Quote V 2 Bitfield 1 Security Id", "cboe.cboeeurope.tradereporting.boe.v2.0.24.quotev2bitfield1securityid", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.quote_v_2_bitfield_1_symbol = ProtoField.new("Quote V 2 Bitfield 1 Symbol", "cboe.cboeeurope.tradereporting.boe.v2.0.24.quotev2bitfield1symbol", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.reason = ProtoField.new("Reason", "cboe.cboeeurope.tradereporting.boe.v2.0.24.reason", ftypes.STRING, nil, nil, nil, "Reason for a Trade Capture Report reject or decline. See Reason Codes (§ 8, p. 63) for a list of possible reasons.")
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.report_time = ProtoField.new("Report Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.reporttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.report_time_utc = ProtoField.new("Report Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.reporttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.report_time = ProtoField.new("Report Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.reporttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.reserved_1 = ProtoField.new("Reserved 1", "cboe.cboeeurope.tradereporting.boe.v2.0.24.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for Cboe internal use.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.return_bitfield = ProtoField.new("Return Bitfield", "cboe.cboeeurope.tradereporting.boe.v2.0.24.returnbitfield", ftypes.UINT8, nil, nil, nil, "Bitfield identifying fields to return.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.return_bitfields = ProtoField.new("Return Bitfields", "cboe.cboeeurope.tradereporting.boe.v2.0.24.returnbitfields", ftypes.STRING, nil, nil, nil, "Repeating group stated NumberOfReturnBitfields times.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.return_bitfields_param_group = ProtoField.new("Return Bitfields Param Group", "cboe.cboeeurope.tradereporting.boe.v2.0.24.returnbitfieldsparamgroup", ftypes.STRING, nil, nil, nil, "ReturnBitfieldsParamGroup")
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.rpttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.rpt_time_utc = ProtoField.new("Rpt Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.rpttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.rpt_time = ProtoField.new("Rpt Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.rpttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.secondary_trd_type = ProtoField.new("Secondary Trd Type", "cboe.cboeeurope.tradereporting.boe.v2.0.24.secondarytrdtype", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.security_exchange = ProtoField.new("Security Exchange", "cboe.cboeeurope.tradereporting.boe.v2.0.24.securityexchange", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.security_id = ProtoField.new("Security Id", "cboe.cboeeurope.tradereporting.boe.v2.0.24.securityid", ftypes.STRING)
@@ -1137,12 +1137,12 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trade_report_id = ProtoFie
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trade_report_ref_id = ProtoField.new("Trade Report Ref Id", "cboe.cboeeurope.tradereporting.boe.v2.0.24.tradereportrefid", ftypes.STRING)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trade_report_trans_type = ProtoField.new("Trade Report Trans Type", "cboe.cboeeurope.tradereporting.boe.v2.0.24.tradereporttranstype", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trade_report_type_return = ProtoField.new("Trade Report Type Return", "cboe.cboeeurope.tradereporting.boe.v2.0.24.tradereporttypereturn", ftypes.UINT16)
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trade_time = ProtoField.new("Trade Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trade_time_utc = ProtoField.new("Trade Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.tradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trade_time = ProtoField.new("Trade Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.tradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub Id", "cboe.cboeeurope.tradereporting.boe.v2.0.24.tradingsessionsubid", ftypes.UINT8)
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.transaction_category = ProtoField.new("Transaction Category", "cboe.cboeeurope.tradereporting.boe.v2.0.24.transactioncategory", ftypes.STRING)
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the Cboe match- ing engine (not the time the message was sent).")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time the event occurred in the Cboe match- ing engine (not the time the message was sent).")
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.cboeeurope.tradereporting.boe.v2.0.24.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time the event occurred in the Cboe match- ing engine (not the time the message was sent).")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trd_cap_ack_side_grp = ProtoField.new("Trd Cap Ack Side Grp", "cboe.cboeeurope.tradereporting.boe.v2.0.24.trdcapacksidegrp", ftypes.STRING, nil, nil, nil, "Repeating group stated NoSides times.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trd_cap_rpt_side_grp = ProtoField.new("Trd Cap Rpt Side Grp", "cboe.cboeeurope.tradereporting.boe.v2.0.24.trdcaprptsidegrp", ftypes.STRING, nil, nil, nil, "Repeating group stated NoSides times.")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.fields.trd_sub_type = ProtoField.new("Trd Sub Type", "cboe.cboeeurope.tradereporting.boe.v2.0.24.trdsubtype", ftypes.UINT8)
@@ -1198,7 +1198,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_cboeeurope_tradereporting_boe_v2_0_24.timestamp_format = 2
+cboe_cboeeurope_tradereporting_boe_v2_0_24.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -1223,7 +1223,7 @@ omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.prefs.show_repeating_groups = Pre
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_cboeeurope_tradereporting_boe_v2_0_24.prefs_changed()

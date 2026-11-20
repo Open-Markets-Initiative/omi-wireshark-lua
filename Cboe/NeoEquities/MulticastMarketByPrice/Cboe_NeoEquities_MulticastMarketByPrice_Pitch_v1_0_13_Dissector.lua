@@ -60,8 +60,8 @@ omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.settlement_type
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.13.sideindicator", ftypes.STRING, nil, nil, nil, "Order side indicator.")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.sst = ProtoField.new("Sst", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.13.sst", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Special Settlement Term book allowed.")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.symbol = ProtoField.new("Symbol", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.13.symbol", ftypes.STRING, nil, nil, nil, "Symbol (right padded with spaces).")
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.timestamp = ProtoField.new("Timestamp", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.13.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.timestamp_utc = ProtoField.new("Timestamp", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.13.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.timestamp = ProtoField.new("Timestamp", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.13.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.trade_flags = ProtoField.new("Trade Flags", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.13.tradeflags", ftypes.STRING, nil, nil, nil, "Trade flags.")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.trading_status = ProtoField.new("Trading Status", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.13.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status code.")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.fields.trading_sub_status = ProtoField.new("Trading Sub Status", "cboe.neoequities.multicastmarketbyprice.pitch.v1.0.13.tradingsubstatus", ftypes.STRING, nil, nil, nil, "Current trading sub-status code.")
@@ -100,7 +100,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.timestamp_format = 2
+cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -125,7 +125,7 @@ omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.prefs.show_padding = P
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_neoequities_multicastmarketbyprice_pitch_v1_0_13.prefs_changed()

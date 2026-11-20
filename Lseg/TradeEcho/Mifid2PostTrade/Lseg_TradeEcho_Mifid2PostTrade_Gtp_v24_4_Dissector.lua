@@ -103,8 +103,8 @@ omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.static_circuit_breaker_toler
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.third_country_trading_venue_of_execution = ProtoField.new("Third Country Trading Venue Of Execution", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.thirdcountrytradingvenueofexecution", ftypes.STRING, nil, nil, nil, "Identification of the third-country trading venue where the transaction was executed.")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.tick_id = ProtoField.new("Tick Id", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.tickid", ftypes.STRING, nil, nil, nil, "Not Applicable to TRADEcho")
-omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated")
+omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.timestamp = ProtoField.new("Timestamp", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.total_number_of_transactions = ProtoField.new("Total Number Of Transactions", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.totalnumberoftransactions", ftypes.UINT32, nil, nil, nil, "Total Number of Transactions of aggregated trade")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.trading_mode = ProtoField.new("Trading Mode", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.tradingmode", ftypes.STRING)
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.fields.trading_status = ProtoField.new("Trading Status", "lseg.tradeecho.mifid2posttrade.gtp.v24.4.tradingstatus", ftypes.STRING, nil, nil, nil, "Trading Status of Symbol")
@@ -162,7 +162,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_tradeecho_mifid2posttrade_gtp_v24_4.timestamp_format = 2
+lseg_tradeecho_mifid2posttrade_gtp_v24_4.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -185,7 +185,7 @@ omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.prefs.show_headers = Pref.bool("Sho
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_tradeecho_mifid2posttrade_gtp_v24_4.prefs_changed()

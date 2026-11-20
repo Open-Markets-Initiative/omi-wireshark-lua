@@ -29,8 +29,8 @@ omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.current_inside_paired_shares 
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.deprecated = ProtoField.new("Deprecated", "otcmarkets.linknqb.topofbook.link.v1.18.deprecated", ftypes.UINT32, nil, nil, nil, "Deprecated.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.full_closing_price = ProtoField.new("Full Closing Price", "otcmarkets.linknqb.topofbook.link.v1.18.fullclosingprice", ftypes.DOUBLE, nil, nil, nil, "The calculated closing price. The long value represents the price scaled by 1,000,000 (6 decimal places).")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.heartbeat = ProtoField.new("Heartbeat", "otcmarkets.linknqb.topofbook.link.v1.18.heartbeat", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "A Heartbeat is sent if no business level message has been published for more than a second")
-omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.linknqb.topofbook.link.v1.18.lastupdatemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds from UTC epoch.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.last_update_milli_utc = ProtoField.new("Last Update Milli", "otcmarkets.linknqb.topofbook.link.v1.18.lastupdatemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds from UTC epoch.")
+omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.last_update_milli = ProtoField.new("Last Update Milli", "otcmarkets.linknqb.topofbook.link.v1.18.lastupdatemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds from UTC epoch.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.message_count = ProtoField.new("Message Count", "otcmarkets.linknqb.topofbook.link.v1.18.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages in packet")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.message_size = ProtoField.new("Message Size", "otcmarkets.linknqb.topofbook.link.v1.18.messagesize", ftypes.UINT16, nil, nil, nil, "Size of message in bytes")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.message_type = ProtoField.new("Message Type", "otcmarkets.linknqb.topofbook.link.v1.18.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
@@ -42,8 +42,8 @@ omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.packet_milli = ProtoField.new
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.packet_size = ProtoField.new("Packet Size", "otcmarkets.linknqb.topofbook.link.v1.18.packetsize", ftypes.UINT16, nil, nil, nil, "Size of packet in bytes")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.piggyback_flag = ProtoField.new("Piggyback Flag", "otcmarkets.linknqb.topofbook.link.v1.18.piggybackflag", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0001, "15c2-11 \"PiggyBack\" exempt security status flag.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.qib_only_144_a = ProtoField.new("Qib Only 144 A", "otcmarkets.linknqb.topofbook.link.v1.18.qibonly144a", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0004, "\"144A QIB Only\" in the PDF. Indicates that the security may only be purchased or sold by Qualified Institutional Buyers (QIBs) or agents acting on behalf of QIBs.")
-omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.recovery_start_time = ProtoField.new("Recovery Start Time", "otcmarkets.linknqb.topofbook.link.v1.18.recoverystarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expected time recovery spin will start.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.recovery_start_time_utc = ProtoField.new("Recovery Start Time", "otcmarkets.linknqb.topofbook.link.v1.18.recoverystarttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expected time recovery spin will start.")
+omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.recovery_start_time = ProtoField.new("Recovery Start Time", "otcmarkets.linknqb.topofbook.link.v1.18.recoverystarttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expected time recovery spin will start.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.recovery_type = ProtoField.new("Recovery Type", "otcmarkets.linknqb.topofbook.link.v1.18.recoverytype", ftypes.UINT8, nil, nil, nil, "Recovery event type.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.replay = ProtoField.new("Replay", "otcmarkets.linknqb.topofbook.link.v1.18.replay", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x40, "Packet contains replay messages")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.reporting_status = ProtoField.new("Reporting Status", "otcmarkets.linknqb.topofbook.link.v1.18.reportingstatus", ftypes.STRING, nil, nil, nil, "Reporting status of the security.")
@@ -55,14 +55,14 @@ omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.security_id = ProtoField.new(
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.security_status = ProtoField.new("Security Status", "otcmarkets.linknqb.topofbook.link.v1.18.securitystatus", ftypes.STRING, nil, nil, nil, "Security trading status.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.seq_num = ProtoField.new("Seq Num", "otcmarkets.linknqb.topofbook.link.v1.18.seqnum", ftypes.UINT32, nil, nil, nil, "Channel specific Sequence number of packet")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.seq_num_reset = ProtoField.new("Seq Num Reset", "otcmarkets.linknqb.topofbook.link.v1.18.seqnumreset", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "indicates that the channel sequence numbers are being reset to 1")
-omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.session_time = ProtoField.new("Session Time", "otcmarkets.linknqb.topofbook.link.v1.18.sessiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.session_time_utc = ProtoField.new("Session Time", "otcmarkets.linknqb.topofbook.link.v1.18.sessiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
-omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.spin_end_time_milli = ProtoField.new("Spin End Time Milli", "otcmarkets.linknqb.topofbook.link.v1.18.spinendtimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.session_time = ProtoField.new("Session Time", "otcmarkets.linknqb.topofbook.link.v1.18.sessiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "\"Time\" in the PDF, renamed to disambiguate from the 4-byte midnight \"Time\" field used in other messages. Milliseconds since UTC epoch.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.spin_end_time_milli_utc = ProtoField.new("Spin End Time Milli", "otcmarkets.linknqb.topofbook.link.v1.18.spinendtimemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.spin_end_time_milli = ProtoField.new("Spin End Time Milli", "otcmarkets.linknqb.topofbook.link.v1.18.spinendtimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.spin_last_seq_num = ProtoField.new("Spin Last Seq Num", "otcmarkets.linknqb.topofbook.link.v1.18.spinlastseqnum", ftypes.UINT32, nil, nil, nil, "Ignore, not used.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.spin_msg_ct = ProtoField.new("Spin Msg Ct", "otcmarkets.linknqb.topofbook.link.v1.18.spinmsgct", ftypes.UINT32, nil, nil, nil, "Total messages in spin.")
-omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otcmarkets.linknqb.topofbook.link.v1.18.spinstarttimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.spin_start_time_milli_utc = ProtoField.new("Spin Start Time Milli", "otcmarkets.linknqb.topofbook.link.v1.18.spinstarttimemilli.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Milliseconds since UTC epoch.")
+omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otcmarkets.linknqb.topofbook.link.v1.18.spinstarttimemilli", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Milliseconds since UTC epoch.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.spin_type = ProtoField.new("Spin Type", "otcmarkets.linknqb.topofbook.link.v1.18.spintype", ftypes.UINT8, nil, nil, nil, "Spin type.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.symbol = ProtoField.new("Symbol", "otcmarkets.linknqb.topofbook.link.v1.18.symbol", ftypes.STRING, nil, nil, nil, "Ticker symbol.")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.fields.test = ProtoField.new("Test", "otcmarkets.linknqb.topofbook.link.v1.18.test", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x80, "Packet contains test messages")
@@ -108,7 +108,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-otcmarkets_linknqb_topofbook_link_v1_18.timestamp_format = 2
+otcmarkets_linknqb_topofbook_link_v1_18.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -131,7 +131,7 @@ omi_otcmarkets_linknqb_topofbook_link_v1_18.prefs.show_headers = Pref.bool("Show
 omi_otcmarkets_linknqb_topofbook_link_v1_18.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_otcmarkets_linknqb_topofbook_link_v1_18.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_otcmarkets_linknqb_topofbook_link_v1_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_otcmarkets_linknqb_topofbook_link_v1_18.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_otcmarkets_linknqb_topofbook_link_v1_18.prefs_changed()

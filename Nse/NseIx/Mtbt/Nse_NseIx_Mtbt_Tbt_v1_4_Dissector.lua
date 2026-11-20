@@ -32,8 +32,8 @@ omi_nse_nseix_mtbt_tbt_v1_4.fields.sequence_number = ProtoField.new("Sequence Nu
 omi_nse_nseix_mtbt_tbt_v1_4.fields.session_indc = ProtoField.new("Session Indc", "nse.nseix.mtbt.tbt.v1.4.sessionindc", ftypes.INT16, nil, nil, nil, "'1' T Session, '2' T+1 Session")
 omi_nse_nseix_mtbt_tbt_v1_4.fields.status = ProtoField.new("Status", "nse.nseix.mtbt.tbt.v1.4.status", ftypes.INT16, nil, nil, nil, "'0' Preopen, '1' Open, '2' Closed, '3' Preopen-end, '4' PreClose, '5' PreClose-end")
 omi_nse_nseix_mtbt_tbt_v1_4.fields.stream_id = ProtoField.new("Stream Id", "nse.nseix.mtbt.tbt.v1.4.streamid", ftypes.INT16, nil, nil, nil, "Identifies a particular stream [2, Short]")
-omi_nse_nseix_mtbt_tbt_v1_4.fields.timestamp = ProtoField.new("Timestamp", "nse.nseix.mtbt.tbt.v1.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
 omi_nse_nseix_mtbt_tbt_v1_4.fields.timestamp_utc = ProtoField.new("Timestamp", "nse.nseix.mtbt.tbt.v1.4.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
+omi_nse_nseix_mtbt_tbt_v1_4.fields.timestamp = ProtoField.new("Timestamp", "nse.nseix.mtbt.tbt.v1.4.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time in nanoseconds from 01-Jan-1980 00:00:00")
 omi_nse_nseix_mtbt_tbt_v1_4.fields.token = ProtoField.new("Token", "nse.nseix.mtbt.tbt.v1.4.token", ftypes.INT32, nil, nil, nil, "Unique Contract Identifier")
 omi_nse_nseix_mtbt_tbt_v1_4.fields.trade_price = ProtoField.new("Trade Price", "nse.nseix.mtbt.tbt.v1.4.tradeprice", ftypes.DOUBLE, nil, nil, nil, "Trade Price (In cents), at which the trade took place, in multiples of the tick size; divided by 10000 for converting into USD")
 omi_nse_nseix_mtbt_tbt_v1_4.fields.trade_quantity = ProtoField.new("Trade Quantity", "nse.nseix.mtbt.tbt.v1.4.tradequantity", ftypes.INT32)
@@ -73,7 +73,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nse_nseix_mtbt_tbt_v1_4.timestamp_format = 2
+nse_nseix_mtbt_tbt_v1_4.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 nse_nseix_mtbt_tbt_v1_4.zone_offset = 0
@@ -97,7 +97,7 @@ omi_nse_nseix_mtbt_tbt_v1_4.prefs.show_structs = Pref.bool("Show Structs", show.
 omi_nse_nseix_mtbt_tbt_v1_4.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nseix_mtbt_tbt_v1_4.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nse_nseix_mtbt_tbt_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nseix_mtbt_tbt_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_nse_nseix_mtbt_tbt_v1_4.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

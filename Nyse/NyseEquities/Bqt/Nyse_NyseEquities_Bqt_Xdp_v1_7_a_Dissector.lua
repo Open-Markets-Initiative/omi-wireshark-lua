@@ -71,18 +71,18 @@ omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.retail_pricing_indicator = ProtoFiel
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.retransmit_method = ProtoField.new("Retransmit Method", "nyse.nyseequities.bqt.xdp.v1.7.a.retransmitmethod", ftypes.UINT8, nil, nil, nil, "The delivery method for the requested symbol index mapping information.")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.round_lot = ProtoField.new("Round Lot", "nyse.nyseequities.bqt.xdp.v1.7.a.roundlot", ftypes.STRING, nil, nil, nil, "Round Lots Accepted")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.rpi_indicator = ProtoField.new("Rpi Indicator", "nyse.nyseequities.bqt.xdp.v1.7.a.rpiindicator", ftypes.STRING, nil, nil, nil, "Retail Pricing Indicator value")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.bqt.xdp.v1.7.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseequities.bqt.xdp.v1.7.a.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.seconds = ProtoField.new("Seconds", "nyse.nyseequities.bqt.xdp.v1.7.a.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.security_status = ProtoField.new("Security Status", "nyse.nyseequities.bqt.xdp.v1.7.a.securitystatus", ftypes.STRING, nil, nil, nil, "The new status that this security is transitioning to.")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.security_type = ProtoField.new("Security Type", "nyse.nyseequities.bqt.xdp.v1.7.a.securitytype", ftypes.STRING, nil, nil, nil, "Type of Security used by Arca, National and American")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bqt.xdp.v1.7.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseequities.bqt.xdp.v1.7.a.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time = ProtoField.new("Send Time", "nyse.nyseequities.bqt.xdp.v1.7.a.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.sequence_number = ProtoField.new("Sequence Number", "nyse.nyseequities.bqt.xdp.v1.7.a.sequencenumber", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.session_state = ProtoField.new("Session State", "nyse.nyseequities.bqt.xdp.v1.7.a.sessionstate", ftypes.STRING, nil, nil, nil, "Unused. Defaulted to 0x00.")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.side = ProtoField.new("Side", "nyse.nyseequities.bqt.xdp.v1.7.a.side", ftypes.STRING, nil, nil, nil, "The side of the order")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.source_id = ProtoField.new("Source Id", "nyse.nyseequities.bqt.xdp.v1.7.a.sourceid", ftypes.STRING, nil, nil, nil, "The ID of the client requesting this retransmission . This field is up to 9 characters, null terminated.")
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.bqt.xdp.v1.7.a.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.source_time_utc = ProtoField.new("Source Time", "nyse.nyseequities.bqt.xdp.v1.7.a.sourcetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.source_time = ProtoField.new("Source Time", "nyse.nyseequities.bqt.xdp.v1.7.a.sourcetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this msg was generated in the order book, in seconds since Jan 1, 1970 00:00:00 UTC.")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.nyseequities.bqt.xdp.v1.7.a.sourcetimens", ftypes.UINT32, nil, nil, nil, "The nanosecond offset from the SourceTime")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.ssr_state = ProtoField.new("Ssr State", "nyse.nyseequities.bqt.xdp.v1.7.a.ssrstate", ftypes.STRING, nil, nil, nil, "The current SSR state, which this msg updates if the Security Status field contains an SSR Code. Valid")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.ssr_triggering_exchange_id = ProtoField.new("Ssr Triggering Exchange Id", "nyse.nyseequities.bqt.xdp.v1.7.a.ssrtriggeringexchangeid", ftypes.STRING, nil, nil, nil, "This field is only populated when securityStatus = A and this security is listed on this exchange. Otherwise it is defaulted to 0x20.")
@@ -134,6 +134,7 @@ omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.symbol_index_mapping_request_message
 
 -- Nyse NyseEquities Bqt Xdp 1.7.a Generated Fields
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.message_index = ProtoField.new("Message Index", "nyse.nyseequities.bqt.xdp.v1.7.a.messageindex", ftypes.UINT16)
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.prev_close_price_calculate = ProtoField.new("Prev Close Price Calculate", "nyse.nyseequities.bqt.xdp.v1.7.a.prevclosepricecalculate", ftypes.DOUBLE)
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.bqt.xdp.v1.7.a.timestamp", ftypes.UINT64)
 
 -- Nyse NyseEquities Bqt Xdp 1.7.a Expert Info
@@ -153,7 +154,10 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_nyseequities_bqt_xdp_v1_7_a.timestamp_format = 2
+nyse_nyseequities_bqt_xdp_v1_7_a.timestamp_format = 3
+
+-- Prev Close Price Calculate format (true = decimal-scaled, false = raw mantissa)
+nyse_nyseequities_bqt_xdp_v1_7_a.format_decimals = true
 
 
 -----------------------------------------------------------------------
@@ -175,8 +179,9 @@ omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_structs = Pref.bool("Show Struct
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.format_decimals = Pref.bool("Format Decimals", true, "Format decimal-scaled fields as scaled values (off = raw mantissa)")
 
-omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs_changed()
@@ -196,6 +201,9 @@ function omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs_changed()
   end
   if show.indexes ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_indexes then
     show.indexes = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.show_indexes
+  end
+  if nyse_nyseequities_bqt_xdp_v1_7_a.format_decimals ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.format_decimals then
+    nyse_nyseequities_bqt_xdp_v1_7_a.format_decimals = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.format_decimals
   end
   if nyse_nyseequities_bqt_xdp_v1_7_a.timestamp_format ~= omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.timestamp_format then
     nyse_nyseequities_bqt_xdp_v1_7_a.timestamp_format = omi_nyse_nyseequities_bqt_xdp_v1_7_a.prefs.timestamp_format
@@ -222,7 +230,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.conversation.data = function(packet)
   local key = nyse_nyseequities_bqt_xdp_v1_7_a.conversation.key(packet)
   local data = nyse_nyseequities_bqt_xdp_v1_7_a.conversation.flows[key]
   if data == nil then
-    data = { source_time = { last = nil, frames = {} } }
+    data = { source_time = { last = nil, frames = {} }, price_scale_code = { last = nil, frames = {} } }
     nyse_nyseequities_bqt_xdp_v1_7_a.conversation.flows[key] = data
   end
   return data
@@ -1531,6 +1539,16 @@ nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code = {}
 
 -- Size: Price Scale Code
 nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code.size = 1
+
+-- Store: Price Scale Code
+nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code.current = nil
+
+-- Generated: Price Scale Code
+nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code.generated = function(value, range, packet, parent)
+  local display = nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code.display(value)
+  local price_scale_code = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.price_scale_code, range, value, display)
+  price_scale_code:set_generated()
+end
 
 -- Display: Price Scale Code
 nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code.display = function(value)
@@ -3045,6 +3063,45 @@ nyse_nyseequities_bqt_xdp_v1_7_a.volume.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Prev Close Price Calculate
+nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price_calculate = {}
+
+-- Display: Prev Close Price Calculate
+nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price_calculate.display = function(value)
+  return "Prev Close Price Calculate: " .. string.format("%.15g", value)
+end
+
+-- Composite: Prev Close Price Calculate
+nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price_calculate.composite = function(buffer, offset, stored_price_scale_code, packet, parent)
+  local length = nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price.size
+  local range = buffer(offset, length)
+  local mantissa = range:le_uint()
+  local value = mantissa / (10 ^ stored_price_scale_code)
+  local display = nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price_calculate.display(value)
+  local field_tree = parent:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.prev_close_price_calculate, range, value, display)
+  local mantissa_display = nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price.display(mantissa)
+
+  field_tree:add(omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.prev_close_price, range, mantissa, mantissa_display)
+
+  local stored_price_scale_code_entry = field_tree:add("Price Scale Code: " .. tostring(stored_price_scale_code))
+  stored_price_scale_code_entry:set_generated()
+
+  return offset + length, value
+end
+
+-- Dissect: Prev Close Price Calculate
+nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price_calculate.dissect = function(buffer, offset, packet, parent)
+  if nyse_nyseequities_bqt_xdp_v1_7_a.format_decimals then
+    local stored_price_scale_code = nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code.current
+
+    if stored_price_scale_code ~= nil then
+      return nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price_calculate.composite(buffer, offset, stored_price_scale_code, packet, parent)
+    end
+  end
+
+  return nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price.dissect(buffer, offset, packet, parent)
+end
+
 -- Timestamp
 nyse_nyseequities_bqt_xdp_v1_7_a.timestamp = {}
 
@@ -4377,6 +4434,13 @@ nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_message.fields = function(
   -- Price Scale Code: Binary
   index, price_scale_code = nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code.dissect(buffer, index, packet, parent)
 
+  -- Store Price Scale Code Value
+  nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code.current = price_scale_code
+
+  if not packet.visited then
+    nyse_nyseequities_bqt_xdp_v1_7_a.conversation.current.price_scale_code.last = price_scale_code
+  end
+
   -- Security Type: ASCII
   index, security_type = nyse_nyseequities_bqt_xdp_v1_7_a.security_type.dissect(buffer, index, packet, parent)
 
@@ -4384,7 +4448,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.symbol_index_mapping_message.fields = function(
   index, lot_size = nyse_nyseequities_bqt_xdp_v1_7_a.lot_size.dissect(buffer, index, packet, parent)
 
   -- Prev Close Price: Binary
-  index, prev_close_price = nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price.dissect(buffer, index, packet, parent)
+  index, prev_close_price = nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_price_calculate.dissect(buffer, index, packet, parent)
 
   -- Prev Close Volume: Binary
   index, prev_close_volume = nyse_nyseequities_bqt_xdp_v1_7_a.prev_close_volume.dissect(buffer, index, packet, parent)
@@ -4678,8 +4742,8 @@ nyse_nyseequities_bqt_xdp_v1_7_a.send_time.dissect = function(buffer, offset, pa
     local length = nyse_nyseequities_bqt_xdp_v1_7_a.send_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time
-    if nyse_nyseequities_bqt_xdp_v1_7_a.timestamp_format == 3 then field = omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time_utc end
+    local field = omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time_utc
+    if nyse_nyseequities_bqt_xdp_v1_7_a.timestamp_format == 2 then field = omi_nyse_nyseequities_bqt_xdp_v1_7_a.fields.send_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_nyseequities_bqt_xdp_v1_7_a.send_time.fields(buffer, offset, packet, parent)
 
@@ -4760,6 +4824,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.packet.dissect = function(buffer, packet, paren
   local data = nyse_nyseequities_bqt_xdp_v1_7_a.conversation.data(packet)
   if not packet.visited then
     data.source_time.frames[packet.number] = data.source_time.last
+    data.price_scale_code.frames[packet.number] = data.price_scale_code.last
     data.source_time.frames[packet.number] = data.source_time.last
     data.source_time.frames[packet.number] = data.source_time.last
     data.source_time.frames[packet.number] = data.source_time.last
@@ -4769,6 +4834,7 @@ nyse_nyseequities_bqt_xdp_v1_7_a.packet.dissect = function(buffer, packet, paren
     data.source_time.frames[packet.number] = data.source_time.last
   end
   nyse_nyseequities_bqt_xdp_v1_7_a.source_time.current = data.source_time.frames[packet.number]
+  nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code.current = data.price_scale_code.frames[packet.number]
   nyse_nyseequities_bqt_xdp_v1_7_a.source_time.current = data.source_time.frames[packet.number]
   nyse_nyseequities_bqt_xdp_v1_7_a.source_time.current = data.source_time.frames[packet.number]
   nyse_nyseequities_bqt_xdp_v1_7_a.source_time.current = data.source_time.frames[packet.number]
@@ -4815,6 +4881,7 @@ end
 -- Initialize Dissector
 function omi_nyse_nyseequities_bqt_xdp_v1_7_a.init()
   nyse_nyseequities_bqt_xdp_v1_7_a.source_time.current = nil
+  nyse_nyseequities_bqt_xdp_v1_7_a.price_scale_code.current = nil
   nyse_nyseequities_bqt_xdp_v1_7_a.conversation.current = nil
   nyse_nyseequities_bqt_xdp_v1_7_a.conversation.flows = {}
 end

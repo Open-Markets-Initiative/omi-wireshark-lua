@@ -16,14 +16,14 @@ local bmv_bmvmarketdata_product23_intra_v1_1 = {}
 
 -- Bmv BmvMarketData Product23 Intra 1.1 Fields
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.component = ProtoField.new("Component", "bmv.bmvmarketdata.product23.intra.v1.1.component", ftypes.STRING, nil, nil, nil, "See Indices Components Catalog on the Connections and Appendix document")
-omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.datetime = ProtoField.new("Datetime", "bmv.bmvmarketdata.product23.intra.v1.1.datetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time the packet is created")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.datetime_utc = ProtoField.new("Datetime", "bmv.bmvmarketdata.product23.intra.v1.1.datetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date and time the packet is created")
-omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.ending_time = ProtoField.new("Ending Time", "bmv.bmvmarketdata.product23.intra.v1.1.endingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Recess official ending time. Only used when an official recess or automatic recess occurred.")
+omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.datetime = ProtoField.new("Datetime", "bmv.bmvmarketdata.product23.intra.v1.1.datetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date and time the packet is created")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.ending_time_utc = ProtoField.new("Ending Time", "bmv.bmvmarketdata.product23.intra.v1.1.endingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Recess official ending time. Only used when an official recess or automatic recess occurred.")
+omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.ending_time = ProtoField.new("Ending Time", "bmv.bmvmarketdata.product23.intra.v1.1.endingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Recess official ending time. Only used when an official recess or automatic recess occurred.")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.event_code = ProtoField.new("Event Code", "bmv.bmvmarketdata.product23.intra.v1.1.eventcode", ftypes.STRING, nil, nil, nil, "See the table of System Event Codes Catalog on the Connections and Appendix document")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.indices = ProtoField.new("Indices", "bmv.bmvmarketdata.product23.intra.v1.1.indices", ftypes.DOUBLE, nil, nil, nil, "Indices value")
-omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.indices_hour = ProtoField.new("Indices Hour", "bmv.bmvmarketdata.product23.intra.v1.1.indiceshour", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time Indices was calculated")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.indices_hour_utc = ProtoField.new("Indices Hour", "bmv.bmvmarketdata.product23.intra.v1.1.indiceshour.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time Indices was calculated")
+omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.indices_hour = ProtoField.new("Indices Hour", "bmv.bmvmarketdata.product23.intra.v1.1.indiceshour", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time Indices was calculated")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.indices_status = ProtoField.new("Indices Status", "bmv.bmvmarketdata.product23.intra.v1.1.indicesstatus", ftypes.STRING, nil, nil, nil, "See Indices Status Catalog on the Connections and Appendix document")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.instrument_number = ProtoField.new("Instrument Number", "bmv.bmvmarketdata.product23.intra.v1.1.instrumentnumber", ftypes.INT32, nil, nil, nil, "Always zero")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.length = ProtoField.new("Length", "bmv.bmvmarketdata.product23.intra.v1.1.length", ftypes.INT16, nil, nil, nil, "Packet length, including header and all attached messages")
@@ -33,8 +33,8 @@ omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.message_length = ProtoField.ne
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.message_type = ProtoField.new("Message Type", "bmv.bmvmarketdata.product23.intra.v1.1.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying the message")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.percentage = ProtoField.new("Percentage", "bmv.bmvmarketdata.product23.intra.v1.1.percentage", ftypes.DOUBLE, nil, nil, nil, "Percentage points")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.sector = ProtoField.new("Sector", "bmv.bmvmarketdata.product23.intra.v1.1.sector", ftypes.INT8, nil, nil, nil, "See Industry Classification on the Connections and Appendix document")
-omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.sending_time = ProtoField.new("Sending Time", "bmv.bmvmarketdata.product23.intra.v1.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Recess’s official sending time. Only used when official recess has occurred.")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.sending_time_utc = ProtoField.new("Sending Time", "bmv.bmvmarketdata.product23.intra.v1.1.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Recess’s official sending time. Only used when official recess has occurred.")
+omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.sending_time = ProtoField.new("Sending Time", "bmv.bmvmarketdata.product23.intra.v1.1.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Recess’s official sending time. Only used when official recess has occurred.")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "bmv.bmvmarketdata.product23.intra.v1.1.sequencenumber", ftypes.INT32, nil, nil, nil, "Sequence number of the first message attached to header")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.session = ProtoField.new("Session", "bmv.bmvmarketdata.product23.intra.v1.1.session", ftypes.INT8, nil, nil, nil, "Current session identifier")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.fields.total_messages = ProtoField.new("Total Messages", "bmv.bmvmarketdata.product23.intra.v1.1.totalmessages", ftypes.INT8, nil, nil, nil, "Number of messages after the header")
@@ -74,7 +74,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-bmv_bmvmarketdata_product23_intra_v1_1.timestamp_format = 2
+bmv_bmvmarketdata_product23_intra_v1_1.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -95,7 +95,7 @@ omi_bmv_bmvmarketdata_product23_intra_v1_1.prefs.show_headers = Pref.bool("Show 
 omi_bmv_bmvmarketdata_product23_intra_v1_1.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
 omi_bmv_bmvmarketdata_product23_intra_v1_1.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_bmv_bmvmarketdata_product23_intra_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_bmv_bmvmarketdata_product23_intra_v1_1.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_bmv_bmvmarketdata_product23_intra_v1_1.prefs_changed()

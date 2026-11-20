@@ -83,8 +83,8 @@ omi_asx_asxderivatives_ntp_itch_v1_05.fields.quantity = ProtoField.new("Quantity
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.quantity_remaining = ProtoField.new("Quantity Remaining", "asx.asxderivatives.ntp.itch.v1.05.quantityremaining", ftypes.UINT32, nil, nil, nil, "Volume remaining on Order after matching, if 0, order has traded out and should be deleted.")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.ratio_leg = ProtoField.new("Ratio Leg", "asx.asxderivatives.ntp.itch.v1.05.ratioleg", ftypes.UINT32, nil, nil, nil, "Ratio of the leg")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.rfq_side = ProtoField.new("Rfq Side", "asx.asxderivatives.ntp.itch.v1.05.rfqside", ftypes.STRING, nil, nil, nil, "Identifies side of the RFQ")
-omi_asx_asxderivatives_ntp_itch_v1_05.fields.second = ProtoField.new("Second", "asx.asxderivatives.ntp.itch.v1.05.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.second_utc = ProtoField.new("Second", "asx.asxderivatives.ntp.itch.v1.05.second.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
+omi_asx_asxderivatives_ntp_itch_v1_05.fields.second = ProtoField.new("Second", "asx.asxderivatives.ntp.itch.v1.05.second", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (number of seconds since 1970-01-01 00:00:00 UTC).")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.seller_combination_trade_id = ProtoField.new("Seller Combination Trade Id", "asx.asxderivatives.ntp.itch.v1.05.sellercombinationtradeid", ftypes.UINT64, nil, nil, nil, "A non-zero value indicates that this trade is part of an execution cycle for a combination trade from the E or P message.")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.seller_order_id = ProtoField.new("Seller Order Id", "asx.asxderivatives.ntp.itch.v1.05.sellerorderid", ftypes.UINT64, nil, nil, nil, "Reference number of the Seller’s order – 0 if order is aggressive.")
 omi_asx_asxderivatives_ntp_itch_v1_05.fields.seller_participant_id = ProtoField.new("Seller Participant Id", "asx.asxderivatives.ntp.itch.v1.05.sellerparticipantid", ftypes.STRING, nil, nil, nil, "Selling participant identifier of the owner of the aggressive order.")
@@ -170,7 +170,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-asx_asxderivatives_ntp_itch_v1_05.timestamp_format = 2
+asx_asxderivatives_ntp_itch_v1_05.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -193,7 +193,7 @@ omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_headers = Pref.bool("Show Heade
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_asx_asxderivatives_ntp_itch_v1_05.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_asx_asxderivatives_ntp_itch_v1_05.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_asx_asxderivatives_ntp_itch_v1_05.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_asx_asxderivatives_ntp_itch_v1_05.prefs_changed()

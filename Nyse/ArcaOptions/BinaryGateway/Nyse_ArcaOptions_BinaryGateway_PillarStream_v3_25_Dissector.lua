@@ -93,8 +93,8 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.max_order_quantity 
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.mic = ProtoField.new("Mic", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.mic", ftypes.STRING, nil, nil, nil, "Market Identifier Code of the connected market")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.min_qty = ProtoField.new("Min Qty", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.minqty", ftypes.UINT32, nil, nil, nil, "Minimum execution quantity; must be zero for complex orders")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.mm_quote_type = ProtoField.new("Mm Quote Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.mmquotetype", ftypes.UINT8, {[0]="Standard", [1]="Repricing", [2]="Add Liquidity Only Non Taking", [4]="Repricing Add Liquidity Only Non Taking"}, base.DEC, 0x1C, "Market maker quote type")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.mmsenttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Customer-provided sending time in nanoseconds since epoch")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.mm_sent_time_utc = ProtoField.new("Mm Sent Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.mmsenttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Customer-provided sending time in nanoseconds since epoch")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.mm_sent_time = ProtoField.new("Mm Sent Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.mmsenttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Customer-provided sending time in nanoseconds since epoch")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.mm_type = ProtoField.new("Mm Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.mmtype", ftypes.UINT8, nil, nil, nil, "Market maker role/type for the appointed symbol")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.mode = ProtoField.new("Mode", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.mode", ftypes.UINT8, nil, nil, nil, "Mode requested")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.mp_sub_id = ProtoField.new("Mp Sub Id", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.mpsubid", ftypes.STRING, nil, nil, nil, "Customer-defined trading desk or entity identifier")
@@ -200,12 +200,12 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.throttle_window = P
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.throttled = ProtoField.new("Throttled", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.throttled", ftypes.UINT8, {[0]="Not Throttled", [1]="Throttled"}, base.DEC, 0x01, "Indicates if inbound message was throttled")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.time_in_force = ProtoField.new("Time In Force", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.timeinforce", ftypes.UINT8, nil, nil, nil, "Order duration")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.time_limit = ProtoField.new("Time Limit", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.timelimit", ftypes.INT32, nil, nil, nil, "Rolling time window in microseconds for activity-based risk controls")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.timestamp = ProtoField.new("Timestamp", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message timestamp")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.timestamp_utc = ProtoField.new("Timestamp", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Message timestamp")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.timestamp = ProtoField.new("Timestamp", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message timestamp")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.tradingmpv", ftypes.DOUBLE, nil, nil, nil, "Trading minimum price variation for this MPV level")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.tradingsessionid", ftypes.UINT8, nil, nil, nil, "Eligible trading sessions")
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.transact_time = ProtoField.new("Transact Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Exchange application time")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.transact_time_utc = ProtoField.new("Transact Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Exchange application time")
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.transact_time = ProtoField.new("Transact Time", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Exchange application time")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.underlying_type = ProtoField.new("Underlying Type", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.underlyingtype", ftypes.STRING, nil, nil, nil, "Type of the underlying security")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.unused_3 = ProtoField.new("Unused 3", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.unused3", ftypes.UINT8, nil, base.DEC, 0xE0, "Reserved for future use")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.unused_34 = ProtoField.new("Unused 34", "nyse.arcaoptions.binarygateway.pillarstream.v3.25.unused34", ftypes.UINT64, nil, nil, nil, "Reserved for future use")
@@ -292,7 +292,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_arcaoptions_binarygateway_pillarstream_v3_25.timestamp_format = 2
+nyse_arcaoptions_binarygateway_pillarstream_v3_25.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -329,7 +329,7 @@ omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.prefs.show_headers = Pref.
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.prefs_changed()
@@ -8912,7 +8912,22 @@ end
 -- Covered
 nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered = {}
 
--- Size of Covered: not written, it needs Seq Msg Length passed down from New Order Cross Message
+-- Size: Covered
+nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.size =
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.sub_msg_header.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.symbol_id.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.mpid.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.market_maker.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.mp_sub_id.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.cl_ord_id.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.orig_cl_ord_id.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.bitfield_order_instructions.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.price.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.order_qty.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.min_qty.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.user_data.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.leg_open_close.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.auction_id.size
 
 -- Display: Covered
 nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.display = function(packet, parent, length)
@@ -8920,7 +8935,7 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.display = function(pac
 end
 
 -- Dissect Fields: Covered
-nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.fields = function(buffer, offset, packet, parent, seq_msg_length)
+nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sub Msg Header: Struct of 2 fields
@@ -8965,24 +8980,15 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.fields = function(buff
   -- Auction Id: u64
   index, auction_id = nyse_arcaoptions_binarygateway_pillarstream_v3_25.auction_id.dissect(buffer, index, packet, parent)
 
-  -- Runtime optional field: Optional Order Add On
-  local optional_order_add_on = nil
-
-  local optional_order_add_on_exists = seq_msg_length ~= 100
-
-  if optional_order_add_on_exists then
-    index, optional_order_add_on = nyse_arcaoptions_binarygateway_pillarstream_v3_25.optional_order_add_on.dissect(buffer, index, packet, parent)
-  end
-
   return index
 end
 
 -- Dissect: Covered
-nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.dissect = function(buffer, offset, packet, parent, seq_msg_length)
+nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.dissect = function(buffer, offset, packet, parent)
   if show.structs then
     -- Optionally add element to protocol tree
     parent = parent:add(omi_nyse_arcaoptions_binarygateway_pillarstream_v3_25.fields.covered, buffer(offset, 0))
-    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.fields(buffer, offset, packet, parent, seq_msg_length)
+    local index = nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
     local display = nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.display(packet, parent, length)
@@ -8991,54 +8997,29 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.dissect = function(buf
     return index, parent
   else
     -- Skip element, add fields directly
-    return nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.fields(buffer, offset, packet, parent, seq_msg_length)
+    return nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.fields(buffer, offset, packet, parent)
   end
 end
 
 -- Exposed
 nyse_arcaoptions_binarygateway_pillarstream_v3_25.exposed = {}
 
--- Calculate size of: Exposed
-nyse_arcaoptions_binarygateway_pillarstream_v3_25.exposed.size = function(buffer, offset)
-  local index = 0
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.sub_msg_header.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.symbol_id.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.mpid.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.market_maker.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.mp_sub_id.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.cl_ord_id.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.orig_cl_ord_id.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.bitfield_order_instructions.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.price.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.order_qty.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.min_qty.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.user_data.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.leg_open_close.size
-
-  index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.auction_id.size
-
-  local seq_msg_length = buffer(offset - 79, 2):le_uint()
-
-  if seq_msg_length ~= 100 then
-    index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.optional_order_add_on.size
-
-  end
-
-  return index
-end
+-- Size: Exposed
+nyse_arcaoptions_binarygateway_pillarstream_v3_25.exposed.size =
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.sub_msg_header.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.symbol_id.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.mpid.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.market_maker.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.mp_sub_id.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.cl_ord_id.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.orig_cl_ord_id.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.bitfield_order_instructions.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.price.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.order_qty.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.min_qty.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.user_data.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.leg_open_close.size + 
+  nyse_arcaoptions_binarygateway_pillarstream_v3_25.auction_id.size
 
 -- Display: Exposed
 nyse_arcaoptions_binarygateway_pillarstream_v3_25.exposed.display = function(packet, parent, length)
@@ -9090,18 +9071,6 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_25.exposed.fields = function(buff
 
   -- Auction Id: u64
   index, auction_id = nyse_arcaoptions_binarygateway_pillarstream_v3_25.auction_id.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(offset - 79, 2):le_uint()
-
-  -- Runtime optional field: Optional Order Add On
-  local optional_order_add_on = nil
-
-  local optional_order_add_on_exists = seq_msg_length ~= 100
-
-  if optional_order_add_on_exists then
-    index, optional_order_add_on = nyse_arcaoptions_binarygateway_pillarstream_v3_25.optional_order_add_on.dissect(buffer, index, packet, parent)
-  end
 
   return index
 end
@@ -9177,14 +9146,11 @@ nyse_arcaoptions_binarygateway_pillarstream_v3_25.new_order_cross_message.fields
     index = index + nyse_arcaoptions_binarygateway_pillarstream_v3_25.reserved_16.size
   end
 
-  -- Exposed: Struct of 15 fields
+  -- Exposed: Struct of 14 fields
   index, exposed = nyse_arcaoptions_binarygateway_pillarstream_v3_25.exposed.dissect(buffer, index, packet, parent)
 
-  -- Dependency element: Seq Msg Length
-  local seq_msg_length = buffer(offset - 2, 2):le_uint()
-
-  -- Covered: Struct of 15 fields
-  index, covered = nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.dissect(buffer, index, packet, parent, seq_msg_length)
+  -- Covered: Struct of 14 fields
+  index, covered = nyse_arcaoptions_binarygateway_pillarstream_v3_25.covered.dissect(buffer, index, packet, parent)
 
   return index
 end

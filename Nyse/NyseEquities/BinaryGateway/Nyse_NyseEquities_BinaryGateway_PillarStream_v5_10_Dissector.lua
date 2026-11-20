@@ -47,8 +47,8 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.dmm_available_qty 
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.dmm_reject_reason = ProtoField.new("Dmm Reject Reason", "nyse.nyseequities.binarygateway.pillarstream.v5.10.dmmrejectreason", ftypes.STRING, nil, nil, nil, "Optional reject reason displayed on DBK GUI when ManualResponseType=2. Printable ASCII only.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.dmm_requested_qty = ProtoField.new("Dmm Requested Qty", "nyse.nyseequities.binarygateway.pillarstream.v5.10.dmmrequestedqty", ftypes.UINT32, nil, nil, nil, "Requested quantity associated with the manual action.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.dmm_unit_num = ProtoField.new("Dmm Unit Num", "nyse.nyseequities.binarygateway.pillarstream.v5.10.dmmunitnum", ftypes.STRING, nil, nil, nil, "DMM Unit Identification Number")
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.effective_time = ProtoField.new("Effective Time", "nyse.nyseequities.binarygateway.pillarstream.v5.10.effectivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Reserved for future use")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.effective_time_utc = ProtoField.new("Effective Time", "nyse.nyseequities.binarygateway.pillarstream.v5.10.effectivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Reserved for future use")
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.effective_time = ProtoField.new("Effective Time", "nyse.nyseequities.binarygateway.pillarstream.v5.10.effectivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Reserved for future use")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.end_seq = ProtoField.new("End Seq", "nyse.nyseequities.binarygateway.pillarstream.v5.10.endseq", ftypes.UINT64, nil, nil, nil, "End sequence (ignored for write request)")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.nyseequities.binarygateway.pillarstream.v5.10.execinst", ftypes.UINT64, {[0]="None", [1]="Reserved 1", [2]="Reserved 2", [3]="Tracking", [4]="Iso", [5]="Primary Peg", [6]="Market Peg", [7]="Midpoint", [8]="Non Displayed", [9]="Trade At Iso", [10]="Last Sale Peg"}, base.DEC, 0x00F0000000000000, "ExecInst")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.nyseequities.binarygateway.pillarstream.v5.10.extendedexecinst", ftypes.UINT64, {[0]="None", [1]="Alo", [3]="No Ioi Route", [5]="Retail Type 1", [6]="Retail Type 2", [7]="Retail Provider", [8]="Imbalance Offset", [9]="Discretionary Peg", [10]="Dark Primary Peg", [14]="Ido"}, base.DEC, 0x000F000000000000, "ExtendedExecInst")
@@ -179,12 +179,12 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.throttle_window = 
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.throttled = ProtoField.new("Throttled", "nyse.nyseequities.binarygateway.pillarstream.v5.10.throttled", ftypes.UINT8, {[0]="Not Throttled", [1]="Throttled"}, base.DEC, 0x01)
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.time_in_force = ProtoField.new("Time In Force", "nyse.nyseequities.binarygateway.pillarstream.v5.10.timeinforce", ftypes.UINT64, {[1]="Day", [2]="Ioc", [3]="At The Opening", [4]="On Close"}, base.DEC, 0x0000000380000000, "TimeInForce")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.time_limit = ProtoField.new("Time Limit", "nyse.nyseequities.binarygateway.pillarstream.v5.10.timelimit", ftypes.INT32, nil, nil, nil, "Microsecond time period. Must be specified for RiskControlTypes: Activity-based Rolling Transaction/Volume/Percentage; Activity-based Global Risk Mitigation Protection; Max Duplicative Orders; Order Rate Threshold – Max Orders across All Symbols. For other RiskControlTypes set to 0.")
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.binarygateway.pillarstream.v5.10.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message timestamp")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.timestamp_utc = ProtoField.new("Timestamp", "nyse.nyseequities.binarygateway.pillarstream.v5.10.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Message timestamp")
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.timestamp = ProtoField.new("Timestamp", "nyse.nyseequities.binarygateway.pillarstream.v5.10.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Message timestamp")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.nyseequities.binarygateway.pillarstream.v5.10.tradingmpv", ftypes.DOUBLE, nil, nil, nil, "Numeric value of the Trading Minimum Price Variation for the MPVLevel and Price defined in this message.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.nyseequities.binarygateway.pillarstream.v5.10.tradingsessionid", ftypes.UINT64, {[1]="Early Trading Session", [2]="Core Trading Session", [3]="Late Trading Session", [4]="Early And Core Trading Sessions", [5]="Core And Late Trading Sessions", [6]="Early Core And Late Trading Sessions"}, base.DEC, 0x0000000070000000, "TradingSessionID")
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.transact_time = ProtoField.new("Transact Time", "nyse.nyseequities.binarygateway.pillarstream.v5.10.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Exchange application time.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.transact_time_utc = ProtoField.new("Transact Time", "nyse.nyseequities.binarygateway.pillarstream.v5.10.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Exchange application time.")
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.transact_time = ProtoField.new("Transact Time", "nyse.nyseequities.binarygateway.pillarstream.v5.10.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Exchange application time.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.unpaired_qty = ProtoField.new("Unpaired Qty", "nyse.nyseequities.binarygateway.pillarstream.v5.10.unpairedqty", ftypes.UINT32, nil, nil, nil, "Unpaired at- and better-priced shares relative to Price, excluding DMM.")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.unused_12 = ProtoField.new("Unused 12", "nyse.nyseequities.binarygateway.pillarstream.v5.10.unused12", ftypes.UINT64, nil, base.DEC, 0x0000000000000FFF, "Bits reserved for future use")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.fields.unused_7 = ProtoField.new("Unused 7", "nyse.nyseequities.binarygateway.pillarstream.v5.10.unused7", ftypes.UINT8, nil, base.DEC, 0xFE, "Bits reserved for future use")
@@ -267,7 +267,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_nyseequities_binarygateway_pillarstream_v5_10.timestamp_format = 2
+nyse_nyseequities_binarygateway_pillarstream_v5_10.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -300,7 +300,7 @@ omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.prefs.show_session_messag
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nyseequities_binarygateway_pillarstream_v5_10.prefs_changed()

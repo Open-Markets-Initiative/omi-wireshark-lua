@@ -52,8 +52,8 @@ omi_hkex_sse_chinaconnect_omd_v1_4.fields.security_code = ProtoField.new("Securi
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.security_name_gb = ProtoField.new("Security Name Gb", "hkex.sse.chinaconnect.omd.v1.4.securitynamegb", ftypes.BYTES, nil, nil, nil, "Security name in Simplified Chinese using Unicode UTF-16LE encoding.")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.security_short_name = ProtoField.new("Security Short Name", "hkex.sse.chinaconnect.omd.v1.4.securityshortname", ftypes.STRING, nil, nil, nil, "Security short name.")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.security_trading_status = ProtoField.new("Security Trading Status", "hkex.sse.chinaconnect.omd.v1.4.securitytradingstatus", ftypes.UINT8, nil, nil, nil, "Identifies the trading status of a security.")
-omi_hkex_sse_chinaconnect_omd_v1_4.fields.send_time = ProtoField.new("Send Time", "hkex.sse.chinaconnect.omd.v1.4.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of the packet — nanoseconds since Unix epoch UTC (precision to millisecond)")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.send_time_utc = ProtoField.new("Send Time", "hkex.sse.chinaconnect.omd.v1.4.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Send time of the packet — nanoseconds since Unix epoch UTC (precision to millisecond)")
+omi_hkex_sse_chinaconnect_omd_v1_4.fields.send_time = ProtoField.new("Send Time", "hkex.sse.chinaconnect.omd.v1.4.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Send time of the packet — nanoseconds since Unix epoch UTC (precision to millisecond)")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.seq_num = ProtoField.new("Seq Num", "hkex.sse.chinaconnect.omd.v1.4.seqnum", ftypes.UINT32, nil, nil, nil, "Sequence number of the first message in the packet")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.shares_traded = ProtoField.new("Shares Traded", "hkex.sse.chinaconnect.omd.v1.4.sharestraded", ftypes.UINT64, nil, nil, nil, "Number of shares traded for a security.")
 omi_hkex_sse_chinaconnect_omd_v1_4.fields.shortsell_flag = ProtoField.new("Shortsell Flag", "hkex.sse.chinaconnect.omd.v1.4.shortsellflag", ftypes.STRING, nil, nil, nil, "Indicator for short-sell authorization.")
@@ -95,7 +95,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-hkex_sse_chinaconnect_omd_v1_4.timestamp_format = 2
+hkex_sse_chinaconnect_omd_v1_4.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -118,7 +118,7 @@ omi_hkex_sse_chinaconnect_omd_v1_4.prefs.show_headers = Pref.bool("Show Headers"
 omi_hkex_sse_chinaconnect_omd_v1_4.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_hkex_sse_chinaconnect_omd_v1_4.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_hkex_sse_chinaconnect_omd_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_hkex_sse_chinaconnect_omd_v1_4.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_hkex_sse_chinaconnect_omd_v1_4.prefs_changed()

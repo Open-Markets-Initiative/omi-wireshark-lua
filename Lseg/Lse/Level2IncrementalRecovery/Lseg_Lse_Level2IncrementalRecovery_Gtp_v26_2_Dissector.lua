@@ -53,8 +53,8 @@ omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.last_price_in_preceding_
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.last_price_in_preceding_session_date = ProtoField.new("Last Price In Preceding Session Date", "lseg.lse.level2incrementalrecovery.gtp.v26.2.lastpriceinprecedingsessiondate", ftypes.STRING, nil, nil, nil, "Last execution date in a session prior to current trading day.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.last_trade_price = ProtoField.new("Last Trade Price", "lseg.lse.level2incrementalrecovery.gtp.v26.2.lasttradeprice", ftypes.DOUBLE, nil, nil, nil, "Executed price at which the instrument was last traded. If no relevant trades have taken place the value '0' will be populated.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "lseg.lse.level2incrementalrecovery.gtp.v26.2.lasttradequantity", ftypes.DOUBLE, nil, nil, nil, "Executed quantity of the trade which set the 'Last Trade Price'. If no relevant trades have taken place the value '0' will be populated.")
-omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "lseg.lse.level2incrementalrecovery.gtp.v26.2.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction time of the trade which set the 'Last Trade Price'. If no relevant trades have taken place the value '0' will be populated.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.last_trade_time_utc = ProtoField.new("Last Trade Time", "lseg.lse.level2incrementalrecovery.gtp.v26.2.lasttradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction time of the trade which set the 'Last Trade Price'. If no relevant trades have taken place the value '0' will be populated.")
+omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "lseg.lse.level2incrementalrecovery.gtp.v26.2.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction time of the trade which set the 'Last Trade Price'. If no relevant trades have taken place the value '0' will be populated.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.length = ProtoField.new("Length", "lseg.lse.level2incrementalrecovery.gtp.v26.2.length", ftypes.UINT16, nil, nil, nil, "Length of the message block including the header and all payload messages")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.listing_end_date = ProtoField.new("Listing End Date", "lseg.lse.level2incrementalrecovery.gtp.v26.2.listingenddate", ftypes.STRING, nil, nil, nil, "Listing end date of the instrument.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.listing_start_date = ProtoField.new("Listing Start Date", "lseg.lse.level2incrementalrecovery.gtp.v26.2.listingstartdate", ftypes.STRING, nil, nil, nil, "Listing start date of the instrument.")
@@ -113,8 +113,8 @@ omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.tcp_unit = ProtoField.ne
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "lseg.lse.level2incrementalrecovery.gtp.v26.2.thirdreserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse.level2incrementalrecovery.gtp.v26.2.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse.level2incrementalrecovery.gtp.v26.2.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.level2incrementalrecovery.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse.level2incrementalrecovery.gtp.v26.2.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.level2incrementalrecovery.gtp.v26.2.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.trade_cancellation = ProtoField.new("Trade Cancellation", "lseg.lse.level2incrementalrecovery.gtp.v26.2.tradecancellation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.trade_correction = ProtoField.new("Trade Correction", "lseg.lse.level2incrementalrecovery.gtp.v26.2.tradecorrection", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.trade_flags = ProtoField.new("Trade Flags", "lseg.lse.level2incrementalrecovery.gtp.v26.2.tradeflags", ftypes.STRING)
@@ -126,8 +126,8 @@ omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.trade_low_on_book_only =
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.lse.level2incrementalrecovery.gtp.v26.2.tradequalifier", ftypes.STRING, nil, nil, nil, "Qualifier of the trade.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.trade_type = ProtoField.new("Trade Type", "lseg.lse.level2incrementalrecovery.gtp.v26.2.tradetype", ftypes.UINT8, nil, nil, nil, "Type of the trade.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.trading_status = ProtoField.new("Trading Status", "lseg.lse.level2incrementalrecovery.gtp.v26.2.tradingstatus", ftypes.STRING, nil, nil, nil, "Current Trading status of the Instrument. Populated only when the message is sent at the end of individual order book snapshots during a trading session.")
-omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.lse.level2incrementalrecovery.gtp.v26.2.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction execution timestamp as reported by the upstream system.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.transaction_time_utc = ProtoField.new("Transaction Time", "lseg.lse.level2incrementalrecovery.gtp.v26.2.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction execution timestamp as reported by the upstream system.")
+omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.lse.level2incrementalrecovery.gtp.v26.2.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction execution timestamp as reported by the upstream system.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.turnover = ProtoField.new("Turnover", "lseg.lse.level2incrementalrecovery.gtp.v26.2.turnover", ftypes.DOUBLE, nil, nil, nil, "Turnover of all trades for the day.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.turnover_on_book_only = ProtoField.new("Turnover On Book Only", "lseg.lse.level2incrementalrecovery.gtp.v26.2.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Turnover for the day excluding off-book trades.")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse.level2incrementalrecovery.gtp.v26.2.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
@@ -179,7 +179,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_lse_level2incrementalrecovery_gtp_v26_2.timestamp_format = 2
+lseg_lse_level2incrementalrecovery_gtp_v26_2.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -202,7 +202,7 @@ omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs.show_headers = Pref.bool(
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_lse_level2incrementalrecovery_gtp_v26_2.prefs_changed()

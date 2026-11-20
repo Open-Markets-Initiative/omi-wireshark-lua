@@ -40,8 +40,8 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_ack_related_symbol_group = Pr
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_ack_related_symbol_groups = ProtoField.new("Request Ack Related Symbol Groups", "cme.globex.sessionmgmt.sbe.v0.2.requestackrelatedsymbolgroups", ftypes.STRING, nil, nil, nil, "NoRelatedSym Block")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_ack_security_group = ProtoField.new("Request Ack Security Group", "cme.globex.sessionmgmt.sbe.v0.2.requestacksecuritygroup", ftypes.STRING, nil, nil, nil, "Number of SecurityGroups acknowledged")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_ack_security_groups = ProtoField.new("Request Ack Security Groups", "cme.globex.sessionmgmt.sbe.v0.2.requestacksecuritygroups", ftypes.STRING, nil, nil, nil, "NoSecurityGroups Block")
-omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.sessionmgmt.sbe.v0.2.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_timestamp_utc = ProtoField.new("Request Timestamp", "cme.globex.sessionmgmt.sbe.v0.2.requesttimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.request_timestamp = ProtoField.new("Request Timestamp", "cme.globex.sessionmgmt.sbe.v0.2.requesttimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of request, recommended to use timestamp as number of nanoseconds since Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.schema_id = ProtoField.new("Schema Id", "cme.globex.sessionmgmt.sbe.v0.2.schemaid", ftypes.UINT16)
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.secret_key_secure_id_expiration = ProtoField.new("Secret Key Secure Id Expiration", "cme.globex.sessionmgmt.sbe.v0.2.secretkeysecureidexpiration", ftypes.UINT16, nil, nil, nil, "This indicates in how many days the HMAC secret key will expire")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_group = ProtoField.new("Security Group", "cme.globex.sessionmgmt.sbe.v0.2.securitygroup", ftypes.STRING)
@@ -54,8 +54,8 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_related_symbo
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_related_symbol_groups = ProtoField.new("Security Status Request Related Symbol Groups", "cme.globex.sessionmgmt.sbe.v0.2.securitystatusrequestrelatedsymbolgroups", ftypes.STRING, nil, nil, nil, "NoRelatedSym Block")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_security_group = ProtoField.new("Security Status Request Security Group", "cme.globex.sessionmgmt.sbe.v0.2.securitystatusrequestsecuritygroup", ftypes.STRING, nil, nil, nil, "Number of SecurityGroups specified in subscription request. Should be equal 0, when subscription is requested for all groups on the segment or individual Security IDs are listed in the criteria for subscription")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.security_status_request_security_groups = ProtoField.new("Security Status Request Security Groups", "cme.globex.sessionmgmt.sbe.v0.2.securitystatusrequestsecuritygroups", ftypes.STRING, nil, nil, nil, "NoSecurityGroups Block")
-omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.sessionmgmt.sbe.v0.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time_utc = ProtoField.new("Sending Time", "cme.globex.sessionmgmt.sbe.v0.2.sendingtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
+omi_cme_globex_sessionmgmt_sbe_v0_2.fields.sending_time = ProtoField.new("Sending Time", "cme.globex.sessionmgmt.sbe.v0.2.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Packet Sending Time, nanoseconds since the Unix epoch")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.session = ProtoField.new("Session", "cme.globex.sessionmgmt.sbe.v0.2.session", ftypes.STRING, nil, nil, nil, "Session ID")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.session_text = ProtoField.new("Session Text", "cme.globex.sessionmgmt.sbe.v0.2.sessiontext", ftypes.STRING, nil, nil, nil, "Reject reason details")
 omi_cme_globex_sessionmgmt_sbe_v0_2.fields.simple_binary_header = ProtoField.new("Simple Binary Header", "cme.globex.sessionmgmt.sbe.v0.2.simplebinaryheader", ftypes.STRING, nil, nil, nil, "Template ID and length of message root")
@@ -115,7 +115,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cme_globex_sessionmgmt_sbe_v0_2.timestamp_format = 2
+cme_globex_sessionmgmt_sbe_v0_2.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -150,7 +150,7 @@ omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_repeating_groups = Pref.bool("Sho
 omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cme_globex_sessionmgmt_sbe_v0_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cme_globex_sessionmgmt_sbe_v0_2.prefs_changed()

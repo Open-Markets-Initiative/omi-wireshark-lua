@@ -67,8 +67,8 @@ omi_lseg_turquoise_recovery_gtp_v26_3.fields.last_price_in_preceding_session_dat
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.last_price_level = ProtoField.new("Last Price Level", "lseg.turquoise.recovery.gtp.v26.3.lastpricelevel", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Set if the current price level is the last level in the top five price points")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.last_trade_price = ProtoField.new("Last Trade Price", "lseg.turquoise.recovery.gtp.v26.3.lasttradeprice", ftypes.DOUBLE, nil, nil, nil, "Executed price at which the instrument was last traded. If no relevant trades have taken place the value '0' will be populated.")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.last_trade_quantity = ProtoField.new("Last Trade Quantity", "lseg.turquoise.recovery.gtp.v26.3.lasttradequantity", ftypes.DOUBLE, nil, nil, nil, "Executed quantity of the trade which set the Last Trade Price. If no relevant trades have taken place the value '0' will be populated.")
-omi_lseg_turquoise_recovery_gtp_v26_3.fields.last_trade_time = ProtoField.new("Last Trade Time", "lseg.turquoise.recovery.gtp.v26.3.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction time of the trade which set the Last Trade Price. If no relevant trades have taken place the value '0' will be populated.")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.last_trade_time_utc = ProtoField.new("Last Trade Time", "lseg.turquoise.recovery.gtp.v26.3.lasttradetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction time of the trade which set the Last Trade Price. If no relevant trades have taken place the value '0' will be populated.")
+omi_lseg_turquoise_recovery_gtp_v26_3.fields.last_trade_time = ProtoField.new("Last Trade Time", "lseg.turquoise.recovery.gtp.v26.3.lasttradetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction time of the trade which set the Last Trade Price. If no relevant trades have taken place the value '0' will be populated.")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.length = ProtoField.new("Length", "lseg.turquoise.recovery.gtp.v26.3.length", ftypes.UINT16, nil, nil, nil, "Length of the message block including the header and all payload messages")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.level_identifier = ProtoField.new("Level Identifier", "lseg.turquoise.recovery.gtp.v26.3.levelidentifier", ftypes.UINT8, nil, nil, nil, "For continuous trading, position of the price point in the order book. For periodic auction, this will be set to the default value.")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.listing_end_date = ProtoField.new("Listing End Date", "lseg.turquoise.recovery.gtp.v26.3.listingenddate", ftypes.STRING, nil, nil, nil, "Not Applicable to Turquoise")
@@ -160,8 +160,8 @@ omi_lseg_turquoise_recovery_gtp_v26_3.fields.tcp_unit = ProtoField.new("Tcp Unit
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.third_reserved_1 = ProtoField.new("Third Reserved 1", "lseg.turquoise.recovery.gtp.v26.3.thirdreserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.turquoise.recovery.gtp.v26.3.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use. Any value in this field should be ignored.")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.tick_id = ProtoField.new("Tick Id", "lseg.turquoise.recovery.gtp.v26.3.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
-omi_lseg_turquoise_recovery_gtp_v26_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.recovery.gtp.v26.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.turquoise.recovery.gtp.v26.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_turquoise_recovery_gtp_v26_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.turquoise.recovery.gtp.v26.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.top_of_book_flags = ProtoField.new("Top Of Book Flags", "lseg.turquoise.recovery.gtp.v26.3.topofbookflags", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.trade_cancellation = ProtoField.new("Trade Cancellation", "lseg.turquoise.recovery.gtp.v26.3.tradecancellation", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.trade_flags = ProtoField.new("Trade Flags", "lseg.turquoise.recovery.gtp.v26.3.tradeflags", ftypes.STRING)
@@ -179,8 +179,8 @@ omi_lseg_turquoise_recovery_gtp_v26_3.fields.trading_system = ProtoField.new("Tr
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.trading_system_phase = ProtoField.new("Trading System Phase", "lseg.turquoise.recovery.gtp.v26.3.tradingsystemphase", ftypes.STRING, nil, nil, nil, "Type of trading system phase where the order is advertised")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.transaction_category = ProtoField.new("Transaction Category", "lseg.turquoise.recovery.gtp.v26.3.transactioncategory", ftypes.STRING)
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.turquoise.recovery.gtp.v26.3.transactionidentificationcode", ftypes.STRING, nil, nil, nil, "A unique trade identifier. The value will be right aligned.")
-omi_lseg_turquoise_recovery_gtp_v26_3.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.recovery.gtp.v26.3.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction execution timestamp as reported by the upstream system")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.transaction_time_utc = ProtoField.new("Transaction Time", "lseg.turquoise.recovery.gtp.v26.3.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Transaction execution timestamp as reported by the upstream system")
+omi_lseg_turquoise_recovery_gtp_v26_3.fields.transaction_time = ProtoField.new("Transaction Time", "lseg.turquoise.recovery.gtp.v26.3.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Transaction execution timestamp as reported by the upstream system")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.turnover = ProtoField.new("Turnover", "lseg.turquoise.recovery.gtp.v26.3.turnover", ftypes.DOUBLE, nil, nil, nil, "Turnover of all trades for the day.")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.turnover_on_book_only = ProtoField.new("Turnover On Book Only", "lseg.turquoise.recovery.gtp.v26.3.turnoveronbookonly", ftypes.DOUBLE, nil, nil, nil, "Turnover for the day excluding off-book trades.")
 omi_lseg_turquoise_recovery_gtp_v26_3.fields.unused_3 = ProtoField.new("Unused 3", "lseg.turquoise.recovery.gtp.v26.3.unused3", ftypes.UINT8, nil, base.DEC, 0x07, "Unused")
@@ -243,7 +243,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-lseg_turquoise_recovery_gtp_v26_3.timestamp_format = 2
+lseg_turquoise_recovery_gtp_v26_3.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -266,7 +266,7 @@ omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_headers = Pref.bool("Show Heade
 omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_lseg_turquoise_recovery_gtp_v26_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_lseg_turquoise_recovery_gtp_v26_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_lseg_turquoise_recovery_gtp_v26_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_lseg_turquoise_recovery_gtp_v26_3.prefs_changed()

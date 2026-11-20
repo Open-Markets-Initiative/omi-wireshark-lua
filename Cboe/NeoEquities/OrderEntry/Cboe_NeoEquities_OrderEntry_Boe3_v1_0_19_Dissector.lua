@@ -53,8 +53,8 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.exec_id = ProtoField.new("Ex
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.exec_inst = ProtoField.new("Exec Inst", "cboe.neoequities.orderentry.boe3.v1.0.19.execinst", ftypes.STRING, nil, nil, nil, "Execution Instruction for the order")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.neoequities.orderentry.boe3.v1.0.19.execrefid", ftypes.UINT64, nil, nil, nil, "Refers to the ExecID of the message being cancelled or corrected")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_date = ProtoField.new("Expire Date", "cboe.neoequities.orderentry.boe3.v1.0.19.expiredate", ftypes.UINT32, nil, nil, nil, "Specifies the date on which a GTD order will expire")
-omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_time = ProtoField.new("Expire Time", "cboe.neoequities.orderentry.boe3.v1.0.19.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Specifies the UTC Date/Time timestamp that the order expires")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_time_utc = ProtoField.new("Expire Time", "cboe.neoequities.orderentry.boe3.v1.0.19.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Specifies the UTC Date/Time timestamp that the order expires")
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.expire_time = ProtoField.new("Expire Time", "cboe.neoequities.orderentry.boe3.v1.0.19.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Specifies the UTC Date/Time timestamp that the order expires")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.fee_code = ProtoField.new("Fee Code", "cboe.neoequities.orderentry.boe3.v1.0.19.feecode", ftypes.STRING, nil, nil, nil, "Fee code of the transaction")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.firm_message_type = ProtoField.new("Message Type", "cboe.neoequities.orderentry.boe3.v1.0.19.firmmessagetype", ftypes.UINT16, nil, nil, nil, "type of message")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.fut_settl_date = ProtoField.new("Fut Settl Date", "cboe.neoequities.orderentry.boe3.v1.0.19.futsettldate", ftypes.UINT32, nil, nil, nil, "Specific date of trade settlement")
@@ -122,8 +122,8 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.symbol_short = ProtoField.ne
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.text = ProtoField.new("Text", "cboe.neoequities.orderentry.boe3.v1.0.19.text", ftypes.STRING, nil, nil, nil, "Free format text string")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.time_in_force = ProtoField.new("Time In Force", "cboe.neoequities.orderentry.boe3.v1.0.19.timeinforce", ftypes.STRING, nil, nil, nil, "Time in force for the order")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.trade_date = ProtoField.new("Trade Date", "cboe.neoequities.orderentry.boe3.v1.0.19.tradedate", ftypes.UINT32, nil, nil, nil, "Business date for the trade")
-omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.neoequities.orderentry.boe3.v1.0.19.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the transaction")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.transaction_time_utc = ProtoField.new("Transaction Time", "cboe.neoequities.orderentry.boe3.v1.0.19.transactiontime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time of the transaction")
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.transaction_time = ProtoField.new("Transaction Time", "cboe.neoequities.orderentry.boe3.v1.0.19.transactiontime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time of the transaction")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.true_min_qty = ProtoField.new("True Min Qty", "cboe.neoequities.orderentry.boe3.v1.0.19.trueminqty", ftypes.UINT32, nil, nil, nil, "All fills must be at least of size TrueMinQty")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.umir_account_type = ProtoField.new("Umir Account Type", "cboe.neoequities.orderentry.boe3.v1.0.19.umiraccounttype", ftypes.STRING, nil, nil, nil, "The capacity for the order")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.fields.umir_regulation_id = ProtoField.new("Umir Regulation Id", "cboe.neoequities.orderentry.boe3.v1.0.19.umirregulationid", ftypes.STRING, nil, nil, nil, "Reported to feeds, does not affect order handling")
@@ -181,7 +181,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_neoequities_orderentry_boe3_v1_0_19.timestamp_format = 2
+cboe_neoequities_orderentry_boe3_v1_0_19.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -216,7 +216,7 @@ omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_session_messages = Pref.
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_neoequities_orderentry_boe3_v1_0_19.prefs_changed()

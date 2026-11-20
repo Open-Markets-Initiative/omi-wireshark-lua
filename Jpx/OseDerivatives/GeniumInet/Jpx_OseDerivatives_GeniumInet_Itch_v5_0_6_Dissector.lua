@@ -65,8 +65,8 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.put_or_call = ProtoField.ne
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.quantity = ProtoField.new("Quantity", "jpx.osederivatives.geniuminet.itch.v5.0.6.quantity", ftypes.UINT64, nil, nil, nil, "Visible quantity")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.reserved_24 = ProtoField.new("Reserved 24", "jpx.osederivatives.geniuminet.itch.v5.0.6.reserved24", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.round_lot_size = ProtoField.new("Round Lot Size", "jpx.osederivatives.geniuminet.itch.v5.0.6.roundlotsize", ftypes.UINT32)
-omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds = ProtoField.new("Seconds", "jpx.osederivatives.geniuminet.itch.v5.0.6.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (seconds since 1970-01-01 00:00:00 UTC)")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds_utc = ProtoField.new("Seconds", "jpx.osederivatives.geniuminet.itch.v5.0.6.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Unix time (seconds since 1970-01-01 00:00:00 UTC)")
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.seconds = ProtoField.new("Seconds", "jpx.osederivatives.geniuminet.itch.v5.0.6.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Unix time (seconds since 1970-01-01 00:00:00 UTC)")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.sequence_number = ProtoField.new("Sequence Number", "jpx.osederivatives.geniuminet.itch.v5.0.6.sequencenumber", ftypes.UINT64, nil, nil, nil, "Sequence number of the first message to follow this header")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.session = ProtoField.new("Session", "jpx.osederivatives.geniuminet.itch.v5.0.6.session", ftypes.STRING, nil, nil, nil, "Identity of the multicast session")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.fields.short_sell = ProtoField.new("Short Sell", "jpx.osederivatives.geniuminet.itch.v5.0.6.shortsell", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0002)
@@ -124,7 +124,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-jpx_osederivatives_geniuminet_itch_v5_0_6.timestamp_format = 2
+jpx_osederivatives_geniuminet_itch_v5_0_6.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -149,7 +149,7 @@ omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_padding = Pref.bool("Sh
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_jpx_osederivatives_geniuminet_itch_v5_0_6.prefs_changed()

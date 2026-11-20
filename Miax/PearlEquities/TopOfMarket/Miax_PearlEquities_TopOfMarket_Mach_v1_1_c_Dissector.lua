@@ -58,8 +58,8 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.requested_trading_session_
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.reserved_1 = ProtoField.new("Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.c.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.reserved_7 = ProtoField.new("Reserved 7", "miax.pearlequities.topofmarket.mach.v1.1.c.reserved7", ftypes.UINT8, nil, base.DEC, 0xFE, "Undefined.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.second_reserved_1 = ProtoField.new("Second Reserved 1", "miax.pearlequities.topofmarket.mach.v1.1.c.secondreserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.topofmarket.mach.v1.1.c.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.seconds_utc = ProtoField.new("Seconds", "miax.pearlequities.topofmarket.mach.v1.1.c.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.seconds = ProtoField.new("Seconds", "miax.pearlequities.topofmarket.mach.v1.1.c.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds part of the time that applies to all messages that gets disseminated until this message gets sent again.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.sequence_number = ProtoField.new("Sequence Number", "miax.pearlequities.topofmarket.mach.v1.1.c.sequencenumber", ftypes.UINT64, nil, nil, nil, "Original sequence number from the live feed.")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "miax.pearlequities.topofmarket.mach.v1.1.c.sequenceddatapacket", ftypes.STRING, nil, nil, nil, "The ESesM server uses Sequenced data packets to send all messages that must be recoverable by the client in case of a connection loss")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "miax.pearlequities.topofmarket.mach.v1.1.c.sequencedmessagetype", ftypes.UINT8, nil, nil, nil, "Market-data application message type carried over the ESesM sequenced channel (matches the MACH UDP Message Type byte)")
@@ -139,7 +139,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-miax_pearlequities_topofmarket_mach_v1_1_c.timestamp_format = 2
+miax_pearlequities_topofmarket_mach_v1_1_c.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -164,7 +164,7 @@ omi_miax_pearlequities_topofmarket_mach_v1_1_c.prefs.show_session_messages = Pre
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_miax_pearlequities_topofmarket_mach_v1_1_c.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_miax_pearlequities_topofmarket_mach_v1_1_c.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_miax_pearlequities_topofmarket_mach_v1_1_c.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_miax_pearlequities_topofmarket_mach_v1_1_c.prefs_changed()

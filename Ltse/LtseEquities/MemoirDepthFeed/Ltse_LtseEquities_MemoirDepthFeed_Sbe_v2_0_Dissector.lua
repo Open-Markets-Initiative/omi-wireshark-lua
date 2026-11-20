@@ -75,8 +75,8 @@ omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.fields.symbol = ProtoField.new("S
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "ltse.ltseequities.memoirdepthfeed.sbe.v2.0.symbolsfx", ftypes.STRING, nil, nil, nil, "SymbolSfx")
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.fields.template_id = ProtoField.new("Template Id", "ltse.ltseequities.memoirdepthfeed.sbe.v2.0.templateid", ftypes.UINT8, nil, nil, nil, "T8 Identifier of the message template")
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.fields.tie_breaker_price = ProtoField.new("Tie Breaker Price", "ltse.ltseequities.memoirdepthfeed.sbe.v2.0.tiebreakerprice", ftypes.DOUBLE, nil, nil, nil, "TieBreakerPrice")
-omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.fields.timestamp = ProtoField.new("Timestamp", "ltse.ltseequities.memoirdepthfeed.sbe.v2.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.fields.timestamp_utc = ProtoField.new("Timestamp", "ltse.ltseequities.memoirdepthfeed.sbe.v2.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.fields.timestamp = ProtoField.new("Timestamp", "ltse.ltseequities.memoirdepthfeed.sbe.v2.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL)
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.fields.trade_id = ProtoField.new("Trade Id", "ltse.ltseequities.memoirdepthfeed.sbe.v2.0.tradeid", ftypes.UINT64, nil, nil, nil, "TradeId")
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.fields.trading_session = ProtoField.new("Trading Session", "ltse.ltseequities.memoirdepthfeed.sbe.v2.0.tradingsession", ftypes.STRING, nil, nil, nil, "TradingSession")
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.fields.upper_collar_price = ProtoField.new("Upper Collar Price", "ltse.ltseequities.memoirdepthfeed.sbe.v2.0.uppercollarprice", ftypes.DOUBLE, nil, nil, nil, "UpperCollarPrice")
@@ -131,7 +131,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-ltse_ltseequities_memoirdepthfeed_sbe_v2_0.timestamp_format = 2
+ltse_ltseequities_memoirdepthfeed_sbe_v2_0.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -154,7 +154,7 @@ omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.prefs.show_structs = Pref.bool("S
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_ltse_ltseequities_memoirdepthfeed_sbe_v2_0.prefs_changed()

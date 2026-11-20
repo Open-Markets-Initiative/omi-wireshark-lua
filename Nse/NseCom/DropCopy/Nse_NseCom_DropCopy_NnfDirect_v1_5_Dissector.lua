@@ -16,8 +16,8 @@ local nse_nsecom_dropcopy_nnfdirect_v1_5 = {}
 
 -- Nse NseCom DropCopy NnfDirect 1.5 Fields
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.account_num = ProtoField.new("Account Num", "nse.nsecom.dropcopy.nnfdirect.v1.5.accountnum", ftypes.STRING, nil, nil, nil, "Account number or client code")
-omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.activity_time = ProtoField.new("Activity Time", "nse.nsecom.dropcopy.nnfdirect.v1.5.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the activity occurred")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.activity_time_utc = ProtoField.new("Activity Time", "nse.nsecom.dropcopy.nnfdirect.v1.5.activitytime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the activity occurred")
+omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.activity_time = ProtoField.new("Activity Time", "nse.nsecom.dropcopy.nnfdirect.v1.5.activitytime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the activity occurred")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.activity_type = ProtoField.new("Activity Type", "nse.nsecom.dropcopy.nnfdirect.v1.5.activitytype", ftypes.STRING, nil, nil, nil, "Type of activity being confirmed")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.additional_order_flags = ProtoField.new("Additional Order Flags", "nse.nsecom.dropcopy.nnfdirect.v1.5.additionalorderflags", ftypes.STRING, nil, nil, nil, "Further terms attached to the order")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.additional_order_flags_reserved_1 = ProtoField.new("Additional Order Flags Reserved 1", "nse.nsecom.dropcopy.nnfdirect.v1.5.additionalorderflagsreserved1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
@@ -38,8 +38,8 @@ omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.deleted = ProtoField.new("Deleted"
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.disclosed_vol = ProtoField.new("Disclosed Vol", "nse.nsecom.dropcopy.nnfdirect.v1.5.disclosedvol", ftypes.INT32, nil, nil, nil, "Quantity disclosed to the market")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.disclosed_vol_remaining = ProtoField.new("Disclosed Vol Remaining", "nse.nsecom.dropcopy.nnfdirect.v1.5.disclosedvolremaining", ftypes.INT32, nil, nil, nil, "Disclosed volume remaining after the trade")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.error_code = ProtoField.new("Error Code", "nse.nsecom.dropcopy.nnfdirect.v1.5.errorcode", ftypes.INT16, nil, nil, nil, "Zero when the request succeeded, otherwise an Error Response follows")
-omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsecom.dropcopy.nnfdirect.v1.5.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry date of the contract")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.expiry_date_utc = ProtoField.new("Expiry Date", "nse.nsecom.dropcopy.nnfdirect.v1.5.expirydate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Expiry date of the contract")
+omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.expiry_date = ProtoField.new("Expiry Date", "nse.nsecom.dropcopy.nnfdirect.v1.5.expirydate", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Expiry date of the contract")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.fifth_reserved_1 = ProtoField.new("Fifth Reserved 1", "nse.nsecom.dropcopy.nnfdirect.v1.5.fifthreserved1", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.fill_number = ProtoField.new("Fill Number", "nse.nsecom.dropcopy.nnfdirect.v1.5.fillnumber", ftypes.INT32, nil, nil, nil, "Trade number")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.fill_price = ProtoField.new("Fill Price", "nse.nsecom.dropcopy.nnfdirect.v1.5.fillprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the order traded, to be divided by 100 to get the price in rupees")
@@ -51,17 +51,17 @@ omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.frozen = ProtoField.new("Frozen", 
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.give_up_trade = ProtoField.new("Give Up Trade", "nse.nsecom.dropcopy.nnfdirect.v1.5.giveuptrade", ftypes.STRING, nil, nil, nil, "Whether the trade is a give up")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.giveup_flag = ProtoField.new("Giveup Flag", "nse.nsecom.dropcopy.nnfdirect.v1.5.giveupflag", ftypes.STRING, nil, nil, nil, "Give up flag")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.gtc = ProtoField.new("Gtc", "nse.nsecom.dropcopy.nnfdirect.v1.5.gtc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0400, "Good till cancelled order")
-omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.gtd = ProtoField.new("Gtd", "nse.nsecom.dropcopy.nnfdirect.v1.5.gtd", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date until when the GTD order is retained in the system, as an absolute date in seconds from midnight 1 January 1980, and no later than the contract's expiry date")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.gtd_utc = ProtoField.new("Gtd", "nse.nsecom.dropcopy.nnfdirect.v1.5.gtd.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date until when the GTD order is retained in the system, as an absolute date in seconds from midnight 1 January 1980, and no later than the contract's expiry date")
+omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.gtd = ProtoField.new("Gtd", "nse.nsecom.dropcopy.nnfdirect.v1.5.gtd", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Date until when the GTD order is retained in the system, as an absolute date in seconds from midnight 1 January 1980, and no later than the contract's expiry date")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.header_timestamp = ProtoField.new("Header Timestamp", "nse.nsecom.dropcopy.nnfdirect.v1.5.headertimestamp", ftypes.INT64, nil, nil, nil, "Host end field, carrying nanoseconds since midnight 01-Jan-1980 on the transaction codes listed in the appendix")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.initiated_by_control = ProtoField.new("Initiated By Control", "nse.nsecom.dropcopy.nnfdirect.v1.5.initiatedbycontrol", ftypes.STRING, nil, nil, nil, "Whether the give up was initiated by Nse Control")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.instrument_name = ProtoField.new("Instrument Name", "nse.nsecom.dropcopy.nnfdirect.v1.5.instrumentname", ftypes.STRING, nil, nil, nil, "Instrument name of the contract")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.ioc = ProtoField.new("Ioc", "nse.nsecom.dropcopy.nnfdirect.v1.5.ioc", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0200, "Immediate or cancel order")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.last_activity_reference = ProtoField.new("Last Activity Reference", "nse.nsecom.dropcopy.nnfdirect.v1.5.lastactivityreference", ftypes.INT64, nil, nil, nil, "Unique value for the activity, currently in nanoseconds")
-omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.last_modified_date_time = ProtoField.new("Last Modified Date Time", "nse.nsecom.dropcopy.nnfdirect.v1.5.lastmodifieddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order was last modified")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.last_modified_date_time_utc = ProtoField.new("Last Modified Date Time", "nse.nsecom.dropcopy.nnfdirect.v1.5.lastmodifieddatetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the order was last modified")
-omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.log_time = ProtoField.new("Log Time", "nse.nsecom.dropcopy.nnfdirect.v1.5.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated by the trading system")
+omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.last_modified_date_time = ProtoField.new("Last Modified Date Time", "nse.nsecom.dropcopy.nnfdirect.v1.5.lastmodifieddatetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the order was last modified")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.log_time_utc = ProtoField.new("Log Time", "nse.nsecom.dropcopy.nnfdirect.v1.5.logtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated by the trading system")
+omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.log_time = ProtoField.new("Log Time", "nse.nsecom.dropcopy.nnfdirect.v1.5.logtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated by the trading system")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.market = ProtoField.new("Market", "nse.nsecom.dropcopy.nnfdirect.v1.5.market", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x4000, "Market order")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.matched_ind = ProtoField.new("Matched Ind", "nse.nsecom.dropcopy.nnfdirect.v1.5.matchedind", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0040, "Order has been matched")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.message_length = ProtoField.new("Message Length", "nse.nsecom.dropcopy.nnfdirect.v1.5.messagelength", ftypes.INT16, nil, nil, nil, "Length of the message including the message header, twenty two less than Packet Length")
@@ -158,7 +158,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nse_nsecom_dropcopy_nnfdirect_v1_5.timestamp_format = 2
+nse_nsecom_dropcopy_nnfdirect_v1_5.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 nse_nsecom_dropcopy_nnfdirect_v1_5.zone_offset = 0
@@ -192,7 +192,7 @@ omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_application_messages = Pref.bo
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 
-omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences

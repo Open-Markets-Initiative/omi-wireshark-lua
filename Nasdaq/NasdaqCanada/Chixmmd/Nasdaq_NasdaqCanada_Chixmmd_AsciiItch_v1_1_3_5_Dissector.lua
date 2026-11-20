@@ -91,7 +91,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.timestamp_format = 2
+nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -114,7 +114,7 @@ omi_nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.prefs.show_structs = Pref.boo
 omi_nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_nasdaqcanada_chixmmd_asciiitch_v1_1_3_5.prefs_changed()

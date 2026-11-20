@@ -30,8 +30,8 @@ omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.fields.composite_market_of
 omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.fields.contracts = ProtoField.new("Contracts", "cboe.c1options.multicastdepthofbook.spin.v2.41.66.contracts", ftypes.UINT32, nil, nil, nil, "Cumulative number of contracts executed during the auction or CMC matching.")
 omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1options.multicastdepthofbook.spin.v2.41.66.customerindicator", ftypes.STRING, nil, nil, nil, "Customer Indicator. Space means N/A on C2 Options.")
 omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.fields.display = ProtoField.new("Display", "cboe.c1options.multicastdepthofbook.spin.v2.41.66.display", ftypes.UINT8, {[0]="Order Is Not Aggregated In The Cboe Sip Quote", [1]="Order Is Aggregated In The Cboe Sip Quote"}, base.DEC, 0x01, "0 = Order is not aggregated in the SIP quote, 1 = Order is aggregated in the SIP quote.")
-omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.multicastdepthofbook.spin.v2.41.66.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.c1options.multicastdepthofbook.spin.v2.41.66.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.c1options.multicastdepthofbook.spin.v2.41.66.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.c1options.multicastdepthofbook.spin.v2.41.66.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of contracts executed.")
 omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1options.multicastdepthofbook.spin.v2.41.66.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution. Execution Id is also referenced in the Trade Break message.")
 omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.fields.expanded_symbol = ProtoField.new("Expanded Symbol", "cboe.c1options.multicastdepthofbook.spin.v2.41.66.expandedsymbol", ftypes.STRING, nil, nil, nil, "Symbol right padded with spaces.")
@@ -153,7 +153,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_c1options_multicastdepthofbook_spin_v2_41_66.timestamp_format = 2
+cboe_c1options_multicastdepthofbook_spin_v2_41_66.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -176,7 +176,7 @@ omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.prefs.show_headers = Pref.
 omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
 omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cboe_c1options_multicastdepthofbook_spin_v2_41_66.prefs_changed()

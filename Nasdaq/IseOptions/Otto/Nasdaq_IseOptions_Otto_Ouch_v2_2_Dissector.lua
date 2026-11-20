@@ -60,7 +60,8 @@ omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.display_low_qty = ProtoField.new("Di
 omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.display_method = ProtoField.new("Display Method", "nasdaq.iseoptions.otto.ouch.v2.2.displaymethod", ftypes.STRING)
 omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.display_qty = ProtoField.new("Display Qty", "nasdaq.iseoptions.otto.ouch.v2.2.displayqty", ftypes.UINT16, nil, nil, nil, "Initial Display Quantity")
 omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.display_when = ProtoField.new("Display When", "nasdaq.iseoptions.otto.ouch.v2.2.displaywhen", ftypes.STRING)
-omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.effective_time = ProtoField.new("Effective Time", "nasdaq.iseoptions.otto.ouch.v2.2.effectivetime", ftypes.UINT64, nil, nil, nil, "Agreed upon time for the stopped price. UTC time in milliseconds.")
+omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.effective_time_utc = ProtoField.new("Effective Time", "nasdaq.iseoptions.otto.ouch.v2.2.effectivetime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Agreed upon time for the stopped price. UTC time in milliseconds.")
+omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.effective_time = ProtoField.new("Effective Time", "nasdaq.iseoptions.otto.ouch.v2.2.effectivetime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Agreed upon time for the stopped price. UTC time in milliseconds.")
 omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.event_code = ProtoField.new("Event Code", "nasdaq.iseoptions.otto.ouch.v2.2.eventcode", ftypes.STRING, nil, nil, nil, "See System Event Codes")
 omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.event_source = ProtoField.new("Event Source", "nasdaq.iseoptions.otto.ouch.v2.2.eventsource", ftypes.STRING)
 omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.exec_flag = ProtoField.new("Exec Flag", "nasdaq.iseoptions.otto.ouch.v2.2.execflag", ftypes.STRING)
@@ -225,7 +226,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nasdaq_iseoptions_otto_ouch_v2_2.timestamp_format = 2
+nasdaq_iseoptions_otto_ouch_v2_2.timestamp_format = 3
 
 -- assumed connection role
 local role_enum = {
@@ -262,7 +263,7 @@ omi_nasdaq_iseoptions_otto_ouch_v2_2.prefs.show_session_messages = Pref.bool("Sh
 omi_nasdaq_iseoptions_otto_ouch_v2_2.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_nasdaq_iseoptions_otto_ouch_v2_2.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_nasdaq_iseoptions_otto_ouch_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nasdaq_iseoptions_otto_ouch_v2_2.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nasdaq_iseoptions_otto_ouch_v2_2.prefs_changed()
@@ -1547,19 +1548,20 @@ nasdaq_iseoptions_otto_ouch_v2_2.effective_time = {}
 -- Size: Effective Time
 nasdaq_iseoptions_otto_ouch_v2_2.effective_time.size = 8
 
--- Display: Effective Time
-nasdaq_iseoptions_otto_ouch_v2_2.effective_time.display = function(value)
-  return "Effective Time: "..value
-end
-
 -- Dissect: Effective Time
 nasdaq_iseoptions_otto_ouch_v2_2.effective_time.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_iseoptions_otto_ouch_v2_2.effective_time.size
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = nasdaq_iseoptions_otto_ouch_v2_2.effective_time.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.effective_time, range, value, display)
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.effective_time
+  if nasdaq_iseoptions_otto_ouch_v2_2.timestamp_format == 3 then field = omi_nasdaq_iseoptions_otto_ouch_v2_2.fields.effective_time_utc end
+
+  local seconds = (value / UInt64(1000)):tonumber()
+  local nanos = (value % UInt64(1000)):tonumber() * 1000000
+  parent:add(field, range, NSTime.new(seconds, nanos))
 
   return offset + length, value
 end

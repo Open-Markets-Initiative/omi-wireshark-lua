@@ -1222,6 +1222,9 @@ iex_iexoptions_session_sbe_v1_01.server_session_message.dissect = function(buffe
     local index = iex_iexoptions_session_sbe_v1_01.server_session_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = iex_iexoptions_session_sbe_v1_01.server_session_message.display(packet, parent, length)
     parent:append_text(display)
 
@@ -1648,6 +1651,9 @@ iex_iexoptions_session_sbe_v1_01.client_session_message.dissect = function(buffe
     local index = iex_iexoptions_session_sbe_v1_01.client_session_message.fields(buffer, offset, packet, parent)
     local length = index - offset
     parent:set_len(length)
+    if length == 0 then
+      parent:set_hidden(true)
+    end
     local display = iex_iexoptions_session_sbe_v1_01.client_session_message.display(packet, parent, length)
     parent:append_text(display)
 

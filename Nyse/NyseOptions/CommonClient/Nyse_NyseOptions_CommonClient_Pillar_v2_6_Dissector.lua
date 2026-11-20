@@ -22,10 +22,10 @@ omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.nanoseconds = ProtoField.ne
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.number_msgs = ProtoField.new("Number Msgs", "nyse.nyseoptions.commonclient.pillar.v2.6.numbermsgs", ftypes.UINT8, nil, nil, nil, "The number of messages in this packet")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.payload = ProtoField.new("Payload", "nyse.nyseoptions.commonclient.pillar.v2.6.payload", ftypes.BYTES, nil, nil, nil, "Raw message bytes")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.pkt_size = ProtoField.new("Pkt Size", "nyse.nyseoptions.commonclient.pillar.v2.6.pktsize", ftypes.UINT16, nil, nil, nil, "The size of the packet in bytes, including this 16 byte packet header")
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds = ProtoField.new("Seconds", "nyse.nyseoptions.commonclient.pillar.v2.6.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds_utc = ProtoField.new("Seconds", "nyse.nyseoptions.commonclient.pillar.v2.6.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seconds = ProtoField.new("Seconds", "nyse.nyseoptions.commonclient.pillar.v2.6.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds since Jan 1, 1970 00:00:00 UTC")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time_utc = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "The time when this packet was published to the multicast channel")
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time = ProtoField.new("Send Time", "nyse.nyseoptions.commonclient.pillar.v2.6.sendtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "The time when this packet was published to the multicast channel")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.seq_num = ProtoField.new("Seq Num", "nyse.nyseoptions.commonclient.pillar.v2.6.seqnum", ftypes.UINT32, nil, nil, nil, "The message sequence number of the first message in this packet")
 
 -- Nyse NyseOptions CommonClient Pillar 2.6 Framing
@@ -51,7 +51,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-nyse_nyseoptions_commonclient_pillar_v2_6.timestamp_format = 2
+nyse_nyseoptions_commonclient_pillar_v2_6.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -70,7 +70,7 @@ omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_structs = Pref.bool("Sh
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_nyse_nyseoptions_commonclient_pillar_v2_6.prefs_changed()
@@ -520,8 +520,8 @@ nyse_nyseoptions_commonclient_pillar_v2_6.send_time.dissect = function(buffer, o
     local length = nyse_nyseoptions_commonclient_pillar_v2_6.send_time.size
     -- A field's absolute time base is fixed when it is declared, so the
     -- protocol declares one per base and the preference picks between them
-    local field = omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time
-    if nyse_nyseoptions_commonclient_pillar_v2_6.timestamp_format == 3 then field = omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time_utc end
+    local field = omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time_utc
+    if nyse_nyseoptions_commonclient_pillar_v2_6.timestamp_format == 2 then field = omi_nyse_nyseoptions_commonclient_pillar_v2_6.fields.send_time end
     parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
     local index = nyse_nyseoptions_commonclient_pillar_v2_6.send_time.fields(buffer, offset, packet, parent)
 

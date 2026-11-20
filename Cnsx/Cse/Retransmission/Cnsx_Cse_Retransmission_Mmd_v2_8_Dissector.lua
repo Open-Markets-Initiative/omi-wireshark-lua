@@ -30,8 +30,8 @@ omi_cnsx_cse_retransmission_mmd_v2_8.fields.cross_type = ProtoField.new("Cross T
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.currency = ProtoField.new("Currency", "cnsx.cse.retransmission.mmd.v2.8.currency", ftypes.STRING, nil, nil, nil, "Trading currency.")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.cusip = ProtoField.new("Cusip", "cnsx.cse.retransmission.mmd.v2.8.cusip", ftypes.STRING, nil, nil, nil, "CUSIP code.")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.event_code = ProtoField.new("Event Code", "cnsx.cse.retransmission.mmd.v2.8.eventcode", ftypes.STRING, nil, nil, nil, "Event Code (see System Event Codes).")
-omi_cnsx_cse_retransmission_mmd_v2_8.fields.exchange_timestamp = ProtoField.new("Exchange Timestamp", "cnsx.cse.retransmission.mmd.v2.8.exchangetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Official exchange time. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.exchange_timestamp_utc = ProtoField.new("Exchange Timestamp", "cnsx.cse.retransmission.mmd.v2.8.exchangetimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Official exchange time. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
+omi_cnsx_cse_retransmission_mmd_v2_8.fields.exchange_timestamp = ProtoField.new("Exchange Timestamp", "cnsx.cse.retransmission.mmd.v2.8.exchangetimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Official exchange time. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.executed_quantity = ProtoField.new("Executed Quantity", "cnsx.cse.retransmission.mmd.v2.8.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares executed.")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.execution_price = ProtoField.new("Execution Price", "cnsx.cse.retransmission.mmd.v2.8.executionprice", ftypes.DOUBLE, nil, nil, nil, "Price at which the execution occurred.")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.expiry = ProtoField.new("Expiry", "cnsx.cse.retransmission.mmd.v2.8.expiry", ftypes.UINT64, nil, nil, nil, "YYYYMMDD. 0 represents no expiry date.")
@@ -70,8 +70,8 @@ omi_cnsx_cse_retransmission_mmd_v2_8.fields.password = ProtoField.new("Password"
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.previous_closing_price = ProtoField.new("Previous Closing Price", "cnsx.cse.retransmission.mmd.v2.8.previousclosingprice", ftypes.DOUBLE, nil, nil, nil, "Adjusted previous closing price.")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.price = ProtoField.new("Price", "cnsx.cse.retransmission.mmd.v2.8.price", ftypes.DOUBLE, nil, nil, nil, "Price of the new order.")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.price_variation = ProtoField.new("Price Variation", "cnsx.cse.retransmission.mmd.v2.8.pricevariation", ftypes.DOUBLE, nil, nil, nil, "Indicates the absolute value of the percent deviation of the MOC Indicative Closing Price to the MRP. Format NNNDD, three digits before and two after the decimal place. Disseminated as 999.99 if the calculated value exceeds 999.99.")
-omi_cnsx_cse_retransmission_mmd_v2_8.fields.priority_timestamp = ProtoField.new("Priority Timestamp", "cnsx.cse.retransmission.mmd.v2.8.prioritytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Priority timestamp. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.priority_timestamp_utc = ProtoField.new("Priority Timestamp", "cnsx.cse.retransmission.mmd.v2.8.prioritytimestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Priority timestamp. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
+omi_cnsx_cse_retransmission_mmd_v2_8.fields.priority_timestamp = ProtoField.new("Priority Timestamp", "cnsx.cse.retransmission.mmd.v2.8.prioritytimestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Priority timestamp. Milliseconds since EPOCH (Jan 1, 0:0:0, 1970).")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.quantity = ProtoField.new("Quantity", "cnsx.cse.retransmission.mmd.v2.8.quantity", ftypes.UINT32, nil, nil, nil, "Total quantity of the order being added to the book.")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.reason = ProtoField.new("Reason", "cnsx.cse.retransmission.mmd.v2.8.reason", ftypes.STRING, nil, nil, nil, "Reason the trade was broken (see Broken Trade Reasons).")
 omi_cnsx_cse_retransmission_mmd_v2_8.fields.retransmission_status = ProtoField.new("Retransmission Status", "cnsx.cse.retransmission.mmd.v2.8.retransmissionstatus", ftypes.STRING, nil, nil, nil, "Status.")
@@ -149,7 +149,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cnsx_cse_retransmission_mmd_v2_8.timestamp_format = 2
+cnsx_cse_retransmission_mmd_v2_8.timestamp_format = 3
 
 
 -----------------------------------------------------------------------
@@ -170,7 +170,7 @@ omi_cnsx_cse_retransmission_mmd_v2_8.prefs.show_structs = Pref.bool("Show Struct
 omi_cnsx_cse_retransmission_mmd_v2_8.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
 omi_cnsx_cse_retransmission_mmd_v2_8.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 
-omi_cnsx_cse_retransmission_mmd_v2_8.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cnsx_cse_retransmission_mmd_v2_8.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 
 -- Handle changed preferences
 function omi_cnsx_cse_retransmission_mmd_v2_8.prefs_changed()

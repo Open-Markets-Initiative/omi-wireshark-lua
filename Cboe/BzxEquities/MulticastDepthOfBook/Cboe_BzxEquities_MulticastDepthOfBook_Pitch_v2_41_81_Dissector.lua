@@ -24,8 +24,8 @@ omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.canceled_quantit
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.canceled_quantity_short = ProtoField.new("Canceled Quantity Short", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.canceledquantityshort", ftypes.UINT16, nil, nil, nil, "Number of shares/contracts canceled.")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.customerindicator", ftypes.STRING, nil, nil, nil, "BZX/C1/EDGX Options Only (space filled on C2 Options and all equities markets). N = Non-Customer, C = Customer, R = Retail Priority order (EDGX Equities only).")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.display = ProtoField.new("Display", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.display", ftypes.UINT8, {[0]="Order Is Not Aggregated In The Cboe Sip Quote", [1]="Order Is Aggregated In The Cboe Sip Quote"}, base.DEC, 0x01, "Bit 0 - Display: 0 = Order is not aggregated in the Cboe SIP quote, 1 = Order is aggregated in the Cboe SIP quote.")
-omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only and effective 11/02/26 for BZX/EDGX Equities. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.epoch_time_utc = ProtoField.new("Epoch Time", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.epochtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "C1 Options Only and effective 11/02/26 for BZX/EDGX Equities. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
+omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.epoch_time = ProtoField.new("Epoch Time", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.epochtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "C1 Options Only and effective 11/02/26 for BZX/EDGX Equities. Number of whole seconds since the Epoch (midnight January 1, 1970 UTC).")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.executedquantity", ftypes.UINT32, nil, nil, nil, "Number of shares/contracts executed.")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.execution_id = ProtoField.new("Execution Id", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.executionid", ftypes.UINT64, nil, nil, nil, "Cboe generated day-unique execution identifier of this execution. Execution Id is also referenced in the Trade Break message.")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.indicativeprice", ftypes.UINT64, nil, nil, nil, "Price at which the auction book and the continuous book would match. For BYX, N/A. Populated with zero.")
@@ -34,8 +34,8 @@ omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.maintain_priorit
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.message_count = ProtoField.new("Message Count", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.messagecount", ftypes.UINT8, nil, nil, nil, "Number of messages to follow this header")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.message_length = ProtoField.new("Message Length", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.messagelength", ftypes.UINT8, nil, nil, nil, "Current Pitch message length")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.message_type = ProtoField.new("Message Type", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
-omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.midnight_reference_utc = ProtoField.new("Midnight Reference", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.midnightreference.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
+omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.midnightreference", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Midnight Eastern Time reference time for subsequent Time messages, expressed as number of whole seconds since the Epoch (Midnight January 1, 1970 UTC).")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.modify_flags = ProtoField.new("Modify Flags", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.modifyflags", ftypes.STRING, nil, nil, nil, "Bit field used in the Modify Order Long and Modify Order Short messages.")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.order_id = ProtoField.new("Order Id", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.orderid", ftypes.UINT64, nil, nil, nil, "Day-specific identifier assigned to this order.")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.fields.participant_id = ProtoField.new("Participant Id", "cboe.bzxequities.multicastdepthofbook.pitch.v2.41.81.participantid", ftypes.STRING, nil, nil, nil, "Optionally specified. If specified, MPID (equities) or Executing Firm ID (options) of firm attributed to this quote. Alternatively \"RTAL\" for retail specified orders (equities). Space filled otherwise.")
@@ -113,7 +113,7 @@ local timestamp_format_enum = {
 }
 
 -- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
-cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.timestamp_format = 2
+cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.zone_offset = 0
@@ -141,7 +141,7 @@ omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.prefs.show_padding = Pr
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.prefs.show_sequences = Pref.bool("Show Sequence Numbers", show.sequences, "Show each message's own feed sequence number in the protocol tree")
 
-omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.prefs.timestamp_format = Pref.enum("Timestamp Format", 2, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.prefs.zone_offset = Pref.string("America/New York Utc Offset", "", "Offset of America/New York from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
 -- Handle changed preferences
@@ -1445,6 +1445,7 @@ cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.auction_update_message = {}
 
 -- Size: Auction Update Message
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.auction_update_message.size =
+  cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.time_offset.size + 
   cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.stock_symbol.size + 
   cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.auction_type.size + 
   cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.reference_price.size + 
@@ -1461,6 +1462,9 @@ end
 -- Dissect Fields: Auction Update Message
 cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.auction_update_message.fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Time Offset: Time Offset
+  index, time_offset = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.timestamp.dissect(buffer, index, packet, parent)
 
   -- Stock Symbol: Printable ASCII
   index, stock_symbol = cboe_bzxequities_multicastdepthofbook_pitch_v2_41_81.stock_symbol.dissect(buffer, index, packet, parent)
