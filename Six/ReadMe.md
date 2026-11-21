@@ -7,8 +7,8 @@
 
 | Division | [Protocol][Omi.Six.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Six.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [SixSwissExchange][SixSwissExchange.Exchange] | [Snapshot][Six.SixSwissExchange.Snapshot] | [Glimpse][Omi.Encoding.Glimpse] | [1.24.0][Six.SixSwissExchange.Snapshot.Glimpse.v1.24.0.Dissector] | 1/21/2025 | 3480 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Six.SixSwissExchange.Snapshot.Glimpse.v1.24.0.Pdf] |
-| [SixSwissExchange][SixSwissExchange.Exchange] | [TotalView][Six.SixSwissExchange.TotalView] | [Itch][Omi.Encoding.Itch] | [1.24.0][Six.SixSwissExchange.TotalView.Itch.v1.24.0.Dissector] | 1/21/2025 | 3558 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Six.SixSwissExchange.TotalView.Itch.v1.24.0.Pdf] |
+| [SixSwissExchange][SixSwissExchange.Exchange] | [Snapshot][Six.SixSwissExchange.Snapshot] | [Glimpse][Omi.Encoding.Glimpse] | [1.24.0][Six.SixSwissExchange.Snapshot.Glimpse.v1.24.0.Dissector] | 1/21/2025 | 3481 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Six.SixSwissExchange.Snapshot.Glimpse.v1.24.0.Pdf] |
+| [SixSwissExchange][SixSwissExchange.Exchange] | [TotalView][Six.SixSwissExchange.TotalView] | [Itch][Omi.Encoding.Itch] | [1.24.0][Six.SixSwissExchange.TotalView.Itch.v1.24.0.Dissector] | 1/21/2025 | 3559 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Six.SixSwissExchange.TotalView.Itch.v1.24.0.Pdf] |
 
 
 <p align="center"><a href="https://www.six-group.com" title="SIX Swiss Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a></p>

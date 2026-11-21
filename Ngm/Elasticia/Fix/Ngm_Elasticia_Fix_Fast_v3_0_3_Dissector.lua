@@ -14589,7 +14589,8 @@ udp_table:add_for_decode_as(omi_ngm_elasticia_fix_fast_v3_0_3)
 -- Protocol Compiler technologies used to produce this file are
 -- the subject of patents owned by Scaled Sources LLC.  Those patent
 -- rights are retained and are not transferred by this contribution:
---   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US12101388B2/en
 --   https://patents.google.com/patent/US20240419416A1/en
+--   https://patents.google.com/patent/US20260368281A1/en
 --
 -----------------------------------------------------------------------

@@ -3107,7 +3107,8 @@ tcp_table:add_for_decode_as(omi_nasdaq_nasdaqcanada_chixmd_asciiitch_v3_4_1_23)
 -- Protocol Compiler technologies used to produce this file are
 -- the subject of patents owned by Scaled Sources LLC.  Those patent
 -- rights are retained and are not transferred by this contribution:
---   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US12101388B2/en
 --   https://patents.google.com/patent/US20240419416A1/en
+--   https://patents.google.com/patent/US20260368281A1/en
 --
 -----------------------------------------------------------------------

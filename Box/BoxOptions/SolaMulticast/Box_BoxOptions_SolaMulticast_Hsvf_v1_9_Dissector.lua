@@ -190,9 +190,9 @@ omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.complex_market_depth_level_ind
 omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.instrument_leg_index = ProtoField.new("Instrument Leg Index", "box.boxoptions.solamulticast.hsvf.v1.9.instrumentlegindex", ftypes.UINT16)
 omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.market_depth_level_index = ProtoField.new("Market Depth Level Index", "box.boxoptions.solamulticast.hsvf.v1.9.marketdepthlevelindex", ftypes.UINT16)
 omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.scaled_ask_price = ProtoField.new("Scaled Ask Price", "box.boxoptions.solamulticast.hsvf.v1.9.scaledaskprice", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.ask_price_quote = ProtoField.new("Ask Price Quote", "box.boxoptions.solamulticast.hsvf.v1.9.askpricequote", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.scaled_ask_price_quote_numeric = ProtoField.new("Scaled Ask Price Quote Numeric", "box.boxoptions.solamulticast.hsvf.v1.9.scaledaskpricequotenumeric", ftypes.DOUBLE)
 omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.scaled_bid_price = ProtoField.new("Scaled Bid Price", "box.boxoptions.solamulticast.hsvf.v1.9.scaledbidprice", ftypes.DOUBLE)
-omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.bid_price_quote = ProtoField.new("Bid Price Quote", "box.boxoptions.solamulticast.hsvf.v1.9.bidpricequote", ftypes.DOUBLE)
+omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.scaled_bid_price_quote_numeric = ProtoField.new("Scaled Bid Price Quote Numeric", "box.boxoptions.solamulticast.hsvf.v1.9.scaledbidpricequotenumeric", ftypes.DOUBLE)
 omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.scaled_high_price = ProtoField.new("Scaled High Price", "box.boxoptions.solamulticast.hsvf.v1.9.scaledhighprice", ftypes.DOUBLE)
 omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.scaled_initial_order_price = ProtoField.new("Scaled Initial Order Price", "box.boxoptions.solamulticast.hsvf.v1.9.scaledinitialorderprice", ftypes.DOUBLE)
 omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.scaled_last_price = ProtoField.new("Scaled Last Price", "box.boxoptions.solamulticast.hsvf.v1.9.scaledlastprice", ftypes.DOUBLE)
@@ -4435,21 +4435,21 @@ box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price.dissect = function(buffe
   return offset + length + box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_indicator.size, value
 end
 
--- Ask Price Quote
-box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote = {}
+-- Scaled Ask Price Quote Numeric
+box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric = {}
 
--- Display: Ask Price Quote
-box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display = function(value)
-  return "Ask Price Quote: " .. string.format("%.15g", value)
+-- Display: Scaled Ask Price Quote Numeric
+box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display = function(value)
+  return "Scaled Ask Price Quote Numeric: " .. string.format("%.15g", value)
 end
 
--- Display: Ask Price Quote with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display_uncoded = function(value)
-  return "Ask Price Quote: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Ask Price Quote Numeric with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display_uncoded = function(value)
+  return "Scaled Ask Price Quote Numeric: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Ask Price Quote
-box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.dissect = function(buffer, offset, packet, parent)
+-- Composite: Scaled Ask Price Quote Numeric
+box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
@@ -4460,61 +4460,61 @@ box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.dissect = function(buffer
   local display
   if ask_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   elseif ask_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.ask_price_quote, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_indicator.size), value, display)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.scaled_ask_price_quote_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_indicator.size), value, display)
   local mantissa_display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote_numeric.display(mantissa)
   local ask_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_fraction_indicator.display(ask_price_fraction_indicator)
 
@@ -4613,21 +4613,21 @@ box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price.dissect = function(buffe
   return offset + length + box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_indicator.size, value
 end
 
--- Bid Price Quote
-box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote = {}
+-- Scaled Bid Price Quote Numeric
+box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric = {}
 
--- Display: Bid Price Quote
-box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display = function(value)
-  return "Bid Price Quote: " .. string.format("%.15g", value)
+-- Display: Scaled Bid Price Quote Numeric
+box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display = function(value)
+  return "Scaled Bid Price Quote Numeric: " .. string.format("%.15g", value)
 end
 
--- Display: Bid Price Quote with an unrecognised code
-box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display_uncoded = function(value)
-  return "Bid Price Quote: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
+-- Display: Scaled Bid Price Quote Numeric with an unrecognised code
+box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display_uncoded = function(value)
+  return "Scaled Bid Price Quote Numeric: " .. string.format("%.15g", value) .. " (unscaled: denominator code not recognised)"
 end
 
--- Composite: Bid Price Quote
-box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.dissect = function(buffer, offset, packet, parent)
+-- Composite: Scaled Bid Price Quote Numeric
+box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.dissect = function(buffer, offset, packet, parent)
   local length = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote_numeric.size
   local range = buffer(offset, length)
   local mantissa = range:string()
@@ -4638,61 +4638,61 @@ box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.dissect = function(buffer
   local display
   if bid_price_fraction_indicator == "0" then
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "1" then
     value = mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "2" then
     value = mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "3" then
     value = mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "4" then
     value = mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "5" then
     value = mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "6" then
     value = mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "7" then
     value = mantissa / (10 ^ 7)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "8" then
     value = mantissa / (10 ^ 8)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "9" then
     value = mantissa / (10 ^ 9)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "A" then
     value = -mantissa
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "B" then
     value = -mantissa / (10 ^ 1)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "C" then
     value = -mantissa / (10 ^ 2)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "D" then
     value = -mantissa / (10 ^ 3)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "E" then
     value = -mantissa / (10 ^ 4)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "F" then
     value = -mantissa / (10 ^ 5)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   elseif bid_price_fraction_indicator == "G" then
     value = -mantissa / (10 ^ 6)
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display(value)
   else
     value = mantissa
-    display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.display_uncoded(value)
+    display = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.display_uncoded(value)
   end
 
-  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.bid_price_quote, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_indicator.size), value, display)
+  local field_tree = parent:add(omi_box_boxoptions_solamulticast_hsvf_v1_9.fields.scaled_bid_price_quote_numeric, buffer(offset, length + box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_indicator.size), value, display)
   local mantissa_display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote_numeric.display(mantissa)
   local bid_price_fraction_indicator_display = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_fraction_indicator.display(bid_price_fraction_indicator)
 
@@ -7673,7 +7673,7 @@ box_boxoptions_solamulticast_hsvf_v1_9.complex_market_depth_level.fields = funct
   index, bid_price_sign = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_sign.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote Numeric: X
-  index, bid_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X (read by Bid Price Quote Numeric)
 
@@ -7687,7 +7687,7 @@ box_boxoptions_solamulticast_hsvf_v1_9.complex_market_depth_level.fields = funct
   index, ask_price_sign = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_sign.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote Numeric: X
-  index, ask_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X (read by Ask Price Quote Numeric)
 
@@ -7821,7 +7821,7 @@ box_boxoptions_solamulticast_hsvf_v1_9.market_depth_level.fields = function(buff
   index, level_of_market_depth = box_boxoptions_solamulticast_hsvf_v1_9.level_of_market_depth.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote Numeric: X
-  index, bid_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X (read by Bid Price Quote Numeric)
 
@@ -7832,7 +7832,7 @@ box_boxoptions_solamulticast_hsvf_v1_9.market_depth_level.fields = function(buff
   index, number_of_bid_orders = box_boxoptions_solamulticast_hsvf_v1_9.number_of_bid_orders.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote Numeric: X
-  index, ask_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X (read by Ask Price Quote Numeric)
 
@@ -8118,7 +8118,7 @@ box_boxoptions_solamulticast_hsvf_v1_9.complex_order_quote_message.fields = func
   index, bid_price_sign = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_sign.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote Numeric: X
-  index, bid_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X (read by Bid Price Quote Numeric)
 
@@ -8129,7 +8129,7 @@ box_boxoptions_solamulticast_hsvf_v1_9.complex_order_quote_message.fields = func
   index, ask_price_sign = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_sign.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote Numeric: X
-  index, ask_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X (read by Ask Price Quote Numeric)
 
@@ -8200,7 +8200,7 @@ box_boxoptions_solamulticast_hsvf_v1_9.option_quote_message.fields = function(bu
   index, instrument_description = box_boxoptions_solamulticast_hsvf_v1_9.instrument_description.dissect(buffer, index, packet, parent)
 
   -- Bid Price Quote Numeric: X
-  index, bid_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.bid_price_quote.dissect(buffer, index, packet, parent)
+  index, bid_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.scaled_bid_price_quote_numeric.dissect(buffer, index, packet, parent)
 
   -- Bid Price Fraction Indicator: X (read by Bid Price Quote Numeric)
 
@@ -8208,7 +8208,7 @@ box_boxoptions_solamulticast_hsvf_v1_9.option_quote_message.fields = function(bu
   index, bid_size = box_boxoptions_solamulticast_hsvf_v1_9.bid_size.dissect(buffer, index, packet, parent)
 
   -- Ask Price Quote Numeric: X
-  index, ask_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.ask_price_quote.dissect(buffer, index, packet, parent)
+  index, ask_price_quote_numeric = box_boxoptions_solamulticast_hsvf_v1_9.scaled_ask_price_quote_numeric.dissect(buffer, index, packet, parent)
 
   -- Ask Price Fraction Indicator: X (read by Ask Price Quote Numeric)
 
@@ -8886,7 +8886,8 @@ udp_table:add_for_decode_as(omi_box_boxoptions_solamulticast_hsvf_v1_9)
 -- Protocol Compiler technologies used to produce this file are
 -- the subject of patents owned by Scaled Sources LLC.  Those patent
 -- rights are retained and are not transferred by this contribution:
---   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US12101388B2/en
 --   https://patents.google.com/patent/US20240419416A1/en
+--   https://patents.google.com/patent/US20260368281A1/en
 --
 -----------------------------------------------------------------------

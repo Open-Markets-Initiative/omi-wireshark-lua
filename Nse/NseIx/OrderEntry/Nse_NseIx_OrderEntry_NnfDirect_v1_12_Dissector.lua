@@ -64,9 +64,11 @@ omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.c_ord_filler = ProtoField.new("C
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.ca_level = ProtoField.new("Ca Level", "nse.nseix.orderentry.nnfdirect.v1.12.calevel", ftypes.INT16, nil, nil, nil, "Corporate action level")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.ca_level_1 = ProtoField.new("Ca Level 1", "nse.nseix.orderentry.nnfdirect.v1.12.calevel1", ftypes.INT16, nil, nil, nil, "Corporate action level of the first leg")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.ca_level_2 = ProtoField.new("Ca Level 2", "nse.nseix.orderentry.nnfdirect.v1.12.calevel2", ftypes.INT16, nil, nil, nil, "Corporate action level of the second leg")
-omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.checksum = ProtoField.new("Checksum", "nse.nseix.orderentry.nnfdirect.v1.12.checksum", ftypes.BYTES, nil, nil, nil, "Md5 digest of the message data, or the Gcm authentication tag under the new encryption")
+omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.checksum = ProtoField.new("Checksum", "nse.nseix.orderentry.nnfdirect.v1.12.checksum", ftypes.BYTES, nil, nil, nil, "Md5 digest of the plain message data, or the Gcm authentication tag under the new encryption")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.chg_open_interest = ProtoField.new("Chg Open Interest", "nse.nseix.orderentry.nnfdirect.v1.12.chgopeninterest", ftypes.INT32, nil, nil, nil, "Change in open interest")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.clearing_status = ProtoField.new("Clearing Status", "nse.nseix.orderentry.nnfdirect.v1.12.clearingstatus", ftypes.STRING, nil, nil, nil, "Clearing status of the trading member")
+omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.client_registration_packet = ProtoField.new("Client Registration Packet", "nse.nseix.orderentry.nnfdirect.v1.12.clientregistrationpacket", ftypes.STRING, nil, nil, nil, "Secure Box Registration Request, the firm's first packet on the connection, never encrypted")
+omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.client_session_packet = ProtoField.new("Client Session Packet", "nse.nseix.orderentry.nnfdirect.v1.12.clientsessionpacket", ftypes.STRING, nil, nil, nil, "Every packet the firm sends after its registration")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.closeout_flag = ProtoField.new("Closeout Flag", "nse.nseix.orderentry.nnfdirect.v1.12.closeoutflag", ftypes.STRING, nil, nil, nil, "Whether the order closes out a position of a broker in closeout")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.closing_price = ProtoField.new("Closing Price", "nse.nseix.orderentry.nnfdirect.v1.12.closingprice", ftypes.INT32)
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.col = ProtoField.new("Col", "nse.nseix.orderentry.nnfdirect.v1.12.col", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Cancel on logoff")
@@ -277,6 +279,7 @@ omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.pro_client_indicator = ProtoFiel
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.reason_code = ProtoField.new("Reason Code", "nse.nseix.orderentry.nnfdirect.v1.12.reasoncode", ftypes.INT16, nil, nil, nil, "Reason the give up was rejected")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.reason_code_1 = ProtoField.new("Reason Code 1", "nse.nseix.orderentry.nnfdirect.v1.12.reasoncode1", ftypes.INT16, nil, nil, nil, "Reason the request was rejected")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.reference = ProtoField.new("Reference", "nse.nseix.orderentry.nnfdirect.v1.12.reference", ftypes.STRING, nil, nil, nil, "Free for the front end to use")
+omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.registration_checksum = ProtoField.new("Registration Checksum", "nse.nseix.orderentry.nnfdirect.v1.12.registrationchecksum", ftypes.BYTES, nil, nil, nil, "Md5 digest of the registration's message data, which is never encrypted")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.remaining_volume = ProtoField.new("Remaining Volume", "nse.nseix.orderentry.nnfdirect.v1.12.remainingvolume", ftypes.INT32, nil, nil, nil, "Volume remaining after the trades")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.report_data = ProtoField.new("Report Data", "nse.nseix.orderentry.nnfdirect.v1.12.reportdata", ftypes.STRING, nil, nil, nil, "REPORT_DATA")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.report_date_utc = ProtoField.new("Report Date", "nse.nseix.orderentry.nnfdirect.v1.12.reportdate.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Date of the report")
@@ -319,6 +322,8 @@ omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.sell_giveup_flag = ProtoField.ne
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.sell_open_close = ProtoField.new("Sell Open Close", "nse.nseix.orderentry.nnfdirect.v1.12.sellopenclose", ftypes.STRING, nil, nil, nil, "Open or close indicator of the sell trade")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.sell_participant = ProtoField.new("Sell Participant", "nse.nseix.orderentry.nnfdirect.v1.12.sellparticipant", ftypes.STRING, nil, nil, nil, "Participant Id of the sell side")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.sequence_number = ProtoField.new("Sequence Number", "nse.nseix.orderentry.nnfdirect.v1.12.sequencenumber", ftypes.DOUBLE, nil, nil, nil, "Sequence number, zero on the request")
+omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.server_registration_packet = ProtoField.new("Server Registration Packet", "nse.nseix.orderentry.nnfdirect.v1.12.serverregistrationpacket", ftypes.STRING, nil, nil, nil, "Secure Box Registration Response, the exchange's first packet on the connection, never encrypted")
+omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.server_session_packet = ProtoField.new("Server Session Packet", "nse.nseix.orderentry.nnfdirect.v1.12.serversessionpacket", ftypes.STRING, nil, nil, nil, "Every packet the exchange sends after its registration response")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.session_ind = ProtoField.new("Session Ind", "nse.nseix.orderentry.nnfdirect.v1.12.sessionind", ftypes.UINT8, {[0]="Session 1", [1]="Session 2"}, base.DEC, 0x20, "Session the trade was done in, stamped only on trade messages")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.session_key = ProtoField.new("Session Key", "nse.nseix.orderentry.nnfdirect.v1.12.sessionkey", ftypes.STRING, nil, nil, nil, "Session key to be used for authentication")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.settlement_period = ProtoField.new("Settlement Period", "nse.nseix.orderentry.nnfdirect.v1.12.settlementperiod", ftypes.INT16, nil, nil, nil, "Number of days in a settlement cycle")
@@ -407,7 +412,7 @@ omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.ws_class_name = ProtoField.new("
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.client_direct_packet = ProtoField.new("Client Direct Packet", "nse.nseix.orderentry.nnfdirect.v1.12.clientdirectpacket", ftypes.STRING, nil, nil, nil, "One framed interactive message sent by the firm")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.client_packet = ProtoField.new("Client Packet", "nse.nseix.orderentry.nnfdirect.v1.12.clientpacket", ftypes.STRING, nil, nil, nil, "Nnf direct interface Tcp block of one or more packets sent by the firm")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.message_header = ProtoField.new("Message Header", "nse.nseix.orderentry.nnfdirect.v1.12.messageheader", ftypes.STRING, nil, nil, nil, "MESSAGE_HEADER")
-omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.packet_header = ProtoField.new("Packet Header", "nse.nseix.orderentry.nnfdirect.v1.12.packetheader", ftypes.STRING, nil, nil, nil, "Direct interface twenty two byte packet header")
+omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.packet_header = ProtoField.new("Packet Header", "nse.nseix.orderentry.nnfdirect.v1.12.packetheader", ftypes.STRING, nil, nil, nil, "Packet Length and Sequence number, the first six bytes of the direct interface's twenty two byte packet header; its last sixteen open each packet body branch")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.server_direct_packet = ProtoField.new("Server Direct Packet", "nse.nseix.orderentry.nnfdirect.v1.12.serverdirectpacket", ftypes.STRING, nil, nil, nil, "One framed interactive message sent by the exchange")
 omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.server_packet = ProtoField.new("Server Packet", "nse.nseix.orderentry.nnfdirect.v1.12.serverpacket", ftypes.STRING, nil, nil, nil, "Nnf direct interface Tcp block of one or more packets sent by the exchange")
 
@@ -489,7 +494,9 @@ omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.user_limits_index = ProtoField.n
 -- Nse NseIx OrderEntry NnfDirect 1.12 Expert Info
 nse_nseix_orderentry_nnfdirect_v1_12.experts = {}
 nse_nseix_orderentry_nnfdirect_v1_12.experts.undecoded = ProtoExpert.new("nse.nseix.orderentry.nnfdirect.v1.12.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
-omi_nse_nseix_orderentry_nnfdirect_v1_12.experts = { nse_nseix_orderentry_nnfdirect_v1_12.experts.undecoded }
+nse_nseix_orderentry_nnfdirect_v1_12.experts.checksum_incorrect = ProtoExpert.new("nse.nseix.orderentry.nnfdirect.v1.12.checksumincorrect", "Checksum incorrect: not the checksum of the bytes it covers", expert.group.CHECKSUM, expert.severity.ERROR)
+nse_nseix_orderentry_nnfdirect_v1_12.experts.registration_checksum_incorrect = ProtoExpert.new("nse.nseix.orderentry.nnfdirect.v1.12.registrationchecksumincorrect", "Registration Checksum incorrect: not the checksum of the bytes it covers", expert.group.CHECKSUM, expert.severity.ERROR)
+omi_nse_nseix_orderentry_nnfdirect_v1_12.experts = { nse_nseix_orderentry_nnfdirect_v1_12.experts.undecoded, nse_nseix_orderentry_nnfdirect_v1_12.experts.checksum_incorrect, nse_nseix_orderentry_nnfdirect_v1_12.experts.registration_checksum_incorrect }
 
 -----------------------------------------------------------------------
 -- Nse NseIx OrderEntry NnfDirect 1.12 Formatting
@@ -507,6 +514,9 @@ nse_nseix_orderentry_nnfdirect_v1_12.timestamp_format = 3
 
 -- Offset of the source's zone from utc in seconds, as the reader states it
 nse_nseix_orderentry_nnfdirect_v1_12.zone_offset = 0
+
+-- Checksums are verified only where the reader asks
+nse_nseix_orderentry_nnfdirect_v1_12.verify_checksums = false
 
 -- assumed connection role
 local role_enum = {
@@ -542,6 +552,8 @@ omi_nse_nseix_orderentry_nnfdirect_v1_12.prefs.show_indexes = Pref.bool("Show In
 omi_nse_nseix_orderentry_nnfdirect_v1_12.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
 omi_nse_nseix_orderentry_nnfdirect_v1_12.prefs.zone_offset = Pref.string("Asia/Kolkata Utc Offset", "", "Offset of Asia/Kolkata from Utc, as +HH:MM. This protocol names that zone and not its offset: stated here, a time kept on its clock reads as an instant, and an instant reads on its clock")
 
+omi_nse_nseix_orderentry_nnfdirect_v1_12.prefs.verify_checksums = Pref.bool("Verify Checksums", false, "Compute each checksum the protocol carries and compare it with the one sent. Off by default: a capture taken on the sending host often holds checksums filled in after it was captured")
+
 -- Handle changed preferences
 function omi_nse_nseix_orderentry_nnfdirect_v1_12.prefs_changed()
 
@@ -575,6 +587,9 @@ function omi_nse_nseix_orderentry_nnfdirect_v1_12.prefs_changed()
   if sign == "-" then
     nse_nseix_orderentry_nnfdirect_v1_12.zone_offset = -nse_nseix_orderentry_nnfdirect_v1_12.zone_offset
   end
+  if nse_nseix_orderentry_nnfdirect_v1_12.verify_checksums ~= omi_nse_nseix_orderentry_nnfdirect_v1_12.prefs.verify_checksums then
+    nse_nseix_orderentry_nnfdirect_v1_12.verify_checksums = omi_nse_nseix_orderentry_nnfdirect_v1_12.prefs.verify_checksums
+  end
 end
 
 
@@ -594,6 +609,69 @@ trim_right_spaces = function(str)
 end
 
 
+-- Md5 digest constants (RFC 1321): the integer part of 2^32 times abs(sin(i)), and each step's rotation
+local md5_sines = {}
+for index = 1, 64 do
+  md5_sines[index] = math.floor(math.abs(math.sin(index)) * 4294967296) & 0xFFFFFFFF
+end
+local md5_shifts = {
+  7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
+  5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20,
+  4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
+  6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21
+}
+
+-- Md5 digest: the range hashed, the checksum's own bytes left out or counted as zeros
+local function digest_md5(range, skip, length, zeroed)
+  local covered = range:raw()
+  local message = covered:sub(1, skip)..(zeroed and string.rep("\0", length) or "")..covered:sub(skip + length + 1)
+  local size = #message
+
+  message = message.."\128"..string.rep("\0", (55 - size) % 64)..string.pack("<I8", size * 8)
+
+  local h0, h1, h2, h3 = 0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476
+
+  for chunk = 1, #message, 64 do
+    local words = { string.unpack("<I4I4I4I4I4I4I4I4I4I4I4I4I4I4I4I4", message, chunk) }
+    local a, b, c, d = h0, h1, h2, h3
+
+    for step = 0, 63 do
+      local f, g
+      if step < 16 then
+        f = (b & c) | (~b & d)
+        g = step
+      elseif step < 32 then
+        f = (d & b) | (~d & c)
+        g = (5 * step + 1) % 16
+      elseif step < 48 then
+        f = b ~ c ~ d
+        g = (3 * step + 5) % 16
+      else
+        f = c ~ (b | ~d)
+        g = (7 * step) % 16
+      end
+
+      f = (f + a + md5_sines[step + 1] + words[g + 1]) & 0xFFFFFFFF
+      local shift = md5_shifts[step + 1]
+      a, d, c = d, c, b
+      b = (b + (((f << shift) | (f >> (32 - shift))) & 0xFFFFFFFF)) & 0xFFFFFFFF
+    end
+
+    h0 = (h0 + a) & 0xFFFFFFFF
+    h1 = (h1 + b) & 0xFFFFFFFF
+    h2 = (h2 + c) & 0xFFFFFFFF
+    h3 = (h3 + d) & 0xFFFFFFFF
+  end
+
+  local digest = string.pack("<I4I4I4I4", h0, h1, h2, h3)
+  local spelled = {}
+
+  for index = 1, #digest do
+    spelled[index] = string.format("%02X", digest:byte(index))
+  end
+
+  return table.concat(spelled, " ")
+end
 -- Mark a sized group whose fields read past its end; raise any other failure as it was
 local function undecoded(failure, parent, expert, text)
   if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
@@ -1616,7 +1694,22 @@ nse_nseix_orderentry_nnfdirect_v1_12.checksum.dissect = function(buffer, offset,
   local value = range:bytes():tohex(false, " ")
   local display = nse_nseix_orderentry_nnfdirect_v1_12.checksum.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.checksum, range, range:raw(), display)
+  local item = parent:add(omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.checksum, range, range:raw(), display)
+
+  -- Verified only where the reader asks: the Md5 of the bytes covered, its own left out
+  if nse_nseix_orderentry_nnfdirect_v1_12.verify_checksums then
+    local start = offset
+    local computed = digest_md5(buffer(start, buffer:len() - start), offset - start, length, false)
+
+    if computed == value then
+      item:append_text(" [correct]")
+    else
+      item:append_text(" [incorrect, should be "..computed.."]")
+      item:add_proto_expert_info(nse_nseix_orderentry_nnfdirect_v1_12.experts.checksum_incorrect, "Checksum incorrect: "..value..", should be "..computed)
+    end
+  else
+    item:append_text(" [unverified]")
+  end
 
   return offset + length, value
 end
@@ -6399,6 +6492,44 @@ nse_nseix_orderentry_nnfdirect_v1_12.reference.dissect = function(buffer, offset
   local display = nse_nseix_orderentry_nnfdirect_v1_12.reference.display(value, buffer, offset, packet, parent)
 
   parent:add(omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.reference, range, value, display)
+
+  return offset + length, value
+end
+
+-- Registration Checksum
+nse_nseix_orderentry_nnfdirect_v1_12.registration_checksum = {}
+
+-- Size: Registration Checksum
+nse_nseix_orderentry_nnfdirect_v1_12.registration_checksum.size = 16
+
+-- Display: Registration Checksum
+nse_nseix_orderentry_nnfdirect_v1_12.registration_checksum.display = function(value)
+  return "Registration Checksum: "..value
+end
+
+-- Dissect: Registration Checksum
+nse_nseix_orderentry_nnfdirect_v1_12.registration_checksum.dissect = function(buffer, offset, packet, parent)
+  local length = nse_nseix_orderentry_nnfdirect_v1_12.registration_checksum.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = nse_nseix_orderentry_nnfdirect_v1_12.registration_checksum.display(value, buffer, offset, packet, parent)
+
+  local item = parent:add(omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.registration_checksum, range, range:raw(), display)
+
+  -- Verified only where the reader asks: the Md5 of the bytes covered, its own left out
+  if nse_nseix_orderentry_nnfdirect_v1_12.verify_checksums then
+    local start = offset
+    local computed = digest_md5(buffer(start, buffer:len() - start), offset - start, length, false)
+
+    if computed == value then
+      item:append_text(" [correct]")
+    else
+      item:append_text(" [incorrect, should be "..computed.."]")
+      item:add_proto_expert_info(nse_nseix_orderentry_nnfdirect_v1_12.experts.registration_checksum_incorrect, "Registration Checksum incorrect: "..value..", should be "..computed)
+    end
+  else
+    item:append_text(" [unverified]")
+  end
 
   return offset + length, value
 end
@@ -13987,14 +14118,155 @@ nse_nseix_orderentry_nnfdirect_v1_12.message_header.dissect = function(buffer, o
   end
 end
 
+-- Server Session Packet
+nse_nseix_orderentry_nnfdirect_v1_12.server_session_packet = {}
+
+-- Calculate size of: Server Session Packet
+nse_nseix_orderentry_nnfdirect_v1_12.server_session_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.checksum.size
+
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.message_header.size
+
+  -- Calculate runtime size of Server Message Payload field
+  local server_message_payload_offset = offset + index
+  local server_message_payload_type = buffer(server_message_payload_offset - 40, 2):int()
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.server_message_payload.size(buffer, server_message_payload_offset, server_message_payload_type)
+
+  return index
+end
+
+-- Display: Server Session Packet
+nse_nseix_orderentry_nnfdirect_v1_12.server_session_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Session Packet
+nse_nseix_orderentry_nnfdirect_v1_12.server_session_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Checksum: 16 Byte
+  index, checksum = nse_nseix_orderentry_nnfdirect_v1_12.checksum.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 9 fields
+  index, message_header = nse_nseix_orderentry_nnfdirect_v1_12.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Transaction Code
+  local transaction_code = buffer(index - 40, 2):int()
+
+  -- Server Message Payload: Runtime Type with 38 branches
+  index = nse_nseix_orderentry_nnfdirect_v1_12.server_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+
+  return index
+end
+
+-- Dissect: Server Session Packet
+nse_nseix_orderentry_nnfdirect_v1_12.server_session_packet.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.server_session_packet, buffer(offset, 0))
+    local index = nse_nseix_orderentry_nnfdirect_v1_12.server_session_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nseix_orderentry_nnfdirect_v1_12.server_session_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nseix_orderentry_nnfdirect_v1_12.server_session_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Registration Packet
+nse_nseix_orderentry_nnfdirect_v1_12.server_registration_packet = {}
+
+-- Calculate size of: Server Registration Packet
+nse_nseix_orderentry_nnfdirect_v1_12.server_registration_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.registration_checksum.size
+
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.message_header.size
+
+  -- Calculate runtime size of Server Message Payload field
+  local server_message_payload_offset = offset + index
+  local server_message_payload_type = buffer(server_message_payload_offset - 40, 2):int()
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.server_message_payload.size(buffer, server_message_payload_offset, server_message_payload_type)
+
+  return index
+end
+
+-- Display: Server Registration Packet
+nse_nseix_orderentry_nnfdirect_v1_12.server_registration_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Registration Packet
+nse_nseix_orderentry_nnfdirect_v1_12.server_registration_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Registration Checksum: 16 Byte
+  index, registration_checksum = nse_nseix_orderentry_nnfdirect_v1_12.registration_checksum.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 9 fields
+  index, message_header = nse_nseix_orderentry_nnfdirect_v1_12.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Transaction Code
+  local transaction_code = buffer(index - 40, 2):int()
+
+  -- Server Message Payload: Runtime Type with 38 branches
+  index = nse_nseix_orderentry_nnfdirect_v1_12.server_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+
+  return index
+end
+
+-- Dissect: Server Registration Packet
+nse_nseix_orderentry_nnfdirect_v1_12.server_registration_packet.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.server_registration_packet, buffer(offset, 0))
+    local index = nse_nseix_orderentry_nnfdirect_v1_12.server_registration_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nseix_orderentry_nnfdirect_v1_12.server_registration_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nseix_orderentry_nnfdirect_v1_12.server_registration_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Server Packet Body
+nse_nseix_orderentry_nnfdirect_v1_12.server_packet_body = {}
+
+-- Dispatch: Server Packet Body
+nse_nseix_orderentry_nnfdirect_v1_12.server_packet_body.dispatch = {
+  [23009] = nse_nseix_orderentry_nnfdirect_v1_12.server_registration_packet.dissect,
+}
+
+-- Dissect: Server Packet Body
+nse_nseix_orderentry_nnfdirect_v1_12.server_packet_body.dissect = function(buffer, offset, packet, parent)
+  local transaction_code = buffer(offset + 16, 2):int()
+  local dissect = nse_nseix_orderentry_nnfdirect_v1_12.server_packet_body.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Server Session Packet
+  return nse_nseix_orderentry_nnfdirect_v1_12.server_session_packet.dissect(buffer, offset, packet, parent)
+end
+
 -- Packet Header
 nse_nseix_orderentry_nnfdirect_v1_12.packet_header = {}
 
 -- Size: Packet Header
 nse_nseix_orderentry_nnfdirect_v1_12.packet_header.size =
   nse_nseix_orderentry_nnfdirect_v1_12.packet_length.size + 
-  nse_nseix_orderentry_nnfdirect_v1_12.packet_sequence_number.size + 
-  nse_nseix_orderentry_nnfdirect_v1_12.checksum.size
+  nse_nseix_orderentry_nnfdirect_v1_12.packet_sequence_number.size
 
 -- Display: Packet Header
 nse_nseix_orderentry_nnfdirect_v1_12.packet_header.display = function(packet, parent, length)
@@ -14010,9 +14282,6 @@ nse_nseix_orderentry_nnfdirect_v1_12.packet_header.fields = function(buffer, off
 
   -- Packet Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, packet_sequence_number = nse_nseix_orderentry_nnfdirect_v1_12.packet_sequence_number.dissect(buffer, index, packet, parent)
-
-  -- Checksum: 16 Byte
-  index, checksum = nse_nseix_orderentry_nnfdirect_v1_12.checksum.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -14047,17 +14316,11 @@ end
 nse_nseix_orderentry_nnfdirect_v1_12.server_direct_packet.fields = function(buffer, offset, packet, parent, size_of_server_direct_packet)
   local index = offset
 
-  -- Packet Header: Struct of 3 fields
+  -- Packet Header: Struct of 2 fields
   index, packet_header = nse_nseix_orderentry_nnfdirect_v1_12.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Message Header: Struct of 9 fields
-  index, message_header = nse_nseix_orderentry_nnfdirect_v1_12.message_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Transaction Code
-  local transaction_code = buffer(index - 40, 2):int()
-
-  -- Server Message Payload: Runtime Type with 38 branches
-  index = nse_nseix_orderentry_nnfdirect_v1_12.server_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+  -- Server Packet Body: Runtime Type with 2 branches
+  index = nse_nseix_orderentry_nnfdirect_v1_12.server_packet_body.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -14118,7 +14381,7 @@ nse_nseix_orderentry_nnfdirect_v1_12.server_packet = {}
 
 -- Verify required size of Tcp packet
 nse_nseix_orderentry_nnfdirect_v1_12.server_packet.requiredsize = function(buffer)
-  return buffer:len() >= nse_nseix_orderentry_nnfdirect_v1_12.packet_header.size + nse_nseix_orderentry_nnfdirect_v1_12.message_header.size
+  return buffer:len() >= nse_nseix_orderentry_nnfdirect_v1_12.packet_header.size + 16 + nse_nseix_orderentry_nnfdirect_v1_12.transaction_code.size
 end
 
 -- Dissect Server Packet
@@ -14128,7 +14391,7 @@ nse_nseix_orderentry_nnfdirect_v1_12.server_packet.dissect = function(buffer, pa
   -- Dependency for Server Direct Packet
   local end_of_payload = buffer:len()
 
-  -- Server Direct Packet: Struct of 3 fields
+  -- Server Direct Packet: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
@@ -15481,6 +15744,148 @@ nse_nseix_orderentry_nnfdirect_v1_12.client_message_payload.dissect = function(b
   return offset
 end
 
+-- Client Session Packet
+nse_nseix_orderentry_nnfdirect_v1_12.client_session_packet = {}
+
+-- Calculate size of: Client Session Packet
+nse_nseix_orderentry_nnfdirect_v1_12.client_session_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.checksum.size
+
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.message_header.size
+
+  -- Calculate runtime size of Client Message Payload field
+  local client_message_payload_offset = offset + index
+  local client_message_payload_type = buffer(client_message_payload_offset - 40, 2):int()
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.client_message_payload.size(buffer, client_message_payload_offset, client_message_payload_type)
+
+  return index
+end
+
+-- Display: Client Session Packet
+nse_nseix_orderentry_nnfdirect_v1_12.client_session_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Session Packet
+nse_nseix_orderentry_nnfdirect_v1_12.client_session_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Checksum: 16 Byte
+  index, checksum = nse_nseix_orderentry_nnfdirect_v1_12.checksum.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 9 fields
+  index, message_header = nse_nseix_orderentry_nnfdirect_v1_12.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Transaction Code
+  local transaction_code = buffer(index - 40, 2):int()
+
+  -- Client Message Payload: Runtime Type with 25 branches
+  index = nse_nseix_orderentry_nnfdirect_v1_12.client_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+
+  return index
+end
+
+-- Dissect: Client Session Packet
+nse_nseix_orderentry_nnfdirect_v1_12.client_session_packet.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.client_session_packet, buffer(offset, 0))
+    local index = nse_nseix_orderentry_nnfdirect_v1_12.client_session_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nseix_orderentry_nnfdirect_v1_12.client_session_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nseix_orderentry_nnfdirect_v1_12.client_session_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Registration Packet
+nse_nseix_orderentry_nnfdirect_v1_12.client_registration_packet = {}
+
+-- Calculate size of: Client Registration Packet
+nse_nseix_orderentry_nnfdirect_v1_12.client_registration_packet.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.registration_checksum.size
+
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.message_header.size
+
+  -- Calculate runtime size of Client Message Payload field
+  local client_message_payload_offset = offset + index
+  local client_message_payload_type = buffer(client_message_payload_offset - 40, 2):int()
+  index = index + nse_nseix_orderentry_nnfdirect_v1_12.client_message_payload.size(buffer, client_message_payload_offset, client_message_payload_type)
+
+  return index
+end
+
+-- Display: Client Registration Packet
+nse_nseix_orderentry_nnfdirect_v1_12.client_registration_packet.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Registration Packet
+nse_nseix_orderentry_nnfdirect_v1_12.client_registration_packet.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Registration Checksum: 16 Byte
+  index, registration_checksum = nse_nseix_orderentry_nnfdirect_v1_12.registration_checksum.dissect(buffer, index, packet, parent)
+
+  -- Message Header: Struct of 9 fields
+  index, message_header = nse_nseix_orderentry_nnfdirect_v1_12.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Transaction Code
+  local transaction_code = buffer(index - 40, 2):int()
+
+  -- Client Message Payload: Runtime Type with 25 branches
+  index = nse_nseix_orderentry_nnfdirect_v1_12.client_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+
+  return index
+end
+
+-- Dissect: Client Registration Packet
+nse_nseix_orderentry_nnfdirect_v1_12.client_registration_packet.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nseix_orderentry_nnfdirect_v1_12.fields.client_registration_packet, buffer(offset, 0))
+    local index = nse_nseix_orderentry_nnfdirect_v1_12.client_registration_packet.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nseix_orderentry_nnfdirect_v1_12.client_registration_packet.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nseix_orderentry_nnfdirect_v1_12.client_registration_packet.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Client Packet Body
+nse_nseix_orderentry_nnfdirect_v1_12.client_packet_body = {}
+
+-- Dispatch: Client Packet Body
+nse_nseix_orderentry_nnfdirect_v1_12.client_packet_body.dispatch = {
+  [23008] = nse_nseix_orderentry_nnfdirect_v1_12.client_registration_packet.dissect,
+}
+
+-- Dissect: Client Packet Body
+nse_nseix_orderentry_nnfdirect_v1_12.client_packet_body.dissect = function(buffer, offset, packet, parent)
+  local transaction_code = buffer(offset + 16, 2):int()
+  local dissect = nse_nseix_orderentry_nnfdirect_v1_12.client_packet_body.dispatch[transaction_code]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  -- Dissect Client Session Packet
+  return nse_nseix_orderentry_nnfdirect_v1_12.client_session_packet.dissect(buffer, offset, packet, parent)
+end
+
 -- Client Direct Packet
 nse_nseix_orderentry_nnfdirect_v1_12.client_direct_packet = {}
 
@@ -15493,17 +15898,11 @@ end
 nse_nseix_orderentry_nnfdirect_v1_12.client_direct_packet.fields = function(buffer, offset, packet, parent, size_of_client_direct_packet)
   local index = offset
 
-  -- Packet Header: Struct of 3 fields
+  -- Packet Header: Struct of 2 fields
   index, packet_header = nse_nseix_orderentry_nnfdirect_v1_12.packet_header.dissect(buffer, index, packet, parent)
 
-  -- Message Header: Struct of 9 fields
-  index, message_header = nse_nseix_orderentry_nnfdirect_v1_12.message_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Transaction Code
-  local transaction_code = buffer(index - 40, 2):int()
-
-  -- Client Message Payload: Runtime Type with 25 branches
-  index = nse_nseix_orderentry_nnfdirect_v1_12.client_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+  -- Client Packet Body: Runtime Type with 2 branches
+  index = nse_nseix_orderentry_nnfdirect_v1_12.client_packet_body.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -15564,7 +15963,7 @@ nse_nseix_orderentry_nnfdirect_v1_12.client_packet = {}
 
 -- Verify required size of Tcp packet
 nse_nseix_orderentry_nnfdirect_v1_12.client_packet.requiredsize = function(buffer)
-  return buffer:len() >= nse_nseix_orderentry_nnfdirect_v1_12.packet_header.size + nse_nseix_orderentry_nnfdirect_v1_12.message_header.size
+  return buffer:len() >= nse_nseix_orderentry_nnfdirect_v1_12.packet_header.size + 16 + nse_nseix_orderentry_nnfdirect_v1_12.transaction_code.size
 end
 
 -- Dissect Client Packet
@@ -15574,7 +15973,7 @@ nse_nseix_orderentry_nnfdirect_v1_12.client_packet.dissect = function(buffer, pa
   -- Dependency for Client Direct Packet
   local end_of_payload = buffer:len()
 
-  -- Client Direct Packet: Struct of 3 fields
+  -- Client Direct Packet: Struct of 2 fields
   while index < end_of_payload do
 
     -- Are minimum number of bytes are available?
@@ -15707,6 +16106,219 @@ end
 
 -- Fingerprint of Client Packet: would its message dispatch accept this frame?
 nse_nseix_orderentry_nnfdirect_v1_12.client_packet.fingerprint = function(buffer)
+  if buffer:len() < 24 then
+    return false
+  end
+
+  local transaction_code = buffer(22, 2):int()
+
+  -- Client Registration Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if transaction_code == 23008 then
+    if buffer:len() < 24 then
+      return false
+    end
+
+    local transaction_code = buffer(22, 2):int()
+
+    -- Sign On Request In Message
+    if transaction_code == 2300 then
+      return true
+    end
+
+    -- Sign On Request In Message
+    if transaction_code == 5584 then
+      return true
+    end
+
+    -- Sign Off Request In Message
+    if transaction_code == 2320 then
+      return true
+    end
+
+    -- System Information In Message
+    if transaction_code == 1600 then
+      return true
+    end
+
+    -- Update Local Database In Message
+    if transaction_code == 7300 then
+      return true
+    end
+
+    -- Download Request Message
+    if transaction_code == 7000 then
+      return true
+    end
+
+    -- Order Entry Request Message
+    if transaction_code == 2000 then
+      return true
+    end
+
+    -- Order Entry Request Message
+    if transaction_code == 2082 then
+      return true
+    end
+
+    -- Order Modification Request Message
+    if transaction_code == 2040 then
+      return true
+    end
+
+    -- Order Modification Request Message
+    if transaction_code == 2084 then
+      return true
+    end
+
+    -- Order Cancellation Request Message
+    if transaction_code == 2070 then
+      return true
+    end
+
+    -- Order Cancellation Request Message
+    if transaction_code == 2086 then
+      return true
+    end
+
+    -- Kill Switch Request Message
+    if transaction_code == 2062 then
+      return true
+    end
+
+    -- Price Modification Message
+    if transaction_code == 2013 then
+      return true
+    end
+
+    -- Trade Inquiry Message
+    if transaction_code == 5440 then
+      return true
+    end
+
+    -- Trade Inquiry Message
+    if transaction_code == 5445 then
+      return true
+    end
+
+    -- Trade Inquiry Message
+    if transaction_code == 5448 then
+      return true
+    end
+
+    -- Trade Inquiry Message
+    if transaction_code == 5451 then
+      return true
+    end
+
+    -- Spread Order Entry Request Message
+    if transaction_code == 2100 then
+      return true
+    end
+
+    -- Spread Order Entry Request Message
+    if transaction_code == 2102 then
+      return true
+    end
+
+    -- Spread Order Entry Request Message
+    if transaction_code == 2104 then
+      return true
+    end
+
+    -- Spread Order Entry Request Message
+    if transaction_code == 2106 then
+      return true
+    end
+
+    -- Spread Order Entry Request Message
+    if transaction_code == 2118 then
+      return true
+    end
+
+    -- Mba Inquiry Request Message
+    if transaction_code == 1684 then
+      return true
+    end
+
+    -- Mba Inquiry Request Message
+    if transaction_code == 1686 then
+      return true
+    end
+
+    -- Mba Inquiry Request Message
+    if transaction_code == 1688 then
+      return true
+    end
+
+    -- Gateway Router Request Message
+    if transaction_code == 2400 then
+      return true
+    end
+
+    -- Secure Box Registration Request In Message
+    if transaction_code == 23008 then
+      return true
+    end
+
+    -- Box Sign On Request In Message
+    if transaction_code == 23000 then
+      return true
+    end
+
+    -- Heartbeat Message
+    if transaction_code == 23506 then
+      return true
+    end
+
+    -- Branch Order Value Limit Update Request Message
+    if transaction_code == 5716 then
+      return true
+    end
+
+    -- User Order Value Limit Update Message
+    if transaction_code == 5730 then
+      return true
+    end
+
+    -- Normal Order Limit Update Message
+    if transaction_code == 5732 then
+      return true
+    end
+
+    -- Normal Order Limit Update Message
+    if transaction_code == 5771 then
+      return true
+    end
+
+    -- Reset User Password Message
+    if transaction_code == 5740 then
+      return true
+    end
+
+    -- Collateral User Status Change Request Message
+    if transaction_code == 5744 then
+      return true
+    end
+
+    -- User Trade Modify Cancel Status Change Request Message
+    if transaction_code == 5738 then
+      return true
+    end
+
+    -- User Address Unlock Request Message
+    if transaction_code == 5427 then
+      return true
+    end
+
+    -- Nlt Order Inquiry Request Message
+    if transaction_code == 1242 then
+      return true
+    end
+
+    return false
+  end
+
+  -- Client Session Packet: carries the application messages, which tell this protocol from others sharing the session framing
   if buffer:len() < 24 then
     return false
   end
@@ -15908,6 +16520,7 @@ nse_nseix_orderentry_nnfdirect_v1_12.client_packet.fingerprint = function(buffer
     return true
   end
 
+
   return false
 end
 
@@ -15919,46 +16532,477 @@ nse_nseix_orderentry_nnfdirect_v1_12.server_packet.fingerprint = function(buffer
 
   local transaction_code = buffer(22, 2):int()
 
-  -- Sign On Request Out Message: carries the application messages, which tell this protocol from others sharing the session framing
-  if transaction_code == 2301 then
-    if buffer:len() < 62 then
+  -- Server Registration Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if transaction_code == 23009 then
+    if buffer:len() < 24 then
       return false
     end
 
-    local message_length = buffer(60, 2):int()
+    local transaction_code = buffer(22, 2):int()
 
-    -- Sign On Out Body
-    if message_length == 214 then
+    -- Sign On Request Out Message
+    if transaction_code == 2301 then
       return true
     end
 
-    -- Error Response Body
-    if message_length == 182 then
+    -- Sign On Request Out Message
+    if transaction_code == 5585 then
+      return true
+    end
+
+    -- Sign Off Request Out Message
+    if transaction_code == 2321 then
+      return true
+    end
+
+    -- System Information Out Message
+    if transaction_code == 1601 then
+      return true
+    end
+
+    -- System Information Out Message
+    if transaction_code == 7321 then
+      return true
+    end
+
+    -- Update Local Database Header Message
+    if transaction_code == 7307 then
+      return true
+    end
+
+    -- Update Local Database Trailer Message
+    if transaction_code == 7308 then
+      return true
+    end
+
+    -- Update Local Database Data Message
+    if transaction_code == 7304 then
+      return true
+    end
+
+    -- Header Record Message
+    if transaction_code == 7011 then
+      return true
+    end
+
+    -- Message Record Message
+    if transaction_code == 7021 then
+      return true
+    end
+
+    -- Trailer Record Message
+    if transaction_code == 7031 then
+      return true
+    end
+
+    -- Order Confirmation Message
+    if transaction_code == 2073 then
+      return true
+    end
+
+    -- Order Confirmation Message
+    if transaction_code == 2083 then
+      return true
+    end
+
+    -- Order Modification Confirmation Message
+    if transaction_code == 2074 then
+      return true
+    end
+
+    -- Order Modification Confirmation Message
+    if transaction_code == 2085 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2001 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2012 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2041 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2042 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2071 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2072 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2087 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2088 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2089 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2170 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 2231 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 9002 then
+      return true
+    end
+
+    -- Order Response Message
+    if transaction_code == 27100 then
+      return true
+    end
+
+    -- Order Cancellation Confirmation Message
+    if transaction_code == 2075 then
+      return true
+    end
+
+    -- Trade Inquiry Response Message
+    if transaction_code == 2223 then
+      return true
+    end
+
+    -- Trade Inquiry Response Message
+    if transaction_code == 2288 then
+      return true
+    end
+
+    -- Trade Inquiry Response Message
+    if transaction_code == 5441 then
+      return true
+    end
+
+    -- Trade Inquiry Response Message
+    if transaction_code == 5450 then
+      return true
+    end
+
+    -- Trade Inquiry Response Message
+    if transaction_code == 5452 then
+      return true
+    end
+
+    -- Trade Inquiry Response Message
+    if transaction_code == 5453 then
+      return true
+    end
+
+    -- Trade Confirmation Message
+    if transaction_code == 2090 then
+      return true
+    end
+
+    -- Trade Confirmation Message
+    if transaction_code == 2212 then
+      return true
+    end
+
+    -- Trade Confirmation Message
+    if transaction_code == 2222 then
+      return true
+    end
+
+    -- Trade Confirmation Message
+    if transaction_code == 2282 then
+      return true
+    end
+
+    -- Trade Confirmation Message
+    if transaction_code == 2286 then
+      return true
+    end
+
+    -- Trade Confirmation Message
+    if transaction_code == 2287 then
+      return true
+    end
+
+    -- Trade Confirmation Message
+    if transaction_code == 5449 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2101 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2103 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2105 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2107 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2119 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2124 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2125 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2126 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2127 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2130 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2131 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2132 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2133 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2136 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2154 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2155 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 2156 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 9004 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 27102 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 27103 then
+      return true
+    end
+
+    -- Spread Order Response Message
+    if transaction_code == 27104 then
+      return true
+    end
+
+    -- User Order Limit Update Message
+    if transaction_code == 5731 then
+      return true
+    end
+
+    -- Dealer Limit Update Message
+    if transaction_code == 5733 then
+      return true
+    end
+
+    -- Spread Order Limit Update Message
+    if transaction_code == 5772 then
+      return true
+    end
+
+    -- Control Message To Trader Message
+    if transaction_code == 5295 then
+      return true
+    end
+
+    -- Mba Inquiry Response Message
+    if transaction_code == 1685 then
+      return true
+    end
+
+    -- Mba Inquiry Response Message
+    if transaction_code == 1687 then
+      return true
+    end
+
+    -- Mba Inquiry Response Message
+    if transaction_code == 1689 then
+      return true
+    end
+
+    -- Market Statistics Report Message
+    if transaction_code == 1833 then
+      return true
+    end
+
+    -- Spread Bhavcopy Message
+    if transaction_code == 6502 then
+      return true
+    end
+
+    -- Giveup Confirmation Message
+    if transaction_code == 4506 then
+      return true
+    end
+
+    -- Giveup Confirmation Message
+    if transaction_code == 4507 then
+      return true
+    end
+
+    -- Gateway Router Response Message
+    if transaction_code == 2401 then
+      return true
+    end
+
+    -- Secure Box Registration Response Out Message
+    if transaction_code == 23009 then
+      return true
+    end
+
+    -- Box Sign On Request Out Message
+    if transaction_code == 23001 then
+      return true
+    end
+
+    -- Box Sign Off Message
+    if transaction_code == 20322 then
+      return true
+    end
+
+    -- Contingency Broadcast Message
+    if transaction_code == 5294 then
+      return true
+    end
+
+    -- Branch Order Value Limit Update Response Message
+    if transaction_code == 5717 then
+      return true
+    end
+
+    -- Reset User Password Response Message
+    if transaction_code == 5741 then
+      return true
+    end
+
+    -- Collateral User Status Change Response Message
+    if transaction_code == 5745 then
+      return true
+    end
+
+    -- User Trade Modify Cancel Status Change Response Message
+    if transaction_code == 5739 then
+      return true
+    end
+
+    -- User Address Unlock Confirm Message
+    if transaction_code == 5428 then
+      return true
+    end
+
+    -- User Address Unlock Approve Message
+    if transaction_code == 5483 then
+      return true
+    end
+
+    -- User Address Unlock Approve Message
+    if transaction_code == 5484 then
+      return true
+    end
+
+    -- Nlt Order Message To Trader Message
+    if transaction_code == 2093 then
+      return true
+    end
+
+    -- Nlt Order Inquiry Response Message
+    if transaction_code == 1243 then
+      return true
+    end
+
+    -- Nlt Trailer Record Message
+    if transaction_code == 7032 then
       return true
     end
 
     return false
   end
 
-  -- Sign On Request Out Message: carries the application messages, which tell this protocol from others sharing the session framing
-  if transaction_code == 5585 then
-    if buffer:len() < 62 then
-      return false
-    end
-
-    local message_length = buffer(60, 2):int()
-
-    -- Sign On Out Body
-    if message_length == 214 then
-      return true
-    end
-
-    -- Error Response Body
-    if message_length == 182 then
-      return true
-    end
-
+  -- Server Session Packet: carries the application messages, which tell this protocol from others sharing the session framing
+  if buffer:len() < 24 then
     return false
+  end
+
+  local transaction_code = buffer(22, 2):int()
+
+  -- Sign On Request Out Message
+  if transaction_code == 2301 then
+    return true
+  end
+
+  -- Sign On Request Out Message
+  if transaction_code == 5585 then
+    return true
   end
 
   -- Sign Off Request Out Message
@@ -16091,25 +17135,9 @@ nse_nseix_orderentry_nnfdirect_v1_12.server_packet.fingerprint = function(buffer
     return true
   end
 
-  -- Order Cancellation Confirmation Message: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Order Cancellation Confirmation Message
   if transaction_code == 2075 then
-    if buffer:len() < 62 then
-      return false
-    end
-
-    local message_length = buffer(60, 2):int()
-
-    -- Order Entry Body
-    if message_length == 316 then
-      return true
-    end
-
-    -- Spread Order Body
-    if message_length == 480 then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Trade Inquiry Response Message
@@ -16282,30 +17310,9 @@ nse_nseix_orderentry_nnfdirect_v1_12.server_packet.fingerprint = function(buffer
     return true
   end
 
-  -- User Order Limit Update Message: carries the application messages, which tell this protocol from others sharing the session framing
+  -- User Order Limit Update Message
   if transaction_code == 5731 then
-    if buffer:len() < 62 then
-      return false
-    end
-
-    local message_length = buffer(60, 2):int()
-
-    -- User Order Limit Body
-    if message_length == 206 then
-      return true
-    end
-
-    -- User Order Value Limit Body
-    if message_length == 208 then
-      return true
-    end
-
-    -- Error Response Body
-    if message_length == 182 then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Dealer Limit Update Message
@@ -16338,56 +17345,14 @@ nse_nseix_orderentry_nnfdirect_v1_12.server_packet.fingerprint = function(buffer
     return true
   end
 
-  -- Market Statistics Report Message: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Market Statistics Report Message
   if transaction_code == 1833 then
-    if buffer:len() < 63 then
-      return false
-    end
-
-    local message_type = buffer(62, 1):string()
-
-    -- Report Header Body
-    if message_type == "H" then
-      return true
-    end
-
-    -- Report Statistics Body
-    if message_type == "R" then
-      return true
-    end
-
-    -- Report Trailer Body
-    if message_type == "T" then
-      return true
-    end
-
-    return false
+    return true
   end
 
-  -- Spread Bhavcopy Message: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Spread Bhavcopy Message
   if transaction_code == 6502 then
-    if buffer:len() < 63 then
-      return false
-    end
-
-    local message_type = buffer(62, 1):string()
-
-    -- Spread Report Header Body
-    if message_type == "H" then
-      return true
-    end
-
-    -- Spread Report Statistics Body
-    if message_type == "R" then
-      return true
-    end
-
-    -- Report Trailer Body
-    if message_type == "T" then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Giveup Confirmation Message
@@ -16425,25 +17390,9 @@ nse_nseix_orderentry_nnfdirect_v1_12.server_packet.fingerprint = function(buffer
     return true
   end
 
-  -- Branch Order Value Limit Update Response Message: carries the application messages, which tell this protocol from others sharing the session framing
+  -- Branch Order Value Limit Update Response Message
   if transaction_code == 5717 then
-    if buffer:len() < 62 then
-      return false
-    end
-
-    local message_length = buffer(60, 2):int()
-
-    -- Branch Order Value Limit Body
-    if message_length == 136 then
-      return true
-    end
-
-    -- Error Response Body
-    if message_length == 182 then
-      return true
-    end
-
-    return false
+    return true
   end
 
   -- Reset User Password Response Message
@@ -16490,6 +17439,7 @@ nse_nseix_orderentry_nnfdirect_v1_12.server_packet.fingerprint = function(buffer
   if transaction_code == 7032 then
     return true
   end
+
 
   return false
 end
@@ -16590,7 +17540,8 @@ tcp_table:add_for_decode_as(omi_nse_nseix_orderentry_nnfdirect_v1_12)
 -- Protocol Compiler technologies used to produce this file are
 -- the subject of patents owned by Scaled Sources LLC.  Those patent
 -- rights are retained and are not transferred by this contribution:
---   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US12101388B2/en
 --   https://patents.google.com/patent/US20240419416A1/en
+--   https://patents.google.com/patent/US20260368281A1/en
 --
 -----------------------------------------------------------------------

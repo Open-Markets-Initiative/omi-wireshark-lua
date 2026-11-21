@@ -128,7 +128,7 @@ omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.opening_price = ProtoField.new("
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.orig_time_utc = ProtoField.new("Orig Time", "b3.b3derivatives.binaryumdf.sbe.v2.1.origtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "origTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.binaryumdf.sbe.v2.1.origtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "origTime")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.out_of_sequence = ProtoField.new("Out Of Sequence", "b3.b3derivatives.binaryumdf.sbe.v2.1.outofsequence", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x0008, "OutOfSequence")
-omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.packet_reserved = ProtoField.new("Packet Reserved", "b3.b3derivatives.binaryumdf.sbe.v2.1.packetreserved", ftypes.UINT8, nil, nil, nil, "Packet Reserved Field")
+omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.packet_reserved = ProtoField.new("Packet Reserved", "b3.b3derivatives.binaryumdf.sbe.v2.1.packetreserved", ftypes.BYTES, nil, nil, nil, "Reserved byte, carrying no meaning, between the channel id and the sequence version")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.padding_1 = ProtoField.new("Padding 1", "b3.b3derivatives.binaryumdf.sbe.v2.1.padding1", ftypes.BYTES, nil, nil, nil, "1 bytes padding")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.padding_2 = ProtoField.new("Padding 2", "b3.b3derivatives.binaryumdf.sbe.v2.1.padding2", ftypes.BYTES, nil, nil, nil, "2 bytes padding")
 omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.padding_3 = ProtoField.new("Padding 3", "b3.b3derivatives.binaryumdf.sbe.v2.1.padding3", ftypes.BYTES, nil, nil, nil, "3 bytes padding")
@@ -779,6 +779,10 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.dated_date.display = function(value)
     return "Dated Date: No Value"
   end
 
+  if value == 2932896 then
+    return "Dated Date: No End Date (9999-12-31)"
+  end
+
   return string.format("Dated Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
@@ -830,7 +834,11 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.encoding_type.size = 2
 
 -- Display: Encoding Type
 b3_b3derivatives_binaryumdf_sbe_v2_1.encoding_type.display = function(value)
-  return "Encoding Type: "..value
+  if value == 60240 then
+    return "Encoding Type: Sbe Little Endian (60240)"
+  end
+
+  return "Encoding Type: Unknown("..value..")"
 end
 
 -- Dissect: Encoding Type
@@ -856,6 +864,10 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.end_date.display = function(value)
   -- Check if field has value
   if value == 0 then
     return "End Date: No Value"
+  end
+
+  if value == 2932896 then
+    return "End Date: No End Date (9999-12-31)"
   end
 
   return string.format("End Date: %s", os.date("!%Y-%m-%d", value * 86400))
@@ -1225,6 +1237,10 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.issue_date.size = 4
 
 -- Display: Issue Date
 b3_b3derivatives_binaryumdf_sbe_v2_1.issue_date.display = function(value)
+  if value == 2932896 then
+    return "Issue Date: No End Date (9999-12-31)"
+  end
+
   return string.format("Issue Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
@@ -1734,6 +1750,10 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.maturity_date.display = function(value)
   -- Check if field has value
   if value == 0 then
     return "Maturity Date: No Value"
+  end
+
+  if value == 2932896 then
+    return "Maturity Date: No End Date (9999-12-31)"
   end
 
   return string.format("Maturity Date: %s", os.date("!%Y-%m-%d", value * 86400))
@@ -3087,10 +3107,10 @@ end
 b3_b3derivatives_binaryumdf_sbe_v2_1.packet_reserved.dissect = function(buffer, offset, packet, parent)
   local length = b3_b3derivatives_binaryumdf_sbe_v2_1.packet_reserved.size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:bytes():tohex(false, " ")
   local display = b3_b3derivatives_binaryumdf_sbe_v2_1.packet_reserved.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.packet_reserved, range, value, display)
+  parent:add(omi_b3_b3derivatives_binaryumdf_sbe_v2_1.fields.packet_reserved, range, range:raw(), display)
 
   return offset + length, value
 end
@@ -4212,6 +4232,10 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.settl_date.display = function(value)
     return "Settl Date: No Value"
   end
 
+  if value == 2932896 then
+    return "Settl Date: No End Date (9999-12-31)"
+  end
+
   return string.format("Settl Date: %s", os.date("!%Y-%m-%d", value * 86400))
 end
 
@@ -4295,6 +4319,10 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.start_date.display = function(value)
   -- Check if field has value
   if value == 0 then
     return "Start Date: No Value"
+  end
+
+  if value == 2932896 then
+    return "Start Date: No End Date (9999-12-31)"
   end
 
   return string.format("Start Date: %s", os.date("!%Y-%m-%d", value * 86400))
@@ -8965,8 +8993,12 @@ b3_b3derivatives_binaryumdf_sbe_v2_1.packet_header.fields = function(buffer, off
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
   index, channel_id = b3_b3derivatives_binaryumdf_sbe_v2_1.channel_id.dissect(buffer, index, packet, parent)
 
-  -- Packet Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, packet_reserved = b3_b3derivatives_binaryumdf_sbe_v2_1.packet_reserved.dissect(buffer, index, packet, parent)
+  -- Packet Reserved: uint8
+  if show.padding then
+    index, packet_reserved = b3_b3derivatives_binaryumdf_sbe_v2_1.packet_reserved.dissect(buffer, index, packet, parent)
+  else
+    index = index + b3_b3derivatives_binaryumdf_sbe_v2_1.packet_reserved.size
+  end
 
   -- Sequence Version: 2 Byte Unsigned Fixed Width Integer
   index, sequence_version = b3_b3derivatives_binaryumdf_sbe_v2_1.sequence_version.dissect(buffer, index, packet, parent)
@@ -9222,6 +9254,23 @@ end
 -- Protocol Heuristics
 -----------------------------------------------------------------------
 
+-- Verify Encoding Type Field
+b3_b3derivatives_binaryumdf_sbe_v2_1.encoding_type.verify = function(buffer)
+  -- Too short to carry the field: not this protocol
+  if buffer:len() < 18 + 2 then
+    return false
+  end
+
+  -- Attempt to read field
+  local value = buffer(18, 2):le_uint()
+
+  if value == 60240 then
+    return true
+  end
+
+  return false
+end
+
 -- Verify Schema Id Field
 b3_b3derivatives_binaryumdf_sbe_v2_1.schema_id.verify = function(buffer)
   -- Too short to carry the field: not this protocol
@@ -9260,6 +9309,9 @@ end
 local function omi_b3_b3derivatives_binaryumdf_sbe_v2_1_udp_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not b3_b3derivatives_binaryumdf_sbe_v2_1.packet.requiredsize(buffer) then return false end
+
+  -- Verify Encoding Type
+  if not b3_b3derivatives_binaryumdf_sbe_v2_1.encoding_type.verify(buffer) then return false end
 
   -- Verify Schema Id
   if not b3_b3derivatives_binaryumdf_sbe_v2_1.schema_id.verify(buffer) then return false end
@@ -9310,7 +9362,8 @@ udp_table:add_for_decode_as(omi_b3_b3derivatives_binaryumdf_sbe_v2_1)
 -- Protocol Compiler technologies used to produce this file are
 -- the subject of patents owned by Scaled Sources LLC.  Those patent
 -- rights are retained and are not transferred by this contribution:
---   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US12101388B2/en
 --   https://patents.google.com/patent/US20240419416A1/en
+--   https://patents.google.com/patent/US20260368281A1/en
 --
 -----------------------------------------------------------------------

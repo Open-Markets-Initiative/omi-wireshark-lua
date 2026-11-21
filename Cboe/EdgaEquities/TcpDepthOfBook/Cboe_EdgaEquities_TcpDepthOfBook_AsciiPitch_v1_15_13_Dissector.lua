@@ -2942,6 +2942,7 @@ tcp_table:add_for_decode_as(omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_1
 --   Organization: Chicago Board Options Exchange
 --   Version: 1.15.13
 --   Date: Monday, April 21, 2025
+--   Specification: Cboe Titanium U.S. Equities TCP Depth of Book (PITCH) Specification (1.15.14 2026-03-23).pdf
 --
 -- Script:
 --   Compiler: 2.0
@@ -2958,7 +2959,8 @@ tcp_table:add_for_decode_as(omi_cboe_edgaequities_tcpdepthofbook_asciipitch_v1_1
 -- Protocol Compiler technologies used to produce this file are
 -- the subject of patents owned by Scaled Sources LLC.  Those patent
 -- rights are retained and are not transferred by this contribution:
---   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US12101388B2/en
 --   https://patents.google.com/patent/US20240419416A1/en
+--   https://patents.google.com/patent/US20260368281A1/en
 --
 -----------------------------------------------------------------------

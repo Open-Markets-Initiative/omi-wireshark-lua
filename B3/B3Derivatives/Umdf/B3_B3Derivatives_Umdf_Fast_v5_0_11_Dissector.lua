@@ -44,8 +44,7 @@ omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.presence_appl_ver_id = ProtoField.
 -- B3 B3Derivatives Umdf Fast 5.0.11 Fields
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.message_type = ProtoField.new("Message Type", "b3.b3derivatives.umdf.fast.v5.0.11.messagetype", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "b3.b3derivatives.umdf.fast.v5.0.11.msgseqnum", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time_uint64 = ProtoField.new("Sending Time", "b3.b3derivatives.umdf.fast.v5.0.11.sendingtime.uint64", ftypes.UINT64)
-omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time_string = ProtoField.new("Sending Time", "b3.b3derivatives.umdf.fast.v5.0.11.sendingtime.string", ftypes.STRING)
+omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time = ProtoField.new("Sending Time", "b3.b3derivatives.umdf.fast.v5.0.11.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.appl_ver_id = ProtoField.new("Appl Ver ID", "b3.b3derivatives.umdf.fast.v5.0.11.applverid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.data_len = ProtoField.new("Data Len", "b3.b3derivatives.umdf.fast.v5.0.11.datalen", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.data = ProtoField.new("Data", "b3.b3derivatives.umdf.fast.v5.0.11.data", ftypes.BYTES)
@@ -133,7 +132,7 @@ omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.start_date = ProtoField.new("Start
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.end_date = ProtoField.new("End Date", "b3.b3derivatives.umdf.fast.v5.0.11.enddate", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settl_type = ProtoField.new("Settl Type", "b3.b3derivatives.umdf.fast.v5.0.11.settltype", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settl_date = ProtoField.new("Settl Date", "b3.b3derivatives.umdf.fast.v5.0.11.settldate", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp = ProtoField.new("Security Validity Timestamp", "b3.b3derivatives.umdf.fast.v5.0.11.securityvaliditytimestamp", ftypes.UINT64)
+omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp = ProtoField.new("Security Validity Timestamp", "b3.b3derivatives.umdf.fast.v5.0.11.securityvaliditytimestamp", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.market_segment_id = ProtoField.new("Market Segment ID", "b3.b3derivatives.umdf.fast.v5.0.11.marketsegmentid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.governance_indicator = ProtoField.new("Governance Indicator", "b3.b3derivatives.umdf.fast.v5.0.11.governanceindicator", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.corporate_action_event_id = ProtoField.new("Corporate Action Event ID", "b3.b3derivatives.umdf.fast.v5.0.11.corporateactioneventid", ftypes.INT32)
@@ -202,15 +201,15 @@ omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settle_price_type = ProtoField.new
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trading_ref_price = ProtoField.new("Trading Ref Price", "b3.b3derivatives.umdf.fast.v5.0.11.tradingrefprice", ftypes.DOUBLE)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trading_session_sub_id = ProtoField.new("Trading Session Sub ID", "b3.b3derivatives.umdf.fast.v5.0.11.tradingsessionsubid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_trading_status = ProtoField.new("Security Trading Status", "b3.b3derivatives.umdf.fast.v5.0.11.securitytradingstatus", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_uint64 = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.umdf.fast.v5.0.11.tradsesopentime.uint64", ftypes.UINT64)
+omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_absolute_time = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.umdf.fast.v5.0.11.tradsesopentime.absolute_time", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_uint32 = ProtoField.new("Trad Ses Open Time", "b3.b3derivatives.umdf.fast.v5.0.11.tradsesopentime.uint32", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.transact_time = ProtoField.new("Transact Time", "b3.b3derivatives.umdf.fast.v5.0.11.transacttime", ftypes.UINT64)
+omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.transact_time = ProtoField.new("Transact Time", "b3.b3derivatives.umdf.fast.v5.0.11.transacttime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_trading_event = ProtoField.new("Security Trading Event", "b3.b3derivatives.umdf.fast.v5.0.11.securitytradingevent", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "b3.b3derivatives.umdf.fast.v5.0.11.lastmsgseqnumprocessed", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "b3.b3derivatives.umdf.fast.v5.0.11.totnumreports", ftypes.UINT32)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.curerncy = ProtoField.new("Curerncy", "b3.b3derivatives.umdf.fast.v5.0.11.curerncy", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.day_cum_qty = ProtoField.new("Day Cum Qty", "b3.b3derivatives.umdf.fast.v5.0.11.daycumqty", ftypes.UINT32)
-omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.umdf.fast.v5.0.11.origtime", ftypes.UINT64)
+omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time = ProtoField.new("Orig Time", "b3.b3derivatives.umdf.fast.v5.0.11.origtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.news_source = ProtoField.new("News Source", "b3.b3derivatives.umdf.fast.v5.0.11.newssource", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.news_id = ProtoField.new("News ID", "b3.b3derivatives.umdf.fast.v5.0.11.newsid", ftypes.STRING)
 omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.language_code = ProtoField.new("Language Code", "b3.b3derivatives.umdf.fast.v5.0.11.languagecode", ftypes.STRING)
@@ -684,6 +683,69 @@ local function read_byte_vector_int64(buffer, offset)
   return range:int64(), offset
 end
 
+-- the decimal digits a spelled value carries, whichever Lua type it was read as
+local function digits_of(value)
+  if type(value) == "number" then return string.format("%d", value) end
+
+  return tostring(value)
+end
+
+-- a date spelled YYYYMMDD, as YYYY-MM-DD
+local function spelled_date(digits)
+  if #digits ~= 8 or digits:find("%D") then return digits end
+
+  return digits:sub(1, 4).."-"..digits:sub(5, 6).."-"..digits:sub(7, 8)
+end
+
+-- a fix MonthYear, as YYYY-MM, YYYY-MM week W or YYYY-MM-DD by its count of digits
+local function spelled_month(digits)
+  if digits:find("%D") then return digits end
+
+  local month = digits:sub(1, 4).."-"..digits:sub(5, 6)
+
+  if #digits == 6 then return month end
+  if #digits == 7 then return month.." week "..digits:sub(7, 7) end
+  if #digits == 8 then return month.."-"..digits:sub(7, 8) end
+
+  return digits
+end
+
+-- a time of day spelled HHMMSSmmm, as HH:MM:SS.mmm. An integer drops the
+-- leading zero of an hour before ten, so a short run of digits is padded back
+local function spelled_time(digits)
+  if digits:find("%D") or #digits > 9 then return digits end
+
+  digits = string.rep("0", 9 - #digits)..digits
+
+  return digits:sub(1, 2)..":"..digits:sub(3, 4)..":"..digits:sub(5, 6).."."..digits:sub(7, 9)
+end
+
+-- a timestamp spelled YYYYMMDDHHMMSSmmm, as the instant it names in Utc, or
+-- nil where the digits are no date
+local function spelled_instant(digits)
+  if #digits ~= 17 or digits:find("%D") then return nil end
+
+  local year = tonumber(digits:sub(1, 4))
+  local month = tonumber(digits:sub(5, 6))
+  local day = tonumber(digits:sub(7, 8))
+  local hour = tonumber(digits:sub(9, 10))
+  local minute = tonumber(digits:sub(11, 12))
+  local second = tonumber(digits:sub(13, 14))
+  local millis = tonumber(digits:sub(15, 17))
+
+  if month < 1 or month > 12 or day < 1 or day > 31 then return nil end
+
+  -- days since the Unix epoch, by civil date arithmetic
+  local y = year - (month <= 2 and 1 or 0)
+  local era = math.floor(y / 400)
+  local yoe = y - era * 400
+  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+  local days = era * 146097 + doe - 719468
+
+  return NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, millis * 1000000)
+end
+
 -- transfer operator state, isolated by directed transport stream
 local stream_states = {}
 
@@ -959,11 +1021,18 @@ b3_b3derivatives_umdf_fast_v5_0_11.sending_time_sent_required_u_int64.dissect = 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time_uint64, range, value)
-  else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time_uint64, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time, range, NSTime.new(0, 0))
     absent:set_text("Sending Time: No Value")
+  else
+    local digits = digits_of(value)
+    local instant = spelled_instant(digits)
+    if instant == nil then
+      local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time, range, NSTime.new(0, 0))
+      item:set_text("Sending Time: "..digits)
+    else
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time, range, instant)
+    end
   end
 
   return offset, value
@@ -981,11 +1050,18 @@ b3_b3derivatives_umdf_fast_v5_0_11.sending_time_sent_required_string.dissect = f
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time_string, range, value)
-  else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time_string, range, "")
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time, range, NSTime.new(0, 0))
     absent:set_text("Sending Time: No Value")
+  else
+    local digits = digits_of(value)
+    local instant = spelled_instant(digits)
+    if instant == nil then
+      local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time, range, NSTime.new(0, 0))
+      item:set_text("Sending Time: "..digits)
+    else
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.sending_time, range, instant)
+    end
   end
 
   return offset, value
@@ -3530,6 +3606,15 @@ end
 -- Maturity Date
 b3_b3derivatives_umdf_fast_v5_0_11.maturity_date = {}
 
+-- Display: Maturity Date
+b3_b3derivatives_umdf_fast_v5_0_11.maturity_date.display = function(value)
+  if value == nil then
+    return "Maturity Date: No Value"
+  end
+
+  return "Maturity Date: "..spelled_date(digits_of(value))
+end
+
 -- Dissect: Maturity Date
 b3_b3derivatives_umdf_fast_v5_0_11.maturity_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3539,11 +3624,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.maturity_date.dissect = function(buffer, offs
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.maturity_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.maturity_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.maturity_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.maturity_date, range, 0)
-    absent:set_text("Maturity Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.maturity_date, range, value, display)
   end
 
   return offset, value
@@ -3551,6 +3638,15 @@ end
 
 -- Maturity Month Year
 b3_b3derivatives_umdf_fast_v5_0_11.maturity_month_year = {}
+
+-- Display: Maturity Month Year
+b3_b3derivatives_umdf_fast_v5_0_11.maturity_month_year.display = function(value)
+  if value == nil then
+    return "Maturity Month Year: No Value"
+  end
+
+  return "Maturity Month Year: "..spelled_month(digits_of(value))
+end
 
 -- Dissect: Maturity Month Year
 b3_b3derivatives_umdf_fast_v5_0_11.maturity_month_year.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -3561,11 +3657,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.maturity_month_year.dissect = function(buffer
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.maturity_month_year, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.maturity_month_year.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.maturity_month_year, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.maturity_month_year, range, 0)
-    absent:set_text("Maturity Month Year: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.maturity_month_year, range, value, display)
   end
 
   return offset, value
@@ -3816,6 +3914,15 @@ end
 -- Contract Settl Month
 b3_b3derivatives_umdf_fast_v5_0_11.contract_settl_month = {}
 
+-- Display: Contract Settl Month
+b3_b3derivatives_umdf_fast_v5_0_11.contract_settl_month.display = function(value)
+  if value == nil then
+    return "Contract Settl Month: No Value"
+  end
+
+  return "Contract Settl Month: "..spelled_month(digits_of(value))
+end
+
 -- Dissect: Contract Settl Month
 b3_b3derivatives_umdf_fast_v5_0_11.contract_settl_month.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3825,11 +3932,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.contract_settl_month.dissect = function(buffe
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.contract_settl_month, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.contract_settl_month.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.contract_settl_month, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.contract_settl_month, range, 0)
-    absent:set_text("Contract Settl Month: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.contract_settl_month, range, value, display)
   end
 
   return offset, value
@@ -3882,6 +3991,15 @@ end
 -- Issue Date
 b3_b3derivatives_umdf_fast_v5_0_11.issue_date = {}
 
+-- Display: Issue Date
+b3_b3derivatives_umdf_fast_v5_0_11.issue_date.display = function(value)
+  if value == nil then
+    return "Issue Date: No Value"
+  end
+
+  return "Issue Date: "..spelled_date(digits_of(value))
+end
+
 -- Dissect: Issue Date
 b3_b3derivatives_umdf_fast_v5_0_11.issue_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3891,11 +4009,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.issue_date.dissect = function(buffer, offset,
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.issue_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.issue_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.issue_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.issue_date, range, 0)
-    absent:set_text("Issue Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.issue_date, range, value, display)
   end
 
   return offset, value
@@ -3903,6 +4023,15 @@ end
 
 -- Dated Date (Sent)
 b3_b3derivatives_umdf_fast_v5_0_11.dated_date_sent_optional = {}
+
+-- Display: Dated Date (Sent)
+b3_b3derivatives_umdf_fast_v5_0_11.dated_date_sent_optional.display = function(value)
+  if value == nil then
+    return "Dated Date: No Value"
+  end
+
+  return "Dated Date: "..spelled_date(digits_of(value))
+end
 
 -- Dissect: Dated Date (Sent)
 b3_b3derivatives_umdf_fast_v5_0_11.dated_date_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -3913,11 +4042,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.dated_date_sent_optional.dissect = function(b
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.dated_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.dated_date_sent_optional.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.dated_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.dated_date, range, 0)
-    absent:set_text("Dated Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.dated_date, range, value, display)
   end
 
   return offset, value
@@ -3925,6 +4056,15 @@ end
 
 -- Dated Date (Sent)
 b3_b3derivatives_umdf_fast_v5_0_11.dated_date_sent_required = {}
+
+-- Display: Dated Date (Sent)
+b3_b3derivatives_umdf_fast_v5_0_11.dated_date_sent_required.display = function(value)
+  if value == nil then
+    return "Dated Date: No Value"
+  end
+
+  return "Dated Date: "..spelled_date(digits_of(value))
+end
 
 -- Dissect: Dated Date (Sent)
 b3_b3derivatives_umdf_fast_v5_0_11.dated_date_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -3935,11 +4075,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.dated_date_sent_required.dissect = function(b
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.dated_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.dated_date_sent_required.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.dated_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.dated_date, range, 0)
-    absent:set_text("Dated Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.dated_date, range, value, display)
   end
 
   return offset, value
@@ -3947,6 +4089,15 @@ end
 
 -- Start Date
 b3_b3derivatives_umdf_fast_v5_0_11.start_date = {}
+
+-- Display: Start Date
+b3_b3derivatives_umdf_fast_v5_0_11.start_date.display = function(value)
+  if value == nil then
+    return "Start Date: No Value"
+  end
+
+  return "Start Date: "..spelled_date(digits_of(value))
+end
 
 -- Dissect: Start Date
 b3_b3derivatives_umdf_fast_v5_0_11.start_date.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -3957,11 +4108,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.start_date.dissect = function(buffer, offset,
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.start_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.start_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.start_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.start_date, range, 0)
-    absent:set_text("Start Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.start_date, range, value, display)
   end
 
   return offset, value
@@ -3969,6 +4122,15 @@ end
 
 -- End Date
 b3_b3derivatives_umdf_fast_v5_0_11.end_date = {}
+
+-- Display: End Date
+b3_b3derivatives_umdf_fast_v5_0_11.end_date.display = function(value)
+  if value == nil then
+    return "End Date: No Value"
+  end
+
+  return "End Date: "..spelled_date(digits_of(value))
+end
 
 -- Dissect: End Date
 b3_b3derivatives_umdf_fast_v5_0_11.end_date.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -3979,11 +4141,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.end_date.dissect = function(buffer, offset, p
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.end_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.end_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.end_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.end_date, range, 0)
-    absent:set_text("End Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.end_date, range, value, display)
   end
 
   return offset, value
@@ -4040,6 +4204,15 @@ end
 -- Settl Date (Sent)
 b3_b3derivatives_umdf_fast_v5_0_11.settl_date_sent = {}
 
+-- Display: Settl Date (Sent)
+b3_b3derivatives_umdf_fast_v5_0_11.settl_date_sent.display = function(value)
+  if value == nil then
+    return "Settl Date: No Value"
+  end
+
+  return "Settl Date: "..spelled_date(digits_of(value))
+end
+
 -- Dissect: Settl Date (Sent)
 b3_b3derivatives_umdf_fast_v5_0_11.settl_date_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -4049,11 +4222,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.settl_date_sent.dissect = function(buffer, of
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settl_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.settl_date_sent.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settl_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settl_date, range, 0)
-    absent:set_text("Settl Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settl_date, range, value, display)
   end
 
   return offset, value
@@ -4061,6 +4236,15 @@ end
 
 -- Settl Date (Default)
 b3_b3derivatives_umdf_fast_v5_0_11.settl_date_default = {}
+
+-- Display: Settl Date (Default)
+b3_b3derivatives_umdf_fast_v5_0_11.settl_date_default.display = function(value)
+  if value == nil then
+    return "Settl Date: No Value"
+  end
+
+  return "Settl Date: "..spelled_date(digits_of(value))
+end
 
 -- Dissect: Settl Date (Default)
 b3_b3derivatives_umdf_fast_v5_0_11.settl_date_default.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -4075,11 +4259,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.settl_date_default.dissect = function(buffer,
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settl_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.settl_date_default.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settl_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settl_date, range, 0)
-    absent:set_text("Settl Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.settl_date, range, value, display)
   end
 
   return offset, value
@@ -4097,11 +4283,18 @@ b3_b3derivatives_umdf_fast_v5_0_11.security_validity_timestamp_sent.dissect = fu
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp, range, value)
-  else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp, range, NSTime.new(0, 0))
     absent:set_text("Security Validity Timestamp: No Value")
+  else
+    local digits = digits_of(value)
+    local instant = spelled_instant(digits)
+    if instant == nil then
+      local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp, range, NSTime.new(0, 0))
+      item:set_text("Security Validity Timestamp: "..digits)
+    else
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp, range, instant)
+    end
   end
 
   return offset, value
@@ -4123,11 +4316,18 @@ b3_b3derivatives_umdf_fast_v5_0_11.security_validity_timestamp_default.dissect =
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp, range, value)
-  else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp, range, NSTime.new(0, 0))
     absent:set_text("Security Validity Timestamp: No Value")
+  else
+    local digits = digits_of(value)
+    local instant = spelled_instant(digits)
+    if instant == nil then
+      local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp, range, NSTime.new(0, 0))
+      item:set_text("Security Validity Timestamp: "..digits)
+    else
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.security_validity_timestamp, range, instant)
+    end
   end
 
   return offset, value
@@ -4777,6 +4977,15 @@ end
 -- MD Entry Time (Copy)
 b3_b3derivatives_umdf_fast_v5_0_11.md_entry_time_copy_required = {}
 
+-- Display: MD Entry Time (Copy)
+b3_b3derivatives_umdf_fast_v5_0_11.md_entry_time_copy_required.display = function(value)
+  if value == nil then
+    return "MD Entry Time: No Value"
+  end
+
+  return "MD Entry Time: "..spelled_time(digits_of(value))
+end
+
 -- Dissect: MD Entry Time (Copy)
 b3_b3derivatives_umdf_fast_v5_0_11.md_entry_time_copy_required.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -4797,11 +5006,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.md_entry_time_copy_required.dissect = functio
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_time_uint32, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.md_entry_time_copy_required.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_time_uint32, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_time_uint32, range, 0)
-    absent:set_text("MD Entry Time: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_time_uint32, range, value, display)
   end
 
   return offset, value
@@ -4809,6 +5020,15 @@ end
 
 -- MD Entry Time (Copy)
 b3_b3derivatives_umdf_fast_v5_0_11.md_entry_time_copy_optional = {}
+
+-- Display: MD Entry Time (Copy)
+b3_b3derivatives_umdf_fast_v5_0_11.md_entry_time_copy_optional.display = function(value)
+  if value == nil then
+    return "MD Entry Time: No Value"
+  end
+
+  return "MD Entry Time: "..spelled_time(digits_of(value))
+end
 
 -- Dissect: MD Entry Time (Copy)
 b3_b3derivatives_umdf_fast_v5_0_11.md_entry_time_copy_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -4825,11 +5045,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.md_entry_time_copy_optional.dissect = functio
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_time_string, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.md_entry_time_copy_optional.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_time_string, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_time_string, range, "")
-    absent:set_text("MD Entry Time: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_time_string, range, value, display)
   end
 
   return offset, value
@@ -5050,6 +5272,15 @@ end
 -- Trade Date (Sent)
 b3_b3derivatives_umdf_fast_v5_0_11.trade_date_sent_optional = {}
 
+-- Display: Trade Date (Sent)
+b3_b3derivatives_umdf_fast_v5_0_11.trade_date_sent_optional.display = function(value)
+  if value == nil then
+    return "Trade Date: No Value"
+  end
+
+  return "Trade Date: "..spelled_date(digits_of(value))
+end
+
 -- Dissect: Trade Date (Sent)
 b3_b3derivatives_umdf_fast_v5_0_11.trade_date_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -5059,11 +5290,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.trade_date_sent_optional.dissect = function(b
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trade_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.trade_date_sent_optional.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trade_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trade_date, range, 0)
-    absent:set_text("Trade Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trade_date, range, value, display)
   end
 
   return offset, value
@@ -5071,6 +5304,15 @@ end
 
 -- Trade Date (Sent)
 b3_b3derivatives_umdf_fast_v5_0_11.trade_date_sent_required = {}
+
+-- Display: Trade Date (Sent)
+b3_b3derivatives_umdf_fast_v5_0_11.trade_date_sent_required.display = function(value)
+  if value == nil then
+    return "Trade Date: No Value"
+  end
+
+  return "Trade Date: "..spelled_date(digits_of(value))
+end
 
 -- Dissect: Trade Date (Sent)
 b3_b3derivatives_umdf_fast_v5_0_11.trade_date_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -5081,11 +5323,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.trade_date_sent_required.dissect = function(b
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trade_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.trade_date_sent_required.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trade_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trade_date, range, 0)
-    absent:set_text("Trade Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trade_date, range, value, display)
   end
 
   return offset, value
@@ -5197,6 +5441,15 @@ end
 -- MD Entry Date
 b3_b3derivatives_umdf_fast_v5_0_11.md_entry_date = {}
 
+-- Display: MD Entry Date
+b3_b3derivatives_umdf_fast_v5_0_11.md_entry_date.display = function(value)
+  if value == nil then
+    return "MD Entry Date: No Value"
+  end
+
+  return "MD Entry Date: "..spelled_date(digits_of(value))
+end
+
 -- Dissect: MD Entry Date
 b3_b3derivatives_umdf_fast_v5_0_11.md_entry_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -5212,11 +5465,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.md_entry_date.dissect = function(buffer, offs
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.md_entry_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_date, range, 0)
-    absent:set_text("MD Entry Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_entry_date, range, value, display)
   end
 
   return offset, value
@@ -5224,6 +5479,15 @@ end
 
 -- MD Insert Date
 b3_b3derivatives_umdf_fast_v5_0_11.md_insert_date = {}
+
+-- Display: MD Insert Date
+b3_b3derivatives_umdf_fast_v5_0_11.md_insert_date.display = function(value)
+  if value == nil then
+    return "MD Insert Date: No Value"
+  end
+
+  return "MD Insert Date: "..spelled_date(digits_of(value))
+end
 
 -- Dissect: MD Insert Date
 b3_b3derivatives_umdf_fast_v5_0_11.md_insert_date.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -5240,11 +5504,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.md_insert_date.dissect = function(buffer, off
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_insert_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.md_insert_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_insert_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_insert_date, range, 0)
-    absent:set_text("MD Insert Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_insert_date, range, value, display)
   end
 
   return offset, value
@@ -5252,6 +5518,15 @@ end
 
 -- MD Insert Time
 b3_b3derivatives_umdf_fast_v5_0_11.md_insert_time = {}
+
+-- Display: MD Insert Time
+b3_b3derivatives_umdf_fast_v5_0_11.md_insert_time.display = function(value)
+  if value == nil then
+    return "MD Insert Time: No Value"
+  end
+
+  return "MD Insert Time: "..spelled_time(digits_of(value))
+end
 
 -- Dissect: MD Insert Time
 b3_b3derivatives_umdf_fast_v5_0_11.md_insert_time.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -5268,11 +5543,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.md_insert_time.dissect = function(buffer, off
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_insert_time, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.md_insert_time.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_insert_time, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_insert_time, range, 0)
-    absent:set_text("MD Insert Time: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.md_insert_time, range, value, display)
   end
 
   return offset, value
@@ -5818,6 +6095,15 @@ end
 -- Last Trade Date
 b3_b3derivatives_umdf_fast_v5_0_11.last_trade_date = {}
 
+-- Display: Last Trade Date
+b3_b3derivatives_umdf_fast_v5_0_11.last_trade_date.display = function(value)
+  if value == nil then
+    return "Last Trade Date: No Value"
+  end
+
+  return "Last Trade Date: "..spelled_date(digits_of(value))
+end
+
 -- Dissect: Last Trade Date
 b3_b3derivatives_umdf_fast_v5_0_11.last_trade_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -5827,11 +6113,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.last_trade_date.dissect = function(buffer, of
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.last_trade_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.last_trade_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.last_trade_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.last_trade_date, range, 0)
-    absent:set_text("Last Trade Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.last_trade_date, range, value, display)
   end
 
   return offset, value
@@ -6123,6 +6411,15 @@ end
 -- Expire Date
 b3_b3derivatives_umdf_fast_v5_0_11.expire_date = {}
 
+-- Display: Expire Date
+b3_b3derivatives_umdf_fast_v5_0_11.expire_date.display = function(value)
+  if value == nil then
+    return "Expire Date: No Value"
+  end
+
+  return "Expire Date: "..spelled_date(digits_of(value))
+end
+
 -- Dissect: Expire Date
 b3_b3derivatives_umdf_fast_v5_0_11.expire_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -6132,11 +6429,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.expire_date.dissect = function(buffer, offset
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.expire_date, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.expire_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.expire_date, range, UInt64(0), display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.expire_date, range, UInt64(0))
-    absent:set_text("Expire Date: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.expire_date, range, value, display)
   end
 
   return offset, value
@@ -6540,11 +6839,18 @@ b3_b3derivatives_umdf_fast_v5_0_11.trad_ses_open_time_sent.dissect = function(bu
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_uint64, range, value)
-  else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_uint64, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_absolute_time, range, NSTime.new(0, 0))
     absent:set_text("Trad Ses Open Time: No Value")
+  else
+    local digits = digits_of(value)
+    local instant = spelled_instant(digits)
+    if instant == nil then
+      local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_absolute_time, range, NSTime.new(0, 0))
+      item:set_text("Trad Ses Open Time: "..digits)
+    else
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_absolute_time, range, instant)
+    end
   end
 
   return offset, value
@@ -6552,6 +6858,15 @@ end
 
 -- Trad Ses Open Time (Default)
 b3_b3derivatives_umdf_fast_v5_0_11.trad_ses_open_time_default_optional_u_int32 = {}
+
+-- Display: Trad Ses Open Time (Default)
+b3_b3derivatives_umdf_fast_v5_0_11.trad_ses_open_time_default_optional_u_int32.display = function(value)
+  if value == nil then
+    return "Trad Ses Open Time: No Value"
+  end
+
+  return "Trad Ses Open Time: "..spelled_time(digits_of(value))
+end
 
 -- Dissect: Trad Ses Open Time (Default)
 b3_b3derivatives_umdf_fast_v5_0_11.trad_ses_open_time_default_optional_u_int32.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -6566,11 +6881,13 @@ b3_b3derivatives_umdf_fast_v5_0_11.trad_ses_open_time_default_optional_u_int32.d
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_uint32, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_11.trad_ses_open_time_default_optional_u_int32.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_uint32, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_uint32, range, 0)
-    absent:set_text("Trad Ses Open Time: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_uint32, range, value, display)
   end
 
   return offset, value
@@ -6592,11 +6909,18 @@ b3_b3derivatives_umdf_fast_v5_0_11.trad_ses_open_time_default_optional_u_int64.d
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_uint64, range, value)
-  else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_uint64, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_absolute_time, range, NSTime.new(0, 0))
     absent:set_text("Trad Ses Open Time: No Value")
+  else
+    local digits = digits_of(value)
+    local instant = spelled_instant(digits)
+    if instant == nil then
+      local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_absolute_time, range, NSTime.new(0, 0))
+      item:set_text("Trad Ses Open Time: "..digits)
+    else
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.trad_ses_open_time_absolute_time, range, instant)
+    end
   end
 
   return offset, value
@@ -6614,11 +6938,18 @@ b3_b3derivatives_umdf_fast_v5_0_11.transact_time.dissect = function(buffer, offs
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.transact_time, range, value)
-  else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.transact_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.transact_time, range, NSTime.new(0, 0))
     absent:set_text("Transact Time: No Value")
+  else
+    local digits = digits_of(value)
+    local instant = spelled_instant(digits)
+    if instant == nil then
+      local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.transact_time, range, NSTime.new(0, 0))
+      item:set_text("Transact Time: "..digits)
+    else
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.transact_time, range, instant)
+    end
   end
 
   return offset, value
@@ -6760,11 +7091,18 @@ b3_b3derivatives_umdf_fast_v5_0_11.orig_time_copy.dissect = function(buffer, off
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time, range, value)
-  else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time, range, NSTime.new(0, 0))
     absent:set_text("Orig Time: No Value")
+  else
+    local digits = digits_of(value)
+    local instant = spelled_instant(digits)
+    if instant == nil then
+      local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time, range, NSTime.new(0, 0))
+      item:set_text("Orig Time: "..digits)
+    else
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time, range, instant)
+    end
   end
 
   return offset, value
@@ -6782,11 +7120,18 @@ b3_b3derivatives_umdf_fast_v5_0_11.orig_time_sent.dissect = function(buffer, off
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time, range, value)
-  else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time, range, NSTime.new(0, 0))
     absent:set_text("Orig Time: No Value")
+  else
+    local digits = digits_of(value)
+    local instant = spelled_instant(digits)
+    if instant == nil then
+      local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time, range, NSTime.new(0, 0))
+      item:set_text("Orig Time: "..digits)
+    else
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_11.fields.orig_time, range, instant)
+    end
   end
 
   return offset, value
@@ -13229,7 +13574,8 @@ udp_table:add_for_decode_as(omi_b3_b3derivatives_umdf_fast_v5_0_11)
 -- Protocol Compiler technologies used to produce this file are
 -- the subject of patents owned by Scaled Sources LLC.  Those patent
 -- rights are retained and are not transferred by this contribution:
---   https://patents.google.com/patent/US20240129382A1/en
+--   https://patents.google.com/patent/US12101388B2/en
 --   https://patents.google.com/patent/US20240419416A1/en
+--   https://patents.google.com/patent/US20260368281A1/en
 --
 -----------------------------------------------------------------------
