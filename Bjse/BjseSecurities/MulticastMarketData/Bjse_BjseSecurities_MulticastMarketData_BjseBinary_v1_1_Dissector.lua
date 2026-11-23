@@ -659,7 +659,9 @@ bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.checksum.dissect = funct
     local start = 0
     local computed = checksum_adler32(buffer(start, buffer:len() - start), offset - start, length, false)
 
-    if computed == value then
+    if computed == nil then
+      item:append_text(" [unverified]")
+    elseif computed == value then
       item:append_text(" [correct]")
     else
       item:append_text(" [incorrect, should be "..computed.."]")
@@ -1452,15 +1454,15 @@ bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.orig_time.size = 8
 bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.orig_time.dissect = function(buffer, offset, packet, parent)
   local length = bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.orig_time.size
   local range = buffer(offset, length)
-  local packed = range:int64():tonumber()
+  local packed = range:int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.orig_time_utc
   if bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format == 2 then field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.orig_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -2281,15 +2283,15 @@ bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.trade_time.size = 8
 bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.trade_time.dissect = function(buffer, offset, packet, parent)
   local length = bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.trade_time.size
   local range = buffer(offset, length)
-  local packed = range:int64():tonumber()
+  local packed = range:int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_time_utc
   if bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format == 2 then field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.trade_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -2382,15 +2384,15 @@ bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.transact_time.size = 8
 bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.transact_time.dissect = function(buffer, offset, packet, parent)
   local length = bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.transact_time.size
   local range = buffer(offset, length)
-  local packed = range:int64():tonumber()
+  local packed = range:int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.transact_time_utc
   if bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.timestamp_format == 2 then field = omi_bjse_bjsesecurities_multicastmarketdata_bjsebinary_v1_1.fields.transact_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100

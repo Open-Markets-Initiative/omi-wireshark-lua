@@ -896,7 +896,9 @@ siac_cqs_output_cta_v1_91.block_checksum.dissect = function(buffer, offset, pack
     local start = offset - 18
     local computed = checksum_sum(buffer(start, buffer:len() - start), offset - start, length, 65536)
 
-    if computed == value then
+    if computed == nil then
+      item:append_text(" [unverified]")
+    elseif computed == value then
       item:append_text(" [correct]")
     else
       item:append_text(" [incorrect, should be "..computed.."]")

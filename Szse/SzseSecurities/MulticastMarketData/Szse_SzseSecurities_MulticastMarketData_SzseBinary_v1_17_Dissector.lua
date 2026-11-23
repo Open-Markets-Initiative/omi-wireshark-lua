@@ -760,7 +760,9 @@ szse_szsesecurities_multicastmarketdata_szsebinary_v1_17.checksum.dissect = func
     local start = 0
     local computed = checksum_adler32(buffer(start, buffer:len() - start), offset - start, length, false)
 
-    if computed == value then
+    if computed == nil then
+      item:append_text(" [unverified]")
+    elseif computed == value then
       item:append_text(" [correct]")
     else
       item:append_text(" [incorrect, should be "..computed.."]")

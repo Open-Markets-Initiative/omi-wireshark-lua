@@ -751,7 +751,9 @@ siac_opra_output_obi_v6_3_a.block_checksum.dissect = function(buffer, offset, pa
     local start = offset - 19
     local computed = checksum_sum(buffer(start, buffer:len() - start), offset - start, length, 65536)
 
-    if computed == value then
+    if computed == nil then
+      item:append_text(" [unverified]")
+    elseif computed == value then
       item:append_text(" [correct]")
     else
       item:append_text(" [incorrect, should be "..computed.."]")
