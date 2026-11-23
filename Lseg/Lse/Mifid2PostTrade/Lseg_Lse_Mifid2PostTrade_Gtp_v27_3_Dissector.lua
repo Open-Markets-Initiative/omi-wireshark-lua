@@ -1,0 +1,3362 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Lseg Lse Mifid2PostTrade Gtp 27.3 Protocol
+local omi_lseg_lse_mifid2posttrade_gtp_v27_3 = Proto("Omi.Lseg.Lse.Mifid2PostTrade.Gtp.v27.3", "Lseg Lse Mifid2PostTrade Gtp 27.3")
+
+-- Protocol table
+local lseg_lse_mifid2posttrade_gtp_v27_3 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Lseg Lse Mifid2PostTrade Gtp 27.3 Fields
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.agency_cross_indicator = ProtoField.new("Agency Cross Indicator", "lseg.lse.mifid2posttrade.gtp.v27.3.agencycrossindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the trade was an agency cross.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.algorithmic_indicator = ProtoField.new("Algorithmic Indicator", "lseg.lse.mifid2posttrade.gtp.v27.3.algorithmicindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the trade was algorithmic.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.lse.mifid2posttrade.gtp.v27.3.allowedbooktypes", ftypes.STRING, nil, nil, nil, "Defines the order-book types that are allowed for the instrument")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.auction_type = ProtoField.new("Auction Type", "lseg.lse.mifid2posttrade.gtp.v27.3.auctiontype", ftypes.STRING, nil, nil, nil, "The value in this field is only relevant when Trade Type is 1.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.average_daily_turnover_adt = ProtoField.new("Average Daily Turnover Adt", "lseg.lse.mifid2posttrade.gtp.v27.3.averagedailyturnoveradt", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to LSE.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.currency = ProtoField.new("Currency", "lseg.lse.mifid2posttrade.gtp.v27.3.currency", ftypes.STRING, nil, nil, nil, "Currency Code as per ISO 4217.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.deferral_enrichment_type = ProtoField.new("Deferral Enrichment Type", "lseg.lse.mifid2posttrade.gtp.v27.3.deferralenrichmenttype", ftypes.STRING, nil, nil, nil, "Type of deferral or enrichment applied.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.duplicative_indicator = ProtoField.new("Duplicative Indicator", "lseg.lse.mifid2posttrade.gtp.v27.3.duplicativeindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the trade report is duplicative.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.lse.mifid2posttrade.gtp.v27.3.dynamiccircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Dynamic Circuit Breaker Tolerance (%) of the instrument.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.lse.mifid2posttrade.gtp.v27.3.electronicorderbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.event_code = ProtoField.new("Event Code", "lseg.lse.mifid2posttrade.gtp.v27.3.eventcode", ftypes.STRING, nil, nil, nil, "Start or end of day event code.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.firm_quote_book = ProtoField.new("Firm Quote Book", "lseg.lse.mifid2posttrade.gtp.v27.3.firmquotebook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02)
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.lse.mifid2posttrade.gtp.v27.3.fourthreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.instrument = ProtoField.new("Instrument", "lseg.lse.mifid2posttrade.gtp.v27.3.instrument", ftypes.UINT64, nil, nil, nil, "GTP Instrument identifier.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.instrument_identification_code = ProtoField.new("Instrument Identification Code", "lseg.lse.mifid2posttrade.gtp.v27.3.instrumentidentificationcode", ftypes.STRING, nil, nil, nil, "Instrument identification number (ISIN code).")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.instrument_identification_code_type = ProtoField.new("Instrument Identification Code Type", "lseg.lse.mifid2posttrade.gtp.v27.3.instrumentidentificationcodetype", ftypes.STRING, nil, nil, nil, "Only relevant for non-equity instruments. Empty for equity and equity-like instruments.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.isin = ProtoField.new("Isin", "lseg.lse.mifid2posttrade.gtp.v27.3.isin", ftypes.STRING, nil, nil, nil, "ISIN Code of an instrument.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.length = ProtoField.new("Length", "lseg.lse.mifid2posttrade.gtp.v27.3.length", ftypes.UINT16, nil, nil, nil, "Length of the message block including the header and all payload messages")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.market_closing_price_flag = ProtoField.new("Market Closing Price Flag", "lseg.lse.mifid2posttrade.gtp.v27.3.marketclosingpriceflag", ftypes.STRING, nil, nil, nil, "Market closing price flag.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.lse.mifid2posttrade.gtp.v27.3.marketdatagroup", ftypes.STRING, nil, nil, nil, "Identity of the market data group the payload messages relate to")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.market_mechanism = ProtoField.new("Market Mechanism", "lseg.lse.mifid2posttrade.gtp.v27.3.marketmechanism", ftypes.STRING, nil, nil, nil, "Market mechanism the trade was executed under.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message_count = ProtoField.new("Message Count", "lseg.lse.mifid2posttrade.gtp.v27.3.messagecount", ftypes.UINT8, nil, nil, nil, "Number of payload messages that will follow the header")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message_length = ProtoField.new("Message Length", "lseg.lse.mifid2posttrade.gtp.v27.3.messagelength", ftypes.UINT16, nil, nil, nil, "Length of message including this field")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message_type = ProtoField.new("Message Type", "lseg.lse.mifid2posttrade.gtp.v27.3.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.mifid_price = ProtoField.new("Mifid Price", "lseg.lse.mifid2posttrade.gtp.v27.3.mifidprice", ftypes.DOUBLE, nil, nil, nil, "MiFID compliant Price field populated using either Price or Percentage. {DECIMAL-18/13} in case the price is expressed as monetary value. {DECIMAL-11/10} in case the price is expressed as percentage.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.mifid_quantity = ProtoField.new("Mifid Quantity", "lseg.lse.mifid2posttrade.gtp.v27.3.mifidquantity", ftypes.DOUBLE, nil, nil, nil, "Number of units of the financial instrument. {DECIMAL-18/17} Will be set to default value (20 spaces) if the traded security is a bond.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.mifid_trade_type = ProtoField.new("Mifid Trade Type", "lseg.lse.mifid2posttrade.gtp.v27.3.mifidtradetype", ftypes.UINT8, nil, nil, nil, "Type of the trade.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.modification_indicator = ProtoField.new("Modification Indicator", "lseg.lse.mifid2posttrade.gtp.v27.3.modificationindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the report cancels or amends a previous report.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.negotiation_indicator = ProtoField.new("Negotiation Indicator", "lseg.lse.mifid2posttrade.gtp.v27.3.negotiationindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the trade was negotiated.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.new_end_time = ProtoField.new("New End Time", "lseg.lse.mifid2posttrade.gtp.v27.3.newendtime", ftypes.STRING, nil, nil, nil, "New time the session will end. The field will contain only spaces if Session Change Reason is '0' or the Session Change Reason is not present. New End Time will be in terms of the local time on the server (i.e., not UTC).")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.notional_amount = ProtoField.new("Notional Amount", "lseg.lse.mifid2posttrade.gtp.v27.3.notionalamount", ftypes.DOUBLE, nil, nil, nil, "Notional value relevant to the security. {DECIMAL-18/5} Only relevant for non-equity instruments.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.notional_currency = ProtoField.new("Notional Currency", "lseg.lse.mifid2posttrade.gtp.v27.3.notionalcurrency", ftypes.STRING, nil, nil, nil, "Major Currency in which the notional amount is denominated. Only relevant for non-equity instruments.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.off_book = ProtoField.new("Off Book", "lseg.lse.mifid2posttrade.gtp.v27.3.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.off_book_automated_indicator = ProtoField.new("Off Book Automated Indicator", "lseg.lse.mifid2posttrade.gtp.v27.3.offbookautomatedindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the off book trade was automated.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.lse.mifid2posttrade.gtp.v27.3.orderbooktype", ftypes.UINT8, nil, nil, nil, "Order book the status applies to.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.partition_id = ProtoField.new("Partition Id", "lseg.lse.mifid2posttrade.gtp.v27.3.partitionid", ftypes.STRING, nil, nil, nil, "Trading System's partition in which the instrument is traded.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.post_trade_deferral_reason = ProtoField.new("Post Trade Deferral Reason", "lseg.lse.mifid2posttrade.gtp.v27.3.posttradedeferralreason", ftypes.STRING, nil, nil, nil, "Reason publication of the trade was deferred.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.price_formation_indicator = ProtoField.new("Price Formation Indicator", "lseg.lse.mifid2posttrade.gtp.v27.3.priceformationindicator", ftypes.STRING, nil, nil, nil, "Indicates how the price was formed.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.price_major_currency = ProtoField.new("Price Major Currency", "lseg.lse.mifid2posttrade.gtp.v27.3.pricemajorcurrency", ftypes.STRING, nil, nil, nil, "Major currency in which the price is expressed (applicable if the price is expressed as monetary value). Currency Code as per ISO 4217.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.price_notation = ProtoField.new("Price Notation", "lseg.lse.mifid2posttrade.gtp.v27.3.pricenotation", ftypes.STRING, nil, nil, nil, "Indicates if the price is expressed in monetary value or in percentage. Only relevant for non-equity instruments.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.private_rfq = ProtoField.new("Private Rfq", "lseg.lse.mifid2posttrade.gtp.v27.3.privaterfq", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.pt_algo_trade = ProtoField.new("Pt Algo Trade", "lseg.lse.mifid2posttrade.gtp.v27.3.ptalgotrade", ftypes.STRING, nil, nil, nil, "Algorithmic trade flag.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.pt_amendment_flag = ProtoField.new("Pt Amendment Flag", "lseg.lse.mifid2posttrade.gtp.v27.3.ptamendmentflag", ftypes.STRING, nil, nil, nil, "Trade amendment flag.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.pt_cancellation_flag = ProtoField.new("Pt Cancellation Flag", "lseg.lse.mifid2posttrade.gtp.v27.3.ptcancellationflag", ftypes.STRING, nil, nil, nil, "Trade cancellation flag.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.pt_ref_price_waiver_flag = ProtoField.new("Pt Ref Price Waiver Flag", "lseg.lse.mifid2posttrade.gtp.v27.3.ptrefpricewaiverflag", ftypes.STRING, nil, nil, nil, "Not Applicable to LSE.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.publication_date_and_time = ProtoField.new("Publication Date And Time", "lseg.lse.mifid2posttrade.gtp.v27.3.publicationdateandtime", ftypes.STRING, nil, nil, nil, "Date and time when the transaction was published.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reference_price_indicator = ProtoField.new("Reference Price Indicator", "lseg.lse.mifid2posttrade.gtp.v27.3.referencepriceindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the trade was a reference price trade.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.lse.mifid2posttrade.gtp.v27.3.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.lse.mifid2posttrade.gtp.v27.3.reserved12", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_20 = ProtoField.new("Reserved 20", "lseg.lse.mifid2posttrade.gtp.v27.3.reserved20", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_3 = ProtoField.new("Reserved 3", "lseg.lse.mifid2posttrade.gtp.v27.3.reserved3", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.lse.mifid2posttrade.gtp.v27.3.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.lse.mifid2posttrade.gtp.v27.3.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.lse.mifid2posttrade.gtp.v27.3.secondreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.security_exchange = ProtoField.new("Security Exchange", "lseg.lse.mifid2posttrade.gtp.v27.3.securityexchange", ftypes.STRING, nil, nil, nil, "Not Applicable to LSE")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.segment = ProtoField.new("Segment", "lseg.lse.mifid2posttrade.gtp.v27.3.segment", ftypes.STRING, nil, nil, nil, "Segment the instrument is assigned to.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.lse.mifid2posttrade.gtp.v27.3.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the first payload message")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.lse.mifid2posttrade.gtp.v27.3.sessionchangereason", ftypes.UINT8, nil, nil, nil, "Reason the trading session changed.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.source_venue = ProtoField.new("Source Venue", "lseg.lse.mifid2posttrade.gtp.v27.3.sourcevenue", ftypes.UINT16, nil, nil, nil, "Venue from which market data is received for the instrument.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.special_dividend_indicator = ProtoField.new("Special Dividend Indicator", "lseg.lse.mifid2posttrade.gtp.v27.3.specialdividendindicator", ftypes.STRING, nil, nil, nil, "Indicates whether the trade was a special dividend trade.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.lse.mifid2posttrade.gtp.v27.3.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Static Circuit Breaker Tolerance (%) of the instrument.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse.mifid2posttrade.gtp.v27.3.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse.mifid2posttrade.gtp.v27.3.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse.mifid2posttrade.gtp.v27.3.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse.mifid2posttrade.gtp.v27.3.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.trade_qualifier = ProtoField.new("Trade Qualifier", "lseg.lse.mifid2posttrade.gtp.v27.3.tradequalifier", ftypes.STRING, nil, nil, nil, "Qualifier of the trade.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.trading_date_and_time = ProtoField.new("Trading Date And Time", "lseg.lse.mifid2posttrade.gtp.v27.3.tradingdateandtime", ftypes.STRING, nil, nil, nil, "Date and time when the transaction was executed/agreed upon. If a trade is cancelled or amended, this field will contain the Trading Date and Time of the original trade.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.trading_mode = ProtoField.new("Trading Mode", "lseg.lse.mifid2posttrade.gtp.v27.3.tradingmode", ftypes.STRING, nil, nil, nil, "Trading mode the trade was executed under.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.trading_status = ProtoField.new("Trading Status", "lseg.lse.mifid2posttrade.gtp.v27.3.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status of the instrument.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.trading_system = ProtoField.new("Trading System", "lseg.lse.mifid2posttrade.gtp.v27.3.tradingsystem", ftypes.STRING, nil, nil, nil, "Not Applicable to LSE")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.transaction_category = ProtoField.new("Transaction Category", "lseg.lse.mifid2posttrade.gtp.v27.3.transactioncategory", ftypes.STRING, nil, nil, nil, "Category of the transaction.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.transaction_identification_code = ProtoField.new("Transaction Identification Code", "lseg.lse.mifid2posttrade.gtp.v27.3.transactionidentificationcode", ftypes.STRING, nil, nil, nil, "A unique trade identifier. The value will be right aligned.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse.mifid2posttrade.gtp.v27.3.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.unused_3 = ProtoField.new("Unused 3", "lseg.lse.mifid2posttrade.gtp.v27.3.unused3", ftypes.UINT8, nil, base.DEC, 0xE0, "Reserved")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse.mifid2posttrade.gtp.v27.3.venueinstrumentid", ftypes.STRING, nil, nil, nil, "Instrument identifier used by the source venue.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.venue_of_execution = ProtoField.new("Venue Of Execution", "lseg.lse.mifid2posttrade.gtp.v27.3.venueofexecution", ftypes.STRING, nil, nil, nil, "Identification of the venue where the transaction was executed.")
+
+-- Lseg Lse Mifid2PostTrade Gtp 27.3 Framing
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message = ProtoField.new("Message", "lseg.lse.mifid2posttrade.gtp.v27.3.message", ftypes.STRING)
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message_header = ProtoField.new("Message Header", "lseg.lse.mifid2posttrade.gtp.v27.3.messageheader", ftypes.STRING, nil, nil, nil, "Gtp Udp Message Header")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.packet = ProtoField.new("Packet", "lseg.lse.mifid2posttrade.gtp.v27.3.packet", ftypes.STRING, nil, nil, nil, "Gtp Udp Packet")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse.mifid2posttrade.gtp.v27.3.unitheader", ftypes.STRING)
+
+-- Lseg Lse Mifid2PostTrade 27.3 Application Messages
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.lse.mifid2posttrade.gtp.v27.3.instrumentdirectorymessage", ftypes.STRING, nil, nil, nil, "Used to disseminate a common and limited set of data for all configured instrument types, except strategy instruments, on the real-time channels.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.lse.mifid2posttrade.gtp.v27.3.instrumentstatusmessage", ftypes.STRING, nil, nil, nil, "Used to communicate scheduled and unscheduled session changes. When sent in the recovery channel, used to indicate the current trading status of an instrument.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.mifid_ii_trade_message = ProtoField.new("Mifid Ii Trade Message", "lseg.lse.mifid2posttrade.gtp.v27.3.mifidiitrademessage", ftypes.STRING, nil, nil, nil, "Sent to represent different types of MiFID compliant trades published by markets.")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.system_event_message = ProtoField.new("System Event Message", "lseg.lse.mifid2posttrade.gtp.v27.3.systemeventmessage", ftypes.STRING, nil, nil, nil, "Sent to indicate the start and end of the day.")
+
+-- Lseg Lse Mifid2PostTrade Gtp 27.3 Generated Fields
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message_index = ProtoField.new("Message Index", "lseg.lse.mifid2posttrade.gtp.v27.3.messageindex", ftypes.UINT16)
+
+-- Lseg Lse Mifid2PostTrade Gtp 27.3 Expert Info
+lseg_lse_mifid2posttrade_gtp_v27_3.experts = {}
+lseg_lse_mifid2posttrade_gtp_v27_3.experts.not_a_number = ProtoExpert.new("lseg.lse.mifid2posttrade.gtp.v27.3.notanumber", "Ascii digits field holding no number", expert.group.PROTOCOL, expert.severity.WARN)
+lseg_lse_mifid2posttrade_gtp_v27_3.experts.undecoded = ProtoExpert.new("lseg.lse.mifid2posttrade.gtp.v27.3.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.experts = { lseg_lse_mifid2posttrade_gtp_v27_3.experts.not_a_number, lseg_lse_mifid2posttrade_gtp_v27_3.experts.undecoded }
+
+-----------------------------------------------------------------------
+-- Lseg Lse Mifid2PostTrade Gtp 27.3 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
+lseg_lse_mifid2posttrade_gtp_v27_3.timestamp_format = 3
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Lseg Lse Mifid2PostTrade Gtp 27.3 Element Dissection Options
+show.structs = true
+show.application_messages = true
+show.headers = true
+show.padding = false
+show.indexes = true
+
+-- Register Lseg Lse Mifid2PostTrade Gtp 27.3 Show Options
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+
+omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
+-- Handle changed preferences
+function omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_application_messages then
+    show.application_messages = omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_application_messages
+  end
+  if show.headers ~= omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_headers then
+    show.headers = omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_headers
+  end
+  if show.padding ~= omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_padding then
+    show.padding = omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_padding
+  end
+  if show.structs ~= omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_structs then
+    show.structs = omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_structs
+  end
+  if show.indexes ~= omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_indexes then
+    show.indexes = omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.show_indexes
+  end
+  if lseg_lse_mifid2posttrade_gtp_v27_3.timestamp_format ~= omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.timestamp_format then
+    lseg_lse_mifid2posttrade_gtp_v27_3.timestamp_format = omi_lseg_lse_mifid2posttrade_gtp_v27_3.prefs.timestamp_format
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+-- trim leading spaces
+trim_left_spaces = function(str)
+  local start = 1
+
+  while start <= str:len() and str:byte(start) == 0x20 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- trim leading zeros
+trim_left_zeros = function(str)
+  local start = 1
+
+  while start < str:len() and str:byte(start) == 0x30 do
+    start = start + 1
+  end
+
+  return str:sub(start)
+end
+
+-- the number a decimal writing its own point spells
+format_decimal_text = function(str)
+  local text = trim_left_spaces(str)
+
+  if text == "" then
+    return nil
+  end
+
+  local sign = ""
+  local first = text:sub(1, 1)
+
+  if first == "-" or first == "+" then
+    sign = first
+    text = text:sub(2)
+  end
+
+  text = trim_left_zeros(text)
+
+  if text:sub(1, 1) == "." then
+    text = "0"..text
+  end
+
+  return sign..text
+end
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
+-----------------------------------------------------------------------
+-- Lseg Lse Mifid2PostTrade Gtp 27.3 Fields
+-----------------------------------------------------------------------
+
+-- Agency Cross Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.agency_cross_indicator = {}
+
+-- Size: Agency Cross Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.agency_cross_indicator.size = 1
+
+-- Display: Agency Cross Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.agency_cross_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Agency Cross Indicator: No Value"
+  end
+
+  if value == "-" then
+    return "Agency Cross Indicator: No Agency Cross Trade (-)"
+  end
+
+  return "Agency Cross Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Agency Cross Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.agency_cross_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.agency_cross_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.agency_cross_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.agency_cross_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Algorithmic Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.algorithmic_indicator = {}
+
+-- Size: Algorithmic Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.algorithmic_indicator.size = 1
+
+-- Display: Algorithmic Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.algorithmic_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Algorithmic Indicator: No Value"
+  end
+
+  if value == "H" then
+    return "Algorithmic Indicator: Algorithmic Trade Algo (H)"
+  end
+  if value == "-" then
+    return "Algorithmic Indicator: Not An Algorithmic Trade (-)"
+  end
+
+  return "Algorithmic Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Algorithmic Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.algorithmic_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.algorithmic_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.algorithmic_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.algorithmic_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auction Type
+lseg_lse_mifid2posttrade_gtp_v27_3.auction_type = {}
+
+-- Size: Auction Type
+lseg_lse_mifid2posttrade_gtp_v27_3.auction_type.size = 1
+
+-- Display: Auction Type
+lseg_lse_mifid2posttrade_gtp_v27_3.auction_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Auction Type: No Value"
+  end
+
+  if value == "C" then
+    return "Auction Type: Closing Auction (C)"
+  end
+  if value == "O" then
+    return "Auction Type: Opening Auction (O)"
+  end
+  if value == "A" then
+    return "Auction Type: Aesp (A)"
+  end
+  if value == "B" then
+    return "Auction Type: Edsp (B)"
+  end
+  if value == "E" then
+    return "Auction Type: Resume Auction (E)"
+  end
+  if value == "F" then
+    return "Auction Type: Periodic Auction (F)"
+  end
+
+  return "Auction Type: Unknown("..value..")"
+end
+
+-- Dissect: Auction Type
+lseg_lse_mifid2posttrade_gtp_v27_3.auction_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.auction_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.auction_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.auction_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Average Daily Turnover Adt
+lseg_lse_mifid2posttrade_gtp_v27_3.average_daily_turnover_adt = {}
+
+-- Size: Average Daily Turnover Adt
+lseg_lse_mifid2posttrade_gtp_v27_3.average_daily_turnover_adt.size = 8
+
+-- Display: Average Daily Turnover Adt
+lseg_lse_mifid2posttrade_gtp_v27_3.average_daily_turnover_adt.display = function(value)
+  return "Average Daily Turnover Adt: "..value
+end
+
+-- Translate: Average Daily Turnover Adt
+lseg_lse_mifid2posttrade_gtp_v27_3.average_daily_turnover_adt.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Average Daily Turnover Adt
+lseg_lse_mifid2posttrade_gtp_v27_3.average_daily_turnover_adt.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.average_daily_turnover_adt.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse_mifid2posttrade_gtp_v27_3.average_daily_turnover_adt.translate(raw)
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.average_daily_turnover_adt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.average_daily_turnover_adt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.currency = {}
+
+-- Size: Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.currency.size = 3
+
+-- Display: Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.currency.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Deferral Enrichment Type
+lseg_lse_mifid2posttrade_gtp_v27_3.deferral_enrichment_type = {}
+
+-- Size: Deferral Enrichment Type
+lseg_lse_mifid2posttrade_gtp_v27_3.deferral_enrichment_type.size = 1
+
+-- Display: Deferral Enrichment Type
+lseg_lse_mifid2posttrade_gtp_v27_3.deferral_enrichment_type.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Deferral Enrichment Type: No Value"
+  end
+
+  if value == "-" then
+    return "Deferral Enrichment Type: Not Applicable No Relevant Enrichment Type (-)"
+  end
+
+  return "Deferral Enrichment Type: Unknown("..value..")"
+end
+
+-- Dissect: Deferral Enrichment Type
+lseg_lse_mifid2posttrade_gtp_v27_3.deferral_enrichment_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.deferral_enrichment_type.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.deferral_enrichment_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.deferral_enrichment_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Duplicative Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.duplicative_indicator = {}
+
+-- Size: Duplicative Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.duplicative_indicator.size = 1
+
+-- Display: Duplicative Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.duplicative_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Duplicative Indicator: No Value"
+  end
+
+  if value == "-" then
+    return "Duplicative Indicator: Unique Trade Report (-)"
+  end
+
+  return "Duplicative Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Duplicative Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.duplicative_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.duplicative_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.duplicative_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.duplicative_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Dynamic Circuit Breaker Tolerances
+lseg_lse_mifid2posttrade_gtp_v27_3.dynamic_circuit_breaker_tolerances = {}
+
+-- Size: Dynamic Circuit Breaker Tolerances
+lseg_lse_mifid2posttrade_gtp_v27_3.dynamic_circuit_breaker_tolerances.size = 8
+
+-- Display: Dynamic Circuit Breaker Tolerances
+lseg_lse_mifid2posttrade_gtp_v27_3.dynamic_circuit_breaker_tolerances.display = function(value)
+  return "Dynamic Circuit Breaker Tolerances: "..value
+end
+
+-- Translate: Dynamic Circuit Breaker Tolerances
+lseg_lse_mifid2posttrade_gtp_v27_3.dynamic_circuit_breaker_tolerances.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Dynamic Circuit Breaker Tolerances
+lseg_lse_mifid2posttrade_gtp_v27_3.dynamic_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.dynamic_circuit_breaker_tolerances.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse_mifid2posttrade_gtp_v27_3.dynamic_circuit_breaker_tolerances.translate(raw)
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.dynamic_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.dynamic_circuit_breaker_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- Event Code
+lseg_lse_mifid2posttrade_gtp_v27_3.event_code = {}
+
+-- Size: Event Code
+lseg_lse_mifid2posttrade_gtp_v27_3.event_code.size = 1
+
+-- Display: Event Code
+lseg_lse_mifid2posttrade_gtp_v27_3.event_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Event Code: No Value"
+  end
+
+  if value == "C" then
+    return "Event Code: End Of Day (C)"
+  end
+  if value == "O" then
+    return "Event Code: Start Of Day (O)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+lseg_lse_mifid2posttrade_gtp_v27_3.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.event_code.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fourth Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.fourth_reserved_8 = {}
+
+-- Size: Fourth Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.fourth_reserved_8.size = 8
+
+-- Display: Fourth Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.fourth_reserved_8.display = function(value)
+  return "Fourth Reserved 8: "..value
+end
+
+-- Dissect: Fourth Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.fourth_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.fourth_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.fourth_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.fourth_reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Instrument
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument = {}
+
+-- Size: Instrument
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument.size = 8
+
+-- Display: Instrument
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument.display = function(value)
+  return "Instrument: "..value
+end
+
+-- Dissect: Instrument
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.instrument.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.instrument, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Identification Code
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code = {}
+
+-- Size: Instrument Identification Code
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code.size = 12
+
+-- Display: Instrument Identification Code
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Instrument Identification Code: No Value"
+  end
+
+  return "Instrument Identification Code: "..value
+end
+
+-- Dissect: Instrument Identification Code
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.instrument_identification_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Instrument Identification Code Type
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code_type = {}
+
+-- Size: Instrument Identification Code Type
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code_type.size = 4
+
+-- Display: Instrument Identification Code Type
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code_type.labels = {
+  ["ISIN"] = "Instrument Identification Code Type: International Securities Identification Number (ISIN)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code_type.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code_type.labels[value] or "Instrument Identification Code Type: Unknown("..value..")"
+end
+
+-- Dissect: Instrument Identification Code Type
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code_type.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.instrument_identification_code_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Isin
+lseg_lse_mifid2posttrade_gtp_v27_3.isin = {}
+
+-- Size: Isin
+lseg_lse_mifid2posttrade_gtp_v27_3.isin.size = 12
+
+-- Display: Isin
+lseg_lse_mifid2posttrade_gtp_v27_3.isin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Isin: No Value"
+  end
+
+  return "Isin: "..value
+end
+
+-- Dissect: Isin
+lseg_lse_mifid2posttrade_gtp_v27_3.isin.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.isin.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.isin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.isin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+lseg_lse_mifid2posttrade_gtp_v27_3.length = {}
+
+-- Size: Length
+lseg_lse_mifid2posttrade_gtp_v27_3.length.size = 2
+
+-- Display: Length
+lseg_lse_mifid2posttrade_gtp_v27_3.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+lseg_lse_mifid2posttrade_gtp_v27_3.length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Closing Price Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.market_closing_price_flag = {}
+
+-- Size: Market Closing Price Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.market_closing_price_flag.size = 4
+
+-- Display: Market Closing Price Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.market_closing_price_flag.labels = {
+  ["CLSE"] = "Market Closing Price Flag: Market Closing Price (CLSE)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.market_closing_price_flag.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.market_closing_price_flag.labels[value] or "Market Closing Price Flag: Unknown("..value..")"
+end
+
+-- Dissect: Market Closing Price Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.market_closing_price_flag.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.market_closing_price_flag.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.market_closing_price_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.market_closing_price_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Data Group
+lseg_lse_mifid2posttrade_gtp_v27_3.market_data_group = {}
+
+-- Size: Market Data Group
+lseg_lse_mifid2posttrade_gtp_v27_3.market_data_group.size = 1
+
+-- Display: Market Data Group
+lseg_lse_mifid2posttrade_gtp_v27_3.market_data_group.display = function(value)
+  return "Market Data Group: "..value
+end
+
+-- Dissect: Market Data Group
+lseg_lse_mifid2posttrade_gtp_v27_3.market_data_group.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.market_data_group.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.market_data_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.market_data_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Mechanism
+lseg_lse_mifid2posttrade_gtp_v27_3.market_mechanism = {}
+
+-- Size: Market Mechanism
+lseg_lse_mifid2posttrade_gtp_v27_3.market_mechanism.size = 1
+
+-- Display: Market Mechanism
+lseg_lse_mifid2posttrade_gtp_v27_3.market_mechanism.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Market Mechanism: No Value"
+  end
+
+  if value == "1" then
+    return "Market Mechanism: Central Limit Order Book (1)"
+  end
+  if value == "6" then
+    return "Market Mechanism: Request For Quote (6)"
+  end
+
+  return "Market Mechanism: Unknown("..value..")"
+end
+
+-- Dissect: Market Mechanism
+lseg_lse_mifid2posttrade_gtp_v27_3.market_mechanism.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.market_mechanism.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.market_mechanism.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.market_mechanism, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+lseg_lse_mifid2posttrade_gtp_v27_3.message_count = {}
+
+-- Size: Message Count
+lseg_lse_mifid2posttrade_gtp_v27_3.message_count.size = 1
+
+-- Display: Message Count
+lseg_lse_mifid2posttrade_gtp_v27_3.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+lseg_lse_mifid2posttrade_gtp_v27_3.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+lseg_lse_mifid2posttrade_gtp_v27_3.message_length = {}
+
+-- Size: Message Length
+lseg_lse_mifid2posttrade_gtp_v27_3.message_length.size = 2
+
+-- Display: Message Length
+lseg_lse_mifid2posttrade_gtp_v27_3.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+lseg_lse_mifid2posttrade_gtp_v27_3.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+lseg_lse_mifid2posttrade_gtp_v27_3.message_type = {}
+
+-- Size: Message Type
+lseg_lse_mifid2posttrade_gtp_v27_3.message_type.size = 1
+
+-- Display: Message Type
+lseg_lse_mifid2posttrade_gtp_v27_3.message_type.display = function(value)
+  if value == 0x53 then
+    return "Message Type: System Event Message (0x53)"
+  end
+  if value == 0x70 then
+    return "Message Type: Instrument Directory Message (0x70)"
+  end
+  if value == 0x48 then
+    return "Message Type: Instrument Status Message (0x48)"
+  end
+  if value == 0x51 then
+    return "Message Type: Mifid Ii Trade Message (0x51)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+end
+
+-- Dissect: Message Type
+lseg_lse_mifid2posttrade_gtp_v27_3.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mifid Price
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_price = {}
+
+-- Size: Mifid Price
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_price.size = 20
+
+-- Display: Mifid Price
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_price.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_lse_mifid2posttrade_gtp_v27_3.mifid_price.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Mifid Price: No Value"
+  end
+
+  return "Mifid Price: "..text
+end
+
+-- Dissect: Mifid Price
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_price.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_price.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.mifid_price, range, value, "Mifid Price: Not Applicable")
+    item:add_proto_expert_info(lseg_lse_mifid2posttrade_gtp_v27_3.experts.not_a_number, "Mifid Price is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.mifid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mifid Quantity
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_quantity = {}
+
+-- Size: Mifid Quantity
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_quantity.size = 20
+
+-- Display: Mifid Quantity
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_quantity.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_lse_mifid2posttrade_gtp_v27_3.mifid_quantity.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Mifid Quantity: No Value"
+  end
+
+  return "Mifid Quantity: "..text
+end
+
+-- Dissect: Mifid Quantity
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_quantity.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.mifid_quantity, range, value, "Mifid Quantity: Not Applicable")
+    item:add_proto_expert_info(lseg_lse_mifid2posttrade_gtp_v27_3.experts.not_a_number, "Mifid Quantity is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.mifid_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mifid Trade Type
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_trade_type = {}
+
+-- Size: Mifid Trade Type
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_trade_type.size = 1
+
+-- Display: Mifid Trade Type
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_trade_type.labels = {
+  [0] = "Mifid Trade Type: Regular Or Continuous Trade (0)",
+  [1] = "Mifid Trade Type: Auction Trade Bulk (1)",
+  [2] = "Mifid Trade Type: Auction Trade Individual (2)",
+  [9] = "Mifid Trade Type: Trade Cancellation (9)",
+  [11] = "Mifid Trade Type: Trade Correction (11)",
+  [22] = "Mifid Trade Type: Rfq Trade (22)",
+  [23] = "Mifid Trade Type: Rfq Trade Cancellation (23)",
+  [24] = "Mifid Trade Type: Rfq Trade Correction (24)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_trade_type.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.mifid_trade_type.labels[value] or "Mifid Trade Type: Unknown("..value..")"
+end
+
+-- Dissect: Mifid Trade Type
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_trade_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_trade_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_trade_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.mifid_trade_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Modification Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.modification_indicator = {}
+
+-- Size: Modification Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.modification_indicator.size = 1
+
+-- Display: Modification Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.modification_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Modification Indicator: No Value"
+  end
+
+  if value == "C" then
+    return "Modification Indicator: Trade Cancellation Canc (C)"
+  end
+  if value == "A" then
+    return "Modification Indicator: Trade Amendment Amnd (A)"
+  end
+  if value == "-" then
+    return "Modification Indicator: New Trade (-)"
+  end
+
+  return "Modification Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Modification Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.modification_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.modification_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.modification_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.modification_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Negotiation Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.negotiation_indicator = {}
+
+-- Size: Negotiation Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.negotiation_indicator.size = 1
+
+-- Display: Negotiation Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.negotiation_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Negotiation Indicator: No Value"
+  end
+
+  if value == "-" then
+    return "Negotiation Indicator: Not A Negotiated Trade (-)"
+  end
+
+  return "Negotiation Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Negotiation Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.negotiation_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.negotiation_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.negotiation_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.negotiation_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- New End Time
+lseg_lse_mifid2posttrade_gtp_v27_3.new_end_time = {}
+
+-- Size: New End Time
+lseg_lse_mifid2posttrade_gtp_v27_3.new_end_time.size = 6
+
+-- Display: New End Time
+lseg_lse_mifid2posttrade_gtp_v27_3.new_end_time.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "New End Time: No Value"
+  end
+
+  if #value < 6 then
+    return "New End Time: "..value
+  end
+
+  return "New End Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+end
+
+-- Dissect: New End Time
+lseg_lse_mifid2posttrade_gtp_v27_3.new_end_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.new_end_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.new_end_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.new_end_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Notional Amount
+lseg_lse_mifid2posttrade_gtp_v27_3.notional_amount = {}
+
+-- Size: Notional Amount
+lseg_lse_mifid2posttrade_gtp_v27_3.notional_amount.size = 20
+
+-- Display: Notional Amount
+lseg_lse_mifid2posttrade_gtp_v27_3.notional_amount.display = function(value, buffer, offset, packet, parent)
+  local raw = buffer(offset, lseg_lse_mifid2posttrade_gtp_v27_3.notional_amount.size):string()
+  local text = format_decimal_text(raw)
+
+  if text == nil then
+    return "Notional Amount: No Value"
+  end
+
+  return "Notional Amount: "..text
+end
+
+-- Dissect: Notional Amount
+lseg_lse_mifid2posttrade_gtp_v27_3.notional_amount.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.notional_amount.size
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+
+  if value == nil then
+    value = 0
+    local item = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.notional_amount, range, value, "Notional Amount: Not Applicable")
+    item:add_proto_expert_info(lseg_lse_mifid2posttrade_gtp_v27_3.experts.not_a_number, "Notional Amount is not a number: '"..range:string().."'")
+    return offset + length, value
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.notional_amount.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.notional_amount, range, value, display)
+
+  return offset + length, value
+end
+
+-- Notional Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.notional_currency = {}
+
+-- Size: Notional Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.notional_currency.size = 3
+
+-- Display: Notional Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.notional_currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Notional Currency: No Value"
+  end
+
+  return "Notional Currency: "..value
+end
+
+-- Dissect: Notional Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.notional_currency.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.notional_currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.notional_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.notional_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Off Book Automated Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.off_book_automated_indicator = {}
+
+-- Size: Off Book Automated Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.off_book_automated_indicator.size = 1
+
+-- Display: Off Book Automated Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.off_book_automated_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Off Book Automated Indicator: No Value"
+  end
+
+  if value == "-" then
+    return "Off Book Automated Indicator: Unspecified Or Does Not Apply (-)"
+  end
+
+  return "Off Book Automated Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Off Book Automated Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.off_book_automated_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.off_book_automated_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.off_book_automated_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.off_book_automated_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Book Type
+lseg_lse_mifid2posttrade_gtp_v27_3.order_book_type = {}
+
+-- Size: Order Book Type
+lseg_lse_mifid2posttrade_gtp_v27_3.order_book_type.size = 1
+
+-- Display: Order Book Type
+lseg_lse_mifid2posttrade_gtp_v27_3.order_book_type.labels = {
+  [1] = "Order Book Type: Firm Quote Book (1)",
+  [2] = "Order Book Type: Off Book (2)",
+  [3] = "Order Book Type: Electronic Order Book (3)",
+  [4] = "Order Book Type: Private Rfq (4)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.order_book_type.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.order_book_type.labels[value] or "Order Book Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Book Type
+lseg_lse_mifid2posttrade_gtp_v27_3.order_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.order_book_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.order_book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.order_book_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Partition Id
+lseg_lse_mifid2posttrade_gtp_v27_3.partition_id = {}
+
+-- Size: Partition Id
+lseg_lse_mifid2posttrade_gtp_v27_3.partition_id.size = 1
+
+-- Display: Partition Id
+lseg_lse_mifid2posttrade_gtp_v27_3.partition_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Partition Id: No Value"
+  end
+
+  return "Partition Id: "..value
+end
+
+-- Dissect: Partition Id
+lseg_lse_mifid2posttrade_gtp_v27_3.partition_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.partition_id.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.partition_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.partition_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Post Trade Deferral Reason
+lseg_lse_mifid2posttrade_gtp_v27_3.post_trade_deferral_reason = {}
+
+-- Size: Post Trade Deferral Reason
+lseg_lse_mifid2posttrade_gtp_v27_3.post_trade_deferral_reason.size = 1
+
+-- Display: Post Trade Deferral Reason
+lseg_lse_mifid2posttrade_gtp_v27_3.post_trade_deferral_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Post Trade Deferral Reason: No Value"
+  end
+
+  if value == "-" then
+    return "Post Trade Deferral Reason: Immediate Publication (-)"
+  end
+
+  return "Post Trade Deferral Reason: Unknown("..value..")"
+end
+
+-- Dissect: Post Trade Deferral Reason
+lseg_lse_mifid2posttrade_gtp_v27_3.post_trade_deferral_reason.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.post_trade_deferral_reason.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.post_trade_deferral_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.post_trade_deferral_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Formation Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.price_formation_indicator = {}
+
+-- Size: Price Formation Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.price_formation_indicator.size = 1
+
+-- Display: Price Formation Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.price_formation_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Price Formation Indicator: No Value"
+  end
+
+  if value == "P" then
+    return "Price Formation Indicator: Plain Vanilla Trade (P)"
+  end
+
+  return "Price Formation Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Price Formation Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.price_formation_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.price_formation_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.price_formation_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.price_formation_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Major Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.price_major_currency = {}
+
+-- Size: Price Major Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.price_major_currency.size = 3
+
+-- Display: Price Major Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.price_major_currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Price Major Currency: No Value"
+  end
+
+  return "Price Major Currency: "..value
+end
+
+-- Dissect: Price Major Currency
+lseg_lse_mifid2posttrade_gtp_v27_3.price_major_currency.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.price_major_currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.price_major_currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.price_major_currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price Notation
+lseg_lse_mifid2posttrade_gtp_v27_3.price_notation = {}
+
+-- Size: Price Notation
+lseg_lse_mifid2posttrade_gtp_v27_3.price_notation.size = 4
+
+-- Display: Price Notation
+lseg_lse_mifid2posttrade_gtp_v27_3.price_notation.labels = {
+  ["MONE"] = "Price Notation: Monetary Value (MONE)",
+  ["PERC"] = "Price Notation: Percentage (PERC)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.price_notation.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.price_notation.labels[value] or "Price Notation: Unknown("..value..")"
+end
+
+-- Dissect: Price Notation
+lseg_lse_mifid2posttrade_gtp_v27_3.price_notation.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.price_notation.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.price_notation.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.price_notation, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pt Algo Trade
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_algo_trade = {}
+
+-- Size: Pt Algo Trade
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_algo_trade.size = 4
+
+-- Display: Pt Algo Trade
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_algo_trade.labels = {
+  ["ALGO"] = "Pt Algo Trade: Algorithmic Trade (ALGO)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_algo_trade.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.pt_algo_trade.labels[value] or "Pt Algo Trade: Unknown("..value..")"
+end
+
+-- Dissect: Pt Algo Trade
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_algo_trade.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.pt_algo_trade.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.pt_algo_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.pt_algo_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pt Amendment Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_amendment_flag = {}
+
+-- Size: Pt Amendment Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_amendment_flag.size = 4
+
+-- Display: Pt Amendment Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_amendment_flag.labels = {
+  ["AMND"] = "Pt Amendment Flag: Trade Amendment (AMND)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_amendment_flag.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.pt_amendment_flag.labels[value] or "Pt Amendment Flag: Unknown("..value..")"
+end
+
+-- Dissect: Pt Amendment Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_amendment_flag.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.pt_amendment_flag.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.pt_amendment_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.pt_amendment_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pt Cancellation Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_cancellation_flag = {}
+
+-- Size: Pt Cancellation Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_cancellation_flag.size = 4
+
+-- Display: Pt Cancellation Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_cancellation_flag.labels = {
+  ["CANC"] = "Pt Cancellation Flag: Trade Cancellation (CANC)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_cancellation_flag.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.pt_cancellation_flag.labels[value] or "Pt Cancellation Flag: Unknown("..value..")"
+end
+
+-- Dissect: Pt Cancellation Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_cancellation_flag.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.pt_cancellation_flag.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.pt_cancellation_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.pt_cancellation_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Pt Ref Price Waiver Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_ref_price_waiver_flag = {}
+
+-- Size: Pt Ref Price Waiver Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_ref_price_waiver_flag.size = 4
+
+-- Display: Pt Ref Price Waiver Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_ref_price_waiver_flag.labels = {
+  ["RFPT"] = "Pt Ref Price Waiver Flag: Reference Price Trade (RFPT)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_ref_price_waiver_flag.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.pt_ref_price_waiver_flag.labels[value] or "Pt Ref Price Waiver Flag: Unknown("..value..")"
+end
+
+-- Dissect: Pt Ref Price Waiver Flag
+lseg_lse_mifid2posttrade_gtp_v27_3.pt_ref_price_waiver_flag.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.pt_ref_price_waiver_flag.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.pt_ref_price_waiver_flag.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.pt_ref_price_waiver_flag, range, value, display)
+
+  return offset + length, value
+end
+
+-- Publication Date And Time
+lseg_lse_mifid2posttrade_gtp_v27_3.publication_date_and_time = {}
+
+-- Size: Publication Date And Time
+lseg_lse_mifid2posttrade_gtp_v27_3.publication_date_and_time.size = 30
+
+-- Display: Publication Date And Time
+lseg_lse_mifid2posttrade_gtp_v27_3.publication_date_and_time.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Publication Date And Time: No Value"
+  end
+
+  return "Publication Date And Time: "..value
+end
+
+-- Dissect: Publication Date And Time
+lseg_lse_mifid2posttrade_gtp_v27_3.publication_date_and_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.publication_date_and_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.publication_date_and_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.publication_date_and_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reference Price Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.reference_price_indicator = {}
+
+-- Size: Reference Price Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.reference_price_indicator.size = 1
+
+-- Display: Reference Price Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.reference_price_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Reference Price Indicator: No Value"
+  end
+
+  if value == "1" then
+    return "Reference Price Indicator: Market Closing Price Trade Clse (1)"
+  end
+  if value == "-" then
+    return "Reference Price Indicator: Not A Reference Price Trade (-)"
+  end
+  if value == "S" then
+    return "Reference Price Indicator: Reference Price Trade Rfpt (S)"
+  end
+
+  return "Reference Price Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Reference Price Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.reference_price_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.reference_price_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.reference_price_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reference_price_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1 = {}
+
+-- Size: Reserved 1
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.size = 1
+
+-- Display: Reserved 1
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_1, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 12
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_12 = {}
+
+-- Size: Reserved 12
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_12.size = 12
+
+-- Display: Reserved 12
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_12.display = function(value)
+  return "Reserved 12: "..value
+end
+
+-- Dissect: Reserved 12
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_12.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_12.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_12.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_12, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 20
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_20 = {}
+
+-- Size: Reserved 20
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_20.size = 20
+
+-- Display: Reserved 20
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_20.display = function(value)
+  return "Reserved 20: "..value
+end
+
+-- Dissect: Reserved 20
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_20.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_20.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_20.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_20, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 3
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_3 = {}
+
+-- Size: Reserved 3
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_3.size = 3
+
+-- Display: Reserved 3
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_3.display = function(value)
+  return "Reserved 3: "..value
+end
+
+-- Dissect: Reserved 3
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_3.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_3.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_3.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_3, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 4
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4 = {}
+
+-- Size: Reserved 4
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.size = 4
+
+-- Display: Reserved 4
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_4, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_8 = {}
+
+-- Size: Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_8.size = 8
+
+-- Display: Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_8.display = function(value)
+  return "Reserved 8: "..value
+end
+
+-- Dissect: Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.second_reserved_8 = {}
+
+-- Size: Second Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.second_reserved_8.size = 8
+
+-- Display: Second Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.second_reserved_8.display = function(value)
+  return "Second Reserved 8: "..value
+end
+
+-- Dissect: Second Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.second_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.second_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.second_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.second_reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Security Exchange
+lseg_lse_mifid2posttrade_gtp_v27_3.security_exchange = {}
+
+-- Size: Security Exchange
+lseg_lse_mifid2posttrade_gtp_v27_3.security_exchange.size = 11
+
+-- Display: Security Exchange
+lseg_lse_mifid2posttrade_gtp_v27_3.security_exchange.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange: No Value"
+  end
+
+  return "Security Exchange: "..value
+end
+
+-- Dissect: Security Exchange
+lseg_lse_mifid2posttrade_gtp_v27_3.security_exchange.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.security_exchange.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.security_exchange.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.security_exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Segment
+lseg_lse_mifid2posttrade_gtp_v27_3.segment = {}
+
+-- Size: Segment
+lseg_lse_mifid2posttrade_gtp_v27_3.segment.size = 6
+
+-- Display: Segment
+lseg_lse_mifid2posttrade_gtp_v27_3.segment.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Segment: No Value"
+  end
+
+  return "Segment: "..value
+end
+
+-- Dissect: Segment
+lseg_lse_mifid2posttrade_gtp_v27_3.segment.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.segment.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.segment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.segment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+lseg_lse_mifid2posttrade_gtp_v27_3.sequence_number = {}
+
+-- Size: Sequence Number
+lseg_lse_mifid2posttrade_gtp_v27_3.sequence_number.size = 4
+
+-- Display: Sequence Number
+lseg_lse_mifid2posttrade_gtp_v27_3.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+lseg_lse_mifid2posttrade_gtp_v27_3.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Change Reason
+lseg_lse_mifid2posttrade_gtp_v27_3.session_change_reason = {}
+
+-- Size: Session Change Reason
+lseg_lse_mifid2posttrade_gtp_v27_3.session_change_reason.size = 1
+
+-- Display: Session Change Reason
+lseg_lse_mifid2posttrade_gtp_v27_3.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+  [1] = "Session Change Reason: Extended By Market Ops (1)",
+  [2] = "Session Change Reason: Shortened By Market Ops (2)",
+  [3] = "Session Change Reason: Market Order Imbalance (3)",
+  [4] = "Session Change Reason: Price Outside Range (4)",
+  [5] = "Session Change Reason: Aesp Circuit Breaker Tripped (5)",
+  [9] = "Session Change Reason: Unavailable (9)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.session_change_reason.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
+end
+
+-- Dissect: Session Change Reason
+lseg_lse_mifid2posttrade_gtp_v27_3.session_change_reason.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.session_change_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.session_change_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.session_change_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Venue
+lseg_lse_mifid2posttrade_gtp_v27_3.source_venue = {}
+
+-- Size: Source Venue
+lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.size = 2
+
+-- Display: Source Venue
+lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.labels = {
+  [1] = "Source Venue: London Stock Exchange (1)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.labels[value] or "Source Venue: Unknown("..value..")"
+end
+
+-- Dissect: Source Venue
+lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.source_venue, range, value, display)
+
+  return offset + length, value
+end
+
+-- Special Dividend Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.special_dividend_indicator = {}
+
+-- Size: Special Dividend Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.special_dividend_indicator.size = 1
+
+-- Display: Special Dividend Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.special_dividend_indicator.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Special Dividend Indicator: No Value"
+  end
+
+  if value == "-" then
+    return "Special Dividend Indicator: No Special Dividend Trade (-)"
+  end
+
+  return "Special Dividend Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Special Dividend Indicator
+lseg_lse_mifid2posttrade_gtp_v27_3.special_dividend_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.special_dividend_indicator.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.special_dividend_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.special_dividend_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Static Circuit Breaker Tolerances
+lseg_lse_mifid2posttrade_gtp_v27_3.static_circuit_breaker_tolerances = {}
+
+-- Size: Static Circuit Breaker Tolerances
+lseg_lse_mifid2posttrade_gtp_v27_3.static_circuit_breaker_tolerances.size = 8
+
+-- Display: Static Circuit Breaker Tolerances
+lseg_lse_mifid2posttrade_gtp_v27_3.static_circuit_breaker_tolerances.display = function(value)
+  return "Static Circuit Breaker Tolerances: "..value
+end
+
+-- Translate: Static Circuit Breaker Tolerances
+lseg_lse_mifid2posttrade_gtp_v27_3.static_circuit_breaker_tolerances.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Static Circuit Breaker Tolerances
+lseg_lse_mifid2posttrade_gtp_v27_3.static_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.static_circuit_breaker_tolerances.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse_mifid2posttrade_gtp_v27_3.static_circuit_breaker_tolerances.translate(raw)
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.static_circuit_breaker_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.third_reserved_8 = {}
+
+-- Size: Third Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.third_reserved_8.size = 8
+
+-- Display: Third Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.third_reserved_8.display = function(value)
+  return "Third Reserved 8: "..value
+end
+
+-- Dissect: Third Reserved 8
+lseg_lse_mifid2posttrade_gtp_v27_3.third_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.third_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.third_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.third_reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Tick Id
+lseg_lse_mifid2posttrade_gtp_v27_3.tick_id = {}
+
+-- Size: Tick Id
+lseg_lse_mifid2posttrade_gtp_v27_3.tick_id.size = 2
+
+-- Display: Tick Id
+lseg_lse_mifid2posttrade_gtp_v27_3.tick_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Tick Id: No Value"
+  end
+
+  return "Tick Id: "..value
+end
+
+-- Dissect: Tick Id
+lseg_lse_mifid2posttrade_gtp_v27_3.tick_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.tick_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.tick_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.tick_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+lseg_lse_mifid2posttrade_gtp_v27_3.timestamp = {}
+
+-- Size: Timestamp
+lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.size = 8
+
+-- Dissect: Timestamp
+lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.timestamp
+  if lseg_lse_mifid2posttrade_gtp_v27_3.timestamp_format == 3 then field = omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Trade Qualifier
+lseg_lse_mifid2posttrade_gtp_v27_3.trade_qualifier = {}
+
+-- Size: Trade Qualifier
+lseg_lse_mifid2posttrade_gtp_v27_3.trade_qualifier.size = 1
+
+-- Display: Trade Qualifier
+lseg_lse_mifid2posttrade_gtp_v27_3.trade_qualifier.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trade Qualifier: No Value"
+  end
+
+  if value == " " then
+    return "Trade Qualifier: Na (<whitespace>)"
+  end
+  if value == "C" then
+    return "Trade Qualifier: Closing Price Cross Cpx (C)"
+  end
+  if value == "A" then
+    return "Trade Qualifier: Auction Volume Discovery Avd (A)"
+  end
+
+  return "Trade Qualifier: Unknown("..value..")"
+end
+
+-- Dissect: Trade Qualifier
+lseg_lse_mifid2posttrade_gtp_v27_3.trade_qualifier.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.trade_qualifier.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.trade_qualifier.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.trade_qualifier, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Date And Time
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_date_and_time = {}
+
+-- Size: Trading Date And Time
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_date_and_time.size = 30
+
+-- Display: Trading Date And Time
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_date_and_time.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trading Date And Time: No Value"
+  end
+
+  return "Trading Date And Time: "..value
+end
+
+-- Dissect: Trading Date And Time
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_date_and_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.trading_date_and_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.trading_date_and_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.trading_date_and_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Mode
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_mode = {}
+
+-- Size: Trading Mode
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_mode.size = 1
+
+-- Display: Trading Mode
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_mode.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Mode: No Value"
+  end
+
+  if value == "O" then
+    return "Trading Mode: Scheduled Opening Auction (O)"
+  end
+  if value == "K" then
+    return "Trading Mode: Scheduled Closing Auction (K)"
+  end
+  if value == "I" then
+    return "Trading Mode: Scheduled Intraday Auction (I)"
+  end
+  if value == "U" then
+    return "Trading Mode: Unscheduled Auction (U)"
+  end
+  if value == "2" then
+    return "Trading Mode: Continuous Trading (2)"
+  end
+  if value == "3" then
+    return "Trading Mode: At Market Close Trading (3)"
+  end
+
+  return "Trading Mode: Unknown("..value..")"
+end
+
+-- Dissect: Trading Mode
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_mode.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.trading_mode.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.trading_mode.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.trading_mode, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading Status
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_status = {}
+
+-- Size: Trading Status
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_status.size = 1
+
+-- Display: Trading Status
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Status: No Value"
+  end
+
+  if value == "H" then
+    return "Trading Status: Halt (H)"
+  end
+  if value == "J" then
+    return "Trading Status: Halt Matching Partition Suspended (J)"
+  end
+  if value == "K" then
+    return "Trading Status: Halt System Suspended (K)"
+  end
+  if value == "T" then
+    return "Trading Status: Regular Trading Start Trade Reporting (T)"
+  end
+  if value == "P" then
+    return "Trading Status: Halt Regulatory (P)"
+  end
+  if value == "t" then
+    return "Trading Status: End Trade Reporting (t)"
+  end
+  if value == "a" then
+    return "Trading Status: Opening Auction Call (a)"
+  end
+  if value == "b" then
+    return "Trading Status: Post Close (b)"
+  end
+  if value == "c" then
+    return "Trading Status: Closed (c)"
+  end
+  if value == "d" then
+    return "Trading Status: Closing Auction Call (d)"
+  end
+  if value == "e" then
+    return "Trading Status: Aesp Auction Call (e)"
+  end
+  if value == "f" then
+    return "Trading Status: Resume Auction (f)"
+  end
+  if value == "m" then
+    return "Trading Status: Pre Mandatory (m)"
+  end
+  if value == "n" then
+    return "Trading Status: Mandatory (n)"
+  end
+  if value == "o" then
+    return "Trading Status: Post Mandatory (o)"
+  end
+  if value == "q" then
+    return "Trading Status: Edsp Auction Call (q)"
+  end
+  if value == "r" then
+    return "Trading Status: Periodic Auction Call (r)"
+  end
+  if value == "1" then
+    return "Trading Status: Inactive (1)"
+  end
+  if value == "2" then
+    return "Trading Status: Suspended (2)"
+  end
+  if value == "w" then
+    return "Trading Status: No Active Session (w)"
+  end
+  if value == "x" then
+    return "Trading Status: End Of Post Close (x)"
+  end
+  if value == "u" then
+    return "Trading Status: Closing Price Crossing Session (u)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.trading_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trading System
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_system = {}
+
+-- Size: Trading System
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_system.size = 4
+
+-- Display: Trading System
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_system.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trading System: No Value"
+  end
+
+  return "Trading System: "..value
+end
+
+-- Dissect: Trading System
+lseg_lse_mifid2posttrade_gtp_v27_3.trading_system.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.trading_system.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.trading_system.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.trading_system, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transaction Category
+lseg_lse_mifid2posttrade_gtp_v27_3.transaction_category = {}
+
+-- Size: Transaction Category
+lseg_lse_mifid2posttrade_gtp_v27_3.transaction_category.size = 1
+
+-- Display: Transaction Category
+lseg_lse_mifid2posttrade_gtp_v27_3.transaction_category.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Transaction Category: No Value"
+  end
+
+  if value == "D" then
+    return "Transaction Category: Dark Trade (D)"
+  end
+  if value == "-" then
+    return "Transaction Category: None Apply (-)"
+  end
+
+  return "Transaction Category: Unknown("..value..")"
+end
+
+-- Dissect: Transaction Category
+lseg_lse_mifid2posttrade_gtp_v27_3.transaction_category.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.transaction_category.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.transaction_category.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.transaction_category, range, value, display)
+
+  return offset + length, value
+end
+
+-- Transaction Identification Code
+lseg_lse_mifid2posttrade_gtp_v27_3.transaction_identification_code = {}
+
+-- Size: Transaction Identification Code
+lseg_lse_mifid2posttrade_gtp_v27_3.transaction_identification_code.size = 52
+
+-- Display: Transaction Identification Code
+lseg_lse_mifid2posttrade_gtp_v27_3.transaction_identification_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Transaction Identification Code: No Value"
+  end
+
+  return "Transaction Identification Code: "..value
+end
+
+-- Dissect: Transaction Identification Code
+lseg_lse_mifid2posttrade_gtp_v27_3.transaction_identification_code.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.transaction_identification_code.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.transaction_identification_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.transaction_identification_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Venue Instrument Id
+lseg_lse_mifid2posttrade_gtp_v27_3.venue_instrument_id = {}
+
+-- Size: Venue Instrument Id
+lseg_lse_mifid2posttrade_gtp_v27_3.venue_instrument_id.size = 11
+
+-- Display: Venue Instrument Id
+lseg_lse_mifid2posttrade_gtp_v27_3.venue_instrument_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Venue Instrument Id: No Value"
+  end
+
+  return "Venue Instrument Id: "..value
+end
+
+-- Dissect: Venue Instrument Id
+lseg_lse_mifid2posttrade_gtp_v27_3.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.venue_instrument_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.venue_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.venue_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Venue Of Execution
+lseg_lse_mifid2posttrade_gtp_v27_3.venue_of_execution = {}
+
+-- Size: Venue Of Execution
+lseg_lse_mifid2posttrade_gtp_v27_3.venue_of_execution.size = 4
+
+-- Display: Venue Of Execution
+lseg_lse_mifid2posttrade_gtp_v27_3.venue_of_execution.labels = {
+  ["XLON"] = "Venue Of Execution: On Exchange Lse Rm (XLON)",
+  ["XLOM"] = "Venue Of Execution: On Exchange Non Aim Mft (XLOM)",
+  ["AIMX"] = "Venue Of Execution: On Exchange Aim Mft (AIMX)",
+  ["XPVT"] = "Venue Of Execution: On Exchange Private Security Market (XPVT)",
+  ["XLOX"] = "Venue Of Execution: On Exchange Mid Priced Executions (XLOX)",
+}
+
+lseg_lse_mifid2posttrade_gtp_v27_3.venue_of_execution.display = function(value)
+  return lseg_lse_mifid2posttrade_gtp_v27_3.venue_of_execution.labels[value] or "Venue Of Execution: Unknown("..value..")"
+end
+
+-- Dissect: Venue Of Execution
+lseg_lse_mifid2posttrade_gtp_v27_3.venue_of_execution.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse_mifid2posttrade_gtp_v27_3.venue_of_execution.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.venue_of_execution.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.venue_of_execution, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Lseg Lse Mifid2PostTrade Gtp 27.3
+-----------------------------------------------------------------------
+
+-- Mifid Ii Trade Message
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_ii_trade_message = {}
+
+-- Size: Mifid Ii Trade Message
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_ii_trade_message.size =
+  lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.instrument.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.transaction_identification_code.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.mifid_trade_type.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.auction_type.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.mifid_price.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.mifid_quantity.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.trading_date_and_time.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code_type.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.price_notation.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.price_major_currency.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.notional_amount.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.notional_currency.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.venue_of_execution.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.publication_date_and_time.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.pt_ref_price_waiver_flag.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.trading_system.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.market_closing_price_flag.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.pt_algo_trade.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.pt_cancellation_flag.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.pt_amendment_flag.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.reserved_3.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.reserved_20.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.trade_qualifier.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.market_mechanism.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.trading_mode.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.transaction_category.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.negotiation_indicator.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.agency_cross_indicator.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.modification_indicator.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.reference_price_indicator.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.special_dividend_indicator.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.off_book_automated_indicator.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.price_formation_indicator.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.algorithmic_indicator.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.post_trade_deferral_reason.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.deferral_enrichment_type.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.duplicative_indicator.size
+
+-- Display: Mifid Ii Trade Message
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_ii_trade_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Mifid Ii Trade Message
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_ii_trade_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_lse_mifid2posttrade_gtp_v27_3.instrument.dissect(buffer, index, packet, parent)
+
+  -- Transaction Identification Code: Alpha
+  index, transaction_identification_code = lseg_lse_mifid2posttrade_gtp_v27_3.transaction_identification_code.dissect(buffer, index, packet, parent)
+
+  -- Mifid Trade Type: UInt8
+  index, mifid_trade_type = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_trade_type.dissect(buffer, index, packet, parent)
+
+  -- Auction Type: Byte
+  index, auction_type = lseg_lse_mifid2posttrade_gtp_v27_3.auction_type.dissect(buffer, index, packet, parent)
+
+  -- Mifid Price: MiFID Decimal
+  index, mifid_price = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_price.dissect(buffer, index, packet, parent)
+
+  -- Mifid Quantity: MiFID Decimal
+  index, mifid_quantity = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_quantity.dissect(buffer, index, packet, parent)
+
+  -- Trading Date And Time: MiFID Date and Time
+  index, trading_date_and_time = lseg_lse_mifid2posttrade_gtp_v27_3.trading_date_and_time.dissect(buffer, index, packet, parent)
+
+  -- Instrument Identification Code Type: Alpha
+  index, instrument_identification_code_type = lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code_type.dissect(buffer, index, packet, parent)
+
+  -- Instrument Identification Code: Alpha
+  index, instrument_identification_code = lseg_lse_mifid2posttrade_gtp_v27_3.instrument_identification_code.dissect(buffer, index, packet, parent)
+
+  -- Price Notation: Alpha
+  index, price_notation = lseg_lse_mifid2posttrade_gtp_v27_3.price_notation.dissect(buffer, index, packet, parent)
+
+  -- Price Major Currency: Alpha
+  index, price_major_currency = lseg_lse_mifid2posttrade_gtp_v27_3.price_major_currency.dissect(buffer, index, packet, parent)
+
+  -- Notional Amount: MiFID Decimal
+  index, notional_amount = lseg_lse_mifid2posttrade_gtp_v27_3.notional_amount.dissect(buffer, index, packet, parent)
+
+  -- Notional Currency: Alpha
+  index, notional_currency = lseg_lse_mifid2posttrade_gtp_v27_3.notional_currency.dissect(buffer, index, packet, parent)
+
+  -- Venue Of Execution: Alpha
+  index, venue_of_execution = lseg_lse_mifid2posttrade_gtp_v27_3.venue_of_execution.dissect(buffer, index, packet, parent)
+
+  -- Publication Date And Time: MiFID Date and Time
+  index, publication_date_and_time = lseg_lse_mifid2posttrade_gtp_v27_3.publication_date_and_time.dissect(buffer, index, packet, parent)
+
+  -- Pt Ref Price Waiver Flag: Alpha
+  index, pt_ref_price_waiver_flag = lseg_lse_mifid2posttrade_gtp_v27_3.pt_ref_price_waiver_flag.dissect(buffer, index, packet, parent)
+
+  -- Trading System: Alpha
+  index, trading_system = lseg_lse_mifid2posttrade_gtp_v27_3.trading_system.dissect(buffer, index, packet, parent)
+
+  -- Market Closing Price Flag: Alpha
+  index, market_closing_price_flag = lseg_lse_mifid2posttrade_gtp_v27_3.market_closing_price_flag.dissect(buffer, index, packet, parent)
+
+  -- Pt Algo Trade: Alpha
+  index, pt_algo_trade = lseg_lse_mifid2posttrade_gtp_v27_3.pt_algo_trade.dissect(buffer, index, packet, parent)
+
+  -- Pt Cancellation Flag: Alpha
+  index, pt_cancellation_flag = lseg_lse_mifid2posttrade_gtp_v27_3.pt_cancellation_flag.dissect(buffer, index, packet, parent)
+
+  -- Pt Amendment Flag: Alpha
+  index, pt_amendment_flag = lseg_lse_mifid2posttrade_gtp_v27_3.pt_amendment_flag.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: UInt8
+  if show.padding then
+    index, reserved_1 = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.size
+  end
+
+  -- Reserved 3: Alpha
+  if show.padding then
+    index, reserved_3 = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_3.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.reserved_3.size
+  end
+
+  -- Reserved 20: MiFID Decimal
+  if show.padding then
+    index, reserved_20 = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_20.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.reserved_20.size
+  end
+
+  -- Reserved 4: Alpha
+  if show.padding then
+    index, reserved_4 = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.size
+  end
+
+  -- Trade Qualifier: Byte
+  index, trade_qualifier = lseg_lse_mifid2posttrade_gtp_v27_3.trade_qualifier.dissect(buffer, index, packet, parent)
+
+  -- Market Mechanism: Byte
+  index, market_mechanism = lseg_lse_mifid2posttrade_gtp_v27_3.market_mechanism.dissect(buffer, index, packet, parent)
+
+  -- Trading Mode: Byte
+  index, trading_mode = lseg_lse_mifid2posttrade_gtp_v27_3.trading_mode.dissect(buffer, index, packet, parent)
+
+  -- Transaction Category: Byte
+  index, transaction_category = lseg_lse_mifid2posttrade_gtp_v27_3.transaction_category.dissect(buffer, index, packet, parent)
+
+  -- Negotiation Indicator: Byte
+  index, negotiation_indicator = lseg_lse_mifid2posttrade_gtp_v27_3.negotiation_indicator.dissect(buffer, index, packet, parent)
+
+  -- Agency Cross Indicator: Byte
+  index, agency_cross_indicator = lseg_lse_mifid2posttrade_gtp_v27_3.agency_cross_indicator.dissect(buffer, index, packet, parent)
+
+  -- Modification Indicator: Byte
+  index, modification_indicator = lseg_lse_mifid2posttrade_gtp_v27_3.modification_indicator.dissect(buffer, index, packet, parent)
+
+  -- Reference Price Indicator: Byte
+  index, reference_price_indicator = lseg_lse_mifid2posttrade_gtp_v27_3.reference_price_indicator.dissect(buffer, index, packet, parent)
+
+  -- Special Dividend Indicator: Byte
+  index, special_dividend_indicator = lseg_lse_mifid2posttrade_gtp_v27_3.special_dividend_indicator.dissect(buffer, index, packet, parent)
+
+  -- Off Book Automated Indicator: Byte
+  index, off_book_automated_indicator = lseg_lse_mifid2posttrade_gtp_v27_3.off_book_automated_indicator.dissect(buffer, index, packet, parent)
+
+  -- Price Formation Indicator: Byte
+  index, price_formation_indicator = lseg_lse_mifid2posttrade_gtp_v27_3.price_formation_indicator.dissect(buffer, index, packet, parent)
+
+  -- Algorithmic Indicator: Byte
+  index, algorithmic_indicator = lseg_lse_mifid2posttrade_gtp_v27_3.algorithmic_indicator.dissect(buffer, index, packet, parent)
+
+  -- Post Trade Deferral Reason: Byte
+  index, post_trade_deferral_reason = lseg_lse_mifid2posttrade_gtp_v27_3.post_trade_deferral_reason.dissect(buffer, index, packet, parent)
+
+  -- Deferral Enrichment Type: Byte
+  index, deferral_enrichment_type = lseg_lse_mifid2posttrade_gtp_v27_3.deferral_enrichment_type.dissect(buffer, index, packet, parent)
+
+  -- Duplicative Indicator: Byte
+  index, duplicative_indicator = lseg_lse_mifid2posttrade_gtp_v27_3.duplicative_indicator.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Mifid Ii Trade Message
+lseg_lse_mifid2posttrade_gtp_v27_3.mifid_ii_trade_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.mifid_ii_trade_message, buffer(offset, 0))
+    local index = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_ii_trade_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse_mifid2posttrade_gtp_v27_3.mifid_ii_trade_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse_mifid2posttrade_gtp_v27_3.mifid_ii_trade_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Instrument Status Message
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_status_message = {}
+
+-- Size: Instrument Status Message
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_status_message.size =
+  lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.instrument.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.trading_status.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.session_change_reason.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.new_end_time.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.order_book_type.size
+
+-- Display: Instrument Status Message
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Status Message
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_lse_mifid2posttrade_gtp_v27_3.instrument.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Byte
+  index, trading_status = lseg_lse_mifid2posttrade_gtp_v27_3.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Session Change Reason: UInt8
+  index, session_change_reason = lseg_lse_mifid2posttrade_gtp_v27_3.session_change_reason.dissect(buffer, index, packet, parent)
+
+  -- New End Time: Time
+  index, new_end_time = lseg_lse_mifid2posttrade_gtp_v27_3.new_end_time.dissect(buffer, index, packet, parent)
+
+  -- Order Book Type: UInt8
+  index, order_book_type = lseg_lse_mifid2posttrade_gtp_v27_3.order_book_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Status Message
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.instrument_status_message, buffer(offset, 0))
+    local index = lseg_lse_mifid2posttrade_gtp_v27_3.instrument_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse_mifid2posttrade_gtp_v27_3.instrument_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse_mifid2posttrade_gtp_v27_3.instrument_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Allowed Book Types
+lseg_lse_mifid2posttrade_gtp_v27_3.allowed_book_types = {}
+
+-- Size: Allowed Book Types
+lseg_lse_mifid2posttrade_gtp_v27_3.allowed_book_types.size = 1
+
+-- Display: Allowed Book Types
+lseg_lse_mifid2posttrade_gtp_v27_3.allowed_book_types.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Firm Quote Book flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Firm Quote Book"
+  end
+  -- Is Off Book flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Off Book"
+  end
+  -- Is Electronic Order Book flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Electronic Order Book"
+  end
+  -- Is Private Rfq flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Private Rfq"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Allowed Book Types
+lseg_lse_mifid2posttrade_gtp_v27_3.allowed_book_types.bits = function(range, value, packet, parent)
+
+  -- Unused 1: 1 Bit
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.unused_1, range, value)
+
+  -- Firm Quote Book: 1 Bit
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.firm_quote_book, range, value)
+
+  -- Off Book: 1 Bit
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.off_book, range, value)
+
+  -- Electronic Order Book: 1 Bit
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.electronic_order_book, range, value)
+
+  -- Private Rfq: 1 Bit
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.private_rfq, range, value)
+
+  -- Unused 3: 3 Bit
+  parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.unused_3, range, value)
+end
+
+-- Dissect: Allowed Book Types
+lseg_lse_mifid2posttrade_gtp_v27_3.allowed_book_types.dissect = function(buffer, offset, packet, parent)
+  local size = lseg_lse_mifid2posttrade_gtp_v27_3.allowed_book_types.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = lseg_lse_mifid2posttrade_gtp_v27_3.allowed_book_types.display(range, value, packet, parent)
+  local element = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.allowed_book_types, range, display)
+
+  if show.structs then
+    lseg_lse_mifid2posttrade_gtp_v27_3.allowed_book_types.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Instrument Directory Message
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_directory_message = {}
+
+-- Size: Instrument Directory Message
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_directory_message.size =
+  lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.instrument.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.isin.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.allowed_book_types.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.venue_instrument_id.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.tick_id.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.reserved_8.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.dynamic_circuit_breaker_tolerances.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.static_circuit_breaker_tolerances.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.segment.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.reserved_12.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.security_exchange.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.currency.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.partition_id.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.average_daily_turnover_adt.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.second_reserved_8.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.third_reserved_8.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.fourth_reserved_8.size
+
+-- Display: Instrument Directory Message
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_directory_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Directory Message
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_directory_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_lse_mifid2posttrade_gtp_v27_3.instrument.dissect(buffer, index, packet, parent)
+
+  -- Isin: Alpha
+  index, isin = lseg_lse_mifid2posttrade_gtp_v27_3.isin.dissect(buffer, index, packet, parent)
+
+  -- Allowed Book Types: Struct of 6 fields
+  index, allowed_book_types = lseg_lse_mifid2posttrade_gtp_v27_3.allowed_book_types.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Venue Instrument Id: Alpha
+  index, venue_instrument_id = lseg_lse_mifid2posttrade_gtp_v27_3.venue_instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Tick Id: Alpha
+  index, tick_id = lseg_lse_mifid2posttrade_gtp_v27_3.tick_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 8: Price
+  if show.padding then
+    index, reserved_8 = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.reserved_8.size
+  end
+
+  -- Dynamic Circuit Breaker Tolerances: Price
+  index, dynamic_circuit_breaker_tolerances = lseg_lse_mifid2posttrade_gtp_v27_3.dynamic_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
+
+  -- Static Circuit Breaker Tolerances: Price
+  index, static_circuit_breaker_tolerances = lseg_lse_mifid2posttrade_gtp_v27_3.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
+
+  -- Segment: Alpha
+  index, segment = lseg_lse_mifid2posttrade_gtp_v27_3.segment.dissect(buffer, index, packet, parent)
+
+  -- Reserved 12: Alpha
+  if show.padding then
+    index, reserved_12 = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.reserved_12.size
+  end
+
+  -- Security Exchange: Alpha
+  index, security_exchange = lseg_lse_mifid2posttrade_gtp_v27_3.security_exchange.dissect(buffer, index, packet, parent)
+
+  -- Currency: Alpha
+  index, currency = lseg_lse_mifid2posttrade_gtp_v27_3.currency.dissect(buffer, index, packet, parent)
+
+  -- Partition Id: Byte
+  index, partition_id = lseg_lse_mifid2posttrade_gtp_v27_3.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: Alpha
+  if show.padding then
+    index, reserved_4 = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.reserved_4.size
+  end
+
+  -- Average Daily Turnover Adt: Price4
+  index, average_daily_turnover_adt = lseg_lse_mifid2posttrade_gtp_v27_3.average_daily_turnover_adt.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 8: Price
+  if show.padding then
+    index, second_reserved_8 = lseg_lse_mifid2posttrade_gtp_v27_3.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.second_reserved_8.size
+  end
+
+  -- Reserved 1: UInt8
+  if show.padding then
+    index, reserved_1 = lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.reserved_1.size
+  end
+
+  -- Third Reserved 8: Price
+  if show.padding then
+    index, third_reserved_8 = lseg_lse_mifid2posttrade_gtp_v27_3.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.third_reserved_8.size
+  end
+
+  -- Fourth Reserved 8: Price
+  if show.padding then
+    index, fourth_reserved_8 = lseg_lse_mifid2posttrade_gtp_v27_3.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse_mifid2posttrade_gtp_v27_3.fourth_reserved_8.size
+  end
+
+  return index
+end
+
+-- Dissect: Instrument Directory Message
+lseg_lse_mifid2posttrade_gtp_v27_3.instrument_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.instrument_directory_message, buffer(offset, 0))
+    local index = lseg_lse_mifid2posttrade_gtp_v27_3.instrument_directory_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse_mifid2posttrade_gtp_v27_3.instrument_directory_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse_mifid2posttrade_gtp_v27_3.instrument_directory_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- System Event Message
+lseg_lse_mifid2posttrade_gtp_v27_3.system_event_message = {}
+
+-- Size: System Event Message
+lseg_lse_mifid2posttrade_gtp_v27_3.system_event_message.size =
+  lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.event_code.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.size
+
+-- Display: System Event Message
+lseg_lse_mifid2posttrade_gtp_v27_3.system_event_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: System Event Message
+lseg_lse_mifid2posttrade_gtp_v27_3.system_event_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_lse_mifid2posttrade_gtp_v27_3.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Event Code: Byte
+  index, event_code = lseg_lse_mifid2posttrade_gtp_v27_3.event_code.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_lse_mifid2posttrade_gtp_v27_3.source_venue.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: System Event Message
+lseg_lse_mifid2posttrade_gtp_v27_3.system_event_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.system_event_message, buffer(offset, 0))
+    local index = lseg_lse_mifid2posttrade_gtp_v27_3.system_event_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse_mifid2posttrade_gtp_v27_3.system_event_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse_mifid2posttrade_gtp_v27_3.system_event_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+lseg_lse_mifid2posttrade_gtp_v27_3.payload = {}
+
+-- Dissect: Payload
+lseg_lse_mifid2posttrade_gtp_v27_3.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect System Event Message
+  if message_type == 0x53 then
+    return lseg_lse_mifid2posttrade_gtp_v27_3.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Directory Message
+  if message_type == 0x70 then
+    return lseg_lse_mifid2posttrade_gtp_v27_3.instrument_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Status Message
+  if message_type == 0x48 then
+    return lseg_lse_mifid2posttrade_gtp_v27_3.instrument_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Mifid Ii Trade Message
+  if message_type == 0x51 then
+    return lseg_lse_mifid2posttrade_gtp_v27_3.mifid_ii_trade_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+lseg_lse_mifid2posttrade_gtp_v27_3.message_header = {}
+
+-- Size: Message Header
+lseg_lse_mifid2posttrade_gtp_v27_3.message_header.size =
+  lseg_lse_mifid2posttrade_gtp_v27_3.message_length.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.message_type.size
+
+-- Display: Message Header
+lseg_lse_mifid2posttrade_gtp_v27_3.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+lseg_lse_mifid2posttrade_gtp_v27_3.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = lseg_lse_mifid2posttrade_gtp_v27_3.message_length.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, message_type = lseg_lse_mifid2posttrade_gtp_v27_3.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+lseg_lse_mifid2posttrade_gtp_v27_3.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message_header, buffer(offset, 0))
+    local index = lseg_lse_mifid2posttrade_gtp_v27_3.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse_mifid2posttrade_gtp_v27_3.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse_mifid2posttrade_gtp_v27_3.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+lseg_lse_mifid2posttrade_gtp_v27_3.message = {}
+
+-- Display: Message
+lseg_lse_mifid2posttrade_gtp_v27_3.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+lseg_lse_mifid2posttrade_gtp_v27_3.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = lseg_lse_mifid2posttrade_gtp_v27_3.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):uint()
+
+  -- Payload: Runtime Type with 4 branches
+  index = lseg_lse_mifid2posttrade_gtp_v27_3.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message
+lseg_lse_mifid2posttrade_gtp_v27_3.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.message, buffer(offset, 0))
+    local decoded, failure = pcall(lseg_lse_mifid2posttrade_gtp_v27_3.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, lseg_lse_mifid2posttrade_gtp_v27_3.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
+    parent:set_len(size_of_message)
+    local display = lseg_lse_mifid2posttrade_gtp_v27_3.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    local decoded, failure = pcall(lseg_lse_mifid2posttrade_gtp_v27_3.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, lseg_lse_mifid2posttrade_gtp_v27_3.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
+
+    return index
+  end
+end
+
+-- Unit Header
+lseg_lse_mifid2posttrade_gtp_v27_3.unit_header = {}
+
+-- Size: Unit Header
+lseg_lse_mifid2posttrade_gtp_v27_3.unit_header.size =
+  lseg_lse_mifid2posttrade_gtp_v27_3.length.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.message_count.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.market_data_group.size + 
+  lseg_lse_mifid2posttrade_gtp_v27_3.sequence_number.size
+
+-- Display: Unit Header
+lseg_lse_mifid2posttrade_gtp_v27_3.unit_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Header
+lseg_lse_mifid2posttrade_gtp_v27_3.unit_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Length: 2 Byte Unsigned Fixed Width Integer
+  index, length = lseg_lse_mifid2posttrade_gtp_v27_3.length.dissect(buffer, index, packet, parent)
+
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = lseg_lse_mifid2posttrade_gtp_v27_3.message_count.dissect(buffer, index, packet, parent)
+
+  -- Market Data Group: 1 Byte Ascii String
+  index, market_data_group = lseg_lse_mifid2posttrade_gtp_v27_3.market_data_group.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = lseg_lse_mifid2posttrade_gtp_v27_3.sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unit Header
+lseg_lse_mifid2posttrade_gtp_v27_3.unit_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3.fields.unit_header, buffer(offset, 0))
+    local index = lseg_lse_mifid2posttrade_gtp_v27_3.unit_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse_mifid2posttrade_gtp_v27_3.unit_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse_mifid2posttrade_gtp_v27_3.unit_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+lseg_lse_mifid2posttrade_gtp_v27_3.packet = {}
+
+-- Verify required size of Udp packet
+lseg_lse_mifid2posttrade_gtp_v27_3.packet.requiredsize = function(buffer)
+  return buffer:len() >= lseg_lse_mifid2posttrade_gtp_v27_3.unit_header.size
+end
+
+-- Dissect Packet
+lseg_lse_mifid2posttrade_gtp_v27_3.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Unit Header: Struct of 4 fields
+  index, unit_header = lseg_lse_mifid2posttrade_gtp_v27_3.unit_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(lseg_lse_mifid2posttrade_gtp_v27_3.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = lseg_lse_mifid2posttrade_gtp_v27_3.message.dissect(buffer, index, packet, parent, message_length, message_index)
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_lseg_lse_mifid2posttrade_gtp_v27_3.init()
+end
+
+-- Dissector for Lseg Lse Mifid2PostTrade Gtp 27.3
+function omi_lseg_lse_mifid2posttrade_gtp_v27_3.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_lseg_lse_mifid2posttrade_gtp_v27_3.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_lseg_lse_mifid2posttrade_gtp_v27_3, buffer(), omi_lseg_lse_mifid2posttrade_gtp_v27_3.description, "("..buffer:len().." Bytes)")
+  return lseg_lse_mifid2posttrade_gtp_v27_3.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lseg_lse_mifid2posttrade_gtp_v27_3.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local message_type = buffer(10, 1):uint()
+
+  -- System Event Message
+  if message_type == 0x53 then
+    return true
+  end
+
+  -- Instrument Directory Message
+  if message_type == 0x70 then
+    return true
+  end
+
+  -- Instrument Status Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  -- Mifid Ii Trade Message
+  if message_type == 0x51 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Lseg Lse Mifid2PostTrade Gtp 27.3 (Udp)
+local function omi_lseg_lse_mifid2posttrade_gtp_v27_3_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not lseg_lse_mifid2posttrade_gtp_v27_3.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not lseg_lse_mifid2posttrade_gtp_v27_3.packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_lseg_lse_mifid2posttrade_gtp_v27_3
+  omi_lseg_lse_mifid2posttrade_gtp_v27_3.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Lseg Lse Mifid2PostTrade Gtp 27.3
+omi_lseg_lse_mifid2posttrade_gtp_v27_3:register_heuristic("udp", omi_lseg_lse_mifid2posttrade_gtp_v27_3_udp_heuristic)
+
+-- Register Lseg Lse Mifid2PostTrade Gtp 27.3 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_lseg_lse_mifid2posttrade_gtp_v27_3)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: London Stock Exchange
+--   Version: 27.3
+--   Date: Monday, May 18, 2026
+--   Specification: gtp-002-technical-guide-london-stock-exchange-issue-27-3.pdf
+--
+-- Script:
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US12101388B2/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--   https://patents.google.com/patent/US20260368281A1/en
+--
+-----------------------------------------------------------------------

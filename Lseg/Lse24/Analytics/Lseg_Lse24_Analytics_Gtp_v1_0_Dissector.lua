@@ -1,0 +1,2252 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Lseg Lse24 Analytics Gtp 1.0 Protocol
+local omi_lseg_lse24_analytics_gtp_v1_0 = Proto("Omi.Lseg.Lse24.Analytics.Gtp.v1.0", "Lseg Lse24 Analytics Gtp 1.0")
+
+-- Protocol table
+local lseg_lse24_analytics_gtp_v1_0 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Lseg Lse24 Analytics Gtp 1.0 Fields
+omi_lseg_lse24_analytics_gtp_v1_0.fields.allowed_book_types = ProtoField.new("Allowed Book Types", "lseg.lse24.analytics.gtp.v1.0.allowedbooktypes", ftypes.STRING, nil, nil, nil, "Defines the order-book types that are allowed for the instrument")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.average_daily_turnover_adt = ProtoField.new("Average Daily Turnover Adt", "lseg.lse24.analytics.gtp.v1.0.averagedailyturnoveradt", ftypes.DOUBLE, nil, nil, nil, "Not Applicable to LSE.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.bid_ask_spread = ProtoField.new("Bid Ask Spread", "lseg.lse24.analytics.gtp.v1.0.bidaskspread", ftypes.DOUBLE, nil, nil, nil, "Most Recent Bid/Ask spread at the time of publication of the message. If the value is set to zero, this means, either: 1) No sell/buy liquidity 2) Order book is locked or crossed 3) No orders on order book.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.buy_limit_order_cancellations = ProtoField.new("Buy Limit Order Cancellations", "lseg.lse24.analytics.gtp.v1.0.buylimitordercancellations", ftypes.UINT32, nil, nil, nil, "Number of buy limit orders cancelled by clients within the calculation window.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.buy_market_order_cancellations = ProtoField.new("Buy Market Order Cancellations", "lseg.lse24.analytics.gtp.v1.0.buymarketordercancellations", ftypes.UINT32, nil, nil, nil, "Number of buy market orders cancelled by clients within the calculation window.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.buy_order_cancellations = ProtoField.new("Buy Order Cancellations", "lseg.lse24.analytics.gtp.v1.0.buyordercancellations", ftypes.UINT32, nil, nil, nil, "Number of buy orders cancelled by clients within the calculation window.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.buy_order_count = ProtoField.new("Buy Order Count", "lseg.lse24.analytics.gtp.v1.0.buyordercount", ftypes.UINT32, nil, nil, nil, "Number of buy orders received within the calculation window.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.buy_order_size = ProtoField.new("Buy Order Size", "lseg.lse24.analytics.gtp.v1.0.buyordersize", ftypes.DOUBLE, nil, nil, nil, "Cumulative quantity of all buy orders received within the calculation window.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.currency = ProtoField.new("Currency", "lseg.lse24.analytics.gtp.v1.0.currency", ftypes.STRING, nil, nil, nil, "Currency Code as per ISO 4217.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.dynamic_circuit_breaker_tolerances = ProtoField.new("Dynamic Circuit Breaker Tolerances", "lseg.lse24.analytics.gtp.v1.0.dynamiccircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Dynamic Circuit Breaker Tolerance (%) of the instrument.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.electronic_order_book = ProtoField.new("Electronic Order Book", "lseg.lse24.analytics.gtp.v1.0.electronicorderbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08)
+omi_lseg_lse24_analytics_gtp_v1_0.fields.end_time_utc = ProtoField.new("End Time", "lseg.lse24.analytics.gtp.v1.0.endtime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the calculation of the statistics on this message ended.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.end_time = ProtoField.new("End Time", "lseg.lse24.analytics.gtp.v1.0.endtime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message ended.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.event_code = ProtoField.new("Event Code", "lseg.lse24.analytics.gtp.v1.0.eventcode", ftypes.STRING, nil, nil, nil, "Start or end of day event code.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.lse24.analytics.gtp.v1.0.fourthreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.indicative_non_executable_quote_book = ProtoField.new("Indicative Non Executable Quote Book", "lseg.lse24.analytics.gtp.v1.0.indicativenonexecutablequotebook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Firm Quote Book")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.instrument = ProtoField.new("Instrument", "lseg.lse24.analytics.gtp.v1.0.instrument", ftypes.UINT64, nil, nil, nil, "GTP Instrument identifier.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.isin = ProtoField.new("Isin", "lseg.lse24.analytics.gtp.v1.0.isin", ftypes.STRING, nil, nil, nil, "ISIN Code of an instrument.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.length = ProtoField.new("Length", "lseg.lse24.analytics.gtp.v1.0.length", ftypes.UINT16, nil, nil, nil, "Length of the message block including the header and all payload messages")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.market_data_group = ProtoField.new("Market Data Group", "lseg.lse24.analytics.gtp.v1.0.marketdatagroup", ftypes.STRING, nil, nil, nil, "Identity of the market data group the payload messages relate to")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.message_count = ProtoField.new("Message Count", "lseg.lse24.analytics.gtp.v1.0.messagecount", ftypes.UINT8, nil, nil, nil, "Number of payload messages that will follow the header")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.message_length = ProtoField.new("Message Length", "lseg.lse24.analytics.gtp.v1.0.messagelength", ftypes.UINT16, nil, nil, nil, "Length of message including this field")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.message_type = ProtoField.new("Message Type", "lseg.lse24.analytics.gtp.v1.0.messagetype", ftypes.UINT8, nil, nil, nil, "Code identifying this message type")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.new_end_time = ProtoField.new("New End Time", "lseg.lse24.analytics.gtp.v1.0.newendtime", ftypes.STRING, nil, nil, nil, "New time the session will end. The field will contain only spaces if Session Change Reason is '0' or the Session Change Reason is not present. New End Time will be in terms of the local time on the server (i.e., not UTC).")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.off_book = ProtoField.new("Off Book", "lseg.lse24.analytics.gtp.v1.0.offbook", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Off-book")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.order_book_type = ProtoField.new("Order Book Type", "lseg.lse24.analytics.gtp.v1.0.orderbooktype", ftypes.UINT8, nil, nil, nil, "Order book the status applies to.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.partition_id = ProtoField.new("Partition Id", "lseg.lse24.analytics.gtp.v1.0.partitionid", ftypes.STRING, nil, nil, nil, "Trading System's partition in which the instrument is traded.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.private_rfq = ProtoField.new("Private Rfq", "lseg.lse24.analytics.gtp.v1.0.privaterfq", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10)
+omi_lseg_lse24_analytics_gtp_v1_0.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.lse24.analytics.gtp.v1.0.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.reserved_12 = ProtoField.new("Reserved 12", "lseg.lse24.analytics.gtp.v1.0.reserved12", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.lse24.analytics.gtp.v1.0.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.lse24.analytics.gtp.v1.0.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.lse24.analytics.gtp.v1.0.secondreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.security_exchange = ProtoField.new("Security Exchange", "lseg.lse24.analytics.gtp.v1.0.securityexchange", ftypes.STRING, nil, nil, nil, "Not Applicable to LSE")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.segment = ProtoField.new("Segment", "lseg.lse24.analytics.gtp.v1.0.segment", ftypes.STRING, nil, nil, nil, "Segment the instrument is assigned to.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.sell_limit_order_cancellations = ProtoField.new("Sell Limit Order Cancellations", "lseg.lse24.analytics.gtp.v1.0.selllimitordercancellations", ftypes.UINT32, nil, nil, nil, "Number of sell limit orders cancelled by clients within the calculation window.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.sell_market_order_cancellations = ProtoField.new("Sell Market Order Cancellations", "lseg.lse24.analytics.gtp.v1.0.sellmarketordercancellations", ftypes.UINT32, nil, nil, nil, "Number of sell market orders cancelled by clients within the calculation window.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.sell_order_cancellations = ProtoField.new("Sell Order Cancellations", "lseg.lse24.analytics.gtp.v1.0.sellordercancellations", ftypes.UINT32, nil, nil, nil, "Number of sell orders cancelled by clients within the calculation window.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.sell_order_count = ProtoField.new("Sell Order Count", "lseg.lse24.analytics.gtp.v1.0.sellordercount", ftypes.UINT32, nil, nil, nil, "Number of sell orders received within the calculation window.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.sell_order_size = ProtoField.new("Sell Order Size", "lseg.lse24.analytics.gtp.v1.0.sellordersize", ftypes.DOUBLE, nil, nil, nil, "Cumulative quantity of all sell orders received within the calculation window.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.lse24.analytics.gtp.v1.0.sequencenumber", ftypes.UINT32, nil, nil, nil, "Sequence number of the first payload message")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.session_change_reason = ProtoField.new("Session Change Reason", "lseg.lse24.analytics.gtp.v1.0.sessionchangereason", ftypes.UINT8, nil, nil, nil, "Reason the trading session changed.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.source_venue = ProtoField.new("Source Venue", "lseg.lse24.analytics.gtp.v1.0.sourcevenue", ftypes.UINT16, nil, nil, nil, "Venue from which market data is received for the instrument.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.start_time_utc = ProtoField.new("Start Time", "lseg.lse24.analytics.gtp.v1.0.starttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the calculation of the statistics on this message began.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.start_time = ProtoField.new("Start Time", "lseg.lse24.analytics.gtp.v1.0.starttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the calculation of the statistics on this message began.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.static_circuit_breaker_tolerances = ProtoField.new("Static Circuit Breaker Tolerances", "lseg.lse24.analytics.gtp.v1.0.staticcircuitbreakertolerances", ftypes.DOUBLE, nil, nil, nil, "Static Circuit Breaker Tolerance (%) of the instrument.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse24.analytics.gtp.v1.0.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.tick_id = ProtoField.new("Tick Id", "lseg.lse24.analytics.gtp.v1.0.tickid", ftypes.STRING, nil, nil, nil, "The tick structure applicable for the instrument.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.timestamp_utc = ProtoField.new("Timestamp", "lseg.lse24.analytics.gtp.v1.0.timestamp.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Time the message was generated.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.timestamp = ProtoField.new("Timestamp", "lseg.lse24.analytics.gtp.v1.0.timestamp", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Time the message was generated.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.trading_status = ProtoField.new("Trading Status", "lseg.lse24.analytics.gtp.v1.0.tradingstatus", ftypes.STRING, nil, nil, nil, "Current trading status of the instrument.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.unused_1 = ProtoField.new("Unused 1", "lseg.lse24.analytics.gtp.v1.0.unused1", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.unused_3 = ProtoField.new("Unused 3", "lseg.lse24.analytics.gtp.v1.0.unused3", ftypes.UINT8, nil, base.DEC, 0xE0, "Reserved")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.venue_instrument_id = ProtoField.new("Venue Instrument Id", "lseg.lse24.analytics.gtp.v1.0.venueinstrumentid", ftypes.STRING, nil, nil, nil, "Instrument identifier used by the source venue.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.vwap_buy = ProtoField.new("Vwap Buy", "lseg.lse24.analytics.gtp.v1.0.vwapbuy", ftypes.DOUBLE, nil, nil, nil, "Volume Weighted Average Price for trades triggered by an aggressing buy order. Calculated within the calculation window for trades executed in continuous trading.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.vwap_sell = ProtoField.new("Vwap Sell", "lseg.lse24.analytics.gtp.v1.0.vwapsell", ftypes.DOUBLE, nil, nil, nil, "Volume Weighted Average Price for trades triggered by an aggressing sell order. Calculated within the calculation window for trades executed in continuous trading.")
+
+-- Lseg Lse24 Analytics Gtp 1.0 Framing
+omi_lseg_lse24_analytics_gtp_v1_0.fields.message = ProtoField.new("Message", "lseg.lse24.analytics.gtp.v1.0.message", ftypes.STRING)
+omi_lseg_lse24_analytics_gtp_v1_0.fields.message_header = ProtoField.new("Message Header", "lseg.lse24.analytics.gtp.v1.0.messageheader", ftypes.STRING, nil, nil, nil, "Gtp Udp Message Header")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.packet = ProtoField.new("Packet", "lseg.lse24.analytics.gtp.v1.0.packet", ftypes.STRING, nil, nil, nil, "Gtp Udp Packet")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.unit_header = ProtoField.new("Unit Header", "lseg.lse24.analytics.gtp.v1.0.unitheader", ftypes.STRING)
+
+-- Lseg Lse24 Analytics 1.0 Application Messages
+omi_lseg_lse24_analytics_gtp_v1_0.fields.analytics_message = ProtoField.new("Analytics Message", "lseg.lse24.analytics.gtp.v1.0.analyticsmessage", ftypes.STRING, nil, nil, nil, "Analytics Message is used to disseminate additional statistics including order book activity statistics.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "lseg.lse24.analytics.gtp.v1.0.instrumentdirectorymessage", ftypes.STRING, nil, nil, nil, "Used to disseminate a common and limited set of data for all configured instrument types, except strategy instruments, on the real-time channels.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.instrument_status_message = ProtoField.new("Instrument Status Message", "lseg.lse24.analytics.gtp.v1.0.instrumentstatusmessage", ftypes.STRING, nil, nil, nil, "Used to communicate scheduled and unscheduled session changes. When sent in the recovery channel, used to indicate the current trading status of an instrument.")
+omi_lseg_lse24_analytics_gtp_v1_0.fields.system_event_message = ProtoField.new("System Event Message", "lseg.lse24.analytics.gtp.v1.0.systemeventmessage", ftypes.STRING, nil, nil, nil, "Sent to indicate the start and end of the day.")
+
+-- Lseg Lse24 Analytics Gtp 1.0 Generated Fields
+omi_lseg_lse24_analytics_gtp_v1_0.fields.message_index = ProtoField.new("Message Index", "lseg.lse24.analytics.gtp.v1.0.messageindex", ftypes.UINT16)
+
+-- Lseg Lse24 Analytics Gtp 1.0 Expert Info
+lseg_lse24_analytics_gtp_v1_0.experts = {}
+lseg_lse24_analytics_gtp_v1_0.experts.undecoded = ProtoExpert.new("lseg.lse24.analytics.gtp.v1.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_lseg_lse24_analytics_gtp_v1_0.experts = { lseg_lse24_analytics_gtp_v1_0.experts.undecoded }
+
+-----------------------------------------------------------------------
+-- Lseg Lse24 Analytics Gtp 1.0 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
+lseg_lse24_analytics_gtp_v1_0.timestamp_format = 3
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Lseg Lse24 Analytics Gtp 1.0 Element Dissection Options
+show.structs = true
+show.application_messages = true
+show.headers = true
+show.padding = false
+show.indexes = true
+
+-- Register Lseg Lse24 Analytics Gtp 1.0 Show Options
+omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
+omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_indexes = Pref.bool("Show Indexes", show.indexes, "Show generated repeating group index counts in the protocol tree")
+
+omi_lseg_lse24_analytics_gtp_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
+-- Handle changed preferences
+function omi_lseg_lse24_analytics_gtp_v1_0.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_application_messages then
+    show.application_messages = omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_headers then
+    show.headers = omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_headers
+  end
+  if show.padding ~= omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_padding then
+    show.padding = omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_padding
+  end
+  if show.structs ~= omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_structs then
+    show.structs = omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_structs
+  end
+  if show.indexes ~= omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_indexes then
+    show.indexes = omi_lseg_lse24_analytics_gtp_v1_0.prefs.show_indexes
+  end
+  if lseg_lse24_analytics_gtp_v1_0.timestamp_format ~= omi_lseg_lse24_analytics_gtp_v1_0.prefs.timestamp_format then
+    lseg_lse24_analytics_gtp_v1_0.timestamp_format = omi_lseg_lse24_analytics_gtp_v1_0.prefs.timestamp_format
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  while finish > 0 and str:byte(finish) == 0x20 do
+    finish = finish - 1
+  end
+
+  return str:sub(1, finish)
+end
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
+-----------------------------------------------------------------------
+-- Lseg Lse24 Analytics Gtp 1.0 Fields
+-----------------------------------------------------------------------
+
+-- Average Daily Turnover Adt
+lseg_lse24_analytics_gtp_v1_0.average_daily_turnover_adt = {}
+
+-- Size: Average Daily Turnover Adt
+lseg_lse24_analytics_gtp_v1_0.average_daily_turnover_adt.size = 8
+
+-- Display: Average Daily Turnover Adt
+lseg_lse24_analytics_gtp_v1_0.average_daily_turnover_adt.display = function(value)
+  return "Average Daily Turnover Adt: "..value
+end
+
+-- Translate: Average Daily Turnover Adt
+lseg_lse24_analytics_gtp_v1_0.average_daily_turnover_adt.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Average Daily Turnover Adt
+lseg_lse24_analytics_gtp_v1_0.average_daily_turnover_adt.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.average_daily_turnover_adt.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_analytics_gtp_v1_0.average_daily_turnover_adt.translate(raw)
+  local display = lseg_lse24_analytics_gtp_v1_0.average_daily_turnover_adt.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.average_daily_turnover_adt, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Ask Spread
+lseg_lse24_analytics_gtp_v1_0.bid_ask_spread = {}
+
+-- Size: Bid Ask Spread
+lseg_lse24_analytics_gtp_v1_0.bid_ask_spread.size = 8
+
+-- Display: Bid Ask Spread
+lseg_lse24_analytics_gtp_v1_0.bid_ask_spread.display = function(value)
+  return "Bid Ask Spread: "..value
+end
+
+-- Translate: Bid Ask Spread
+lseg_lse24_analytics_gtp_v1_0.bid_ask_spread.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Bid Ask Spread
+lseg_lse24_analytics_gtp_v1_0.bid_ask_spread.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.bid_ask_spread.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_analytics_gtp_v1_0.bid_ask_spread.translate(raw)
+  local display = lseg_lse24_analytics_gtp_v1_0.bid_ask_spread.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.bid_ask_spread, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Limit Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_limit_order_cancellations = {}
+
+-- Size: Buy Limit Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_limit_order_cancellations.size = 4
+
+-- Display: Buy Limit Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_limit_order_cancellations.display = function(value)
+  return "Buy Limit Order Cancellations: "..value
+end
+
+-- Dissect: Buy Limit Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_limit_order_cancellations.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.buy_limit_order_cancellations.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.buy_limit_order_cancellations.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.buy_limit_order_cancellations, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Market Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_market_order_cancellations = {}
+
+-- Size: Buy Market Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_market_order_cancellations.size = 4
+
+-- Display: Buy Market Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_market_order_cancellations.display = function(value)
+  return "Buy Market Order Cancellations: "..value
+end
+
+-- Dissect: Buy Market Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_market_order_cancellations.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.buy_market_order_cancellations.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.buy_market_order_cancellations.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.buy_market_order_cancellations, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_order_cancellations = {}
+
+-- Size: Buy Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_order_cancellations.size = 4
+
+-- Display: Buy Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_order_cancellations.display = function(value)
+  return "Buy Order Cancellations: "..value
+end
+
+-- Dissect: Buy Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.buy_order_cancellations.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.buy_order_cancellations.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.buy_order_cancellations.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.buy_order_cancellations, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Order Count
+lseg_lse24_analytics_gtp_v1_0.buy_order_count = {}
+
+-- Size: Buy Order Count
+lseg_lse24_analytics_gtp_v1_0.buy_order_count.size = 4
+
+-- Display: Buy Order Count
+lseg_lse24_analytics_gtp_v1_0.buy_order_count.display = function(value)
+  return "Buy Order Count: "..value
+end
+
+-- Dissect: Buy Order Count
+lseg_lse24_analytics_gtp_v1_0.buy_order_count.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.buy_order_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.buy_order_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.buy_order_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Buy Order Size
+lseg_lse24_analytics_gtp_v1_0.buy_order_size = {}
+
+-- Size: Buy Order Size
+lseg_lse24_analytics_gtp_v1_0.buy_order_size.size = 8
+
+-- Display: Buy Order Size
+lseg_lse24_analytics_gtp_v1_0.buy_order_size.display = function(value)
+  return "Buy Order Size: "..value
+end
+
+-- Translate: Buy Order Size
+lseg_lse24_analytics_gtp_v1_0.buy_order_size.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Buy Order Size
+lseg_lse24_analytics_gtp_v1_0.buy_order_size.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.buy_order_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = lseg_lse24_analytics_gtp_v1_0.buy_order_size.translate(raw)
+  local display = lseg_lse24_analytics_gtp_v1_0.buy_order_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.buy_order_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Currency
+lseg_lse24_analytics_gtp_v1_0.currency = {}
+
+-- Size: Currency
+lseg_lse24_analytics_gtp_v1_0.currency.size = 3
+
+-- Display: Currency
+lseg_lse24_analytics_gtp_v1_0.currency.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+lseg_lse24_analytics_gtp_v1_0.currency.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.currency.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse24_analytics_gtp_v1_0.currency.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Dynamic Circuit Breaker Tolerances
+lseg_lse24_analytics_gtp_v1_0.dynamic_circuit_breaker_tolerances = {}
+
+-- Size: Dynamic Circuit Breaker Tolerances
+lseg_lse24_analytics_gtp_v1_0.dynamic_circuit_breaker_tolerances.size = 8
+
+-- Display: Dynamic Circuit Breaker Tolerances
+lseg_lse24_analytics_gtp_v1_0.dynamic_circuit_breaker_tolerances.display = function(value)
+  return "Dynamic Circuit Breaker Tolerances: "..value
+end
+
+-- Translate: Dynamic Circuit Breaker Tolerances
+lseg_lse24_analytics_gtp_v1_0.dynamic_circuit_breaker_tolerances.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Dynamic Circuit Breaker Tolerances
+lseg_lse24_analytics_gtp_v1_0.dynamic_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.dynamic_circuit_breaker_tolerances.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_analytics_gtp_v1_0.dynamic_circuit_breaker_tolerances.translate(raw)
+  local display = lseg_lse24_analytics_gtp_v1_0.dynamic_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.dynamic_circuit_breaker_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- End Time
+lseg_lse24_analytics_gtp_v1_0.end_time = {}
+
+-- Size: End Time
+lseg_lse24_analytics_gtp_v1_0.end_time.size = 8
+
+-- Dissect: End Time
+lseg_lse24_analytics_gtp_v1_0.end_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.end_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse24_analytics_gtp_v1_0.fields.end_time
+  if lseg_lse24_analytics_gtp_v1_0.timestamp_format == 3 then field = omi_lseg_lse24_analytics_gtp_v1_0.fields.end_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Event Code
+lseg_lse24_analytics_gtp_v1_0.event_code = {}
+
+-- Size: Event Code
+lseg_lse24_analytics_gtp_v1_0.event_code.size = 1
+
+-- Display: Event Code
+lseg_lse24_analytics_gtp_v1_0.event_code.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Event Code: No Value"
+  end
+
+  if value == "C" then
+    return "Event Code: End Of Day (C)"
+  end
+  if value == "O" then
+    return "Event Code: Start Of Day (O)"
+  end
+
+  return "Event Code: Unknown("..value..")"
+end
+
+-- Dissect: Event Code
+lseg_lse24_analytics_gtp_v1_0.event_code.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.event_code.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse24_analytics_gtp_v1_0.event_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.event_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fourth Reserved 8
+lseg_lse24_analytics_gtp_v1_0.fourth_reserved_8 = {}
+
+-- Size: Fourth Reserved 8
+lseg_lse24_analytics_gtp_v1_0.fourth_reserved_8.size = 8
+
+-- Display: Fourth Reserved 8
+lseg_lse24_analytics_gtp_v1_0.fourth_reserved_8.display = function(value)
+  return "Fourth Reserved 8: "..value
+end
+
+-- Dissect: Fourth Reserved 8
+lseg_lse24_analytics_gtp_v1_0.fourth_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.fourth_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_analytics_gtp_v1_0.fourth_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.fourth_reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Instrument
+lseg_lse24_analytics_gtp_v1_0.instrument = {}
+
+-- Size: Instrument
+lseg_lse24_analytics_gtp_v1_0.instrument.size = 8
+
+-- Display: Instrument
+lseg_lse24_analytics_gtp_v1_0.instrument.display = function(value)
+  return "Instrument: "..value
+end
+
+-- Dissect: Instrument
+lseg_lse24_analytics_gtp_v1_0.instrument.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.instrument.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = lseg_lse24_analytics_gtp_v1_0.instrument.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.instrument, range, value, display)
+
+  return offset + length, value
+end
+
+-- Isin
+lseg_lse24_analytics_gtp_v1_0.isin = {}
+
+-- Size: Isin
+lseg_lse24_analytics_gtp_v1_0.isin.size = 12
+
+-- Display: Isin
+lseg_lse24_analytics_gtp_v1_0.isin.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Isin: No Value"
+  end
+
+  return "Isin: "..value
+end
+
+-- Dissect: Isin
+lseg_lse24_analytics_gtp_v1_0.isin.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.isin.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse24_analytics_gtp_v1_0.isin.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.isin, range, value, display)
+
+  return offset + length, value
+end
+
+-- Length
+lseg_lse24_analytics_gtp_v1_0.length = {}
+
+-- Size: Length
+lseg_lse24_analytics_gtp_v1_0.length.size = 2
+
+-- Display: Length
+lseg_lse24_analytics_gtp_v1_0.length.display = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+lseg_lse24_analytics_gtp_v1_0.length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Data Group
+lseg_lse24_analytics_gtp_v1_0.market_data_group = {}
+
+-- Size: Market Data Group
+lseg_lse24_analytics_gtp_v1_0.market_data_group.size = 1
+
+-- Display: Market Data Group
+lseg_lse24_analytics_gtp_v1_0.market_data_group.display = function(value)
+  return "Market Data Group: "..value
+end
+
+-- Dissect: Market Data Group
+lseg_lse24_analytics_gtp_v1_0.market_data_group.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.market_data_group.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_lse24_analytics_gtp_v1_0.market_data_group.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.market_data_group, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Count
+lseg_lse24_analytics_gtp_v1_0.message_count = {}
+
+-- Size: Message Count
+lseg_lse24_analytics_gtp_v1_0.message_count.size = 1
+
+-- Display: Message Count
+lseg_lse24_analytics_gtp_v1_0.message_count.display = function(value)
+  return "Message Count: "..value
+end
+
+-- Dissect: Message Count
+lseg_lse24_analytics_gtp_v1_0.message_count.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.message_count.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.message_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.message_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+lseg_lse24_analytics_gtp_v1_0.message_length = {}
+
+-- Size: Message Length
+lseg_lse24_analytics_gtp_v1_0.message_length.size = 2
+
+-- Display: Message Length
+lseg_lse24_analytics_gtp_v1_0.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+lseg_lse24_analytics_gtp_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+lseg_lse24_analytics_gtp_v1_0.message_type = {}
+
+-- Size: Message Type
+lseg_lse24_analytics_gtp_v1_0.message_type.size = 1
+
+-- Display: Message Type
+lseg_lse24_analytics_gtp_v1_0.message_type.display = function(value)
+  if value == 0x53 then
+    return "Message Type: System Event Message (0x53)"
+  end
+  if value == 0x70 then
+    return "Message Type: Instrument Directory Message (0x70)"
+  end
+  if value == 0x48 then
+    return "Message Type: Instrument Status Message (0x48)"
+  end
+  if value == 0x61 then
+    return "Message Type: Analytics Message (0x61)"
+  end
+
+  return "Message Type: Unknown("..string.format("0x%02X", value)..")"
+end
+
+-- Dissect: Message Type
+lseg_lse24_analytics_gtp_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.message_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- New End Time
+lseg_lse24_analytics_gtp_v1_0.new_end_time = {}
+
+-- Size: New End Time
+lseg_lse24_analytics_gtp_v1_0.new_end_time.size = 6
+
+-- Display: New End Time
+lseg_lse24_analytics_gtp_v1_0.new_end_time.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "New End Time: No Value"
+  end
+
+  if #value < 6 then
+    return "New End Time: "..value
+  end
+
+  return "New End Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6)
+end
+
+-- Dissect: New End Time
+lseg_lse24_analytics_gtp_v1_0.new_end_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.new_end_time.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = lseg_lse24_analytics_gtp_v1_0.new_end_time.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.new_end_time, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Book Type
+lseg_lse24_analytics_gtp_v1_0.order_book_type = {}
+
+-- Size: Order Book Type
+lseg_lse24_analytics_gtp_v1_0.order_book_type.size = 1
+
+-- Display: Order Book Type
+lseg_lse24_analytics_gtp_v1_0.order_book_type.labels = {
+  [1] = "Order Book Type: Indicative Non Executable Quote Book (1)",
+  [2] = "Order Book Type: Off Book (2)",
+  [3] = "Order Book Type: Electronic Order Book (3)",
+  [4] = "Order Book Type: Private Rfq (4)",
+}
+
+lseg_lse24_analytics_gtp_v1_0.order_book_type.display = function(value)
+  return lseg_lse24_analytics_gtp_v1_0.order_book_type.labels[value] or "Order Book Type: Unknown("..value..")"
+end
+
+-- Dissect: Order Book Type
+lseg_lse24_analytics_gtp_v1_0.order_book_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.order_book_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.order_book_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.order_book_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Partition Id
+lseg_lse24_analytics_gtp_v1_0.partition_id = {}
+
+-- Size: Partition Id
+lseg_lse24_analytics_gtp_v1_0.partition_id.size = 1
+
+-- Display: Partition Id
+lseg_lse24_analytics_gtp_v1_0.partition_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Partition Id: No Value"
+  end
+
+  return "Partition Id: "..value
+end
+
+-- Dissect: Partition Id
+lseg_lse24_analytics_gtp_v1_0.partition_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.partition_id.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse24_analytics_gtp_v1_0.partition_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.partition_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+lseg_lse24_analytics_gtp_v1_0.reserved_1 = {}
+
+-- Size: Reserved 1
+lseg_lse24_analytics_gtp_v1_0.reserved_1.size = 1
+
+-- Display: Reserved 1
+lseg_lse24_analytics_gtp_v1_0.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+lseg_lse24_analytics_gtp_v1_0.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_analytics_gtp_v1_0.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.reserved_1, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 12
+lseg_lse24_analytics_gtp_v1_0.reserved_12 = {}
+
+-- Size: Reserved 12
+lseg_lse24_analytics_gtp_v1_0.reserved_12.size = 12
+
+-- Display: Reserved 12
+lseg_lse24_analytics_gtp_v1_0.reserved_12.display = function(value)
+  return "Reserved 12: "..value
+end
+
+-- Dissect: Reserved 12
+lseg_lse24_analytics_gtp_v1_0.reserved_12.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.reserved_12.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_analytics_gtp_v1_0.reserved_12.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.reserved_12, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 4
+lseg_lse24_analytics_gtp_v1_0.reserved_4 = {}
+
+-- Size: Reserved 4
+lseg_lse24_analytics_gtp_v1_0.reserved_4.size = 4
+
+-- Display: Reserved 4
+lseg_lse24_analytics_gtp_v1_0.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+lseg_lse24_analytics_gtp_v1_0.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_analytics_gtp_v1_0.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.reserved_4, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 8
+lseg_lse24_analytics_gtp_v1_0.reserved_8 = {}
+
+-- Size: Reserved 8
+lseg_lse24_analytics_gtp_v1_0.reserved_8.size = 8
+
+-- Display: Reserved 8
+lseg_lse24_analytics_gtp_v1_0.reserved_8.display = function(value)
+  return "Reserved 8: "..value
+end
+
+-- Dissect: Reserved 8
+lseg_lse24_analytics_gtp_v1_0.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_analytics_gtp_v1_0.reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 8
+lseg_lse24_analytics_gtp_v1_0.second_reserved_8 = {}
+
+-- Size: Second Reserved 8
+lseg_lse24_analytics_gtp_v1_0.second_reserved_8.size = 8
+
+-- Display: Second Reserved 8
+lseg_lse24_analytics_gtp_v1_0.second_reserved_8.display = function(value)
+  return "Second Reserved 8: "..value
+end
+
+-- Dissect: Second Reserved 8
+lseg_lse24_analytics_gtp_v1_0.second_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.second_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_analytics_gtp_v1_0.second_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.second_reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Security Exchange
+lseg_lse24_analytics_gtp_v1_0.security_exchange = {}
+
+-- Size: Security Exchange
+lseg_lse24_analytics_gtp_v1_0.security_exchange.size = 11
+
+-- Display: Security Exchange
+lseg_lse24_analytics_gtp_v1_0.security_exchange.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange: No Value"
+  end
+
+  return "Security Exchange: "..value
+end
+
+-- Dissect: Security Exchange
+lseg_lse24_analytics_gtp_v1_0.security_exchange.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.security_exchange.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse24_analytics_gtp_v1_0.security_exchange.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.security_exchange, range, value, display)
+
+  return offset + length, value
+end
+
+-- Segment
+lseg_lse24_analytics_gtp_v1_0.segment = {}
+
+-- Size: Segment
+lseg_lse24_analytics_gtp_v1_0.segment.size = 6
+
+-- Display: Segment
+lseg_lse24_analytics_gtp_v1_0.segment.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Segment: No Value"
+  end
+
+  return "Segment: "..value
+end
+
+-- Dissect: Segment
+lseg_lse24_analytics_gtp_v1_0.segment.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.segment.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse24_analytics_gtp_v1_0.segment.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.segment, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Limit Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_limit_order_cancellations = {}
+
+-- Size: Sell Limit Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_limit_order_cancellations.size = 4
+
+-- Display: Sell Limit Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_limit_order_cancellations.display = function(value)
+  return "Sell Limit Order Cancellations: "..value
+end
+
+-- Dissect: Sell Limit Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_limit_order_cancellations.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.sell_limit_order_cancellations.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.sell_limit_order_cancellations.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.sell_limit_order_cancellations, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Market Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_market_order_cancellations = {}
+
+-- Size: Sell Market Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_market_order_cancellations.size = 4
+
+-- Display: Sell Market Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_market_order_cancellations.display = function(value)
+  return "Sell Market Order Cancellations: "..value
+end
+
+-- Dissect: Sell Market Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_market_order_cancellations.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.sell_market_order_cancellations.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.sell_market_order_cancellations.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.sell_market_order_cancellations, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_order_cancellations = {}
+
+-- Size: Sell Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_order_cancellations.size = 4
+
+-- Display: Sell Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_order_cancellations.display = function(value)
+  return "Sell Order Cancellations: "..value
+end
+
+-- Dissect: Sell Order Cancellations
+lseg_lse24_analytics_gtp_v1_0.sell_order_cancellations.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.sell_order_cancellations.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.sell_order_cancellations.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.sell_order_cancellations, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Order Count
+lseg_lse24_analytics_gtp_v1_0.sell_order_count = {}
+
+-- Size: Sell Order Count
+lseg_lse24_analytics_gtp_v1_0.sell_order_count.size = 4
+
+-- Display: Sell Order Count
+lseg_lse24_analytics_gtp_v1_0.sell_order_count.display = function(value)
+  return "Sell Order Count: "..value
+end
+
+-- Dissect: Sell Order Count
+lseg_lse24_analytics_gtp_v1_0.sell_order_count.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.sell_order_count.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.sell_order_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.sell_order_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sell Order Size
+lseg_lse24_analytics_gtp_v1_0.sell_order_size = {}
+
+-- Size: Sell Order Size
+lseg_lse24_analytics_gtp_v1_0.sell_order_size.size = 8
+
+-- Display: Sell Order Size
+lseg_lse24_analytics_gtp_v1_0.sell_order_size.display = function(value)
+  return "Sell Order Size: "..value
+end
+
+-- Translate: Sell Order Size
+lseg_lse24_analytics_gtp_v1_0.sell_order_size.translate = function(raw)
+  return raw:tonumber()/10000
+end
+
+-- Dissect: Sell Order Size
+lseg_lse24_analytics_gtp_v1_0.sell_order_size.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.sell_order_size.size
+  local range = buffer(offset, length)
+  local raw = range:le_uint64()
+  local value = lseg_lse24_analytics_gtp_v1_0.sell_order_size.translate(raw)
+  local display = lseg_lse24_analytics_gtp_v1_0.sell_order_size.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.sell_order_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+lseg_lse24_analytics_gtp_v1_0.sequence_number = {}
+
+-- Size: Sequence Number
+lseg_lse24_analytics_gtp_v1_0.sequence_number.size = 4
+
+-- Display: Sequence Number
+lseg_lse24_analytics_gtp_v1_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+lseg_lse24_analytics_gtp_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Session Change Reason
+lseg_lse24_analytics_gtp_v1_0.session_change_reason = {}
+
+-- Size: Session Change Reason
+lseg_lse24_analytics_gtp_v1_0.session_change_reason.size = 1
+
+-- Display: Session Change Reason
+lseg_lse24_analytics_gtp_v1_0.session_change_reason.labels = {
+  [0] = "Session Change Reason: Scheduled Transition (0)",
+  [1] = "Session Change Reason: Extended By Market Ops (1)",
+  [2] = "Session Change Reason: Shortened By Market Ops (2)",
+  [3] = "Session Change Reason: Market Order Imbalance (3)",
+  [4] = "Session Change Reason: Price Outside Range (4)",
+  [5] = "Session Change Reason: Aesp Circuit Breaker Tripped (5)",
+  [9] = "Session Change Reason: Unavailable (9)",
+}
+
+lseg_lse24_analytics_gtp_v1_0.session_change_reason.display = function(value)
+  return lseg_lse24_analytics_gtp_v1_0.session_change_reason.labels[value] or "Session Change Reason: Unknown("..value..")"
+end
+
+-- Dissect: Session Change Reason
+lseg_lse24_analytics_gtp_v1_0.session_change_reason.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.session_change_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.session_change_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.session_change_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Source Venue
+lseg_lse24_analytics_gtp_v1_0.source_venue = {}
+
+-- Size: Source Venue
+lseg_lse24_analytics_gtp_v1_0.source_venue.size = 2
+
+-- Display: Source Venue
+lseg_lse24_analytics_gtp_v1_0.source_venue.labels = {
+  [1] = "Source Venue: London Stock Exchange (1)",
+  [17] = "Source Venue: London Stock Exchange 24 (17)",
+}
+
+lseg_lse24_analytics_gtp_v1_0.source_venue.display = function(value)
+  return lseg_lse24_analytics_gtp_v1_0.source_venue.labels[value] or "Source Venue: Unknown("..value..")"
+end
+
+-- Dissect: Source Venue
+lseg_lse24_analytics_gtp_v1_0.source_venue.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.source_venue.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.source_venue.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.source_venue, range, value, display)
+
+  return offset + length, value
+end
+
+-- Start Time
+lseg_lse24_analytics_gtp_v1_0.start_time = {}
+
+-- Size: Start Time
+lseg_lse24_analytics_gtp_v1_0.start_time.size = 8
+
+-- Dissect: Start Time
+lseg_lse24_analytics_gtp_v1_0.start_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.start_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse24_analytics_gtp_v1_0.fields.start_time
+  if lseg_lse24_analytics_gtp_v1_0.timestamp_format == 3 then field = omi_lseg_lse24_analytics_gtp_v1_0.fields.start_time_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Static Circuit Breaker Tolerances
+lseg_lse24_analytics_gtp_v1_0.static_circuit_breaker_tolerances = {}
+
+-- Size: Static Circuit Breaker Tolerances
+lseg_lse24_analytics_gtp_v1_0.static_circuit_breaker_tolerances.size = 8
+
+-- Display: Static Circuit Breaker Tolerances
+lseg_lse24_analytics_gtp_v1_0.static_circuit_breaker_tolerances.display = function(value)
+  return "Static Circuit Breaker Tolerances: "..value
+end
+
+-- Translate: Static Circuit Breaker Tolerances
+lseg_lse24_analytics_gtp_v1_0.static_circuit_breaker_tolerances.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Static Circuit Breaker Tolerances
+lseg_lse24_analytics_gtp_v1_0.static_circuit_breaker_tolerances.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.static_circuit_breaker_tolerances.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_analytics_gtp_v1_0.static_circuit_breaker_tolerances.translate(raw)
+  local display = lseg_lse24_analytics_gtp_v1_0.static_circuit_breaker_tolerances.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.static_circuit_breaker_tolerances, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved 8
+lseg_lse24_analytics_gtp_v1_0.third_reserved_8 = {}
+
+-- Size: Third Reserved 8
+lseg_lse24_analytics_gtp_v1_0.third_reserved_8.size = 8
+
+-- Display: Third Reserved 8
+lseg_lse24_analytics_gtp_v1_0.third_reserved_8.display = function(value)
+  return "Third Reserved 8: "..value
+end
+
+-- Dissect: Third Reserved 8
+lseg_lse24_analytics_gtp_v1_0.third_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.third_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_analytics_gtp_v1_0.third_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.third_reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Tick Id
+lseg_lse24_analytics_gtp_v1_0.tick_id = {}
+
+-- Size: Tick Id
+lseg_lse24_analytics_gtp_v1_0.tick_id.size = 2
+
+-- Display: Tick Id
+lseg_lse24_analytics_gtp_v1_0.tick_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Tick Id: No Value"
+  end
+
+  return "Tick Id: "..value
+end
+
+-- Dissect: Tick Id
+lseg_lse24_analytics_gtp_v1_0.tick_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.tick_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse24_analytics_gtp_v1_0.tick_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.tick_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Timestamp
+lseg_lse24_analytics_gtp_v1_0.timestamp = {}
+
+-- Size: Timestamp
+lseg_lse24_analytics_gtp_v1_0.timestamp.size = 8
+
+-- Dissect: Timestamp
+lseg_lse24_analytics_gtp_v1_0.timestamp.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.timestamp.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse24_analytics_gtp_v1_0.fields.timestamp
+  if lseg_lse24_analytics_gtp_v1_0.timestamp_format == 3 then field = omi_lseg_lse24_analytics_gtp_v1_0.fields.timestamp_utc end
+
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanos = (value % UInt64(1000000000)):tonumber()
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Trading Status
+lseg_lse24_analytics_gtp_v1_0.trading_status = {}
+
+-- Size: Trading Status
+lseg_lse24_analytics_gtp_v1_0.trading_status.size = 1
+
+-- Display: Trading Status
+lseg_lse24_analytics_gtp_v1_0.trading_status.display = function(value)
+  -- Check if field has value
+  if value == nil or value == 0 then
+    return "Trading Status: No Value"
+  end
+
+  if value == "H" then
+    return "Trading Status: Halt (H)"
+  end
+  if value == "J" then
+    return "Trading Status: Halt Matching Partition Suspended (J)"
+  end
+  if value == "K" then
+    return "Trading Status: Halt System Suspended (K)"
+  end
+  if value == "T" then
+    return "Trading Status: Regular Trading (T)"
+  end
+  if value == "P" then
+    return "Trading Status: Halt Regulatory (P)"
+  end
+  if value == "t" then
+    return "Trading Status: End Trade Reporting (t)"
+  end
+  if value == "a" then
+    return "Trading Status: Opening Auction Call (a)"
+  end
+  if value == "b" then
+    return "Trading Status: Post Close (b)"
+  end
+  if value == "c" then
+    return "Trading Status: Closed (c)"
+  end
+  if value == "d" then
+    return "Trading Status: Closing Auction Call (d)"
+  end
+  if value == "e" then
+    return "Trading Status: Aesp Auction Call (e)"
+  end
+  if value == "f" then
+    return "Trading Status: Resume Auction (f)"
+  end
+  if value == "m" then
+    return "Trading Status: Pre Mandatory (m)"
+  end
+  if value == "n" then
+    return "Trading Status: Mandatory (n)"
+  end
+  if value == "o" then
+    return "Trading Status: Post Mandatory (o)"
+  end
+  if value == "q" then
+    return "Trading Status: Edsp Auction Call (q)"
+  end
+  if value == "r" then
+    return "Trading Status: Periodic Auction Call (r)"
+  end
+  if value == "1" then
+    return "Trading Status: Inactive (1)"
+  end
+  if value == "2" then
+    return "Trading Status: Suspended (2)"
+  end
+  if value == "w" then
+    return "Trading Status: No Active Session (w)"
+  end
+  if value == "x" then
+    return "Trading Status: End Of Post Close (x)"
+  end
+  if value == "u" then
+    return "Trading Status: Closing Price Crossing Session (u)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
+end
+
+-- Dissect: Trading Status
+lseg_lse24_analytics_gtp_v1_0.trading_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.trading_status.size
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value ~= 0 then
+    value = range:string(ENC_WINDOWS_1252)
+  end
+
+  local display = lseg_lse24_analytics_gtp_v1_0.trading_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.trading_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Venue Instrument Id
+lseg_lse24_analytics_gtp_v1_0.venue_instrument_id = {}
+
+-- Size: Venue Instrument Id
+lseg_lse24_analytics_gtp_v1_0.venue_instrument_id.size = 11
+
+-- Display: Venue Instrument Id
+lseg_lse24_analytics_gtp_v1_0.venue_instrument_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Venue Instrument Id: No Value"
+  end
+
+  return "Venue Instrument Id: "..value
+end
+
+-- Dissect: Venue Instrument Id
+lseg_lse24_analytics_gtp_v1_0.venue_instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.venue_instrument_id.size
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string(ENC_WINDOWS_1252))
+  local display = lseg_lse24_analytics_gtp_v1_0.venue_instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.venue_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vwap Buy
+lseg_lse24_analytics_gtp_v1_0.vwap_buy = {}
+
+-- Size: Vwap Buy
+lseg_lse24_analytics_gtp_v1_0.vwap_buy.size = 8
+
+-- Display: Vwap Buy
+lseg_lse24_analytics_gtp_v1_0.vwap_buy.display = function(value)
+  return "Vwap Buy: "..value
+end
+
+-- Translate: Vwap Buy
+lseg_lse24_analytics_gtp_v1_0.vwap_buy.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Vwap Buy
+lseg_lse24_analytics_gtp_v1_0.vwap_buy.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.vwap_buy.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_analytics_gtp_v1_0.vwap_buy.translate(raw)
+  local display = lseg_lse24_analytics_gtp_v1_0.vwap_buy.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.vwap_buy, range, value, display)
+
+  return offset + length, value
+end
+
+-- Vwap Sell
+lseg_lse24_analytics_gtp_v1_0.vwap_sell = {}
+
+-- Size: Vwap Sell
+lseg_lse24_analytics_gtp_v1_0.vwap_sell.size = 8
+
+-- Display: Vwap Sell
+lseg_lse24_analytics_gtp_v1_0.vwap_sell.display = function(value)
+  return "Vwap Sell: "..value
+end
+
+-- Translate: Vwap Sell
+lseg_lse24_analytics_gtp_v1_0.vwap_sell.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Vwap Sell
+lseg_lse24_analytics_gtp_v1_0.vwap_sell.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_analytics_gtp_v1_0.vwap_sell.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_analytics_gtp_v1_0.vwap_sell.translate(raw)
+  local display = lseg_lse24_analytics_gtp_v1_0.vwap_sell.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.vwap_sell, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Lseg Lse24 Analytics Gtp 1.0
+-----------------------------------------------------------------------
+
+-- Analytics Message
+lseg_lse24_analytics_gtp_v1_0.analytics_message = {}
+
+-- Size: Analytics Message
+lseg_lse24_analytics_gtp_v1_0.analytics_message.size =
+  lseg_lse24_analytics_gtp_v1_0.timestamp.size + 
+  lseg_lse24_analytics_gtp_v1_0.instrument.size + 
+  lseg_lse24_analytics_gtp_v1_0.source_venue.size + 
+  lseg_lse24_analytics_gtp_v1_0.start_time.size + 
+  lseg_lse24_analytics_gtp_v1_0.end_time.size + 
+  lseg_lse24_analytics_gtp_v1_0.buy_order_count.size + 
+  lseg_lse24_analytics_gtp_v1_0.sell_order_count.size + 
+  lseg_lse24_analytics_gtp_v1_0.buy_order_size.size + 
+  lseg_lse24_analytics_gtp_v1_0.sell_order_size.size + 
+  lseg_lse24_analytics_gtp_v1_0.buy_order_cancellations.size + 
+  lseg_lse24_analytics_gtp_v1_0.sell_order_cancellations.size + 
+  lseg_lse24_analytics_gtp_v1_0.buy_limit_order_cancellations.size + 
+  lseg_lse24_analytics_gtp_v1_0.buy_market_order_cancellations.size + 
+  lseg_lse24_analytics_gtp_v1_0.sell_limit_order_cancellations.size + 
+  lseg_lse24_analytics_gtp_v1_0.sell_market_order_cancellations.size + 
+  lseg_lse24_analytics_gtp_v1_0.bid_ask_spread.size + 
+  lseg_lse24_analytics_gtp_v1_0.vwap_buy.size + 
+  lseg_lse24_analytics_gtp_v1_0.vwap_sell.size
+
+-- Display: Analytics Message
+lseg_lse24_analytics_gtp_v1_0.analytics_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Analytics Message
+lseg_lse24_analytics_gtp_v1_0.analytics_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_lse24_analytics_gtp_v1_0.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_lse24_analytics_gtp_v1_0.instrument.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_lse24_analytics_gtp_v1_0.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Start Time: UDT
+  index, start_time = lseg_lse24_analytics_gtp_v1_0.start_time.dissect(buffer, index, packet, parent)
+
+  -- End Time: UDT
+  index, end_time = lseg_lse24_analytics_gtp_v1_0.end_time.dissect(buffer, index, packet, parent)
+
+  -- Buy Order Count: UInt32
+  index, buy_order_count = lseg_lse24_analytics_gtp_v1_0.buy_order_count.dissect(buffer, index, packet, parent)
+
+  -- Sell Order Count: UInt32
+  index, sell_order_count = lseg_lse24_analytics_gtp_v1_0.sell_order_count.dissect(buffer, index, packet, parent)
+
+  -- Buy Order Size: Size4
+  index, buy_order_size = lseg_lse24_analytics_gtp_v1_0.buy_order_size.dissect(buffer, index, packet, parent)
+
+  -- Sell Order Size: Size4
+  index, sell_order_size = lseg_lse24_analytics_gtp_v1_0.sell_order_size.dissect(buffer, index, packet, parent)
+
+  -- Buy Order Cancellations: UInt32
+  index, buy_order_cancellations = lseg_lse24_analytics_gtp_v1_0.buy_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Sell Order Cancellations: UInt32
+  index, sell_order_cancellations = lseg_lse24_analytics_gtp_v1_0.sell_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Buy Limit Order Cancellations: UInt32
+  index, buy_limit_order_cancellations = lseg_lse24_analytics_gtp_v1_0.buy_limit_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Buy Market Order Cancellations: UInt32
+  index, buy_market_order_cancellations = lseg_lse24_analytics_gtp_v1_0.buy_market_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Sell Limit Order Cancellations: UInt32
+  index, sell_limit_order_cancellations = lseg_lse24_analytics_gtp_v1_0.sell_limit_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Sell Market Order Cancellations: UInt32
+  index, sell_market_order_cancellations = lseg_lse24_analytics_gtp_v1_0.sell_market_order_cancellations.dissect(buffer, index, packet, parent)
+
+  -- Bid Ask Spread: Price
+  index, bid_ask_spread = lseg_lse24_analytics_gtp_v1_0.bid_ask_spread.dissect(buffer, index, packet, parent)
+
+  -- Vwap Buy: Price
+  index, vwap_buy = lseg_lse24_analytics_gtp_v1_0.vwap_buy.dissect(buffer, index, packet, parent)
+
+  -- Vwap Sell: Price
+  index, vwap_sell = lseg_lse24_analytics_gtp_v1_0.vwap_sell.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Analytics Message
+lseg_lse24_analytics_gtp_v1_0.analytics_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.analytics_message, buffer(offset, 0))
+    local index = lseg_lse24_analytics_gtp_v1_0.analytics_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_analytics_gtp_v1_0.analytics_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_analytics_gtp_v1_0.analytics_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Instrument Status Message
+lseg_lse24_analytics_gtp_v1_0.instrument_status_message = {}
+
+-- Size: Instrument Status Message
+lseg_lse24_analytics_gtp_v1_0.instrument_status_message.size =
+  lseg_lse24_analytics_gtp_v1_0.timestamp.size + 
+  lseg_lse24_analytics_gtp_v1_0.instrument.size + 
+  lseg_lse24_analytics_gtp_v1_0.source_venue.size + 
+  lseg_lse24_analytics_gtp_v1_0.trading_status.size + 
+  lseg_lse24_analytics_gtp_v1_0.session_change_reason.size + 
+  lseg_lse24_analytics_gtp_v1_0.new_end_time.size + 
+  lseg_lse24_analytics_gtp_v1_0.order_book_type.size
+
+-- Display: Instrument Status Message
+lseg_lse24_analytics_gtp_v1_0.instrument_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Status Message
+lseg_lse24_analytics_gtp_v1_0.instrument_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_lse24_analytics_gtp_v1_0.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_lse24_analytics_gtp_v1_0.instrument.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_lse24_analytics_gtp_v1_0.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Trading Status: Byte
+  index, trading_status = lseg_lse24_analytics_gtp_v1_0.trading_status.dissect(buffer, index, packet, parent)
+
+  -- Session Change Reason: UInt8
+  index, session_change_reason = lseg_lse24_analytics_gtp_v1_0.session_change_reason.dissect(buffer, index, packet, parent)
+
+  -- New End Time: Time
+  index, new_end_time = lseg_lse24_analytics_gtp_v1_0.new_end_time.dissect(buffer, index, packet, parent)
+
+  -- Order Book Type: UInt8
+  index, order_book_type = lseg_lse24_analytics_gtp_v1_0.order_book_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Instrument Status Message
+lseg_lse24_analytics_gtp_v1_0.instrument_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.instrument_status_message, buffer(offset, 0))
+    local index = lseg_lse24_analytics_gtp_v1_0.instrument_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_analytics_gtp_v1_0.instrument_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_analytics_gtp_v1_0.instrument_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Allowed Book Types
+lseg_lse24_analytics_gtp_v1_0.allowed_book_types = {}
+
+-- Size: Allowed Book Types
+lseg_lse24_analytics_gtp_v1_0.allowed_book_types.size = 1
+
+-- Display: Allowed Book Types
+lseg_lse24_analytics_gtp_v1_0.allowed_book_types.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Indicative Non Executable Quote Book flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Indicative Non Executable Quote Book"
+  end
+  -- Is Off Book flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Off Book"
+  end
+  -- Is Electronic Order Book flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Electronic Order Book"
+  end
+  -- Is Private Rfq flag set?
+  if bit.band(value, 0x10) ~= 0 then
+    flags[#flags + 1] = "Private Rfq"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Allowed Book Types
+lseg_lse24_analytics_gtp_v1_0.allowed_book_types.bits = function(range, value, packet, parent)
+
+  -- Unused 1: 1 Bit
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.unused_1, range, value)
+
+  -- Indicative Non Executable Quote Book: 1 Bit
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.indicative_non_executable_quote_book, range, value)
+
+  -- Off Book: 1 Bit
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.off_book, range, value)
+
+  -- Electronic Order Book: 1 Bit
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.electronic_order_book, range, value)
+
+  -- Private Rfq: 1 Bit
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.private_rfq, range, value)
+
+  -- Unused 3: 3 Bit
+  parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.unused_3, range, value)
+end
+
+-- Dissect: Allowed Book Types
+lseg_lse24_analytics_gtp_v1_0.allowed_book_types.dissect = function(buffer, offset, packet, parent)
+  local size = lseg_lse24_analytics_gtp_v1_0.allowed_book_types.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = lseg_lse24_analytics_gtp_v1_0.allowed_book_types.display(range, value, packet, parent)
+  local element = parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.allowed_book_types, range, display)
+
+  if show.structs then
+    lseg_lse24_analytics_gtp_v1_0.allowed_book_types.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Instrument Directory Message
+lseg_lse24_analytics_gtp_v1_0.instrument_directory_message = {}
+
+-- Size: Instrument Directory Message
+lseg_lse24_analytics_gtp_v1_0.instrument_directory_message.size =
+  lseg_lse24_analytics_gtp_v1_0.timestamp.size + 
+  lseg_lse24_analytics_gtp_v1_0.instrument.size + 
+  lseg_lse24_analytics_gtp_v1_0.isin.size + 
+  lseg_lse24_analytics_gtp_v1_0.allowed_book_types.size + 
+  lseg_lse24_analytics_gtp_v1_0.source_venue.size + 
+  lseg_lse24_analytics_gtp_v1_0.venue_instrument_id.size + 
+  lseg_lse24_analytics_gtp_v1_0.tick_id.size + 
+  lseg_lse24_analytics_gtp_v1_0.reserved_8.size + 
+  lseg_lse24_analytics_gtp_v1_0.dynamic_circuit_breaker_tolerances.size + 
+  lseg_lse24_analytics_gtp_v1_0.static_circuit_breaker_tolerances.size + 
+  lseg_lse24_analytics_gtp_v1_0.segment.size + 
+  lseg_lse24_analytics_gtp_v1_0.reserved_12.size + 
+  lseg_lse24_analytics_gtp_v1_0.security_exchange.size + 
+  lseg_lse24_analytics_gtp_v1_0.currency.size + 
+  lseg_lse24_analytics_gtp_v1_0.partition_id.size + 
+  lseg_lse24_analytics_gtp_v1_0.reserved_4.size + 
+  lseg_lse24_analytics_gtp_v1_0.average_daily_turnover_adt.size + 
+  lseg_lse24_analytics_gtp_v1_0.second_reserved_8.size + 
+  lseg_lse24_analytics_gtp_v1_0.reserved_1.size + 
+  lseg_lse24_analytics_gtp_v1_0.third_reserved_8.size + 
+  lseg_lse24_analytics_gtp_v1_0.fourth_reserved_8.size
+
+-- Display: Instrument Directory Message
+lseg_lse24_analytics_gtp_v1_0.instrument_directory_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Instrument Directory Message
+lseg_lse24_analytics_gtp_v1_0.instrument_directory_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_lse24_analytics_gtp_v1_0.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Instrument: UInt64
+  index, instrument = lseg_lse24_analytics_gtp_v1_0.instrument.dissect(buffer, index, packet, parent)
+
+  -- Isin: Alpha
+  index, isin = lseg_lse24_analytics_gtp_v1_0.isin.dissect(buffer, index, packet, parent)
+
+  -- Allowed Book Types: Struct of 6 fields
+  index, allowed_book_types = lseg_lse24_analytics_gtp_v1_0.allowed_book_types.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_lse24_analytics_gtp_v1_0.source_venue.dissect(buffer, index, packet, parent)
+
+  -- Venue Instrument Id: Alpha
+  index, venue_instrument_id = lseg_lse24_analytics_gtp_v1_0.venue_instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Tick Id: Alpha
+  index, tick_id = lseg_lse24_analytics_gtp_v1_0.tick_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 8: Price
+  if show.padding then
+    index, reserved_8 = lseg_lse24_analytics_gtp_v1_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_analytics_gtp_v1_0.reserved_8.size
+  end
+
+  -- Dynamic Circuit Breaker Tolerances: Price
+  index, dynamic_circuit_breaker_tolerances = lseg_lse24_analytics_gtp_v1_0.dynamic_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
+
+  -- Static Circuit Breaker Tolerances: Price
+  index, static_circuit_breaker_tolerances = lseg_lse24_analytics_gtp_v1_0.static_circuit_breaker_tolerances.dissect(buffer, index, packet, parent)
+
+  -- Segment: Alpha
+  index, segment = lseg_lse24_analytics_gtp_v1_0.segment.dissect(buffer, index, packet, parent)
+
+  -- Reserved 12: Alpha
+  if show.padding then
+    index, reserved_12 = lseg_lse24_analytics_gtp_v1_0.reserved_12.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_analytics_gtp_v1_0.reserved_12.size
+  end
+
+  -- Security Exchange: Alpha
+  index, security_exchange = lseg_lse24_analytics_gtp_v1_0.security_exchange.dissect(buffer, index, packet, parent)
+
+  -- Currency: Alpha
+  index, currency = lseg_lse24_analytics_gtp_v1_0.currency.dissect(buffer, index, packet, parent)
+
+  -- Partition Id: Byte
+  index, partition_id = lseg_lse24_analytics_gtp_v1_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: Alpha
+  if show.padding then
+    index, reserved_4 = lseg_lse24_analytics_gtp_v1_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_analytics_gtp_v1_0.reserved_4.size
+  end
+
+  -- Average Daily Turnover Adt: Price4
+  index, average_daily_turnover_adt = lseg_lse24_analytics_gtp_v1_0.average_daily_turnover_adt.dissect(buffer, index, packet, parent)
+
+  -- Second Reserved 8: Price
+  if show.padding then
+    index, second_reserved_8 = lseg_lse24_analytics_gtp_v1_0.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_analytics_gtp_v1_0.second_reserved_8.size
+  end
+
+  -- Reserved 1: UInt8
+  if show.padding then
+    index, reserved_1 = lseg_lse24_analytics_gtp_v1_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_analytics_gtp_v1_0.reserved_1.size
+  end
+
+  -- Third Reserved 8: Price
+  if show.padding then
+    index, third_reserved_8 = lseg_lse24_analytics_gtp_v1_0.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_analytics_gtp_v1_0.third_reserved_8.size
+  end
+
+  -- Fourth Reserved 8: Price
+  if show.padding then
+    index, fourth_reserved_8 = lseg_lse24_analytics_gtp_v1_0.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_analytics_gtp_v1_0.fourth_reserved_8.size
+  end
+
+  return index
+end
+
+-- Dissect: Instrument Directory Message
+lseg_lse24_analytics_gtp_v1_0.instrument_directory_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.instrument_directory_message, buffer(offset, 0))
+    local index = lseg_lse24_analytics_gtp_v1_0.instrument_directory_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_analytics_gtp_v1_0.instrument_directory_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_analytics_gtp_v1_0.instrument_directory_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- System Event Message
+lseg_lse24_analytics_gtp_v1_0.system_event_message = {}
+
+-- Size: System Event Message
+lseg_lse24_analytics_gtp_v1_0.system_event_message.size =
+  lseg_lse24_analytics_gtp_v1_0.timestamp.size + 
+  lseg_lse24_analytics_gtp_v1_0.event_code.size + 
+  lseg_lse24_analytics_gtp_v1_0.source_venue.size
+
+-- Display: System Event Message
+lseg_lse24_analytics_gtp_v1_0.system_event_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: System Event Message
+lseg_lse24_analytics_gtp_v1_0.system_event_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: UDT
+  index, timestamp = lseg_lse24_analytics_gtp_v1_0.timestamp.dissect(buffer, index, packet, parent)
+
+  -- Event Code: Byte
+  index, event_code = lseg_lse24_analytics_gtp_v1_0.event_code.dissect(buffer, index, packet, parent)
+
+  -- Source Venue: UInt16
+  index, source_venue = lseg_lse24_analytics_gtp_v1_0.source_venue.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: System Event Message
+lseg_lse24_analytics_gtp_v1_0.system_event_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.system_event_message, buffer(offset, 0))
+    local index = lseg_lse24_analytics_gtp_v1_0.system_event_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_analytics_gtp_v1_0.system_event_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_analytics_gtp_v1_0.system_event_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+lseg_lse24_analytics_gtp_v1_0.payload = {}
+
+-- Dissect: Payload
+lseg_lse24_analytics_gtp_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  -- Dissect System Event Message
+  if message_type == 0x53 then
+    return lseg_lse24_analytics_gtp_v1_0.system_event_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Directory Message
+  if message_type == 0x70 then
+    return lseg_lse24_analytics_gtp_v1_0.instrument_directory_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Instrument Status Message
+  if message_type == 0x48 then
+    return lseg_lse24_analytics_gtp_v1_0.instrument_status_message.dissect(buffer, offset, packet, parent)
+  end
+  -- Dissect Analytics Message
+  if message_type == 0x61 then
+    return lseg_lse24_analytics_gtp_v1_0.analytics_message.dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+lseg_lse24_analytics_gtp_v1_0.message_header = {}
+
+-- Size: Message Header
+lseg_lse24_analytics_gtp_v1_0.message_header.size =
+  lseg_lse24_analytics_gtp_v1_0.message_length.size + 
+  lseg_lse24_analytics_gtp_v1_0.message_type.size
+
+-- Display: Message Header
+lseg_lse24_analytics_gtp_v1_0.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+lseg_lse24_analytics_gtp_v1_0.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Length: 2 Byte Unsigned Fixed Width Integer
+  index, message_length = lseg_lse24_analytics_gtp_v1_0.message_length.dissect(buffer, index, packet, parent)
+
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  index, message_type = lseg_lse24_analytics_gtp_v1_0.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+lseg_lse24_analytics_gtp_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.message_header, buffer(offset, 0))
+    local index = lseg_lse24_analytics_gtp_v1_0.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_analytics_gtp_v1_0.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_analytics_gtp_v1_0.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+lseg_lse24_analytics_gtp_v1_0.message = {}
+
+-- Display: Message
+lseg_lse24_analytics_gtp_v1_0.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+lseg_lse24_analytics_gtp_v1_0.message.fields = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset
+
+  -- Implicit Message Index
+  if message_index ~= nil and show.indexes then
+    local iteration = parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.message_index, message_index)
+    iteration:set_generated()
+  end
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = lseg_lse24_analytics_gtp_v1_0.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):uint()
+
+  -- Payload: Runtime Type with 4 branches
+  index = lseg_lse24_analytics_gtp_v1_0.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message
+lseg_lse24_analytics_gtp_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message, message_index)
+  local index = offset + size_of_message
+
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.message, buffer(offset, 0))
+    local decoded, failure = pcall(lseg_lse24_analytics_gtp_v1_0.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, lseg_lse24_analytics_gtp_v1_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
+    parent:set_len(size_of_message)
+    local display = lseg_lse24_analytics_gtp_v1_0.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    local decoded, failure = pcall(lseg_lse24_analytics_gtp_v1_0.message.fields, bounded, offset, packet, parent, size_of_message, message_index)
+    if not decoded then
+      undecoded(failure, parent, lseg_lse24_analytics_gtp_v1_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
+
+    return index
+  end
+end
+
+-- Unit Header
+lseg_lse24_analytics_gtp_v1_0.unit_header = {}
+
+-- Size: Unit Header
+lseg_lse24_analytics_gtp_v1_0.unit_header.size =
+  lseg_lse24_analytics_gtp_v1_0.length.size + 
+  lseg_lse24_analytics_gtp_v1_0.message_count.size + 
+  lseg_lse24_analytics_gtp_v1_0.market_data_group.size + 
+  lseg_lse24_analytics_gtp_v1_0.sequence_number.size
+
+-- Display: Unit Header
+lseg_lse24_analytics_gtp_v1_0.unit_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Unit Header
+lseg_lse24_analytics_gtp_v1_0.unit_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Length: 2 Byte Unsigned Fixed Width Integer
+  index, length = lseg_lse24_analytics_gtp_v1_0.length.dissect(buffer, index, packet, parent)
+
+  -- Message Count: 1 Byte Unsigned Fixed Width Integer
+  index, message_count = lseg_lse24_analytics_gtp_v1_0.message_count.dissect(buffer, index, packet, parent)
+
+  -- Market Data Group: 1 Byte Ascii String
+  index, market_data_group = lseg_lse24_analytics_gtp_v1_0.market_data_group.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, sequence_number = lseg_lse24_analytics_gtp_v1_0.sequence_number.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Unit Header
+lseg_lse24_analytics_gtp_v1_0.unit_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_analytics_gtp_v1_0.fields.unit_header, buffer(offset, 0))
+    local index = lseg_lse24_analytics_gtp_v1_0.unit_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_analytics_gtp_v1_0.unit_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_analytics_gtp_v1_0.unit_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Packet
+lseg_lse24_analytics_gtp_v1_0.packet = {}
+
+-- Verify required size of Udp packet
+lseg_lse24_analytics_gtp_v1_0.packet.requiredsize = function(buffer)
+  return buffer:len() >= lseg_lse24_analytics_gtp_v1_0.unit_header.size
+end
+
+-- Dissect Packet
+lseg_lse24_analytics_gtp_v1_0.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Unit Header: Struct of 4 fields
+  index, unit_header = lseg_lse24_analytics_gtp_v1_0.unit_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  local message_index = 0
+  while index < end_of_payload do
+    message_index = message_index + 1
+
+    -- Stop where the payload ends inside the next size
+    if index + 2 > end_of_payload then
+      parent:add_proto_expert_info(lseg_lse24_analytics_gtp_v1_0.experts.undecoded, "Message Length runs past the end of the payload")
+      break
+    end
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 2):le_uint()
+
+    -- Runtime Size Of: Message
+    index, message = lseg_lse24_analytics_gtp_v1_0.message.dissect(buffer, index, packet, parent, message_length, message_index)
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_lseg_lse24_analytics_gtp_v1_0.init()
+end
+
+-- Dissector for Lseg Lse24 Analytics Gtp 1.0
+function omi_lseg_lse24_analytics_gtp_v1_0.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_lseg_lse24_analytics_gtp_v1_0.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_lseg_lse24_analytics_gtp_v1_0, buffer(), omi_lseg_lse24_analytics_gtp_v1_0.description, "("..buffer:len().." Bytes)")
+  return lseg_lse24_analytics_gtp_v1_0.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Fingerprints
+-----------------------------------------------------------------------
+
+-- Fingerprint of Packet: would its message dispatch accept this frame?
+lseg_lse24_analytics_gtp_v1_0.packet.fingerprint = function(buffer)
+  if buffer:len() < 11 then
+    return false
+  end
+
+  local message_type = buffer(10, 1):uint()
+
+  -- System Event Message
+  if message_type == 0x53 then
+    return true
+  end
+
+  -- Instrument Directory Message
+  if message_type == 0x70 then
+    return true
+  end
+
+  -- Instrument Status Message
+  if message_type == 0x48 then
+    return true
+  end
+
+  -- Analytics Message
+  if message_type == 0x61 then
+    return true
+  end
+
+  return false
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Lseg Lse24 Analytics Gtp 1.0 (Udp)
+local function omi_lseg_lse24_analytics_gtp_v1_0_udp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not lseg_lse24_analytics_gtp_v1_0.packet.requiredsize(buffer) then return false end
+
+  -- Verify the frame matches this udp packet message dispatch
+  if not lseg_lse24_analytics_gtp_v1_0.packet.fingerprint(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_lseg_lse24_analytics_gtp_v1_0
+  omi_lseg_lse24_analytics_gtp_v1_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Lseg Lse24 Analytics Gtp 1.0
+omi_lseg_lse24_analytics_gtp_v1_0:register_heuristic("udp", omi_lseg_lse24_analytics_gtp_v1_0_udp_heuristic)
+
+-- Register Lseg Lse24 Analytics Gtp 1.0 for Decode As
+local udp_table = DissectorTable.get("udp.port")
+udp_table:add_for_decode_as(omi_lseg_lse24_analytics_gtp_v1_0)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: London Stock Exchange
+--   Version: 1.0
+--   Date: Monday, October 19, 2026
+--   Specification: gtp-002-technical-guide-lse-24-issue-1-0.pdf
+--
+-- Script:
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US12101388B2/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--   https://patents.google.com/patent/US20260368281A1/en
+--
+-----------------------------------------------------------------------

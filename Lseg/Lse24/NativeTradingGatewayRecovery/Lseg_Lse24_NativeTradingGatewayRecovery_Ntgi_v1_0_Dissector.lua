@@ -1,0 +1,5098 @@
+-----------------------------------------------------------------------
+-- Lua Script Wireshark Dissector
+--
+-- Please see end of file for rules and regulations
+-----------------------------------------------------------------------
+
+-- Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0 Protocol
+local omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0 = Proto("Omi.Lseg.Lse24.NativeTradingGatewayRecovery.Ntgi.v1.0", "Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0")
+
+-- Protocol table
+local lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0 = {}
+
+-----------------------------------------------------------------------
+-- Declare Protocol Fields
+-----------------------------------------------------------------------
+
+-- Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0 Fields
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.account_type = ProtoField.new("Account Type", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.accounttype", ftypes.UINT8, nil, nil, nil, "Clearing Account Type.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.algo = ProtoField.new("Algo", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.algo", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Algorithmic trading activity")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.app_id = ProtoField.new("App Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.appid", ftypes.UINT8, nil, nil, nil, "App ID this message relates to.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.app_status = ProtoField.new("App Status", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.appstatus", ftypes.UINT8)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.auto_cancel = ProtoField.new("Auto Cancel", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.autocancel", ftypes.UINT8, nil, nil, nil, "Value is specified by MM in RFQ Quote.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.auto_rfq_exec_strategy = ProtoField.new("Auto Rfq Exec Strategy", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.autorfqexecstrategy", ftypes.UINT8, nil, nil, nil, "This field will include the applicable Auto RFQ Execution Strategy ‘Sub LIS Auction with Order Book Sweep or LIS Winner Takes All’ model.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.avg_px = ProtoField.new("Avg Px", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.avgpx", ftypes.DOUBLE, nil, nil, nil, "Volume Weighted Average Price of all the executions reported so far for an RFQ on the requestor side and it will be the executed price on the quote side.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.bid_id = ProtoField.new("Bid Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.bidid", ftypes.STRING, nil, nil, nil, "Unique identifier assigned to the bid side of the quote.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.bid_price = ProtoField.new("Bid Price", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.bidprice", ftypes.DOUBLE, nil, nil, nil, "Bid price.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.bid_quantity = ProtoField.new("Bid Quantity", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.bidquantity", ftypes.INT32, nil, nil, nil, "Bid quantity.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.capacity = ProtoField.new("Capacity", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.capacity", ftypes.UINT8, nil, nil, nil, "Capacity of the order.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.clearing_account = ProtoField.new("Clearing Account", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.clearingaccount", ftypes.UINT8, nil, nil, nil, "Clearing Account Type.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.client_id = ProtoField.new("Client Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.clientid", ftypes.UINT32, nil, nil, nil, "Identifier of the client.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.client_id_qualifier = ProtoField.new("Client Id Qualifier", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.clientidqualifier", ftypes.UINT8, {[0]="None", [1]="Lei Or Firm", [2]="Algo", [3]="Natural Person"}, base.DEC, 0x03, "Qualifies the Client Id short code")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.client_order_id = ProtoField.new("Client Order Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.clientorderid", ftypes.STRING, nil, nil, nil, "Client specified identifier of the rejected message if it is available.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.clse = ProtoField.new("Clse", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.clse", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Post trade flag: trade executed during the CPX session at closing price")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.contra_firm = ProtoField.new("Contra Firm", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.contrafirm", ftypes.STRING, nil, nil, nil, "For Named Models only, the server will stamp the Firm ID of the Requester to send to the Market Maker.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.contra_order_book = ProtoField.new("Contra Order Book", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.contraorderbook", ftypes.UINT8, nil, nil, nil, "Identifier of the order book of the contra party of an RFQ execution.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.contra_trader = ProtoField.new("Contra Trader", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.contratrader", ftypes.STRING, nil, nil, nil, "For Named Models only, the server will stamp the User ID of the Requester to send to the Market Maker.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.counterparty = ProtoField.new("Counterparty", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.counterparty", ftypes.STRING, nil, nil, nil, "Counterparty Firm.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.dea_flag = ProtoField.new("Dea Flag", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.deaflag", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Direct electronic access involvement")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.display_qty = ProtoField.new("Display Qty", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.displayqty", ftypes.INT32, nil, nil, nil, "Current visible quantity.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.exec_type = ProtoField.new("Exec Type", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.exectype", ftypes.STRING, nil, nil, nil, "The reason the Execution Report is being sent.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.executed_price = ProtoField.new("Executed Price", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executedprice", ftypes.DOUBLE, nil, nil, nil, "Value of this fill.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.executed_qty = ProtoField.new("Executed Qty", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executedqty", ftypes.INT32, nil, nil, nil, "Quantity that was executed in this fill.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.executed_quantity = ProtoField.new("Executed Quantity", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executedquantity", ftypes.INT32, nil, nil, nil, "Quantity executed.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.executing_trader = ProtoField.new("Executing Trader", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executingtrader", ftypes.UINT32, nil, nil, nil, "Identifier of the trading member/participant who made the execution decision.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.executing_trader_qualifier = ProtoField.new("Executing Trader Qualifier", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executingtraderqualifier", ftypes.UINT8, {[0]="None", [1]="Lei Or Firm", [2]="Algo", [3]="Natural Person"}, base.DEC, 0x30, "Qualifies the Executing Trader short code")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_id = ProtoField.new("Execution Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executionid", ftypes.STRING, nil, nil, nil, "Unique ID of the Execution Report.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_report_order_status = ProtoField.new("Execution Report Order Status", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executionreportorderstatus", ftypes.UINT8, nil, nil, nil, "The status of the order.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_report_pegged_exec_inst = ProtoField.new("Execution Report Pegged Exec Inst", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executionreportpeggedexecinst", ftypes.UINT8, nil, nil, nil, "The instruction for permissioning to trade against mid-priced pegged orders.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_report_ref_id = ProtoField.new("Execution Report Ref Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executionreportrefid", ftypes.STRING, nil, nil, nil, "Reference to the trade being cancelled or corrected.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_type = ProtoField.new("Execution Type", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executiontype", ftypes.STRING)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.expire_time_utc = ProtoField.new("Expire Time", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.expiretime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Indicates the date or the time the RFQ expires, in Unix (Posix) time format (number of seconds after 1 January 1970).")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.expire_time = ProtoField.new("Expire Time", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.expiretime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Indicates the date or the time the RFQ expires, in Unix (Posix) time format (number of seconds after 1 January 1970).")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.expire_time_milliseconds = ProtoField.new("Expire Time Milliseconds", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.expiretimemilliseconds", ftypes.UINT32, nil, nil, nil, "Indicates the number of milliseconds to be added to the date or the time the RFQ expires on specified in the ‘Expire Time’ field.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.fourth_reserved_8 = ProtoField.new("Fourth Reserved 8", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.fourthreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for Future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.ilqd = ProtoField.new("Ilqd", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.ilqd", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x08, "Waiver flag: illiquid instrument")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.instrument_id = ProtoField.new("Instrument Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.instrumentid", ftypes.INT32, nil, nil, nil, "Identifier of the instrument the Execution Report is sent for.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.investment_decision_maker = ProtoField.new("Investment Decision Maker", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.investmentdecisionmaker", ftypes.UINT32, nil, nil, nil, "Identifier of the trading member/participant who made investment decision.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.investor_information_qualifier = ProtoField.new("Investor Information Qualifier", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.investorinformationqualifier", ftypes.UINT8, {[0]="None", [1]="Lei Or Firm", [2]="Algo", [3]="Natural Person"}, base.DEC, 0x0C, "Qualifies the Investment Decision Maker short code")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.last_market = ProtoField.new("Last Market", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.lastmarket", ftypes.UINT8, nil, nil, nil, "Market (Segment MIC) where execution took place.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.last_msg_seq_num = ProtoField.new("Last Msg Seq Num", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.lastmsgseqnum", ftypes.INT32, nil, nil, nil, "Last received Sequence No.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.leaves_qty = ProtoField.new("Leaves Qty", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.leavesqty", ftypes.INT32, nil, nil, nil, "Quantity available for further execution.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.leaves_quantity = ProtoField.new("Leaves Quantity", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.leavesquantity", ftypes.INT32, nil, nil, nil, "Remaining quantity of the quote.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.limit_price = ProtoField.new("Limit Price", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.limitprice", ftypes.DOUBLE, nil, nil, nil, "When the quote response is used to accept a specific quote (QuoteRespType =1), the bid or offer price of the selected quote should be specified.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.liquidity_provision = ProtoField.new("Liquidity Provision", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.liquidityprovision", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Liquidity provision activity")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.market_maker = ProtoField.new("Market Maker", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.marketmaker", ftypes.STRING, nil, nil, nil, "The Market Maker ID who is the owner of the quote.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.market_maker_firm = ProtoField.new("Market Maker Firm", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.marketmakerfirm", ftypes.STRING, nil, nil, nil, "The Market Makers’ Firm ID.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.market_maker_rank = ProtoField.new("Market Maker Rank", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.marketmakerrank", ftypes.UINT8, nil, nil, nil, "The rank of the market makers the request should be routed to.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.market_makers = ProtoField.new("Market Makers", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.marketmakers", ftypes.STRING, nil, nil, nil, "Pipe separated list of Firm IDs, if it is required to target this quote request to specific Market Makers.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.masscancelrejectreason", ftypes.INT32, nil, nil, nil, "The code that identifies the reason the order mass cancel was rejected.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.mass_cancel_response = ProtoField.new("Mass Cancel Response", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.masscancelresponse", ftypes.UINT8, nil, nil, nil, "Whether the Mass Cancel Request was accepted or rejected.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.message_length = ProtoField.new("Message Length", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.messagelength", ftypes.INT16, nil, nil, nil, "Length of the message from the Message Type field onwards")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.message_type = ProtoField.new("Message Type", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.messagetype", ftypes.STRING, nil, nil, nil, "Type of message")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.message_version = ProtoField.new("Message Version", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.messageversion", ftypes.UINT8, nil, nil, nil, "Message Version that will be used in this session.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.mi_fid_flags = ProtoField.new("Mi Fid Flags", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.mifidflags", ftypes.STRING, nil, nil, nil, "Flags identifying Dea involvement, Algo and liquidity provision activity")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.minimum_quantity = ProtoField.new("Minimum Quantity", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.minimumquantity", ftypes.INT32, nil, nil, nil, "Minimum Execution Size (MES) specified on a pegged order.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.missed_message_report_response_type = ProtoField.new("Missed Message Report Response Type", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.missedmessagereportresponsetype", ftypes.UINT8)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.missed_message_request_ack_response_type = ProtoField.new("Missed Message Request Ack Response Type", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.missedmessagerequestackresponsetype", ftypes.UINT8)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.nanoseconds = ProtoField.new("Nanoseconds", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.nanoseconds", ftypes.UINT32, nil, nil, nil, "Nanosecond portion of the Transact Time")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.new_password = ProtoField.new("New Password", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.newpassword", ftypes.STRING)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.num_of_competitors = ProtoField.new("Num Of Competitors", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.numofcompetitors", ftypes.UINT8, nil, nil, nil, "The number of competing Respondents (the total number of market maker firms) the quote request has been routed to.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.offer_id = ProtoField.new("Offer Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.offerid", ftypes.STRING, nil, nil, nil, "Unique identifier assigned to the offer side of the quote.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.offer_price = ProtoField.new("Offer Price", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.offerprice", ftypes.DOUBLE, nil, nil, nil, "Offer price.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.offer_quantity = ProtoField.new("Offer Quantity", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.offerquantity", ftypes.INT32, nil, nil, nil, "Offer quantity.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_book = ProtoField.new("Order Book", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.orderbook", ftypes.UINT8)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_capacity = ProtoField.new("Order Capacity", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.ordercapacity", ftypes.UINT8, nil, nil, nil, "Capacity of the RFQ.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_id = ProtoField.new("Order Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.orderid", ftypes.STRING, nil, nil, nil, "Unique identifier of the order assigned by the matching system.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_quantity = ProtoField.new("Order Quantity", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.orderquantity", ftypes.INT32, nil, nil, nil, "Quantity that the Requester is expecting to trade.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_reject_code = ProtoField.new("Order Reject Code", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.orderrejectcode", ftypes.INT32, nil, nil, nil, "Code specifying the reason for the reject or the expiry.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.owner_type = ProtoField.new("Owner Type", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.ownertype", ftypes.UINT8, nil, nil, nil, "Not applicable for Quotes.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.partition_id = ProtoField.new("Partition Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.partitionid", ftypes.UINT8, nil, nil, nil, "The server will stamp the identifier of the matching partition for the instrument")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.party_role_qualifiers = ProtoField.new("Party Role Qualifiers", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.partyrolequalifiers", ftypes.STRING, nil, nil, nil, "Further qualification for the Client Id, Investment Decision Maker and Executing Trader identifiers")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.password = ProtoField.new("Password", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.password", ftypes.STRING)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.password_expiry_day_count = ProtoField.new("Password Expiry Day Count", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.passwordexpirydaycount", ftypes.STRING, nil, nil, nil, "The number of days before the password will expire")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.price = ProtoField.new("Price", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.price", ftypes.DOUBLE, nil, nil, nil, "Limit Price.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.private_quote = ProtoField.new("Private Quote", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.privatequote", ftypes.UINT8)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.public_order_id = ProtoField.new("Public Order Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.publicorderid", ftypes.STRING, nil, nil, nil, "Maintained by matching engine, will be unique for each replenishment of a particular iceberg order.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_ack_status = ProtoField.new("Quote Ack Status", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quoteackstatus", ftypes.UINT8)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_msg_id = ProtoField.new("Quote Msg Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quotemsgid", ftypes.STRING, nil, nil, nil, "Identifier specified by the client in the RFQ modification/cancellation/execution request.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_req_id = ProtoField.new("Quote Req Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quotereqid", ftypes.STRING, nil, nil, nil, "Client specified identifier of the RFQ.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_request_type = ProtoField.new("Quote Request Type", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quoterequesttype", ftypes.UINT8, nil, nil, nil, "Indicates the type of Quote Request")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_resp_type = ProtoField.new("Quote Resp Type", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quoteresptype", ftypes.UINT8)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_status = ProtoField.new("Quote Status", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quotestatus", ftypes.UINT8)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reason = ProtoField.new("Reason", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reason", ftypes.STRING, nil, nil, nil, "Reason for the logout.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reject_code = ProtoField.new("Reject Code", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rejectcode", ftypes.INT32, nil, nil, nil, "Code specifying the reason for the reject.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reject_reason = ProtoField.new("Reject Reason", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rejectreason", ftypes.STRING, nil, nil, nil, "Reject Reason.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rejected_message_type = ProtoField.new("Rejected Message Type", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rejectedmessagetype", ftypes.STRING, nil, nil, nil, "Message type of the rejected message.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_02 = ProtoField.new("Reserved 02", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reserved02", ftypes.UINT8, nil, base.DEC, 0x07, "Reserved for future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_1 = ProtoField.new("Reserved 1", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reserved1", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_10 = ProtoField.new("Reserved 10", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reserved10", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_37 = ProtoField.new("Reserved 37", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reserved37", ftypes.UINT8, nil, base.DEC, 0xF8, "Reserved for future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_4 = ProtoField.new("Reserved 4", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reserved4", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_47 = ProtoField.new("Reserved 47", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reserved47", ftypes.UINT8, nil, base.DEC, 0xF0, "Reserved for future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_67 = ProtoField.new("Reserved 67", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reserved67", ftypes.UINT8, nil, base.DEC, 0xC0, "Reserved for future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_7 = ProtoField.new("Reserved 7", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reserved7", ftypes.BYTES, nil, nil, nil, "Reserved for future use.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_8 = ProtoField.new("Reserved 8", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reserved8", ftypes.BYTES, nil, nil, nil, "Reserved for Future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_bit_0 = ProtoField.new("Reserved Bit 0", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reservedbit0", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x01, "Reserved for future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_bit_2 = ProtoField.new("Reserved Bit 2", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reservedbit2", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x04, "Reserved for future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_bit_4 = ProtoField.new("Reserved Bit 4", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.reservedbit4", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x10, "Reserved for future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.restatement_reason = ProtoField.new("Restatement Reason", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.restatementreason", ftypes.UINT8, nil, nil, nil, "Reason order was restated or cancelled.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfpt = ProtoField.new("Rfpt", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rfpt", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x20, "Waiver flag: reference price")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_disclose_side = ProtoField.new("Rfq Disclose Side", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rfqdiscloseside", ftypes.UINT8, nil, nil, nil, "Instructs the system whether to disclose the side of the request as stated in the Side field to the market makers or not.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_execution_delay = ProtoField.new("Rfq Execution Delay", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rfqexecutiondelay", ftypes.UINT8, nil, nil, nil, "The minimum number of seconds from the time of RFQ submission to be elapsed for the RFQ execution to be triggered automatically.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_execution_report_order_status = ProtoField.new("Rfq Execution Report Order Status", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rfqexecutionreportorderstatus", ftypes.UINT8)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_id = ProtoField.new("Rfq Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rfqid", ftypes.STRING, nil, nil, nil, "The unique identifier of the initial RFQ automatically generated via the server.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_min_quotes = ProtoField.new("Rfq Min Quotes", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rfqminquotes", ftypes.UINT8, nil, nil, nil, "The minimum number of market maker quotes to be available for the RFQ execution to be triggered automatically.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.secondreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for Future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.seconds_utc = ProtoField.new("Seconds", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.seconds.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Seconds elapsed since midnight 1 January 1970 UTC, not counting leap seconds")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.seconds = ProtoField.new("Seconds", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.seconds", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Seconds elapsed since midnight 1 January 1970 UTC, not counting leap seconds")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.sequence_no = ProtoField.new("Sequence No", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.sequenceno", ftypes.INT32, nil, nil, nil, "Sequence number of the message.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.sequence_number = ProtoField.new("Sequence Number", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.sequencenumber", ftypes.INT32, nil, nil, nil, "The server will stamp the message sequence number of the matching partition.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.side = ProtoField.new("Side", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.side", ftypes.UINT8, nil, nil, nil, "Side of the order.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.start_of_message = ProtoField.new("Start Of Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.startofmessage", ftypes.INT8, nil, nil, nil, "Indicates the start of the message; always the binary value 2")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.third_reserved_8 = ProtoField.new("Third Reserved 8", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.thirdreserved8", ftypes.BYTES, nil, nil, nil, "Reserved for Future use")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.trade_liquidity_indicator = ProtoField.new("Trade Liquidity Indicator", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.tradeliquidityindicator", ftypes.STRING, nil, nil, nil, "Whether the order added or removed liquidity.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.trade_match_id = ProtoField.new("Trade Match Id", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.tradematchid", ftypes.UINT64, nil, nil, nil, "Identifier of the trade.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.transact_time_utc = ProtoField.new("Transact Time", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.transacttime.utc", ftypes.ABSOLUTE_TIME, nil, base.UTC, nil, "Composite")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.transact_time = ProtoField.new("Transact Time", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.LOCAL, nil, "Composite")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.type_of_trade = ProtoField.new("Type Of Trade", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.typeoftrade", ftypes.UINT8, nil, nil, nil, "Indicates whether the executed portion of a passive order during continuous trading session is visible or hidden.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.user_name = ProtoField.new("User Name", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.username", ftypes.STRING)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.waiver_flags = ProtoField.new("Waiver Flags", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.waiverflags", ftypes.STRING, nil, nil, nil, "Pre-trade waiver flags")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.waiver_flags_post_trade_flags = ProtoField.new("Waiver Flags Post Trade Flags", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.waiverflagsposttradeflags", ftypes.STRING, nil, nil, nil, "Pre-trade waiver and post trade flags")
+
+-- Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0 Framing
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.message = ProtoField.new("Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.message", ftypes.STRING, nil, nil, nil, "Native Trading Gateway Message")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.message_header = ProtoField.new("Message Header", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.messageheader", ftypes.STRING, nil, nil, nil, "Native Trading Gateway Message Header")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.packet = ProtoField.new("Packet", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.packet", ftypes.STRING, nil, nil, nil, "Native Trading Gateway Tcp Message Block")
+
+-- Lseg Lse24 NativeTradingGatewayRecovery 1.0 Application Messages
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_report_message = ProtoField.new("Execution Report Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.executionreportmessage", ftypes.STRING, nil, nil, nil, "Indicates order accepted, rejected, executed, expired, cancelled, cancel/replaced, restated or suspended, or a trade cancel.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.heartbeatmessage", ftypes.BYTES, nil, nil, nil, "Allows the client and server to exercise the communication line during periods of inactivity and verify that the interfaces at each end are available.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.logon_message = ProtoField.new("Logon Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.logonmessage", ftypes.STRING, nil, nil, nil, "Allows the client and server to establish a session.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.logon_reply_message = ProtoField.new("Logon Reply Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.logonreplymessage", ftypes.STRING, nil, nil, nil, "Allows the server to acknowledge a client's Logon.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.logout_message = ProtoField.new("Logout Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.logoutmessage", ftypes.STRING, nil, nil, nil, "Allows the client and server to terminate a session.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.missed_message_report_message = ProtoField.new("Missed Message Report Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.missedmessagereportmessage", ftypes.STRING, nil, nil, nil, "Allows the server to communicate the result of a Missed Message Request.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.missed_message_request_ack_message = ProtoField.new("Missed Message Request Ack Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.missedmessagerequestackmessage", ftypes.STRING, nil, nil, nil, "Allows the server to acknowledge a client's Missed Message Request.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.missed_message_request_message = ProtoField.new("Missed Message Request Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.missedmessagerequestmessage", ftypes.STRING, nil, nil, nil, "Allows the client to subscribe to missed messages through the Recovery Channel.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_mass_cancel_report_message = ProtoField.new("Order Mass Cancel Report Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.ordermasscancelreportmessage", ftypes.STRING, nil, nil, nil, "Indicates that a mass order cancel request was accepted or rejected.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_ack_message = ProtoField.new("Quote Ack Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quoteackmessage", ftypes.STRING, nil, nil, nil, "Allows the server to acknowledge a new or modified RFQ Quote to the Market Maker.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_request_message = ProtoField.new("Quote Request Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quoterequestmessage", ftypes.STRING, nil, nil, nil, "Carries a Request For Quote. Sent by the Requester to submit an RFQ, and by the server to deliver it to the Market Maker.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_request_reject_message = ProtoField.new("Quote Request Reject Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quoterequestrejectmessage", ftypes.STRING, nil, nil, nil, "Rejects an RFQ. Sent by the Market Maker to reject, and by the server to reject or to relay a Market Maker rejection.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_response_message = ProtoField.new("Quote Response Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quoteresponsemessage", ftypes.STRING, nil, nil, nil, "Carries an RFQ response. Sent by the Requester to execute or cancel an RFQ Quote, and by the server to report quote and RFQ status.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_status_report_message = ProtoField.new("Quote Status Report Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.quotestatusreportmessage", ftypes.STRING, nil, nil, nil, "Allows the server to communicate the status of the RFQ to the Requester.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reject_message = ProtoField.new("Reject Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rejectmessage", ftypes.STRING, nil, nil, nil, "Used to reject a message that does not comply with the Native Trading Gateway messaging protocol.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_execution_report_message = ProtoField.new("Rfq Execution Report Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rfqexecutionreportmessage", ftypes.STRING, nil, nil, nil, "Allows the system to notify the Requester and the Market Maker about a trade or the status of the quote.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_quote_message = ProtoField.new("Rfq Quote Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.rfqquotemessage", ftypes.STRING, nil, nil, nil, "Carries an RFQ Quote. Sent by the Market Maker to accept an RFQ, and by the server to deliver the quote to the Requester.")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.system_status_message = ProtoField.new("System Status Message", "lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.systemstatusmessage", ftypes.STRING, nil, nil, nil, "Indicates service non availability of a partition, disseminated on the recovery and realtime channels.")
+
+-- Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0 Expert Info
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.experts = {}
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.experts.undecoded = ProtoExpert.new("lseg.lse24.nativetradinggatewayrecovery.ntgi.v1.0.undecoded", "Fields run past the size the wire gives them", expert.group.MALFORMED, expert.severity.ERROR)
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.experts = { lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.experts.undecoded }
+
+-----------------------------------------------------------------------
+-- Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0 Formatting
+-----------------------------------------------------------------------
+
+-- timestamp format
+local timestamp_format_enum = {
+  { 1, "DateTime Local", 2 },
+  { 2, "DateTime Utc", 3 }
+}
+
+-- 0=Raw, 1=Time of Day, 2=DateTime Local, 3=DateTime Utc, 4=DateTime Zone
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.timestamp_format = 3
+
+
+-----------------------------------------------------------------------
+-- Declare Dissection Options
+-----------------------------------------------------------------------
+
+local show = {}
+
+-- Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0 Element Dissection Options
+show.application_messages = true
+show.structs = true
+show.headers = true
+show.padding = false
+
+-- Register Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0 Show Options
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_application_messages = Pref.bool("Show Application Messages", show.application_messages, "Parse and add Application Messages to protocol tree")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_structs = Pref.bool("Show Structs", show.structs, "Parse and add Structs to protocol tree")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_headers = Pref.bool("Show Headers", show.headers, "Parse and add Headers to protocol tree")
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_padding = Pref.bool("Show Padding", show.padding, "Parse and add Padding to protocol tree")
+
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.timestamp_format = Pref.enum("Timestamp Format", 3, "Display format for this protocol's timestamps", timestamp_format_enum, false)
+
+-- Handle changed preferences
+function omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs_changed()
+
+  -- Check if preferences have changed
+  if show.application_messages ~= omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_application_messages then
+    show.application_messages = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_application_messages
+  end
+  if show.headers ~= omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_headers then
+    show.headers = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_headers
+  end
+  if show.padding ~= omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_padding then
+    show.padding = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_padding
+  end
+  if show.structs ~= omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_structs then
+    show.structs = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.show_structs
+  end
+  if lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.timestamp_format ~= omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.timestamp_format then
+    lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.timestamp_format = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.prefs.timestamp_format
+  end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+
+-- Mark a sized group whose fields read past its end; raise any other failure as it was
+local function undecoded(failure, parent, expert, text)
+  if not string.find(tostring(failure), "Range is out of bounds", 1, true) then
+    error(failure, 0)
+  end
+
+  parent:add_proto_expert_info(expert, text)
+end
+-----------------------------------------------------------------------
+-- Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0 Fields
+-----------------------------------------------------------------------
+
+-- Account Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.account_type = {}
+
+-- Size: Account Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.account_type.size = 1
+
+-- Display: Account Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.account_type.labels = {
+  [1] = "Account Type: Client (1)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.account_type.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.account_type.labels[value] or "Account Type: Unknown("..value..")"
+end
+
+-- Dissect: Account Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.account_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.account_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.account_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.account_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- App Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id = {}
+
+-- Size: App Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.size = 1
+
+-- Display: App Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.labels = {
+  [0] = "App Id: System Suspended Unknown Instrument (0)",
+  [1] = "App Id: Partition 1 (1)",
+  [2] = "App Id: Partition 2 (2)",
+  [3] = "App Id: Partition 3 (3)",
+  [4] = "App Id: Partition 4 (4)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.labels[value] or "App Id: Unknown("..value..")"
+end
+
+-- Dissect: App Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.app_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- App Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_status = {}
+
+-- Size: App Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_status.size = 1
+
+-- Display: App Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_status.labels = {
+  [1] = "App Status: Recovery Service Resumed (1)",
+  [2] = "App Status: Recovery Service Not Available (2)",
+  [3] = "App Status: Realtime Channel To Indicate Service Non Availability Of A Partition Due To Order Cache Outage (3)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_status.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_status.labels[value] or "App Status: Unknown("..value..")"
+end
+
+-- Dissect: App Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.app_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auto Cancel
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_cancel = {}
+
+-- Size: Auto Cancel
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_cancel.size = 1
+
+-- Display: Auto Cancel
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_cancel.labels = {
+  [0] = "Auto Cancel: Do Not Cancel (0)",
+  [1] = "Auto Cancel: Conform To Users Configuration (1)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_cancel.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_cancel.labels[value] or "Auto Cancel: Unknown("..value..")"
+end
+
+-- Dissect: Auto Cancel
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_cancel.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_cancel.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_cancel.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.auto_cancel, range, value, display)
+
+  return offset + length, value
+end
+
+-- Auto Rfq Exec Strategy
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_rfq_exec_strategy = {}
+
+-- Size: Auto Rfq Exec Strategy
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_rfq_exec_strategy.size = 1
+
+-- Display: Auto Rfq Exec Strategy
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_rfq_exec_strategy.labels = {
+  [1] = "Auto Rfq Exec Strategy: Sub Lis Auction (1)",
+  [4] = "Auto Rfq Exec Strategy: Lis Winner Takes All (4)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_rfq_exec_strategy.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_rfq_exec_strategy.labels[value] or "Auto Rfq Exec Strategy: Unknown("..value..")"
+end
+
+-- Dissect: Auto Rfq Exec Strategy
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_rfq_exec_strategy.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_rfq_exec_strategy.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_rfq_exec_strategy.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.auto_rfq_exec_strategy, range, value, display)
+
+  return offset + length, value
+end
+
+-- Avg Px
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.avg_px = {}
+
+-- Size: Avg Px
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.avg_px.size = 8
+
+-- Display: Avg Px
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.avg_px.display = function(value)
+  return "Avg Px: "..value
+end
+
+-- Translate: Avg Px
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.avg_px.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Avg Px
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.avg_px.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.avg_px.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.avg_px.translate(raw)
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.avg_px.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.avg_px, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id = {}
+
+-- Size: Bid Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.size = 12
+
+-- Display: Bid Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Bid Id: No Value"
+  end
+
+  return "Bid Id: "..value
+end
+
+-- Dissect: Bid Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.bid_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_price = {}
+
+-- Size: Bid Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_price.size = 8
+
+-- Display: Bid Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_price.display = function(value)
+  return "Bid Price: "..value
+end
+
+-- Translate: Bid Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Bid Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_price.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_price.translate(raw)
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Bid Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_quantity = {}
+
+-- Size: Bid Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_quantity.size = 4
+
+-- Display: Bid Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_quantity.display = function(value)
+  return "Bid Quantity: "..value
+end
+
+-- Dissect: Bid Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.bid_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Capacity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity = {}
+
+-- Size: Capacity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.size = 1
+
+-- Display: Capacity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.labels = {
+  [1] = "Capacity: Matched Principal Mtch (1)",
+  [2] = "Capacity: Dealing On Own Account Deal (2)",
+  [3] = "Capacity: Any Other Trading Capacity Aotc (3)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.labels[value] or "Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Capacity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Clearing Account
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account = {}
+
+-- Size: Clearing Account
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.size = 1
+
+-- Display: Clearing Account
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.labels = {
+  [1] = "Clearing Account: Client (1)",
+  [3] = "Clearing Account: House (3)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.labels[value] or "Clearing Account: Unknown("..value..")"
+end
+
+-- Dissect: Clearing Account
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.clearing_account, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id = {}
+
+-- Size: Client Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.size = 4
+
+-- Display: Client Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.labels = {
+  [0] = "Client Id: None (0)",
+  [1] = "Client Id: Aggr (1)",
+  [2] = "Client Id: Pnal (2)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.labels[value] or "Client Id: Unknown("..value..")"
+end
+
+-- Dissect: Client Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.client_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Client Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id = {}
+
+-- Size: Client Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.size = 20
+
+-- Display: Client Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Client Order Id: No Value"
+  end
+
+  return "Client Order Id: "..value
+end
+
+-- Dissect: Client Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.client_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Firm
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_firm = {}
+
+-- Size: Contra Firm
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_firm.size = 11
+
+-- Display: Contra Firm
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Firm: No Value"
+  end
+
+  return "Contra Firm: "..value
+end
+
+-- Dissect: Contra Firm
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_firm.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_firm.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.contra_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Order Book
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_order_book = {}
+
+-- Size: Contra Order Book
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_order_book.size = 1
+
+-- Display: Contra Order Book
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_order_book.labels = {
+  [1] = "Contra Order Book: Regular (1)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_order_book.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_order_book.labels[value] or "Contra Order Book: Unknown("..value..")"
+end
+
+-- Dissect: Contra Order Book
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_order_book.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_order_book.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_order_book.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.contra_order_book, range, value, display)
+
+  return offset + length, value
+end
+
+-- Contra Trader
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_trader = {}
+
+-- Size: Contra Trader
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_trader.size = 11
+
+-- Display: Contra Trader
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_trader.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Contra Trader: No Value"
+  end
+
+  return "Contra Trader: "..value
+end
+
+-- Dissect: Contra Trader
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_trader.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_trader.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.contra_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Counterparty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.counterparty = {}
+
+-- Size: Counterparty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.counterparty.size = 11
+
+-- Display: Counterparty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.counterparty.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Counterparty: No Value"
+  end
+
+  return "Counterparty: "..value
+end
+
+-- Dissect: Counterparty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.counterparty.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.counterparty.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.counterparty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.counterparty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Display Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.display_qty = {}
+
+-- Size: Display Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.display_qty.size = 4
+
+-- Display: Display Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.display_qty.display = function(value)
+  return "Display Qty: "..value
+end
+
+-- Dissect: Display Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.display_qty.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.display_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.display_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.display_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Exec Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.exec_type = {}
+
+-- Size: Exec Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.exec_type.size = 1
+
+-- Display: Exec Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.exec_type.labels = {
+  ["0"] = "Exec Type: New (0)",
+  ["4"] = "Exec Type: Cancelled (4)",
+  ["5"] = "Exec Type: Replaced (5)",
+  ["8"] = "Exec Type: Rejected (8)",
+  ["C"] = "Exec Type: Expired (C)",
+  ["D"] = "Exec Type: Restated (D)",
+  ["F"] = "Exec Type: Trade (F)",
+  ["H"] = "Exec Type: Trade Cancel (H)",
+  ["9"] = "Exec Type: Suspended (9)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.exec_type.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.exec_type.labels[value] or "Exec Type: Unknown("..value..")"
+end
+
+-- Dissect: Exec Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.exec_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.exec_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.exec_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.exec_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price = {}
+
+-- Size: Executed Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.size = 8
+
+-- Display: Executed Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.display = function(value)
+  return "Executed Price: "..value
+end
+
+-- Translate: Executed Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Executed Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.translate(raw)
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.executed_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_qty = {}
+
+-- Size: Executed Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_qty.size = 4
+
+-- Display: Executed Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_qty.display = function(value)
+  return "Executed Qty: "..value
+end
+
+-- Dissect: Executed Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_qty.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.executed_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executed Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_quantity = {}
+
+-- Size: Executed Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_quantity.size = 4
+
+-- Display: Executed Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_quantity.display = function(value)
+  return "Executed Quantity: "..value
+end
+
+-- Dissect: Executed Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.executed_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Executing Trader
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader = {}
+
+-- Size: Executing Trader
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.size = 4
+
+-- Display: Executing Trader
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.labels = {
+  [3] = "Executing Trader: Client (3)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.labels[value] or "Executing Trader: Unknown("..value..")"
+end
+
+-- Dissect: Executing Trader
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.executing_trader, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_id = {}
+
+-- Size: Execution Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_id.size = 12
+
+-- Display: Execution Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Execution Id: No Value"
+  end
+
+  return "Execution Id: "..value
+end
+
+-- Dissect: Execution Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Report Order Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_order_status = {}
+
+-- Size: Execution Report Order Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_order_status.size = 1
+
+-- Display: Execution Report Order Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_order_status.labels = {
+  [0] = "Execution Report Order Status: New (0)",
+  [1] = "Execution Report Order Status: Partially Filled (1)",
+  [2] = "Execution Report Order Status: Filled (2)",
+  [4] = "Execution Report Order Status: Cancelled (4)",
+  [6] = "Execution Report Order Status: Expired (6)",
+  [8] = "Execution Report Order Status: Rejected (8)",
+  [9] = "Execution Report Order Status: Suspended (9)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_order_status.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_order_status.labels[value] or "Execution Report Order Status: Unknown("..value..")"
+end
+
+-- Dissect: Execution Report Order Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_order_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_order_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_order_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_report_order_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Report Pegged Exec Inst
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_pegged_exec_inst = {}
+
+-- Size: Execution Report Pegged Exec Inst
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_pegged_exec_inst.size = 1
+
+-- Display: Execution Report Pegged Exec Inst
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_pegged_exec_inst.labels = {
+  [1] = "Execution Report Pegged Exec Inst: Permissioned For Execution Against Mid Priced Pegged Orders (1)",
+  [2] = "Execution Report Pegged Exec Inst: Not Permissioned For Execution Against Mid Priced Pegged Orders (2)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_pegged_exec_inst.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_pegged_exec_inst.labels[value] or "Execution Report Pegged Exec Inst: Unknown("..value..")"
+end
+
+-- Dissect: Execution Report Pegged Exec Inst
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_pegged_exec_inst.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_pegged_exec_inst.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_pegged_exec_inst.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_report_pegged_exec_inst, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Report Ref Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_ref_id = {}
+
+-- Size: Execution Report Ref Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_ref_id.size = 12
+
+-- Display: Execution Report Ref Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_ref_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Execution Report Ref Id: No Value"
+  end
+
+  return "Execution Report Ref Id: "..value
+end
+
+-- Dissect: Execution Report Ref Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_ref_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_ref_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_ref_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_report_ref_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Execution Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_type = {}
+
+-- Size: Execution Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_type.size = 1
+
+-- Display: Execution Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_type.labels = {
+  ["4"] = "Execution Type: Cancelled (4)",
+  ["C"] = "Execution Type: Expired (C)",
+  ["D"] = "Execution Type: Restated (D)",
+  ["F"] = "Execution Type: Trade (F)",
+  ["H"] = "Execution Type: Trade Cancel (H)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_type.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_type.labels[value] or "Execution Type: Unknown("..value..")"
+end
+
+-- Dissect: Execution Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Expire Time
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time = {}
+
+-- Size: Expire Time
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time.size = 4
+
+-- Dissect: Expire Time
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.expire_time
+  if lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.timestamp_format == 3 then field = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.expire_time_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Expire Time Milliseconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time_milliseconds = {}
+
+-- Size: Expire Time Milliseconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time_milliseconds.size = 4
+
+-- Display: Expire Time Milliseconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time_milliseconds.display = function(value)
+  return "Expire Time Milliseconds: "..value
+end
+
+-- Dissect: Expire Time Milliseconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time_milliseconds.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time_milliseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time_milliseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.expire_time_milliseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Fourth Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fourth_reserved_8 = {}
+
+-- Size: Fourth Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fourth_reserved_8.size = 8
+
+-- Display: Fourth Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fourth_reserved_8.display = function(value)
+  return "Fourth Reserved 8: "..value
+end
+
+-- Dissect: Fourth Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fourth_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fourth_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fourth_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.fourth_reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Instrument Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id = {}
+
+-- Size: Instrument Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.size = 4
+
+-- Display: Instrument Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.display = function(value)
+  return "Instrument Id: "..value
+end
+
+-- Dissect: Instrument Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Investment Decision Maker
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker = {}
+
+-- Size: Investment Decision Maker
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.size = 4
+
+-- Display: Investment Decision Maker
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.labels = {
+  [0] = "Investment Decision Maker: None (0)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.labels[value] or "Investment Decision Maker: Unknown("..value..")"
+end
+
+-- Dissect: Investment Decision Maker
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.investment_decision_maker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Market
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market = {}
+
+-- Size: Last Market
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.size = 1
+
+-- Display: Last Market
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.labels = {
+  [21] = "Last Market: Xlon On Exchange Lse Rm (21)",
+  [22] = "Last Market: Xlom On Exchange Non Aim Mtf (22)",
+  [23] = "Last Market: Aimx On Exchange Aim Mtf (23)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.labels[value] or "Last Market: Unknown("..value..")"
+end
+
+-- Dissect: Last Market
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.last_market, range, value, display)
+
+  return offset + length, value
+end
+
+-- Last Msg Seq Num
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_msg_seq_num = {}
+
+-- Size: Last Msg Seq Num
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_msg_seq_num.size = 4
+
+-- Display: Last Msg Seq Num
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_msg_seq_num.display = function(value)
+  return "Last Msg Seq Num: "..value
+end
+
+-- Dissect: Last Msg Seq Num
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_msg_seq_num.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_msg_seq_num.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_msg_seq_num.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.last_msg_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_qty = {}
+
+-- Size: Leaves Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_qty.size = 4
+
+-- Display: Leaves Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_qty.display = function(value)
+  return "Leaves Qty: "..value
+end
+
+-- Dissect: Leaves Qty
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_qty.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_qty.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_qty.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.leaves_qty, range, value, display)
+
+  return offset + length, value
+end
+
+-- Leaves Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_quantity = {}
+
+-- Size: Leaves Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_quantity.size = 4
+
+-- Display: Leaves Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_quantity.display = function(value)
+  return "Leaves Quantity: "..value
+end
+
+-- Dissect: Leaves Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.leaves_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Limit Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.limit_price = {}
+
+-- Size: Limit Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.limit_price.size = 8
+
+-- Display: Limit Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.limit_price.display = function(value)
+  return "Limit Price: "..value
+end
+
+-- Translate: Limit Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.limit_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Limit Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.limit_price.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.limit_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.limit_price.translate(raw)
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.limit_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.limit_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Maker
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker = {}
+
+-- Size: Market Maker
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker.size = 11
+
+-- Display: Market Maker
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Maker: No Value"
+  end
+
+  return "Market Maker: "..value
+end
+
+-- Dissect: Market Maker
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.market_maker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Maker Firm
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_firm = {}
+
+-- Size: Market Maker Firm
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_firm.size = 11
+
+-- Display: Market Maker Firm
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_firm.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Maker Firm: No Value"
+  end
+
+  return "Market Maker Firm: "..value
+end
+
+-- Dissect: Market Maker Firm
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_firm.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_firm.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_firm.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.market_maker_firm, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Maker Rank
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_rank = {}
+
+-- Size: Market Maker Rank
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_rank.size = 1
+
+-- Display: Market Maker Rank
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_rank.display = function(value)
+  return "Market Maker Rank: "..value
+end
+
+-- Dissect: Market Maker Rank
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_rank.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_rank.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_rank.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.market_maker_rank, range, value, display)
+
+  return offset + length, value
+end
+
+-- Market Makers
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers = {}
+
+-- Size: Market Makers
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.size = 60
+
+-- Display: Market Makers
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Market Makers: No Value"
+  end
+
+  return "Market Makers: "..value
+end
+
+-- Dissect: Market Makers
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.market_makers, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Cancel Reject Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_reject_reason = {}
+
+-- Size: Mass Cancel Reject Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_reject_reason.size = 4
+
+-- Display: Mass Cancel Reject Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_reject_reason.display = function(value)
+  return "Mass Cancel Reject Reason: "..value
+end
+
+-- Dissect: Mass Cancel Reject Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_reject_reason.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.mass_cancel_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Mass Cancel Response
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_response = {}
+
+-- Size: Mass Cancel Response
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_response.size = 1
+
+-- Display: Mass Cancel Response
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_response.labels = {
+  [0] = "Mass Cancel Response: Rejected (0)",
+  [7] = "Mass Cancel Response: Accepted (7)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_response.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_response.labels[value] or "Mass Cancel Response: Unknown("..value..")"
+end
+
+-- Dissect: Mass Cancel Response
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_response.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_response.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_response.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.mass_cancel_response, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Length
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_length = {}
+
+-- Size: Message Length
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_length.size = 2
+
+-- Display: Message Length
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_length.display = function(value)
+  return "Message Length: "..value
+end
+
+-- Dissect: Message Length
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_length.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_length.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_length.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.message_length, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_type = {}
+
+-- Size: Message Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_type.size = 1
+
+-- Display: Message Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_type.labels = {
+  ["A"] = "Message Type: Logon Message (A)",
+  ["B"] = "Message Type: Logon Reply Message (B)",
+  ["5"] = "Message Type: Logout Message (5)",
+  ["0"] = "Message Type: Heartbeat Message (0)",
+  ["M"] = "Message Type: Missed Message Request Message (M)",
+  ["N"] = "Message Type: Missed Message Request Ack Message (N)",
+  ["P"] = "Message Type: Missed Message Report Message (P)",
+  ["3"] = "Message Type: Reject Message (3)",
+  ["n"] = "Message Type: System Status Message (n)",
+  ["8"] = "Message Type: Execution Report Message (8)",
+  ["r"] = "Message Type: Order Mass Cancel Report Message (r)",
+  ["a"] = "Message Type: Quote Request Message (a)",
+  ["c"] = "Message Type: Quote Status Report Message (c)",
+  ["b"] = "Message Type: Quote Request Reject Message (b)",
+  ["d"] = "Message Type: Rfq Quote Message (d)",
+  ["e"] = "Message Type: Quote Ack Message (e)",
+  ["f"] = "Message Type: Quote Response Message (f)",
+  ["g"] = "Message Type: Rfq Execution Report Message (g)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_type.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_type.labels[value] or "Message Type: Unknown("..value..")"
+end
+
+-- Dissect: Message Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Message Version
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_version = {}
+
+-- Size: Message Version
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_version.size = 1
+
+-- Display: Message Version
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_version.display = function(value)
+  return "Message Version: "..value
+end
+
+-- Dissect: Message Version
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_version.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_version.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_version.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.message_version, range, value, display)
+
+  return offset + length, value
+end
+
+-- Minimum Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.minimum_quantity = {}
+
+-- Size: Minimum Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.minimum_quantity.size = 4
+
+-- Display: Minimum Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.minimum_quantity.display = function(value)
+  return "Minimum Quantity: "..value
+end
+
+-- Dissect: Minimum Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.minimum_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.minimum_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.minimum_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.minimum_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Missed Message Report Response Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_response_type = {}
+
+-- Size: Missed Message Report Response Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_response_type.size = 1
+
+-- Display: Missed Message Report Response Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_response_type.labels = {
+  [0] = "Missed Message Report Response Type: Download Complete (0)",
+  [1] = "Missed Message Report Response Type: Message Limit Reached (1)",
+  [3] = "Missed Message Report Response Type: Service Unavailable (3)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_response_type.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_response_type.labels[value] or "Missed Message Report Response Type: Unknown("..value..")"
+end
+
+-- Dissect: Missed Message Report Response Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_response_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_response_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_response_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.missed_message_report_response_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Missed Message Request Ack Response Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_response_type = {}
+
+-- Size: Missed Message Request Ack Response Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_response_type.size = 1
+
+-- Display: Missed Message Request Ack Response Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_response_type.labels = {
+  [0] = "Missed Message Request Ack Response Type: Successful (0)",
+  [1] = "Missed Message Request Ack Response Type: Recovery Request Limit Reached (1)",
+  [2] = "Missed Message Request Ack Response Type: Invalid App Id (2)",
+  [3] = "Missed Message Request Ack Response Type: Service Unavailable (3)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_response_type.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_response_type.labels[value] or "Missed Message Request Ack Response Type: Unknown("..value..")"
+end
+
+-- Dissect: Missed Message Request Ack Response Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_response_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_response_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_response_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.missed_message_request_ack_response_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Nanoseconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.nanoseconds = {}
+
+-- Size: Nanoseconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.nanoseconds.size = 4
+
+-- Display: Nanoseconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.nanoseconds.display = function(value)
+  return "Nanoseconds: "..value
+end
+
+-- Dissect: Nanoseconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.nanoseconds.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.nanoseconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.nanoseconds.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.nanoseconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- New Password
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.new_password = {}
+
+-- Size: New Password
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.new_password.size = 25
+
+-- Display: New Password
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.new_password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "New Password: No Value"
+  end
+
+  return "New Password: "..value
+end
+
+-- Dissect: New Password
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.new_password.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.new_password.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.new_password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.new_password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Num Of Competitors
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.num_of_competitors = {}
+
+-- Size: Num Of Competitors
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.num_of_competitors.size = 1
+
+-- Display: Num Of Competitors
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.num_of_competitors.display = function(value)
+  return "Num Of Competitors: "..value
+end
+
+-- Dissect: Num Of Competitors
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.num_of_competitors.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.num_of_competitors.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.num_of_competitors.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.num_of_competitors, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id = {}
+
+-- Size: Offer Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.size = 12
+
+-- Display: Offer Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Offer Id: No Value"
+  end
+
+  return "Offer Id: "..value
+end
+
+-- Dissect: Offer Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.offer_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_price = {}
+
+-- Size: Offer Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_price.size = 8
+
+-- Display: Offer Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_price.display = function(value)
+  return "Offer Price: "..value
+end
+
+-- Translate: Offer Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Offer Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_price.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_price.translate(raw)
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Offer Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_quantity = {}
+
+-- Size: Offer Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_quantity.size = 4
+
+-- Display: Offer Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_quantity.display = function(value)
+  return "Offer Quantity: "..value
+end
+
+-- Dissect: Offer Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.offer_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Book
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book = {}
+
+-- Size: Order Book
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.size = 1
+
+-- Display: Order Book
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.labels = {
+  [11] = "Order Book: Rfq Trades (11)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.labels[value] or "Order Book: Unknown("..value..")"
+end
+
+-- Dissect: Order Book
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_book, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Capacity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_capacity = {}
+
+-- Size: Order Capacity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_capacity.size = 1
+
+-- Display: Order Capacity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_capacity.labels = {
+  [1] = "Order Capacity: Matched Principal Mtch (1)",
+  [2] = "Order Capacity: Dealing On Own Account Deal (2)",
+  [3] = "Order Capacity: Any Other Trading Capacity Aotc (3)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_capacity.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_capacity.labels[value] or "Order Capacity: Unknown("..value..")"
+end
+
+-- Dissect: Order Capacity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_capacity.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_capacity.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_capacity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_capacity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_id = {}
+
+-- Size: Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_id.size = 12
+
+-- Display: Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Order Id: No Value"
+  end
+
+  return "Order Id: "..value
+end
+
+-- Dissect: Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity = {}
+
+-- Size: Order Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.size = 4
+
+-- Display: Order Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.display = function(value)
+  return "Order Quantity: "..value
+end
+
+-- Dissect: Order Quantity
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_quantity, range, value, display)
+
+  return offset + length, value
+end
+
+-- Order Reject Code
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_reject_code = {}
+
+-- Size: Order Reject Code
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_reject_code.size = 4
+
+-- Display: Order Reject Code
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_reject_code.display = function(value)
+  return "Order Reject Code: "..value
+end
+
+-- Dissect: Order Reject Code
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_reject_code.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Owner Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.owner_type = {}
+
+-- Size: Owner Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.owner_type.size = 1
+
+-- Display: Owner Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.owner_type.labels = {
+  [0] = "Owner Type: Default (0)",
+  [1] = "Owner Type: Retail Investor (1)",
+  [2] = "Owner Type: Retail Liquidity Provider (2)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.owner_type.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.owner_type.labels[value] or "Owner Type: Unknown("..value..")"
+end
+
+-- Dissect: Owner Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.owner_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.owner_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.owner_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.owner_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Partition Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id = {}
+
+-- Size: Partition Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.size = 1
+
+-- Display: Partition Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.display = function(value)
+  return "Partition Id: "..value
+end
+
+-- Dissect: Partition Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.partition_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password = {}
+
+-- Size: Password
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password.size = 25
+
+-- Display: Password
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
+  return "Password: "..value
+end
+
+-- Dissect: Password
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Password Expiry Day Count
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password_expiry_day_count = {}
+
+-- Size: Password Expiry Day Count
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password_expiry_day_count.size = 30
+
+-- Display: Password Expiry Day Count
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password_expiry_day_count.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password Expiry Day Count: No Value"
+  end
+
+  return "Password Expiry Day Count: "..value
+end
+
+-- Dissect: Password Expiry Day Count
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password_expiry_day_count.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password_expiry_day_count.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password_expiry_day_count.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.password_expiry_day_count, range, value, display)
+
+  return offset + length, value
+end
+
+-- Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.price = {}
+
+-- Size: Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.price.size = 8
+
+-- Display: Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.price.display = function(value)
+  return "Price: "..value
+end
+
+-- Translate: Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.price.translate = function(raw)
+  return raw:tonumber()/100000000
+end
+
+-- Dissect: Price
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.price.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.price.size
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.price.translate(raw)
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.price.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Private Quote
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.private_quote = {}
+
+-- Size: Private Quote
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.private_quote.size = 1
+
+-- Display: Private Quote
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.private_quote.labels = {
+  [2] = "Private Quote: Private Quote (2)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.private_quote.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.private_quote.labels[value] or "Private Quote: Unknown("..value..")"
+end
+
+-- Dissect: Private Quote
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.private_quote.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.private_quote.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.private_quote.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.private_quote, range, value, display)
+
+  return offset + length, value
+end
+
+-- Public Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.public_order_id = {}
+
+-- Size: Public Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.public_order_id.size = 12
+
+-- Display: Public Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.public_order_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Public Order Id: No Value"
+  end
+
+  return "Public Order Id: "..value
+end
+
+-- Dissect: Public Order Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.public_order_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.public_order_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.public_order_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.public_order_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Ack Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_status = {}
+
+-- Size: Quote Ack Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_status.size = 1
+
+-- Display: Quote Ack Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_status.labels = {
+  [1] = "Quote Ack Status: Accepted (1)",
+  [2] = "Quote Ack Status: Rejected (2)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_status.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_status.labels[value] or "Quote Ack Status: Unknown("..value..")"
+end
+
+-- Dissect: Quote Ack Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_ack_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Msg Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id = {}
+
+-- Size: Quote Msg Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.size = 20
+
+-- Display: Quote Msg Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Msg Id: No Value"
+  end
+
+  return "Quote Msg Id: "..value
+end
+
+-- Dissect: Quote Msg Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_msg_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Req Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id = {}
+
+-- Size: Quote Req Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.size = 10
+
+-- Display: Quote Req Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Req Id: No Value"
+  end
+
+  return "Quote Req Id: "..value
+end
+
+-- Dissect: Quote Req Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_req_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Request Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_type = {}
+
+-- Size: Quote Request Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_type.size = 1
+
+-- Display: Quote Request Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_type.labels = {
+  [0] = "Quote Request Type: Manual Named If Any Market Maker I Ds Are Specified Else Anonymous (0)",
+  [1] = "Quote Request Type: Automatic Named If Any Market Maker I Ds Are Specified Else Anonymous (1)",
+  [2] = "Quote Request Type: Manual Named (2)",
+  [3] = "Quote Request Type: Manual Anonymous (3)",
+  [4] = "Quote Request Type: Automatic Named (4)",
+  [5] = "Quote Request Type: Automatic Anonymous (5)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_type.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_type.labels[value] or "Quote Request Type: Unknown("..value..")"
+end
+
+-- Dissect: Quote Request Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_request_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Resp Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_resp_type = {}
+
+-- Size: Quote Resp Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_resp_type.size = 1
+
+-- Display: Quote Resp Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_resp_type.labels = {
+  [1] = "Quote Resp Type: Hit Lift (1)",
+  [3] = "Quote Resp Type: Expired (3)",
+  [7] = "Quote Resp Type: End Trade (7)",
+  [8] = "Quote Resp Type: Timed Out (8)",
+  [11] = "Quote Resp Type: Cancelled (11)",
+  [100] = "Quote Resp Type: Replace (100)",
+  [101] = "Quote Resp Type: Executable (101)",
+  [102] = "Quote Resp Type: Make Rfq Quotes Public (102)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_resp_type.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_resp_type.labels[value] or "Quote Resp Type: Unknown("..value..")"
+end
+
+-- Dissect: Quote Resp Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_resp_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_resp_type.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_resp_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_resp_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Quote Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status = {}
+
+-- Size: Quote Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status.size = 1
+
+-- Display: Quote Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status.labels = {
+  [1] = "Quote Status: Accepted (1)",
+  [2] = "Quote Status: Rejected (2)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status.labels[value] or "Quote Status: Unknown("..value..")"
+end
+
+-- Dissect: Quote Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reason = {}
+
+-- Size: Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reason.size = 20
+
+-- Display: Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reason: No Value"
+  end
+
+  return "Reason: "..value
+end
+
+-- Dissect: Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reason.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reason.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Code
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code = {}
+
+-- Size: Reject Code
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.size = 4
+
+-- Display: Reject Code
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.display = function(value)
+  return "Reject Code: "..value
+end
+
+-- Dissect: Reject Code
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reject_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reject Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_reason = {}
+
+-- Size: Reject Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_reason.size = 30
+
+-- Display: Reject Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_reason.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reject Reason: No Value"
+  end
+
+  return "Reject Reason: "..value
+end
+
+-- Dissect: Reject Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_reason.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_reason.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rejected Message Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rejected_message_type = {}
+
+-- Size: Rejected Message Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rejected_message_type.size = 1
+
+-- Display: Rejected Message Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rejected_message_type.display = function(value)
+  return "Rejected Message Type: "..value
+end
+
+-- Dissect: Rejected Message Type
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rejected_message_type.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rejected_message_type.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rejected_message_type.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rejected_message_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Reserved 1
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_1 = {}
+
+-- Size: Reserved 1
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_1.size = 1
+
+-- Display: Reserved 1
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_1.display = function(value)
+  return "Reserved 1: "..value
+end
+
+-- Dissect: Reserved 1
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_1.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_1.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_1.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_1, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 10
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_10 = {}
+
+-- Size: Reserved 10
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_10.size = 10
+
+-- Display: Reserved 10
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_10.display = function(value)
+  return "Reserved 10: "..value
+end
+
+-- Dissect: Reserved 10
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_10.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_10.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_10.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_10, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 4
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_4 = {}
+
+-- Size: Reserved 4
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_4.size = 4
+
+-- Display: Reserved 4
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_4.display = function(value)
+  return "Reserved 4: "..value
+end
+
+-- Dissect: Reserved 4
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_4.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_4.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_4.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_4, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 7
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7 = {}
+
+-- Size: Reserved 7
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.size = 7
+
+-- Display: Reserved 7
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.display = function(value)
+  return "Reserved 7: "..value
+end
+
+-- Dissect: Reserved 7
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_7, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8 = {}
+
+-- Size: Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.size = 8
+
+-- Display: Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.display = function(value)
+  return "Reserved 8: "..value
+end
+
+-- Dissect: Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Restatement Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.restatement_reason = {}
+
+-- Size: Restatement Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.restatement_reason.size = 1
+
+-- Display: Restatement Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.restatement_reason.display = function(value)
+  return "Restatement Reason: "..value
+end
+
+-- Dissect: Restatement Reason
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.restatement_reason.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.restatement_reason.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.restatement_reason.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.restatement_reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq Disclose Side
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_disclose_side = {}
+
+-- Size: Rfq Disclose Side
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_disclose_side.size = 1
+
+-- Display: Rfq Disclose Side
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_disclose_side.labels = {
+  [0] = "Rfq Disclose Side: Do Not Disclose (0)",
+  [1] = "Rfq Disclose Side: Disclose (1)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_disclose_side.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_disclose_side.labels[value] or "Rfq Disclose Side: Unknown("..value..")"
+end
+
+-- Dissect: Rfq Disclose Side
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_disclose_side.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_disclose_side.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_disclose_side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_disclose_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq Execution Delay
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_delay = {}
+
+-- Size: Rfq Execution Delay
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_delay.size = 1
+
+-- Display: Rfq Execution Delay
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_delay.display = function(value)
+  return "Rfq Execution Delay: "..value
+end
+
+-- Dissect: Rfq Execution Delay
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_delay.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_delay.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_delay.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_execution_delay, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq Execution Report Order Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_order_status = {}
+
+-- Size: Rfq Execution Report Order Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_order_status.size = 1
+
+-- Display: Rfq Execution Report Order Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_order_status.labels = {
+  [1] = "Rfq Execution Report Order Status: P Fill (1)",
+  [2] = "Rfq Execution Report Order Status: Fill (2)",
+  [4] = "Rfq Execution Report Order Status: Cancelled (4)",
+  [6] = "Rfq Execution Report Order Status: Expired (6)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_order_status.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_order_status.labels[value] or "Rfq Execution Report Order Status: Unknown("..value..")"
+end
+
+-- Dissect: Rfq Execution Report Order Status
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_order_status.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_order_status.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_order_status.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_execution_report_order_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id = {}
+
+-- Size: Rfq Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.size = 10
+
+-- Display: Rfq Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Rfq Id: No Value"
+  end
+
+  return "Rfq Id: "..value
+end
+
+-- Dissect: Rfq Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Rfq Min Quotes
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_min_quotes = {}
+
+-- Size: Rfq Min Quotes
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_min_quotes.size = 1
+
+-- Display: Rfq Min Quotes
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_min_quotes.display = function(value)
+  return "Rfq Min Quotes: "..value
+end
+
+-- Dissect: Rfq Min Quotes
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_min_quotes.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_min_quotes.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_min_quotes.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_min_quotes, range, value, display)
+
+  return offset + length, value
+end
+
+-- Second Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.second_reserved_8 = {}
+
+-- Size: Second Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.second_reserved_8.size = 8
+
+-- Display: Second Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.second_reserved_8.display = function(value)
+  return "Second Reserved 8: "..value
+end
+
+-- Dissect: Second Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.second_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.second_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.second_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.second_reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Seconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.seconds = {}
+
+-- Size: Seconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.seconds.size = 4
+
+-- Dissect: Seconds
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.seconds.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.seconds.size
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+
+  -- A field's absolute time base is fixed when it is declared, so the
+  -- protocol declares one per base and the preference picks between them
+  local field = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.seconds
+  if lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.timestamp_format == 3 then field = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.seconds_utc end
+
+  local seconds = value
+  local nanos = 0
+  parent:add(field, range, NSTime.new(seconds, nanos))
+
+  return offset + length, value
+end
+
+-- Sequence No
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_no = {}
+
+-- Size: Sequence No
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_no.size = 4
+
+-- Display: Sequence No
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_no.display = function(value)
+  return "Sequence No: "..value
+end
+
+-- Dissect: Sequence No
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_no.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_no.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_no.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.sequence_no, range, value, display)
+
+  return offset + length, value
+end
+
+-- Sequence Number
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number = {}
+
+-- Size: Sequence Number
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.size = 4
+
+-- Display: Sequence Number
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.display = function(value)
+  return "Sequence Number: "..value
+end
+
+-- Dissect: Sequence Number
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Side
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side = {}
+
+-- Size: Side
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.size = 1
+
+-- Display: Side
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.labels = {
+  [0] = "Side: None (0)",
+  [1] = "Side: Buy (1)",
+  [2] = "Side: Sell (2)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.labels[value] or "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Start Of Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.start_of_message = {}
+
+-- Size: Start Of Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.start_of_message.size = 1
+
+-- Display: Start Of Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.start_of_message.display = function(value)
+  return "Start Of Message: "..value
+end
+
+-- Dissect: Start Of Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.start_of_message.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.start_of_message.size
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.start_of_message.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.start_of_message, range, value, display)
+
+  return offset + length, value
+end
+
+-- Third Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.third_reserved_8 = {}
+
+-- Size: Third Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.third_reserved_8.size = 8
+
+-- Display: Third Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.third_reserved_8.display = function(value)
+  return "Third Reserved 8: "..value
+end
+
+-- Dissect: Third Reserved 8
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.third_reserved_8.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.third_reserved_8.size
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.third_reserved_8.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.third_reserved_8, range, range:raw(), display)
+
+  return offset + length, value
+end
+
+-- Trade Liquidity Indicator
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_liquidity_indicator = {}
+
+-- Size: Trade Liquidity Indicator
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_liquidity_indicator.size = 1
+
+-- Display: Trade Liquidity Indicator
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_liquidity_indicator.labels = {
+  ["A"] = "Trade Liquidity Indicator: Added Liquidity (A)",
+  ["R"] = "Trade Liquidity Indicator: Removed Liquidity (R)",
+  ["C"] = "Trade Liquidity Indicator: Auction (C)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_liquidity_indicator.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_liquidity_indicator.labels[value] or "Trade Liquidity Indicator: Unknown("..value..")"
+end
+
+-- Dissect: Trade Liquidity Indicator
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_liquidity_indicator.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_liquidity_indicator.size
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_liquidity_indicator.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.trade_liquidity_indicator, range, value, display)
+
+  return offset + length, value
+end
+
+-- Trade Match Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_match_id = {}
+
+-- Size: Trade Match Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_match_id.size = 8
+
+-- Display: Trade Match Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_match_id.display = function(value)
+  return "Trade Match Id: "..value
+end
+
+-- Dissect: Trade Match Id
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_match_id.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_match_id.size
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_match_id.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.trade_match_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Type Of Trade
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.type_of_trade = {}
+
+-- Size: Type Of Trade
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.type_of_trade.size = 1
+
+-- Display: Type Of Trade
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.type_of_trade.labels = {
+  [0] = "Type Of Trade: Visible (0)",
+  [1] = "Type Of Trade: Hidden (1)",
+  [2] = "Type Of Trade: Not Specified For Aggressive Side Auction Trades And Rfq Trades (2)",
+}
+
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.type_of_trade.display = function(value)
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.type_of_trade.labels[value] or "Type Of Trade: Unknown("..value..")"
+end
+
+-- Dissect: Type Of Trade
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.type_of_trade.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.type_of_trade.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.type_of_trade.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.type_of_trade, range, value, display)
+
+  return offset + length, value
+end
+
+-- User Name
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.user_name = {}
+
+-- Size: User Name
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.user_name.size = 25
+
+-- Display: User Name
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.user_name.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "User Name: No Value"
+  end
+
+  return "User Name: "..value
+end
+
+-- Dissect: User Name
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.user_name.dissect = function(buffer, offset, packet, parent)
+  local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.user_name.size
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.user_name.display(value, buffer, offset, packet, parent)
+
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.user_name, range, value, display)
+
+  return offset + length, value
+end
+
+
+-----------------------------------------------------------------------
+-- Dissect Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0
+-----------------------------------------------------------------------
+
+-- Waiver Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags = {}
+
+-- Size: Waiver Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags.size = 1
+
+-- Display: Waiver Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Ilqd flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Ilqd"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Waiver Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags.bits = function(range, value, packet, parent)
+
+  -- Reserved 02: 3 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_02, range, value)
+
+  -- Ilqd: 1 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.ilqd, range, value)
+
+  -- Reserved 47: 4 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_47, range, value)
+end
+
+-- Dissect: Waiver Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags.dissect = function(buffer, offset, packet, parent)
+  local size = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.waiver_flags, range, display)
+
+  if show.structs then
+    lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Transact Time
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time = {}
+
+-- Size: Transact Time
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.seconds.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.nanoseconds.size
+
+-- Display: Transact Time
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.display = function(packet, parent, value)
+  -- Check null value
+  if value == nil then
+    return "No Value"
+
+  end
+
+  -- Parse unix nanosecond timestamp
+  local seconds = (value / UInt64(1000000000)):tonumber()
+  local nanoseconds = (value % UInt64(1000000000)):tonumber()
+
+  local format = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.timestamp_format == 3 and "!%Y-%m-%d %H:%M:%S." or "%Y-%m-%d %H:%M:%S."
+  return os.date(format, seconds)..string.format("%09d", nanoseconds)
+end
+
+-- Dissect Fields: Transact Time
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Seconds: 4 Byte Unsigned Fixed Width Integer
+  index, seconds = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.seconds.dissect(buffer, index, packet, parent)
+
+  -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
+  index, nanoseconds = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.nanoseconds.dissect(buffer, index, packet, parent)
+
+  -- Composite value
+  local transact_time = UInt64.new(seconds) * 1000000000 + nanoseconds
+
+  return index, transact_time
+end
+
+-- Dissect: Transact Time
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- An absolute time item carries its value from the moment it is created,
+    -- so the parts are read here rather than taken from the fields below it
+    local seconds = buffer(offset, 4):le_uint()
+    local nanoseconds = buffer(offset + 4, 4):le_uint()
+    local length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.size
+    -- A field's absolute time base is fixed when it is declared, so the
+    -- protocol declares one per base and the preference picks between them
+    local field = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.transact_time_utc
+    if lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.timestamp_format == 2 then field = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.transact_time end
+    parent = parent:add(field, buffer(offset, length), NSTime.new(seconds, nanoseconds))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.fields(buffer, offset, packet, parent)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Rfq Execution Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_message = {}
+
+-- Size: Rfq Execution Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_type.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_match_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_quantity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.second_reserved_8.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_order_status.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_quantity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.third_reserved_8.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fourth_reserved_8.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_firm.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_ref_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_order_book.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.avg_px.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.size
+
+-- Display: Rfq Execution Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rfq Execution Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Partition Id: UInt8
+  index, partition_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: Int32
+  index, sequence_number = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: String
+  index, execution_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_id.dissect(buffer, index, packet, parent)
+
+  -- Rfq Id: String
+  index, rfq_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: String
+  index, order_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_id.dissect(buffer, index, packet, parent)
+
+  -- Execution Type: Alpha
+  index, execution_type = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_type.dissect(buffer, index, packet, parent)
+
+  -- Trade Match Id: UInt64
+  index, trade_match_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_match_id.dissect(buffer, index, packet, parent)
+
+  -- Side: UInt8
+  index, side = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.dissect(buffer, index, packet, parent)
+
+  -- Executed Quantity: Int32
+  index, executed_quantity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_quantity.dissect(buffer, index, packet, parent)
+
+  -- Executed Price: Price
+  index, executed_price = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: Struct of 2 fields
+  index, transact_time = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Reserved 8: UInt64
+  if show.padding then
+    index, reserved_8 = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.size
+  end
+
+  -- Second Reserved 8: UInt64
+  if show.padding then
+    index, second_reserved_8 = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.second_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.second_reserved_8.size
+  end
+
+  -- Rfq Execution Report Order Status: UInt8
+  index, rfq_execution_report_order_status = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_order_status.dissect(buffer, index, packet, parent)
+
+  -- Leaves Quantity: Int32
+  index, leaves_quantity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_quantity.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Int32
+  index, instrument_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Third Reserved 8: UInt64
+  if show.padding then
+    index, third_reserved_8 = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.third_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.third_reserved_8.size
+  end
+
+  -- Fourth Reserved 8: UInt64
+  if show.padding then
+    index, fourth_reserved_8 = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fourth_reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fourth_reserved_8.size
+  end
+
+  -- Contra Firm: String
+  index, contra_firm = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_firm.dissect(buffer, index, packet, parent)
+
+  -- Capacity: UInt8
+  index, capacity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.dissect(buffer, index, packet, parent)
+
+  -- Clearing Account: UInt8
+  index, clearing_account = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Waiver Flags: Struct of 3 fields
+  index, waiver_flags = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags.dissect(buffer, index, packet, parent)
+
+  -- Execution Report Ref Id: String
+  index, execution_report_ref_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_ref_id.dissect(buffer, index, packet, parent)
+
+  -- Contra Order Book: UInt8
+  index, contra_order_book = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_order_book.dissect(buffer, index, packet, parent)
+
+  -- Avg Px: Price
+  index, avg_px = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.avg_px.dissect(buffer, index, packet, parent)
+
+  -- Last Market: UInt8
+  index, last_market = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.dissect(buffer, index, packet, parent)
+
+  -- Reserved 7: String
+  if show.padding then
+    index, reserved_7 = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.size
+  end
+
+  return index
+end
+
+-- Dissect: Rfq Execution Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_execution_report_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Response Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_response_message = {}
+
+-- Size: Quote Response Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_response_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_resp_type.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.limit_price.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.size
+
+-- Display: Quote Response Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_response_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Response Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_response_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Partition Id: UInt8
+  index, partition_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: Int32
+  index, sequence_number = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Quote Msg Id: String
+  index, quote_msg_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Rfq Id: String
+  index, rfq_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Resp Type: UInt8
+  index, quote_resp_type = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_resp_type.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Int32
+  index, instrument_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Side: UInt8
+  index, side = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.dissect(buffer, index, packet, parent)
+
+  -- Order Quantity: Int32
+  index, order_quantity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.dissect(buffer, index, packet, parent)
+
+  -- Limit Price: Price
+  index, limit_price = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.limit_price.dissect(buffer, index, packet, parent)
+
+  -- Order Book: UInt8
+  index, order_book = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.dissect(buffer, index, packet, parent)
+
+  -- Bid Id: String
+  index, bid_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.dissect(buffer, index, packet, parent)
+
+  -- Offer Id: String
+  index, offer_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.dissect(buffer, index, packet, parent)
+
+  -- Capacity: UInt8
+  index, capacity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.dissect(buffer, index, packet, parent)
+
+  -- Clearing Account: UInt8
+  index, clearing_account = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Reserved 8: UInt64
+  if show.padding then
+    index, reserved_8 = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_8.size
+  end
+
+  return index
+end
+
+-- Dissect: Quote Response Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_response_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_response_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_response_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_response_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_response_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Ack Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_message = {}
+
+-- Size: Quote Ack Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_status.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.size
+
+-- Display: Quote Ack Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Ack Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Partition Id: UInt8
+  index, partition_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: Int32
+  index, sequence_number = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Quote Msg Id: String
+  index, quote_msg_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Rfq Id: String
+  index, rfq_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.dissect(buffer, index, packet, parent)
+
+  -- Bid Id: String
+  index, bid_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.dissect(buffer, index, packet, parent)
+
+  -- Offer Id: String
+  index, offer_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Ack Status: UInt8
+  index, quote_ack_status = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_status.dissect(buffer, index, packet, parent)
+
+  -- Reject Code: Int32
+  index, reject_code = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.dissect(buffer, index, packet, parent)
+
+  -- Order Book: UInt8
+  index, order_book = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Ack Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_ack_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Party Role Qualifiers
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers = {}
+
+-- Size: Party Role Qualifiers
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.size = 1
+
+-- Display: Party Role Qualifiers
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Client Id Qualifier: 2 Bits
+  flags[#flags + 1] = "Client Id Qualifier: "..bit.rshift(bit.band(value, 0x03), 0)
+  -- Investor Information Qualifier: 2 Bits
+  flags[#flags + 1] = "Investor Information Qualifier: "..bit.rshift(bit.band(value, 0x0C), 2)
+  -- Executing Trader Qualifier: 2 Bits
+  flags[#flags + 1] = "Executing Trader Qualifier: "..bit.rshift(bit.band(value, 0x30), 4)
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Party Role Qualifiers
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.bits = function(range, value, packet, parent)
+
+  -- Client Id Qualifier: 2 Bit Unsigned Fixed Width Integer Enum with 4 values
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.client_id_qualifier, range, value)
+
+  -- Investor Information Qualifier: 2 Bit Unsigned Fixed Width Integer Enum with 4 values
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.investor_information_qualifier, range, value)
+
+  -- Executing Trader Qualifier: 2 Bit Unsigned Fixed Width Integer Enum with 4 values
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.executing_trader_qualifier, range, value)
+
+  -- Reserved 67: 2 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_67, range, value)
+end
+
+-- Dissect: Party Role Qualifiers
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.dissect = function(buffer, offset, packet, parent)
+  local size = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.display(range, value, packet, parent)
+  local element = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.party_role_qualifiers, range, display)
+
+  if show.structs then
+    lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Mi Fid Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags = {}
+
+-- Size: Mi Fid Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.size = 1
+
+-- Display: Mi Fid Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Dea Flag flag set?
+  if bit.band(value, 0x01) ~= 0 then
+    flags[#flags + 1] = "Dea Flag"
+  end
+  -- Is Liquidity Provision flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Liquidity Provision"
+  end
+  -- Is Algo flag set?
+  if bit.band(value, 0x04) ~= 0 then
+    flags[#flags + 1] = "Algo"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Mi Fid Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.bits = function(range, value, packet, parent)
+
+  -- Dea Flag: 1 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.dea_flag, range, value)
+
+  -- Liquidity Provision: 1 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.liquidity_provision, range, value)
+
+  -- Algo: 1 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.algo, range, value)
+
+  -- Reserved 37: 5 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_37, range, value)
+end
+
+-- Dissect: Mi Fid Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.dissect = function(buffer, offset, packet, parent)
+  local size = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.mi_fid_flags, range, display)
+
+  if show.structs then
+    lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Rfq Quote Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_quote_message = {}
+
+-- Size: Rfq Quote Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_quote_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_price.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_quantity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_price.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_quantity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_cancel.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_firm.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.size
+
+-- Display: Rfq Quote Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_quote_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Rfq Quote Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_quote_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Partition Id: UInt8
+  index, partition_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: Int32
+  index, sequence_number = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Quote Msg Id: String
+  index, quote_msg_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Rfq Id: String
+  index, rfq_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Int32
+  index, instrument_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Bid Price: Price
+  index, bid_price = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_price.dissect(buffer, index, packet, parent)
+
+  -- Bid Quantity: Int32
+  index, bid_quantity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_quantity.dissect(buffer, index, packet, parent)
+
+  -- Offer Price: Price
+  index, offer_price = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_price.dissect(buffer, index, packet, parent)
+
+  -- Offer Quantity: Int32
+  index, offer_quantity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_quantity.dissect(buffer, index, packet, parent)
+
+  -- Auto Cancel: UInt8
+  index, auto_cancel = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_cancel.dissect(buffer, index, packet, parent)
+
+  -- Market Maker: String
+  index, market_maker = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker.dissect(buffer, index, packet, parent)
+
+  -- Market Maker Firm: String
+  index, market_maker_firm = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_firm.dissect(buffer, index, packet, parent)
+
+  -- Bid Id: String
+  index, bid_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.dissect(buffer, index, packet, parent)
+
+  -- Offer Id: String
+  index, offer_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.dissect(buffer, index, packet, parent)
+
+  -- Capacity: UInt8
+  index, capacity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.dissect(buffer, index, packet, parent)
+
+  -- Clearing Account: UInt8
+  index, clearing_account = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.clearing_account.dissect(buffer, index, packet, parent)
+
+  -- Client Id: UInt32
+  index, client_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.dissect(buffer, index, packet, parent)
+
+  -- Investment Decision Maker: UInt32
+  index, investment_decision_maker = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: UInt32
+  index, executing_trader = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Mi Fid Flags: Struct of 4 fields
+  index, mi_fid_flags = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.dissect(buffer, index, packet, parent)
+
+  -- Party Role Qualifiers: Struct of 4 fields
+  index, party_role_qualifiers = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Rfq Quote Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_quote_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfq_quote_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_quote_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_quote_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_quote_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Request Reject Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_reject_message = {}
+
+-- Size: Quote Request Reject Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_reject_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_trader.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.size
+
+-- Display: Quote Request Reject Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_reject_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Request Reject Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_reject_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Partition Id: UInt8
+  index, partition_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: Int32
+  index, sequence_number = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id: String
+  index, quote_req_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.dissect(buffer, index, packet, parent)
+
+  -- Reject Code: Int32
+  index, reject_code = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.dissect(buffer, index, packet, parent)
+
+  -- Order Book: UInt8
+  index, order_book = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Int32
+  index, instrument_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Side: UInt8
+  index, side = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.dissect(buffer, index, packet, parent)
+
+  -- Order Quantity: Int32
+  index, order_quantity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.dissect(buffer, index, packet, parent)
+
+  -- Market Makers: String
+  index, market_makers = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.dissect(buffer, index, packet, parent)
+
+  -- Contra Trader: String
+  index, contra_trader = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_trader.dissect(buffer, index, packet, parent)
+
+  -- Rfq Id: String
+  index, rfq_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Request Reject Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_reject_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_request_reject_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_reject_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_reject_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Status Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status_report_message = {}
+
+-- Size: Quote Status Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status_report_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time_milliseconds.size
+
+-- Display: Quote Status Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status_report_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Status Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status_report_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Partition Id: UInt8
+  index, partition_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: Int32
+  index, sequence_number = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Quote Msg Id: String
+  index, quote_msg_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_msg_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id: String
+  index, quote_req_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.dissect(buffer, index, packet, parent)
+
+  -- Quote Status: UInt8
+  index, quote_status = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status.dissect(buffer, index, packet, parent)
+
+  -- Reject Code: Int32
+  index, reject_code = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.dissect(buffer, index, packet, parent)
+
+  -- Order Book: UInt8
+  index, order_book = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.dissect(buffer, index, packet, parent)
+
+  -- Market Makers: String
+  index, market_makers = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.dissect(buffer, index, packet, parent)
+
+  -- Rfq Id: String
+  index, rfq_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.dissect(buffer, index, packet, parent)
+
+  -- Expire Time: UInt32
+  index, expire_time = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time.dissect(buffer, index, packet, parent)
+
+  -- Bid Id: String
+  index, bid_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.bid_id.dissect(buffer, index, packet, parent)
+
+  -- Offer Id: String
+  index, offer_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.offer_id.dissect(buffer, index, packet, parent)
+
+  -- Expire Time Milliseconds: UInt32
+  index, expire_time_milliseconds = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time_milliseconds.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Status Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status_report_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_status_report_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status_report_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status_report_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Quote Request Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_message = {}
+
+-- Size: Quote Request Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.private_quote.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_trader.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_firm.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_type.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.price.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_delay.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_min_quotes.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.account_type.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_capacity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_disclose_side.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time_milliseconds.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_rfq_exec_strategy.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.num_of_competitors.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_rank.size
+
+-- Display: Quote Request Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Quote Request Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Partition Id: UInt8
+  index, partition_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.partition_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence Number: Int32
+  index, sequence_number = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_number.dissect(buffer, index, packet, parent)
+
+  -- Quote Req Id: String
+  index, quote_req_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_req_id.dissect(buffer, index, packet, parent)
+
+  -- Order Book: UInt8
+  index, order_book = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_book.dissect(buffer, index, packet, parent)
+
+  -- Private Quote: UInt8
+  index, private_quote = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.private_quote.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Int32
+  index, instrument_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Side: UInt8
+  index, side = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.dissect(buffer, index, packet, parent)
+
+  -- Order Quantity: Int32
+  index, order_quantity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_quantity.dissect(buffer, index, packet, parent)
+
+  -- Expire Time: UInt32
+  index, expire_time = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time.dissect(buffer, index, packet, parent)
+
+  -- Market Makers: String
+  index, market_makers = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_makers.dissect(buffer, index, packet, parent)
+
+  -- Contra Trader: String
+  index, contra_trader = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_trader.dissect(buffer, index, packet, parent)
+
+  -- Contra Firm: String
+  index, contra_firm = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.contra_firm.dissect(buffer, index, packet, parent)
+
+  -- Rfq Id: String
+  index, rfq_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_id.dissect(buffer, index, packet, parent)
+
+  -- Client Id: UInt32
+  index, client_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_id.dissect(buffer, index, packet, parent)
+
+  -- Investment Decision Maker: UInt32
+  index, investment_decision_maker = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.investment_decision_maker.dissect(buffer, index, packet, parent)
+
+  -- Executing Trader: UInt32
+  index, executing_trader = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executing_trader.dissect(buffer, index, packet, parent)
+
+  -- Mi Fid Flags: Struct of 4 fields
+  index, mi_fid_flags = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mi_fid_flags.dissect(buffer, index, packet, parent)
+
+  -- Party Role Qualifiers: Struct of 4 fields
+  index, party_role_qualifiers = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.party_role_qualifiers.dissect(buffer, index, packet, parent)
+
+  -- Quote Request Type: UInt8
+  index, quote_request_type = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_type.dissect(buffer, index, packet, parent)
+
+  -- Price: Price
+  index, price = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.price.dissect(buffer, index, packet, parent)
+
+  -- Rfq Execution Delay: UInt8
+  index, rfq_execution_delay = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_delay.dissect(buffer, index, packet, parent)
+
+  -- Rfq Min Quotes: UInt8
+  index, rfq_min_quotes = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_min_quotes.dissect(buffer, index, packet, parent)
+
+  -- Account Type: UInt8
+  index, account_type = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.account_type.dissect(buffer, index, packet, parent)
+
+  -- Order Capacity: UInt8
+  index, order_capacity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_capacity.dissect(buffer, index, packet, parent)
+
+  -- Rfq Disclose Side: UInt8
+  index, rfq_disclose_side = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_disclose_side.dissect(buffer, index, packet, parent)
+
+  -- Expire Time Milliseconds: UInt32
+  index, expire_time_milliseconds = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.expire_time_milliseconds.dissect(buffer, index, packet, parent)
+
+  -- Auto Rfq Exec Strategy: UInt8
+  index, auto_rfq_exec_strategy = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.auto_rfq_exec_strategy.dissect(buffer, index, packet, parent)
+
+  -- Num Of Competitors: UInt8
+  index, num_of_competitors = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.num_of_competitors.dissect(buffer, index, packet, parent)
+
+  -- Market Maker Rank: UInt8
+  index, market_maker_rank = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.market_maker_rank.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Request Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.quote_request_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Order Mass Cancel Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_mass_cancel_report_message = {}
+
+-- Size: Order Mass Cancel Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_mass_cancel_report_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_no.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_response.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_reject_reason.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_4.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_10.size
+
+-- Display: Order Mass Cancel Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_mass_cancel_report_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Order Mass Cancel Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_mass_cancel_report_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- App Id: UInt8
+  index, app_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence No: Int32
+  index, sequence_no = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_no.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Mass Cancel Response: UInt8
+  index, mass_cancel_response = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_response.dissect(buffer, index, packet, parent)
+
+  -- Mass Cancel Reject Reason: Int32
+  index, mass_cancel_reject_reason = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.mass_cancel_reject_reason.dissect(buffer, index, packet, parent)
+
+  -- Reserved 4: Int32
+  if show.padding then
+    index, reserved_4 = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_4.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_4.size
+  end
+
+  -- Transact Time: Struct of 2 fields
+  index, transact_time = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Reserved 10: String
+  if show.padding then
+    index, reserved_10 = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_10.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_10.size
+  end
+
+  return index
+end
+
+-- Dissect: Order Mass Cancel Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_mass_cancel_report_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.order_mass_cancel_report_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_mass_cancel_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_mass_cancel_report_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_mass_cancel_report_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Waiver Flags Post Trade Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags_post_trade_flags = {}
+
+-- Size: Waiver Flags Post Trade Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags_post_trade_flags.size = 1
+
+-- Display: Waiver Flags Post Trade Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags_post_trade_flags.display = function(range, value, packet, parent)
+  local flags = {}
+
+  -- Is Clse flag set?
+  if bit.band(value, 0x02) ~= 0 then
+    flags[#flags + 1] = "Clse"
+  end
+  -- Is Ilqd flag set?
+  if bit.band(value, 0x08) ~= 0 then
+    flags[#flags + 1] = "Ilqd"
+  end
+  -- Is Rfpt flag set?
+  if bit.band(value, 0x20) ~= 0 then
+    flags[#flags + 1] = "Rfpt"
+  end
+
+  return table.concat(flags, "|")
+end
+
+-- Dissect Bit Fields: Waiver Flags Post Trade Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags_post_trade_flags.bits = function(range, value, packet, parent)
+
+  -- Reserved Bit 0: 1 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_bit_0, range, value)
+
+  -- Clse: 1 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.clse, range, value)
+
+  -- Reserved Bit 2: 1 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_bit_2, range, value)
+
+  -- Ilqd: 1 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.ilqd, range, value)
+
+  -- Reserved Bit 4: 1 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_bit_4, range, value)
+
+  -- Rfpt: 1 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.rfpt, range, value)
+
+  -- Reserved 67: 2 Bit
+  parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reserved_67, range, value)
+end
+
+-- Dissect: Waiver Flags Post Trade Flags
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags_post_trade_flags.dissect = function(buffer, offset, packet, parent)
+  local size = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags_post_trade_flags.size
+  local range = buffer(offset, size)
+  local value = range:le_uint()
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags_post_trade_flags.display(range, value, packet, parent)
+  local element = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.waiver_flags_post_trade_flags, range, display)
+
+  if show.structs then
+    lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags_post_trade_flags.bits(range, value, packet, element)
+  end
+
+  return offset + size, value
+end
+
+-- Execution Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_message = {}
+
+-- Size: Execution Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_no.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.exec_type.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_ref_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_order_status.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_reject_code.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_qty.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_qty.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags_post_trade_flags.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.display_qty.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.restatement_reason.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_pegged_exec_inst.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.owner_type.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.counterparty.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_liquidity_indicator.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_match_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.type_of_trade.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_1.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.public_order_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.minimum_quantity.size
+
+-- Display: Execution Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Execution Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- App Id: UInt8
+  index, app_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.dissect(buffer, index, packet, parent)
+
+  -- Sequence No: Int32
+  index, sequence_no = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.sequence_no.dissect(buffer, index, packet, parent)
+
+  -- Execution Id: String
+  index, execution_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_id.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.dissect(buffer, index, packet, parent)
+
+  -- Order Id: String
+  index, order_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_id.dissect(buffer, index, packet, parent)
+
+  -- Exec Type: Alpha
+  index, exec_type = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.exec_type.dissect(buffer, index, packet, parent)
+
+  -- Execution Report Ref Id: String
+  index, execution_report_ref_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_ref_id.dissect(buffer, index, packet, parent)
+
+  -- Execution Report Order Status: UInt8
+  index, execution_report_order_status = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_order_status.dissect(buffer, index, packet, parent)
+
+  -- Order Reject Code: Int32
+  index, order_reject_code = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_reject_code.dissect(buffer, index, packet, parent)
+
+  -- Executed Price: Price
+  index, executed_price = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_price.dissect(buffer, index, packet, parent)
+
+  -- Executed Qty: Int32
+  index, executed_qty = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.executed_qty.dissect(buffer, index, packet, parent)
+
+  -- Leaves Qty: Int32
+  index, leaves_qty = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.leaves_qty.dissect(buffer, index, packet, parent)
+
+  -- Waiver Flags Post Trade Flags: Struct of 7 fields
+  index, waiver_flags_post_trade_flags = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.waiver_flags_post_trade_flags.dissect(buffer, index, packet, parent)
+
+  -- Display Qty: Int32
+  index, display_qty = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.display_qty.dissect(buffer, index, packet, parent)
+
+  -- Instrument Id: Int32
+  index, instrument_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.instrument_id.dissect(buffer, index, packet, parent)
+
+  -- Restatement Reason: UInt8
+  index, restatement_reason = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.restatement_reason.dissect(buffer, index, packet, parent)
+
+  -- Execution Report Pegged Exec Inst: UInt8
+  index, execution_report_pegged_exec_inst = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_pegged_exec_inst.dissect(buffer, index, packet, parent)
+
+  -- Side: UInt8
+  index, side = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.side.dissect(buffer, index, packet, parent)
+
+  -- Owner Type: UInt8
+  index, owner_type = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.owner_type.dissect(buffer, index, packet, parent)
+
+  -- Reserved 7: String
+  if show.padding then
+    index, reserved_7 = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_7.size
+  end
+
+  -- Counterparty: String
+  index, counterparty = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.counterparty.dissect(buffer, index, packet, parent)
+
+  -- Trade Liquidity Indicator: Alpha
+  index, trade_liquidity_indicator = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_liquidity_indicator.dissect(buffer, index, packet, parent)
+
+  -- Trade Match Id: UInt64
+  index, trade_match_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.trade_match_id.dissect(buffer, index, packet, parent)
+
+  -- Transact Time: Struct of 2 fields
+  index, transact_time = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.transact_time.dissect(buffer, index, packet, parent)
+
+  -- Last Market: UInt8
+  index, last_market = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_market.dissect(buffer, index, packet, parent)
+
+  -- Type Of Trade: UInt8
+  index, type_of_trade = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.type_of_trade.dissect(buffer, index, packet, parent)
+
+  -- Capacity: UInt8
+  index, capacity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.capacity.dissect(buffer, index, packet, parent)
+
+  -- Reserved 1: Alpha
+  if show.padding then
+    index, reserved_1 = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_1.dissect(buffer, index, packet, parent)
+  else
+    index = index + lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reserved_1.size
+  end
+
+  -- Public Order Id: String
+  index, public_order_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.public_order_id.dissect(buffer, index, packet, parent)
+
+  -- Minimum Quantity: Int32
+  index, minimum_quantity = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.minimum_quantity.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Execution Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.execution_report_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- System Status Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.system_status_message = {}
+
+-- Size: System Status Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.system_status_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_status.size
+
+-- Display: System Status Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.system_status_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: System Status Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.system_status_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- App Id: UInt8
+  index, app_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.dissect(buffer, index, packet, parent)
+
+  -- App Status: UInt8
+  index, app_status = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_status.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: System Status Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.system_status_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.system_status_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.system_status_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.system_status_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.system_status_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Reject Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_message = {}
+
+-- Size: Reject Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_reason.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rejected_message_type.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.size
+
+-- Display: Reject Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Reject Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reject Code: Int32
+  index, reject_code = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.dissect(buffer, index, packet, parent)
+
+  -- Reject Reason: String
+  index, reject_reason = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_reason.dissect(buffer, index, packet, parent)
+
+  -- Rejected Message Type: Alpha
+  index, rejected_message_type = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rejected_message_type.dissect(buffer, index, packet, parent)
+
+  -- Client Order Id: String
+  index, client_order_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.client_order_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Reject Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.reject_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Missed Message Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_message = {}
+
+-- Size: Missed Message Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_response_type.size
+
+-- Display: Missed Message Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Missed Message Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Missed Message Report Response Type: UInt8
+  index, missed_message_report_response_type = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_response_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Missed Message Report Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.missed_message_report_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Missed Message Request Ack Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_message = {}
+
+-- Size: Missed Message Request Ack Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_response_type.size
+
+-- Display: Missed Message Request Ack Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Missed Message Request Ack Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Missed Message Request Ack Response Type: UInt8
+  index, missed_message_request_ack_response_type = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_response_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Missed Message Request Ack Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.missed_message_request_ack_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Missed Message Request Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_message = {}
+
+-- Size: Missed Message Request Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_msg_seq_num.size
+
+-- Display: Missed Message Request Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Missed Message Request Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- App Id: UInt8
+  index, app_id = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.app_id.dissect(buffer, index, packet, parent)
+
+  -- Last Msg Seq Num: Int32
+  index, last_msg_seq_num = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.last_msg_seq_num.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Missed Message Request Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.missed_message_request_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Heartbeat Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.heartbeat_message = {}
+
+-- Display: Heartbeat Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.heartbeat_message.display = function(packet, parent, length)
+  return "Heartbeat Message"
+end
+
+
+-- Dissect: Heartbeat Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.heartbeat_message.dissect = function(buffer, offset, packet, parent)
+  local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.heartbeat_message.display(packet, parent, 0)
+  packet.cols.info = display
+
+  return offset
+end
+
+-- Logout Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logout_message = {}
+
+-- Size: Logout Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logout_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reason.size
+
+-- Display: Logout Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logout_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logout Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logout_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reason: String
+  index, reason = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reason.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logout Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logout_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.logout_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logout_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logout_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logout_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Logon Reply Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_reply_message = {}
+
+-- Size: Logon Reply Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_reply_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password_expiry_day_count.size
+
+-- Display: Logon Reply Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_reply_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logon Reply Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_reply_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reject Code: Int32
+  index, reject_code = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_code.dissect(buffer, index, packet, parent)
+
+  -- Password Expiry Day Count: String
+  index, password_expiry_day_count = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password_expiry_day_count.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logon Reply Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_reply_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.logon_reply_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_reply_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_reply_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_reply_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Logon Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_message = {}
+
+-- Size: Logon Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_message.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.user_name.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.new_password.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_version.size
+
+-- Display: Logon Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Logon Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- User Name: String
+  index, user_name = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.user_name.dissect(buffer, index, packet, parent)
+
+  -- Password: String
+  index, password = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.password.dissect(buffer, index, packet, parent)
+
+  -- New Password: String
+  index, new_password = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.new_password.dissect(buffer, index, packet, parent)
+
+  -- Message Version: UInt8
+  index, message_version = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_version.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logon Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.logon_message, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_message.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Payload
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.payload = {}
+
+-- Dispatch: Payload
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.payload.dispatch = {
+  ["A"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_message.dissect,
+  ["B"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logon_reply_message.dissect,
+  ["5"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.logout_message.dissect,
+  ["0"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.heartbeat_message.dissect,
+  ["M"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_message.dissect,
+  ["N"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_request_ack_message.dissect,
+  ["P"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.missed_message_report_message.dissect,
+  ["3"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.reject_message.dissect,
+  ["n"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.system_status_message.dissect,
+  ["8"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.execution_report_message.dissect,
+  ["r"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.order_mass_cancel_report_message.dissect,
+  ["a"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_message.dissect,
+  ["c"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_status_report_message.dissect,
+  ["b"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_request_reject_message.dissect,
+  ["d"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_quote_message.dissect,
+  ["e"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_ack_message.dissect,
+  ["f"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.quote_response_message.dissect,
+  ["g"] = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.rfq_execution_report_message.dissect,
+}
+
+-- Dissect: Payload
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.payload.dissect = function(buffer, offset, packet, parent, message_type)
+  local dissect = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.payload.dispatch[message_type]
+  if dissect then
+    return dissect(buffer, offset, packet, parent)
+  end
+
+  return offset
+end
+
+-- Message Header
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header = {}
+
+-- Size: Message Header
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header.size =
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.start_of_message.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_length.size + 
+  lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_type.size
+
+-- Display: Message Header
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Start Of Message: Int8
+  index, start_of_message = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.start_of_message.dissect(buffer, index, packet, parent)
+
+  -- Message Length: Int16
+  index, message_length = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_length.dissect(buffer, index, packet, parent)
+
+  -- Message Type: Alpha
+  index, message_type = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_type.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header.dissect = function(buffer, offset, packet, parent)
+  if show.headers then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.message_header, buffer(offset, 0))
+    local index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header.fields(buffer, offset, packet, parent)
+  end
+end
+
+-- Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message = {}
+
+-- Display: Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message.fields = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset
+
+  -- Message Header: Struct of 3 fields
+  index, message_header = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Message Type
+  local message_type = buffer(index - 1, 1):string()
+
+  -- Payload: Runtime Type with 18 branches
+  index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.payload.dissect(buffer, index, packet, parent, message_type)
+
+  return index
+end
+
+-- Dissect: Message
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message.dissect = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset + size_of_message
+
+  -- Its fields read only its own bytes: a layout running past them is marked, not raised
+  local bounded = buffer(0, math.min(index, buffer:len())):tvb()
+
+  -- Optionally add group/struct element to protocol tree
+  if show.structs then
+    parent = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.fields.message, buffer(offset, 0))
+    local decoded, failure = pcall(lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
+    parent:set_len(size_of_message)
+    local display = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message.display(buffer, packet, parent)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    local decoded, failure = pcall(lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message.fields, bounded, offset, packet, parent, size_of_message)
+    if not decoded then
+      undecoded(failure, parent, lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.experts.undecoded, "Message does not decode within its "..size_of_message.." bytes")
+    end
+
+    return index
+  end
+end
+
+-- Remaining Bytes For: Message
+local message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header.size then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index + 1, 2):le_int() + 3
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Packet
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.packet = {}
+
+-- Verify required size of Tcp packet
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.packet.requiredsize = function(buffer)
+  return buffer:len() >= lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message_header.size
+end
+
+-- Dissect Packet
+lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.packet.dissect = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      -- Dissect this message within a buffer bounded to its own frame
+      local frame = buffer(0, index + size_of_message):tvb()
+      index = lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.message.dissect(frame, index, packet, parent, size_of_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      -- Claim the whole buffer: tcp keeps the bytes from desegment_offset for reassembly
+      return end_of_payload
+    end
+  end
+
+  return index
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Dissector and Components
+-----------------------------------------------------------------------
+
+-- Initialize Dissector
+function omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.init()
+end
+
+-- Dissector for Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0
+function omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.dissector(buffer, packet, parent)
+  -- Set protocol name
+  packet.cols.protocol = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.name
+
+  -- Dissect protocol
+  local protocol = parent:add(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0, buffer(), omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.description, "("..buffer:len().." Bytes)")
+  return lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.packet.dissect(buffer, packet, protocol)
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Heuristics
+-----------------------------------------------------------------------
+
+-- Dissector Heuristic for Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0 (Tcp)
+local function omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0_tcp_heuristic(buffer, packet, parent)
+  -- Verify packet length
+  if not lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.packet.requiredsize(buffer) then return false end
+
+  -- Protocol is valid, set conversation and dissect this packet
+  packet.conversation = omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0
+  omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0.dissector(buffer, packet, parent)
+
+  return true
+end
+
+-- Register Heuristic for Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0
+omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0:register_heuristic("tcp", omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0_tcp_heuristic)
+
+-- Register Lseg Lse24 NativeTradingGatewayRecovery Ntgi 1.0 for Decode As
+local tcp_table = DissectorTable.get("tcp.port")
+tcp_table:add_for_decode_as(omi_lseg_lse24_nativetradinggatewayrecovery_ntgi_v1_0)
+
+-----------------------------------------------------------------------
+-- Lua dissectors are an easily edited and modified cross-platform dissection solution.
+-- Feel free to modify. Enjoy.
+-----------------------------------------------------------------------
+--
+-- Protocol:
+--   Organization: London Stock Exchange
+--   Version: 1.0
+--   Date: Monday, October 19, 2026
+--   Specification: lse-24-mit203-native-trading-gateway-issue-1-0.pdf
+--
+-- Script:
+--   Compiler: 2.0
+--   License: GPL-2.0-or-later
+--   Authors: Omi Developers
+--
+-- Copyright (c) 2026 Scaled Sources LLC.
+--   https://www.scaledsources.com
+--
+-- This dissector code is contributed to The Open Markets Initiative under
+-- the license noted above.
+--   https://openmarketsinitiative.com
+--
+-- Protocol Compiler technologies used to produce this file are
+-- the subject of patents owned by Scaled Sources LLC.  Those patent
+-- rights are retained and are not transferred by this contribution:
+--   https://patents.google.com/patent/US12101388B2/en
+--   https://patents.google.com/patent/US20240419416A1/en
+--   https://patents.google.com/patent/US20260368281A1/en
+--
+-----------------------------------------------------------------------
