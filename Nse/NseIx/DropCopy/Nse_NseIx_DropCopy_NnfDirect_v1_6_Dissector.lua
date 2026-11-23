@@ -610,6 +610,11 @@ nse_nseix_dropcopy_nnfdirect_v1_6.alpha_char.size = 2
 
 -- Display: Alpha Char
 nse_nseix_dropcopy_nnfdirect_v1_6.alpha_char.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Alpha Char: No Value"
+  end
+
   return "Alpha Char: "..value
 end
 

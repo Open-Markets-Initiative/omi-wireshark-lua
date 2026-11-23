@@ -1587,15 +1587,15 @@ sse_ssesecurities_mdgw_is120_v0_63.sendingtime.size = 8
 sse_ssesecurities_mdgw_is120_v0_63.sendingtime.dissect = function(buffer, offset, packet, parent)
   local length = sse_ssesecurities_mdgw_is120_v0_63.sendingtime.size
   local range = buffer(offset, length)
-  local packed = range:uint64():tonumber()
+  local packed = range:uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sendingtime_utc
   if sse_ssesecurities_mdgw_is120_v0_63.timestamp_format == 2 then field = omi_sse_ssesecurities_mdgw_is120_v0_63.fields.sendingtime end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100

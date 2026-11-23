@@ -736,6 +736,11 @@ nse_nsecm_orderentry_nnfdirect_v6_6.alpha_char.size = 2
 
 -- Display: Alpha Char
 nse_nsecm_orderentry_nnfdirect_v6_6.alpha_char.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Alpha Char: No Value"
+  end
+
   return "Alpha Char: "..value
 end
 
@@ -9086,46 +9091,6 @@ nse_nsecm_orderentry_nnfdirect_v6_6.box_sign_on_response_message.dissect = funct
   end
 end
 
--- Secure Box Registration Request Message
-nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message = {}
-
--- Size: Secure Box Registration Request Message
-nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.size =
-  nse_nsecm_orderentry_nnfdirect_v6_6.box_id.size
-
--- Display: Secure Box Registration Request Message
-nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.display = function(packet, parent, length)
-  return ""
-end
-
--- Dissect Fields: Secure Box Registration Request Message
-nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Box Id: SHORT
-  index, box_id = nse_nsecm_orderentry_nnfdirect_v6_6.box_id.dissect(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Secure Box Registration Request Message
-nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.dissect = function(buffer, offset, packet, parent)
-  if show.application_messages then
-    -- Optionally add element to protocol tree
-    parent = parent:add(omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.secure_box_registration_request_message, buffer(offset, 0))
-    local index = nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.fields(buffer, offset, packet, parent)
-    local length = index - offset
-    parent:set_len(length)
-    local display = nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.display(packet, parent, length)
-    parent:append_text(display)
-
-    return index, parent
-  else
-    -- Skip element, add fields directly
-    return nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.fields(buffer, offset, packet, parent)
-  end
-end
-
 -- Error Response Message
 nse_nsecm_orderentry_nnfdirect_v6_6.error_response_message = {}
 
@@ -9479,7 +9444,6 @@ nse_nsecm_orderentry_nnfdirect_v6_6.server_message_payload.dispatch = {
   [5717] = nse_nsecm_orderentry_nnfdirect_v6_6.branch_order_value_limit_update_out_message.dissect,
   [5791] = nse_nsecm_orderentry_nnfdirect_v6_6.cancel_on_logout_status_response_message.dissect,
   [2302] = nse_nsecm_orderentry_nnfdirect_v6_6.error_response_message.dissect,
-  [23008] = nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.dissect,
   [23001] = nse_nsecm_orderentry_nnfdirect_v6_6.box_sign_on_response_message.dissect,
   [2401] = nse_nsecm_orderentry_nnfdirect_v6_6.gateway_router_response_message.dissect,
   [5295] = nse_nsecm_orderentry_nnfdirect_v6_6.control_message_to_trader_message.dissect,
@@ -9645,7 +9609,7 @@ nse_nsecm_orderentry_nnfdirect_v6_6.server_session_packet.fields = function(buff
   -- Dependency element: Transaction Code
   local transaction_code = buffer(index - 40, 2):int()
 
-  -- Server Message Payload: Runtime Type with 31 branches
+  -- Server Message Payload: Runtime Type with 30 branches
   index = nse_nsecm_orderentry_nnfdirect_v6_6.server_message_payload.dissect(buffer, index, packet, parent, transaction_code)
 
   return index
@@ -9706,7 +9670,7 @@ nse_nsecm_orderentry_nnfdirect_v6_6.server_registration_packet.fields = function
   -- Dependency element: Transaction Code
   local transaction_code = buffer(index - 40, 2):int()
 
-  -- Server Message Payload: Runtime Type with 31 branches
+  -- Server Message Payload: Runtime Type with 30 branches
   index = nse_nsecm_orderentry_nnfdirect_v6_6.server_message_payload.dissect(buffer, index, packet, parent, transaction_code)
 
   return index
@@ -10981,6 +10945,46 @@ nse_nsecm_orderentry_nnfdirect_v6_6.auction_inquiry_request_message.dissect = fu
   end
 end
 
+-- Secure Box Registration Request Message
+nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message = {}
+
+-- Size: Secure Box Registration Request Message
+nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.size =
+  nse_nsecm_orderentry_nnfdirect_v6_6.box_id.size
+
+-- Display: Secure Box Registration Request Message
+nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Secure Box Registration Request Message
+nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Box Id: SHORT
+  index, box_id = nse_nsecm_orderentry_nnfdirect_v6_6.box_id.dissect(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Secure Box Registration Request Message
+nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.dissect = function(buffer, offset, packet, parent)
+  if show.application_messages then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsecm_orderentry_nnfdirect_v6_6.fields.secure_box_registration_request_message, buffer(offset, 0))
+    local index = nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Message Download Request Message
 nse_nsecm_orderentry_nnfdirect_v6_6.message_download_request_message = {}
 
@@ -11137,6 +11141,7 @@ nse_nsecm_orderentry_nnfdirect_v6_6.client_message_payload.dispatch = {
   [5716] = nse_nsecm_orderentry_nnfdirect_v6_6.branch_order_value_limit_update_in_message.dissect,
   [5790] = nse_nsecm_orderentry_nnfdirect_v6_6.cancel_on_logout_status_request_message.dissect,
   [7000] = nse_nsecm_orderentry_nnfdirect_v6_6.message_download_request_message.dissect,
+  [23008] = nse_nsecm_orderentry_nnfdirect_v6_6.secure_box_registration_request_message.dissect,
   [18016] = nse_nsecm_orderentry_nnfdirect_v6_6.auction_inquiry_request_message.dissect,
   [20322] = nse_nsecm_orderentry_nnfdirect_v6_6.box_sign_off_message.dissect,
   [23000] = nse_nsecm_orderentry_nnfdirect_v6_6.box_sign_on_request_message.dissect,
@@ -11205,7 +11210,7 @@ nse_nsecm_orderentry_nnfdirect_v6_6.client_session_packet.fields = function(buff
   -- Dependency element: Transaction Code
   local transaction_code = buffer(index - 40, 2):int()
 
-  -- Client Message Payload: Runtime Type with 17 branches
+  -- Client Message Payload: Runtime Type with 18 branches
   index = nse_nsecm_orderentry_nnfdirect_v6_6.client_message_payload.dissect(buffer, index, packet, parent, transaction_code)
 
   return index
@@ -11266,7 +11271,7 @@ nse_nsecm_orderentry_nnfdirect_v6_6.client_registration_packet.fields = function
   -- Dependency element: Transaction Code
   local transaction_code = buffer(index - 40, 2):int()
 
-  -- Client Message Payload: Runtime Type with 17 branches
+  -- Client Message Payload: Runtime Type with 18 branches
   index = nse_nsecm_orderentry_nnfdirect_v6_6.client_message_payload.dissect(buffer, index, packet, parent, transaction_code)
 
   return index
@@ -11559,6 +11564,11 @@ nse_nsecm_orderentry_nnfdirect_v6_6.client_packet.fingerprint = function(buffer)
       return true
     end
 
+    -- Secure Box Registration Request Message
+    if transaction_code == 23008 then
+      return true
+    end
+
     -- Auction Inquiry Request Message
     if transaction_code == 18016 then
       return true
@@ -11676,6 +11686,11 @@ nse_nsecm_orderentry_nnfdirect_v6_6.client_packet.fingerprint = function(buffer)
 
   -- Message Download Request Message
   if transaction_code == 7000 then
+    return true
+  end
+
+  -- Secure Box Registration Request Message
+  if transaction_code == 23008 then
     return true
   end
 
@@ -11811,11 +11826,6 @@ nse_nsecm_orderentry_nnfdirect_v6_6.server_packet.fingerprint = function(buffer)
 
     -- Error Response Message
     if transaction_code == 2302 then
-      return true
-    end
-
-    -- Secure Box Registration Request Message
-    if transaction_code == 23008 then
       return true
     end
 
@@ -12066,11 +12076,6 @@ nse_nsecm_orderentry_nnfdirect_v6_6.server_packet.fingerprint = function(buffer)
 
   -- Error Response Message
   if transaction_code == 2302 then
-    return true
-  end
-
-  -- Secure Box Registration Request Message
-  if transaction_code == 23008 then
     return true
   end
 

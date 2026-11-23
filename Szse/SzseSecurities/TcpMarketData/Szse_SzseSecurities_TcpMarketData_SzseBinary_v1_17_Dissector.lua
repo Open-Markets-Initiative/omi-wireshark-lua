@@ -713,15 +713,15 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.complex_event_end_time.size =
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.complex_event_end_time.dissect = function(buffer, offset, packet, parent)
   local length = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.complex_event_end_time.size
   local range = buffer(offset, length)
-  local packed = range:int64():tonumber()
+  local packed = range:int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.complex_event_end_time_utc
   if szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.complex_event_end_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -760,15 +760,15 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.complex_event_start_time.size
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.complex_event_start_time.dissect = function(buffer, offset, packet, parent)
   local length = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.complex_event_start_time.size
   local range = buffer(offset, length)
-  local packed = range:int64():tonumber()
+  local packed = range:int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.complex_event_start_time_utc
   if szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.complex_event_start_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -1963,15 +1963,15 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.orig_time.size = 8
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.orig_time.dissect = function(buffer, offset, packet, parent)
   local length = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.orig_time.size
   local range = buffer(offset, length)
-  local packed = range:int64():tonumber()
+  local packed = range:int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.orig_time_utc
   if szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.orig_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -2809,15 +2809,15 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trad_ses_end_time.size = 8
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trad_ses_end_time.dissect = function(buffer, offset, packet, parent)
   local length = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trad_ses_end_time.size
   local range = buffer(offset, length)
-  local packed = range:int64():tonumber()
+  local packed = range:int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.trad_ses_end_time_utc
   if szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.trad_ses_end_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -2856,15 +2856,15 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trad_ses_start_time.size = 8
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trad_ses_start_time.dissect = function(buffer, offset, packet, parent)
   local length = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.trad_ses_start_time.size
   local range = buffer(offset, length)
-  local packed = range:int64():tonumber()
+  local packed = range:int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.trad_ses_start_time_utc
   if szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.trad_ses_start_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -3097,15 +3097,15 @@ szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transac_time.size = 8
 szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transac_time.dissect = function(buffer, offset, packet, parent)
   local length = szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.transac_time.size
   local range = buffer(offset, length)
-  local packed = range:int64():tonumber()
+  local packed = range:int64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.transac_time_utc
   if szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.timestamp_format == 2 then field = omi_szse_szsesecurities_tcpmarketdata_szsebinary_v1_17.fields.transac_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100

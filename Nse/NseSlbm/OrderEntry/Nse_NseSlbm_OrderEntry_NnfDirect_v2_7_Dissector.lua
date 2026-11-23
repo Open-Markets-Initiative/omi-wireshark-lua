@@ -592,6 +592,11 @@ nse_nseslbm_orderentry_nnfdirect_v2_7.alpha_char.size = 2
 
 -- Display: Alpha Char
 nse_nseslbm_orderentry_nnfdirect_v2_7.alpha_char.display = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Alpha Char: No Value"
+  end
+
   return "Alpha Char: "..value
 end
 
