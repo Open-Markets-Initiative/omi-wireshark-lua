@@ -692,69 +692,6 @@ local function read_byte_vector_int64(buffer, offset)
   return range:int64(), offset
 end
 
--- the decimal digits a spelled value carries, whichever Lua type it was read as
-local function digits_of(value)
-  if type(value) == "number" then return string.format("%d", value) end
-
-  return tostring(value)
-end
-
--- a date spelled YYYYMMDD, as YYYY-MM-DD
-local function spelled_date(digits)
-  if #digits ~= 8 or digits:find("%D") then return digits end
-
-  return digits:sub(1, 4).."-"..digits:sub(5, 6).."-"..digits:sub(7, 8)
-end
-
--- a fix MonthYear, as YYYY-MM, YYYY-MM week W or YYYY-MM-DD by its count of digits
-local function spelled_month(digits)
-  if digits:find("%D") then return digits end
-
-  local month = digits:sub(1, 4).."-"..digits:sub(5, 6)
-
-  if #digits == 6 then return month end
-  if #digits == 7 then return month.." week "..digits:sub(7, 7) end
-  if #digits == 8 then return month.."-"..digits:sub(7, 8) end
-
-  return digits
-end
-
--- a time of day spelled HHMMSSmmm, as HH:MM:SS.mmm. An integer drops the
--- leading zero of an hour before ten, so a short run of digits is padded back
-local function spelled_time(digits)
-  if digits:find("%D") or #digits > 9 then return digits end
-
-  digits = string.rep("0", 9 - #digits)..digits
-
-  return digits:sub(1, 2)..":"..digits:sub(3, 4)..":"..digits:sub(5, 6).."."..digits:sub(7, 9)
-end
-
--- a timestamp spelled YYYYMMDDHHMMSSmmm, as the instant it names in Utc, or
--- nil where the digits are no date
-local function spelled_instant(digits)
-  if #digits ~= 17 or digits:find("%D") then return nil end
-
-  local year = tonumber(digits:sub(1, 4))
-  local month = tonumber(digits:sub(5, 6))
-  local day = tonumber(digits:sub(7, 8))
-  local hour = tonumber(digits:sub(9, 10))
-  local minute = tonumber(digits:sub(11, 12))
-  local second = tonumber(digits:sub(13, 14))
-  local millis = tonumber(digits:sub(15, 17))
-
-  if month < 1 or month > 12 or day < 1 or day > 31 then return nil end
-
-  -- days since the Unix epoch, by civil date arithmetic
-  local y = year - (month <= 2 and 1 or 0)
-  local era = math.floor(y / 400)
-  local yoe = y - era * 400
-  local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
-  local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
-  local days = era * 146097 + doe - 719468
-
-  return NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, millis * 1000000)
-end
-
 -- transfer operator state, isolated by directed transport stream
 local stream_states = {}
 
@@ -1034,13 +971,26 @@ b3_b3derivatives_umdf_fast_v5_0_12.sending_time_sent_required_u_int64.dissect = 
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.sending_time, range, NSTime.new(0, 0))
     absent:set_text("Sending Time: No Value")
   else
-    local digits = digits_of(value)
-    local instant = spelled_instant(digits)
-    if instant == nil then
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
       local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.sending_time, range, NSTime.new(0, 0))
-      item:set_text("Sending Time: "..digits)
+      item:set_text("Sending Time: "..tostring(value))
     else
-      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.sending_time, range, instant)
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.sending_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
     end
   end
 
@@ -1063,13 +1013,28 @@ b3_b3derivatives_umdf_fast_v5_0_12.sending_time_sent_required_string.dissect = f
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.sending_time, range, NSTime.new(0, 0))
     absent:set_text("Sending Time: No Value")
   else
-    local digits = digits_of(value)
-    local instant = spelled_instant(digits)
-    if instant == nil then
+    local year, month, day, hour, minute, second, millis = value:match("^(%d%d%d%d)(%d%d)(%d%d)(%d%d)(%d%d)(%d%d)(%d%d%d)$")
+
+    if year == nil then
       local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.sending_time, range, NSTime.new(0, 0))
-      item:set_text("Sending Time: "..digits)
+      item:set_text("Sending Time: "..value)
     else
-      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.sending_time, range, instant)
+      year, month, day = tonumber(year), tonumber(month), tonumber(day)
+      hour, minute, second = tonumber(hour), tonumber(minute), tonumber(second)
+      local nanos = tonumber(millis) * 1000000
+
+      if month < 1 or month > 12 or day < 1 or day > 31 then
+        local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.sending_time, range, NSTime.new(0, 0))
+        item:set_text("Sending Time: "..value)
+      else
+        local y = year - (month <= 2 and 1 or 0)
+        local era = math.floor(y / 400)
+        local yoe = y - era * 400
+        local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+        local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+        local days = era * 146097 + doe - 719468
+        parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.sending_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+      end
     end
   end
 
@@ -3621,7 +3586,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.maturity_date.display = function(value)
     return "Maturity Date: No Value"
   end
 
-  return "Maturity Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Maturity Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Maturity Date
@@ -3654,7 +3623,15 @@ b3_b3derivatives_umdf_fast_v5_0_12.maturity_month_year.display = function(value)
     return "Maturity Month Year: No Value"
   end
 
-  return "Maturity Month Year: "..spelled_month(digits_of(value))
+  if value >= 10000000 then
+    return "Maturity Month Year: "..string.format("%04d-%02d-%02d", math.floor(value / 10000), math.floor(value / 100) % 100, value % 100)
+  end
+
+  if value >= 1000000 then
+    return "Maturity Month Year: "..string.format("%04d-%02d week %d", math.floor(value / 1000), math.floor(value / 10) % 100, value % 10)
+  end
+
+  return "Maturity Month Year: "..string.format("%04d-%02d", math.floor(value / 100), value % 100)
 end
 
 -- Dissect: Maturity Month Year
@@ -3929,7 +3906,15 @@ b3_b3derivatives_umdf_fast_v5_0_12.contract_settl_month.display = function(value
     return "Contract Settl Month: No Value"
   end
 
-  return "Contract Settl Month: "..spelled_month(digits_of(value))
+  if value >= 10000000 then
+    return "Contract Settl Month: "..string.format("%04d-%02d-%02d", math.floor(value / 10000), math.floor(value / 100) % 100, value % 100)
+  end
+
+  if value >= 1000000 then
+    return "Contract Settl Month: "..string.format("%04d-%02d week %d", math.floor(value / 1000), math.floor(value / 10) % 100, value % 10)
+  end
+
+  return "Contract Settl Month: "..string.format("%04d-%02d", math.floor(value / 100), value % 100)
 end
 
 -- Dissect: Contract Settl Month
@@ -4006,7 +3991,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.issue_date.display = function(value)
     return "Issue Date: No Value"
   end
 
-  return "Issue Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Issue Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Issue Date
@@ -4039,7 +4028,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.dated_date_sent_optional.display = function(v
     return "Dated Date: No Value"
   end
 
-  return "Dated Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Dated Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Dated Date (Sent)
@@ -4072,7 +4065,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.dated_date_sent_required.display = function(v
     return "Dated Date: No Value"
   end
 
-  return "Dated Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Dated Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Dated Date (Sent)
@@ -4105,7 +4102,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.start_date.display = function(value)
     return "Start Date: No Value"
   end
 
-  return "Start Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Start Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Start Date
@@ -4138,7 +4139,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.end_date.display = function(value)
     return "End Date: No Value"
   end
 
-  return "End Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "End Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: End Date
@@ -4219,7 +4224,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.settl_date_sent.display = function(value)
     return "Settl Date: No Value"
   end
 
-  return "Settl Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Settl Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Settl Date (Sent)
@@ -4252,7 +4261,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.settl_date_default.display = function(value)
     return "Settl Date: No Value"
   end
 
-  return "Settl Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Settl Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Settl Date (Default)
@@ -4296,13 +4309,26 @@ b3_b3derivatives_umdf_fast_v5_0_12.security_validity_timestamp_sent.dissect = fu
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_validity_timestamp, range, NSTime.new(0, 0))
     absent:set_text("Security Validity Timestamp: No Value")
   else
-    local digits = digits_of(value)
-    local instant = spelled_instant(digits)
-    if instant == nil then
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
       local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_validity_timestamp, range, NSTime.new(0, 0))
-      item:set_text("Security Validity Timestamp: "..digits)
+      item:set_text("Security Validity Timestamp: "..tostring(value))
     else
-      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_validity_timestamp, range, instant)
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_validity_timestamp, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
     end
   end
 
@@ -4329,13 +4355,26 @@ b3_b3derivatives_umdf_fast_v5_0_12.security_validity_timestamp_default.dissect =
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_validity_timestamp, range, NSTime.new(0, 0))
     absent:set_text("Security Validity Timestamp: No Value")
   else
-    local digits = digits_of(value)
-    local instant = spelled_instant(digits)
-    if instant == nil then
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
       local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_validity_timestamp, range, NSTime.new(0, 0))
-      item:set_text("Security Validity Timestamp: "..digits)
+      item:set_text("Security Validity Timestamp: "..tostring(value))
     else
-      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_validity_timestamp, range, instant)
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_validity_timestamp, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
     end
   end
 
@@ -4635,6 +4674,34 @@ end
 -- MD Update Action (Copy)
 b3_b3derivatives_umdf_fast_v5_0_12.md_update_action_copy_0 = {}
 
+-- Display: MD Update Action (Copy)
+b3_b3derivatives_umdf_fast_v5_0_12.md_update_action_copy_0.display = function(value)
+  if value == nil then
+    return "MD Update Action: No Value"
+  end
+
+  if value == 0 then
+    return "MD Update Action: New (0)"
+  end
+  if value == 1 then
+    return "MD Update Action: Change (1)"
+  end
+  if value == 2 then
+    return "MD Update Action: Delete (2)"
+  end
+  if value == 3 then
+    return "MD Update Action: Delete Thru (3)"
+  end
+  if value == 4 then
+    return "MD Update Action: Delete From (4)"
+  end
+  if value == 5 then
+    return "MD Update Action: Overlay (5)"
+  end
+
+  return "MD Update Action: "..value
+end
+
 -- Dissect: MD Update Action (Copy)
 b3_b3derivatives_umdf_fast_v5_0_12.md_update_action_copy_0.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -4650,11 +4717,13 @@ b3_b3derivatives_umdf_fast_v5_0_12.md_update_action_copy_0.dissect = function(bu
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_update_action, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_12.md_update_action_copy_0.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_update_action, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_update_action, range, 0)
-    absent:set_text("MD Update Action: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_update_action, range, value, display)
   end
 
   return offset, value
@@ -4662,6 +4731,34 @@ end
 
 -- MD Update Action (Copy)
 b3_b3derivatives_umdf_fast_v5_0_12.md_update_action_copy_1 = {}
+
+-- Display: MD Update Action (Copy)
+b3_b3derivatives_umdf_fast_v5_0_12.md_update_action_copy_1.display = function(value)
+  if value == nil then
+    return "MD Update Action: No Value"
+  end
+
+  if value == 0 then
+    return "MD Update Action: New (0)"
+  end
+  if value == 1 then
+    return "MD Update Action: Change (1)"
+  end
+  if value == 2 then
+    return "MD Update Action: Delete (2)"
+  end
+  if value == 3 then
+    return "MD Update Action: Delete Thru (3)"
+  end
+  if value == 4 then
+    return "MD Update Action: Delete From (4)"
+  end
+  if value == 5 then
+    return "MD Update Action: Overlay (5)"
+  end
+
+  return "MD Update Action: "..value
+end
 
 -- Dissect: MD Update Action (Copy)
 b3_b3derivatives_umdf_fast_v5_0_12.md_update_action_copy_1.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -4683,11 +4780,13 @@ b3_b3derivatives_umdf_fast_v5_0_12.md_update_action_copy_1.dissect = function(bu
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_update_action, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_12.md_update_action_copy_1.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_update_action, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_update_action, range, 0)
-    absent:set_text("MD Update Action: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_update_action, range, value, display)
   end
 
   return offset, value
@@ -4752,6 +4851,73 @@ end
 -- MD Entry Type (Copy)
 b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_copy_j = {}
 
+-- Display: MD Entry Type (Copy)
+b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_copy_j.display = function(value)
+  if value == nil then
+    return "MD Entry Type: No Value"
+  end
+
+  if value == "0" then
+    return "MD Entry Type: Bid (0)"
+  end
+  if value == "1" then
+    return "MD Entry Type: Offer (1)"
+  end
+  if value == "2" then
+    return "MD Entry Type: Trade (2)"
+  end
+  if value == "3" then
+    return "MD Entry Type: Index Value (3)"
+  end
+  if value == "4" then
+    return "MD Entry Type: Opening Price (4)"
+  end
+  if value == "5" then
+    return "MD Entry Type: Closing Price (5)"
+  end
+  if value == "6" then
+    return "MD Entry Type: Settlement Price (6)"
+  end
+  if value == "7" then
+    return "MD Entry Type: Session High Price (7)"
+  end
+  if value == "8" then
+    return "MD Entry Type: Session Low Price (8)"
+  end
+  if value == "9" then
+    return "MD Entry Type: Session Vwap Price (9)"
+  end
+  if value == "A" then
+    return "MD Entry Type: Imbalance (A)"
+  end
+  if value == "B" then
+    return "MD Entry Type: Trade Volume (B)"
+  end
+  if value == "C" then
+    return "MD Entry Type: Open Interest (C)"
+  end
+  if value == "c" then
+    return "MD Entry Type: Security Trading State (c)"
+  end
+  if value == "J" then
+    return "MD Entry Type: Empty Book (J)"
+  end
+  if value == "g" then
+    return "MD Entry Type: Price Band (g)"
+  end
+  if value == "h" then
+    return "MD Entry Type: Quantity Band (h)"
+  end
+  if value == "D" then
+    return "MD Entry Type: Composite Underlying Price (D)"
+  end
+  if value == "v" then
+    return "MD Entry Type: Volatility Price (v)"
+  end
+
+  return "MD Entry Type: "..value
+end
+
 -- Dissect: MD Entry Type (Copy)
 b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_copy_j.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -4772,11 +4938,13 @@ b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_copy_j.dissect = function(buffe
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_copy_j.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, "")
-    absent:set_text("MD Entry Type: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, value, display)
   end
 
   return offset, value
@@ -4784,6 +4952,73 @@ end
 
 -- MD Entry Type (Copy)
 b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_copy_0 = {}
+
+-- Display: MD Entry Type (Copy)
+b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_copy_0.display = function(value)
+  if value == nil then
+    return "MD Entry Type: No Value"
+  end
+
+  if value == "0" then
+    return "MD Entry Type: Bid (0)"
+  end
+  if value == "1" then
+    return "MD Entry Type: Offer (1)"
+  end
+  if value == "2" then
+    return "MD Entry Type: Trade (2)"
+  end
+  if value == "3" then
+    return "MD Entry Type: Index Value (3)"
+  end
+  if value == "4" then
+    return "MD Entry Type: Opening Price (4)"
+  end
+  if value == "5" then
+    return "MD Entry Type: Closing Price (5)"
+  end
+  if value == "6" then
+    return "MD Entry Type: Settlement Price (6)"
+  end
+  if value == "7" then
+    return "MD Entry Type: Session High Price (7)"
+  end
+  if value == "8" then
+    return "MD Entry Type: Session Low Price (8)"
+  end
+  if value == "9" then
+    return "MD Entry Type: Session Vwap Price (9)"
+  end
+  if value == "A" then
+    return "MD Entry Type: Imbalance (A)"
+  end
+  if value == "B" then
+    return "MD Entry Type: Trade Volume (B)"
+  end
+  if value == "C" then
+    return "MD Entry Type: Open Interest (C)"
+  end
+  if value == "c" then
+    return "MD Entry Type: Security Trading State (c)"
+  end
+  if value == "J" then
+    return "MD Entry Type: Empty Book (J)"
+  end
+  if value == "g" then
+    return "MD Entry Type: Price Band (g)"
+  end
+  if value == "h" then
+    return "MD Entry Type: Quantity Band (h)"
+  end
+  if value == "D" then
+    return "MD Entry Type: Composite Underlying Price (D)"
+  end
+  if value == "v" then
+    return "MD Entry Type: Volatility Price (v)"
+  end
+
+  return "MD Entry Type: "..value
+end
 
 -- Dissect: MD Entry Type (Copy)
 b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_copy_0.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -4805,11 +5040,13 @@ b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_copy_0.dissect = function(buffe
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_copy_0.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, "")
-    absent:set_text("MD Entry Type: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, value, display)
   end
 
   return offset, value
@@ -4817,6 +5054,73 @@ end
 
 -- MD Entry Type (Default)
 b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_default = {}
+
+-- Display: MD Entry Type (Default)
+b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_default.display = function(value)
+  if value == nil then
+    return "MD Entry Type: No Value"
+  end
+
+  if value == "0" then
+    return "MD Entry Type: Bid (0)"
+  end
+  if value == "1" then
+    return "MD Entry Type: Offer (1)"
+  end
+  if value == "2" then
+    return "MD Entry Type: Trade (2)"
+  end
+  if value == "3" then
+    return "MD Entry Type: Index Value (3)"
+  end
+  if value == "4" then
+    return "MD Entry Type: Opening Price (4)"
+  end
+  if value == "5" then
+    return "MD Entry Type: Closing Price (5)"
+  end
+  if value == "6" then
+    return "MD Entry Type: Settlement Price (6)"
+  end
+  if value == "7" then
+    return "MD Entry Type: Session High Price (7)"
+  end
+  if value == "8" then
+    return "MD Entry Type: Session Low Price (8)"
+  end
+  if value == "9" then
+    return "MD Entry Type: Session Vwap Price (9)"
+  end
+  if value == "A" then
+    return "MD Entry Type: Imbalance (A)"
+  end
+  if value == "B" then
+    return "MD Entry Type: Trade Volume (B)"
+  end
+  if value == "C" then
+    return "MD Entry Type: Open Interest (C)"
+  end
+  if value == "c" then
+    return "MD Entry Type: Security Trading State (c)"
+  end
+  if value == "J" then
+    return "MD Entry Type: Empty Book (J)"
+  end
+  if value == "g" then
+    return "MD Entry Type: Price Band (g)"
+  end
+  if value == "h" then
+    return "MD Entry Type: Quantity Band (h)"
+  end
+  if value == "D" then
+    return "MD Entry Type: Composite Underlying Price (D)"
+  end
+  if value == "v" then
+    return "MD Entry Type: Volatility Price (v)"
+  end
+
+  return "MD Entry Type: "..value
+end
 
 -- Dissect: MD Entry Type (Default)
 b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_default.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -4831,11 +5135,13 @@ b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_default.dissect = function(buff
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_12.md_entry_type_default.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, "")
-    absent:set_text("MD Entry Type: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.md_entry_type, range, value, display)
   end
 
   return offset, value
@@ -4992,7 +5298,12 @@ b3_b3derivatives_umdf_fast_v5_0_12.md_entry_time_copy_required.display = functio
     return "MD Entry Time: No Value"
   end
 
-  return "MD Entry Time: "..spelled_time(digits_of(value))
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local milli = value % 1000
+
+  return "MD Entry Time: "..string.format("%02d:%02d:%02d.%03d", hour, minute, second, milli)
 end
 
 -- Dissect: MD Entry Time (Copy)
@@ -5036,7 +5347,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.md_entry_time_copy_optional.display = functio
     return "MD Entry Time: No Value"
   end
 
-  return "MD Entry Time: "..spelled_time(digits_of(value))
+  if #value ~= 9 then
+    return "MD Entry Time: "..value
+  end
+
+  return "MD Entry Time: "..value:sub(1, 2)..":"..value:sub(3, 4)..":"..value:sub(5, 6).."."..value:sub(7, 9)
 end
 
 -- Dissect: MD Entry Time (Copy)
@@ -5287,7 +5602,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.trade_date_sent_optional.display = function(v
     return "Trade Date: No Value"
   end
 
-  return "Trade Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Trade Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date (Sent)
@@ -5320,7 +5639,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.trade_date_sent_required.display = function(v
     return "Trade Date: No Value"
   end
 
-  return "Trade Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Trade Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Trade Date (Sent)
@@ -5456,7 +5779,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.md_entry_date.display = function(value)
     return "MD Entry Date: No Value"
   end
 
-  return "MD Entry Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "MD Entry Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: MD Entry Date
@@ -5495,7 +5822,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.md_insert_date.display = function(value)
     return "MD Insert Date: No Value"
   end
 
-  return "MD Insert Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "MD Insert Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: MD Insert Date
@@ -5534,7 +5865,12 @@ b3_b3derivatives_umdf_fast_v5_0_12.md_insert_time.display = function(value)
     return "MD Insert Time: No Value"
   end
 
-  return "MD Insert Time: "..spelled_time(digits_of(value))
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local milli = value % 1000
+
+  return "MD Insert Time: "..string.format("%02d:%02d:%02d.%03d", hour, minute, second, milli)
 end
 
 -- Dissect: MD Insert Time
@@ -6110,7 +6446,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.last_trade_date.display = function(value)
     return "Last Trade Date: No Value"
   end
 
-  return "Last Trade Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Last Trade Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Last Trade Date
@@ -6426,7 +6766,12 @@ b3_b3derivatives_umdf_fast_v5_0_12.expire_date.display = function(value)
     return "Expire Date: No Value"
   end
 
-  return "Expire Date: "..spelled_date(digits_of(value))
+  value = value:tonumber()
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Expire Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: Expire Date
@@ -6525,7 +6870,11 @@ b3_b3derivatives_umdf_fast_v5_0_12.btb_grace_date.display = function(value)
     return "BTB Grace Date: No Value"
   end
 
-  return "BTB Grace Date: "..spelled_date(digits_of(value))
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "BTB Grace Date: "..string.format("%04d-%02d-%02d", year, month, day)
 end
 
 -- Dissect: BTB Grace Date
@@ -6868,6 +7217,37 @@ end
 -- Security Trading Status (Sent)
 b3_b3derivatives_umdf_fast_v5_0_12.security_trading_status_sent = {}
 
+-- Display: Security Trading Status (Sent)
+b3_b3derivatives_umdf_fast_v5_0_12.security_trading_status_sent.display = function(value)
+  if value == nil then
+    return "Security Trading Status: No Value"
+  end
+
+  if value == 2 then
+    return "Security Trading Status: Trading Halt (2)"
+  end
+  if value == 4 then
+    return "Security Trading Status: No Open (4)"
+  end
+  if value == 17 then
+    return "Security Trading Status: Ready To Trade (17)"
+  end
+  if value == 18 then
+    return "Security Trading Status: Not Available For Trading (18)"
+  end
+  if value == 20 then
+    return "Security Trading Status: Unknown Or Invalid (20)"
+  end
+  if value == 21 then
+    return "Security Trading Status: Pre Open (21)"
+  end
+  if value == 101 then
+    return "Security Trading Status: Final Closing Call (101)"
+  end
+
+  return "Security Trading Status: "..value
+end
+
 -- Dissect: Security Trading Status (Sent)
 b3_b3derivatives_umdf_fast_v5_0_12.security_trading_status_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -6877,11 +7257,13 @@ b3_b3derivatives_umdf_fast_v5_0_12.security_trading_status_sent.dissect = functi
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_trading_status, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_12.security_trading_status_sent.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_trading_status, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_trading_status, range, 0)
-    absent:set_text("Security Trading Status: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_trading_status, range, value, display)
   end
 
   return offset, value
@@ -6889,6 +7271,37 @@ end
 
 -- Security Trading Status (Default)
 b3_b3derivatives_umdf_fast_v5_0_12.security_trading_status_default = {}
+
+-- Display: Security Trading Status (Default)
+b3_b3derivatives_umdf_fast_v5_0_12.security_trading_status_default.display = function(value)
+  if value == nil then
+    return "Security Trading Status: No Value"
+  end
+
+  if value == 2 then
+    return "Security Trading Status: Trading Halt (2)"
+  end
+  if value == 4 then
+    return "Security Trading Status: No Open (4)"
+  end
+  if value == 17 then
+    return "Security Trading Status: Ready To Trade (17)"
+  end
+  if value == 18 then
+    return "Security Trading Status: Not Available For Trading (18)"
+  end
+  if value == 20 then
+    return "Security Trading Status: Unknown Or Invalid (20)"
+  end
+  if value == 21 then
+    return "Security Trading Status: Pre Open (21)"
+  end
+  if value == 101 then
+    return "Security Trading Status: Final Closing Call (101)"
+  end
+
+  return "Security Trading Status: "..value
+end
 
 -- Dissect: Security Trading Status (Default)
 b3_b3derivatives_umdf_fast_v5_0_12.security_trading_status_default.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -6903,11 +7316,13 @@ b3_b3derivatives_umdf_fast_v5_0_12.security_trading_status_default.dissect = fun
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_trading_status, range, value)
+  local display = b3_b3derivatives_umdf_fast_v5_0_12.security_trading_status_default.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_trading_status, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_trading_status, range, 0)
-    absent:set_text("Security Trading Status: No Value")
+    parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.security_trading_status, range, value, display)
   end
 
   return offset, value
@@ -6929,13 +7344,26 @@ b3_b3derivatives_umdf_fast_v5_0_12.trad_ses_open_time_sent.dissect = function(bu
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.trad_ses_open_time_absolute_time, range, NSTime.new(0, 0))
     absent:set_text("Trad Ses Open Time: No Value")
   else
-    local digits = digits_of(value)
-    local instant = spelled_instant(digits)
-    if instant == nil then
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
       local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.trad_ses_open_time_absolute_time, range, NSTime.new(0, 0))
-      item:set_text("Trad Ses Open Time: "..digits)
+      item:set_text("Trad Ses Open Time: "..tostring(value))
     else
-      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.trad_ses_open_time_absolute_time, range, instant)
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.trad_ses_open_time_absolute_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
     end
   end
 
@@ -6951,7 +7379,12 @@ b3_b3derivatives_umdf_fast_v5_0_12.trad_ses_open_time_default_optional_u_int32.d
     return "Trad Ses Open Time: No Value"
   end
 
-  return "Trad Ses Open Time: "..spelled_time(digits_of(value))
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local milli = value % 1000
+
+  return "Trad Ses Open Time: "..string.format("%02d:%02d:%02d.%03d", hour, minute, second, milli)
 end
 
 -- Dissect: Trad Ses Open Time (Default)
@@ -6999,13 +7432,26 @@ b3_b3derivatives_umdf_fast_v5_0_12.trad_ses_open_time_default_optional_u_int64.d
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.trad_ses_open_time_absolute_time, range, NSTime.new(0, 0))
     absent:set_text("Trad Ses Open Time: No Value")
   else
-    local digits = digits_of(value)
-    local instant = spelled_instant(digits)
-    if instant == nil then
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
       local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.trad_ses_open_time_absolute_time, range, NSTime.new(0, 0))
-      item:set_text("Trad Ses Open Time: "..digits)
+      item:set_text("Trad Ses Open Time: "..tostring(value))
     else
-      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.trad_ses_open_time_absolute_time, range, instant)
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.trad_ses_open_time_absolute_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
     end
   end
 
@@ -7028,13 +7474,26 @@ b3_b3derivatives_umdf_fast_v5_0_12.transact_time.dissect = function(buffer, offs
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.transact_time, range, NSTime.new(0, 0))
     absent:set_text("Transact Time: No Value")
   else
-    local digits = digits_of(value)
-    local instant = spelled_instant(digits)
-    if instant == nil then
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
       local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.transact_time, range, NSTime.new(0, 0))
-      item:set_text("Transact Time: "..digits)
+      item:set_text("Transact Time: "..tostring(value))
     else
-      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.transact_time, range, instant)
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.transact_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
     end
   end
 
@@ -7181,13 +7640,26 @@ b3_b3derivatives_umdf_fast_v5_0_12.orig_time_copy.dissect = function(buffer, off
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.orig_time, range, NSTime.new(0, 0))
     absent:set_text("Orig Time: No Value")
   else
-    local digits = digits_of(value)
-    local instant = spelled_instant(digits)
-    if instant == nil then
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
       local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.orig_time, range, NSTime.new(0, 0))
-      item:set_text("Orig Time: "..digits)
+      item:set_text("Orig Time: "..tostring(value))
     else
-      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.orig_time, range, instant)
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.orig_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
     end
   end
 
@@ -7210,13 +7682,26 @@ b3_b3derivatives_umdf_fast_v5_0_12.orig_time_sent.dissect = function(buffer, off
     local absent = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.orig_time, range, NSTime.new(0, 0))
     absent:set_text("Orig Time: No Value")
   else
-    local digits = digits_of(value)
-    local instant = spelled_instant(digits)
-    if instant == nil then
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
       local item = parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.orig_time, range, NSTime.new(0, 0))
-      item:set_text("Orig Time: "..digits)
+      item:set_text("Orig Time: "..tostring(value))
     else
-      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.orig_time, range, instant)
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_b3_b3derivatives_umdf_fast_v5_0_12.fields.orig_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
     end
   end
 

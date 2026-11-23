@@ -35,7 +35,7 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.begin_string = ProtoField
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "moex.asts.marketdatamulticast.fast.v2025.10.sendercompid", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.target_comp_id = ProtoField.new("Target Comp ID", "moex.asts.marketdatamulticast.fast.v2025.10.targetcompid", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "moex.asts.marketdatamulticast.fast.v2025.10.msgseqnum", ftypes.UINT32)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sending_time = ProtoField.new("Sending Time", "moex.asts.marketdatamulticast.fast.v2025.10.sendingtime", ftypes.UINT64)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sending_time = ProtoField.new("Sending Time", "moex.asts.marketdatamulticast.fast.v2025.10.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "moex.asts.marketdatamulticast.fast.v2025.10.heartbtint", ftypes.INT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.username = ProtoField.new("Username", "moex.asts.marketdatamulticast.fast.v2025.10.username", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.password = ProtoField.new("Password", "moex.asts.marketdatamulticast.fast.v2025.10.password", ftypes.STRING)
@@ -106,7 +106,7 @@ omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.repo_term = ProtoField.ne
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.liquidity_type = ProtoField.new("Liquidity Type", "moex.asts.marketdatamulticast.fast.v2025.10.liquiditytype", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_session_date = ProtoField.new("Trade Session Date", "moex.asts.marketdatamulticast.fast.v2025.10.tradesessiondate", ftypes.UINT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.ref_order_id = ProtoField.new("Ref Order ID", "moex.asts.marketdatamulticast.fast.v2025.10.reforderid", ftypes.STRING)
-omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.last_update_time = ProtoField.new("Last Update Time", "moex.asts.marketdatamulticast.fast.v2025.10.lastupdatetime", ftypes.UINT64)
+omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.last_update_time = ProtoField.new("Last Update Time", "moex.asts.marketdatamulticast.fast.v2025.10.lastupdatetime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.message_encoding = ProtoField.new("Message Encoding", "moex.asts.marketdatamulticast.fast.v2025.10.messageencoding", ftypes.STRING)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "moex.asts.marketdatamulticast.fast.v2025.10.totnumreports", ftypes.INT32)
 omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_id = ProtoField.new("Security ID", "moex.asts.marketdatamulticast.fast.v2025.10.securityid", ftypes.BYTES)
@@ -913,11 +913,31 @@ moex_asts_marketdatamulticast_fast_v2025_10.sending_time.dissect = function(buff
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sending_time, range, value)
-  else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sending_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sending_time, range, NSTime.new(0, 0))
     absent:set_text("Sending Time: No Value")
+  else
+    local nanos = (value % 1000000):tonumber() * 1000
+    local civil = (value / 1000000):tonumber()
+    local year = math.floor(civil / 10000000000) + 2000
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sending_time, range, NSTime.new(0, 0))
+      item:set_text("Sending Time: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.sending_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -1356,6 +1376,49 @@ end
 -- MD Security Trading Status
 moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status = {}
 
+-- Display: MD Security Trading Status
+moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.display = function(value)
+  if value == nil then
+    return "MD Security Trading Status: No Value"
+  end
+
+  if value == 2 then
+    return "MD Security Trading Status: Break In Trading (2)"
+  end
+  if value == 17 then
+    return "MD Security Trading Status: Normal Trading (17)"
+  end
+  if value == 18 then
+    return "MD Security Trading Status: Not Available For Trading (18)"
+  end
+  if value == 102 then
+    return "MD Security Trading Status: Closing Auction (102)"
+  end
+  if value == 103 then
+    return "MD Security Trading Status: Closing Period (103)"
+  end
+  if value == 106 then
+    return "MD Security Trading Status: Dark Pool Auction (106)"
+  end
+  if value == 107 then
+    return "MD Security Trading Status: Discrete Auction (107)"
+  end
+  if value == 113 then
+    return "MD Security Trading Status: Price Discovery Auction (113)"
+  end
+  if value == 118 then
+    return "MD Security Trading Status: Opening Period (118)"
+  end
+  if value == 119 then
+    return "MD Security Trading Status: Opening Auction Period (119)"
+  end
+  if value == 120 then
+    return "MD Security Trading Status: Trading At Closing Auction Price (120)"
+  end
+
+  return "MD Security Trading Status: "..value
+end
+
 -- Dissect: MD Security Trading Status
 moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -1365,11 +1428,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.dissect =
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_security_trading_status, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.md_security_trading_status.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_security_trading_status, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_security_trading_status, range, 0)
-    absent:set_text("MD Security Trading Status: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_security_trading_status, range, value, display)
   end
 
   return offset, value
@@ -1512,6 +1577,130 @@ end
 -- MD Entry Type (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional = {}
 
+-- Display: MD Entry Type (Sent)
+moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.display = function(value)
+  if value == nil then
+    return "MD Entry Type: No Value"
+  end
+
+  if value == "0" then
+    return "MD Entry Type: Bid (0)"
+  end
+  if value == "1" then
+    return "MD Entry Type: Offer (1)"
+  end
+  if value == "2" then
+    return "MD Entry Type: Last Trade (2)"
+  end
+  if value == "3" then
+    return "MD Entry Type: Index Value (3)"
+  end
+  if value == "4" then
+    return "MD Entry Type: Opening Price (4)"
+  end
+  if value == "5" then
+    return "MD Entry Type: Closing Price (5)"
+  end
+  if value == "7" then
+    return "MD Entry Type: Session High Price (7)"
+  end
+  if value == "8" then
+    return "MD Entry Type: Session Low Price (8)"
+  end
+  if value == "9" then
+    return "MD Entry Type: Session Vwap Price (9)"
+  end
+  if value == "A" then
+    return "MD Entry Type: Imbalance (A)"
+  end
+  if value == "B" then
+    return "MD Entry Type: Trade Volume (B)"
+  end
+  if value == "G" then
+    return "MD Entry Type: Allowed Order Price Limits (G)"
+  end
+  if value == "J" then
+    return "MD Entry Type: Empty Book (J)"
+  end
+  if value == "N" then
+    return "MD Entry Type: Session High Bid (N)"
+  end
+  if value == "O" then
+    return "MD Entry Type: Session Low Offer (O)"
+  end
+  if value == "Q" then
+    return "MD Entry Type: Closing Auction Clearing Price (Q)"
+  end
+  if value == "W" then
+    return "MD Entry Type: Auction Price (W)"
+  end
+  if value == "c" then
+    return "MD Entry Type: Auction Volume (c)"
+  end
+  if value == "e" then
+    return "MD Entry Type: Prevention Of Uncovered Trading (e)"
+  end
+  if value == "f" then
+    return "MD Entry Type: Auction Market Buy Order (f)"
+  end
+  if value == "g" then
+    return "MD Entry Type: Auction Market Sell Order (g)"
+  end
+  if value == "h" then
+    return "MD Entry Type: Open Period Price (h)"
+  end
+  if value == "i" then
+    return "MD Entry Type: Last Bid Price (i)"
+  end
+  if value == "j" then
+    return "MD Entry Type: Last Offer Price (j)"
+  end
+  if value == "k" then
+    return "MD Entry Type: Close Period Price (k)"
+  end
+  if value == "l" then
+    return "MD Entry Type: Market Price 2 (l)"
+  end
+  if value == "m" then
+    return "MD Entry Type: Market Price (m)"
+  end
+  if value == "o" then
+    return "MD Entry Type: Official Open Price (o)"
+  end
+  if value == "p" then
+    return "MD Entry Type: Official Current Price (p)"
+  end
+  if value == "q" then
+    return "MD Entry Type: Admitted Quote (q)"
+  end
+  if value == "r" then
+    return "MD Entry Type: Official Close Price (r)"
+  end
+  if value == "s" then
+    return "MD Entry Type: Dark Pool Auction Price (s)"
+  end
+  if value == "u" then
+    return "MD Entry Type: Duration (u)"
+  end
+  if value == "v" then
+    return "MD Entry Type: Total Bid Volume (v)"
+  end
+  if value == "w" then
+    return "MD Entry Type: Total Offer Volume (w)"
+  end
+  if value == "x" then
+    return "MD Entry Type: Dark Pool Auction Volume (x)"
+  end
+  if value == "y" then
+    return "MD Entry Type: Accrued Interest (y)"
+  end
+  if value == "z" then
+    return "MD Entry Type: Trades List (z)"
+  end
+
+  return "MD Entry Type: "..value
+end
+
 -- Dissect: MD Entry Type (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -1521,11 +1710,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.dissect 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_optional.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, "")
-    absent:set_text("MD Entry Type: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, value, display)
   end
 
   return offset, value
@@ -1533,6 +1724,130 @@ end
 
 -- MD Entry Type (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy = {}
+
+-- Display: MD Entry Type (Copy)
+moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.display = function(value)
+  if value == nil then
+    return "MD Entry Type: No Value"
+  end
+
+  if value == "0" then
+    return "MD Entry Type: Bid (0)"
+  end
+  if value == "1" then
+    return "MD Entry Type: Offer (1)"
+  end
+  if value == "2" then
+    return "MD Entry Type: Last Trade (2)"
+  end
+  if value == "3" then
+    return "MD Entry Type: Index Value (3)"
+  end
+  if value == "4" then
+    return "MD Entry Type: Opening Price (4)"
+  end
+  if value == "5" then
+    return "MD Entry Type: Closing Price (5)"
+  end
+  if value == "7" then
+    return "MD Entry Type: Session High Price (7)"
+  end
+  if value == "8" then
+    return "MD Entry Type: Session Low Price (8)"
+  end
+  if value == "9" then
+    return "MD Entry Type: Session Vwap Price (9)"
+  end
+  if value == "A" then
+    return "MD Entry Type: Imbalance (A)"
+  end
+  if value == "B" then
+    return "MD Entry Type: Trade Volume (B)"
+  end
+  if value == "G" then
+    return "MD Entry Type: Allowed Order Price Limits (G)"
+  end
+  if value == "J" then
+    return "MD Entry Type: Empty Book (J)"
+  end
+  if value == "N" then
+    return "MD Entry Type: Session High Bid (N)"
+  end
+  if value == "O" then
+    return "MD Entry Type: Session Low Offer (O)"
+  end
+  if value == "Q" then
+    return "MD Entry Type: Closing Auction Clearing Price (Q)"
+  end
+  if value == "W" then
+    return "MD Entry Type: Auction Price (W)"
+  end
+  if value == "c" then
+    return "MD Entry Type: Auction Volume (c)"
+  end
+  if value == "e" then
+    return "MD Entry Type: Prevention Of Uncovered Trading (e)"
+  end
+  if value == "f" then
+    return "MD Entry Type: Auction Market Buy Order (f)"
+  end
+  if value == "g" then
+    return "MD Entry Type: Auction Market Sell Order (g)"
+  end
+  if value == "h" then
+    return "MD Entry Type: Open Period Price (h)"
+  end
+  if value == "i" then
+    return "MD Entry Type: Last Bid Price (i)"
+  end
+  if value == "j" then
+    return "MD Entry Type: Last Offer Price (j)"
+  end
+  if value == "k" then
+    return "MD Entry Type: Close Period Price (k)"
+  end
+  if value == "l" then
+    return "MD Entry Type: Market Price 2 (l)"
+  end
+  if value == "m" then
+    return "MD Entry Type: Market Price (m)"
+  end
+  if value == "o" then
+    return "MD Entry Type: Official Open Price (o)"
+  end
+  if value == "p" then
+    return "MD Entry Type: Official Current Price (p)"
+  end
+  if value == "q" then
+    return "MD Entry Type: Admitted Quote (q)"
+  end
+  if value == "r" then
+    return "MD Entry Type: Official Close Price (r)"
+  end
+  if value == "s" then
+    return "MD Entry Type: Dark Pool Auction Price (s)"
+  end
+  if value == "u" then
+    return "MD Entry Type: Duration (u)"
+  end
+  if value == "v" then
+    return "MD Entry Type: Total Bid Volume (v)"
+  end
+  if value == "w" then
+    return "MD Entry Type: Total Offer Volume (w)"
+  end
+  if value == "x" then
+    return "MD Entry Type: Dark Pool Auction Volume (x)"
+  end
+  if value == "y" then
+    return "MD Entry Type: Accrued Interest (y)"
+  end
+  if value == "z" then
+    return "MD Entry Type: Trades List (z)"
+  end
+
+  return "MD Entry Type: "..value
+end
 
 -- Dissect: MD Entry Type (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -1549,11 +1864,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.dissect = functio
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_copy.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, "")
-    absent:set_text("MD Entry Type: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, value, display)
   end
 
   return offset, value
@@ -1561,6 +1878,130 @@ end
 
 -- MD Entry Type (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required = {}
+
+-- Display: MD Entry Type (Sent)
+moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required.display = function(value)
+  if value == nil then
+    return "MD Entry Type: No Value"
+  end
+
+  if value == "0" then
+    return "MD Entry Type: Bid (0)"
+  end
+  if value == "1" then
+    return "MD Entry Type: Offer (1)"
+  end
+  if value == "2" then
+    return "MD Entry Type: Last Trade (2)"
+  end
+  if value == "3" then
+    return "MD Entry Type: Index Value (3)"
+  end
+  if value == "4" then
+    return "MD Entry Type: Opening Price (4)"
+  end
+  if value == "5" then
+    return "MD Entry Type: Closing Price (5)"
+  end
+  if value == "7" then
+    return "MD Entry Type: Session High Price (7)"
+  end
+  if value == "8" then
+    return "MD Entry Type: Session Low Price (8)"
+  end
+  if value == "9" then
+    return "MD Entry Type: Session Vwap Price (9)"
+  end
+  if value == "A" then
+    return "MD Entry Type: Imbalance (A)"
+  end
+  if value == "B" then
+    return "MD Entry Type: Trade Volume (B)"
+  end
+  if value == "G" then
+    return "MD Entry Type: Allowed Order Price Limits (G)"
+  end
+  if value == "J" then
+    return "MD Entry Type: Empty Book (J)"
+  end
+  if value == "N" then
+    return "MD Entry Type: Session High Bid (N)"
+  end
+  if value == "O" then
+    return "MD Entry Type: Session Low Offer (O)"
+  end
+  if value == "Q" then
+    return "MD Entry Type: Closing Auction Clearing Price (Q)"
+  end
+  if value == "W" then
+    return "MD Entry Type: Auction Price (W)"
+  end
+  if value == "c" then
+    return "MD Entry Type: Auction Volume (c)"
+  end
+  if value == "e" then
+    return "MD Entry Type: Prevention Of Uncovered Trading (e)"
+  end
+  if value == "f" then
+    return "MD Entry Type: Auction Market Buy Order (f)"
+  end
+  if value == "g" then
+    return "MD Entry Type: Auction Market Sell Order (g)"
+  end
+  if value == "h" then
+    return "MD Entry Type: Open Period Price (h)"
+  end
+  if value == "i" then
+    return "MD Entry Type: Last Bid Price (i)"
+  end
+  if value == "j" then
+    return "MD Entry Type: Last Offer Price (j)"
+  end
+  if value == "k" then
+    return "MD Entry Type: Close Period Price (k)"
+  end
+  if value == "l" then
+    return "MD Entry Type: Market Price 2 (l)"
+  end
+  if value == "m" then
+    return "MD Entry Type: Market Price (m)"
+  end
+  if value == "o" then
+    return "MD Entry Type: Official Open Price (o)"
+  end
+  if value == "p" then
+    return "MD Entry Type: Official Current Price (p)"
+  end
+  if value == "q" then
+    return "MD Entry Type: Admitted Quote (q)"
+  end
+  if value == "r" then
+    return "MD Entry Type: Official Close Price (r)"
+  end
+  if value == "s" then
+    return "MD Entry Type: Dark Pool Auction Price (s)"
+  end
+  if value == "u" then
+    return "MD Entry Type: Duration (u)"
+  end
+  if value == "v" then
+    return "MD Entry Type: Total Bid Volume (v)"
+  end
+  if value == "w" then
+    return "MD Entry Type: Total Offer Volume (w)"
+  end
+  if value == "x" then
+    return "MD Entry Type: Dark Pool Auction Volume (x)"
+  end
+  if value == "y" then
+    return "MD Entry Type: Accrued Interest (y)"
+  end
+  if value == "z" then
+    return "MD Entry Type: Trades List (z)"
+  end
+
+  return "MD Entry Type: "..value
+end
 
 -- Dissect: MD Entry Type (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -1571,11 +2012,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required.dissect 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_type_sent_required.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, "")
-    absent:set_text("MD Entry Type: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_type, range, value, display)
   end
 
   return offset, value
@@ -1606,6 +2049,19 @@ end
 -- MD Entry Date (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent = {}
 
+-- Display: MD Entry Date (Sent)
+moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.display = function(value)
+  if value == nil then
+    return "MD Entry Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "MD Entry Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: MD Entry Date (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -1615,11 +2071,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.dissect = functio
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_sent.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, 0)
-    absent:set_text("MD Entry Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, value, display)
   end
 
   return offset, value
@@ -1627,6 +2085,19 @@ end
 
 -- MD Entry Date (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy = {}
+
+-- Display: MD Entry Date (Copy)
+moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.display = function(value)
+  if value == nil then
+    return "MD Entry Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "MD Entry Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
 
 -- Dissect: MD Entry Date (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -1643,11 +2114,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.dissect = functio
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_date_copy.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, 0)
-    absent:set_text("MD Entry Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_date, range, value, display)
   end
 
   return offset, value
@@ -1655,6 +2128,20 @@ end
 
 -- MD Entry Time (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent = {}
+
+-- Display: MD Entry Time (Sent)
+moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.display = function(value)
+  if value == nil then
+    return "MD Entry Time: No Value"
+  end
+
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local milli = value % 1000
+
+  return "MD Entry Time: "..string.format("%02d:%02d:%02d.%03d", hour, minute, second, milli)
+end
 
 -- Dissect: MD Entry Time (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -1665,11 +2152,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.dissect = functio
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_sent.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, 0)
-    absent:set_text("MD Entry Time: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, value, display)
   end
 
   return offset, value
@@ -1677,6 +2166,20 @@ end
 
 -- MD Entry Time (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy = {}
+
+-- Display: MD Entry Time (Copy)
+moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.display = function(value)
+  if value == nil then
+    return "MD Entry Time: No Value"
+  end
+
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local milli = value % 1000
+
+  return "MD Entry Time: "..string.format("%02d:%02d:%02d.%03d", hour, minute, second, milli)
+end
 
 -- Dissect: MD Entry Time (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -1693,11 +2196,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.dissect = functio
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.md_entry_time_copy.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, 0)
-    absent:set_text("MD Entry Time: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_entry_time, range, value, display)
   end
 
   return offset, value
@@ -2066,6 +2571,20 @@ end
 -- Effective Time
 moex_asts_marketdatamulticast_fast_v2025_10.effective_time = {}
 
+-- Display: Effective Time
+moex_asts_marketdatamulticast_fast_v2025_10.effective_time.display = function(value)
+  if value == nil then
+    return "Effective Time: No Value"
+  end
+
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local milli = value % 1000
+
+  return "Effective Time: "..string.format("%02d:%02d:%02d.%03d", hour, minute, second, milli)
+end
+
 -- Dissect: Effective Time
 moex_asts_marketdatamulticast_fast_v2025_10.effective_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -2075,11 +2594,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.effective_time.dissect = function(bu
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.effective_time, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.effective_time.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.effective_time, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.effective_time, range, 0)
-    absent:set_text("Effective Time: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.effective_time, range, value, display)
   end
 
   return offset, value
@@ -2087,6 +2608,20 @@ end
 
 -- Start Time
 moex_asts_marketdatamulticast_fast_v2025_10.start_time = {}
+
+-- Display: Start Time
+moex_asts_marketdatamulticast_fast_v2025_10.start_time.display = function(value)
+  if value == nil then
+    return "Start Time: No Value"
+  end
+
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local milli = value % 1000
+
+  return "Start Time: "..string.format("%02d:%02d:%02d.%03d", hour, minute, second, milli)
+end
 
 -- Dissect: Start Time
 moex_asts_marketdatamulticast_fast_v2025_10.start_time.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -2097,11 +2632,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.start_time.dissect = function(buffer
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.start_time, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.start_time.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.start_time, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.start_time, range, 0)
-    absent:set_text("Start Time: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.start_time, range, value, display)
   end
 
   return offset, value
@@ -2789,6 +3326,19 @@ end
 -- Settl Date (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.settl_date_sent = {}
 
+-- Display: Settl Date (Sent)
+moex_asts_marketdatamulticast_fast_v2025_10.settl_date_sent.display = function(value)
+  if value == nil then
+    return "Settl Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Settl Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Settl Date (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.settl_date_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -2798,11 +3348,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.settl_date_sent.dissect = function(b
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.settl_date_sent.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date, range, 0)
-    absent:set_text("Settl Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date, range, value, display)
   end
 
   return offset, value
@@ -2810,6 +3362,19 @@ end
 
 -- Settl Date (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.settl_date_copy = {}
+
+-- Display: Settl Date (Copy)
+moex_asts_marketdatamulticast_fast_v2025_10.settl_date_copy.display = function(value)
+  if value == nil then
+    return "Settl Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Settl Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
 
 -- Dissect: Settl Date (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.settl_date_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -2826,11 +3391,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.settl_date_copy.dissect = function(b
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.settl_date_copy.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date, range, 0)
-    absent:set_text("Settl Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date, range, value, display)
   end
 
   return offset, value
@@ -2838,6 +3405,19 @@ end
 
 -- Settl Date2
 moex_asts_marketdatamulticast_fast_v2025_10.settl_date2 = {}
+
+-- Display: Settl Date2
+moex_asts_marketdatamulticast_fast_v2025_10.settl_date2.display = function(value)
+  if value == nil then
+    return "Settl Date2: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Settl Date2: "..string.format("%04d-%02d-%02d", year, month, day)
+end
 
 -- Dissect: Settl Date2
 moex_asts_marketdatamulticast_fast_v2025_10.settl_date2.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -2848,11 +3428,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.settl_date2.dissect = function(buffe
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date2, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.settl_date2.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date2, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date2, range, 0)
-    absent:set_text("Settl Date2: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_date2, range, value, display)
   end
 
   return offset, value
@@ -3123,6 +3705,20 @@ end
 -- Min Curr Px Chg Time
 moex_asts_marketdatamulticast_fast_v2025_10.min_curr_px_chg_time = {}
 
+-- Display: Min Curr Px Chg Time
+moex_asts_marketdatamulticast_fast_v2025_10.min_curr_px_chg_time.display = function(value)
+  if value == nil then
+    return "Min Curr Px Chg Time: No Value"
+  end
+
+  local hour = math.floor(value / 10000000)
+  local minute = math.floor(value / 100000) % 100
+  local second = math.floor(value / 1000) % 100
+  local milli = value % 1000
+
+  return "Min Curr Px Chg Time: "..string.format("%02d:%02d:%02d.%03d", hour, minute, second, milli)
+end
+
 -- Dissect: Min Curr Px Chg Time
 moex_asts_marketdatamulticast_fast_v2025_10.min_curr_px_chg_time.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3132,11 +3728,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.min_curr_px_chg_time.dissect = funct
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.min_curr_px_chg_time, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.min_curr_px_chg_time.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.min_curr_px_chg_time, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.min_curr_px_chg_time, range, 0)
-    absent:set_text("Min Curr Px Chg Time: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.min_curr_px_chg_time, range, value, display)
   end
 
   return offset, value
@@ -3653,6 +4251,19 @@ end
 -- Buy Back Date (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_sent = {}
 
+-- Display: Buy Back Date (Sent)
+moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_sent.display = function(value)
+  if value == nil then
+    return "Buy Back Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Buy Back Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Buy Back Date (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3662,11 +4273,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_sent.dissect = functio
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.buy_back_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_sent.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.buy_back_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.buy_back_date, range, 0)
-    absent:set_text("Buy Back Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.buy_back_date, range, value, display)
   end
 
   return offset, value
@@ -3674,6 +4287,19 @@ end
 
 -- Buy Back Date (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_copy = {}
+
+-- Display: Buy Back Date (Copy)
+moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_copy.display = function(value)
+  if value == nil then
+    return "Buy Back Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Buy Back Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
 
 -- Dissect: Buy Back Date (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -3690,11 +4316,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_copy.dissect = functio
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.buy_back_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.buy_back_date_copy.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.buy_back_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.buy_back_date, range, 0)
-    absent:set_text("Buy Back Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.buy_back_date, range, value, display)
   end
 
   return offset, value
@@ -3865,6 +4493,25 @@ end
 -- MD Update Action (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent = {}
 
+-- Display: MD Update Action (Sent)
+moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.display = function(value)
+  if value == nil then
+    return "MD Update Action: No Value"
+  end
+
+  if value == 0 then
+    return "MD Update Action: New (0)"
+  end
+  if value == 1 then
+    return "MD Update Action: Change (1)"
+  end
+  if value == 2 then
+    return "MD Update Action: Delete (2)"
+  end
+
+  return "MD Update Action: "..value
+end
+
 -- Dissect: MD Update Action (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3874,11 +4521,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.dissect = func
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_sent.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, 0)
-    absent:set_text("MD Update Action: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, value, display)
   end
 
   return offset, value
@@ -3886,6 +4535,25 @@ end
 
 -- MD Update Action (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_copy = {}
+
+-- Display: MD Update Action (Copy)
+moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_copy.display = function(value)
+  if value == nil then
+    return "MD Update Action: No Value"
+  end
+
+  if value == 0 then
+    return "MD Update Action: New (0)"
+  end
+  if value == 1 then
+    return "MD Update Action: Change (1)"
+  end
+  if value == 2 then
+    return "MD Update Action: Delete (2)"
+  end
+
+  return "MD Update Action: "..value
+end
 
 -- Dissect: MD Update Action (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -3902,11 +4570,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_copy.dissect = func
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.md_update_action_copy.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, 0)
-    absent:set_text("MD Update Action: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.md_update_action, range, value, display)
   end
 
   return offset, value
@@ -3965,6 +4635,19 @@ end
 -- Trade Session Date (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_copy = {}
 
+-- Display: Trade Session Date (Copy)
+moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_copy.display = function(value)
+  if value == nil then
+    return "Trade Session Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Trade Session Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Trade Session Date (Copy)
 moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_copy.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3980,11 +4663,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_copy.dissect = fu
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_session_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_copy.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_session_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_session_date, range, 0)
-    absent:set_text("Trade Session Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_session_date, range, value, display)
   end
 
   return offset, value
@@ -3992,6 +4677,19 @@ end
 
 -- Trade Session Date (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_sent = {}
+
+-- Display: Trade Session Date (Sent)
+moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_sent.display = function(value)
+  if value == nil then
+    return "Trade Session Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Trade Session Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
 
 -- Dissect: Trade Session Date (Sent)
 moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_sent.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -4002,11 +4700,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_sent.dissect = fu
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_session_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.trade_session_date_sent.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_session_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_session_date, range, 0)
-    absent:set_text("Trade Session Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.trade_session_date, range, value, display)
   end
 
   return offset, value
@@ -4074,11 +4774,31 @@ moex_asts_marketdatamulticast_fast_v2025_10.last_update_time.dissect = function(
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.last_update_time, range, value)
-  else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.last_update_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.last_update_time, range, NSTime.new(0, 0))
     absent:set_text("Last Update Time: No Value")
+  else
+    local nanos = (value % 1000000):tonumber() * 1000
+    local civil = (value / 1000000):tonumber()
+    local year = math.floor(civil / 10000000000) + 2000
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.last_update_time, range, NSTime.new(0, 0))
+      item:set_text("Last Update Time: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.last_update_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -4399,6 +5119,19 @@ end
 -- Coupon Start Date
 moex_asts_marketdatamulticast_fast_v2025_10.coupon_start_date = {}
 
+-- Display: Coupon Start Date
+moex_asts_marketdatamulticast_fast_v2025_10.coupon_start_date.display = function(value)
+  if value == nil then
+    return "Coupon Start Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Coupon Start Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Coupon Start Date
 moex_asts_marketdatamulticast_fast_v2025_10.coupon_start_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -4408,11 +5141,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.coupon_start_date.dissect = function
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.coupon_start_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.coupon_start_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.coupon_start_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.coupon_start_date, range, 0)
-    absent:set_text("Coupon Start Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.coupon_start_date, range, value, display)
   end
 
   return offset, value
@@ -4465,6 +5200,19 @@ end
 -- Maturity Date
 moex_asts_marketdatamulticast_fast_v2025_10.maturity_date = {}
 
+-- Display: Maturity Date
+moex_asts_marketdatamulticast_fast_v2025_10.maturity_date.display = function(value)
+  if value == nil then
+    return "Maturity Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Maturity Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Maturity Date
 moex_asts_marketdatamulticast_fast_v2025_10.maturity_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -4474,11 +5222,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.maturity_date.dissect = function(buf
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.maturity_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.maturity_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.maturity_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.maturity_date, range, 0)
-    absent:set_text("Maturity Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.maturity_date, range, value, display)
   end
 
   return offset, value
@@ -4532,6 +5282,19 @@ end
 -- Coupon Payment Date
 moex_asts_marketdatamulticast_fast_v2025_10.coupon_payment_date = {}
 
+-- Display: Coupon Payment Date
+moex_asts_marketdatamulticast_fast_v2025_10.coupon_payment_date.display = function(value)
+  if value == nil then
+    return "Coupon Payment Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Coupon Payment Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Coupon Payment Date
 moex_asts_marketdatamulticast_fast_v2025_10.coupon_payment_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -4541,11 +5304,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.coupon_payment_date.dissect = functi
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.coupon_payment_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.coupon_payment_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.coupon_payment_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.coupon_payment_date, range, 0)
-    absent:set_text("Coupon Payment Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.coupon_payment_date, range, value, display)
   end
 
   return offset, value
@@ -4599,6 +5364,19 @@ end
 -- Settl Fixing Date
 moex_asts_marketdatamulticast_fast_v2025_10.settl_fixing_date = {}
 
+-- Display: Settl Fixing Date
+moex_asts_marketdatamulticast_fast_v2025_10.settl_fixing_date.display = function(value)
+  if value == nil then
+    return "Settl Fixing Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Settl Fixing Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Settl Fixing Date
 moex_asts_marketdatamulticast_fast_v2025_10.settl_fixing_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -4608,11 +5386,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.settl_fixing_date.dissect = function
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_fixing_date, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.settl_fixing_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_fixing_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_fixing_date, range, 0)
-    absent:set_text("Settl Fixing Date: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.settl_fixing_date, range, value, display)
   end
 
   return offset, value
@@ -4931,6 +5711,49 @@ end
 -- Security Trading Status
 moex_asts_marketdatamulticast_fast_v2025_10.security_trading_status = {}
 
+-- Display: Security Trading Status
+moex_asts_marketdatamulticast_fast_v2025_10.security_trading_status.display = function(value)
+  if value == nil then
+    return "Security Trading Status: No Value"
+  end
+
+  if value == 2 then
+    return "Security Trading Status: Break In Trading (2)"
+  end
+  if value == 17 then
+    return "Security Trading Status: Normal Trading (17)"
+  end
+  if value == 18 then
+    return "Security Trading Status: Not Available For Trading (18)"
+  end
+  if value == 102 then
+    return "Security Trading Status: Closing Auction (102)"
+  end
+  if value == 103 then
+    return "Security Trading Status: Closing Period (103)"
+  end
+  if value == 106 then
+    return "Security Trading Status: Dark Pool Auction (106)"
+  end
+  if value == 107 then
+    return "Security Trading Status: Discrete Auction (107)"
+  end
+  if value == 113 then
+    return "Security Trading Status: Price Discovery Auction (113)"
+  end
+  if value == 118 then
+    return "Security Trading Status: Opening Period (118)"
+  end
+  if value == 119 then
+    return "Security Trading Status: Opening Auction Period (119)"
+  end
+  if value == 120 then
+    return "Security Trading Status: Trading At Closing Auction Price (120)"
+  end
+
+  return "Security Trading Status: "..value
+end
+
 -- Dissect: Security Trading Status
 moex_asts_marketdatamulticast_fast_v2025_10.security_trading_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -4940,11 +5763,13 @@ moex_asts_marketdatamulticast_fast_v2025_10.security_trading_status.dissect = fu
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_trading_status, range, value)
+  local display = moex_asts_marketdatamulticast_fast_v2025_10.security_trading_status.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_trading_status, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_trading_status, range, 0)
-    absent:set_text("Security Trading Status: No Value")
+    parent:add(omi_moex_asts_marketdatamulticast_fast_v2025_10.fields.security_trading_status, range, value, display)
   end
 
   return offset, value

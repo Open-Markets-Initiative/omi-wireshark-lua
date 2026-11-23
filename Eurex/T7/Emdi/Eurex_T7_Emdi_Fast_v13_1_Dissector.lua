@@ -6845,6 +6845,19 @@ end
 -- Maturity Date
 eurex_t7_emdi_fast_v13_1.maturity_date = {}
 
+-- Display: Maturity Date
+eurex_t7_emdi_fast_v13_1.maturity_date.display = function(value)
+  if value == nil then
+    return "Maturity Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Maturity Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Maturity Date
 eurex_t7_emdi_fast_v13_1.maturity_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -6854,11 +6867,13 @@ eurex_t7_emdi_fast_v13_1.maturity_date.dissect = function(buffer, offset, packet
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_eurex_t7_emdi_fast_v13_1.fields.maturity_date, range, value)
+  local display = eurex_t7_emdi_fast_v13_1.maturity_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_eurex_t7_emdi_fast_v13_1.fields.maturity_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_eurex_t7_emdi_fast_v13_1.fields.maturity_date, range, 0)
-    absent:set_text("Maturity Date: No Value")
+    parent:add(omi_eurex_t7_emdi_fast_v13_1.fields.maturity_date, range, value, display)
   end
 
   return offset, value
@@ -6866,6 +6881,19 @@ end
 
 -- Contract Date
 eurex_t7_emdi_fast_v13_1.contract_date = {}
+
+-- Display: Contract Date
+eurex_t7_emdi_fast_v13_1.contract_date.display = function(value)
+  if value == nil then
+    return "Contract Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Contract Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
 
 -- Dissect: Contract Date
 eurex_t7_emdi_fast_v13_1.contract_date.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -6876,11 +6904,13 @@ eurex_t7_emdi_fast_v13_1.contract_date.dissect = function(buffer, offset, packet
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_eurex_t7_emdi_fast_v13_1.fields.contract_date, range, value)
+  local display = eurex_t7_emdi_fast_v13_1.contract_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_eurex_t7_emdi_fast_v13_1.fields.contract_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_eurex_t7_emdi_fast_v13_1.fields.contract_date, range, 0)
-    absent:set_text("Contract Date: No Value")
+    parent:add(omi_eurex_t7_emdi_fast_v13_1.fields.contract_date, range, value, display)
   end
 
   return offset, value

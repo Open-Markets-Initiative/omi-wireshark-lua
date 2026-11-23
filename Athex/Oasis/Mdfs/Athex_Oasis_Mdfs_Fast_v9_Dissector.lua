@@ -45,7 +45,7 @@ omi_athex_oasis_mdfs_fast_v9.fields.msg_type = ProtoField.new("Msg Type", "athex
 omi_athex_oasis_mdfs_fast_v9.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "athex.oasis.mdfs.fast.v9.sendercompid", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.target_comp_id = ProtoField.new("Target Comp ID", "athex.oasis.mdfs.fast.v9.targetcompid", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "athex.oasis.mdfs.fast.v9.msgseqnum", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.sending_time = ProtoField.new("Sending Time", "athex.oasis.mdfs.fast.v9.sendingtime", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.sending_time = ProtoField.new("Sending Time", "athex.oasis.mdfs.fast.v9.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_athex_oasis_mdfs_fast_v9.fields.last_msg_seq_num_processed = ProtoField.new("Last Msg Seq Num Processed", "athex.oasis.mdfs.fast.v9.lastmsgseqnumprocessed", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.no_athex_recovery_seq_nums = ProtoField.new("No ATHEX Recovery Seq Nums", "athex.oasis.mdfs.fast.v9.noathexrecoveryseqnums", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.athex_recovery_seq_num = ProtoField.new("ATHEX Recovery Seq Num", "athex.oasis.mdfs.fast.v9.athexrecoveryseqnum", ftypes.UINT32)
@@ -63,7 +63,7 @@ omi_athex_oasis_mdfs_fast_v9.fields.trading_session_sub_id = ProtoField.new("Tra
 omi_athex_oasis_mdfs_fast_v9.fields.security_trading_status = ProtoField.new("Security Trading Status", "athex.oasis.mdfs.fast.v9.securitytradingstatus", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.halt_reason = ProtoField.new("Halt Reason", "athex.oasis.mdfs.fast.v9.haltreason", ftypes.UINT32)
 omi_athex_oasis_mdfs_fast_v9.fields.athex_auction_type = ProtoField.new("ATHEX Auction Type", "athex.oasis.mdfs.fast.v9.athexauctiontype", ftypes.UINT32)
-omi_athex_oasis_mdfs_fast_v9.fields.transact_time = ProtoField.new("Transact Time", "athex.oasis.mdfs.fast.v9.transacttime", ftypes.STRING)
+omi_athex_oasis_mdfs_fast_v9.fields.transact_time = ProtoField.new("Transact Time", "athex.oasis.mdfs.fast.v9.transacttime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_athex_oasis_mdfs_fast_v9.fields.athex_board_id = ProtoField.new("ATHEX Board ID", "athex.oasis.mdfs.fast.v9.athexboardid", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.trading_session_id = ProtoField.new("Trading Session ID", "athex.oasis.mdfs.fast.v9.tradingsessionid", ftypes.STRING)
 omi_athex_oasis_mdfs_fast_v9.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "athex.oasis.mdfs.fast.v9.tradsesstatus", ftypes.UINT32)
@@ -868,11 +868,33 @@ athex_oasis_mdfs_fast_v9.sending_time.dissect = function(buffer, offset, packet,
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.sending_time, range, value)
-  else
-    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.sending_time, range, "")
+  if value == nil then
+    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.sending_time, range, NSTime.new(0, 0))
     absent:set_text("Sending Time: No Value")
+  else
+    local year, month, day, hour, minute, second, micros = value:match("^(%d%d%d%d)(%d%d)(%d%d)%-(%d%d):(%d%d):(%d%d)%.(%d%d%d%d%d%d)$")
+
+    if year == nil then
+      local item = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.sending_time, range, NSTime.new(0, 0))
+      item:set_text("Sending Time: "..value)
+    else
+      year, month, day = tonumber(year), tonumber(month), tonumber(day)
+      hour, minute, second = tonumber(hour), tonumber(minute), tonumber(second)
+      local nanos = tonumber(micros) * 1000
+
+      if month < 1 or month > 12 or day < 1 or day > 31 then
+        local item = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.sending_time, range, NSTime.new(0, 0))
+        item:set_text("Sending Time: "..value)
+      else
+        local y = year - (month <= 2 and 1 or 0)
+        local era = math.floor(y / 400)
+        local yoe = y - era * 400
+        local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+        local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+        local days = era * 146097 + doe - 719468
+        parent:add(omi_athex_oasis_mdfs_fast_v9.fields.sending_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+      end
+    end
   end
 
   return offset, value
@@ -1383,6 +1405,28 @@ end
 -- Security Trading Status
 athex_oasis_mdfs_fast_v9.security_trading_status = {}
 
+-- Display: Security Trading Status
+athex_oasis_mdfs_fast_v9.security_trading_status.display = function(value)
+  if value == nil then
+    return "Security Trading Status: No Value"
+  end
+
+  if value == 2 then
+    return "Security Trading Status: Trading Halt (2)"
+  end
+  if value == 3 then
+    return "Security Trading Status: Resume (3)"
+  end
+  if value == 101 then
+    return "Security Trading Status: Active (101)"
+  end
+  if value == 102 then
+    return "Security Trading Status: Suspend (102)"
+  end
+
+  return "Security Trading Status: "..value
+end
+
 -- Dissect: Security Trading Status
 athex_oasis_mdfs_fast_v9.security_trading_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -1392,11 +1436,13 @@ athex_oasis_mdfs_fast_v9.security_trading_status.dissect = function(buffer, offs
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.security_trading_status, range, value)
+  local display = athex_oasis_mdfs_fast_v9.security_trading_status.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.security_trading_status, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.security_trading_status, range, 0)
-    absent:set_text("Security Trading Status: No Value")
+    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.security_trading_status, range, value, display)
   end
 
   return offset, value
@@ -1466,11 +1512,33 @@ athex_oasis_mdfs_fast_v9.transact_time_sent.dissect = function(buffer, offset, p
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, value)
-  else
-    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, "")
+  if value == nil then
+    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, NSTime.new(0, 0))
     absent:set_text("Transact Time: No Value")
+  else
+    local year, month, day, hour, minute, second, micros = value:match("^(%d%d%d%d)(%d%d)(%d%d)%-(%d%d):(%d%d):(%d%d)%.(%d%d%d%d%d%d)$")
+
+    if year == nil then
+      local item = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, NSTime.new(0, 0))
+      item:set_text("Transact Time: "..value)
+    else
+      year, month, day = tonumber(year), tonumber(month), tonumber(day)
+      hour, minute, second = tonumber(hour), tonumber(minute), tonumber(second)
+      local nanos = tonumber(micros) * 1000
+
+      if month < 1 or month > 12 or day < 1 or day > 31 then
+        local item = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, NSTime.new(0, 0))
+        item:set_text("Transact Time: "..value)
+      else
+        local y = year - (month <= 2 and 1 or 0)
+        local era = math.floor(y / 400)
+        local yoe = y - era * 400
+        local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+        local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+        local days = era * 146097 + doe - 719468
+        parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+      end
+    end
   end
 
   return offset, value
@@ -1492,11 +1560,33 @@ athex_oasis_mdfs_fast_v9.transact_time_default.dissect = function(buffer, offset
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, value)
-  else
-    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, "")
+  if value == nil then
+    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, NSTime.new(0, 0))
     absent:set_text("Transact Time: No Value")
+  else
+    local year, month, day, hour, minute, second, micros = value:match("^(%d%d%d%d)(%d%d)(%d%d)%-(%d%d):(%d%d):(%d%d)%.(%d%d%d%d%d%d)$")
+
+    if year == nil then
+      local item = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, NSTime.new(0, 0))
+      item:set_text("Transact Time: "..value)
+    else
+      year, month, day = tonumber(year), tonumber(month), tonumber(day)
+      hour, minute, second = tonumber(hour), tonumber(minute), tonumber(second)
+      local nanos = tonumber(micros) * 1000
+
+      if month < 1 or month > 12 or day < 1 or day > 31 then
+        local item = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, NSTime.new(0, 0))
+        item:set_text("Transact Time: "..value)
+      else
+        local y = year - (month <= 2 and 1 or 0)
+        local era = math.floor(y / 400)
+        local yoe = y - era * 400
+        local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+        local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+        local days = era * 146097 + doe - 719468
+        parent:add(omi_athex_oasis_mdfs_fast_v9.fields.transact_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+      end
+    end
   end
 
   return offset, value
@@ -2177,6 +2267,19 @@ end
 -- Maturity Date
 athex_oasis_mdfs_fast_v9.maturity_date = {}
 
+-- Display: Maturity Date
+athex_oasis_mdfs_fast_v9.maturity_date.display = function(value)
+  if value == nil then
+    return "Maturity Date: No Value"
+  end
+
+  if #value ~= 8 then
+    return "Maturity Date: "..value
+  end
+
+  return "Maturity Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
+end
+
 -- Dissect: Maturity Date
 athex_oasis_mdfs_fast_v9.maturity_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -2190,11 +2293,13 @@ athex_oasis_mdfs_fast_v9.maturity_date.dissect = function(buffer, offset, packet
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.maturity_date, range, value)
+  local display = athex_oasis_mdfs_fast_v9.maturity_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.maturity_date, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.maturity_date, range, "")
-    absent:set_text("Maturity Date: No Value")
+    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.maturity_date, range, value, display)
   end
 
   return offset, value
@@ -2381,6 +2486,73 @@ end
 -- MD Entry Type
 athex_oasis_mdfs_fast_v9.md_entry_type = {}
 
+-- Display: MD Entry Type
+athex_oasis_mdfs_fast_v9.md_entry_type.display = function(value)
+  if value == nil then
+    return "MD Entry Type: No Value"
+  end
+
+  if value == "0" then
+    return "MD Entry Type: Bid (0)"
+  end
+  if value == "1" then
+    return "MD Entry Type: Offer (1)"
+  end
+  if value == "2" then
+    return "MD Entry Type: Trade (2)"
+  end
+  if value == "3" then
+    return "MD Entry Type: Index Value (3)"
+  end
+  if value == "4" then
+    return "MD Entry Type: Opening Price (4)"
+  end
+  if value == "5" then
+    return "MD Entry Type: Closing Price (5)"
+  end
+  if value == "7" then
+    return "MD Entry Type: Trading Session High Price (7)"
+  end
+  if value == "8" then
+    return "MD Entry Type: Trading Session Low Price (8)"
+  end
+  if value == "b" then
+    return "MD Entry Type: Market Bid (b)"
+  end
+  if value == "c" then
+    return "MD Entry Type: Market Offer (c)"
+  end
+  if value == "g" then
+    return "MD Entry Type: Threshold Limits And Price Banding (g)"
+  end
+  if value == "J" then
+    return "MD Entry Type: Empty Book (J)"
+  end
+  if value == "t" then
+    return "MD Entry Type: Start Of Day Price (t)"
+  end
+  if value == "u" then
+    return "MD Entry Type: Projected Closing Price (u)"
+  end
+  if value == "v" then
+    return "MD Entry Type: Projected Auction Price (v)"
+  end
+  if value == "w" then
+    return "MD Entry Type: Auction Price (w)"
+  end
+  if value == "x" then
+    return "MD Entry Type: Trading Session Last Price (x)"
+  end
+  if value == "y" then
+    return "MD Entry Type: Total Volume (y)"
+  end
+  if value == "z" then
+    return "MD Entry Type: Total Value (z)"
+  end
+
+  return "MD Entry Type: "..value
+end
+
 -- Dissect: MD Entry Type
 athex_oasis_mdfs_fast_v9.md_entry_type.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -2390,11 +2562,13 @@ athex_oasis_mdfs_fast_v9.md_entry_type.dissect = function(buffer, offset, packet
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_entry_type, range, value)
+  local display = athex_oasis_mdfs_fast_v9.md_entry_type.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_entry_type, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_entry_type, range, "")
-    absent:set_text("MD Entry Type: No Value")
+    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_entry_type, range, value, display)
   end
 
   return offset, value
@@ -2835,6 +3009,19 @@ end
 -- ATHEX Order Entry Date
 athex_oasis_mdfs_fast_v9.athex_order_entry_date = {}
 
+-- Display: ATHEX Order Entry Date
+athex_oasis_mdfs_fast_v9.athex_order_entry_date.display = function(value)
+  if value == nil then
+    return "ATHEX Order Entry Date: No Value"
+  end
+
+  if #value ~= 8 then
+    return "ATHEX Order Entry Date: "..value
+  end
+
+  return "ATHEX Order Entry Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
+end
+
 -- Dissect: ATHEX Order Entry Date
 athex_oasis_mdfs_fast_v9.athex_order_entry_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -2844,11 +3031,13 @@ athex_oasis_mdfs_fast_v9.athex_order_entry_date.dissect = function(buffer, offse
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_order_entry_date, range, value)
+  local display = athex_oasis_mdfs_fast_v9.athex_order_entry_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_order_entry_date, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_order_entry_date, range, "")
-    absent:set_text("ATHEX Order Entry Date: No Value")
+    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.athex_order_entry_date, range, value, display)
   end
 
   return offset, value
@@ -3638,6 +3827,19 @@ end
 -- Expire Date
 athex_oasis_mdfs_fast_v9.expire_date = {}
 
+-- Display: Expire Date
+athex_oasis_mdfs_fast_v9.expire_date.display = function(value)
+  if value == nil then
+    return "Expire Date: No Value"
+  end
+
+  if #value ~= 8 then
+    return "Expire Date: "..value
+  end
+
+  return "Expire Date: "..value:sub(1, 4).."-"..value:sub(5, 6).."-"..value:sub(7, 8)
+end
+
 -- Dissect: Expire Date
 athex_oasis_mdfs_fast_v9.expire_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3651,11 +3853,13 @@ athex_oasis_mdfs_fast_v9.expire_date.dissect = function(buffer, offset, packet, 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.expire_date, range, value)
+  local display = athex_oasis_mdfs_fast_v9.expire_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.expire_date, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.expire_date, range, "")
-    absent:set_text("Expire Date: No Value")
+    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.expire_date, range, value, display)
   end
 
   return offset, value
@@ -3918,6 +4122,25 @@ end
 -- MD Update Action
 athex_oasis_mdfs_fast_v9.md_update_action = {}
 
+-- Display: MD Update Action
+athex_oasis_mdfs_fast_v9.md_update_action.display = function(value)
+  if value == nil then
+    return "MD Update Action: No Value"
+  end
+
+  if value == "0" then
+    return "MD Update Action: New (0)"
+  end
+  if value == "1" then
+    return "MD Update Action: Change (1)"
+  end
+  if value == "2" then
+    return "MD Update Action: Delete (2)"
+  end
+
+  return "MD Update Action: "..value
+end
+
 -- Dissect: MD Update Action
 athex_oasis_mdfs_fast_v9.md_update_action.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3927,11 +4150,13 @@ athex_oasis_mdfs_fast_v9.md_update_action.dissect = function(buffer, offset, pac
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_update_action, range, value)
+  local display = athex_oasis_mdfs_fast_v9.md_update_action.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_update_action, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_update_action, range, "")
-    absent:set_text("MD Update Action: No Value")
+    parent:add(omi_athex_oasis_mdfs_fast_v9.fields.md_update_action, range, value, display)
   end
 
   return offset, value

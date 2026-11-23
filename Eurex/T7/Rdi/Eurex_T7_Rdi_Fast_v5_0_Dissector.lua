@@ -1181,6 +1181,19 @@ end
 -- Effective Business Date
 eurex_t7_rdi_fast_v5_0.effective_business_date = {}
 
+-- Display: Effective Business Date
+eurex_t7_rdi_fast_v5_0.effective_business_date.display = function(value)
+  if value == nil then
+    return "Effective Business Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Effective Business Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Effective Business Date
 eurex_t7_rdi_fast_v5_0.effective_business_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -1201,11 +1214,13 @@ eurex_t7_rdi_fast_v5_0.effective_business_date.dissect = function(buffer, offset
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.effective_business_date, range, value)
+  local display = eurex_t7_rdi_fast_v5_0.effective_business_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.effective_business_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.effective_business_date, range, 0)
-    absent:set_text("Effective Business Date: No Value")
+    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.effective_business_date, range, value, display)
   end
 
   return offset, value
@@ -1213,6 +1228,19 @@ end
 
 -- Next Effective Business Date
 eurex_t7_rdi_fast_v5_0.next_effective_business_date = {}
+
+-- Display: Next Effective Business Date
+eurex_t7_rdi_fast_v5_0.next_effective_business_date.display = function(value)
+  if value == nil then
+    return "Next Effective Business Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Next Effective Business Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
 
 -- Dissect: Next Effective Business Date
 eurex_t7_rdi_fast_v5_0.next_effective_business_date.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -1234,11 +1262,13 @@ eurex_t7_rdi_fast_v5_0.next_effective_business_date.dissect = function(buffer, o
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.next_effective_business_date, range, value)
+  local display = eurex_t7_rdi_fast_v5_0.next_effective_business_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.next_effective_business_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.next_effective_business_date, range, 0)
-    absent:set_text("Next Effective Business Date: No Value")
+    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.next_effective_business_date, range, value, display)
   end
 
   return offset, value
@@ -3581,6 +3611,15 @@ end
 -- Market Depth Time Interval
 eurex_t7_rdi_fast_v5_0.market_depth_time_interval = {}
 
+-- Display: Market Depth Time Interval
+eurex_t7_rdi_fast_v5_0.market_depth_time_interval.display = function(value)
+  if value == nil then
+    return "Market Depth Time Interval: No Value"
+  end
+
+  return "Market Depth Time Interval: "..tostring(value).." ms"
+end
+
 -- Dissect: Market Depth Time Interval
 eurex_t7_rdi_fast_v5_0.market_depth_time_interval.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3596,11 +3635,13 @@ eurex_t7_rdi_fast_v5_0.market_depth_time_interval.dissect = function(buffer, off
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.market_depth_time_interval, range, value)
+  local display = eurex_t7_rdi_fast_v5_0.market_depth_time_interval.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.market_depth_time_interval, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.market_depth_time_interval, range, 0)
-    absent:set_text("Market Depth Time Interval: No Value")
+    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.market_depth_time_interval, range, value, display)
   end
 
   return offset, value
@@ -3608,6 +3649,15 @@ end
 
 -- MD Recovery Time Interval
 eurex_t7_rdi_fast_v5_0.md_recovery_time_interval = {}
+
+-- Display: MD Recovery Time Interval
+eurex_t7_rdi_fast_v5_0.md_recovery_time_interval.display = function(value)
+  if value == nil then
+    return "MD Recovery Time Interval: No Value"
+  end
+
+  return "MD Recovery Time Interval: "..tostring(value).." ms"
+end
 
 -- Dissect: MD Recovery Time Interval
 eurex_t7_rdi_fast_v5_0.md_recovery_time_interval.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -3624,11 +3674,13 @@ eurex_t7_rdi_fast_v5_0.md_recovery_time_interval.dissect = function(buffer, offs
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.md_recovery_time_interval, range, value)
+  local display = eurex_t7_rdi_fast_v5_0.md_recovery_time_interval.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.md_recovery_time_interval, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.md_recovery_time_interval, range, 0)
-    absent:set_text("MD Recovery Time Interval: No Value")
+    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.md_recovery_time_interval, range, value, display)
   end
 
   return offset, value
@@ -4420,6 +4472,19 @@ end
 -- Maturity Date
 eurex_t7_rdi_fast_v5_0.maturity_date = {}
 
+-- Display: Maturity Date
+eurex_t7_rdi_fast_v5_0.maturity_date.display = function(value)
+  if value == nil then
+    return "Maturity Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Maturity Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Maturity Date
 eurex_t7_rdi_fast_v5_0.maturity_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -4440,11 +4505,13 @@ eurex_t7_rdi_fast_v5_0.maturity_date.dissect = function(buffer, offset, packet, 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.maturity_date, range, value)
+  local display = eurex_t7_rdi_fast_v5_0.maturity_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.maturity_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.maturity_date, range, 0)
-    absent:set_text("Maturity Date: No Value")
+    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.maturity_date, range, value, display)
   end
 
   return offset, value
@@ -4452,6 +4519,23 @@ end
 
 -- Maturity Month Year
 eurex_t7_rdi_fast_v5_0.maturity_month_year = {}
+
+-- Display: Maturity Month Year
+eurex_t7_rdi_fast_v5_0.maturity_month_year.display = function(value)
+  if value == nil then
+    return "Maturity Month Year: No Value"
+  end
+
+  if value >= 10000000 then
+    return "Maturity Month Year: "..string.format("%04d-%02d-%02d", math.floor(value / 10000), math.floor(value / 100) % 100, value % 100)
+  end
+
+  if value >= 1000000 then
+    return "Maturity Month Year: "..string.format("%04d-%02d week %d", math.floor(value / 1000), math.floor(value / 10) % 100, value % 10)
+  end
+
+  return "Maturity Month Year: "..string.format("%04d-%02d", math.floor(value / 100), value % 100)
+end
 
 -- Dissect: Maturity Month Year
 eurex_t7_rdi_fast_v5_0.maturity_month_year.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -4473,11 +4557,13 @@ eurex_t7_rdi_fast_v5_0.maturity_month_year.dissect = function(buffer, offset, pa
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.maturity_month_year, range, value)
+  local display = eurex_t7_rdi_fast_v5_0.maturity_month_year.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.maturity_month_year, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.maturity_month_year, range, 0)
-    absent:set_text("Maturity Month Year: No Value")
+    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.maturity_month_year, range, value, display)
   end
 
   return offset, value
@@ -5934,6 +6020,19 @@ end
 -- Event Date
 eurex_t7_rdi_fast_v5_0.event_date = {}
 
+-- Display: Event Date
+eurex_t7_rdi_fast_v5_0.event_date.display = function(value)
+  if value == nil then
+    return "Event Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Event Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Event Date
 eurex_t7_rdi_fast_v5_0.event_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -5954,11 +6053,13 @@ eurex_t7_rdi_fast_v5_0.event_date.dissect = function(buffer, offset, packet, par
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.event_date, range, value)
+  local display = eurex_t7_rdi_fast_v5_0.event_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.event_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.event_date, range, 0)
-    absent:set_text("Event Date: No Value")
+    parent:add(omi_eurex_t7_rdi_fast_v5_0.fields.event_date, range, value, display)
   end
 
   return offset, value
