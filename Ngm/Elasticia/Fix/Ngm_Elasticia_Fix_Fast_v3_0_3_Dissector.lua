@@ -109,7 +109,7 @@ omi_ngm_elasticia_fix_fast_v3_0_3.fields.target_comp_id = ProtoField.new("Target
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "ngm.elasticia.fix.fast.v3.0.3.sendercompid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.on_behalf_of_comp_id = ProtoField.new("On Behalf Of Comp ID", "ngm.elasticia.fix.fast.v3.0.3.onbehalfofcompid", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.deliver_to_comp_id = ProtoField.new("Deliver To Comp ID", "ngm.elasticia.fix.fast.v3.0.3.delivertocompid", ftypes.STRING)
-omi_ngm_elasticia_fix_fast_v3_0_3.fields.sending_time = ProtoField.new("Sending Time", "ngm.elasticia.fix.fast.v3.0.3.sendingtime", ftypes.UINT64)
+omi_ngm_elasticia_fix_fast_v3_0_3.fields.sending_time = ProtoField.new("Sending Time", "ngm.elasticia.fix.fast.v3.0.3.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.ref_msg_type = ProtoField.new("Ref Msg Type", "ngm.elasticia.fix.fast.v3.0.3.refmsgtype", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.business_reject_reason = ProtoField.new("Business Reject Reason", "ngm.elasticia.fix.fast.v3.0.3.businessrejectreason", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.text = ProtoField.new("Text", "ngm.elasticia.fix.fast.v3.0.3.text", ftypes.STRING)
@@ -137,8 +137,8 @@ omi_ngm_elasticia_fix_fast_v3_0_3.fields.price = ProtoField.new("Price", "ngm.el
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.order_qty = ProtoField.new("Order Qty", "ngm.elasticia.fix.fast.v3.0.3.orderqty", ftypes.DOUBLE)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.account = ProtoField.new("Account", "ngm.elasticia.fix.fast.v3.0.3.account", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.time_in_force = ProtoField.new("Time In Force", "ngm.elasticia.fix.fast.v3.0.3.timeinforce", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v3_0_3.fields.transact_time = ProtoField.new("Transact Time", "ngm.elasticia.fix.fast.v3.0.3.transacttime", ftypes.UINT64)
-omi_ngm_elasticia_fix_fast_v3_0_3.fields.expire_time = ProtoField.new("Expire Time", "ngm.elasticia.fix.fast.v3.0.3.expiretime", ftypes.UINT64)
+omi_ngm_elasticia_fix_fast_v3_0_3.fields.transact_time = ProtoField.new("Transact Time", "ngm.elasticia.fix.fast.v3.0.3.transacttime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_ngm_elasticia_fix_fast_v3_0_3.fields.expire_time = ProtoField.new("Expire Time", "ngm.elasticia.fix.fast.v3.0.3.expiretime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.exec_inst = ProtoField.new("Exec Inst", "ngm.elasticia.fix.fast.v3.0.3.execinst", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.order_restrictions = ProtoField.new("Order Restrictions", "ngm.elasticia.fix.fast.v3.0.3.orderrestrictions", ftypes.STRING)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.display_qty = ProtoField.new("Display Qty", "ngm.elasticia.fix.fast.v3.0.3.displayqty", ftypes.DOUBLE)
@@ -215,7 +215,7 @@ omi_ngm_elasticia_fix_fast_v3_0_3.fields.no_trd_reg_publications = ProtoField.ne
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.trd_reg_publication_type = ProtoField.new("Trd Reg Publication Type", "ngm.elasticia.fix.fast.v3.0.3.trdregpublicationtype", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.trd_reg_publication_reason = ProtoField.new("Trd Reg Publication Reason", "ngm.elasticia.fix.fast.v3.0.3.trdregpublicationreason", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.trade_handling_instr = ProtoField.new("Trade Handling Instr", "ngm.elasticia.fix.fast.v3.0.3.tradehandlinginstr", ftypes.UINT32)
-omi_ngm_elasticia_fix_fast_v3_0_3.fields.trans_bkd_time = ProtoField.new("Trans Bkd Time", "ngm.elasticia.fix.fast.v3.0.3.transbkdtime", ftypes.UINT64)
+omi_ngm_elasticia_fix_fast_v3_0_3.fields.trans_bkd_time = ProtoField.new("Trans Bkd Time", "ngm.elasticia.fix.fast.v3.0.3.transbkdtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.match_status = ProtoField.new("Match Status", "ngm.elasticia.fix.fast.v3.0.3.matchstatus", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.match_type = ProtoField.new("Match Type", "ngm.elasticia.fix.fast.v3.0.3.matchtype", ftypes.UINT32)
 omi_ngm_elasticia_fix_fast_v3_0_3.fields.trade_condition = ProtoField.new("Trade Condition", "ngm.elasticia.fix.fast.v3.0.3.tradecondition", ftypes.STRING)
@@ -1858,11 +1858,13 @@ ngm_elasticia_fix_fast_v3_0_3.sending_time.dissect = function(buffer, offset, pa
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.sending_time, range, value)
-  else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.sending_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.sending_time, range, NSTime.new(0, 0))
     absent:set_text("Sending Time: No Value")
+  else
+    local seconds = (value / UInt64(1000000000)):tonumber()
+    local nanos = (value % UInt64(1000000000)):tonumber()
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.sending_time, range, NSTime.new(seconds, nanos))
   end
 
   return offset, value
@@ -2697,11 +2699,13 @@ ngm_elasticia_fix_fast_v3_0_3.transact_time_sent_optional.dissect = function(buf
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.transact_time, range, value)
-  else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.transact_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.transact_time, range, NSTime.new(0, 0))
     absent:set_text("Transact Time: No Value")
+  else
+    local seconds = (value / UInt64(1000000000)):tonumber()
+    local nanos = (value % UInt64(1000000000)):tonumber()
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.transact_time, range, NSTime.new(seconds, nanos))
   end
 
   return offset, value
@@ -2719,11 +2723,13 @@ ngm_elasticia_fix_fast_v3_0_3.transact_time_sent_required.dissect = function(buf
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.transact_time, range, value)
-  else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.transact_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.transact_time, range, NSTime.new(0, 0))
     absent:set_text("Transact Time: No Value")
+  else
+    local seconds = (value / UInt64(1000000000)):tonumber()
+    local nanos = (value % UInt64(1000000000)):tonumber()
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.transact_time, range, NSTime.new(seconds, nanos))
   end
 
   return offset, value
@@ -2745,11 +2751,13 @@ ngm_elasticia_fix_fast_v3_0_3.expire_time.dissect = function(buffer, offset, pac
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.expire_time, range, value)
-  else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.expire_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.expire_time, range, NSTime.new(0, 0))
     absent:set_text("Expire Time: No Value")
+  else
+    local seconds = (value / UInt64(1000000000)):tonumber()
+    local nanos = (value % UInt64(1000000000)):tonumber()
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.expire_time, range, NSTime.new(seconds, nanos))
   end
 
   return offset, value
@@ -5150,11 +5158,13 @@ ngm_elasticia_fix_fast_v3_0_3.trans_bkd_time_sent.dissect = function(buffer, off
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.trans_bkd_time, range, value)
-  else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.trans_bkd_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.trans_bkd_time, range, NSTime.new(0, 0))
     absent:set_text("Trans Bkd Time: No Value")
+  else
+    local seconds = (value / UInt64(1000000000)):tonumber()
+    local nanos = (value % UInt64(1000000000)):tonumber()
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.trans_bkd_time, range, NSTime.new(seconds, nanos))
   end
 
   return offset, value
@@ -5176,11 +5186,13 @@ ngm_elasticia_fix_fast_v3_0_3.trans_bkd_time_default.dissect = function(buffer, 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.trans_bkd_time, range, value)
-  else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.trans_bkd_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.trans_bkd_time, range, NSTime.new(0, 0))
     absent:set_text("Trans Bkd Time: No Value")
+  else
+    local seconds = (value / UInt64(1000000000)):tonumber()
+    local nanos = (value % UInt64(1000000000)):tonumber()
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.trans_bkd_time, range, NSTime.new(seconds, nanos))
   end
 
   return offset, value
@@ -5826,6 +5838,25 @@ end
 -- MD Update Action
 ngm_elasticia_fix_fast_v3_0_3.md_update_action = {}
 
+-- Display: MD Update Action
+ngm_elasticia_fix_fast_v3_0_3.md_update_action.display = function(value)
+  if value == nil then
+    return "MD Update Action: No Value"
+  end
+
+  if value == 48 then
+    return "MD Update Action: New (48)"
+  end
+  if value == 49 then
+    return "MD Update Action: Change (49)"
+  end
+  if value == 50 then
+    return "MD Update Action: Delete (50)"
+  end
+
+  return "MD Update Action: "..value
+end
+
 -- Dissect: MD Update Action
 ngm_elasticia_fix_fast_v3_0_3.md_update_action.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -5835,11 +5866,13 @@ ngm_elasticia_fix_fast_v3_0_3.md_update_action.dissect = function(buffer, offset
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.md_update_action, range, value)
+  local display = ngm_elasticia_fix_fast_v3_0_3.md_update_action.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.md_update_action, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.md_update_action, range, 0)
-    absent:set_text("MD Update Action: No Value")
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.md_update_action, range, value, display)
   end
 
   return offset, value
@@ -5847,6 +5880,67 @@ end
 
 -- MD Entry Type
 ngm_elasticia_fix_fast_v3_0_3.md_entry_type = {}
+
+-- Display: MD Entry Type
+ngm_elasticia_fix_fast_v3_0_3.md_entry_type.display = function(value)
+  if value == nil then
+    return "MD Entry Type: No Value"
+  end
+
+  if value == 48 then
+    return "MD Entry Type: Bid (48)"
+  end
+  if value == 49 then
+    return "MD Entry Type: Offer (49)"
+  end
+  if value == 50 then
+    return "MD Entry Type: Trade (50)"
+  end
+  if value == 52 then
+    return "MD Entry Type: Opening Price (52)"
+  end
+  if value == 53 then
+    return "MD Entry Type: Closing Price (53)"
+  end
+  if value == 55 then
+    return "MD Entry Type: Trading Session High Price (55)"
+  end
+  if value == 56 then
+    return "MD Entry Type: Trading Session Low Price (56)"
+  end
+  if value == 66 then
+    return "MD Entry Type: Trade Volume (66)"
+  end
+  if value == 117 then
+    return "MD Entry Type: Late Trade Volume (117)"
+  end
+  if value == 118 then
+    return "MD Entry Type: Late Turnover (118)"
+  end
+  if value == 119 then
+    return "MD Entry Type: Vwap Turnover Volume (119)"
+  end
+  if value == 120 then
+    return "MD Entry Type: First Price (120)"
+  end
+  if value == 121 then
+    return "MD Entry Type: Last Price (121)"
+  end
+  if value == 122 then
+    return "MD Entry Type: Turnover (122)"
+  end
+  if value == 98 then
+    return "MD Entry Type: Equilibrium Buy (98)"
+  end
+  if value == 115 then
+    return "MD Entry Type: Equilibrium Sell (115)"
+  end
+  if value == 114 then
+    return "MD Entry Type: Accrued Interest Rate (114)"
+  end
+
+  return "MD Entry Type: "..value
+end
 
 -- Dissect: MD Entry Type
 ngm_elasticia_fix_fast_v3_0_3.md_entry_type.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -5857,11 +5951,13 @@ ngm_elasticia_fix_fast_v3_0_3.md_entry_type.dissect = function(buffer, offset, p
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.md_entry_type, range, value)
+  local display = ngm_elasticia_fix_fast_v3_0_3.md_entry_type.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.md_entry_type, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.md_entry_type, range, 0)
-    absent:set_text("MD Entry Type: No Value")
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.md_entry_type, range, value, display)
   end
 
   return offset, value
@@ -6804,6 +6900,15 @@ end
 -- Max Order Expire Duration
 ngm_elasticia_fix_fast_v3_0_3.max_order_expire_duration = {}
 
+-- Display: Max Order Expire Duration
+ngm_elasticia_fix_fast_v3_0_3.max_order_expire_duration.display = function(value)
+  if value == nil then
+    return "Max Order Expire Duration: No Value"
+  end
+
+  return "Max Order Expire Duration: "..tostring(value).." s"
+end
+
 -- Dissect: Max Order Expire Duration
 ngm_elasticia_fix_fast_v3_0_3.max_order_expire_duration.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -6817,11 +6922,13 @@ ngm_elasticia_fix_fast_v3_0_3.max_order_expire_duration.dissect = function(buffe
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.max_order_expire_duration, range, value)
+  local display = ngm_elasticia_fix_fast_v3_0_3.max_order_expire_duration.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.max_order_expire_duration, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.max_order_expire_duration, range, 0)
-    absent:set_text("Max Order Expire Duration: No Value")
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.max_order_expire_duration, range, value, display)
   end
 
   return offset, value
@@ -6829,6 +6936,15 @@ end
 
 -- Max Trade Trans Bkd Time Diff
 ngm_elasticia_fix_fast_v3_0_3.max_trade_trans_bkd_time_diff = {}
+
+-- Display: Max Trade Trans Bkd Time Diff
+ngm_elasticia_fix_fast_v3_0_3.max_trade_trans_bkd_time_diff.display = function(value)
+  if value == nil then
+    return "Max Trade Trans Bkd Time Diff: No Value"
+  end
+
+  return "Max Trade Trans Bkd Time Diff: "..tostring(value).." s"
+end
 
 -- Dissect: Max Trade Trans Bkd Time Diff
 ngm_elasticia_fix_fast_v3_0_3.max_trade_trans_bkd_time_diff.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -6843,11 +6959,13 @@ ngm_elasticia_fix_fast_v3_0_3.max_trade_trans_bkd_time_diff.dissect = function(b
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.max_trade_trans_bkd_time_diff, range, value)
+  local display = ngm_elasticia_fix_fast_v3_0_3.max_trade_trans_bkd_time_diff.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.max_trade_trans_bkd_time_diff, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.max_trade_trans_bkd_time_diff, range, 0)
-    absent:set_text("Max Trade Trans Bkd Time Diff: No Value")
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.max_trade_trans_bkd_time_diff, range, value, display)
   end
 
   return offset, value
@@ -7117,6 +7235,15 @@ end
 -- Order Protection Auction Time Min
 ngm_elasticia_fix_fast_v3_0_3.order_protection_auction_time_min = {}
 
+-- Display: Order Protection Auction Time Min
+ngm_elasticia_fix_fast_v3_0_3.order_protection_auction_time_min.display = function(value)
+  if value == nil then
+    return "Order Protection Auction Time Min: No Value"
+  end
+
+  return "Order Protection Auction Time Min: "..tostring(value).." ms"
+end
+
 -- Dissect: Order Protection Auction Time Min
 ngm_elasticia_fix_fast_v3_0_3.order_protection_auction_time_min.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -7130,11 +7257,13 @@ ngm_elasticia_fix_fast_v3_0_3.order_protection_auction_time_min.dissect = functi
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.order_protection_auction_time_min, range, value)
+  local display = ngm_elasticia_fix_fast_v3_0_3.order_protection_auction_time_min.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.order_protection_auction_time_min, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.order_protection_auction_time_min, range, 0)
-    absent:set_text("Order Protection Auction Time Min: No Value")
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.order_protection_auction_time_min, range, value, display)
   end
 
   return offset, value
@@ -7142,6 +7271,15 @@ end
 
 -- Order Protection Auction Time Max
 ngm_elasticia_fix_fast_v3_0_3.order_protection_auction_time_max = {}
+
+-- Display: Order Protection Auction Time Max
+ngm_elasticia_fix_fast_v3_0_3.order_protection_auction_time_max.display = function(value)
+  if value == nil then
+    return "Order Protection Auction Time Max: No Value"
+  end
+
+  return "Order Protection Auction Time Max: "..tostring(value).." ms"
+end
 
 -- Dissect: Order Protection Auction Time Max
 ngm_elasticia_fix_fast_v3_0_3.order_protection_auction_time_max.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -7156,11 +7294,13 @@ ngm_elasticia_fix_fast_v3_0_3.order_protection_auction_time_max.dissect = functi
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.order_protection_auction_time_max, range, value)
+  local display = ngm_elasticia_fix_fast_v3_0_3.order_protection_auction_time_max.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.order_protection_auction_time_max, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.order_protection_auction_time_max, range, 0)
-    absent:set_text("Order Protection Auction Time Max: No Value")
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.order_protection_auction_time_max, range, value, display)
   end
 
   return offset, value
@@ -7168,6 +7308,15 @@ end
 
 -- Missing Reference Price Auction Time Min
 ngm_elasticia_fix_fast_v3_0_3.missing_reference_price_auction_time_min = {}
+
+-- Display: Missing Reference Price Auction Time Min
+ngm_elasticia_fix_fast_v3_0_3.missing_reference_price_auction_time_min.display = function(value)
+  if value == nil then
+    return "Missing Reference Price Auction Time Min: No Value"
+  end
+
+  return "Missing Reference Price Auction Time Min: "..tostring(value).." ms"
+end
 
 -- Dissect: Missing Reference Price Auction Time Min
 ngm_elasticia_fix_fast_v3_0_3.missing_reference_price_auction_time_min.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -7182,11 +7331,13 @@ ngm_elasticia_fix_fast_v3_0_3.missing_reference_price_auction_time_min.dissect =
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.missing_reference_price_auction_time_min, range, value)
+  local display = ngm_elasticia_fix_fast_v3_0_3.missing_reference_price_auction_time_min.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.missing_reference_price_auction_time_min, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.missing_reference_price_auction_time_min, range, 0)
-    absent:set_text("Missing Reference Price Auction Time Min: No Value")
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.missing_reference_price_auction_time_min, range, value, display)
   end
 
   return offset, value
@@ -7194,6 +7345,15 @@ end
 
 -- Missing Reference Price Auction Time Max
 ngm_elasticia_fix_fast_v3_0_3.missing_reference_price_auction_time_max = {}
+
+-- Display: Missing Reference Price Auction Time Max
+ngm_elasticia_fix_fast_v3_0_3.missing_reference_price_auction_time_max.display = function(value)
+  if value == nil then
+    return "Missing Reference Price Auction Time Max: No Value"
+  end
+
+  return "Missing Reference Price Auction Time Max: "..tostring(value).." ms"
+end
 
 -- Dissect: Missing Reference Price Auction Time Max
 ngm_elasticia_fix_fast_v3_0_3.missing_reference_price_auction_time_max.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -7208,11 +7368,13 @@ ngm_elasticia_fix_fast_v3_0_3.missing_reference_price_auction_time_max.dissect =
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.missing_reference_price_auction_time_max, range, value)
+  local display = ngm_elasticia_fix_fast_v3_0_3.missing_reference_price_auction_time_max.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.missing_reference_price_auction_time_max, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.missing_reference_price_auction_time_max, range, 0)
-    absent:set_text("Missing Reference Price Auction Time Max: No Value")
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.missing_reference_price_auction_time_max, range, value, display)
   end
 
   return offset, value
@@ -7581,6 +7743,43 @@ end
 -- Security Trading Status
 ngm_elasticia_fix_fast_v3_0_3.security_trading_status = {}
 
+-- Display: Security Trading Status
+ngm_elasticia_fix_fast_v3_0_3.security_trading_status.display = function(value)
+  if value == nil then
+    return "Security Trading Status: No Value"
+  end
+
+  if value == 2 then
+    return "Security Trading Status: Trading Halt (2)"
+  end
+  if value == 4 then
+    return "Security Trading Status: Closed (4)"
+  end
+  if value == 17 then
+    return "Security Trading Status: Open (17)"
+  end
+  if value == 18 then
+    return "Security Trading Status: Post Open (18)"
+  end
+  if value == 20 then
+    return "Security Trading Status: Request Reject (20)"
+  end
+  if value == 21 then
+    return "Security Trading Status: Pre Open (21)"
+  end
+  if value == 101 then
+    return "Security Trading Status: Opening Auction (101)"
+  end
+  if value == 102 then
+    return "Security Trading Status: Closing Auction (102)"
+  end
+  if value == 103 then
+    return "Security Trading Status: Scheduled Auction (103)"
+  end
+
+  return "Security Trading Status: "..value
+end
+
 -- Dissect: Security Trading Status
 ngm_elasticia_fix_fast_v3_0_3.security_trading_status.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -7590,11 +7789,13 @@ ngm_elasticia_fix_fast_v3_0_3.security_trading_status.dissect = function(buffer,
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.security_trading_status, range, value)
+  local display = ngm_elasticia_fix_fast_v3_0_3.security_trading_status.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.security_trading_status, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.security_trading_status, range, 0)
-    absent:set_text("Security Trading Status: No Value")
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.security_trading_status, range, value, display)
   end
 
   return offset, value
@@ -8093,6 +8294,19 @@ end
 -- Ex Date
 ngm_elasticia_fix_fast_v3_0_3.ex_date = {}
 
+-- Display: Ex Date
+ngm_elasticia_fix_fast_v3_0_3.ex_date.display = function(value)
+  if value == nil then
+    return "Ex Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Ex Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Ex Date
 ngm_elasticia_fix_fast_v3_0_3.ex_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -8102,11 +8316,13 @@ ngm_elasticia_fix_fast_v3_0_3.ex_date.dissect = function(buffer, offset, packet,
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.ex_date, range, value)
+  local display = ngm_elasticia_fix_fast_v3_0_3.ex_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.ex_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.ex_date, range, 0)
-    absent:set_text("Ex Date: No Value")
+    parent:add(omi_ngm_elasticia_fix_fast_v3_0_3.fields.ex_date, range, value, display)
   end
 
   return offset, value

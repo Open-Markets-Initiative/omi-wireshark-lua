@@ -593,15 +593,15 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.first_trading_date_and_tim
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.first_trading_date_and_time.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.first_trading_date_and_time.size
   local range = buffer(offset, length)
-  local packed = range:uint64():tonumber()
+  local packed = range:uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.first_trading_date_and_time_utc
   if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 2 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.first_trading_date_and_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -737,15 +737,15 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_trading_date_and_time
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_trading_date_and_time.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.last_trading_date_and_time.size
   local range = buffer(offset, length)
-  local packed = range:uint64():tonumber()
+  local packed = range:uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.last_trading_date_and_time_utc
   if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 2 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.last_trading_date_and_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -1963,15 +1963,15 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_agreement.si
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_agreement.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_agreement.size
   local range = buffer(offset, length)
-  local packed = range:uint64():tonumber()
+  local packed = range:uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_agreement_utc
   if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 2 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_agreement end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -2010,15 +2010,15 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_disseminatio
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_dissemination.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_dissemination.size
   local range = buffer(offset, length)
-  local packed = range:uint64():tonumber()
+  local packed = range:uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_dissemination_utc
   if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 2 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_dissemination end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -2057,15 +2057,15 @@ nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_execution.si
 nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_execution.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.time_of_trade_execution.size
   local range = buffer(offset, length)
-  local packed = range:uint64():tonumber()
+  local packed = range:uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_execution_utc
   if nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.timestamp_format == 2 then field = omi_nasdaq_nordicderivatives_marketdata_geniumamd_v2_28_7.fields.time_of_trade_execution end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100

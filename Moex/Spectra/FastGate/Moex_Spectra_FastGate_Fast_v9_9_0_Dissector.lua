@@ -31,7 +31,7 @@ omi_moex_spectra_fastgate_fast_v9_9_0.fields.appl_ver_id = ProtoField.new("Appl 
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.message_type = ProtoField.new("Message Type", "moex.spectra.fastgate.fast.v9.9.0.messagetype", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "moex.spectra.fastgate.fast.v9.9.0.sendercompid", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "moex.spectra.fastgate.fast.v9.9.0.msgseqnum", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.sending_time = ProtoField.new("Sending Time", "moex.spectra.fastgate.fast.v9.9.0.sendingtime", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.sending_time = ProtoField.new("Sending Time", "moex.spectra.fastgate.fast.v9.9.0.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.last_fragment = ProtoField.new("Last Fragment", "moex.spectra.fastgate.fast.v9.9.0.lastfragment", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_md_entries = ProtoField.new("No MD Entries", "moex.spectra.fastgate.fast.v9.9.0.nomdentries", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_update_action = ProtoField.new("MD Update Action", "moex.spectra.fastgate.fast.v9.9.0.mdupdateaction", ftypes.UINT32)
@@ -107,7 +107,7 @@ omi_moex_spectra_fastgate_fast_v9_9_0.fields.underlying_currency = ProtoField.ne
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_events = ProtoField.new("No Events", "moex.spectra.fastgate.fast.v9.9.0.noevents", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_type = ProtoField.new("Event Type", "moex.spectra.fastgate.fast.v9.9.0.eventtype", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_date = ProtoField.new("Event Date", "moex.spectra.fastgate.fast.v9.9.0.eventdate", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_time = ProtoField.new("Event Time", "moex.spectra.fastgate.fast.v9.9.0.eventtime", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_time = ProtoField.new("Event Time", "moex.spectra.fastgate.fast.v9.9.0.eventtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.flags = ProtoField.new("Flags", "moex.spectra.fastgate.fast.v9.9.0.flags", ftypes.INT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.min_price_increment_amount_curr = ProtoField.new("Min Price Increment Amount Curr", "moex.spectra.fastgate.fast.v9.9.0.minpriceincrementamountcurr", ftypes.DOUBLE)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.settl_price_open = ProtoField.new("Settl Price Open", "moex.spectra.fastgate.fast.v9.9.0.settlpriceopen", ftypes.DOUBLE)
@@ -136,22 +136,22 @@ omi_moex_spectra_fastgate_fast_v9_9_0.fields.no_related_sym = ProtoField.new("No
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_group_id = ProtoField.new("Security Group ID", "moex.spectra.fastgate.fast.v9.9.0.securitygroupid", ftypes.INT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.halt_type = ProtoField.new("Halt Type", "moex.spectra.fastgate.fast.v9.9.0.halttype", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_mode_mask = ProtoField.new("Trade Mode Mask", "moex.spectra.fastgate.fast.v9.9.0.trademodemask", ftypes.INT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.transact_time = ProtoField.new("Transact Time", "moex.spectra.fastgate.fast.v9.9.0.transacttime", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.transact_time = ProtoField.new("Transact Time", "moex.spectra.fastgate.fast.v9.9.0.transacttime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.new_seq_no = ProtoField.new("New Seq No", "moex.spectra.fastgate.fast.v9.9.0.newseqno", ftypes.UINT32)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_open_time = ProtoField.new("Trad Ses Open Time", "moex.spectra.fastgate.fast.v9.9.0.tradsesopentime", ftypes.UINT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time = ProtoField.new("Trad Ses Close Time", "moex.spectra.fastgate.fast.v9.9.0.tradsesclosetime", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_open_time = ProtoField.new("Trad Ses Open Time", "moex.spectra.fastgate.fast.v9.9.0.tradsesopentime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time = ProtoField.new("Trad Ses Close Time", "moex.spectra.fastgate.fast.v9.9.0.tradsesclosetime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_status = ProtoField.new("Trad Ses Status", "moex.spectra.fastgate.fast.v9.9.0.tradsesstatus", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_event = ProtoField.new("Trad Ses Event", "moex.spectra.fastgate.fast.v9.9.0.tradsesevent", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.trade_period_id = ProtoField.new("Trade Period ID", "moex.spectra.fastgate.fast.v9.9.0.tradeperiodid", ftypes.INT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.settl_sess_begin = ProtoField.new("Settl Sess Begin", "moex.spectra.fastgate.fast.v9.9.0.settlsessbegin", ftypes.UINT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.clr_sess_begin = ProtoField.new("Clr Sess Begin", "moex.spectra.fastgate.fast.v9.9.0.clrsessbegin", ftypes.UINT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_from = ProtoField.new("Trad Ses Close Time From", "moex.spectra.fastgate.fast.v9.9.0.tradsesclosetimefrom", ftypes.UINT64)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_till = ProtoField.new("Trad Ses Close Time Till", "moex.spectra.fastgate.fast.v9.9.0.tradsesclosetimetill", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.settl_sess_begin = ProtoField.new("Settl Sess Begin", "moex.spectra.fastgate.fast.v9.9.0.settlsessbegin", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.clr_sess_begin = ProtoField.new("Clr Sess Begin", "moex.spectra.fastgate.fast.v9.9.0.clrsessbegin", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_from = ProtoField.new("Trad Ses Close Time From", "moex.spectra.fastgate.fast.v9.9.0.tradsesclosetimefrom", ftypes.ABSOLUTE_TIME, nil, base.UTC)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_till = ProtoField.new("Trad Ses Close Time Till", "moex.spectra.fastgate.fast.v9.9.0.tradsesclosetimetill", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.auction_id = ProtoField.new("Auction ID", "moex.spectra.fastgate.fast.v9.9.0.auctionid", ftypes.INT64)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_id_open = ProtoField.new("Event ID Open", "moex.spectra.fastgate.fast.v9.9.0.eventidopen", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_id_close = ProtoField.new("Event ID Close", "moex.spectra.fastgate.fast.v9.9.0.eventidclose", ftypes.INT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.news_id = ProtoField.new("News Id", "moex.spectra.fastgate.fast.v9.9.0.newsid", ftypes.STRING)
-omi_moex_spectra_fastgate_fast_v9_9_0.fields.orig_time = ProtoField.new("Orig Time", "moex.spectra.fastgate.fast.v9.9.0.origtime", ftypes.UINT64)
+omi_moex_spectra_fastgate_fast_v9_9_0.fields.orig_time = ProtoField.new("Orig Time", "moex.spectra.fastgate.fast.v9.9.0.origtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.language_code = ProtoField.new("Language Code", "moex.spectra.fastgate.fast.v9.9.0.languagecode", ftypes.STRING)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.urgency = ProtoField.new("Urgency", "moex.spectra.fastgate.fast.v9.9.0.urgency", ftypes.UINT32)
 omi_moex_spectra_fastgate_fast_v9_9_0.fields.headline = ProtoField.new("Headline", "moex.spectra.fastgate.fast.v9.9.0.headline", ftypes.STRING)
@@ -971,11 +971,31 @@ moex_spectra_fastgate_fast_v9_9_0.sending_time.dissect = function(buffer, offset
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.sending_time, range, value)
-  else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.sending_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.sending_time, range, NSTime.new(0, 0))
     absent:set_text("Sending Time: No Value")
+  else
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.sending_time, range, NSTime.new(0, 0))
+      item:set_text("Sending Time: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.sending_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -1050,6 +1070,25 @@ end
 -- MD Update Action
 moex_spectra_fastgate_fast_v9_9_0.md_update_action = {}
 
+-- Display: MD Update Action
+moex_spectra_fastgate_fast_v9_9_0.md_update_action.display = function(value)
+  if value == nil then
+    return "MD Update Action: No Value"
+  end
+
+  if value == 0 then
+    return "MD Update Action: New (0)"
+  end
+  if value == 1 then
+    return "MD Update Action: Change (1)"
+  end
+  if value == 2 then
+    return "MD Update Action: Delete (2)"
+  end
+
+  return "MD Update Action: "..value
+end
+
 -- Dissect: MD Update Action
 moex_spectra_fastgate_fast_v9_9_0.md_update_action.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -1059,11 +1098,13 @@ moex_spectra_fastgate_fast_v9_9_0.md_update_action.dissect = function(buffer, of
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_update_action, range, value)
+  local display = moex_spectra_fastgate_fast_v9_9_0.md_update_action.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_update_action, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_update_action, range, 0)
-    absent:set_text("MD Update Action: No Value")
+    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_update_action, range, value, display)
   end
 
   return offset, value
@@ -1071,6 +1112,94 @@ end
 
 -- MD Entry Type
 moex_spectra_fastgate_fast_v9_9_0.md_entry_type = {}
+
+-- Display: MD Entry Type
+moex_spectra_fastgate_fast_v9_9_0.md_entry_type.display = function(value)
+  if value == nil then
+    return "MD Entry Type: No Value"
+  end
+
+  if value == "0" then
+    return "MD Entry Type: Bid (0)"
+  end
+  if value == "1" then
+    return "MD Entry Type: Ask (1)"
+  end
+  if value == "2" then
+    return "MD Entry Type: Trade (2)"
+  end
+  if value == "3" then
+    return "MD Entry Type: Index Value (3)"
+  end
+  if value == "4" then
+    return "MD Entry Type: Opening Price (4)"
+  end
+  if value == "5" then
+    return "MD Entry Type: Closing Price (5)"
+  end
+  if value == "6" then
+    return "MD Entry Type: Settlement Price (6)"
+  end
+  if value == "7" then
+    return "MD Entry Type: Session High Price (7)"
+  end
+  if value == "8" then
+    return "MD Entry Type: Session Low Price (8)"
+  end
+  if value == "9" then
+    return "MD Entry Type: Session Vwap Price (9)"
+  end
+  if value == "B" then
+    return "MD Entry Type: Cumulative Trade Volume (B)"
+  end
+  if value == "C" then
+    return "MD Entry Type: Open Interest (C)"
+  end
+  if value == "J" then
+    return "MD Entry Type: Empty Book (J)"
+  end
+  if value == "W" then
+    return "MD Entry Type: Opening Auction Price (W)"
+  end
+  if value == "m" then
+    return "MD Entry Type: Current Market Price (m)"
+  end
+  if value == "q" then
+    return "MD Entry Type: Current Indicative Funding Rate In Points (q)"
+  end
+  if value == "r" then
+    return "MD Entry Type: Funding Rate Beyond Deviation Level In Points (r)"
+  end
+  if value == "s" then
+    return "MD Entry Type: Market Capitalization (s)"
+  end
+  if value == "u" then
+    return "MD Entry Type: Funding Rate Beyond Deviation Level (u)"
+  end
+  if value == "U" then
+    return "MD Entry Type: Indicative Funding Rate (U)"
+  end
+  if value == "v" then
+    return "MD Entry Type: Total Bid Volume With Synthetic Liquidity (v)"
+  end
+  if value == "w" then
+    return "MD Entry Type: Total Offer Volume With Synthetic Liquidity (w)"
+  end
+  if value == "x" then
+    return "MD Entry Type: Total Bid Volume Without Synthetic Liquidity (x)"
+  end
+  if value == "y" then
+    return "MD Entry Type: Total Offer Volume Without Synthetic Liquidity (y)"
+  end
+  if value == "z" then
+    return "MD Entry Type: Dividend Amendment (z)"
+  end
+  if value == "Z" then
+    return "MD Entry Type: Current Dividend Amendment (Z)"
+  end
+
+  return "MD Entry Type: "..value
+end
 
 -- Dissect: MD Entry Type
 moex_spectra_fastgate_fast_v9_9_0.md_entry_type.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -1081,11 +1210,13 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_type.dissect = function(buffer, offse
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_type, range, value)
+  local display = moex_spectra_fastgate_fast_v9_9_0.md_entry_type.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_type, range, "", display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_type, range, "")
-    absent:set_text("MD Entry Type: No Value")
+    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_type, range, value, display)
   end
 
   return offset, value
@@ -1535,6 +1666,19 @@ end
 -- MD Entry Date
 moex_spectra_fastgate_fast_v9_9_0.md_entry_date = {}
 
+-- Display: MD Entry Date
+moex_spectra_fastgate_fast_v9_9_0.md_entry_date.display = function(value)
+  if value == nil then
+    return "MD Entry Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "MD Entry Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: MD Entry Date
 moex_spectra_fastgate_fast_v9_9_0.md_entry_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -1544,11 +1688,13 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_date.dissect = function(buffer, offse
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_date, range, value)
+  local display = moex_spectra_fastgate_fast_v9_9_0.md_entry_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_date, range, 0)
-    absent:set_text("MD Entry Date: No Value")
+    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_date, range, value, display)
   end
 
   return offset, value
@@ -1556,6 +1702,21 @@ end
 
 -- MD Entry Time
 moex_spectra_fastgate_fast_v9_9_0.md_entry_time = {}
+
+-- Display: MD Entry Time
+moex_spectra_fastgate_fast_v9_9_0.md_entry_time.display = function(value)
+  if value == nil then
+    return "MD Entry Time: No Value"
+  end
+
+  local nanoseconds = (value % 1000000000):tonumber()
+  local clock = (value / 1000000000):tonumber()
+  local hour = math.floor(clock / 10000)
+  local minute = math.floor(clock / 100) % 100
+  local second = clock % 100
+
+  return "MD Entry Time: "..string.format("%02d:%02d:%02d.%09d", hour, minute, second, nanoseconds)
+end
 
 -- Dissect: MD Entry Time
 moex_spectra_fastgate_fast_v9_9_0.md_entry_time.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -1566,11 +1727,13 @@ moex_spectra_fastgate_fast_v9_9_0.md_entry_time.dissect = function(buffer, offse
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_time, range, value)
+  local display = moex_spectra_fastgate_fast_v9_9_0.md_entry_time.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_time, range, UInt64(0), display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_time, range, UInt64(0))
-    absent:set_text("MD Entry Time: No Value")
+    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.md_entry_time, range, value, display)
   end
 
   return offset, value
@@ -2265,6 +2428,46 @@ end
 -- Security Trading Status (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_optional = {}
 
+-- Display: Security Trading Status (Sent)
+moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_optional.display = function(value)
+  if value == nil then
+    return "Security Trading Status: No Value"
+  end
+
+  if value == 2 then
+    return "Security Trading Status: Session Suspended (2)"
+  end
+  if value == 17 then
+    return "Security Trading Status: Session Opened (17)"
+  end
+  if value == 18 then
+    return "Security Trading Status: Session Ended (18)"
+  end
+  if value == 20 then
+    return "Security Trading Status: Unknown Or Invalid (20)"
+  end
+  if value == 21 then
+    return "Security Trading Status: Session Scheduled (21)"
+  end
+  if value == 119 then
+    return "Security Trading Status: Opening Auction Started (119)"
+  end
+  if value == 121 then
+    return "Security Trading Status: Opening Auction Ended (121)"
+  end
+  if value == 122 then
+    return "Security Trading Status: Instrument Suspended (122)"
+  end
+  if value == 123 then
+    return "Security Trading Status: Close Position Only (123)"
+  end
+  if value == 124 then
+    return "Security Trading Status: Opening Auction Close Position Only (124)"
+  end
+
+  return "Security Trading Status: "..value
+end
+
 -- Dissect: Security Trading Status (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_optional.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -2274,11 +2477,13 @@ moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_optional.dissect 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_trading_status, range, value)
+  local display = moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_optional.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_trading_status, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_trading_status, range, 0)
-    absent:set_text("Security Trading Status: No Value")
+    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_trading_status, range, value, display)
   end
 
   return offset, value
@@ -2286,6 +2491,46 @@ end
 
 -- Security Trading Status (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_required = {}
+
+-- Display: Security Trading Status (Sent)
+moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_required.display = function(value)
+  if value == nil then
+    return "Security Trading Status: No Value"
+  end
+
+  if value == 2 then
+    return "Security Trading Status: Session Suspended (2)"
+  end
+  if value == 17 then
+    return "Security Trading Status: Session Opened (17)"
+  end
+  if value == 18 then
+    return "Security Trading Status: Session Ended (18)"
+  end
+  if value == 20 then
+    return "Security Trading Status: Unknown Or Invalid (20)"
+  end
+  if value == 21 then
+    return "Security Trading Status: Session Scheduled (21)"
+  end
+  if value == 119 then
+    return "Security Trading Status: Opening Auction Started (119)"
+  end
+  if value == 121 then
+    return "Security Trading Status: Opening Auction Ended (121)"
+  end
+  if value == 122 then
+    return "Security Trading Status: Instrument Suspended (122)"
+  end
+  if value == 123 then
+    return "Security Trading Status: Close Position Only (123)"
+  end
+  if value == 124 then
+    return "Security Trading Status: Opening Auction Close Position Only (124)"
+  end
+
+  return "Security Trading Status: "..value
+end
 
 -- Dissect: Security Trading Status (Sent)
 moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_required.dissect = function(buffer, offset, packet, parent, present, state, key)
@@ -2296,11 +2541,13 @@ moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_required.dissect 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_trading_status, range, value)
+  local display = moex_spectra_fastgate_fast_v9_9_0.security_trading_status_sent_required.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_trading_status, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_trading_status, range, 0)
-    absent:set_text("Security Trading Status: No Value")
+    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.security_trading_status, range, value, display)
   end
 
   return offset, value
@@ -3377,6 +3624,19 @@ end
 -- Event Date
 moex_spectra_fastgate_fast_v9_9_0.event_date = {}
 
+-- Display: Event Date
+moex_spectra_fastgate_fast_v9_9_0.event_date.display = function(value)
+  if value == nil then
+    return "Event Date: No Value"
+  end
+
+  local year = math.floor(value / 10000)
+  local month = math.floor(value / 100) % 100
+  local day = value % 100
+
+  return "Event Date: "..string.format("%04d-%02d-%02d", year, month, day)
+end
+
 -- Dissect: Event Date
 moex_spectra_fastgate_fast_v9_9_0.event_date.dissect = function(buffer, offset, packet, parent, present, state, key)
   local start = offset
@@ -3386,11 +3646,13 @@ moex_spectra_fastgate_fast_v9_9_0.event_date.dissect = function(buffer, offset, 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_date, range, value)
+  local display = moex_spectra_fastgate_fast_v9_9_0.event_date.display(value)
+
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_date, range, 0, display)
+    absent:set_text(display)
   else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_date, range, 0)
-    absent:set_text("Event Date: No Value")
+    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_date, range, value, display)
   end
 
   return offset, value
@@ -3408,11 +3670,31 @@ moex_spectra_fastgate_fast_v9_9_0.event_time.dissect = function(buffer, offset, 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_time, range, value)
-  else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_time, range, NSTime.new(0, 0))
     absent:set_text("Event Time: No Value")
+  else
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_time, range, NSTime.new(0, 0))
+      item:set_text("Event Time: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.event_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -4390,11 +4672,31 @@ moex_spectra_fastgate_fast_v9_9_0.transact_time.dissect = function(buffer, offse
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.transact_time, range, value)
-  else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.transact_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.transact_time, range, NSTime.new(0, 0))
     absent:set_text("Transact Time: No Value")
+  else
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.transact_time, range, NSTime.new(0, 0))
+      item:set_text("Transact Time: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.transact_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -4434,11 +4736,31 @@ moex_spectra_fastgate_fast_v9_9_0.trad_ses_open_time.dissect = function(buffer, 
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_open_time, range, value)
-  else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_open_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_open_time, range, NSTime.new(0, 0))
     absent:set_text("Trad Ses Open Time: No Value")
+  else
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_open_time, range, NSTime.new(0, 0))
+      item:set_text("Trad Ses Open Time: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_open_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -4456,11 +4778,31 @@ moex_spectra_fastgate_fast_v9_9_0.trad_ses_close_time.dissect = function(buffer,
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time, range, value)
-  else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time, range, NSTime.new(0, 0))
     absent:set_text("Trad Ses Close Time: No Value")
+  else
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time, range, NSTime.new(0, 0))
+      item:set_text("Trad Ses Close Time: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -4544,11 +4886,31 @@ moex_spectra_fastgate_fast_v9_9_0.settl_sess_begin.dissect = function(buffer, of
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.settl_sess_begin, range, value)
-  else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.settl_sess_begin, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.settl_sess_begin, range, NSTime.new(0, 0))
     absent:set_text("Settl Sess Begin: No Value")
+  else
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.settl_sess_begin, range, NSTime.new(0, 0))
+      item:set_text("Settl Sess Begin: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.settl_sess_begin, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -4566,11 +4928,31 @@ moex_spectra_fastgate_fast_v9_9_0.clr_sess_begin.dissect = function(buffer, offs
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.clr_sess_begin, range, value)
-  else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.clr_sess_begin, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.clr_sess_begin, range, NSTime.new(0, 0))
     absent:set_text("Clr Sess Begin: No Value")
+  else
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.clr_sess_begin, range, NSTime.new(0, 0))
+      item:set_text("Clr Sess Begin: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.clr_sess_begin, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -4588,11 +4970,31 @@ moex_spectra_fastgate_fast_v9_9_0.trad_ses_close_time_from.dissect = function(bu
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_from, range, value)
-  else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_from, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_from, range, NSTime.new(0, 0))
     absent:set_text("Trad Ses Close Time From: No Value")
+  else
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_from, range, NSTime.new(0, 0))
+      item:set_text("Trad Ses Close Time From: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_from, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -4610,11 +5012,31 @@ moex_spectra_fastgate_fast_v9_9_0.trad_ses_close_time_till.dissect = function(bu
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_till, range, value)
-  else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_till, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_till, range, NSTime.new(0, 0))
     absent:set_text("Trad Ses Close Time Till: No Value")
+  else
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_till, range, NSTime.new(0, 0))
+      item:set_text("Trad Ses Close Time Till: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.trad_ses_close_time_till, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value
@@ -4720,11 +5142,31 @@ moex_spectra_fastgate_fast_v9_9_0.orig_time.dissect = function(buffer, offset, p
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.orig_time, range, value)
-  else
-    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.orig_time, range, UInt64(0))
+  if value == nil then
+    local absent = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.orig_time, range, NSTime.new(0, 0))
     absent:set_text("Orig Time: No Value")
+  else
+    local nanos = (value % 1000):tonumber() * 1000000
+    local civil = (value / 1000):tonumber()
+    local year = math.floor(civil / 10000000000)
+    local month = math.floor(civil / 100000000) % 100
+    local day = math.floor(civil / 1000000) % 100
+    local hour = math.floor(civil / 10000) % 100
+    local minute = math.floor(civil / 100) % 100
+    local second = civil % 100
+
+    if month < 1 or month > 12 or day < 1 or day > 31 then
+      local item = parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.orig_time, range, NSTime.new(0, 0))
+      item:set_text("Orig Time: "..tostring(value))
+    else
+      local y = year - (month <= 2 and 1 or 0)
+      local era = math.floor(y / 400)
+      local yoe = y - era * 400
+      local doy = math.floor((153 * (month + (month > 2 and -3 or 9)) + 2) / 5) + day - 1
+      local doe = yoe * 365 + math.floor(yoe / 4) - math.floor(yoe / 100) + doy
+      local days = era * 146097 + doe - 719468
+      parent:add(omi_moex_spectra_fastgate_fast_v9_9_0.fields.orig_time, range, NSTime.new(days * 86400 + hour * 3600 + minute * 60 + second, nanos))
+    end
   end
 
   return offset, value

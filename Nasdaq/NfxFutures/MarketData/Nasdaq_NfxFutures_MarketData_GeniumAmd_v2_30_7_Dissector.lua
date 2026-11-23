@@ -1346,15 +1346,15 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_agreement.size = 8
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_agreement.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_agreement.size
   local range = buffer(offset, length)
-  local packed = range:uint64():tonumber()
+  local packed = range:uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement_utc
   if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format == 2 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_agreement end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -1393,15 +1393,15 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination.size 
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_dissemination.size
   local range = buffer(offset, length)
-  local packed = range:uint64():tonumber()
+  local packed = range:uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination_utc
   if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format == 2 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_dissemination end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -1440,15 +1440,15 @@ nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_execution.size = 8
 nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_execution.dissect = function(buffer, offset, packet, parent)
   local length = nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.time_of_trade_execution.size
   local range = buffer(offset, length)
-  local packed = range:uint64():tonumber()
+  local packed = range:uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution_utc
   if nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.timestamp_format == 2 then field = omi_nasdaq_nfxfutures_marketdata_geniumamd_v2_30_7.fields.time_of_trade_execution end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100

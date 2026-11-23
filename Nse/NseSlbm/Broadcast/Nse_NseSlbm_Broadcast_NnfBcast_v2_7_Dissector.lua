@@ -8642,6 +8642,8 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.packed_packet.fields = function(buffer, offs
 
   local broadcast_data_conversion = compression_length > 0
 
+  local broadcast_data_source_buffer = buffer
+  local broadcast_data_source_index = index
   if broadcast_data_conversion then
     local compressed = buffer(index, buffer:len() - index):bytes()
     buffer = lzo1z_decompress(compressed, 16384):tvb("Decompressed")
@@ -8650,6 +8652,12 @@ nse_nseslbm_broadcast_nnfbcast_v2_7.packed_packet.fields = function(buffer, offs
 
   -- Broadcast Data: Struct of 4 fields
   index, broadcast_data = nse_nseslbm_broadcast_nnfbcast_v2_7.broadcast_data.dissect(buffer, index, packet, parent)
+
+  -- Resume the original buffer after the converted Broadcast Data
+  if broadcast_data_conversion then
+    buffer = broadcast_data_source_buffer
+    index = broadcast_data_source_buffer:len()
+  end
 
   return index
 end

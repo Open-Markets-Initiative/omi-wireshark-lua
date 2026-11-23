@@ -13724,6 +13724,8 @@ nsekenya_nairobibonds_marketdata_mits_v2_14.display_data.fields = function(buffe
 
   local display_records_conversion = uncompressed_length > 0
 
+  local display_records_source_buffer = buffer
+  local display_records_source_index = index
   if display_records_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
@@ -13731,6 +13733,12 @@ nsekenya_nairobibonds_marketdata_mits_v2_14.display_data.fields = function(buffe
 
   -- Display Records: Struct of 1 fields
   index, display_records = nsekenya_nairobibonds_marketdata_mits_v2_14.display_records.dissect(buffer, index, packet, parent)
+
+  -- Resume the original buffer after the converted Display Records
+  if display_records_conversion then
+    buffer = display_records_source_buffer
+    index = display_records_source_buffer:len()
+  end
 
   return index
 end
@@ -13951,6 +13959,8 @@ nsekenya_nairobibonds_marketdata_mits_v2_14.daily_trend_reply_message.fields = f
 
   local daily_trend_data_conversion = uncompressed_length > 0
 
+  local daily_trend_data_source_buffer = buffer
+  local daily_trend_data_source_index = index
   if daily_trend_data_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
@@ -13958,6 +13968,12 @@ nsekenya_nairobibonds_marketdata_mits_v2_14.daily_trend_reply_message.fields = f
 
   -- Daily Trend Data: Struct of 2 fields
   index, daily_trend_data = nsekenya_nairobibonds_marketdata_mits_v2_14.daily_trend_data.dissect(buffer, index, packet, parent)
+
+  -- Resume the original buffer after the converted Daily Trend Data
+  if daily_trend_data_conversion then
+    buffer = daily_trend_data_source_buffer
+    index = daily_trend_data_source_buffer:len()
+  end
 
   return index
 end
@@ -14436,6 +14452,8 @@ nsekenya_nairobibonds_marketdata_mits_v2_14.download_data.fields = function(buff
 
   local records_conversion = uncompressed_length > 0
 
+  local records_source_buffer = buffer
+  local records_source_index = index
   if records_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
@@ -14443,6 +14461,12 @@ nsekenya_nairobibonds_marketdata_mits_v2_14.download_data.fields = function(buff
 
   -- Records: Struct of 1 fields
   index, records = nsekenya_nairobibonds_marketdata_mits_v2_14.records.dissect(buffer, index, packet, parent, data_type)
+
+  -- Resume the original buffer after the converted Records
+  if records_conversion then
+    buffer = records_source_buffer
+    index = records_source_buffer:len()
+  end
 
   return index
 end

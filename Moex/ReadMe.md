@@ -7,8 +7,8 @@
 
 | Division | [Protocol][Omi.Moex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Moex.Specifications] |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| [Asts][Asts.Platform] | [MarketDataMulticast][Moex.Asts.MarketDataMulticast] | [Fast][Omi.Encoding.Fast] | [2025.10][Moex.Asts.MarketDataMulticast.Fast.v2025.10.Dissector] | 1/21/2026 | 8486 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Moex.Asts.MarketDataMulticast.Fast.v2025.10.Url] - [pdf][Moex.Asts.MarketDataMulticast.Fast.v2025.10.Pdf] - [xml][Moex.Asts.MarketDataMulticast.Fast.v2025.10.Xml] |
-| [Spectra][Spectra.Exchange] | [FastGate][Moex.Spectra.FastGate] | [Fast][Omi.Encoding.Fast] | [9.9.0][Moex.Spectra.FastGate.Fast.v9.9.0.Dissector] | 7/29/2026 | 7374 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Moex.Spectra.FastGate.Fast.v9.9.0.Url] - [pdf][Moex.Spectra.FastGate.Fast.v9.9.0.Pdf] - [xml][Moex.Spectra.FastGate.Fast.v9.9.0.Xml] |
+| [Asts][Asts.Platform] | [MarketDataMulticast][Moex.Asts.MarketDataMulticast] | [Fast][Omi.Encoding.Fast] | [2025.10][Moex.Asts.MarketDataMulticast.Fast.v2025.10.Dissector] | 1/21/2026 | 9311 | [Active][Omi.Glossary.Deployment.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Moex.Asts.MarketDataMulticast.Fast.v2025.10.Url] - [pdf][Moex.Asts.MarketDataMulticast.Fast.v2025.10.Pdf] - [xml][Moex.Asts.MarketDataMulticast.Fast.v2025.10.Xml] |
+| [Spectra][Spectra.Exchange] | [FastGate][Moex.Spectra.FastGate] | [Fast][Omi.Encoding.Fast] | [9.9.0][Moex.Spectra.FastGate.Fast.v9.9.0.Dissector] | 7/29/2026 | 7816 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Moex.Spectra.FastGate.Fast.v9.9.0.Url] - [pdf][Moex.Spectra.FastGate.Fast.v9.9.0.Pdf] - [xml][Moex.Spectra.FastGate.Fast.v9.9.0.Xml] |
 | [Spectra][Spectra.Exchange] | [FutInfoIncremental][Moex.Spectra.FutInfoIncremental] | [Simba][Omi.Encoding.Simba] | [1.0.4][Moex.Spectra.FutInfoIncremental.Simba.v1.0.4.Dissector] | 11/10/2021 | 1673 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Moex.Spectra.FutInfoIncremental.Simba.v1.0.4.Url] - [pdf][Moex.Spectra.FutInfoIncremental.Simba.v1.0.4.Pdf] - [xml][Moex.Spectra.FutInfoIncremental.Simba.v1.0.4.Xml] |
 | [Spectra][Spectra.Exchange] | [FutInfoIncremental][Moex.Spectra.FutInfoIncremental] | [Simba][Omi.Encoding.Simba] | [2.2.0][Moex.Spectra.FutInfoIncremental.Simba.v2.2.0.Dissector] | 10/14/2022 | 2266 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Moex.Spectra.FutInfoIncremental.Simba.v2.2.0.Url] - [pdf][Moex.Spectra.FutInfoIncremental.Simba.v2.2.0.Pdf] - [xml][Moex.Spectra.FutInfoIncremental.Simba.v2.2.0.Xml] |
 | [Spectra][Spectra.Exchange] | [FutInfoIncremental][Moex.Spectra.FutInfoIncremental] | [Simba][Omi.Encoding.Simba] | [3.1.0][Moex.Spectra.FutInfoIncremental.Simba.v3.1.0.Dissector] | 4/20/2023 | 2267 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Moex.Spectra.FutInfoIncremental.Simba.v3.1.0.Url] - [xml][Moex.Spectra.FutInfoIncremental.Simba.v3.1.0.Xml] |
@@ -74,6 +74,13 @@
 | [Spectra][Spectra.Exchange] | [OrdersLogSnapshot][Moex.Spectra.OrdersLogSnapshot] | [Simba][Omi.Encoding.Simba] | [9.9.0][Moex.Spectra.OrdersLogSnapshot.Simba.v9.9.0.Dissector] | 7/16/2026 | 1688 | [Deprecated][Omi.Glossary.Deployment.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Moex.Spectra.OrdersLogSnapshot.Simba.v9.9.0.Url] - [pdf][Moex.Spectra.OrdersLogSnapshot.Simba.v9.9.0.Pdf] - [xml][Moex.Spectra.OrdersLogSnapshot.Simba.v9.9.0.Xml] |
 
 
+### Order Entry
+
+| Division | [Protocol][Omi.Moex.Protocol.Definitions] | [Encoding][Omi.Encoding.Definitions] | Version | Date | Size | [Deployment][Omi.Glossary.Deployment] | [Testing][Omi.Glossary.Testing] | [Documentation][Omi.Moex.Specifications] |
+| --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| [Spectra][Spectra.Exchange] | [OrderEntry][Moex.Spectra.OrderEntry] | [Twime][Omi.Encoding.Twime] | [9.12.0][Moex.Spectra.OrderEntry.Twime.v9.12.0.Dissector] | 10/19/2026 | 4518 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Moex.Spectra.OrderEntry.Twime.v9.12.0.Url] - [pdf][Moex.Spectra.OrderEntry.Twime.v9.12.0.Pdf] - [xml][Moex.Spectra.OrderEntry.Twime.v9.12.0.Xml] |
+
+
 <p align="center"><a href="https://www.moex.com" title="Moscow Exchange Website"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Website.png" alt="Website" width="32" height="32"></a>&nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Moscow_Exchange" title="Moscow Exchange on Wikipedia"><img src="https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/raw/main/About/Icons/Wikipedia.png" alt="Wikipedia" width="32" height="32"></a></p>
 
 
@@ -94,6 +101,7 @@
 [Omi.Moex.Protocol.Definitions]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Moex/Protocols "Moex Protocol Directory"
 [Omi.Moex.Specifications]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Moex/Specifications "Moex Specifications Directory"
 [Omi.Encoding.Simba]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Simba.md "Simba Encoding"
+[Omi.Encoding.Twime]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Twime.md "Twime Encoding"
 [Omi.Encoding.Fast]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Protocols/Fast.md "Fast Encoding"
 [Spectra.Exchange]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Moex/Protocols/Spectra "Moex Spectra"
 [Asts.Platform]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/tree/main/Organizations/Moex/Protocols/Asts "Moex Asts"
@@ -101,6 +109,7 @@
 [Moex.Spectra.FutInfoReplay]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Protocols/Spectra/FutInfoReplay.md "SIMBA Spectra Futures Instrument Replay"
 [Moex.Spectra.OptInfoIncremental]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Protocols/Spectra/OptInfoIncremental.md "SIMBA Spectra Options Instrument Incremental"
 [Moex.Spectra.OptInfoReplay]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Protocols/Spectra/OptInfoReplay.md "SIMBA Spectra Options Instrument Replay"
+[Moex.Spectra.OrderEntry]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Protocols/Spectra/OrderEntry.md "TWIME Spectra Order Entry"
 [Moex.Spectra.OrdersLogIncremental]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Protocols/Spectra/OrdersLogIncremental.md "SIMBA Spectra Orders Log Incremental"
 [Moex.Spectra.OrdersLogReplay]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Protocols/Spectra/OrdersLogReplay.md "SIMBA Spectra Orders Log Historical Replay"
 [Moex.Spectra.OrdersLogSnapshot]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Protocols/Spectra/OrdersLogSnapshot.md "SIMBA Spectra Orders Log Snapshot"
@@ -239,6 +248,10 @@
 [Moex.Spectra.OptInfoReplay.Simba.v9.9.0.Url]: https://ftp.moex.com/pub/SIMBA/Spectra/ "Moscow Exchange 9.9.0 Url"
 [Moex.Spectra.OptInfoReplay.Simba.v9.9.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Specifications/Spectra/OptInfoReplay/Moex.Spectra.OptInfoReplay.Simba.v9.9.0.pdf "Moscow Exchange 9.9.0 Pdf"
 [Moex.Spectra.OptInfoReplay.Simba.v9.9.0.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Specifications/Spectra/OptInfoReplay/Moex.Spectra.OptInfoReplay.Simba.v9.9.0.xml "Moscow Exchange 9.9.0 Xml"
+[Moex.Spectra.OrderEntry.Twime.v9.12.0.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Moex/Spectra/OrderEntry/Moex_Spectra_OrderEntry_Twime_v9_12_0_Dissector.lua "Moex Spectra OrderEntry Twime v9.12.0 Wireshark Dissector"
+[Moex.Spectra.OrderEntry.Twime.v9.12.0.Url]: https://ftp.moex.com/pub/TWIME/Spectra/ "Moscow Exchange 9.12.0 Url"
+[Moex.Spectra.OrderEntry.Twime.v9.12.0.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Specifications/Spectra/OrderEntry/Moex.Spectra.OrderEntry.Twime.v9.12.0.pdf "Moscow Exchange 9.12.0 Pdf"
+[Moex.Spectra.OrderEntry.Twime.v9.12.0.Xml]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Specifications/Spectra/OrderEntry/Moex.Spectra.OrderEntry.Twime.v9.12.0.xml "Moscow Exchange 9.12.0 Xml"
 [Moex.Spectra.OrdersLogIncremental.Simba.v1.0.4.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Moex/Spectra/OrdersLogIncremental/Moex_Spectra_OrdersLogIncremental_Simba_v1_0_4_Dissector.lua "Moex Spectra OrdersLogIncremental Simba v1.0.4 Wireshark Dissector"
 [Moex.Spectra.OrdersLogIncremental.Simba.v1.0.4.Url]: https://ftp.moex.com/pub/SIMBA/Spectra/ "Moscow Exchange 1.0.4 Url"
 [Moex.Spectra.OrdersLogIncremental.Simba.v1.0.4.Pdf]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Moex/Specifications/Spectra/OrdersLogIncremental/Moex.Spectra.OrdersLogIncremental.Simba.v1.0.4.pdf "Moscow Exchange 1.0.4 Pdf"

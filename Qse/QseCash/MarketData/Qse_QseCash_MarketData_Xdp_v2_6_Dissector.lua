@@ -9353,6 +9353,8 @@ qse_qsecash_marketdata_xdp_v2_6.packet.dissect = function(buffer, packet, parent
 
   local message_buffer_conversion = delivery_flag == 17
 
+  local message_buffer_source_buffer = buffer
+  local message_buffer_source_index = index
   if message_buffer_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
@@ -9360,6 +9362,12 @@ qse_qsecash_marketdata_xdp_v2_6.packet.dissect = function(buffer, packet, parent
 
   -- Message Buffer: Struct of 1 fields
   index, message_buffer = qse_qsecash_marketdata_xdp_v2_6.message_buffer.dissect(buffer, index, packet, parent)
+
+  -- Resume the original buffer after the converted Message Buffer
+  if message_buffer_conversion then
+    buffer = message_buffer_source_buffer
+    index = message_buffer_source_buffer:len()
+  end
 
   return index
 end

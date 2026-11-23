@@ -31,6 +31,7 @@ omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.broker_id = ProtoField.new("Broker
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.buy_sell = ProtoField.new("Buy Sell", "nse.nsecom.dropcopy.nnfdirect.v1.5.buysell", ftypes.INT16, nil, nil, nil, "Whether the order taking part is a buy or a sell")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.ca_level = ProtoField.new("Ca Level", "nse.nsecom.dropcopy.nnfdirect.v1.5.calevel", ftypes.INT16, nil, nil, nil, "Corporate action level")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.checksum = ProtoField.new("Checksum", "nse.nsecom.dropcopy.nnfdirect.v1.5.checksum", ftypes.BYTES, nil, nil, nil, "Md5 digest of the plain message data, or the Gcm authentication tag under the new encryption")
+omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.client_message_data = ProtoField.new("Client Message Data", "nse.nsecom.dropcopy.nnfdirect.v1.5.clientmessagedata", ftypes.STRING, nil, nil, nil, "The message data the firm sends, a Message Header first, as every interactive message has; on an encrypting connection, what is encrypted")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.client_registration_packet = ProtoField.new("Client Registration Packet", "nse.nsecom.dropcopy.nnfdirect.v1.5.clientregistrationpacket", ftypes.STRING, nil, nil, nil, "Secure Box Registration Request, the firm's first packet on the connection, never encrypted")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.client_session_packet = ProtoField.new("Client Session Packet", "nse.nsecom.dropcopy.nnfdirect.v1.5.clientsessionpacket", ftypes.STRING, nil, nil, nil, "Every packet the firm sends after its registration")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.col = ProtoField.new("Col", "nse.nsecom.dropcopy.nnfdirect.v1.5.col", ftypes.UINT8, {[0]="No", [1]="Yes"}, base.DEC, 0x02, "Collateral order")
@@ -104,6 +105,7 @@ omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.second_reserved_1 = ProtoField.new
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.second_reserved_16 = ProtoField.new("Second Reserved 16", "nse.nsecom.dropcopy.nnfdirect.v1.5.secondreserved16", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.second_reserved_8 = ProtoField.new("Second Reserved 8", "nse.nsecom.dropcopy.nnfdirect.v1.5.secondreserved8", ftypes.BYTES, nil, nil, nil, "Reserved")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.sequence_number = ProtoField.new("Sequence Number", "nse.nsecom.dropcopy.nnfdirect.v1.5.sequencenumber", ftypes.DOUBLE, nil, nil, nil, "Time the last message was received by the user, taken from Time Stamp 1 of the last trade confirmation; zero to retrieve from the beginning of the trading day")
+omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.server_message_data = ProtoField.new("Server Message Data", "nse.nsecom.dropcopy.nnfdirect.v1.5.servermessagedata", ftypes.STRING, nil, nil, nil, "The message data the exchange sends, a Message Header first, as every interactive message has; on an encrypting connection, what is encrypted")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.server_registration_packet = ProtoField.new("Server Registration Packet", "nse.nsecom.dropcopy.nnfdirect.v1.5.serverregistrationpacket", ftypes.STRING, nil, nil, nil, "Secure Box Registration Response, the exchange's first packet on the connection, never encrypted")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.server_session_packet = ProtoField.new("Server Session Packet", "nse.nsecom.dropcopy.nnfdirect.v1.5.serversessionpacket", ftypes.STRING, nil, nil, nil, "Every packet the exchange sends after its registration response")
 omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.sl = ProtoField.new("Sl", "nse.nsecom.dropcopy.nnfdirect.v1.5.sl", ftypes.UINT16, {[0]="No", [1]="Yes"}, base.DEC, 0x2000, "Stop loss order")
@@ -601,7 +603,9 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.checksum.dissect = function(buffer, offset, p
     local start = offset
     local computed = digest_md5(buffer(start, buffer:len() - start), offset - start, length, false)
 
-    if computed == value then
+    if computed == nil then
+      item:append_text(" [unverified]")
+    elseif computed == value then
       item:append_text(" [correct]")
     else
       item:append_text(" [incorrect, should be "..computed.."]")
@@ -1657,7 +1661,9 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.registration_checksum.dissect = function(buff
     local start = offset
     local computed = digest_md5(buffer(start, buffer:len() - start), offset - start, length, false)
 
-    if computed == value then
+    if computed == nil then
+      item:append_text(" [unverified]")
+    elseif computed == value then
       item:append_text(" [correct]")
     else
       item:append_text(" [incorrect, should be "..computed.."]")
@@ -4207,6 +4213,62 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.message_header.dissect = function(buffer, off
   end
 end
 
+-- Server Message Data
+nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_data = {}
+
+-- Calculate size of: Server Message Data
+nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_data.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.message_header.size
+
+  -- Calculate runtime size of Server Message Payload field
+  local server_message_payload_offset = offset + index
+  local server_message_payload_type = buffer(server_message_payload_offset - 40, 2):int()
+  index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_payload.size(buffer, server_message_payload_offset, server_message_payload_type)
+
+  return index
+end
+
+-- Display: Server Message Data
+nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_data.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Server Message Data
+nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_data.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Header: Struct of 9 fields
+  index, message_header = nse_nsecom_dropcopy_nnfdirect_v1_5.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Transaction Code
+  local transaction_code = buffer(index - 40, 2):int()
+
+  -- Server Message Payload: Runtime Type with 8 branches
+  index = nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+
+  return index
+end
+
+-- Dissect: Server Message Data
+nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_data.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.server_message_data, buffer(offset, 0))
+    local index = nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_data.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_data.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_data.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Server Session Packet
 nse_nsecom_dropcopy_nnfdirect_v1_5.server_session_packet = {}
 
@@ -4216,12 +4278,7 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.server_session_packet.size = function(buffer,
 
   index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.checksum.size
 
-  index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.message_header.size
-
-  -- Calculate runtime size of Server Message Payload field
-  local server_message_payload_offset = offset + index
-  local server_message_payload_type = buffer(server_message_payload_offset - 40, 2):int()
-  index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_payload.size(buffer, server_message_payload_offset, server_message_payload_type)
+  index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_data.size(buffer, offset + index)
 
   return index
 end
@@ -4238,14 +4295,8 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.server_session_packet.fields = function(buffe
   -- Checksum: 16 Byte
   index, checksum = nse_nsecom_dropcopy_nnfdirect_v1_5.checksum.dissect(buffer, index, packet, parent)
 
-  -- Message Header: Struct of 9 fields
-  index, message_header = nse_nsecom_dropcopy_nnfdirect_v1_5.message_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Transaction Code
-  local transaction_code = buffer(index - 40, 2):int()
-
-  -- Server Message Payload: Runtime Type with 8 branches
-  index = nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+  -- Server Message Data: Struct of 2 fields
+  index, server_message_data = nse_nsecom_dropcopy_nnfdirect_v1_5.server_message_data.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -4684,6 +4735,62 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_payload.dissect = function(buf
   return offset
 end
 
+-- Client Message Data
+nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_data = {}
+
+-- Calculate size of: Client Message Data
+nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_data.size = function(buffer, offset)
+  local index = 0
+
+  index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.message_header.size
+
+  -- Calculate runtime size of Client Message Payload field
+  local client_message_payload_offset = offset + index
+  local client_message_payload_type = buffer(client_message_payload_offset - 40, 2):int()
+  index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_payload.size(buffer, client_message_payload_offset, client_message_payload_type)
+
+  return index
+end
+
+-- Display: Client Message Data
+nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_data.display = function(packet, parent, length)
+  return ""
+end
+
+-- Dissect Fields: Client Message Data
+nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_data.fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Message Header: Struct of 9 fields
+  index, message_header = nse_nsecom_dropcopy_nnfdirect_v1_5.message_header.dissect(buffer, index, packet, parent)
+
+  -- Dependency element: Transaction Code
+  local transaction_code = buffer(index - 40, 2):int()
+
+  -- Client Message Payload: Runtime Type with 3 branches
+  index = nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+
+  return index
+end
+
+-- Dissect: Client Message Data
+nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_data.dissect = function(buffer, offset, packet, parent)
+  if show.structs then
+    -- Optionally add element to protocol tree
+    parent = parent:add(omi_nse_nsecom_dropcopy_nnfdirect_v1_5.fields.client_message_data, buffer(offset, 0))
+    local index = nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_data.fields(buffer, offset, packet, parent)
+    local length = index - offset
+    parent:set_len(length)
+    local display = nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_data.display(packet, parent, length)
+    parent:append_text(display)
+
+    return index, parent
+  else
+    -- Skip element, add fields directly
+    return nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_data.fields(buffer, offset, packet, parent)
+  end
+end
+
 -- Client Session Packet
 nse_nsecom_dropcopy_nnfdirect_v1_5.client_session_packet = {}
 
@@ -4693,12 +4800,7 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.client_session_packet.size = function(buffer,
 
   index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.checksum.size
 
-  index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.message_header.size
-
-  -- Calculate runtime size of Client Message Payload field
-  local client_message_payload_offset = offset + index
-  local client_message_payload_type = buffer(client_message_payload_offset - 40, 2):int()
-  index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_payload.size(buffer, client_message_payload_offset, client_message_payload_type)
+  index = index + nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_data.size(buffer, offset + index)
 
   return index
 end
@@ -4715,14 +4817,8 @@ nse_nsecom_dropcopy_nnfdirect_v1_5.client_session_packet.fields = function(buffe
   -- Checksum: 16 Byte
   index, checksum = nse_nsecom_dropcopy_nnfdirect_v1_5.checksum.dissect(buffer, index, packet, parent)
 
-  -- Message Header: Struct of 9 fields
-  index, message_header = nse_nsecom_dropcopy_nnfdirect_v1_5.message_header.dissect(buffer, index, packet, parent)
-
-  -- Dependency element: Transaction Code
-  local transaction_code = buffer(index - 40, 2):int()
-
-  -- Client Message Payload: Runtime Type with 3 branches
-  index = nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_payload.dissect(buffer, index, packet, parent, transaction_code)
+  -- Client Message Data: Struct of 2 fields
+  index, client_message_data = nse_nsecom_dropcopy_nnfdirect_v1_5.client_message_data.dissect(buffer, index, packet, parent)
 
   return index
 end

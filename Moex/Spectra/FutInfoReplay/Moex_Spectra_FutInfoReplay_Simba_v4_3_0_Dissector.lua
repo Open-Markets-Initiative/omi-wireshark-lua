@@ -491,15 +491,15 @@ moex_spectra_futinforeplay_simba_v4_3_0.event_time.size = 8
 moex_spectra_futinforeplay_simba_v4_3_0.event_time.dissect = function(buffer, offset, packet, parent)
   local length = moex_spectra_futinforeplay_simba_v4_3_0.event_time.size
   local range = buffer(offset, length)
-  local packed = range:le_uint64():tonumber()
+  local packed = range:le_uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_futinforeplay_simba_v4_3_0.fields.event_time_utc
   if moex_spectra_futinforeplay_simba_v4_3_0.timestamp_format == 2 then field = omi_moex_spectra_futinforeplay_simba_v4_3_0.fields.event_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -2180,15 +2180,15 @@ moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_close_time.size = 8
 moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_close_time.dissect = function(buffer, offset, packet, parent)
   local length = moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_close_time.size
   local range = buffer(offset, length)
-  local packed = range:le_uint64():tonumber()
+  local packed = range:le_uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_futinforeplay_simba_v4_3_0.fields.trad_ses_close_time_utc
   if moex_spectra_futinforeplay_simba_v4_3_0.timestamp_format == 2 then field = omi_moex_spectra_futinforeplay_simba_v4_3_0.fields.trad_ses_close_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -2227,15 +2227,15 @@ moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_close_time_from.size = 8
 moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_close_time_from.dissect = function(buffer, offset, packet, parent)
   local length = moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_close_time_from.size
   local range = buffer(offset, length)
-  local packed = range:le_uint64():tonumber()
+  local packed = range:le_uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_futinforeplay_simba_v4_3_0.fields.trad_ses_close_time_from_utc
   if moex_spectra_futinforeplay_simba_v4_3_0.timestamp_format == 2 then field = omi_moex_spectra_futinforeplay_simba_v4_3_0.fields.trad_ses_close_time_from end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -2274,15 +2274,15 @@ moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_close_time_till.size = 8
 moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_close_time_till.dissect = function(buffer, offset, packet, parent)
   local length = moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_close_time_till.size
   local range = buffer(offset, length)
-  local packed = range:le_uint64():tonumber()
+  local packed = range:le_uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_futinforeplay_simba_v4_3_0.fields.trad_ses_close_time_till_utc
   if moex_spectra_futinforeplay_simba_v4_3_0.timestamp_format == 2 then field = omi_moex_spectra_futinforeplay_simba_v4_3_0.fields.trad_ses_close_time_till end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100
@@ -2406,15 +2406,15 @@ moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_open_time.size = 8
 moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_open_time.dissect = function(buffer, offset, packet, parent)
   local length = moex_spectra_futinforeplay_simba_v4_3_0.trad_ses_open_time.size
   local range = buffer(offset, length)
-  local packed = range:le_uint64():tonumber()
+  local packed = range:le_uint64()
 
   -- A field's absolute time base is fixed when it is declared, so the
   -- protocol declares one per base and the preference picks between them
   local field = omi_moex_spectra_futinforeplay_simba_v4_3_0.fields.trad_ses_open_time_utc
   if moex_spectra_futinforeplay_simba_v4_3_0.timestamp_format == 2 then field = omi_moex_spectra_futinforeplay_simba_v4_3_0.fields.trad_ses_open_time end
 
-  local millis = packed % 1000
-  local civil = math.floor(packed / 1000)
+  local millis = (packed % 1000):tonumber()
+  local civil = (packed / 1000):tonumber()
   local year = math.floor(civil / 10000000000)
   local month = math.floor(civil / 100000000) % 100
   local day = math.floor(civil / 1000000) % 100

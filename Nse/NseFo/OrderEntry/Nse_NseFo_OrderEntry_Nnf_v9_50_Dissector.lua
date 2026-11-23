@@ -9057,6 +9057,7 @@ nse_nsefo_orderentry_nnf_v9_50.transaction_code.labels = {
   [2321] = "Transaction Code: Sign Off Request Out Message (2321)",
   [1600] = "Transaction Code: System Information In Message (1600)",
   [1601] = "Transaction Code: System Information Out Message (1601)",
+  [7321] = "Transaction Code: System Information Out Message (7321)",
   [2400] = "Transaction Code: Gateway Router Request Message (2400)",
   [2401] = "Transaction Code: Gateway Router Response Message (2401)",
   [2320] = "Transaction Code: Sign Off Request In Message (2320)",
@@ -14730,6 +14731,7 @@ nse_nsefo_orderentry_nnf_v9_50.server_message_payload.dispatch = {
   [2301] = nse_nsefo_orderentry_nnf_v9_50.sign_on_request_out_message.dissect,
   [2321] = nse_nsefo_orderentry_nnf_v9_50.sign_off_request_out_message.dissect,
   [1601] = nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.dissect,
+  [7321] = nse_nsefo_orderentry_nnf_v9_50.system_information_out_message.dissect,
   [2401] = nse_nsefo_orderentry_nnf_v9_50.gateway_router_response_message.dissect,
   [7307] = nse_nsefo_orderentry_nnf_v9_50.update_local_database_header_message.dissect,
   [7308] = nse_nsefo_orderentry_nnf_v9_50.update_local_database_trailer_message.dissect,
@@ -17029,6 +17031,11 @@ nse_nsefo_orderentry_nnf_v9_50.server_packet.fingerprint = function(buffer)
 
   -- System Information Out Message
   if transaction_code == 1601 then
+    return true
+  end
+
+  -- System Information Out Message
+  if transaction_code == 7321 then
     return true
   end
 

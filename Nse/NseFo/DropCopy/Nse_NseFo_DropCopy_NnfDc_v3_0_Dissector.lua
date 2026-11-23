@@ -7838,6 +7838,8 @@ nse_nsefo_dropcopy_nnfdc_v3_0.server_drop_copy_packet.fields = function(buffer, 
 
   local message_buffer_conversion = compression_indicator == "1"
 
+  local message_buffer_source_buffer = buffer
+  local message_buffer_source_index = index
   if message_buffer_conversion then
     local compressed = buffer(index, buffer:len() - index):bytes()
     buffer = lz4_decompress(compressed, 4096):tvb("Decompressed")
@@ -7846,6 +7848,12 @@ nse_nsefo_dropcopy_nnfdc_v3_0.server_drop_copy_packet.fields = function(buffer, 
 
   -- Message Buffer: Struct of 1 fields
   index, message_buffer = nse_nsefo_dropcopy_nnfdc_v3_0.message_buffer.dissect(buffer, index, packet, parent)
+
+  -- Resume the original buffer after the converted Message Buffer
+  if message_buffer_conversion then
+    buffer = message_buffer_source_buffer
+    index = message_buffer_source_buffer:len()
+  end
 
   return index
 end

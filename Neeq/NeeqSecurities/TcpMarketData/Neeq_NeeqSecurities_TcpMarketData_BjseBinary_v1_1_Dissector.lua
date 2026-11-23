@@ -589,7 +589,9 @@ neeq_neeqsecurities_tcpmarketdata_bjsebinary_v1_1.checksum.dissect = function(bu
     local start = 0
     local computed = checksum_sum(buffer(start, buffer:len() - start), offset - start, length, 256)
 
-    if computed == value then
+    if computed == nil then
+      item:append_text(" [unverified]")
+    elseif computed == value then
       item:append_text(" [correct]")
     else
       item:append_text(" [incorrect, should be "..computed.."]")
