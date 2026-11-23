@@ -44,8 +44,8 @@ omi_bse_bseindia_mdi_fast_v600_3_750.fields.presence_no_md_entries = ProtoField.
 
 -- Bse BseIndia Mdi Fast 600.3.750 Fields
 omi_bse_bseindia_mdi_fast_v600_3_750.fields.sender_comp_id = ProtoField.new("Sender Comp ID", "bse.bseindia.mdi.fast.v600.3.750.sendercompid", ftypes.UINT32)
-omi_bse_bseindia_mdi_fast_v600_3_750.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "bse.bseindia.mdi.fast.v600.3.750.packetseqnum", ftypes.BYTES)
-omi_bse_bseindia_mdi_fast_v600_3_750.fields.sending_time = ProtoField.new("Sending Time", "bse.bseindia.mdi.fast.v600.3.750.sendingtime", ftypes.BYTES)
+omi_bse_bseindia_mdi_fast_v600_3_750.fields.packet_seq_num = ProtoField.new("Packet Seq Num", "bse.bseindia.mdi.fast.v600.3.750.packetseqnum", ftypes.UINT32)
+omi_bse_bseindia_mdi_fast_v600_3_750.fields.sending_time = ProtoField.new("Sending Time", "bse.bseindia.mdi.fast.v600.3.750.sendingtime", ftypes.ABSOLUTE_TIME, nil, base.UTC)
 omi_bse_bseindia_mdi_fast_v600_3_750.fields.msg_type = ProtoField.new("Msg Type", "bse.bseindia.mdi.fast.v600.3.750.msgtype", ftypes.STRING)
 omi_bse_bseindia_mdi_fast_v600_3_750.fields.msg_seq_num = ProtoField.new("Msg Seq Num", "bse.bseindia.mdi.fast.v600.3.750.msgseqnum", ftypes.UINT32)
 omi_bse_bseindia_mdi_fast_v600_3_750.fields.market_segment_id = ProtoField.new("Market Segment ID", "bse.bseindia.mdi.fast.v600.3.750.marketsegmentid", ftypes.UINT32)
@@ -609,14 +609,14 @@ bse_bseindia_mdi_fast_v600_3_750.packet_seq_num.dissect = function(buffer, offse
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_byte_vector_unsigned(buffer, offset)
 
   local range = buffer(start, offset - start)
 
   if value ~= nil then
-    parent:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.packet_seq_num, value)
+    parent:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.packet_seq_num, range, value)
   else
-    local absent = parent:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.packet_seq_num, buffer(start, 0))
+    local absent = parent:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.packet_seq_num, range, 0)
     absent:set_text("Packet Seq Num: No Value")
   end
 
@@ -631,15 +631,17 @@ bse_bseindia_mdi_fast_v600_3_750.sending_time.dissect = function(buffer, offset,
   local start = offset
   local value = nil
 
-  value, offset = read_byte_vector(buffer, offset)
+  value, offset = read_byte_vector_int64(buffer, offset)
 
   local range = buffer(start, offset - start)
 
-  if value ~= nil then
-    parent:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.sending_time, value)
-  else
-    local absent = parent:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.sending_time, buffer(start, 0))
+  if value == nil then
+    local absent = parent:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.sending_time, range, NSTime.new(0, 0))
     absent:set_text("Sending Time: No Value")
+  else
+    local seconds = (value / Int64(1000000000)):tonumber()
+    local nanos = (value % Int64(1000000000)):tonumber()
+    parent:add(omi_bse_bseindia_mdi_fast_v600_3_750.fields.sending_time, range, NSTime.new(seconds, nanos))
   end
 
   return offset, value
