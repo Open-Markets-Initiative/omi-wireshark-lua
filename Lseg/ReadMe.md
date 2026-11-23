@@ -65,6 +65,8 @@
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | [Millennium][Millennium.Platform] | [NativeTradingGateway][Lseg.Millennium.NativeTradingGateway] | [Ntgi][Omi.Encoding.Ntgi] | [21.2][Lseg.Millennium.NativeTradingGateway.Ntgi.v21.2.Dissector] | 1/5/2024 | 6304 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Lseg.Millennium.NativeTradingGateway.Ntgi.v21.2.Url] - [pdf][Lseg.Millennium.NativeTradingGateway.Ntgi.v21.2.Pdf] |
 | [Millennium][Millennium.Platform] | [NativeTradingGatewayRecovery][Lseg.Millennium.NativeTradingGatewayRecovery] | [Ntgi][Omi.Encoding.Ntgi] | [21.2][Lseg.Millennium.NativeTradingGatewayRecovery.Ntgi.v21.2.Dissector] | 1/5/2024 | 5098 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Lseg.Millennium.NativeTradingGatewayRecovery.Ntgi.v21.2.Url] - [pdf][Lseg.Millennium.NativeTradingGatewayRecovery.Ntgi.v21.2.Pdf] |
+| [Turquoise][Turquoise.Exchange] | [NativeTradingGateway][Lseg.Turquoise.NativeTradingGateway] | [Ntgi][Omi.Encoding.Ntgi] | [6.1.2][Lseg.Turquoise.NativeTradingGateway.Ntgi.v6.1.2.Dissector] | 10/7/2026 | 5190 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Lseg.Turquoise.NativeTradingGateway.Ntgi.v6.1.2.Pdf] |
+| [Turquoise][Turquoise.Exchange] | [NativeTradingGatewayRecovery][Lseg.Turquoise.NativeTradingGatewayRecovery] | [Ntgi][Omi.Encoding.Ntgi] | [6.1.2][Lseg.Turquoise.NativeTradingGatewayRecovery.Ntgi.v6.1.2.Dissector] | 10/7/2026 | 2877 | [Active][Omi.Glossary.Deployment.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Lseg.Turquoise.NativeTradingGatewayRecovery.Ntgi.v6.1.2.Pdf] |
 
 
 ### Protocols
@@ -136,6 +138,8 @@
 [Lseg.Turquoise.Level2Incremental]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Turquoise/Level2Incremental.md "Level 2 Incremental"
 [Lseg.Turquoise.Mifid2PostTrade]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Turquoise/Mifid2PostTrade.md "MiFID II Post Trade"
 [Lseg.Turquoise.Mifid2PreTrade]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Turquoise/Mifid2PreTrade.md "MiFID II Pre Trade"
+[Lseg.Turquoise.NativeTradingGateway]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Turquoise/NativeTradingGateway.md "Native Trading Gateway"
+[Lseg.Turquoise.NativeTradingGatewayRecovery]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Turquoise/NativeTradingGatewayRecovery.md "Native Trading Gateway Recovery"
 [Lseg.Turquoise.Recovery]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Turquoise/Recovery.md "Recovery"
 [Lseg.Turquoise.Replay]: https://github.com/Open-Markets-Initiative/Open-Markets-Initiative/blob/main/Organizations/Lseg/Protocols/Turquoise/Replay.md "Replay"
 
@@ -237,6 +241,10 @@
 [Lseg.Turquoise.Mifid2PreTrade.Gtp.v26.3.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Lseg/Turquoise/Mifid2PreTrade/Lseg_Turquoise_Mifid2PreTrade_Gtp_v26_3_Dissector.lua "Lseg Turquoise Mifid2PreTrade Gtp v26.3 Wireshark Dissector"
 [Lseg.Turquoise.Mifid2PreTrade.Gtp.v26.3.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange 26.3 Url"
 [Lseg.Turquoise.Mifid2PreTrade.Gtp.v26.3.Pdf]: https://docs.londonstockexchange.com/sites/default/files/documents/gtp-002-technical-guide-turquoise-issue-26-3.pdf "London Stock Exchange 26.3 Pdf"
+[Lseg.Turquoise.NativeTradingGateway.Ntgi.v6.1.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Lseg/Turquoise/NativeTradingGateway/Lseg_Turquoise_NativeTradingGateway_Ntgi_v6_1_2_Dissector.lua "Lseg Turquoise NativeTradingGateway Ntgi v6.1.2 Wireshark Dissector"
+[Lseg.Turquoise.NativeTradingGateway.Ntgi.v6.1.2.Pdf]: https://www.lseg.com/en/equities/turquoise "London Stock Exchange 6.1.2 Pdf"
+[Lseg.Turquoise.NativeTradingGatewayRecovery.Ntgi.v6.1.2.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Lseg/Turquoise/NativeTradingGatewayRecovery/Lseg_Turquoise_NativeTradingGatewayRecovery_Ntgi_v6_1_2_Dissector.lua "Lseg Turquoise NativeTradingGatewayRecovery Ntgi v6.1.2 Wireshark Dissector"
+[Lseg.Turquoise.NativeTradingGatewayRecovery.Ntgi.v6.1.2.Pdf]: https://www.lseg.com/en/equities/turquoise "London Stock Exchange 6.1.2 Pdf"
 [Lseg.Turquoise.Recovery.Gtp.v24.4.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Lseg/Turquoise/Recovery/Lseg_Turquoise_Recovery_Gtp_v24_4_Dissector.lua "Lseg Turquoise Recovery Gtp v24.4 Wireshark Dissector"
 [Lseg.Turquoise.Recovery.Gtp.v24.4.Url]: https://www.londonstockexchange.com/resources/equities-trading-resources/gtp-technical-specifications "London Stock Exchange 24.4 Url"
 [Lseg.Turquoise.Recovery.Gtp.v26.3.Dissector]: https://github.com/Open-Markets-Initiative/omi-wireshark-lua/blob/main/Lseg/Turquoise/Recovery/Lseg_Turquoise_Recovery_Gtp_v26_3_Dissector.lua "Lseg Turquoise Recovery Gtp v26.3 Wireshark Dissector"
