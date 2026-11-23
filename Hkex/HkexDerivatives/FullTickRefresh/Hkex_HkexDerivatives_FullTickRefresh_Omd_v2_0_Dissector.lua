@@ -4109,6 +4109,8 @@ hkex_hkexderivatives_fulltickrefresh_omd_v2_0.packet.dissect = function(buffer, 
 
   local message_buffer_conversion = compression_mode == 1
 
+  local message_buffer_source_buffer = buffer
+  local message_buffer_source_index = index
   if message_buffer_conversion then
     buffer = zlib_decompress(buffer(index, buffer:len() - index))
     index = 0
@@ -4116,6 +4118,12 @@ hkex_hkexderivatives_fulltickrefresh_omd_v2_0.packet.dissect = function(buffer, 
 
   -- Message Buffer: Struct of 1 fields
   index, message_buffer = hkex_hkexderivatives_fulltickrefresh_omd_v2_0.message_buffer.dissect(buffer, index, packet, parent, msg_count)
+
+  -- Resume the original buffer after the converted Message Buffer
+  if message_buffer_conversion then
+    buffer = message_buffer_source_buffer
+    index = message_buffer_source_buffer:len()
+  end
 
   return index
 end

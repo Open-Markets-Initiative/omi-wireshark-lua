@@ -18276,6 +18276,8 @@ euronext_optiq_marketdatagateway_sbe_v5_39.packet.dissect = function(buffer, pac
 
   local optiq_message_conversion = bit.band(packet_flags, 0x0001) == 1
 
+  local optiq_message_source_buffer = buffer
+  local optiq_message_source_index = index
   if optiq_message_conversion then
     local compressed = buffer(index, buffer:len() - index):bytes()
     buffer = lz4_decompress(compressed, 8192):tvb("Decompressed")
@@ -18301,6 +18303,12 @@ euronext_optiq_marketdatagateway_sbe_v5_39.packet.dissect = function(buffer, pac
 
     -- Runtime Size Of: Optiq Message
     index, optiq_message = euronext_optiq_marketdatagateway_sbe_v5_39.optiq_message.dissect(buffer, index, packet, parent, frame)
+  end
+
+  -- Resume the original buffer after the converted Optiq Message
+  if optiq_message_conversion then
+    buffer = optiq_message_source_buffer
+    index = optiq_message_source_buffer:len()
   end
 
   return index
